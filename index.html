@@ -1194,7 +1194,16 @@
       const COUNTRIES = {
         us: { n: "United States", e: "🇺🇸" },
         uk: { n: "United Kingdom", e: "🇬🇧" },
-        sweden: { n: "Sweden", e: "🇸🇪" },
+        sweden: {
+          n: "Sweden",
+          e: "🇸🇪",
+          studiemedel: {
+            grant_weekly_sek: 997,
+            loan_weekly_sek: 2292,
+            source: "https://www.csn.se/",
+            note: "Grant (bidrag) is non‑repayable; loan (lan) is optional and repayable. Amounts shown are weekly (2024) and may change — verify on CSN."
+          }
+        },
         germany: { n: "Germany", e: "🇩🇪" },
         netherlands: { n: "Netherlands", e: "🇳🇱" },
         france: { n: "France", e: "🇫🇷" },
@@ -1669,10 +1678,6 @@
             { t: "Big Future", u: "https://bigfuture.collegeboard.org/" },
           ],
           photos: [
-            {
-              src: "https://images.unsplash.com/photo-1441260038675-7329ab4cc264?w=800&q=80",
-              cap: "Classic American university campus",
-            },
             {
               src: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=800&q=80",
               cap: "College campus life",
@@ -3479,7 +3484,7 @@
                 ? "N/A for tuition (EU citizens generally pay no tuition). Need-based scholarships are not the primary lever for EU students."
                 : "Limited; varies. Scholarships for fee-paying students exist but are competitive.",
               apply: HAS_EU
-                ? "If pursuing free-money support, check whether you qualify for the CSN grant portion (loans excluded here)."
+                ? "If pursuing free-money support, check whether you qualify for the CSN grant portion (and optionally, loans)."
                 : "Apply via University Admissions, then follow scholarship provider instructions.",
               notes:
                 "Scholarships are not guaranteed. Degree level and intake term restrictions can apply.",
@@ -3501,13 +3506,13 @@
             },
             free: {
               what: HAS_EU
-                ? "Tuition-free for EU/EEA citizens is the biggest free lever (not a scholarship). CSN includes a grant portion (free) and a loan portion (repayable; excluded here)."
+                ? "Tuition-free for EU/EEA citizens is the biggest free lever (not a scholarship). CSN includes a grant portion (free) and a loan portion (repayable; loans are optional)."
                 : "Some scholarships/waivers can reduce tuition for fee-paying students.",
               apply: HAS_EU
                 ? "Confirm tuition-free status + CSN grant eligibility rules via official sources."
                 : "Use official university/government sources.",
               notes:
-                "Swedish Institute (SI) scholarships are for master’s studies starting in the autumn semester; no scholarships for bachelor’s studies or spring-start programs.",
+                "Swedish Institute (SI) scholarships are for master’s studies starting in the autumn semester; no scholarships for bachelor’s studies or spring-start programs. CSN provides a weekly grant of 997 SEK/week (2024) — the grant portion is non-repayable and should be treated as free money on this page; the loan portion (2292 SEK/week) is repayable and intentionally excluded from this free-money view.",
             },
             timeline:
               "Admissions cycle-driven; scholarship deadlines vary by provider (SI and universities publish dates).",
@@ -4091,6 +4096,8 @@
         const sp = +document.getElementById("sl-schol").value / 100;
         document.getElementById("sl-schol-v").textContent =
           document.getElementById("sl-schol").value + "%";
+        // Approximate SEK -> USD conversion for applying CSN grant to Sweden costs
+        const SEK_TO_USD = 0.095; // update as needed; used only to estimate grant impact
         const rows = [
           ["Tuition", "tui"],
           ["Housing & Food", "room"],
@@ -4118,32 +4125,38 @@
           });
           t += "</tr>";
         });
-        const mx = Math.max(
-          1,
-          ...sel.map((k) => {
-            const c = CD[k].cy;
-            return (
-              (Math.round(c.tui * (1 - sp)) +
-                c.room +
-                c.books +
-                c.personal +
-                c.travel) *
-              parseFloat(CD[k].dur)
-            );
-          }),
-        );
-        t +=
-          '<tr style="font-weight:700"><td class="al">Total Degree Cost</td>';
+        // Citizenship grant row (annual reduction applied per year; shown only where available)
+        t += '<tr><td class="al">Citizenship grant</td>';
         sel.forEach((k) => {
+          let grantPerYear = 0;
+          if (COUNTRIES[k] && COUNTRIES[k].studiemedel && COUNTRIES[k].studiemedel.grant_weekly_sek) {
+            grantPerYear = Math.round(COUNTRIES[k].studiemedel.grant_weekly_sek * 52 * SEK_TO_USD);
+          }
+          t += `<td>${grantPerYear ? '<span style="color:var(--ok)">-' + fmt(grantPerYear) + '/yr</span>' : '—'}</td>`;
+        });
+        t += '</tr>';
+
+        // Compute totals with grant applied annually across the degree
+        const totals = sel.map((k) => {
           const c = CD[k].cy;
           const tu = Math.round(c.tui * (1 - sp));
-          const yr = tu + c.room + c.books + c.personal + c.travel;
+          const perYear = tu + c.room + c.books + c.personal + c.travel;
           const y = parseFloat(CD[k].dur);
-          const tot = yr * y;
+          const grantPerYear = COUNTRIES[k] && COUNTRIES[k].studiemedel && COUNTRIES[k].studiemedel.grant_weekly_sek ? Math.round(COUNTRIES[k].studiemedel.grant_weekly_sek * 52 * SEK_TO_USD) : 0;
+          const rawTot = Math.round(perYear * y);
+          const adjusted = Math.max(0, Math.round((perYear - grantPerYear) * y));
+          return { key: k, raw: rawTot, adjusted, grantPerYear, years: y };
+        });
+        const mx = Math.max(1, ...totals.map((a) => a.adjusted));
+
+        t += '<tr style="font-weight:700"><td class="al">Total Degree Cost</td>';
+        sel.forEach((k) => {
+          const entry = totals.find((x) => x.key === k) || { adjusted: 0, raw: 0, grantPerYear: 0, years: 0 };
+          const tot = entry.adjusted;
           const pct = Math.round((tot / mx) * 100);
-          const col =
-            pct < 35 ? "var(--ok)" : pct < 65 ? "var(--warn)" : "var(--bad)";
-          t += `<td>${fmt(tot)} <span style="font-weight:400;font-size:10px">(${y} yr)</span><br><div class="cost-bar" style="width:${Math.max(pct, 10)}%;background:${col}">${fmt(tot)}</div></td>`;
+          const col = pct < 35 ? "var(--ok)" : pct < 65 ? "var(--warn)" : "var(--bad)";
+          const grantNote = entry.grantPerYear ? `<div class="note">CSN grant: −${fmt(entry.grantPerYear)}/yr</div>` : "";
+          t += `<td>${fmt(tot)} <span style="font-weight:400;font-size:10px">(${entry.years} yr)</span><br>${grantNote}<br><div class="cost-bar" style="width:${Math.max(pct, 10)}%;background:${col}">${fmt(tot)}</div></td>`;
         });
         t += "</tr></tbody></table>";
         el.innerHTML = t;
@@ -4304,7 +4317,7 @@
             "Confirm EU/EEA tuition-free status (if applicable) and treat scholarships as upside.",
           );
           s.push(
-            "If pursuing grants, check CSN grant eligibility rules (exclude loans).",
+            "If pursuing grants, check CSN grant eligibility rules (and optionally, loans).",
           );
           s.push(
             "For fee-paying scenarios, check university scholarships and Swedish Institute constraints.",
@@ -4508,10 +4521,12 @@
           `${(d.dec || []).map((x) => `<div style="margin-bottom:10px"><div style="font-weight:700;font-size:11px;color:var(--dk);margin-bottom:2px">${x.q}</div><div style="font-size:11px;line-height:1.4">${x.a}</div></div>`).join("")}` +
           `</div>`;
 
-        h +=
-          `<div class="ss"><h3>Resources for ${c.n}</h3><ul class="rl">` +
+        h += `<div class="ss"><h3>Resources for ${c.n}</h3><ul class="rl">` +
           `${(d.res || []).map((r) => `<li><a href="${r.u}" target="_blank">${r.t}</a></li>`).join("")}` +
           `</ul></div>` +
+          (k === "sweden" && COUNTRIES.sweden && COUNTRIES.sweden.studiemedel
+            ? `<div class="cd"><h3>Studiemedel (CSN)</h3><p><b>Grant:</b> ${COUNTRIES.sweden.studiemedel.grant_weekly_sek} SEK/week (non‑repayable)</p><p><b>Loan:</b> ${COUNTRIES.sweden.studiemedel.loan_weekly_sek} SEK/week (optional, repayable)</p><p class="note">${COUNTRIES.sweden.studiemedel.note} <a href="${COUNTRIES.sweden.studiemedel.source}" target="_blank">CSN</a></p></div>`
+            : "") +
           `<div class="ss"><h3>Funding & Scholarships Links</h3><ul class="rl">` +
           `${
             fundingLinksFor(k)
