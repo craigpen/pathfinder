@@ -4464,6 +4464,11 @@
           travel: 0,
         };
         const tot = (cy.tui + cy.room + cy.books + cy.personal + cy.travel) * y;
+        const grantPerYear = k === "sweden" && c.studiemedel
+          ? Math.round(c.studiemedel.grant_weekly_usd * 52)
+          : 0;
+        const grantTotal = grantPerYear * y;
+        const adjustedTot = Math.max(0, Math.round(tot - grantTotal));
         const photos = Array.isArray(d.photos) ? d.photos : [];
 
         let h = `<div class="qb" style="margin-top:14px"><div class="badge">${c.e} Studying in ${c.n}</div></div>`;
@@ -4482,7 +4487,13 @@
           `<p><b>Tuition:</b> ${fmt(cy.tui)}/yr</p>` +
           `<p><b>Housing+food:</b> ${fmt(cy.room)}/yr</p>` +
           `<p><b>Other:</b> ${fmt(cy.books + cy.personal + cy.travel)}/yr</p>` +
+          (grantPerYear
+            ? `<p><b>CSN grant:</b> -${fmt(grantPerYear)}/yr (~$${c.studiemedel.grant_weekly_usd}/week)</p>`
+            : "") +
           `<p style="margin-top:6px;font-weight:700">Total degree: ~${fmt(Math.round(tot))}</p>` +
+          (grantPerYear
+            ? `<p style="margin-top:4px;font-weight:700;color:var(--ok)">After CSN grant: ~${fmt(adjustedTot)}</p>`
+            : "") +
           `<p style="margin-top:4px"><b>Aid:</b> ${d.aid || ""}</p>` +
           `</div>` +
           `</div>`;
