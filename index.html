@@ -3004,6 +3004,11 @@
         renderCCChips();
         updateHdrCarousel();
       }
+      function linkifyPortal(value) {
+        if (!value || value === "—") return value;
+        const href = value.match(/^https?:\/\//i) ? value : `https://${value}`;
+        return `<a href="${href}" target="_blank" rel="noreferrer noopener">${value}</a>`;
+      }
       function renderCCTable() {
         const sel = S.cc;
         const el = document.getElementById("cc-table");
@@ -3034,7 +3039,8 @@
             const v = CD[k]?.[a] || "—";
             const cls = a === "tui" && CD[k]?.euFree ? ' class="win"' : "";
             const note = nk ? CD[k]?.[nk] : "";
-            t += `<td${cls}>${a === "dur" ? v + " years" : v}${note ? '<div class="note">' + note + "</div>" : ""}</td>`;
+            const display = a === "portal" ? linkifyPortal(v) : a === "dur" ? v + " years" : v;
+            t += `<td${cls}>${display}${note ? '<div class="note">' + note + "</div>" : ""}</td>`;
           });
           t += "</tr>";
         });
