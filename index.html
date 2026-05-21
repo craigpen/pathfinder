@@ -4155,8 +4155,7 @@
           const tot = entry.adjusted;
           const pct = Math.round((tot / mx) * 100);
           const col = pct < 35 ? "var(--ok)" : pct < 65 ? "var(--warn)" : "var(--bad)";
-          const grantNote = entry.grantPerYear ? `<div class="note">CSN grant: −${fmt(entry.grantPerYear)}/yr</div>` : "";
-          t += `<td>${fmt(tot)} <span style="font-weight:400;font-size:10px">(${entry.years} yr)</span><br>${grantNote}<br><div class="cost-bar" style="width:${Math.max(pct, 10)}%;background:${col}">${fmt(tot)}</div></td>`;
+          t += `<td>${fmt(tot)} <span style="font-weight:400;font-size:10px">(${entry.years} yr)</span><br><div class="cost-bar" style="width:${Math.max(pct, 10)}%;background:${col}">${fmt(tot)}</div></td>`;
         });
         t += "</tr></tbody></table>";
         el.innerHTML = t;
