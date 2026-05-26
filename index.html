@@ -138,9 +138,9 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;m
 <div class="qb"><div class="ql">Select any</div><div class="qt">What broad areas interest you?</div><div class="qs">Pick one or more career categories. You'll drill into specific careers on the next tab.</div><div class="pills" id="cat-opts"></div></div>
 <div class="qb"><div class="ql">Select any</div><div class="qt">What motivations you?</div><div class="qs">Use this thought exercise to help you choose possible careers.</div><div class="pills" id="motivation-opts"></div></div>
 <div class="qb"><div class="ql">Select one</div><div class="qt">How open are you to studying abroad?</div><div class="qs">This should help inform your choices on the following pages.</div><div class="pills" data-q="flex"><div class="pill" onclick="pick1('flex',this)">I prefer staying in the US</div><div class="pill" onclick="pick1('flex',this)">I'm open to studying abroad</div><div class="pill" onclick="pick1('flex',this)">I'm genuinely excited about it</div></div></div>
-<div class="qb"><div class="ql">Select one</div><div class="qt">Do you want to stay in North Carolina?</div><div class="qs">In-state tuition at NC public universities saves $15k–25k/year compared to out-of-state. This affects both your university options and your cost model.</div><div class="pills" data-q="ncPref"><div class="pill" onclick="pick1('ncPref',this)">Yes, prefer to stay in NC</div><div class="pill" onclick="pick1('ncPref',this)">Open to anywhere in the US</div><div class="pill" onclick="pick1('ncPref',this)">Definitely want to leave NC</div></div></div>
+<div class="qb"><div class="ql">Select one</div><div class="qt">Do you prefer in-state US university options?</div><div class="qs">In-state tuition at NC public universities saves $15k–25k/year compared to out-of-state. This affects both your university options and your cost model.</div><div class="pills" data-q="ncPref"><div class="pill" onclick="pick1('ncPref',this)">Yes, prefer to stay in NC</div><div class="pill" onclick="pick1('ncPref',this)">Open to anywhere in the US</div><div class="pill" onclick="pick1('ncPref',this)">Definitely want to leave NC</div></div></div>
 
-<div class="qb"><div class="ql">Select one</div><div class="qt">University selectivity preference?</div><div class="qs">Elite/Ivy League schools are highly selective (3-8% acceptance) but expensive. Mid-tier schools (15-30% acceptance) offer strong academics at lower cost. Regional/access-oriented schools (40%+ acceptance) maximize affordability and enrollment likelihood.</div><div class="pills" data-q="uniSelectivity"><div class="pill" onclick="pick1('uniSelectivity',this)">Elite / Ivy League (most selective)</div><div class="pill" onclick="pick1('uniSelectivity',this)">Mid-tier universities (selective)</div><div class="pill" onclick="pick1('uniSelectivity',this)">Regional / access-oriented (less selective)</div><div class="pill" onclick="pick1('uniSelectivity',this)">Show me all options</div></div></div>
+<div class="qb"><div class="ql">Select one</div><div class="qt">University tier preference?</div><div class="qs">Elite/Ivy League schools are highly selective (3-8% acceptance) but expensive. Mid-tier schools (15-30% acceptance) offer strong academics at lower cost. Regional/access-oriented schools (40%+ acceptance) maximize affordability and enrollment likelihood.</div><div class="pills" data-q="uniSelectivity"><div class="pill" onclick="pick1('uniSelectivity',this)">Elite / Ivy League (most selective)</div><div class="pill" onclick="pick1('uniSelectivity',this)">Mid-tier universities (selective)</div><div class="pill" onclick="pick1('uniSelectivity',this)">Regional / access-oriented (less selective)</div><div class="pill" onclick="pick1('uniSelectivity',this)">Show me all options</div></div></div>
 <div class="qb"><div class="ql">Select one</div><div class="qt">How important is cost?</div><div class="qs">Borrowing money will feel simple, but paying it back sticks with you for years after graduation. Keep this in mind on the following pages.</div><div class="pills" data-q="cost"><div class="pill" onclick="pick1('cost',this)">I can manage some debt</div><div class="pill" onclick="pick1('cost',this)">Cost matters a lot</div><div class="pill" onclick="pick1('cost',this)">Cost is critical</div></div></div>
 <div class="qb"><div class="ql">Select one</div><div class="qt">In 5 years, where do you see yourself?</div><div class="qs">This helps identify countries where you might want to work after graduation.</div><div class="pills" data-q="vision"><div class="pill" onclick="pick1('vision',this)">Primarily in US</div><div class="pill" onclick="pick1('vision',this)">Abroad</div><div class="pill" onclick="pick1('vision',this)">Could be anywhere</div></div></div>
 <div class="qb"><div class="ql">Select one</div><div class="qt">Language learning aptitude</div><div class="qs">Some careers (especially international work) benefit from language skills.</div><div class="pills" data-q="lang"><div class="pill" onclick="pick1('lang',this)">Struggle with languages</div><div class="pill" onclick="pick1('lang',this)">Average learner</div><div class="pill" onclick="pick1('lang',this)">Natural linguist</div></div></div>
@@ -199,7 +199,9 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;m
 <div style="margin:12px 0">
 <div class="qb" style="margin:0">
 <div class="ql">Select one</div>
-<div class="qt">Do you want to stay in North Carolina?</div>
+</div>
+<div class="qb" style="margin:0">
+<div class="qt">Do you prefer in-state US university options?</div>
 <div class="qs">In-state tuition at NC public universities saves $15k–25k/year compared to out-of-state. This affects both your university options and your cost model.</div>
 <div class="pills" id="uni-nc-pills"></div>
 </div>
@@ -208,7 +210,9 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;m
 <div style="margin:12px 0">
 <div class="qb" style="margin:0">
 <div class="ql">Select one</div>
-<div class="qt">University selectivity preference?</div>
+</div>
+<div class="qb" style="margin:0">
+<div class="qt">University tier preference?</div>
 <div class="qs">Elite/Ivy League schools are highly selective (3-8% acceptance) but expensive. Mid-tier schools (15-30% acceptance) offer strong academics at lower cost. Regional/access-oriented schools (40%+ acceptance) maximize affordability and enrollment likelihood.</div>
 <div class="pills" id="uni-selectivity-pills"></div>
 </div>
@@ -1701,11 +1705,13 @@ function renderInsights(){
   }
   
   // 5. Language readiness
-  if(S.lang && (S.cc.includes('germany') || S.cc.includes('france'))) {
+  if(S.lang && (S.cc.includes('germany') || S.cc.includes('france') || S.cc.includes('spain') || S.cc.includes('italy'))) {
     if(S.lang === 'Average learner' || S.lang === 'Just starting') {
       const countries = [];
       if(S.cc.includes('germany')) countries.push('Germany');
       if(S.cc.includes('france')) countries.push('France');
+      if(S.cc.includes('spain')) countries.push('Spain');
+      if(S.cc.includes('italy')) countries.push('Italy');
       
       countries.forEach(country => {
         universityInsights.push({
@@ -1743,7 +1749,7 @@ function renderInsights(){
             type: 'country',
             country: COUNTRIES[country].n,
             pro: true,
-            msg: `US degree = OPT (1-3yr); EU degree = EU mobility + job-seeker visas.`
+            msg: `EU degree gives work rights across 9 countries—broader than US degree.`
           });
         }
       });
