@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>University Path Finder</title>
+<title>University Pathfinder</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--pri:#2563eb;--sec:#0891b2;--ok:#16a34a;--warn:#ea580c;--bad:#dc2626;--dk:#1e293b;--lt:#f1f5f9;--bdr:#e2e8f0;--tx:#334155;--tx2:#64748b}
@@ -17,67 +17,67 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Segoe UI Emoji',Ro
 .hdr-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,.65));z-index:1}
 .hdr-content{position:relative;z-index:2;padding:16px 24px;display:flex;flex-direction:column;align-items:flex-start}
 .hdr-top{text-align:left;margin-bottom:8px}
-.hdr h1{font-size:24px;font-weight:700;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.4)}
-.hdr p{font-size:12px;color:rgba(255,255,255,.9);font-weight:300}
+.hdr h1{font-size:26px;font-weight:700;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.4)}
+.hdr p{font-size:14px;color:rgba(255,255,255,.9);font-weight:300}
 .hdr-music{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:6px}
-.music-toggle{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:6px 12px;color:#fff;cursor:pointer;font-size:11px;font-weight:600;transition:.2s;white-space:nowrap;flex-shrink:0}
+.music-toggle{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:6px 12px;color:#fff;cursor:pointer;font-size:13px;font-weight:600;transition:.2s;white-space:nowrap;flex-shrink:0}
 .music-toggle:hover{background:rgba(255,255,255,.3)}
 .music-toggle.active{background:rgba(255,255,255,.3)}
 .playlist-pills{display:none;gap:5px;align-items:center;flex-shrink:0}
 .playlist-pills.show{display:flex}
-.pp{padding:4px 10px;border-radius:12px;font-size:10px;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;transition:.15s;white-space:nowrap}
+.pp{padding:4px 10px;border-radius:12px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;transition:.15s;white-space:nowrap}
 .pp:hover,.pp.active{background:rgba(255,255,255,.25)}
 .spotify-wrap{display:block;width:320px;margin-top:8px;border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);height:96px;visibility:hidden;pointer-events:none}
 .spotify-frame{width:100%;height:96px;border:0;display:block}
 .spotify-wrap.show{visibility:visible;pointer-events:auto}
 .tabs{display:flex;background:var(--lt);border-bottom:2px solid var(--bdr);overflow-x:auto;overflow-y:hidden}
-.tb{flex:1;padding:12px 8px;border:none;background:none;cursor:pointer;font-size:11px;font-weight:600;color:var(--tx2);transition:.2s;white-space:nowrap;text-align:center;min-width:70px}
+.tb{flex:1;padding:12px 8px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:600;color:var(--tx2);transition:.2s;white-space:nowrap;text-align:center;min-width:70px}
 .tb:hover{background:rgba(37,99,235,.05);color:var(--tx)}
 .tb.on{color:var(--pri);border-bottom:3px solid var(--pri);background:#fff;margin-bottom:-2px}
 .pan{display:none;padding:24px;animation:fi .25s}
 .pan.on{display:block}
 @keyframes fi{from{opacity:1;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 .qb{margin-bottom:22px}
-.ql{font-size:10px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
-.qt{font-size:16px;font-weight:700;margin-bottom:10px;color:var(--dk)}
-.qs{font-size:11px;color:var(--tx2);margin-bottom:10px;line-height:1.5}
+.ql{font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.qt{font-size:18px;font-weight:700;margin-bottom:10px;color:var(--dk)}
+.qs{font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5}
 
 .rc{background:linear-gradient(135deg,#f8fafc,#f1f5f9);border-left:4px solid var(--pri);padding:14px;border-radius:7px;margin:12px 0}
-.rc h4{font-size:13px;font-weight:700;color:var(--dk);margin-bottom:4px}
-.rc p{font-size:12px;line-height:1.5}
-.badge{display:inline-block;background:var(--pri);color:#fff;padding:4px 10px;border-radius:16px;font-size:10px;font-weight:700;margin:6px 4px 6px 0}
-.ib{background:rgba(37,99,235,.05);border-left:4px solid var(--pri);padding:12px;border-radius:5px;margin:12px 0;font-size:11px;line-height:1.6}
+.rc h4{font-size:15px;font-weight:700;color:var(--dk);margin-bottom:4px}
+.rc p{font-size:14px;line-height:1.5}
+.badge{display:inline-block;background:var(--pri);color:#fff;padding:4px 10px;border-radius:16px;font-size:12px;font-weight:700;margin:6px 4px 6px 0}
+.ib{background:rgba(37,99,235,.05);border-left:4px solid var(--pri);padding:12px;border-radius:5px;margin:12px 0;font-size:13px;line-height:1.6}
 .ib b{color:var(--pri)}
-.dh{background:rgba(250,204,21,.1);border-left:3px solid #fbbf24;padding:12px;border-radius:5px;margin:12px 0;font-size:11px;line-height:1.6}
+.dh{background:rgba(250,204,21,.1);border-left:3px solid #fbbf24;padding:12px;border-radius:5px;margin:12px 0;font-size:13px;line-height:1.6}
 .dh b{color:#d97706}
 .bg{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;margin-top:20px;align-items:center}
 .pos-left{justify-self:start}
 .pos-center{justify-self:center}
 .pos-right{justify-self:end}
 .spacer{display:none}
-.btn{padding:9px 16px;border:none;border-radius:5px;font-weight:600;cursor:pointer;transition:.15s;font-size:11px}
+.btn{padding:9px 16px;border:none;border-radius:5px;font-weight:600;cursor:pointer;transition:.15s;font-size:13px}
 .bp{background:var(--pri);color:#fff}.bp:hover{background:#1d4ed8}
 .bs{background:var(--lt);color:var(--tx);border:1px solid var(--bdr)}.bs:hover{background:var(--bdr)}
 .br{background:rgba(220,38,38,.08);color:var(--bad);border:1px solid rgba(220,38,38,.2)}.br:hover{background:rgba(220,38,38,.15)}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
 .cd{background:var(--lt);padding:14px;border-radius:7px;border:1px solid var(--bdr)}
-.cd h3{font-size:12px;font-weight:700;margin-bottom:6px;color:var(--dk)}
-.cd p{font-size:11px;line-height:1.4;color:var(--tx)}
+.cd h3{font-size:14px;font-weight:700;margin-bottom:6px;color:var(--dk)}
+.cd p{font-size:13px;line-height:1.4;color:var(--tx)}
 .ss{background:var(--lt);padding:14px;border-radius:7px;margin:12px 0}
-.ss h3{font-weight:700;margin-bottom:8px;color:var(--dk);font-size:12px}
-.ss ul{list-style:none;font-size:11px;line-height:1.7}
+.ss h3{font-weight:700;margin-bottom:8px;color:var(--dk);font-size:14px}
+.ss ul{list-style:none;font-size:13px;line-height:1.7}
 .ss li{padding:2px 0}.ss li:before{content:"→ ";color:var(--pri);font-weight:bold;margin-right:5px}
 .rl{list-style:none;margin:6px 0}
-.rl li{padding:6px 0;border-bottom:1px solid var(--bdr);font-size:11px}
+.rl li{padding:6px 0;border-bottom:1px solid var(--bdr);font-size:13px}
 .rl li:last-child{border-bottom:none}
 .rl a{color:var(--pri);text-decoration:none;font-weight:500}.rl a:hover{text-decoration:underline}
-.tli{padding:8px 0 8px 14px;border-left:3px solid var(--pri);margin-left:5px;font-size:11px;line-height:1.4}
+.tli{padding:8px 0 8px 14px;border-left:3px solid var(--pri);margin-left:5px;font-size:13px;line-height:1.4}
 .tli b{color:var(--dk)}
 
 .pills{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0}
-.pill{padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600;cursor:pointer;border:2px solid var(--bdr);transition:.15s;background:#f9fafb;user-select:none;box-shadow:0 1px 2px rgba(0,0,0,.04);line-height:1.4}
+.pill{padding:4px 10px;border-radius:14px;font-size:13px;font-weight:600;cursor:pointer;border:2px solid var(--bdr);transition:.15s;background:#f9fafb;user-select:none;box-shadow:0 1px 2px rgba(0,0,0,.04);line-height:1.4}
 .pill:hover{border-color:var(--pri);background:#ffffff}.pill.on{border-color:var(--pri);background:rgba(37,99,235,.1);color:var(--pri)}
-table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;margin:12px 0}
+table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;margin:12px 0}
 .ct th,.ct td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--bdr);vertical-align:top}
 .ct th{background:var(--lt);font-weight:700;color:var(--dk);position:sticky;top:0;z-index:1} .ct th:first-child{width:160px}
 .ct th.ch{text-align:center}
@@ -85,20 +85,55 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;m
 .ct td{line-height:1.4}
 .ct tr:hover td:not(.al){background:rgba(37,99,235,.02)}
 .ct .win{background:rgba(22,163,74,.08);font-weight:600}
-.ct .res-row td{background:rgba(37,99,235,.03);font-size:10px}
-.xr{cursor:pointer;font-size:9px;color:var(--bad);margin-left:5px;opacity:.7}.xr:hover{opacity:1}
-.cost-bar{height:16px;border-radius:3px;margin:2px 0;font-size:9px;color:#fff;line-height:16px;padding:0 6px;font-weight:600;display:inline-block;min-width:30px;transition:width .3s}
-.slider-row{display:flex;align-items:center;gap:8px;margin:6px 0;font-size:11px}
+.ct .res-row td{background:rgba(37,99,235,.03);font-size:12px}
+.xr{cursor:pointer;font-size:11px;color:var(--bad);margin-left:5px;opacity:.7}.xr:hover{opacity:1}
+.cost-bar{height:16px;border-radius:3px;margin:2px 0;font-size:11px;color:#fff;line-height:16px;padding:0 6px;font-weight:600;display:inline-block;min-width:30px;transition:width .3s}
+.slider-row{display:flex;align-items:center;gap:8px;margin:6px 0;font-size:13px}
 .slider-row label{min-width:120px}
 .slider-row input[type=range]{flex:1;accent-color:var(--pri)}
 .slider-row .sv{min-width:55px;text-align:right;font-weight:600;color:var(--dk)}
-.note{font-size:10px;color:var(--tx2);line-height:1.4;margin-top:3px}
+.note{font-size:12px;color:var(--tx2);line-height:1.4;margin-top:3px}
 .divider{border:none;border-top:1px solid var(--bdr);margin:20px 0}
 .photo-carousel{position:relative;width:100%;height:200px;border-radius:8px;overflow:hidden;margin:12px 0;background:var(--dk)}
 .photo-carousel img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity 1s}
 .photo-carousel img.active{opacity:1}
-.photo-carousel .caption{position:absolute;bottom:0;left:0;right:0;padding:8px 12px;background:linear-gradient(transparent,rgba(0,0,0,.7));color:#fff;font-size:11px;font-weight:500}
-@media(max-width:768px){.hdr{height:280px}.hdr-music{flex-direction:column;align-items:flex-start}.spotify-wrap{display:block;width:320px;margin-top:8px;border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);height:96px;visibility:hidden;pointer-events:none}.pan{padding:16px}.opts{flex-direction:column}.opt{width:100%}.pills{flex-wrap:wrap}.pill{width:auto}.g2{grid-template-columns:1fr}.ct{display:block;overflow-x:auto}.photo-carousel{height:160px}}
+.photo-carousel .caption{position:absolute;bottom:0;left:0;right:0;padding:8px 12px;background:linear-gradient(transparent,rgba(0,0,0,.7));color:#fff;font-size:13px;font-weight:500}
+/* Mobile carousel wrapper for tables */
+.carousel-wrap{display:none;width:100%;overflow:hidden;position:relative;margin:12px 0}
+.carousel-container{display:flex;overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;gap:6px;padding:4px 2px;scrollbar-width:none;width:100%}
+.carousel-container::-webkit-scrollbar{display:none}
+.carousel-card{flex:0 0 100%;display:grid;grid-template-columns:60px 1fr;grid-template-rows:auto 1fr;gap:0;background:#fff;border:1px solid var(--bdr);border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.carousel-card-labels{display:flex;flex-direction:column;background:var(--lt);border-right:1px solid var(--bdr);grid-row:2}
+.carousel-card-label{padding:6px 6px;border-bottom:1px solid var(--bdr);font-size:10px;font-weight:700;color:var(--dk);text-align:left;line-height:1.3;overflow:hidden;text-overflow:ellipsis;word-break:break-word;display:flex;align-items:flex-start;padding-top:8px}
+.carousel-card-label:last-child{border-bottom:none}
+.carousel-card-content{display:flex;flex-direction:column;overflow:hidden;grid-row:2}
+.carousel-card-row{padding:6px 8px;border-bottom:1px solid var(--bdr);font-size:12px;line-height:1.3;background:#fff;display:flex;align-items:flex-start}
+.carousel-card-row:last-child{border-bottom:none}
+.carousel-card-header{padding:7px;background:var(--pri);color:#fff;font-weight:700;font-size:13px;text-align:center;grid-column:1/-1;grid-row:1;white-space:normal;word-wrap:break-word}
+.carousel-indicator{text-align:center;font-size:10px;color:var(--tx2);margin-top:4px;padding:0 4px}
+
+@media(min-aspect-ratio:1/1.2){
+  /* Desktop or landscape - show tables, hide carousels */
+  .carousel-wrap{display:none !important}
+  .ct{display:table !important}
+}
+
+@media(max-aspect-ratio:1/1.2){
+  /* Mobile portrait - show carousels, hide tables */
+  .hdr{height:280px}
+  .hdr-music{flex-direction:column;align-items:flex-start}
+  .spotify-wrap{display:block;width:320px;margin-top:8px;border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);height:96px;visibility:hidden;pointer-events:none}
+  .pan{padding:16px}
+  .opts{flex-direction:column}
+  .opt{width:100%}
+  .pills{flex-wrap:wrap}
+  .pill{width:auto}
+  .g2{grid-template-columns:1fr}
+  /* Hide tables, show carousel on mobile portrait */
+  .ct{display:none !important}
+  .carousel-wrap{display:block !important}
+  .photo-carousel{height:160px}
+}
 </style>
 </head>
 <body>
@@ -106,7 +141,7 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;m
 <div class="hdr">
 <div class="hdr-bg" id="hdr-bg"><img alt="Header image" class="active" src="https://images.unsplash.com/photo-1441260038675-7329ab4cc264?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1548625149-fc4a29cf7092?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1509356843151-3e7d96241e11?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1565791380713-1756b9a05343?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1534445867742-43195f401b6c?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1504610926078-a1611febcad3?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1564959130747-897fb406b9af?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1496939376851-89342e90adcd?w=800&amp;q=80"/></div>
 <div class="hdr-content">
-<div class="hdr-top"><h1>University Path Finder</h1><p>Explore careers, compare countries, understand costs, find your path.</p></div>
+<div class="hdr-top"><h1>University Pathfinder</h1><p>Explore careers, compare countries, understand costs, find your path.</p></div>
 <div class="hdr-music">
 <button class="music-toggle" id="music-btn" onclick="toggleMusic()">🎵 Tunes</button>
 <div class="playlist-pills" id="playlist-pills">
@@ -135,10 +170,10 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;m
 </div>
 
 <div class="pan on" id="discover">
-<div class="qb"><div class="ql">Select any</div><div class="qt">What broad areas interest you?</div><div class="qs">Pick one or more career categories. You'll drill into specific careers on the next tab.</div><div class="pills" id="cat-opts"></div></div>
-<div class="qb"><div class="ql">Select any</div><div class="qt">What motivations you?</div><div class="qs">Use this thought exercise to help you choose possible careers.</div><div class="pills" id="motivation-opts"></div></div>
-<div class="qb"><div class="ql">Select one</div><div class="qt">How open are you to studying abroad?</div><div class="qs">This should help inform your choices on the following pages.</div><div class="pills" data-q="flex"><div class="pill" onclick="pick1('flex',this)">I prefer staying in the US</div><div class="pill" onclick="pick1('flex',this)">I'm open to studying abroad</div><div class="pill" onclick="pick1('flex',this)">I'm genuinely excited about it</div></div></div>
-<div class="qb"><div class="ql">Select one</div><div class="qt">Do you prefer in-state US university options?</div><div class="qs">In-state tuition at NC public universities saves $15k–25k/year compared to out-of-state. This affects both your university options and your cost model.</div><div class="pills" data-q="ncPref"><div class="pill" onclick="pick1('ncPref',this)">Yes, prefer to stay in NC</div><div class="pill" onclick="pick1('ncPref',this)">Open to anywhere in the US</div><div class="pill" onclick="pick1('ncPref',this)">Definitely want to leave NC</div></div></div>
+<div class="qb"><div class="ql">Select any</div><div class="qt">Broad interest areas?</div><div class="qs">Pick one or more career categories. You'll drill into specific careers on the next tab.</div><div class="pills" id="cat-opts"></div></div>
+<div class="qb"><div class="ql">Select any</div><div class="qt">What are your motivations?</div><div class="qs">Use this thought exercise to help you choose possible careers.</div><div class="pills" id="motivation-opts"></div></div>
+<div class="qb"><div class="ql">Select one</div><div class="qt">Open to studying abroad?</div><div class="qs">This should help inform your choices on the following pages.</div><div class="pills" data-q="flex"><div class="pill" onclick="pick1('flex',this)">I prefer staying in the US</div><div class="pill" onclick="pick1('flex',this)">I'm open to studying abroad</div><div class="pill" onclick="pick1('flex',this)">I'm genuinely excited about it</div></div></div>
+<div class="qb"><div class="ql">Select one</div><div class="qt">Prefer in-state US university options?</div><div class="qs">In-state tuition at NC public universities saves $15k–25k/year compared to out-of-state. This affects both your university options and your cost model.</div><div class="pills" data-q="ncPref"><div class="pill" onclick="pick1('ncPref',this)">Yes, prefer to stay in NC</div><div class="pill" onclick="pick1('ncPref',this)">Open to anywhere in the US</div><div class="pill" onclick="pick1('ncPref',this)">Definitely want to leave NC</div></div></div>
 
 <div class="qb"><div class="ql">Select one</div><div class="qt">University tier preference?</div><div class="qs">Elite/Ivy League schools are highly selective (3-8% acceptance) but expensive. Mid-tier schools (15-30% acceptance) offer strong academics at lower cost. Regional/access-oriented schools (40%+ acceptance) maximize affordability and enrollment likelihood.</div><div class="pills" data-q="uniSelectivity"><div class="pill" onclick="pick1('uniSelectivity',this)">Elite / Ivy League (most selective)</div><div class="pill" onclick="pick1('uniSelectivity',this)">Mid-tier universities (selective)</div><div class="pill" onclick="pick1('uniSelectivity',this)">Regional / access-oriented (less selective)</div><div class="pill" onclick="pick1('uniSelectivity',this)">Show me all options</div></div></div>
 <div class="qb"><div class="ql">Select one</div><div class="qt">How important is cost?</div><div class="qs">Borrowing money will feel simple, but paying it back sticks with you for years after graduation. Keep this in mind on the following pages.</div><div class="pills" data-q="cost"><div class="pill" onclick="pick1('cost',this)">I can manage some debt</div><div class="pill" onclick="pick1('cost',this)">Cost matters a lot</div><div class="pill" onclick="pick1('cost',this)">Cost is critical</div></div></div>
@@ -146,12 +181,12 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;m
 <div class="qb"><div class="ql">Select one</div><div class="qt">Language learning aptitude</div><div class="qs">Some careers (especially international work) benefit from language skills.</div><div class="pills" data-q="lang"><div class="pill" onclick="pick1('lang',this)">Struggle with languages</div><div class="pill" onclick="pick1('lang',this)">Average learner</div><div class="pill" onclick="pick1('lang',this)">Natural linguist</div></div></div>
 <div class="qb"><div class="ql">Select one</div><div class="qt">Which citizenship do you hold?</div><div class="qs">This affects tuition rates, visa sponsorship, and job market access.</div><div class="pills" data-q="citizen"><div class="pill" onclick="pick1('citizen',this)">US</div><div class="pill" onclick="pick1('citizen',this)">EU</div><div class="pill" onclick="pick1('citizen',this)">Dual US/EU</div></div></div>
 <div class="qb"><div class="ql">Select any</div><div class="qt">What languages are you fluent or conversational in?</div><div class="qs">This helps identify countries where you can thrive academically and socially.</div><div class="pills" data-q="languages"><div class="pill" onclick="pickN('languages',this)">English</div><div class="pill" onclick="pickN('languages',this)">French</div><div class="pill" onclick="pickN('languages',this)">German</div><div class="pill" onclick="pickN('languages',this)">Swedish</div><div class="pill" onclick="pickN('languages',this)">Dutch</div><div class="pill" onclick="pickN('languages',this)">Spanish</div><div class="pill" onclick="pickN('languages',this)">Italian</div><div class="pill" onclick="pickN('languages',this)">Danish</div></div></div>
-<div class="qb"><div class="ql">Select one</div><div class="qt">Some careers typically require post-graduate studies. Are you willing to pursue a Master's or PhD where typical for one of your chosen careers?</div><div class="qs">Note: We assume PhD programs are typically funded via assistantships.</div><div class="pills" data-q="postGrad"><div class="pill" onclick="pick1('postGrad',this)">Yes, I'm open to it</div><div class="pill" onclick="pick1('postGrad',this)">No, bachelor's degree only</div><div class="pill" onclick="pick1('postGrad',this)">Maybe, depends on the career</div></div></div>
-<div class="qb"><div class="ql">Select one</div><div class="qt">How many years are you willing to make student loan debt payments?</div><div class="qs">Shorter repayment means higher monthly payments but you're debt-free sooner. Longer repayment means lower monthly payments but you'll be paying for longer, which could affect your ability to travel, move, buy a home, or save for other goals.</div><div class="pills" data-q="debtYrs"><div class="pill" onclick="pick1('debtYrs',this)">5 years</div><div class="pill" onclick="pick1('debtYrs',this)">10 years</div><div class="pill" onclick="pick1('debtYrs',this)">15 years</div><div class="pill" onclick="pick1('debtYrs',this)">20 years</div></div></div>
+<div class="qb"><div class="ql">Select one</div><div class="qt">Willing to pursue a Master's or PhD where typical for chosen careers?</div><div class="qs">Note: We assume PhD programs are typically funded via assistantships.</div><div class="pills" data-q="postGrad"><div class="pill" onclick="pick1('postGrad',this)">Yes, I'm open to it</div><div class="pill" onclick="pick1('postGrad',this)">No, bachelor's degree only</div><div class="pill" onclick="pick1('postGrad',this)">Maybe, depends on the career</div></div></div>
+<div class="qb"><div class="ql">Select one</div><div class="qt">How long are you willing to make student loan payments?</div><div class="qs">Shorter repayment means higher monthly payments but you're debt-free sooner. Longer repayment means lower monthly payments but you'll be paying for longer, which could affect your ability to travel, move, buy a home, or save for other goals.</div><div class="pills" data-q="debtYrs"><div class="pill" onclick="pick1('debtYrs',this)">5 years</div><div class="pill" onclick="pick1('debtYrs',this)">10 years</div><div class="pill" onclick="pick1('debtYrs',this)">15 years</div><div class="pill" onclick="pick1('debtYrs',this)">20 years</div></div></div>
 <div class="bg"><span class="pos-left"></span><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('careers')">Next</button></div>
 </div>
 <div class="pan" id="careers">
-<div class="qb"><div class="ql">Select any</div><div class="qt">What career categories interest you?</div><div class="qs">Pick any categories that seem interesting to you. Then drill into specific careers below.</div></div>
+<div class="qb"><div class="ql">Select any</div><div class="qt">Broad interest areas?</div><div class="qs">Pick any categories that seem interesting to you. Then drill into specific careers below.</div></div>
 <div class="pills" id="fcat-chips"></div>
 <div id="careers-insights"></div>
 <div id="cat-table"></div>
@@ -201,7 +236,7 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;m
 <div class="ql">Select one</div>
 </div>
 <div class="qb" style="margin:0">
-<div class="qt">Do you prefer in-state US university options?</div>
+<div class="qt">Prefer in-state US university options?</div>
 <div class="qs">In-state tuition at NC public universities saves $15k–25k/year compared to out-of-state. This affects both your university options and your cost model.</div>
 <div class="pills" id="uni-nc-pills"></div>
 </div>
@@ -239,7 +274,7 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;m
 <div class="slider-row"><label><b>Loan repayment years:</b></label><input id="sl-yrs" max="15" min="5" oninput="renderCostTable();if(document.getElementById('insights').classList.contains('on'))renderInsights()" step="1" type="range" value="10"/><span class="sv" id="sl-yrs-v">10 yrs</span></div>
 <div class="qs" style="margin:4px 0 0">Standard repayment is 10 years. Longer terms lower monthly payments but increase total interest paid.</div>
 </div>
-<div id="postgrad-disclaimer" style="display:none;background:rgba(234,179,8,.08);border:1px solid rgba(234,179,8,.2);border-radius:6px;padding:16px;margin:16px 0;font-size:14px;line-height:1.6">
+<div id="postgrad-disclaimer" style="display:none;background:rgba(234,179,8,.08);border:1px solid rgba(234,179,8,.2);border-radius:6px;padding:16px;margin:16px 0;font-size:16px;line-height:1.6">
   <div style="color:var(--warn);font-weight:600;margin-bottom:8px">⚠️ Post-Graduate Studies Required or Typical</div>
   <div id="postgrad-message" style="color:var(--tx1)"></div>
 </div>
@@ -257,7 +292,7 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;m
 </div>
 <div class="pan" id="insights" style="padding:24px">
 <h2 style="margin-top:0">Your Narrative Summary</h2>
-<div id="narrative-display" style="color:var(--tx1);font-size:14px;line-height:1.6;margin-bottom:24px;margin-top:12px"></div>
+<div id="narrative-display" style="color:var(--tx1);font-size:16px;line-height:1.6;margin-bottom:24px;margin-top:12px"></div>
 <div id="insights-container" style="color:var(--tx1)"></div>
 </div>
 <div class="pan" id="explore">
@@ -278,7 +313,7 @@ const CAREER_TO_QS_SUBJECT={"Accounting":"Accounting & Finance","Architecture":"
 const S={cats:[],motivations:[],subCareers:[],prac:[],cc:[],costCC:[],expl:null,playlist:null,flex:null,cost:null,vision:null,lang:null,citizen:[],debtYrs:null,languages:[],postGrad:null,ncPref:null,ncInstate:false,uniSelectivity:null};
 const PLAYLISTS={lofi:'https://open.spotify.com/embed/playlist/37i9dQZF1DWWQRwui0ExPn?utm_source=generator&theme=0',jazz:'https://open.spotify.com/embed/playlist/37i9dQZF1EIdxUC4rBWFbj?utm_source=generator&theme=0',focus:'https://open.spotify.com/embed/playlist/37i9dQZF1DWZeKCadgRdKQ?utm_source=generator&theme=0',brain:'https://open.spotify.com/embed/playlist/37i9dQZF1DWXLeA8Omikj7?utm_source=generator&theme=0'};
 const HEADER_PHOTOS=[{src:'https://images.unsplash.com/photo-1441260038675-7329ab4cc264',cap:'University campus quad'},{src:'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a',cap:'Students studying together'},{src:'https://images.unsplash.com/photo-1441260038675-7329ab4cc264',cap:'Graduation day'},{src:'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad',cap:'Historic university architecture'},{src:'https://images.unsplash.com/photo-1539037116277-4db20889f2d4',cap:'European city streets'}];
-const FALLBACK_HDR_SVG="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1600' height='420'><rect width='1600' height='420' fill='%23667eea'/><text x='40' y='80' fill='white' font-size='28'>University Path Finder</text></svg>";
+const FALLBACK_HDR_SVG="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1600' height='420'><rect width='1600' height='420' fill='%23667eea'/><text x='40' y='80' fill='white' font-size='28'>University Pathfinder</text></svg>";
 function wideImg(u){
  try{
   u=(u||'').trim();
@@ -419,6 +454,48 @@ function initDiscover(){const co=document.getElementById('cat-opts');Object.entr
 function renderCareerView(){const fc=document.getElementById('fcat-chips');let h='';Object.entries(CATS).forEach(([k,v])=>{h+=`<div class="pill${S.cats.includes(k)?' on':''}" onclick="togCat('${k}')">${v.name}</div>`});fc.innerHTML=h;renderCatTable();renderSubPills();renderCareerTable()}
 function togCat(k){if(S.cats.includes(k)){S.cats=S.cats.filter(c=>c!==k);S.subCareers=S.subCareers.filter(f=>!Object.keys(CATS[k].subs).includes(f))}else S.cats.push(k);renderCareerView()}
 
+// ===== CAROUSEL HTML BUILDER =====
+function buildCarouselHTML(rows, columnKeys, columnLabel, carouselId) {
+  // rows: array of [label, dataExtractor]
+  // columnKeys: array of country/category codes
+  // columnLabel: function that returns display name for a key
+  // carouselId: HTML id for the carousel wrapper
+  
+  let html = `<div class="carousel-wrap" id="${carouselId || 'carousel-default'}"><div class="carousel-container">`;
+  
+  columnKeys.forEach((key, idx) => {
+    html += '<div class="carousel-card">';
+    html += `<div class="carousel-card-header">${columnLabel(key)}</div>`;
+    html += '<div class="carousel-card-labels">';
+    
+    // Add row labels
+    rows.forEach(row => {
+      const [label] = row;
+      html += `<div class="carousel-card-label">${label}</div>`;
+    });
+    
+    html += '</div>'; // carousel-card-labels
+    html += '<div class="carousel-card-content">';
+    
+    // Add row data
+    rows.forEach(row => {
+      const [label, dataFn] = row;
+      const cellData = dataFn ? dataFn(key) : '—';
+      html += `<div class="carousel-card-row">${cellData}</div>`;
+    });
+    
+    html += '</div>'; // carousel-card-content
+    html += '</div>'; // carousel-card
+  });
+  
+  html += '</div>'; // carousel-container
+  html += '<div class="carousel-indicator">Card 1 of ' + columnKeys.length + '</div>';
+  html += '</div>'; // carousel-wrap
+  
+  return html;
+}
+
+// ===== TABLE RENDERING =====
 function renderCatTable(){
   const sel=S.cats;
   const el=document.getElementById('cat-table');
@@ -435,6 +512,8 @@ function renderCatTable(){
     return {pct:avg};
   }
   const attrs=[['Education','edu'],['Market Demand','demand'],['Cost (US)','costUS'],['Cost (EU)','costEU'],['Salary (US)','salUS'],['Salary (EU)','salEU'],['Growth','growth'],['Portability','portable'],['Licensing','license']];
+  
+  // Desktop table
   let t='<table class="ct"><thead><tr><th></th>';
   sel.forEach(k=>{t+=`<th class="ch">${CATS[k].name}</th>`});
   t+='</tr></thead><tbody>';
@@ -456,7 +535,30 @@ function renderCatTable(){
   });
   
   t+='</tbody></table>';
-  el.innerHTML=t;
+  
+  // Mobile carousel
+  const rows = attrs.map(([l,a]) => [
+    l,
+    (k) => {
+      let v='—';
+      if(a==='demand'){
+        let d=getDemandForCat(k);
+        if(!d) d=derive(k);
+        v=demandCell(d);
+      } else {
+        v=CATS[k]?.[a] ?? '—';
+      }
+      const cls=a==='portable'&&typeof v==='string'&&v.startsWith('HIGH')?' style="background:rgba(22,163,74,.08);font-weight:600"':'';
+      return `<div${cls}>${v}</div>`;
+    }
+  ]);
+  
+  const carousel = buildCarouselHTML(rows, sel, (k) => CATS[k].name, 'cat-carousel');
+  
+  el.innerHTML = t + carousel;
+  
+  // Initialize carousel
+  setTimeout(()=>initCarousel('cat-carousel'), 50);
 }
 
 function renderSubPills(){const el=document.getElementById('sub-pills');if(!S.cats.length){el.innerHTML='';return}let h='';S.cats.forEach(ck=>{Object.keys(CATS[ck].subs).forEach(fn=>{h+=`<div class="pill${S.subCareers.includes(fn)?' on':''}" onclick="togSub('${fn}',this)">${fn}</div>`})});el.innerHTML=h}
@@ -472,7 +574,32 @@ function togSub(fn,el){
 }
 function getSub(fn){for(const[,c]of Object.entries(CATS)){if(c.subs[fn])return c.subs[fn]}return null}
 function renderCareerTable(){const sel=S.subCareers;const el=document.getElementById('career-table');if(sel.length<2){el.innerHTML=sel.length===0?'<div class="ib"><span style="color:var(--tx2)">👆 Select 2+ careers to compare</span></div>':'';return}const attrs=[['Education','edu'],['Market Demand','dem'],['Total Cost (US)','cUS'],['Total Cost (EU)','cEU'],['Salary (US)','sUS'],['Salary (EU)','sEU'],['Growth','growth'],['Portability','port'],['Licensing','lic']];let t='<table class="ct"><thead><tr><th></th>';sel.forEach(f=>{t+=`<th class="ch">${f} <span class="xr" onclick="togSub('${f}',null);renderCareerView()">✕</span></th>`});t+='</tr></thead><tbody>';attrs.forEach(([l,a])=>{t+='<tr><td class="al">'+l+'</td>';sel.forEach(f=>{const d=getSub(f);let v='—';if(a==='dem'){v=demandCell(getDemandForCareer(f));}else{v=d?.[a]??'—';}if((a==='cUS'||a==='cEU')&&typeof v==='number')v=fmt(v);if(v===null)v='N/A';const cls=a==='port'&&typeof v==='string'&&v.startsWith('HIGH')?' class="win"':'';t+=`<td${cls}>${v}</td>`});t+='</tr>'});t+='<tr class="res-row"><td class="al">Resources</td>';sel.forEach(f=>{const d=getSub(f);t+='<td>'+(d?.res?.map(r=>`<a href="${r.u}" target="_blank">${r.t}</a>`).join(', ')||'—')+'</td>'});t+='</tr>';
-t+='</tbody></table>';el.innerHTML=t}
+t+='</tbody></table>';el.innerHTML=t;
+  
+  // Mobile carousel
+  const rows = attrs.map(([l,a]) => [
+    l,
+    (f) => {
+      const d=getSub(f);
+      let v='—';
+      if(a==='dem'){
+        v=demandCell(getDemandForCareer(f));
+      } else {
+        v=d?.[a]??'—';
+      }
+      if((a==='cUS'||a==='cEU')&&typeof v==='number')v=fmt(v);
+      if(v===null)v='N/A';
+      const cls=a==='port'&&typeof v==='string'&&v.startsWith('HIGH')?' style="background:rgba(22,163,74,.08);font-weight:600"':'';
+      return `<div${cls}>${v}</div>`;
+    }
+  ]);
+  
+  const carousel = buildCarouselHTML(rows, sel, (f) => f, 'career-carousel');
+  el.innerHTML = t + carousel;
+  
+  // Initialize carousel
+  setTimeout(()=>initCarousel('career-carousel'), 50);
+}
 function renderFilterSubPills(){const el=document.getElementById('filter-sub-pills');if(!S.cats.length){el.innerHTML='';return}let h='';S.cats.forEach(ck=>{Object.keys(CATS[ck].subs).forEach(fn=>{h+=`<div class="pill${S.subCareers.includes(fn)?' on':''}\" onclick=\"togSub('${fn}',null);renderFilterSubPills();renderFilterAnalysis()\">${fn}</div>`})});el.innerHTML=h}
 function togPrac(v){
   if(S.prac[0]===v){S.prac=[]}else{S.prac=[v]}
@@ -532,7 +659,25 @@ el.innerHTML=msg;
 function renderCCChips(){const el=document.getElementById('cc-chips');let h='';Object.entries(COUNTRIES).forEach(([k,v])=>{h+=`<div class="pill${S.cc.includes(k)?' on':''}" onclick="togCC('${k}')">${v.e} ${v.n}</div>`});el.innerHTML=h;renderCCTable()}
 function togCC(k){if(S.cc.includes(k))S.cc=S.cc.filter(x=>x!==k);else S.cc.push(k);renderCCChips();updateHdrCarousel();renderUniversities()}
 function renderCCTable(){const sel=S.cc;const el=document.getElementById('cc-table');if(sel.length<2){let msg='';const insights=[];if(S.vision){S.cc.forEach(country=>{const insight=getCountryInsight(country,S.vision);if(insight){insights.push(insight)}});}el.innerHTML=msg;return}const attrs=[['Tuition','tui','tn'],['Degree Length','dur'],['Language','lang'],['Change Majors?','chg'],['After Graduation','post'],['Financial Aid','aid'],['Admissions','adm'],['Culture','culture'],['Apply At','portal']];let t='<table class="ct"><thead><tr><th></th>';sel.forEach(k=>{t+=`<th class="ch">${COUNTRIES[k].e} ${COUNTRIES[k].n} <span class="xr" onclick="togCC('${k}')">✕</span></th>`});t+='</tr></thead><tbody>';attrs.forEach(([l,a,nk])=>{t+='<tr><td class="al">'+l+'</td>';sel.forEach(k=>{const v=CD[k]?.[a]||'—';const cls=(a==='tui'&&CD[k]?.euFree)?' class="win"':'';const note=nk?CD[k]?.[nk]:'';t+=`<td${cls}>${a==='dur'?v+' years':v}${note?'<div class="note">'+note+'</div>':''}</td>`});t+='</tr>'});t+='<tr class="res-row"><td class="al">Resources</td>';sel.forEach(k=>{t+='<td>'+(CD[k]?.res||[]).map(r=>`<a href="${r.u}" target="_blank">${r.t}</a>`).join(', ')+'</td>'});t+='</tr>';let insights=[];const seenMsgs=new Set();if(S.vision){const eu=['sweden','uk','germany','netherlands','france','italy','spain','denmark','ireland'];const hasUS=sel.some(k=>k==='us'||k==='canada'||k==='australia'||k==='singapore');const hasEU=sel.some(k=>eu.includes(k));let visionMsg='';if(hasUS&&hasEU){if(S.vision==='Primarily in US'){visionMsg='You prefer staying in the US long-term, but you\'ve selected EU countries. Consider if EU study aligns with your goals.';}else if(S.vision==='Abroad'){visionMsg='Your vision to work abroad aligns well with EU country choices.';}else if(S.vision==='Could be anywhere'){visionMsg='Your flexible vision works with both US and EU options. Pick based on other factors.';}}else if(hasEU&&!hasUS){if(S.vision==='Primarily in US'){visionMsg='You prefer staying in the US, but selected only EU countries. Reconsider your country choices.';}else if(S.vision==='Abroad'||S.vision==='Could be anywhere'){visionMsg='Studying in an EU country positions you well for European work.';}}else if(hasUS&&!hasEU){if(S.vision==='Primarily in US'||S.vision==='Could be anywhere'){visionMsg='US study aligns with your 5-year vision.';}else if(S.vision==='Abroad'){visionMsg='You want to work abroad, but studying in the US may make it harder to build international connections.';}}if(visionMsg&&!seenMsgs.has(visionMsg)){insights.push({align:!visionMsg.includes('Reconsider'),msg:visionMsg});seenMsgs.add(visionMsg)}}if(S.cost){const costs=sel.map(k=>CD[k]?.cy?.tui||0);const hasExpensive=costs.some(c=>c>30000);const hasAffordable=costs.some(c=>c<=30000);let costMsg='';let isAlign=true;if(hasExpensive&&hasAffordable){costMsg='You\'ve selected both expensive and affordable countries. Consider which best matches your '+S.cost.toLowerCase()+' priority.';isAlign=false;}else{const insight=getCostInsight(sel,S.cost);if(insight){costMsg=insight.msg;isAlign=insight.align;}}if(costMsg&&!seenMsgs.has(costMsg)){insights.push({align:isAlign,msg:costMsg});seenMsgs.add(costMsg)}}if(S.lang&&S.cc.length>0){const langInsight=getLanguageInsight(S.cc[0],S.lang);if(langInsight&&!seenMsgs.has(langInsight.msg)){insights.push(langInsight);seenMsgs.add(langInsight.msg)}}if(S.citizen&&S.citizen.length>0){const citizenInsights=[];S.citizen.forEach(cit=>{const insight=getCitizenshipInsight(S.cc[0],cit);if(insight)citizenInsights.push(insight)});if(citizenInsights.length>0){const sample=citizenInsights[0];if(!seenMsgs.has(sample.msg)){insights.push(sample);seenMsgs.add(sample.msg)}}}
-t+='</tbody></table>';el.innerHTML=t}
+t+='</tbody></table>';
+  
+  // Mobile carousel
+  const rows = attrs.map(([l,a,nk]) => [
+    l,
+    (k) => {
+      const v=CD[k]?.[a]||'—';
+      const cls=(a==='tui'&&CD[k]?.euFree)?' style="background:rgba(22,163,74,.08);font-weight:600"':'';
+      const note=nk?CD[k]?.[nk]:'';
+      return `<div${cls}>${a==='dur'?v+' years':v}${note?'<div class="note">'+note+'</div>':''}</div>`;
+    }
+  ]);
+  
+  const carousel = buildCarouselHTML(rows, sel, (k) => COUNTRIES[k].e + ' ' + COUNTRIES[k].n, 'cc-carousel');
+  el.innerHTML = t + carousel;
+  
+  // Initialize carousel
+  setTimeout(()=>initCarousel('cc-carousel'), 50);
+}
 function renderFilterSubPills(){const el=document.getElementById('filter-sub-pills');if(!S.cats.length){el.innerHTML='';return}let h='';S.cats.forEach(ck=>{Object.keys(CATS[ck].subs).forEach(fn=>{h+=`<div class="pill${S.subCareers.includes(fn)?' on':''}\" onclick=\"togSub('${fn}',null);renderFilterSubPills();renderFilterAnalysis()\">${fn}</div>`})});el.innerHTML=h}
 function renderPracPills(){const el=document.querySelector('.pills[data-q="practice"]');let h='';const labels={us:'United States',eu:'Europe',oth:'Other',idk:'Not sure yet'};['us','eu','oth','idk'].forEach(v=>{h+=`<div class="pill${S.prac[0]===v?' on':''}" onclick="togPrac('${v}')">${labels[v]}</div>`});el.innerHTML=h}
 function renderFilterAnalysis(){
@@ -818,7 +963,7 @@ function renderUniversities(){
   const host=document.getElementById('uni-content');
   
   if(!S.subCareers.length||!S.cc.length){
-    host.innerHTML='<div style="padding:20px;color:var(--tx2)"><strong>Select careers and countries</strong> to see university recommendations.</div>';
+    host.innerHTML='<div style="padding:16px;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.3);border-radius:6px;color:var(--tx);font-size:12px;line-height:1.5"><span style="font-size:16px">⚠️</span> <strong>Select careers and countries</strong> to see university recommendations.</div>';
     return;
   }
   
@@ -831,10 +976,8 @@ function renderUniversities(){
     }
   });
   
-  console.log('careerUniMap keys:', Object.keys(careerUniMap));
   Object.entries(careerUniMap).forEach(([career, unis]) => {
     const nonUS = unis.filter(u => u.country !== 'us').length;
-    console.log(`  ${career}: ${unis.length} total, ${nonUS} non-US`);
   });
   
   // Build tables for each country
@@ -844,7 +987,6 @@ function renderUniversities(){
     // Convert country name key to database code
     const countryCode = countryCodeMap[country] || country;
     
-    console.log('Processing country:', country, '-> code:', countryCode);
     // Collect all universities for this country across all careers
     const allCountryUnis = new Map(); // name -> uni object
     
@@ -856,11 +998,8 @@ function renderUniversities(){
       });
     });
     
-    console.log('  All unis for', countryCode + ':', allCountryUnis.size);
-    
     // Apply global filters (selectivity, NC preference)
     let filteredUnis = Array.from(allCountryUnis.values());
-    console.log('  Before program filter:', filteredUnis.length);
     
     // Apply program filter
     const selectedSubjects = new Set();
@@ -868,18 +1007,12 @@ function renderUniversities(){
       const qsSubject = CAREER_TO_QS_SUBJECT[career];
       if(qsSubject) selectedSubjects.add(qsSubject);
     });
-    console.log('  Selected subjects:', Array.from(selectedSubjects));
     
     filteredUnis = filteredUnis.filter(u => {
       if (!u.programs) return true;
       const hasProgram = u.programs.some(p => selectedSubjects.has(p.qsSubject));
-      if (!hasProgram && country !== 'us') {
-        console.log('    FILTERED OUT:', u.name, '- programs:', u.programs.map(p => p.qsSubject));
-      }
       return hasProgram;
     });
-    
-    console.log('  After program filter:', filteredUnis.length);
     
     // Apply selectivity filter
     if(S.uniSelectivity && S.uniSelectivity !== 'Show me all options'){
@@ -908,13 +1041,13 @@ function renderUniversities(){
     
     // Build country section
     html += `<div style="margin:20px 0;padding:12px;background:rgba(100,150,200,.08);border:1px solid rgba(100,150,200,.2);border-radius:6px">
-      <h3 style="margin:0 0 12px 0;font-size:16px">${COUNTRIES[country].e} ${COUNTRIES[country].n} (${filteredUnis.length})</h3>`;
+      <h3 style="margin:0 0 12px 0;font-size:18px">${COUNTRIES[country].e} ${COUNTRIES[country].n} (${filteredUnis.length})</h3>`;
     
     if(filteredUnis.length === 0){
       html += '<p style="color:var(--tx2);margin:0">No universities match your preferences</p>';
     } else {
       // Build table: universities with their matching careers
-      html += '<table style="width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed">';
+      html += '<table style="width:100%;border-collapse:collapse;font-size:15px;table-layout:fixed">';
       html += '<colgroup>';
       html += '<col style="width:28%">';  // University
       html += '<col style="width:14%">';  // Location
@@ -996,9 +1129,9 @@ function renderUniversities(){
           <td style="padding:8px;">${locationStr}</td>
           <td style="padding:8px;text-align:center;">${u.qs_rank}</td>
           <td style="padding:8px;text-align:center;">${u.acceptance_rate}%</td>
-          <td style="padding:8px;text-align:right;color:var(--tx2);font-size:13px"><strong>${tuitionDisplay}</strong><span style="font-size:11px;color:var(--tx2)">${tuitionNote}</span></td>
-          <td style="padding:8px;font-size:12px;color:var(--tx1)">${programsStr}</td>
-          <td style="padding:8px;text-align:center"><span style="padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600;background:${selectivityBg};color:${selectivityColor}">${u.selectivity}</span></td>
+          <td style="padding:8px;text-align:right;color:var(--tx2);font-size:15px"><strong>${tuitionDisplay}</strong><span style="font-size:13px;color:var(--tx2)">${tuitionNote}</span></td>
+          <td style="padding:8px;font-size:14px;color:var(--tx1)">${programsStr}</td>
+          <td style="padding:8px;text-align:center"><span style="padding:2px 6px;border-radius:3px;font-size:13px;font-weight:600;background:${selectivityBg};color:${selectivityColor}">${u.selectivity}</span></td>
         </tr>`;
       });
       
@@ -1077,10 +1210,10 @@ function renderScholar(){
   }
 
   const rows=[
-    ['Need-based aid (financial hardship)', k => catCell(k,'need')],
-    ['Merit scholarships', k => catCell(k,'merit')],
-    ['External scholarships (outside orgs)', k => catCell(k,'external')],
-    ['Other free money / equivalents', k => catCell(k,'free')],
+    ['Need based aid', k => catCell(k,'need')],
+    ['Merit based aid', k => catCell(k,'merit')],
+    ['External aid', k => catCell(k,'external')],
+    ['Other aid', k => catCell(k,'free')],
     ['Typical timeline', k => (info(k).timeline || 'Varies')],
     ['Key links', k => (keyLinks(k) || '')]
   ];
@@ -1098,13 +1231,27 @@ function renderScholar(){
   let insights=[];
   // Insights are now only on Insights tab
   t+='</tbody></table>';
-  host.innerHTML=t;
+  
+  // Mobile carousel
+  const carouselRows = rows.map(([label, fn]) => [
+    label,
+    (k) => {
+      const cellHtml = fn(k);
+      return `<div style="font-size:13px;line-height:1.4">${cellHtml}</div>`;
+    }
+  ]);
+  
+  const carousel = buildCarouselHTML(carouselRows, sel, (k) => COUNTRIES[k].e + ' ' + COUNTRIES[k].n, 'scholar-carousel');
+  host.innerHTML = t + carousel;
+  
+  // Initialize carousel
+  setTimeout(()=>initCarousel('scholar-carousel'), 50);
 }
 function renderCostChips(){const el=document.getElementById('cost-chips');let h='';Object.entries(COUNTRIES).forEach(([k,v])=>{h+=`<div class="pill${S.costCC.includes(k)?' on':''}" onclick="togCost('${k}')">${v.e} ${v.n}</div>`});el.innerHTML=h;const ncToggle=document.getElementById('nc-instate-toggle');if(S.costCC.includes('us')&&S.ncPref&&S.ncPref.includes('NC')){ncToggle.style.display='block'}else{ncToggle.style.display='none';S.ncInstate=false}const usBaseTui=getUSBaseTuition();CD.us.cy.tui=usBaseTui;renderCostTable()}
 function togNCInstate(isInstate){S.ncInstate=isInstate;const ncIn=document.getElementById('nc-in');const ncOut=document.getElementById('nc-out');if(isInstate){ncIn.classList.add('on');ncOut.classList.remove('on')}else{ncOut.classList.add('on');ncIn.classList.remove('on')}const usBaseTui=getUSBaseTuition();CD.us.cy.tui=usBaseTui}
 function getUSBaseTuition(){if(S.ncInstate&&S.ncPref&&S.ncPref.includes('NC')){return 10000}return 35000}
 function togCost(k){if(S.costCC.includes(k))S.costCC=S.costCC.filter(x=>x!==k);else S.costCC.push(k);renderCostChips()}
-function renderCostTable(){const sel=S.costCC;const el=document.getElementById('cost-table');const sr=document.getElementById('cost-sliders');const pgDiscl=document.getElementById('postgrad-disclaimer');if(!sel.length){let msg='';const insights=[];if(S.cost){const costInsight=getCostInsight(sel,S.cost);if(costInsight)insights.push(costInsight)}el.innerHTML=msg;sr.style.display='none';pgDiscl.style.display='none';return}sr.style.display='block';const isPostGradOpen=(S.postGrad==='Yes, I\'m open to it'||S.postGrad==='Maybe, depends on the career');const careersNeedingPostGrad=S.subCareers.filter(career=>{for(let catKey of Object.keys(CATS)){const cat=CATS[catKey];if(cat.subs&&cat.subs[career]){const careerData=cat.subs[career];if(careerData.typicalPostGradYears&&careerData.typicalPostGradYears>0)return true}}return false});if(isPostGradOpen&&careersNeedingPostGrad.length>0){pgDiscl.style.display='block';let msg='You\'ve selected careers where advanced degrees are common: '+careersNeedingPostGrad.join(', ')+'. The cost table below shows undergraduate/bachelor\'s degree costs only. If you pursue graduate studies, plan for additional years of tuition and living costs.';document.getElementById('postgrad-message').innerHTML=msg}else{pgDiscl.style.display='none'}const sp=+document.getElementById('sl-schol').value/100;const savingsTotal=+(document.getElementById('sl-savings')?.value||0);const work=+document.getElementById('sl-work').value;const parent=+(document.getElementById('sl-parent')?.value||0);const rate=+document.getElementById('sl-rate').value/100/12;const yrs=+document.getElementById('sl-yrs').value;const months=yrs*12;document.getElementById('sl-schol-v').textContent=document.getElementById('sl-schol').value+'%';if(document.getElementById('sl-savings-v')){document.getElementById('sl-savings-v').textContent=fmt(savingsTotal)}if(document.getElementById('sl-parent-v')){document.getElementById('sl-parent-v').textContent=fmt(parent)+'/yr'}document.getElementById('sl-work-v').textContent=fmt(work)+'/yr';document.getElementById('sl-rate-v').textContent=document.getElementById('sl-rate').value+'%';document.getElementById('sl-yrs-v').textContent=yrs+' yrs';const rows=[['Tuition','tui'],['Housing & Food','room'],['Books & Supplies','books'],['Personal / Living','personal'],['Travel','travel']];let t='<table class="ct"><thead><tr><th></th>';sel.forEach(k=>{t+=`<th class="ch">${COUNTRIES[k].e} ${COUNTRIES[k].n} <span class="xr" onclick="togCost('${k}')">✕</span></th>`});t+='</tr></thead><tbody>';t+='<tr class="res-row"><td class="al">Tuition Details</td>';sel.forEach(k=>{t+=`<td>${CD[k].tn}</td>`});t+='</tr>';rows.forEach(([l,a])=>{t+='<tr><td class="al">'+l+'</td>';sel.forEach(k=>{let v=CD[k].cy[a];if(a==='tui')v=Math.round(v*(1-sp));const cls=(a==='tui'&&v<=0)?' class="win"':'';t+=`<td${cls}>${fmt(Math.max(0,v))}/yr${a==='tui'&&sp>0?' <span style="color:var(--ok);font-size:10px">(−'+Math.round(sp*100)+'%)</span>':''}</td>`});t+='</tr>'});const mx=Math.max(1,...sel.map(k=>{const c=CD[k].cy;const adjTui=Math.round(c.tui*(1-sp));const yearTotal=adjTui+c.room+c.books+c.personal+c.travel;const y=parseFloat(CD[k].dur);const annualSavings=savingsTotal/y;const totalSupport=work+parent+annualSavings;const afterSupport=Math.max(0,yearTotal-totalSupport);return afterSupport*y}));t+='<tr style="font-weight:700"><td class="al">Total cost after support</td>';sel.forEach(k=>{const c=CD[k].cy;const adjTui=Math.round(c.tui*(1-sp));const yearTotal=adjTui+c.room+c.books+c.personal+c.travel;const y=parseFloat(CD[k].dur);const annualSavings=savingsTotal/y;const totalSupport=work+parent+annualSavings;const afterSupport=Math.max(0,yearTotal-totalSupport);const tot=afterSupport*y;const pct=Math.round(tot/mx*100);const col=pct<35?'var(--ok)':pct<65?'var(--warn)':'var(--bad)';t+=`<td>${fmt(tot)} <span style="font-weight:400;font-size:10px">(${y} yr)</span><br><div class="cost-bar" style="width:${Math.max(pct,10)}%;background:${col}">${fmt(tot)}</div></td>`});t+='</tr>';t+='<tr style="border-top:2px solid var(--bdr);padding-top:8px"><td class="al" style="font-weight:600">Monthly loan payment</td>';sel.forEach(k=>{const c=CD[k].cy;const adjTui=Math.round(c.tui*(1-sp));const yearTotal=adjTui+c.room+c.books+c.personal+c.travel;const y=parseFloat(CD[k].dur);const annualSavings=savingsTotal/y;const totalSupport=work+parent+annualSavings;const afterSupport=Math.max(0,yearTotal-totalSupport);const P=afterSupport*y;let M=0;if(P>0&&rate>0){M=P*(rate*Math.pow(1+rate,months))/(Math.pow(1+rate,months)-1)}t+=`<td style="font-weight:600">${fmt(Math.round(M))}/mo <span style="color:var(--tx2);font-size:10px">for ${yrs} years</span></td>`});t+='</tr>';t+='<tr><td class="al">Total repaid</td>';sel.forEach(k=>{const c=CD[k].cy;const adjTui=Math.round(c.tui*(1-sp));const yearTotal=adjTui+c.room+c.books+c.personal+c.travel;const y=parseFloat(CD[k].dur);const annualSavings=savingsTotal/y;const totalSupport=work+parent+annualSavings;const afterSupport=Math.max(0,yearTotal-totalSupport);const P=afterSupport*y;let M=0,tot=0;if(P>0&&rate>0){M=P*(rate*Math.pow(1+rate,months))/(Math.pow(1+rate,months)-1);tot=M*months}else if(P>0){tot=P}t+=`<td>${fmt(Math.round(tot))} <span style="color:var(--tx2);font-size:10px">paying back over ${yrs} years at ${document.getElementById('sl-rate').value}%</span></td>`});t+='</tr>';t+='<tr><td class="al">Interest beyond borrowed</td>';sel.forEach(k=>{const c=CD[k].cy;const adjTui=Math.round(c.tui*(1-sp));const yearTotal=adjTui+c.room+c.books+c.personal+c.travel;const y=parseFloat(CD[k].dur);const annualSavings=savingsTotal/y;const totalSupport=work+parent+annualSavings;const afterSupport=Math.max(0,yearTotal-totalSupport);const P=afterSupport*y;let M=0,tot=0;if(P>0&&rate>0){M=P*(rate*Math.pow(1+rate,months))/(Math.pow(1+rate,months)-1);tot=M*months}else if(P>0){tot=P}const interest=tot-P;t+=`<td>${fmt(Math.round(interest))} <span style="color:var(--tx2);font-size:10px">extra cost of borrowing</span></td>`});t+='</tr>';let insights=[];if(S.cost){const costInsight=getCostInsight(sel,S.cost);if(costInsight)insights.push(costInsight)}if(S.debtYrs){const debtInsight=getDebtInsight(sel,S.debtYrs);if(debtInsight)insights.push(debtInsight)}if(S.lang&&sel.length>0){const langInsight=getLanguageInsight(sel[0],S.lang);if(langInsight)insights.push(langInsight)}
+function renderCostTable(){const sel=S.costCC;const el=document.getElementById('cost-table');const sr=document.getElementById('cost-sliders');const pgDiscl=document.getElementById('postgrad-disclaimer');if(!sel.length){let msg='';const insights=[];if(S.cost){const costInsight=getCostInsight(sel,S.cost);if(costInsight)insights.push(costInsight)}el.innerHTML=msg;sr.style.display='none';pgDiscl.style.display='none';return}sr.style.display='block';const isPostGradOpen=(S.postGrad==='Yes, I\'m open to it'||S.postGrad==='Maybe, depends on the career');const careersNeedingPostGrad=S.subCareers.filter(career=>{for(let catKey of Object.keys(CATS)){const cat=CATS[catKey];if(cat.subs&&cat.subs[career]){const careerData=cat.subs[career];if(careerData.typicalPostGradYears&&careerData.typicalPostGradYears>0)return true}}return false});if(isPostGradOpen&&careersNeedingPostGrad.length>0){pgDiscl.style.display='block';let msg='You\'ve selected careers where advanced degrees are common: '+careersNeedingPostGrad.join(', ')+'. The cost table below shows undergraduate/bachelor\'s degree costs only. If you pursue graduate studies, plan for additional years of tuition and living costs.';document.getElementById('postgrad-message').innerHTML=msg}else{pgDiscl.style.display='none'}const sp=+document.getElementById('sl-schol').value/100;const savingsTotal=+(document.getElementById('sl-savings')?.value||0);const work=+document.getElementById('sl-work').value;const parent=+(document.getElementById('sl-parent')?.value||0);const rate=+document.getElementById('sl-rate').value/100/12;const yrs=+document.getElementById('sl-yrs').value;const months=yrs*12;document.getElementById('sl-schol-v').textContent=document.getElementById('sl-schol').value+'%';if(document.getElementById('sl-savings-v')){document.getElementById('sl-savings-v').textContent=fmt(savingsTotal)}if(document.getElementById('sl-parent-v')){document.getElementById('sl-parent-v').textContent=fmt(parent)+'/yr'}document.getElementById('sl-work-v').textContent=fmt(work)+'/yr';document.getElementById('sl-rate-v').textContent=document.getElementById('sl-rate').value+'%';document.getElementById('sl-yrs-v').textContent=yrs+' yrs';const rows=[['Tuition','tui'],['Housing & Food','room'],['Books & Supplies','books'],['Personal / Living','personal'],['Travel','travel']];let t='<table class="ct"><thead><tr><th></th>';sel.forEach(k=>{t+=`<th class="ch">${COUNTRIES[k].e} ${COUNTRIES[k].n} <span class="xr" onclick="togCost('${k}')">✕</span></th>`});t+='</tr></thead><tbody>';t+='<tr class="res-row"><td class="al">Tuition Details</td>';sel.forEach(k=>{t+=`<td>${CD[k].tn}</td>`});t+='</tr>';rows.forEach(([l,a])=>{t+='<tr><td class="al">'+l+'</td>';sel.forEach(k=>{let v=CD[k].cy[a];if(a==='tui')v=Math.round(v*(1-sp));const cls=(a==='tui'&&v<=0)?' class="win"':'';t+=`<td${cls}>${fmt(Math.max(0,v))}/yr${a==='tui'&&sp>0?' <span style="color:var(--ok);font-size:12px">(−'+Math.round(sp*100)+'%)</span>':''}</td>`});t+='</tr>'});const mx=Math.max(1,...sel.map(k=>{const c=CD[k].cy;const adjTui=Math.round(c.tui*(1-sp));const yearTotal=adjTui+c.room+c.books+c.personal+c.travel;const y=parseFloat(CD[k].dur);const annualSavings=savingsTotal/y;const totalSupport=work+parent+annualSavings;const afterSupport=Math.max(0,yearTotal-totalSupport);return afterSupport*y}));t+='<tr style="font-weight:700"><td class="al">Total cost after support</td>';sel.forEach(k=>{const c=CD[k].cy;const adjTui=Math.round(c.tui*(1-sp));const yearTotal=adjTui+c.room+c.books+c.personal+c.travel;const y=parseFloat(CD[k].dur);const annualSavings=savingsTotal/y;const totalSupport=work+parent+annualSavings;const afterSupport=Math.max(0,yearTotal-totalSupport);const tot=afterSupport*y;const pct=Math.round(tot/mx*100);const col=pct<35?'var(--ok)':pct<65?'var(--warn)':'var(--bad)';t+=`<td>${fmt(tot)} <span style="font-weight:400;font-size:12px">(${y} yr)</span><br><div class="cost-bar" style="width:${Math.max(pct,10)}%;background:${col}">${fmt(tot)}</div></td>`});t+='</tr>';t+='<tr style="border-top:2px solid var(--bdr);padding-top:8px"><td class="al" style="font-weight:600">Monthly loan payment</td>';sel.forEach(k=>{const c=CD[k].cy;const adjTui=Math.round(c.tui*(1-sp));const yearTotal=adjTui+c.room+c.books+c.personal+c.travel;const y=parseFloat(CD[k].dur);const annualSavings=savingsTotal/y;const totalSupport=work+parent+annualSavings;const afterSupport=Math.max(0,yearTotal-totalSupport);const P=afterSupport*y;let M=0;if(P>0&&rate>0){M=P*(rate*Math.pow(1+rate,months))/(Math.pow(1+rate,months)-1)}t+=`<td style="font-weight:600">${fmt(Math.round(M))}/mo <span style="color:var(--tx2);font-size:12px">for ${yrs} years</span></td>`});t+='</tr>';t+='<tr><td class="al">Total repaid</td>';sel.forEach(k=>{const c=CD[k].cy;const adjTui=Math.round(c.tui*(1-sp));const yearTotal=adjTui+c.room+c.books+c.personal+c.travel;const y=parseFloat(CD[k].dur);const annualSavings=savingsTotal/y;const totalSupport=work+parent+annualSavings;const afterSupport=Math.max(0,yearTotal-totalSupport);const P=afterSupport*y;let M=0,tot=0;if(P>0&&rate>0){M=P*(rate*Math.pow(1+rate,months))/(Math.pow(1+rate,months)-1);tot=M*months}else if(P>0){tot=P}t+=`<td>${fmt(Math.round(tot))} <span style="color:var(--tx2);font-size:12px">paying back over ${yrs} years at ${document.getElementById('sl-rate').value}%</span></td>`});t+='</tr>';t+='<tr><td class="al">Interest beyond borrowed</td>';sel.forEach(k=>{const c=CD[k].cy;const adjTui=Math.round(c.tui*(1-sp));const yearTotal=adjTui+c.room+c.books+c.personal+c.travel;const y=parseFloat(CD[k].dur);const annualSavings=savingsTotal/y;const totalSupport=work+parent+annualSavings;const afterSupport=Math.max(0,yearTotal-totalSupport);const P=afterSupport*y;let M=0,tot=0;if(P>0&&rate>0){M=P*(rate*Math.pow(1+rate,months))/(Math.pow(1+rate,months)-1);tot=M*months}else if(P>0){tot=P}const interest=tot-P;t+=`<td>${fmt(Math.round(interest))} <span style="color:var(--tx2);font-size:12px">extra cost of borrowing</span></td>`});t+='</tr>';let insights=[];if(S.cost){const costInsight=getCostInsight(sel,S.cost);if(costInsight)insights.push(costInsight)}if(S.debtYrs){const debtInsight=getDebtInsight(sel,S.debtYrs);if(debtInsight)insights.push(debtInsight)}if(S.lang&&sel.length>0){const langInsight=getLanguageInsight(sel[0],S.lang);if(langInsight)insights.push(langInsight)}
 t+='</tbody></table>';el.innerHTML=t}
 function renderExChips(){const el=document.getElementById('ex-chips');let h='';Object.entries(COUNTRIES).forEach(([k,v])=>{h+=`<div class="pill${S.expl===k?' on':''}" onclick="selEx('${k}')">${v.e} ${v.n}</div>`});el.innerHTML=h}
 function selEx(k){S.expl=k;renderExChips();updateHdrCarousel();renderPath(k)}
@@ -1252,7 +1399,7 @@ function renderPath(k){
 h += `<div class=\"ss\"><h3>Your Timeline & Next Steps</h3><div>${stepsHtml}</div></div>`;
 
 h += `<div class="ss"><h3>Key Decisions for ${c.n}</h3>`+
-   `${(d.dec||[]).map(x=>`<div style="margin-bottom:10px"><div style="font-weight:700;font-size:11px;color:var(--dk);margin-bottom:2px">${x.q}</div><div style="font-size:11px;line-height:1.4">${x.a}</div></div>`).join('')}`+
+   `${(d.dec||[]).map(x=>`<div style="margin-bottom:10px"><div style="font-weight:700;font-size:13px;color:var(--dk);margin-bottom:2px">${x.q}</div><div style="font-size:13px;line-height:1.4">${x.a}</div></div>`).join('')}`+
  `</div>`;
 
  h += `<div class="ss"><h3>Resources for ${c.n}</h3><ul class="rl">`+
@@ -1284,7 +1431,7 @@ function renderInsights(){
   const isUSCitizen = S.citizen && S.citizen.includes('US');
   
   // Display narrative - clean grid, no box styling
-  let narrativeHTML = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:14px;color:var(--tx1);line-height:1.5">';
+  let narrativeHTML = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:16px;color:var(--tx1);line-height:1.5">';
   if(S.cats.length > 0) {
     const catNames = S.cats.map(k => CATS[k].name).join(', ');
     narrativeHTML += '<div><strong style="color:var(--tx0)">Categories:</strong> ' + catNames + '</div>';
@@ -1762,8 +1909,8 @@ function renderInsights(){
     html = '<p style="color:var(--tx2);font-style:italic">Make selections across tabs to see personalized insights.</p>';
   } else {
     if(careerFits.length > 0){
-      html += '<h3 style="margin:24px 0 12px 0;color:var(--ok);font-size:18px">Career Insights</h3>';
-      html += '<div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;background:rgba(59,130,246,.04);border:1px solid rgba(59,130,246,.2);font-size:14px">';
+      html += '<h3 style="margin:24px 0 12px 0;color:var(--ok);font-size:20px">Career Insights</h3>';
+      html += '<div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;background:rgba(59,130,246,.04);border:1px solid rgba(59,130,246,.2);font-size:16px">';
       html += '<thead><tr style="border-bottom:1px solid rgba(59,130,246,.2);background:rgba(59,130,246,.08)"><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;min-width:140px">Career</th><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;width:50%">Pros</th><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;width:50%">Cons</th></tr></thead>';
       html += '<tbody>';
       careerFits.forEach(cf => {
@@ -1775,8 +1922,8 @@ function renderInsights(){
     }
     
     if(countryFits.length > 0){
-      html += '<h3 style="margin:24px 0 12px 0;color:var(--ok);font-size:18px">Country Insights</h3>';
-      html += '<div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;background:rgba(59,130,246,.04);border:1px solid rgba(59,130,246,.2);font-size:14px">';
+      html += '<h3 style="margin:24px 0 12px 0;color:var(--ok);font-size:20px">Country Insights</h3>';
+      html += '<div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;background:rgba(59,130,246,.04);border:1px solid rgba(59,130,246,.2);font-size:16px">';
       html += '<thead><tr style="border-bottom:1px solid rgba(59,130,246,.2);background:rgba(59,130,246,.08)"><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;min-width:140px">Country</th><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;width:50%">Pros</th><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;width:50%">Cons</th></tr></thead>';
       html += '<tbody>';
       
@@ -1812,8 +1959,8 @@ function renderInsights(){
     }
     
     if(costAnalysis.length > 0){
-      html += '<h3 style="margin:24px 0 12px 0;color:var(--ok);font-size:18px">Cost Insights</h3>';
-      html += '<div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;background:rgba(59,130,246,.04);border:1px solid rgba(59,130,246,.2);font-size:14px">';
+      html += '<h3 style="margin:24px 0 12px 0;color:var(--ok);font-size:20px">Cost Insights</h3>';
+      html += '<div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;background:rgba(59,130,246,.04);border:1px solid rgba(59,130,246,.2);font-size:16px">';
       html += '<thead><tr style="border-bottom:1px solid rgba(59,130,246,.2);background:rgba(59,130,246,.08)"><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;min-width:140px">Country</th><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;width:50%">Pros</th><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;width:50%">Cons</th></tr></thead>';
       html += '<tbody>';
       
@@ -1854,7 +2001,7 @@ function renderInsights(){
       generalCostInsights.forEach(insight => {
         const bgColor = insight.pro ? 'rgba(100,180,100,.06)' : 'rgba(200,100,100,.06)';
         const borderColor = insight.pro ? 'rgba(100,180,100,.3)' : 'rgba(200,100,100,.3)';
-        html += '<div style="margin-bottom:12px;padding:12px;background:' + bgColor + ';border-left:4px solid ' + borderColor + ';border-radius:4px;font-size:13px;line-height:1.5">';
+        html += '<div style="margin-bottom:12px;padding:12px;background:' + bgColor + ';border-left:4px solid ' + borderColor + ';border-radius:4px;font-size:15px;line-height:1.5">';
         html += insight.msg;
         html += '</div>';
       });
@@ -1864,7 +2011,7 @@ function renderInsights(){
   el.innerHTML = html;
 }
 
-function pick1(q,el){document.querySelectorAll(`[data-q="${q}"] .pill`).forEach(o=>o.classList.remove('on'));el.classList.add('on');if(q==='citizen')S.citizen=[el.textContent];else if(q==='flex')S.flex=el.textContent;else if(q==='cost')S.cost=el.textContent;else if(q==='vision')S.vision=el.textContent;else if(q==='lang')S.lang=el.textContent;else if(q==='debtYrs')S.debtYrs=el.textContent;else if(q==='postGrad')S.postGrad=el.textContent;else if(q==='ncPref')S.ncPref=el.textContent;else if(q==='uniSelectivity')S.uniSelectivity=el.textContent;console.log('pick1 set',q,'to',S[q])}
+function pick1(q,el){document.querySelectorAll(`[data-q="${q}"] .pill`).forEach(o=>o.classList.remove('on'));el.classList.add('on');if(q==='citizen')S.citizen=[el.textContent];else if(q==='flex')S.flex=el.textContent;else if(q==='cost')S.cost=el.textContent;else if(q==='vision')S.vision=el.textContent;else if(q==='lang')S.lang=el.textContent;else if(q==='debtYrs')S.debtYrs=el.textContent;else if(q==='postGrad')S.postGrad=el.textContent;else if(q==='ncPref')S.ncPref=el.textContent;else if(q==='uniSelectivity')S.uniSelectivity=el.textContent}
 function pickN(q,el){el.classList.toggle('on');if(q==='citizen'){S.citizen=[];document.querySelectorAll(`[data-q="${q}"] .pill.on`).forEach(p=>S.citizen.push(p.textContent))}else if(q==='languages'){S.languages=[];document.querySelectorAll(`[data-q="${q}"] .pill.on`).forEach(p=>S.languages.push(p.textContent))}}
 function initRes(){document.getElementById('res-content').innerHTML=`<div class="qb"><h3 style="font-weight:700;margin-bottom:8px">📚 Career Exploration</h3><ul class="rl"><li><a href="https://www.bls.gov/ooh/" target="_blank">Bureau of Labor Statistics</a> – Careers, outlook, licensing</li><li><a href="https://www.onetonline.org/" target="_blank">O*NET OnLine</a> – Detailed occupation data</li><li><a href="https://www.16personalities.com/" target="_blank">16Personalities</a> – Free assessment</li><li><a href="https://www.linkedin.com/" target="_blank">LinkedIn</a></li></ul></div><div class="qb"><h3 style="font-weight:700;margin-bottom:8px">🇺🇸 US Universities</h3><ul class="rl"><li><a href="https://www.commonapp.org/" target="_blank">Common App</a></li><li><a href="https://www.niche.com/" target="_blank">Niche</a></li><li><a href="https://nces.ed.gov/collegenavigator/" target="_blank">College Navigator</a></li><li><a href="https://bigfuture.collegeboard.org/" target="_blank">Big Future</a></li></ul></div><div class="qb"><h3 style="font-weight:700;margin-bottom:8px">📈 Market Demand Data</h3><ul class="rl"><li><a href="https://www.bls.gov/ooh/" target="_blank">BLS Occupational Outlook Handbook</a> – US job outlook and projections</li><li><a href="https://wagedex.com/outlook/" target="_blank">BLS 2023–2033 projections index</a> – occupation growth through 2033</li></ul></div>
 <div class="qb"><h3 style="font-weight:700;margin-bottom:8px">💰 Scholarships & Aid</h3><ul class="rl">
@@ -2326,7 +2473,168 @@ function updateInsights(tabName) {
 }
 // ===== END INSIGHTS ENGINE =====
 
-document.addEventListener('DOMContentLoaded',()=>{initDiscover();initRes();initHdrCarousel();});
+// ===== MOBILE CAROUSEL HANDLER =====
+function initCarousel(wrapperId) {
+  const wrap = document.getElementById(wrapperId);
+  if (!wrap) return;
+  
+  const container = wrap.querySelector('.carousel-container');
+  if (!container) return;
+  
+  // Sync label heights to content row heights
+  function syncLabelHeights() {
+    const cards = container.querySelectorAll('.carousel-card');
+    cards.forEach(card => {
+      const labels = card.querySelectorAll('.carousel-card-label');
+      const rows = card.querySelectorAll('.carousel-card-row');
+      
+      labels.forEach((label, idx) => {
+        if (rows[idx]) {
+          const rowHeight = rows[idx].offsetHeight;
+          label.style.minHeight = rowHeight + 'px';
+        }
+      });
+    });
+  }
+  
+  // Sync after a short delay to allow content to render
+  setTimeout(syncLabelHeights, 50);
+  // Also sync on window resize
+  window.addEventListener('resize', syncLabelHeights);
+  
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+  let lastX;
+  let lastTime;
+  let velocity = 0;
+  const GAP = 6; // matches CSS gap
+  
+  const cards = container.querySelectorAll('.carousel-card');
+  if (cards.length === 0) return;
+  
+  const cardWidth = cards[0].offsetWidth;
+  const cardWithGap = cardWidth + GAP;
+  
+  function updateIndicator() {
+    const scrollPos = container.scrollLeft;
+    const cardNum = Math.round(scrollPos / cardWithGap) + 1;
+    const total = cards.length;
+    const indicator = wrap.querySelector('.carousel-indicator');
+    if (indicator) {
+      indicator.textContent = `Card ${Math.min(cardNum, total)} of ${total}`;
+    }
+  }
+  
+  function snapToCard(useVelocity = false) {
+    const scrollPos = container.scrollLeft;
+    let nearestCard = Math.round(scrollPos / cardWithGap);
+    
+    // If swiping with momentum, check velocity to flip to next/prev card
+    if (useVelocity && Math.abs(velocity) > 0.3) {
+      if (velocity > 0) {
+        // Swiping right (scrolling left), go to next card
+        nearestCard = Math.ceil(scrollPos / cardWithGap);
+      } else {
+        // Swiping left (scrolling right), go to previous card
+        nearestCard = Math.floor(scrollPos / cardWithGap);
+      }
+    }
+    
+    const targetScroll = Math.max(0, nearestCard * cardWithGap);
+    container.scrollTo({
+      left: targetScroll,
+      behavior: 'smooth'
+    });
+    setTimeout(updateIndicator, 50);
+  }
+  
+  container.addEventListener('mousedown', (e) => {
+    isDown = true;
+    startX = e.pageX - container.offsetLeft;
+    scrollLeft = container.scrollLeft;
+    lastX = startX;
+    lastTime = Date.now();
+    velocity = 0;
+    container.style.cursor = 'grabbing';
+  });
+  
+  container.addEventListener('mouseleave', () => {
+    if (isDown) {
+      isDown = false;
+      container.style.cursor = 'grab';
+      snapToCard(true);
+    }
+  });
+  
+  container.addEventListener('mouseup', () => {
+    isDown = false;
+    container.style.cursor = 'grab';
+    snapToCard(true);
+  });
+  
+  container.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - container.offsetLeft;
+    const walk = x - startX;
+    container.scrollLeft = scrollLeft - walk;
+    
+    const now = Date.now();
+    const dt = Math.max(now - lastTime, 1);
+    velocity = (lastX - x) / dt;
+    lastX = x;
+    lastTime = now;
+  });
+  
+  // Touch support with momentum detection
+  container.addEventListener('touchstart', (e) => {
+    isDown = true;
+    startX = e.touches[0].pageX - container.offsetLeft;
+    scrollLeft = container.scrollLeft;
+    lastX = startX;
+    lastTime = Date.now();
+    velocity = 0;
+  }, { passive: true });
+  
+  container.addEventListener('touchmove', (e) => {
+    if (!isDown) return;
+    const x = e.touches[0].pageX - container.offsetLeft;
+    const walk = x - startX;
+    container.scrollLeft = scrollLeft - walk;
+    
+    const now = Date.now();
+    const dt = Math.max(now - lastTime, 1);
+    velocity = (lastX - x) / dt;
+    lastX = x;
+    lastTime = now;
+  }, { passive: true });
+  
+  container.addEventListener('touchend', () => {
+    isDown = false;
+    snapToCard(true);
+  }, { passive: true });
+  
+  container.addEventListener('scroll', updateIndicator);
+  
+  // Initial indicator update
+  setTimeout(updateIndicator, 100);
+}
+
+// ===== TABLE RENDERING WITH MOBILE CAROUSEL SUPPORT =====
+
+document.addEventListener('DOMContentLoaded',()=>{
+  initDiscover();
+  initRes();
+  initHdrCarousel();
+  // Initialize carousels after table render
+  setTimeout(()=>{
+    initCarousel('cc-carousel');
+    initCarousel('cat-carousel');
+    initCarousel('career-carousel');
+    initCarousel('scholar-carousel');
+  }, 100);
+});
 </script>
 </body>
 </html>
