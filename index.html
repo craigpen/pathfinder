@@ -7,7 +7,7 @@
 <title>University Pathfinder</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--pri:#2563eb;--sec:#0891b2;--ok:#16a34a;--warn:#ea580c;--bad:#dc2626;--dk:#1e293b;--lt:#f1f5f9;--bdr:#e2e8f0;--tx:#334155;--tx2:#64748b}
+:root{--pri:#2563eb;--sec:#0891b2;--ok:#16a34a;--warn:#ea580c;--bad:#dc2626;--dk:#1e293b;--lt:#f1f5f9;--bdr:#e2e8f0;--tx:#334155;--tx2:#64748b;--tx0:#1e293b;--tx1:#334155}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Segoe UI Emoji',Roboto,sans-serif;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh;padding:16px;color:var(--tx)}
 .ctr{max-width:1200px;margin:0 auto;background:#fff;border-radius:14px;box-shadow:0 16px 50px rgba(0,0,0,.3);overflow:hidden}
 .hdr{position:relative;height:280px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start}
@@ -213,16 +213,16 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 <div class="pan on" id="discover">
 <div class="qb"><div class="ql">Select any</div><div class="qt">Broad interest areas?</div><div class="qs">Pick one or more career categories. You'll drill into specific careers on the next tab.</div><div class="pills" id="cat-opts"></div></div>
 <div class="qb"><div class="ql">Select any</div><div class="qt">What are your motivations?</div><div class="qs">Use this thought exercise to help you choose possible careers.</div><div class="pills" id="motivation-opts"></div></div>
-<div class="qb"><div class="ql">Select one</div><div class="qt">Open to studying abroad?</div><div class="qs">This should help inform your choices on the following pages.</div><div class="pills" data-q="flex"><div class="pill" onclick="pick1('flex',this)">I prefer staying in the US</div><div class="pill" onclick="pick1('flex',this)">I'm open to studying abroad</div><div class="pill" onclick="pick1('flex',this)">I prefer studying in Europe</div></div></div>
-<div class="qb"><div class="ql">Select one</div><div class="qt">Prefer in-state US university options?</div><div class="qs">In-state tuition at NC public universities saves $15k–25k/year compared to out-of-state. This affects both your university options and your cost model.</div><div class="pills" data-q="ncPref"><div class="pill" onclick="pick1('ncPref',this)">Yes, prefer to stay in NC</div><div class="pill" onclick="pick1('ncPref',this)">Open to anywhere in the US</div><div class="pill" onclick="pick1('ncPref',this)">Definitely want to leave NC</div></div></div>
+<div class="qb"><div class="ql">Select any</div><div class="qt">Open to university locations?</div><div class="qs">This should help inform your choices on the following pages.</div><div class="pills" data-q="flex"><div class="pill" onclick="pickN('flex',this)">Study in the US</div><div class="pill" onclick="pickN('flex',this)">Study in Europe</div></div></div>
+<div class="qb"><div class="ql">Select one</div><div class="qt">Prefer in-state for US universities?</div><div class="qs">In-state tuition at public universities saves $15k–25k/year compared to out-of-state. This affects both your university options and your cost model.</div><div class="pills" data-q="ncPref"><div class="pill" onclick="pick1('ncPref',this)">In-State</div><div class="pill" onclick="pick1('ncPref',this)">Any state</div><div class="pill" onclick="pick1('ncPref',this)">Out-of-State</div></div></div>
 
-<div class="qb"><div class="ql">Select one</div><div class="qt">University tier preference?</div><div class="qs">Elite/Ivy League schools are highly selective (3-8% acceptance) but expensive. Mid-tier schools (15-30% acceptance) offer strong academics at lower cost. Regional/access-oriented schools (40%+ acceptance) maximize affordability and enrollment likelihood.</div><div class="pills" data-q="uniSelectivity"><div class="pill" onclick="pick1('uniSelectivity',this)">Elite / Ivy League (most selective)</div><div class="pill" onclick="pick1('uniSelectivity',this)">Mid-tier universities (selective)</div><div class="pill" onclick="pick1('uniSelectivity',this)">Regional / access-oriented (less selective)</div><div class="pill" onclick="pick1('uniSelectivity',this)">Show me all options</div></div></div>
-<div class="qb"><div class="ql">Select one</div><div class="qt">How important is cost?</div><div class="qs">Borrowing money will feel simple, but paying it back sticks with you for years after graduation. Keep this in mind on the following pages.</div><div class="pills" data-q="cost"><div class="pill" onclick="pick1('cost',this)">I can manage some debt</div><div class="pill" onclick="pick1('cost',this)">Cost matters a lot</div><div class="pill" onclick="pick1('cost',this)">Cost is critical</div></div></div>
-<div class="qb"><div class="ql">Select one</div><div class="qt">In 5 years, where do you see yourself?</div><div class="qs">This helps identify countries where you might want to work after graduation.</div><div class="pills" data-q="vision"><div class="pill" onclick="pick1('vision',this)">Primarily in US</div><div class="pill" onclick="pick1('vision',this)">Abroad</div><div class="pill" onclick="pick1('vision',this)">Could be anywhere</div></div></div>
-<div class="qb"><div class="ql">Select one</div><div class="qt">Language learning aptitude</div><div class="qs">Some careers (especially international work) benefit from language skills.</div><div class="pills" data-q="lang"><div class="pill" onclick="pick1('lang',this)">Struggle with languages</div><div class="pill" onclick="pick1('lang',this)">Average learner</div><div class="pill" onclick="pick1('lang',this)">Natural linguist</div></div></div>
-<div class="qb"><div class="ql">Select one</div><div class="qt">Which citizenship do you hold?</div><div class="qs">This affects tuition rates, visa sponsorship, and job market access.</div><div class="pills" data-q="citizen"><div class="pill" onclick="pick1('citizen',this)">US</div><div class="pill" onclick="pick1('citizen',this)">EU</div><div class="pill" onclick="pick1('citizen',this)">Dual US/EU</div></div></div>
+<div class="qb"><div class="ql">Select one</div><div class="qt">University admissions rate?</div><div class="qs">Elite/Ivy League schools are very selective (3-8% acceptance) but expensive. Mid-tier schools are selective (15-30% acceptance) and offer strong academics at lower cost. Regional/access-oriented schools are less selective (40%+ acceptance), and maximize affordability and enrollment likelihood.</div><div class="pills" data-q="uniSelectivity"><div class="pill" onclick="pick1('uniSelectivity',this)">Very selective</div><div class="pill" onclick="pick1('uniSelectivity',this)">Selective</div><div class="pill" onclick="pick1('uniSelectivity',this)">Less selective</div></div></div>
+<div class="qb"><div class="ql">Select one</div><div class="qt">How important is cost?</div><div class="qs">Borrowing money will feel simple, but paying it back sticks with you for years after graduation. Keep this in mind on the following pages.</div><div class="pills" data-q="cost"><div class="pill" onclick="pick1('cost',this)">Not critical</div><div class="pill" onclick="pick1('cost',this)">Balanced with other factors</div><div class="pill" onclick="pick1('cost',this)">Critical</div></div></div>
+<div class="qb"><div class="ql">Select one</div><div class="qt">In 5 years, where do you see yourself?</div><div class="qs">This helps identify countries where you might want to live and work after graduation.</div><div class="pills" data-q="vision"><div class="pill" onclick="pick1('vision',this)">In the US</div><div class="pill" onclick="pick1('vision',this)">In Europe</div><div class="pill" onclick="pick1('vision',this)">Anywhere globally</div></div></div>
+<div class="qb"><div class="ql">Select one</div><div class="qt">Language learning aptitude</div><div class="qs">Your language aptitude will help guide you on planning for language learning before studying in another country.  Native language skills are more important in some countries than others.   Some careers will benefit from language skills.</div><div class="pills" data-q="lang"><div class="pill" onclick="pick1('lang',this)">Slower language learner</div><div class="pill" onclick="pick1('lang',this)">Normal language learner</div><div class="pill" onclick="pick1('lang',this)">Natural linguist</div></div></div>
+<div class="qb"><div class="ql">Select any</div><div class="qt">Which citizenships do you hold?</div><div class="qs">This affects scholarship or grant eligibility, tuition rates, visa sponsorship, healthcare coverage, job market access, and potentially other benefits.</div><div class="pills" data-q="citizen"><div class="pill" onclick="pickN('citizen',this)">US</div><div class="pill" onclick="pickN('citizen',this)">EU</div></div></div>
 <div class="qb"><div class="ql">Select any</div><div class="qt">What languages are you fluent or conversational in?</div><div class="qs">This helps identify countries where you can thrive academically and socially.</div><div class="pills" data-q="languages"><div class="pill" onclick="pickN('languages',this)">English</div><div class="pill" onclick="pickN('languages',this)">French</div><div class="pill" onclick="pickN('languages',this)">German</div><div class="pill" onclick="pickN('languages',this)">Swedish</div><div class="pill" onclick="pickN('languages',this)">Dutch</div><div class="pill" onclick="pickN('languages',this)">Spanish</div><div class="pill" onclick="pickN('languages',this)">Italian</div><div class="pill" onclick="pickN('languages',this)">Danish</div></div></div>
-<div class="qb"><div class="ql">Select one</div><div class="qt">Willing to pursue a Master's or PhD where typical for chosen careers?</div><div class="qs">Note: We assume PhD programs are typically funded via assistantships.</div><div class="pills" data-q="postGrad"><div class="pill" onclick="pick1('postGrad',this)">Yes, I'm open to it</div><div class="pill" onclick="pick1('postGrad',this)">No, bachelor's degree only</div><div class="pill" onclick="pick1('postGrad',this)">Maybe, depends on the career</div></div></div>
+<div class="qb"><div class="ql">Select one</div><div class="qt">Willing to pursue a Master's or PhD where typical for chosen careers?</div><div class="qs">PhD programs are often funded via assistantships, but this will vary by your chosen field and school.</div><div class="pills" data-q="postGrad"><div class="pill" onclick="pick1('postGrad',this)">Willing to pursue post-grad</div><div class="pill" onclick="pick1('postGrad',this)">Only willing to pursue bachelor</div><div class="pill" onclick="pick1('postGrad',this)">Undecided</div></div></div>
 <div class="qb"><div class="ql">Select one</div><div class="qt">How long are you willing to make student loan payments?</div><div class="qs">Shorter repayment means higher monthly payments but you're debt-free sooner. Longer repayment means lower monthly payments but you'll be paying for longer, which could affect your ability to travel, move, buy a home, or save for other goals.</div><div class="pills" data-q="debtYrs"><div class="pill" onclick="pick1('debtYrs',this)">5 years</div><div class="pill" onclick="pick1('debtYrs',this)">10 years</div><div class="pill" onclick="pick1('debtYrs',this)">15 years</div><div class="pill" onclick="pick1('debtYrs',this)">20 years</div></div></div>
 <div class="bg"><span class="pos-left"></span><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('careers')">Next</button></div>
 </div>
@@ -278,7 +278,7 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 </div>
 <div class="qb" style="margin:0">
 <div class="qt">Prefer in-state US university options?</div>
-<div class="qs">In-state tuition at NC public universities saves $15k–25k/year compared to out-of-state. This affects both your university options and your cost model.</div>
+<div class="qs">In-state tuition at public universities saves $15k–25k/year compared to out-of-state. This affects both your university options and your cost model.</div>
 <div class="pills" id="uni-nc-pills"></div>
 </div>
 </div>
@@ -288,8 +288,8 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 <div class="ql">Select one</div>
 </div>
 <div class="qb" style="margin:0">
-<div class="qt">University tier preference?</div>
-<div class="qs">Elite/Ivy League schools are highly selective (3-8% acceptance) but expensive. Mid-tier schools (15-30% acceptance) offer strong academics at lower cost. Regional/access-oriented schools (40%+ acceptance) maximize affordability and enrollment likelihood.</div>
+<div class="qt">University admissions rate?</div>
+<div class="qs">Elite/Ivy League schools are very selective (3-8% acceptance) but expensive. Mid-tier schools are selective (15-30% acceptance) and offer strong academics at lower cost. Regional/access-oriented schools are less selective (40%+ acceptance), and maximize affordability and enrollment likelihood.</div>
 <div class="pills" id="uni-selectivity-pills"></div>
 </div>
 </div>
@@ -299,7 +299,7 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 <div class="bg"><button class="btn bs pos-left" onclick="go('scholarships')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('costs')">Next</button></div>
 </div>
 <div class="pan" id="costs">
-<div class="qb"><div class="ql">Select any</div><div class="qt">What will your education cost?</div><div class="qs">University is expensive, and you will probably use several sources to pay for it. Adjust the sliders to model scholarships, payments from part time work, and loan terms. You would take loans for whatever is left. All amounts in USD.</div></div>
+<div class="qb"><div class="ql">Select any</div><div class="qt">What will your education cost?</div><div class="qs">University can be expensive, and you will probably use several sources to pay for it. Adjust the sliders to model scholarships, college savings, payments from part time work, expected family support, and loan terms. You would take loans for whatever is left. All amounts in USD.</div></div>
 <div class="pills" id="cost-chips"></div>
 <div id="cost-sliders" style="display:none;margin:12px 0;padding:12px;background:var(--lt);border-radius:6px">
 <div class="slider-row"><label><b>Scholarship/Aid:</b></label><input id="sl-schol" max="100" min="0" oninput="renderCostTable();if(document.getElementById('insights').classList.contains('on'))renderInsights()" step="5" type="range" value="0"/><span class="sv" id="sl-schol-v">0%</span></div>
@@ -332,8 +332,8 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 <div class="bg"><button class="btn bs pos-left" onclick="go('universities')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('insights')">Next</button></div>
 </div>
 <div class="pan" id="insights" style="padding:24px">
-<h2 style="margin-top:0">Your Narrative Summary</h2>
-<div id="narrative-display" style="color:var(--tx1);font-size:16px;line-height:1.6;margin-bottom:24px;margin-top:12px"></div>
+<h2 style="margin-top:0;color:var(--dk);font-size:20px">Your Narrative</h2>
+<div id="narrative-display" style="color:var(--tx1);font-size:13px;line-height:1.6;margin-bottom:24px;margin-top:12px"></div>
 <div id="insights-container" style="color:var(--tx1)"></div>
 <div class="bg"><button class="btn bs pos-left" onclick="go('costs')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('deepDive')">Next</button></div>
 </div>
@@ -40534,7 +40534,7 @@ const UNIVERSITIES_BY_SUBJECT = {
   };
 const CAREER_TO_QS_SUBJECT={"Accounting":"Accounting & Finance","Architecture":"Architecture","Biology / Biotech":"Biological Sciences","Chemistry":"Chemistry","Computer Science":"Computer Science & IT","Cybersecurity":"Computer Science & IT","Data Science / AI":"Data Science & Artificial Intelligence","Economics":"Economics & Econometrics","Electrical Engineering":"Engineering – Electrical & Electronic","Entrepreneurship":"Business & Management Studies","Environmental / Climate":"Environmental Sciences","European Law":"Law","Film / Media Production":"Communications & Media Studies","Finance / Banking":"Accounting & Finance","Graphic / UX Design":"Art & Design","International Relations":"Politics & International Studies","Marketing / Management":"Business & Management Studies","Math / Statistics":"Mathematics","Mechanical Engineering":"Engineering – Mechanical, Aeronautical & Manufacturing","Medicine (MD/DO)":"Medicine","Nursing":"Nursing","Pharmacy":"Pharmacy & Pharmacology","Physical Therapy":"Health & Clinical Sciences","Physics":"Physics & Astronomy","Psychology (Clinical)":"Psychology","Public Policy":"Politics & International Studies","Software Engineering":"Computer Science & IT","Technical Theater / Live Events":"Performing Arts","Theater & Performing Arts":"Performing Arts","US Law (JD)":"Law","Writing / Communications":"Communications & Media Studies"};
 
-const S={cats:[],motivations:[],subCareers:[],prac:[],cc:[],costCC:[],expl:null,playlist:null,flex:null,cost:null,vision:null,lang:null,citizen:[],debtYrs:null,languages:[],postGrad:null,ncPref:null,ncInstate:false,uniSelectivity:null};
+const S={cats:[],motivations:[],subCareers:[],prac:[],cc:[],costCC:[],expl:null,playlist:null,flex:null,cost:null,vision:null,lang:null,citizen:[],debtYrs:null,languages:[],postGrad:null,ncPref:null,ncInstate:false,uniSelectivity:null,scholarshipPct:null,collegeSavings:null,partTimeWork:null,familySupport:null,loanRate:null,loanRepaymentYears:null};
 const PLAYLISTS={lofi:'https://open.spotify.com/embed/playlist/37i9dQZF1DWWQRwui0ExPn?utm_source=generator&theme=0',jazz:'https://open.spotify.com/embed/playlist/37i9dQZF1EIdxUC4rBWFbj?utm_source=generator&theme=0',focus:'https://open.spotify.com/embed/playlist/37i9dQZF1DWZeKCadgRdKQ?utm_source=generator&theme=0',brain:'https://open.spotify.com/embed/playlist/37i9dQZF1DWXLeA8Omikj7?utm_source=generator&theme=0'};
 const HEADER_PHOTOS=[{src:'https://images.unsplash.com/photo-1441260038675-7329ab4cc264',cap:'University campus quad'},{src:'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a',cap:'Students studying together'},{src:'https://images.unsplash.com/photo-1441260038675-7329ab4cc264',cap:'Graduation day'},{src:'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad',cap:'Historic university architecture'},{src:'https://images.unsplash.com/photo-1539037116277-4db20889f2d4',cap:'European city streets'}];
 const FALLBACK_HDR_SVG="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1600' height='420'><rect width='1600' height='420' fill='%23667eea'/><text x='40' y='80' fill='white' font-size='28'>University Pathfinder</text></svg>";
@@ -40882,7 +40882,7 @@ el.innerHTML=msg;
 }
 function renderCCChips(){const el=document.getElementById('cc-chips');let h='';Object.entries(COUNTRIES).forEach(([k,v])=>{h+=`<div class="pill${S.cc.includes(k)?' on':''}" onclick="togCC('${k}')">${v.e} ${v.n}</div>`});el.innerHTML=h;renderCCTable()}
 function togCC(k){if(S.cc.includes(k))S.cc=S.cc.filter(x=>x!==k);else S.cc.push(k);renderCCChips();updateHdrCarousel();renderUniversities()}
-function renderCCTable(){const sel=S.cc;const el=document.getElementById('cc-table');if(sel.length<2){let msg='';const insights=[];if(S.vision){S.cc.forEach(country=>{const insight=getCountryInsight(country,S.vision);if(insight){insights.push(insight)}});}el.innerHTML=msg;return}const attrs=[['Tuition','tui','tn'],['Degree Length','dur'],['Language','lang'],['Change Majors?','chg'],['After Graduation','post'],['Financial Aid','aid'],['Admissions','adm'],['Culture','culture'],['Apply At','portal']];let t='<table class="ct"><thead><tr><th></th>';sel.forEach(k=>{t+=`<th class="ch">${COUNTRIES[k].e} ${COUNTRIES[k].n} <span class="xr" onclick="togCC('${k}')">✕</span></th>`});t+='</tr></thead><tbody>';attrs.forEach(([l,a,nk])=>{t+='<tr><td class="al">'+l+'</td>';sel.forEach(k=>{const v=CD[k]?.[a]||'—';const cls=(a==='tui'&&CD[k]?.euFree)?' class="win"':'';const note=nk?CD[k]?.[nk]:'';t+=`<td${cls}>${a==='dur'?v+' years':v}${note?'<div class="note">'+note+'</div>':''}</td>`});t+='</tr>'});t+='<tr class="res-row"><td class="al">Resources</td>';sel.forEach(k=>{t+='<td>'+(CD[k]?.res||[]).map(r=>`<a href="${r.u}" target="_blank">${r.t}</a>`).join(', ')+'</td>'});t+='</tr>';let insights=[];const seenMsgs=new Set();if(S.vision){const eu=['sweden','uk','germany','netherlands','france','italy','spain','denmark','ireland'];const hasUS=sel.some(k=>k==='us'||k==='canada'||k==='australia'||k==='singapore');const hasEU=sel.some(k=>eu.includes(k));let visionMsg='';if(hasUS&&hasEU){if(S.vision==='Primarily in US'){visionMsg='You prefer staying in the US long-term, but you\'ve selected EU countries. Consider if EU study aligns with your goals.';}else if(S.vision==='Abroad'){visionMsg='Your vision to work abroad aligns well with EU country choices.';}else if(S.vision==='Could be anywhere'){visionMsg='Your flexible vision works with both US and EU options. Pick based on other factors.';}}else if(hasEU&&!hasUS){if(S.vision==='Primarily in US'){visionMsg='You prefer staying in the US, but selected only EU countries. Reconsider your country choices.';}else if(S.vision==='Abroad'||S.vision==='Could be anywhere'){visionMsg='Studying in an EU country positions you well for European work.';}}else if(hasUS&&!hasEU){if(S.vision==='Primarily in US'||S.vision==='Could be anywhere'){visionMsg='US study aligns with your 5-year vision.';}else if(S.vision==='Abroad'){visionMsg='You want to work abroad, but studying in the US may make it harder to build international connections.';}}if(visionMsg&&!seenMsgs.has(visionMsg)){insights.push({align:!visionMsg.includes('Reconsider'),msg:visionMsg});seenMsgs.add(visionMsg)}}if(S.cost){const costs=sel.map(k=>CD[k]?.cy?.tui||0);const hasExpensive=costs.some(c=>c>30000);const hasAffordable=costs.some(c=>c<=30000);let costMsg='';let isAlign=true;if(hasExpensive&&hasAffordable){costMsg='You\'ve selected both expensive and affordable countries. Consider which best matches your '+S.cost.toLowerCase()+' priority.';isAlign=false;}else{const insight=getCostInsight(sel,S.cost);if(insight){costMsg=insight.msg;isAlign=insight.align;}}if(costMsg&&!seenMsgs.has(costMsg)){insights.push({align:isAlign,msg:costMsg});seenMsgs.add(costMsg)}}if(S.lang&&S.cc.length>0){const langInsight=getLanguageInsight(S.cc[0],S.lang);if(langInsight&&!seenMsgs.has(langInsight.msg)){insights.push(langInsight);seenMsgs.add(langInsight.msg)}}if(S.citizen&&S.citizen.length>0){const citizenInsights=[];S.citizen.forEach(cit=>{const insight=getCitizenshipInsight(S.cc[0],cit);if(insight)citizenInsights.push(insight)});if(citizenInsights.length>0){const sample=citizenInsights[0];if(!seenMsgs.has(sample.msg)){insights.push(sample);seenMsgs.add(sample.msg)}}}
+function renderCCTable(){const sel=S.cc;const el=document.getElementById('cc-table');if(sel.length<2){let msg='';const insights=[];if(S.vision){S.cc.forEach(country=>{const insight=getCountryInsight(country,S.vision);if(insight){insights.push(insight)}});}el.innerHTML=msg;return}const attrs=[['Tuition','tui','tn'],['Degree Length','dur'],['Language','lang'],['Change Majors?','chg'],['After Graduation','post'],['Financial Aid','aid'],['Admissions','adm'],['Culture','culture'],['Apply At','portal']];let t='<table class="ct"><thead><tr><th></th>';sel.forEach(k=>{t+=`<th class="ch">${COUNTRIES[k].e} ${COUNTRIES[k].n} <span class="xr" onclick="togCC('${k}')">✕</span></th>`});t+='</tr></thead><tbody>';attrs.forEach(([l,a,nk])=>{t+='<tr><td class="al">'+l+'</td>';sel.forEach(k=>{const v=CD[k]?.[a]||'—';const cls=(a==='tui'&&CD[k]?.euFree)?' class="win"':'';const note=nk?CD[k]?.[nk]:'';t+=`<td${cls}>${a==='dur'?v+' years':v}${note?'<div class="note">'+note+'</div>':''}</td>`});t+='</tr>'});t+='<tr class="res-row"><td class="al">Resources</td>';sel.forEach(k=>{t+='<td>'+(CD[k]?.res||[]).map(r=>`<a href="${r.u}" target="_blank">${r.t}</a>`).join(', ')+'</td>'});t+='</tr>';let insights=[];const seenMsgs=new Set();if(S.vision){const eu=['sweden','uk','germany','netherlands','france','italy','spain','denmark','ireland'];const hasUS=sel.some(k=>k==='us'||k==='canada'||k==='australia'||k==='singapore');const hasEU=sel.some(k=>eu.includes(k));let visionMsg='';if(hasUS&&hasEU){if(S.vision==='In the US'){visionMsg='You prefer staying in the US long-term, but you\'ve selected EU countries. Consider if EU study aligns with your goals.';}else if(S.vision==='In Europe'){visionMsg='Your vision to work abroad aligns well with EU country choices.';}else if(S.vision==='Anywhere globally'){visionMsg='Your flexible vision works with both US and EU options. Pick based on other factors.';}}else if(hasEU&&!hasUS){if(S.vision==='In the US'){visionMsg='You prefer staying in the US, but selected only EU countries. Reconsider your country choices.';}else if(S.vision==='In Europe'||S.vision==='Anywhere globally'){visionMsg='Studying in an EU country positions you well for European work.';}}else if(hasUS&&!hasEU){if(S.vision==='In the US'||S.vision==='Anywhere globally'){visionMsg='US study aligns with your 5-year vision.';}else if(S.vision==='In Europe'){visionMsg='You want to work abroad, but studying in the US may make it harder to build international connections.';}}if(visionMsg&&!seenMsgs.has(visionMsg)){insights.push({align:!visionMsg.includes('Reconsider'),msg:visionMsg});seenMsgs.add(visionMsg)}}if(S.cost){const costs=sel.map(k=>CD[k]?.cy?.tui||0);const hasExpensive=costs.some(c=>c>30000);const hasAffordable=costs.some(c=>c<=30000);let costMsg='';let isAlign=true;if(hasExpensive&&hasAffordable){costMsg='You\'ve selected both expensive and affordable countries. Consider which best matches your '+S.cost.toLowerCase()+' priority.';isAlign=false;}else{const insight=getCostInsight(sel,S.cost);if(insight){costMsg=insight.msg;isAlign=insight.align;}}if(costMsg&&!seenMsgs.has(costMsg)){insights.push({align:isAlign,msg:costMsg});seenMsgs.add(costMsg)}}if(S.lang&&S.cc.length>0){const langInsight=getLanguageInsight(S.cc[0],S.lang);if(langInsight&&!seenMsgs.has(langInsight.msg)){insights.push(langInsight);seenMsgs.add(langInsight.msg)}}if(S.citizen&&S.citizen.length>0){const citizenInsights=[];S.citizen.forEach(cit=>{const insight=getCitizenshipInsight(S.cc[0],cit);if(insight)citizenInsights.push(insight)});if(citizenInsights.length>0){const sample=citizenInsights[0];if(!seenMsgs.has(sample.msg)){insights.push(sample);seenMsgs.add(sample.msg)}}}
 t+='</tbody></table>';
   
   // Mobile carousel
@@ -41156,7 +41156,7 @@ function buildUniversitiesCarouselByCountry(data) {
     
     if(u.country !== 'us' && S.citizen && S.citizen.length > 0) {
       const citizenship = S.citizen[0];
-      const isEU = citizenship === 'EU' || citizenship === 'Dual US/EU';
+      const isEU = citizenship === 'EU';
       
       if(isEU) {
         if(countryCode === 'se') {
@@ -41248,7 +41248,7 @@ function renderUniversities(){
   // Render NC preference pills
   const ncPills = document.getElementById('uni-nc-pills');
   if(ncPills){
-    const ncOptions = ['Yes, prefer to stay in NC', 'Open to anywhere in the US', 'Definitely want to leave NC'];
+    const ncOptions = ['In-State', 'Any state', 'Out-of-State'];
     let h = '';
     ncOptions.forEach(option => {
       h += `<div class="pill${S.ncPref === option ? ' on' : ''}\" onclick="S.ncPref='${option}';renderUniversities()">${option}</div>`;
@@ -41259,7 +41259,7 @@ function renderUniversities(){
   // Render selectivity pills
   const selPills = document.getElementById('uni-selectivity-pills');
   if(selPills){
-    const selOptions = ['Elite / Ivy League (most selective)', 'Mid-tier universities (selective)', 'Regional / access-oriented (less selective)', 'Show me all options'];
+    const selOptions = ['Very selective', 'Selective', 'Less selective'];
     let h = '';
     selOptions.forEach(option => {
       h += `<div class="pill${S.uniSelectivity === option ? ' on' : ''}\" onclick="S.uniSelectivity='${option}';renderUniversities()">${option}</div>`;
@@ -41322,11 +41322,11 @@ function renderUniversities(){
     });
     
     // Apply selectivity filter
-    if(S.uniSelectivity && S.uniSelectivity !== 'Show me all options'){
+    if(S.uniSelectivity){
       const selectivityMap = {
-        'Elite / Ivy League (most selective)': 'elite',
-        'Mid-tier universities (selective)': 'mid-tier',
-        'Regional / access-oriented (less selective)': 'regional'
+        'Very selective': 'elite',
+        'Selective': 'mid-tier',
+        'Less selective': 'regional'
       };
       const targetSelectivity = selectivityMap[S.uniSelectivity];
       if(targetSelectivity === 'mid-tier'){
@@ -41339,7 +41339,7 @@ function renderUniversities(){
     }
     
     // Apply NC filter if US
-    if(countryCode === 'us' && S.ncPref && S.ncPref.includes('NC')){
+    if(countryCode === 'us' && S.ncPref === 'In-State'){
       filteredUnis = filteredUnis.filter(u => u.city && (u.city.includes('Durham') || u.city.includes('Chapel Hill') || u.city.includes('Winston-Salem') || u.city.includes('Boone') || u.city.includes('Elon') || u.city.includes('Charlotte') || u.city.includes('Greensboro') || u.city.includes('Raleigh') || u.city.includes('Wilmington') || u.city.includes('Greenville') || u.city.includes('Fayetteville') || u.city.includes('Pembroke')));
     }
     
@@ -41354,7 +41354,7 @@ function renderUniversities(){
       html += '<p style="color:var(--tx2);margin:0">No universities match your preferences</p>';
     } else {
       // Build table: universities with their matching careers
-      html += '<table style="width:100%;border-collapse:collapse;font-size:15px;table-layout:fixed">';
+      html += '<table style="width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed">';
       html += '<colgroup>';
       html += '<col style="width:26%">';  // University
       html += '<col style="width:13%">';  // Location
@@ -41366,14 +41366,14 @@ function renderUniversities(){
       html += '<col style="width:8%">';   // Selectivity
       html += '</colgroup>';
       html += '<thead><tr style="background:rgba(100,150,200,.1);border-bottom:2px solid rgba(100,150,200,.3)">';
-      html += '<th style="padding:8px;text-align:left;font-weight:600;overflow:hidden;text-overflow:ellipsis">University</th>';
-      html += '<th style="padding:8px;text-align:left;font-weight:600;overflow:hidden;text-overflow:ellipsis">Location</th>';
-      html += '<th style="padding:8px;text-align:center;font-weight:600;overflow:hidden;text-overflow:ellipsis">QS Rank</th>';
-      html += '<th style="padding:8px;text-align:center;font-weight:600;overflow:hidden;text-overflow:ellipsis">Admission %</th>';
-      html += '<th style="padding:8px;text-align:right;font-weight:600;overflow:hidden;text-overflow:ellipsis">Tuition/yr</th>';
-      html += '<th style="padding:8px;text-align:right;font-weight:600;overflow:hidden;text-overflow:ellipsis">Students</th>';
-      html += '<th style="padding:8px;text-align:left;font-weight:600;overflow:hidden;text-overflow:ellipsis">Programs</th>';
-      html += '<th style="padding:8px;text-align:center;font-weight:600;overflow:hidden;text-overflow:ellipsis;word-wrap:break-word">Selectivity</th>';
+      html += '<th style="padding:8px;text-align:left;font-weight:700;overflow:hidden;text-overflow:ellipsis">University</th>';
+      html += '<th style="padding:8px;text-align:left;font-weight:700;overflow:hidden;text-overflow:ellipsis">Location</th>';
+      html += '<th style="padding:8px;text-align:center;font-weight:700;overflow:hidden;text-overflow:ellipsis">QS Rank</th>';
+      html += '<th style="padding:8px;text-align:center;font-weight:700;overflow:hidden;text-overflow:ellipsis">Admission %</th>';
+      html += '<th style="padding:8px;text-align:right;font-weight:700;overflow:hidden;text-overflow:ellipsis">Tuition/yr</th>';
+      html += '<th style="padding:8px;text-align:right;font-weight:700;overflow:hidden;text-overflow:ellipsis">Students</th>';
+      html += '<th style="padding:8px;text-align:left;font-weight:700;overflow:hidden;text-overflow:ellipsis">Programs</th>';
+      html += '<th style="padding:8px;text-align:center;font-weight:700;overflow:hidden;text-overflow:ellipsis;word-wrap:break-word">Selectivity</th>';
       html += '</tr></thead>';
       html += '<tbody>';
       
@@ -41388,7 +41388,7 @@ function renderUniversities(){
         
         if(u.country !== 'us' && S.citizen && S.citizen.length > 0) {
           const citizenship = S.citizen[0]; // Take first citizenship
-          const isEU = citizenship === 'EU' || citizenship === 'Dual US/EU';
+          const isEU = citizenship === 'EU';
           
           // Special handling for countries with free/reduced tuition for EU/Dual citizens
           if(isEU) {
@@ -41434,15 +41434,15 @@ function renderUniversities(){
         const selectivityBg = u.selectivity === 'elite' ? 'rgba(200,50,50,.2)' : u.selectivity === 'mid-tier' ? 'rgba(150,100,200,.2)' : 'rgba(100,150,200,.2)';
         
         const studentPop = u.student_pop ? parseInt(u.student_pop).toLocaleString() : '—';
-        html += `<tr style="border-bottom:1px solid rgba(100,150,200,.15)">
-          <td style="padding:8px;"><strong>${u.name}</strong></td>
-          <td style="padding:8px;">${locationStr}</td>
-          <td style="padding:8px;text-align:center;">${u.qs_rank}</td>
-          <td style="padding:8px;text-align:center;">${u.acceptance_rate}%</td>
-          <td style="padding:8px;text-align:right;color:var(--tx2);font-size:15px"><strong>${tuitionDisplay}</strong><span style="font-size:13px;color:var(--tx2)">${tuitionNote}</span></td>
-          <td style="padding:8px;text-align:right;color:var(--tx2)">${studentPop}</td>
-          <td style="padding:8px;font-size:14px;color:var(--tx1)">${programsStr}</td>
-          <td style="padding:8px;text-align:center"><span style="padding:2px 6px;border-radius:3px;font-size:13px;font-weight:600;background:${selectivityBg};color:${selectivityColor}">${u.selectivity}</span></td>
+        html += `<tr style="border-bottom:1px solid rgba(100,150,200,.15);background:#fff" onmouseover="this.style.background='rgba(100,150,200,.08)'" onmouseout="this.style.background='#fff'">
+          <td style="padding:8px;background:rgba(241,245,249,.5)"><strong>${u.name}</strong></td>
+          <td style="padding:8px;background:#fff">${locationStr}</td>
+          <td style="padding:8px;text-align:center;background:#fff">${u.qs_rank}</td>
+          <td style="padding:8px;text-align:center;background:#fff">${u.acceptance_rate}%</td>
+          <td style="padding:8px;text-align:right;color:var(--tx2);font-size:13px;background:#fff">${tuitionDisplay}<span style="font-size:13px;color:var(--tx2)">${tuitionNote}</span></td>
+          <td style="padding:8px;text-align:right;color:var(--tx2);background:#fff">${studentPop}</td>
+          <td style="padding:8px;font-size:13px;color:var(--tx1);background:#fff">${programsStr}</td>
+          <td style="padding:8px;text-align:center;background:#fff"><span style="padding:2px 6px;border-radius:3px;font-size:13px;font-weight:600;background:${selectivityBg};color:${selectivityColor}">${u.selectivity}</span></td>
         </tr>`;
       });
       
@@ -41483,11 +41483,11 @@ function renderUniversities(){
       return hasProgram;
     });
     
-    if(S.uniSelectivity && S.uniSelectivity !== 'Show me all options'){
+    if(S.uniSelectivity){
       const selectivityMap = {
-        'Elite / Ivy League (most selective)': 'elite',
-        'Mid-tier universities (selective)': 'mid-tier',
-        'Regional / access-oriented (less selective)': 'regional'
+        'Very selective': 'elite',
+        'Selective': 'mid-tier',
+        'Less selective': 'regional'
       };
       const targetSelectivity = selectivityMap[S.uniSelectivity];
       if(targetSelectivity === 'mid-tier'){
@@ -41498,8 +41498,8 @@ function renderUniversities(){
         filteredUnis = filteredUnis.filter(u => u.selectivity === 'elite');
       }
     }
-    
-    if(countryCode === 'us' && S.ncPref && S.ncPref.includes('NC')){
+
+    if(countryCode === 'us' && S.ncPref === 'In-State'){
       filteredUnis = filteredUnis.filter(u => u.city && (u.city.includes('Durham') || u.city.includes('Chapel Hill') || u.city.includes('Winston-Salem') || u.city.includes('Boone') || u.city.includes('Elon') || u.city.includes('Charlotte') || u.city.includes('Greensboro') || u.city.includes('Raleigh') || u.city.includes('Wilmington') || u.city.includes('Greenville') || u.city.includes('Fayetteville') || u.city.includes('Pembroke')));
     }
     
@@ -41631,9 +41631,9 @@ function renderScholar(){
   // Initialize carousel
   setTimeout(()=>initCarousel('scholar-carousel'), 50);
 }
-function renderCostChips(){const el=document.getElementById('cost-chips');let h='';Object.entries(COUNTRIES).forEach(([k,v])=>{h+=`<div class="pill${S.costCC.includes(k)?' on':''}" onclick="togCost('${k}')">${v.e} ${v.n}</div>`});el.innerHTML=h;const ncToggle=document.getElementById('nc-instate-toggle');if(S.costCC.includes('us')&&S.ncPref&&S.ncPref.includes('NC')){ncToggle.style.display='block'}else{ncToggle.style.display='none';S.ncInstate=false}const usBaseTui=getUSBaseTuition();CD.us.cy.tui=usBaseTui;renderCostTable()}
+function renderCostChips(){const el=document.getElementById('cost-chips');let h='';Object.entries(COUNTRIES).forEach(([k,v])=>{h+=`<div class="pill${S.costCC.includes(k)?' on':''}" onclick="togCost('${k}')">${v.e} ${v.n}</div>`});el.innerHTML=h;const ncToggle=document.getElementById('nc-instate-toggle');if(S.costCC.includes('us')&&S.ncPref==='North Carolina'){ncToggle.style.display='block'}else{ncToggle.style.display='none';S.ncInstate=false}const usBaseTui=getUSBaseTuition();CD.us.cy.tui=usBaseTui;renderCostTable()}
 function togNCInstate(isInstate){S.ncInstate=isInstate;const ncIn=document.getElementById('nc-in');const ncOut=document.getElementById('nc-out');if(isInstate){ncIn.classList.add('on');ncOut.classList.remove('on')}else{ncOut.classList.add('on');ncIn.classList.remove('on')}const usBaseTui=getUSBaseTuition();CD.us.cy.tui=usBaseTui}
-function getUSBaseTuition(){if(S.ncInstate&&S.ncPref&&S.ncPref.includes('NC')){return 10000}return 35000}
+function getUSBaseTuition(){if(S.ncInstate&&S.ncPref==='North Carolina'){return 10000}return 35000}
 function togCost(k){if(S.costCC.includes(k))S.costCC=S.costCC.filter(x=>x!==k);else S.costCC.push(k);renderCostChips()}
 // ===== COST CALCULATION HELPER =====
 function calculateCostData(countryCode, scholarship, savingsTotal, workContrib, parentContrib, interestRate, loanYears) {
@@ -41696,7 +41696,7 @@ function renderCostTable(){
   sr.style.display='block';
   
   // Post-grad disclaimer
-  const isPostGradOpen=(S.postGrad==='Yes, I\'m open to it'||S.postGrad==='Maybe, depends on the career');
+  const isPostGradOpen=(S.postGrad==='Willing to pursue post-grad'||S.postGrad==='Undecided');
   const careersNeedingPostGrad=S.subCareers.filter(career=>{
     for(let catKey of Object.keys(CATS)){
       const cat=CATS[catKey];
@@ -41724,7 +41724,15 @@ function renderCostTable(){
   const rate=+document.getElementById('sl-rate').value/100/12;
   const yrs=+document.getElementById('sl-yrs').value;
   const months=yrs*12;
-  
+
+  // Store slider values in state for narrative
+  S.scholarshipPct = document.getElementById('sl-schol').value + '%';
+  S.collegeSavings = savingsTotal > 0 ? '$' + savingsTotal.toLocaleString() : null;
+  S.partTimeWork = work > 0 ? '$' + work.toLocaleString() + '/yr' : null;
+  S.familySupport = parent > 0 ? '$' + parent.toLocaleString() + '/yr' : null;
+  S.loanRate = document.getElementById('sl-rate').value + '%';
+  S.loanRepaymentYears = yrs + ' years';
+
   // Update slider display values
   document.getElementById('sl-schol-v').textContent=document.getElementById('sl-schol').value+'%';
   if(document.getElementById('sl-savings-v')){
@@ -42036,10 +42044,174 @@ h += `<div class="ss"><h3>Key Decisions for ${c.n}</h3>`+
 
 }
 
+
+// Helper: Create a styled pill span for Discovery selections
+function makePill(text) {
+  return '<span style="display:inline-block;padding:4px 10px;border-radius:14px;font-size:13px;font-weight:600;border:2px solid var(--bdr);background:#f9fafb;box-shadow:0 1px 2px rgba(0,0,0,.04);line-height:1.4;margin:0 2px">' + text + '</span>';
+}
+
+// Generate narrative paragraph from Discovery selections
+function generateNarrativeParagraph(monthlyPaymentMin = null, monthlyPaymentMax = null) {
+  const discoveryParts = [];
+  const financialParts = [];
+
+  // ===== DISCOVERY NARRATIVE =====
+  // Careers & Motivations
+  if(S.cats.length > 0 && S.subCareers.length > 0 && S.motivations.length > 0) {
+    const catNames = S.cats.map(k => CATS[k].name).join(', ');
+    const careerNames = S.subCareers.join(', ');
+    discoveryParts.push('You\'re broadly interested in ' + makePill(catNames) + ', more specifically ' + makePill(careerNames) + ', and motivated by ' + makePill(S.motivations.map(m => m.toLowerCase()).join(', ')) + '.');
+  } else if(S.cats.length > 0 && S.subCareers.length > 0) {
+    const catNames = S.cats.map(k => CATS[k].name).join(', ');
+    const careerNames = S.subCareers.join(', ');
+    discoveryParts.push('You\'re broadly interested in ' + makePill(catNames) + ', more specifically ' + makePill(careerNames) + '.');
+  } else if(S.cats.length > 0 && S.motivations.length > 0) {
+    const catNames = S.cats.map(k => CATS[k].name).join(', ');
+    discoveryParts.push('You\'re interested in ' + makePill(catNames) + ', motivated by ' + makePill(S.motivations.map(m => m.toLowerCase()).join(', ')) + '.');
+  } else if(S.cats.length > 0) {
+    const catNames = S.cats.map(k => CATS[k].name).join(', ');
+    discoveryParts.push('You\'re interested in ' + makePill(catNames) + '.');
+  }
+  // University location preferences (focus on US context)
+  if(S.ncPref) {
+    const ncText = S.ncPref === 'In-State' ? 'in-state' : (S.ncPref === 'Any state' ? 'any state' : 'out-of-state');
+    discoveryParts.push('For university selections in the US, you are favoring ' + makePill(ncText) + '.');
+  }
+  // Cost & Selectivity
+  if(S.cost || S.uniSelectivity || S.cc.length > 0) {
+    let costParts = [];
+    if(S.cost) costParts.push('Your view of total education cost suggests it is ' + makePill(S.cost.toLowerCase()));
+    const countryList = S.cc.length > 0 ? Object.entries(COUNTRIES).filter(([k,v]) => S.cc.includes(k)).map(([k,v]) => v.n).join(', ') : '';
+    if(S.uniSelectivity && countryList) costParts.push('and you\'re considering universities in ' + makePill(countryList) + ' that are ' + makePill(S.uniSelectivity.toLowerCase()) + ' in their admission process');
+    else if(S.uniSelectivity) costParts.push('and you\'re considering universities that are ' + makePill(S.uniSelectivity.toLowerCase()) + ' in their admission process');
+    if(costParts.length > 0) discoveryParts.push(costParts.join(', ') + '.');
+  }
+  // Vision
+  if(S.vision) {
+    const visionMap = {'In the US': 'in the US', 'In Europe': 'in Europe', 'Anywhere globally': 'anywhere globally'};
+    const visionText = visionMap[S.vision] || S.vision;
+    discoveryParts.push('In 5 years, you are open to living and working ' + makePill(visionText) + '.');
+  }
+  // Languages
+  if(S.lang || (S.languages && S.languages.length > 0)) {
+    let langParts = [];
+    if(S.lang) langParts.push('You\'re a ' + makePill(S.lang.toLowerCase()) + ' with fluent or conversational proficiency in');
+    if(S.languages && S.languages.length > 0) langParts.push(makePill(S.languages.join(', ')));
+    if(langParts.length > 0) discoveryParts.push(langParts.join(' ') + '.');
+  }
+  // Citizenship
+  if(S.citizen && S.citizen.length > 0) {
+    discoveryParts.push('As a citizen of ' + makePill(S.citizen.join(' and ')) + ', you may be eligible for financial aid, reduced tuition costs, healthcare coverage, or other benefits in applicable countries.');
+  }
+  // Post-grad
+  if(S.postGrad) {
+    discoveryParts.push('Some jobs typically expect more schooling after completing an undergraduate degree — like a master\'s, PhD, medical degree, or law degree.  For these career options, you\'re ' + makePill(S.postGrad.toLowerCase()) + ' degree programs.');
+  }
+
+  // ===== FINANCIAL NARRATIVE =====
+  if(S.scholarshipPct || S.collegeSavings) {
+    let scholarshipParts = [];
+    if(S.scholarshipPct) scholarshipParts.push('You anticipate scholarships or grants will reduce your tuition by ' + makePill(S.scholarshipPct));
+    if(S.collegeSavings) scholarshipParts.push('and you have college savings of ' + makePill(S.collegeSavings) + ' to contribute to the total cost of your education');
+    if(scholarshipParts.length > 0) financialParts.push(scholarshipParts.join(', ') + '.');
+  }
+
+  if(S.partTimeWork || S.familySupport) {
+    let fundingParts = [];
+    if(S.partTimeWork) fundingParts.push('You are considering a part-time job while in school, and expect to contribute ' + makePill(S.partTimeWork) + ' to your tuition');
+    if(S.familySupport) fundingParts.push('You anticipate family contributions of about ' + makePill(S.familySupport) + ' to help pay for your living expenses or tuition');
+    if(fundingParts.length > 0) financialParts.push(fundingParts.join('.  ') + '.');
+  }
+
+  if(S.scholarshipPct || S.collegeSavings || S.partTimeWork || S.familySupport) {
+    financialParts.push('You will likely take loans to cover the remaining cost after scholarships, grants, college savings, part-time work, and family support.');
+  }
+
+  if(S.loanRate || S.loanRepaymentYears) {
+    let loanParts = [];
+    if(S.loanRate) loanParts.push('You are estimating a loan rate of ' + makePill(S.loanRate));
+    if(S.loanRepaymentYears) loanParts.push('to be repaid monthly over ' + makePill(S.loanRepaymentYears));
+    if(loanParts.length > 0) financialParts.push('Once you start working after graduation, you will  make payments on these loans every month until they are paid off.  ' + loanParts.join(', ') + '.');
+  }
+
+  // Monthly payment range
+  if(monthlyPaymentMin !== null && monthlyPaymentMax !== null && S.loanRepaymentYears) {
+    const formattedMin = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(monthlyPaymentMin);
+    const formattedMax = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(monthlyPaymentMax);
+    financialParts.push('With these loan terms, selected countries, and your cost projections, you should expect to pay between ' + makePill(formattedMin) + ' and ' + makePill(formattedMax) + ' monthly over ' + makePill(S.loanRepaymentYears) + '.');
+  }
+
+  // Build HTML
+  let html = '';
+  if(discoveryParts.length > 0) {
+    html += '<p style="line-height:1.6;color:var(--tx1);margin:12px 0;font-size:13px">' + discoveryParts.join(' ') + '</p>';
+  }
+  if(financialParts.length > 0) {
+    html += '<p style="line-height:1.6;color:var(--tx1);margin:12px 0;font-size:13px">' + financialParts.join('  ') + '</p>';
+  }
+
+  return html;
+}
+
+// Detect conflicts and generate conflict-based insights
+function generateConflictInsights() {
+  const insights = [];
+  if(S.ncPref && S.ncPref === 'Out-of-State' && S.flex && S.flex.includes('Study in the US')) {
+    insights.push({type: 'conflict', title: 'Location Contradiction', msg: 'You want to leave NC but prefer studying in the US. These aren\'t mutually exclusive—consider US universities outside NC.'});
+  }
+  if(S.cost === 'Critical' && S.uniSelectivity === 'Elite / Ivy League') {
+    insights.push({type: 'conflict', title: 'Cost & Selectivity Tension', msg: 'Cost is critical AND aiming for elite schools. Elite institutions are expensive, but many offer generous need-based aid. Focus on schools with strong aid packages.'});
+  }
+  if(S.vision === 'In the US' && (S.cc.includes('sweden') || S.cc.includes('germany') || S.cc.includes('france') || S.cc.includes('italy') || S.cc.includes('spain') || S.cc.includes('netherlands') || S.cc.includes('denmark') || S.cc.includes('ireland'))) {
+    insights.push({type: 'info', title: 'Bridging Vision & Location', msg: 'ℹ️ You want to work in the US but are exploring European universities. EU degrees are portable—many graduates return to the US for employment.'});
+  }
+  if(S.lang === 'Slower language learner' && S.languages && S.languages.length >= 2) {
+    insights.push({type: 'info', title: 'Language Capability Note', msg: 'ℹ️ You\'ve selected multiple languages despite finding languages challenging. This shows determination—consider studying abroad where you can immerse in new languages.'});
+  }
+  return insights;
+}
+
+// Generate independent insights for individual Discovery selections
+function generateSelectionInsights() {
+  const insights = [];
+  if(S.lang === 'Natural linguist') insights.push({type: 'pro', title: 'Language Advantage', msg: '✅ Your language aptitude opens international programs, EU universities, and careers requiring bilingualism.'});
+  else if(S.lang === 'Normal language learner') insights.push({type: 'neutral', title: 'Language Planning', msg: 'ℹ️Standard pace language learning—budget 1-2 years for B1 proficiency in new languages.'});
+  else if(S.lang === 'Slower language learner') insights.push({type: 'con', title: 'Language Strategy Needed', msg: '⚠️ Language barriers likely in non-English programs. Focus on English-taught universities or plan intensive prep.'});
+  if(S.citizen && S.citizen.includes('US')) {
+    if(S.citizen.length === 1) insights.push({type: 'neutral', title: 'US Citizenship Only', msg: 'ℹ️Explore dual citizenship opportunities (especially if parents/grandparents are from other countries).'});
+    else if(S.citizen.includes('EU')) insights.push({type: 'pro', title: 'US + EU Citizenship', msg: '✅ EU citizenship grants free/low-cost tuition in Sweden, Germany, Denmark, and strong visa mobility.'});
+  } else if(S.citizen && S.citizen.includes('EU')) {
+    if(!S.citizen.includes('US')) insights.push({type: 'pro', title: 'EU Citizenship Advantage', msg: '✅ Tuition-free or low-cost in most European countries; work rights across 27 countries.'});
+  }
+  if(S.cost === 'Critical') insights.push({type: 'pro', title: 'Cost-Conscious Strategy', msg: '✅ European public universities (€0-3K/yr) vs US private schools ($50K+/yr)—significant savings possible.'});
+  else if(S.cost === 'Cost matters, but quality is paramount') insights.push({type: 'neutral', title: 'Balanced Approach', msg: 'ℹ️Seek value universities with strong rankings and reasonable costs (e.g., UK Russell Group £15-20K/yr).'});
+  else if(S.cost === 'Cost is not a barrier') insights.push({type: 'neutral', title: 'Premium Options Available', msg: 'ℹ️Can access elite universities globally; focus on fit and reputation over price.'});
+  if(S.uniSelectivity === 'Elite / Ivy League') insights.push({type: 'pro', title: 'Selective Admissions Path', msg: '✅ These schools have strong aid packages and recognizable degrees globally.'});
+  else if(S.uniSelectivity === 'Highly selective') insights.push({type: 'neutral', title: 'Competitive Admissions', msg: 'ℹ️Strong credentials needed; these schools offer excellent aid to accepted students.'});
+  else if(S.uniSelectivity === 'Selective') insights.push({type: 'neutral', title: 'Selective Schools', msg: 'ℹ️Good balance of selectivity and access; many world-ranked universities in this tier.'});
+  else if(S.uniSelectivity === 'Open admission') insights.push({type: 'pro', title: 'Access-Focused Path', msg: '✅ Focus on transfer to selective schools or strong professional outcomes from accessible universities.'});
+  if(S.postGrad === 'Willing to pursue post-grad') insights.push({type: 'pro', title: 'Graduate Planning', msg: '✅ Consider undergrad programs with strong research opportunities and master\'s pathways.'});
+  else if(S.postGrad === 'Undecided') insights.push({type: 'neutral', title: 'Keep Options Open', msg: 'ℹ️Choose programs with flexibility; many undergrads decide later about graduate study.'});
+  else if(S.postGrad === 'Only willing to pursue bachelor') insights.push({type: 'neutral', title: 'Career-First Focus', msg: 'ℹ️Prioritize internships, co-ops, and employer connections in your chosen field.'});
+  if(S.vision === 'In the US') {
+    const isUSCitizen = S.citizen && S.citizen.includes('US');
+    const msg = isUSCitizen ? 'ℹ️ US universities are strongest for US employment—as a US citizen, you have full work authorization.' : 'ℹ️ US universities strongest for US employment; consider visa logistics and work authorization as a non-US citizen.';
+    insights.push({type: 'neutral', title: 'US Career Path', msg: msg});
+  }
+  else if(S.vision === 'In Europe') insights.push({type: 'pro', title: 'International Career', msg: '✅ Studying abroad often supports international careers; EU degrees give work rights across 27 countries.'});
+  else if(S.vision === 'Flexible—open to both') insights.push({type: 'neutral', title: 'Career Flexibility', msg: 'ℹ️This flexibility is valuable; degrees from top universities are portable globally.'});
+  if(S.motivations && S.motivations.length > 0) {
+    if(S.motivations.includes('Financial security')) insights.push({type: 'pro', title: 'Financial Focus', msg: '✅ Prioritize career ROI; technical fields offer strongest earnings potential.'});
+    if(S.motivations.includes('Making real impact')) insights.push({type: 'pro', title: 'Impact-Driven', msg: '✅ Consider fields in medicine, engineering, environmental science, or social innovation.'});
+    if(S.motivations.includes('Creative expression')) insights.push({type: 'pro', title: 'Creative Path', msg: '✅ Seek programs with strong arts, design, or creative technology components.'});
+    if(S.motivations.includes('Independence & flexibility')) insights.push({type: 'pro', title: 'Flexibility Priority', msg: '✅ Choose universities with flexible curricula and study abroad opportunities.'});
+  }
+  return insights;
+}
 function renderInsights(){
   const el = document.getElementById('insights-container');
   const narr = document.getElementById('narrative-display');
-  
+
   // Get slider values
   const schol = parseFloat(document.getElementById('sl-schol').value) || 0;
   const savings = parseFloat(document.getElementById('sl-savings').value) || 0;
@@ -42048,43 +42220,24 @@ function renderInsights(){
   const rate = parseFloat(document.getElementById('sl-rate').value) || 5.5;
   const years = parseFloat(document.getElementById('sl-yrs').value) || 10;
   const isUSCitizen = S.citizen && S.citizen.includes('US');
-  
-  // Display narrative as table - styled distinctly from data tables
-  let narrativeRows = [];
-  if(S.cats.length > 0) {
-    const catNames = S.cats.map(k => CATS[k].name).join(', ');
-    narrativeRows.push({label: 'Categories', value: catNames});
-  }
-  if(S.subCareers.length > 0) {
-    narrativeRows.push({label: 'Careers', value: S.subCareers.join(', ')});
-  }
+
+  // Calculate monthly loan payments for each selected country to get min/max
+  let monthlyPaymentMin = null;
+  let monthlyPaymentMax = null;
   if(S.cc.length > 0) {
-    const countryNames = S.cc.map(k => COUNTRIES[k].n).join(', ');
-    narrativeRows.push({label: 'Countries', value: countryNames});
-  }
-  if(S.motivations.length > 0) narrativeRows.push({label: 'Motivations', value: S.motivations.join(', ')});
-  if(S.prac && S.prac.length > 0) narrativeRows.push({label: 'Work type', value: S.prac.join(', ')});
-  if(S.flex) narrativeRows.push({label: 'Study location', value: S.flex});
-  if(S.ncPref) narrativeRows.push({label: 'NC preference', value: S.ncPref});
-  if(S.vision) narrativeRows.push({label: 'Live and work', value: S.vision});
-  if(S.cost) narrativeRows.push({label: 'Cost Priority', value: S.cost});
-  if(S.languages && S.languages.length > 0) narrativeRows.push({label: 'Languages', value: S.languages.join(', ')});
-  if(S.lang) narrativeRows.push({label: 'Language comfort', value: S.lang});
-  if(S.citizen && S.citizen.length > 0) narrativeRows.push({label: 'Citizenship', value: S.citizen.join(', ')});
-  if(S.postGrad) narrativeRows.push({label: 'Post-grad studies', value: S.postGrad});
-  if(S.debtYrs) narrativeRows.push({label: 'Debt Tolerance', value: S.debtYrs});
-  if(schol > 0 || savings > 0 || work > 0 || family > 0) {
-    const finValue = 'Scholarship ' + Math.round(schol) + '%, Savings $' + savings.toLocaleString() + ', Work $' + work.toLocaleString() + '/yr, Family $' + family.toLocaleString() + '/yr';
-    narrativeRows.push({label: 'Financing', value: finValue});
+    const monthlyPayments = [];
+    S.cc.forEach(countryKey => {
+      const costData = calculateCostData(countryKey, schol, savings, work, family, rate, years);
+      monthlyPayments.push(costData.monthlyPayment);
+    });
+    if(monthlyPayments.length > 0) {
+      monthlyPaymentMin = Math.min(...monthlyPayments);
+      monthlyPaymentMax = Math.max(...monthlyPayments);
+    }
   }
 
-  let narrativeHTML = '<table style="width:100%;border-collapse:collapse;margin:8px 0;font-size:13px;background:rgba(241,245,249,.5);border:1px solid rgba(100,150,200,.2);border-radius:6px;overflow:hidden">';
-  narrativeHTML += '<tbody>';
-  narrativeRows.forEach((row, idx) => {
-    narrativeHTML += '<tr style="border-bottom:' + (idx < narrativeRows.length - 1 ? '1px solid rgba(100,150,200,.15)' : 'none') + '"><td style="padding:6px 10px;font-weight:600;color:var(--pri);background:rgba(241,245,249,.7);width:130px;vertical-align:top;font-size:12px">' + row.label + '</td><td style="padding:6px 10px;color:var(--tx1);vertical-align:top;line-height:1.3">' + row.value + '</td></tr>';
-  });
-  narrativeHTML += '</tbody></table>';
-  narr.innerHTML = narrativeHTML;
+  // Display narrative paragraph from Discovery selections
+  narr.innerHTML = generateNarrativeParagraph(monthlyPaymentMin, monthlyPaymentMax);
   
   let careerFits = [];
   let countryFits = [];
@@ -42114,7 +42267,7 @@ function renderInsights(){
       }
       
       // Portability
-      if(d.port && S.vision === 'Abroad'){
+      if(d.port && S.vision === 'In Europe'){
         if(d.port === 'HIGH') pros.push('HIGH portability — strong for working abroad');
         else if(d.port === 'LOW') cons.push('LOW portability — limits international opportunities');
         else if(d.port === 'MEDIUM') pros.push('Moderate portability — some international options');
@@ -42208,7 +42361,7 @@ function renderInsights(){
       // Post-study work - ONLY for non-US citizens, and only if country has work visa or EU mobility
       if(!isUSCitizen && post && (post.includes('visa') || post.includes('work') || post.includes('Work') || post.includes('mobility') || post.includes('Mobility'))){
         pros.push('Post-study work visa available');
-        if(S.vision === 'Abroad') pros.push('Supports abroad vision directly');
+        if(S.vision === 'In Europe') pros.push('Supports abroad vision directly');
       }
       
       // Flexibility - only add if explicitly Easy or Difficult
@@ -42234,18 +42387,18 @@ function renderInsights(){
         // Many/substantial English options
         else if(langLower.includes('many') || langLower.includes('several')){
           pros.push('Many programs in English; some require local language');
-          if(S.lang === 'Struggle with languages') pros.push('Reduces but doesn\'t eliminate language barrier');
+          if(S.lang === 'Slower language learner') pros.push('Reduces but doesn\'t eliminate language barrier');
         }
         // Growing/some English options
         else if(langLower.includes('growing') || langLower.includes('some')){
           pros.push('Some English programs available; local language helpful');
-          if(S.lang === 'Struggle with languages' && !userHasLanguage) cons.push('Limited English options; language barrier likely');
+          if(S.lang === 'Slower language learner' && !userHasLanguage) cons.push('Limited English options; language barrier likely');
           else if(userHasLanguage) pros.push('Your conversational proficiency helpful for daily life');
         }
         // Primarily local language
         else if(langLower.includes('typical') || langLower.includes('primary')){
           cons.push('Primarily local language instruction');
-          if(S.lang === 'Struggle with languages' && !userHasLanguage) cons.push('Language barrier — significant challenge for non-speakers');
+          if(S.lang === 'Slower language learner' && !userHasLanguage) cons.push('Language barrier — significant challenge for non-speakers');
           else if(userHasLanguage) pros.push('Your conversational proficiency significantly reduces barrier');
         }
       }
@@ -42330,13 +42483,13 @@ function renderInsights(){
         // Financing with current plan
         if(borrowNeeded > 0){
           if(monthlyPayment <= 300){
-            pros.push('With your financing: manageable monthly payment (~$' + Math.round(monthlyPayment) + '/mo for ' + years + 'yr)');
+            pros.push('With your cost projections: manageable monthly payment (~$' + Math.round(monthlyPayment) + '/mo for ' + years + 'yr)');
           } else if(monthlyPayment <= 500){
-            pros.push('With your financing: moderate monthly payment (~$' + Math.round(monthlyPayment) + '/mo for ' + years + 'yr)');
+            pros.push('With your cost projections: moderate monthly payment (~$' + Math.round(monthlyPayment) + '/mo for ' + years + 'yr)');
           } else if(monthlyPayment <= 800){
-            cons.push('With your financing: challenging monthly payment (~$' + Math.round(monthlyPayment) + '/mo for ' + years + 'yr)');
+            cons.push('With your cost projections: challenging monthly payment (~$' + Math.round(monthlyPayment) + '/mo for ' + years + 'yr)');
           } else {
-            cons.push('With your financing: heavy debt burden (~$' + Math.round(monthlyPayment) + '/mo for ' + years + 'yr)');
+            cons.push('With your cost projections: heavy debt burden (~$' + Math.round(monthlyPayment) + '/mo for ' + years + 'yr)');
           }
         } else {
           // Only show if actually fully covered (borrowNeeded = 0)
@@ -42398,7 +42551,7 @@ function renderInsights(){
   // 2. Citizenship advantage calculation
   if(S.citizen && S.citizen.length > 0 && S.cc.length > 0) {
     const citizenship = S.citizen[0];
-    const isEU = citizenship === 'EU' || citizenship === 'Dual US/EU';
+    const isEU = citizenship === 'EU';
     
     if(isEU && S.cc.includes('sweden')) {
       const intlRate = 14000;
@@ -42462,7 +42615,7 @@ function renderInsights(){
   }
   
   // 4. NC preference impact
-  if(S.ncPref && S.ncPref.includes('NC') && S.subCareers.length > 0) {
+  if(S.ncPref === 'North Carolina' && S.subCareers.length > 0) {
     const firstCareer = S.subCareers[0];
     const ncUnis = (UNIVERSITIES_BY_SUBJECT[firstCareer] || []).filter(u => u.country === 'us' && u.state === 'NC');
     const usUnis = (UNIVERSITIES_BY_SUBJECT[firstCareer] || []).filter(u => u.country === 'us');
@@ -42472,14 +42625,14 @@ function renderInsights(){
         type: 'country',
         country: 'United States',
         pro: false,
-        msg: `Your preference to stay in NC limits you to only ${ncUnis.length} universities. Expanding to "anywhere in US" would give you ${usUnis.length}+ options.`
+        msg: `Your preference for North Carolina limits you to only ${ncUnis.length} universities. Expanding to "Any US state" would give you ${usUnis.length}+ options.`
       });
     }
   }
   
   // 5. Language readiness
   if(S.lang && (S.cc.includes('germany') || S.cc.includes('france') || S.cc.includes('spain') || S.cc.includes('italy'))) {
-    if(S.lang === 'Average learner' || S.lang === 'Just starting') {
+    if(S.lang === 'Normal language learner' || S.lang === 'Just starting') {
       const countries = [];
       if(S.cc.includes('germany')) countries.push('Germany');
       if(S.cc.includes('france')) countries.push('France');
@@ -42531,28 +42684,54 @@ function renderInsights(){
   
   // BUILD TABLES
   let html = '';
-  if(careerFits.length === 0 && countryFits.length === 0 && costAnalysis.length === 0){
+  
+  // Collect conflict and selection insights
+  let allDiscoveryInsights = [];
+  allDiscoveryInsights = allDiscoveryInsights.concat(generateConflictInsights());
+  allDiscoveryInsights = allDiscoveryInsights.concat(generateSelectionInsights());
+  
+  if(careerFits.length === 0 && countryFits.length === 0 && costAnalysis.length === 0 && allDiscoveryInsights.length === 0){
     html = '<p style="color:var(--tx2);font-style:italic">Make selections across tabs to see personalized insights.</p>';
   } else {
-    if(careerFits.length > 0){
-      html += '<h3 style="margin:24px 0 12px 0;color:var(--ok);font-size:20px">Career Insights</h3>';
-      html += '<div class="insights-table-wrapper" style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;background:rgba(59,130,246,.04);border:1px solid rgba(59,130,246,.2);font-size:16px">';
-      html += '<thead><tr style="border-bottom:1px solid rgba(59,130,246,.2);background:rgba(59,130,246,.08)"><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;min-width:140px">Career</th><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;width:50%">Pros</th><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;width:50%">Cons</th></tr></thead>';
+    // Display Discovery Insights (conflicts and selections) first
+    if(allDiscoveryInsights.length > 0) {
+      html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">Narrative Insights</h2>';
+      html += '<div class="insights-table-wrapper" style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
+      html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:15%;white-space:nowrap">Insight</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700">Details</th></tr></thead>';
       html += '<tbody>';
-      careerFits.forEach(cf => {
-        const prosHTML = cf.pros.length > 0 ? cf.pros.map(p => '<div style="margin-bottom:6px">✅ ' + p + '</div>').join('') : '<span style="color:var(--tx2)">—</span>';
-        const consHTML = cf.cons.length > 0 ? cf.cons.map(c => '<div style="margin-bottom:6px">⚠️ ' + c + '</div>').join('') : '<span style="color:var(--tx2)">—</span>';
-        html += '<tr style="border-bottom:1px solid rgba(59,130,246,.1)"><td style="padding:12px;color:var(--tx0);font-weight:600;vertical-align:top">' + cf.name + '</td><td style="padding:12px;vertical-align:top;color:var(--ok)">' + prosHTML + '</td><td style="padding:12px;vertical-align:top;color:var(--warn)">' + consHTML + '</td></tr>';
+      allDiscoveryInsights.forEach(insight => {
+        let textColor = 'var(--tx)';
+        if(insight.type === 'pro') {
+          textColor = 'var(--ok)';
+        } else if(insight.type === 'conflict') {
+          textColor = 'var(--warn)';
+        } else if(insight.type === 'con') {
+          textColor = 'var(--warn)';
+        }
+        html += '<tr style="border-bottom:1px solid var(--bdr);background:#fff"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;width:15%;line-height:1.4;background:rgba(241,245,249,.5);white-space:nowrap">' + insight.title + '</td><td style="padding:8px 10px;vertical-align:top;color:' + textColor + ';line-height:1.4">' + insight.msg + '</td></tr>';
       });
       html += '</tbody></table></div>';
     }
     
-    if(countryFits.length > 0){
-      html += '<h3 style="margin:24px 0 12px 0;color:var(--ok);font-size:20px">Country Insights</h3>';
-      html += '<div class="insights-table-wrapper" style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;background:rgba(59,130,246,.04);border:1px solid rgba(59,130,246,.2);font-size:16px">';
-      html += '<thead><tr style="border-bottom:1px solid rgba(59,130,246,.2);background:rgba(59,130,246,.08)"><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;min-width:140px">Country</th><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;width:50%">Pros</th><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;width:50%">Cons</th></tr></thead>';
+    if(careerFits.length > 0){
+      html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">Career Insights</h2>';
+      html += '<div class="insights-table-wrapper" style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
+      html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:15%;white-space:nowrap">Career</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:42.5%">Pros</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:42.5%">Cons</th></tr></thead>';
       html += '<tbody>';
-      
+      careerFits.forEach(cf => {
+        const prosHTML = cf.pros.length > 0 ? cf.pros.map(p => '<div style="margin-bottom:6px">✅ ' + p + '</div>').join('') : '<span style="color:var(--tx2)">—</span>';
+        const consHTML = cf.cons.length > 0 ? cf.cons.map(c => '<div style="margin-bottom:6px">⚠️ ' + c + '</div>').join('') : '<span style="color:var(--tx2)">—</span>';
+        html += '<tr style="border-bottom:1px solid var(--bdr)"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;line-height:1.4;background:rgba(241,245,249,.5);width:15%;white-space:nowrap">' + cf.name + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--ok);line-height:1.4">' + prosHTML + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--warn);line-height:1.4">' + consHTML + '</td></tr>';
+      });
+      html += '</tbody></table></div>';
+    }
+
+    if(countryFits.length > 0){
+      html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">Country Insights</h2>';
+      html += '<div class="insights-table-wrapper" style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
+      html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:15%;white-space:nowrap">Country</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:42.5%">Pros</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:42.5%">Cons</th></tr></thead>';
+      html += '<tbody>';
+
       // Add country insights
       const countryInsightsByCountry = {};
       universityInsights.filter(u => u.type === 'country').forEach(insight => {
@@ -42578,18 +42757,18 @@ function renderInsights(){
         
         prosHTML = prosHTML || '<span style="color:var(--tx2)">—</span>';
         consHTML = consHTML || '<span style="color:var(--tx2)">—</span>';
-        
-        html += '<tr style="border-bottom:1px solid rgba(59,130,246,.1)"><td style="padding:12px;color:var(--tx0);font-weight:600;vertical-align:top">' + cf.name + '</td><td style="padding:12px;vertical-align:top;color:var(--ok)">' + prosHTML + '</td><td style="padding:12px;vertical-align:top;color:var(--warn)">' + consHTML + '</td></tr>';
+
+        html += '<tr style="border-bottom:1px solid var(--bdr)"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;line-height:1.4;background:rgba(241,245,249,.5);width:15%;white-space:nowrap">' + cf.name + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--ok);line-height:1.4">' + prosHTML + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--warn);line-height:1.4">' + consHTML + '</td></tr>';
       });
       html += '</tbody></table></div>';
     }
-    
+
     if(costAnalysis.length > 0){
-      html += '<h3 style="margin:24px 0 12px 0;color:var(--ok);font-size:20px">Cost Insights</h3>';
-      html += '<div class="insights-table-wrapper" style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;background:rgba(59,130,246,.04);border:1px solid rgba(59,130,246,.2);font-size:16px">';
-      html += '<thead><tr style="border-bottom:1px solid rgba(59,130,246,.2);background:rgba(59,130,246,.08)"><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;min-width:140px">Country</th><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;width:50%">Pros</th><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;width:50%">Cons</th></tr></thead>';
+      html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">Cost Insights</h2>';
+      html += '<div class="insights-table-wrapper" style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
+      html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:15%;white-space:nowrap">Country</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:42.5%">Pros</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:42.5%">Cons</th></tr></thead>';
       html += '<tbody>';
-      
+
       // Add cost university insights
       const costInsightsByCountry = {};
       universityInsights.filter(u => u.type === 'cost').forEach(insight => {
@@ -42615,12 +42794,12 @@ function renderInsights(){
         
         prosHTML = prosHTML || '<span style="color:var(--tx2)">—</span>';
         consHTML = consHTML || '<span style="color:var(--tx2)">—</span>';
-        
-        html += '<tr style="border-bottom:1px solid rgba(59,130,246,.1)"><td style="padding:12px;color:var(--tx0);font-weight:600;vertical-align:top">' + cf.name + '</td><td style="padding:12px;vertical-align:top;color:var(--ok)">' + prosHTML + '</td><td style="padding:12px;vertical-align:top;color:var(--warn)">' + consHTML + '</td></tr>';
+
+        html += '<tr style="border-bottom:1px solid var(--bdr)"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;line-height:1.4;background:rgba(241,245,249,.5);width:15%;white-space:nowrap">' + cf.name + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--ok);line-height:1.4">' + prosHTML + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--warn);line-height:1.4">' + consHTML + '</td></tr>';
       });
       html += '</tbody></table></div>';
     }
-    
+
     if(universityInsights.length > 0 && universityInsights.some(u => u.type === 'cost' && u.country === 'General')) {
       // Render general cost insights that don't fit into country table
       const generalCostInsights = universityInsights.filter(u => u.type === 'cost' && u.country === 'General');
@@ -42693,7 +42872,7 @@ const INSIGHTS = {
     }
   },
   countriesVision: {
-    'Primarily in US': {
+    'In the US': {
       'us': { align: true, msg: "US study aligns with your 5-year vision." },
       'sweden': { align: false, msg: "You prefer staying in the US long-term, but studying in an EU country offers EU access if plans change." },
       'canada': { align: true, msg: "Canada study keeps you close to the US market." },
@@ -42706,7 +42885,7 @@ const INSIGHTS = {
       'denmark': { align: false, msg: "You prefer staying in the US long-term, but studying in an EU country offers EU access if plans change." },
       'ireland': { align: false, msg: "You prefer staying in the US long-term, but studying in an EU country offers EU access if plans change." }
     },
-    'Abroad': {
+    'In Europe': {
       'us': { align: false, msg: "You want to work abroad, but studying in the US may make it harder to build international connections." },
       'sweden': { align: true, msg: "Studying in an EU country positions you well for European work." },
       'canada': { align: false, msg: "Canada doesn't position you as well for working abroad compared to EU options." },
@@ -42719,7 +42898,7 @@ const INSIGHTS = {
       'denmark': { align: true, msg: "Studying in an EU country positions you well for European work." },
       'ireland': { align: true, msg: "Studying in an EU country positions you well for European work." }
     },
-    'Could be anywhere': {
+    'Anywhere globally': {
       'us': { align: true, msg: "US offers strong career options globally." },
       'sweden': { align: true, msg: "Studying in an EU country opens both European and international opportunities. Certain fields have credential lock-in, so research portability." },
       'canada': { align: true, msg: "Canada provides a flexible base for international work." },
@@ -42739,14 +42918,13 @@ const INSIGHTS = {
     'Critical factor': { 'expensive': { align: false, msg: "Cost is critical for you, but you've selected expensive countries - strongly consider EU or other ways to reduce cost." }, 'affordable': { align: true, msg: "Your critical cost focus aligns perfectly with affordable country choices." } }
   },
   languageAptitude: {
-    'Struggle with languages': { 'english': { align: true, msg: "English-taught programs align well with your language comfort." }, 'non_english': { align: false, msg: "You struggle with languages, but you've selected non-English countries - consider English-taught programs in those countries." } },
-    'Average learner': { 'english': { align: true, msg: "English-taught programs are a solid choice for your language level." }, 'non_english': { align: true, msg: "You have the foundation to learn in non-English countries while improving language skills." } },
+    'Slower language learner': { 'english': { align: true, msg: "English-taught programs align well with your language comfort." }, 'non_english': { align: false, msg: "You're a slower language learner, but you've selected non-English countries - consider English-taught programs in those countries." } },
+    'Normal language learner': { 'english': { align: true, msg: "English-taught programs are a solid choice for your language level." }, 'non_english': { align: true, msg: "You have the foundation to learn in non-English countries while improving language skills." } },
     'Natural linguist': { 'english': { align: true, msg: "You have the language skills for any country." }, 'non_english': { align: true, msg: "Your language aptitude opens doors to non-English countries and programs. Consider a year of immersion learning." } }
   },
   citizenship: {
-    'US citizen': { 'us': { align: true, msg: "As a US citizen, US study is straightforward." }, 'eu': { align: false, msg: "As a US citizen, EU countries may charge international rates - research visa and work permit options." }, 'dual_us_eu': { align: true, msg: "Dual US/EU study lets you build connections in both markets while managing costs." } },
-    'EU citizen': { 'eu': { align: true, msg: "As an EU citizen, EU study gives you tuition advantages and mobility." }, 'us': { align: false, msg: "As an EU citizen, US study requires visa sponsorship - factor in work authorization needs." }, 'dual_us_eu': { align: true, msg: "Dual US/EU study leverages your EU advantages while expanding to the US market." } },
-    'Dual US/EU': { 'us': { align: true, msg: "As a dual citizen, US study is straightforward." }, 'eu': { align: true, msg: "As a dual citizen, EU study gives you tuition advantages and mobility." }, 'dual_us_eu': { align: true, msg: "Dual US/EU study fully leverages both your citizenships for maximum flexibility." } }
+    'US': { 'us': { align: true, msg: "As a US citizen, US study is straightforward." }, 'eu': { align: false, msg: "As a US citizen, EU countries may charge international rates - research visa and work permit options." } },
+    'EU': { 'eu': { align: true, msg: "As an EU citizen, EU study gives you tuition advantages and mobility." }, 'us': { align: false, msg: "As an EU citizen, US study requires visa sponsorship - factor in work authorization needs." } }
   }
 };
 
@@ -42816,7 +42994,7 @@ function getCareerInsight(careerName, careerData) {
   if (!careerData) return null;
   
   // Only return insight if user has set relevant narrative elements
-  const hasRelevantNarrative = S.motivations.length > 0 || S.vision === 'Abroad' || S.cost === 'Cost is critical';
+  const hasRelevantNarrative = S.motivations.length > 0 || S.vision === 'In Europe' || S.cost === 'Critical';
   if (!hasRelevantNarrative) return null;
   
   // Creative expression motivation
@@ -42845,7 +43023,7 @@ function getCareerInsight(careerName, careerData) {
   }
   
   // Portability for abroad vision
-  if (S.vision === 'Abroad' && careerData.port) {
+  if (S.vision === 'In Europe' && careerData.port) {
     if (careerData.port === 'HIGH') {
       return '✅ HIGH portability supports abroad vision';
     }
@@ -42855,7 +43033,7 @@ function getCareerInsight(careerName, careerData) {
   }
   
   // Cost priority
-  if (S.cost === 'Cost is critical' && careerData.cUS) {
+  if (S.cost === 'Critical' && careerData.cUS) {
     if (careerData.cUS < 150000) {
       return '✅ Affordable education cost aligns with budget';
     }
@@ -42871,7 +43049,7 @@ function getCountryInsight(countryKey, countryData) {
   if (!countryData) return null;
   
   // Only return insight if user has set relevant narrative elements
-  const hasRelevantNarrative = S.vision || S.cost === 'Cost is critical' || S.lang === 'Struggle with languages' || (S.citizen && S.citizen.length > 0);
+  const hasRelevantNarrative = S.vision || S.cost === 'Critical' || S.lang === 'Slower language learner' || (S.citizen && S.citizen.length > 0);
   if (!hasRelevantNarrative) return null;
   
   const post = countryData.post || '';
@@ -42884,12 +43062,12 @@ function getCountryInsight(countryKey, countryData) {
   
   // Post-study work for abroad vision - ONLY for non-US citizens
   const isUSCit = S.citizen && S.citizen.includes('US');
-  if (!isUSCit && S.vision === 'Abroad' && post && (post.includes('visa') || post.includes('work') || post.includes('Work') || post.toLowerCase().includes('authorization'))) {
+  if (!isUSCit && S.vision === 'In Europe' && post && (post.includes('visa') || post.includes('work') || post.includes('Work') || post.toLowerCase().includes('authorization'))) {
     insights.push({priority: 1, msg: '✅ Post-study work supports abroad goal'});
   }
   
   // Cost priority
-  if (S.cost === 'Cost is critical' && tuition !== undefined) {
+  if (S.cost === 'Critical' && tuition !== undefined) {
     if (tuition === 0) {
       insights.push({priority: 2, msg: '✅ Tuition-free best for cost priority'});
     } else if (tuition < 10000) {
@@ -42900,7 +43078,7 @@ function getCountryInsight(countryKey, countryData) {
   }
   
   // Language
-  if (S.lang === 'Struggle with languages' && lang && (lang.toLowerCase().includes('english') || lang === 'English')) {
+  if (S.lang === 'Slower language learner' && lang && (lang.toLowerCase().includes('english') || lang === 'English')) {
     insights.push({priority: 3, msg: '✅ English taught available'});
   }
   
@@ -42933,7 +43111,7 @@ function getCostInsight(countryKey, countryData) {
   if (!countryData || !countryData.cy) return null;
   
   // Only return insight if cost is actually a priority
-  if (S.cost !== 'Cost is critical') return null;
+  if (S.cost !== 'Critical') return null;
   
   const tuition = countryData.cy.tui;
   const duration = parseFloat(countryData.dur) || 4;
@@ -43002,21 +43180,21 @@ function buildNarrative() {
     studyVisionPart = '. You envision ';
     
     // Flexibility (where to study)
-    if (S.flex) {
+    if (S.flex && S.flex.length > 0) {
       const flexMap = {
-        "I prefer staying in the US": "studying in the US",
-        "I'm open to studying abroad": "studying abroad",
-        "I prefer studying in Europe": "studying in Europe"
+        "Study in the US": "studying in the US",
+        "Study in Europe": "studying in Europe"
       };
-      studyVisionPart += flexMap[S.flex] || S.flex.toLowerCase();
+      const flexTexts = S.flex.map(f => flexMap[f] || f.toLowerCase());
+      studyVisionPart += flexTexts.join(" and ");
     }
     
     // Vision (where living/working in 5 years)
     if (S.vision) {
       const visionMap = {
-        'Primarily in US': 'and living and working in the US in 5 years',
+        'In the US': 'and living and working in the US in 5 years',
         'Abroad': 'and living and working abroad in 5 years',
-        'Could be anywhere': 'and living and working anywhere in 5 years'
+        'Anywhere globally': 'and living and working anywhere in 5 years'
       };
       const visionText = visionMap[S.vision] || '';
       // Add "and" only if flex exists, otherwise just start with "living"
@@ -43033,8 +43211,8 @@ function buildNarrative() {
   // Language - comes after vision with comma
   if (S.lang) {
     const langMap = {
-      'Struggle with languages': 'someone who struggles with languages',
-      'Average learner': 'an average language learner',
+      'Slower language learner': 'someone who is a slower language learner',
+      'Normal language learner': 'an average language learner',
       'Natural linguist': 'a natural linguist'
     };
     
@@ -43049,9 +43227,9 @@ function buildNarrative() {
   // Cost sensitivity
   if (S.cost) {
     const costMap = {
-      "I can manage some debt": "manageable",
-      "Cost matters a lot": "matters a lot",
-      "Cost is critical": "critical"
+      "Not critical": "manageable",
+      "Balanced with other factors": "matters a lot",
+      "Critical": "critical"
     };
     const costText = costMap[S.cost] || S.cost.toLowerCase();
     // Use "is" for single words (manageable, critical), omit for phrases (matters a lot)
@@ -43089,7 +43267,7 @@ function updateNarrative() {
 }
 
 function validateSelections(){const issues=[];if(!S.cats||S.cats.length===0)issues.push('No careers selected');if(!S.cc||S.cc.length===0)issues.push('No countries selected');if(S.cost===null)issues.push('Cost preference not set');return issues;}
-function generateCareersInsights(){const insights=[];if(!S.cats||S.cats.length===0)return insights;if(S.motivations&&S.motivations.length>0){if(S.motivations.includes('Making real impact'))insights.push({align:true,msg:'💡 Jobs in social good, healthcare, education align with your impact motivation.'});if(S.motivations.includes('Financial security'))insights.push({align:true,msg:'💰 Tech, finance, engineering offer strong earning potential.'});if(S.motivations.includes('Creative expression'))insights.push({align:true,msg:'🎨 Creative/Arts careers support your expression needs.'});if(S.motivations.includes('Intellectual challenge'))insights.push({align:true,msg:'🧠 Research, science, advanced tech provide intellectual challenge.'})}if(S.vision==='Abroad'&&S.cats.some(c=>['tech','eng','sci'].includes(c)))insights.push({align:true,msg:'🌍 Tech/science careers are globally portable for working abroad.'});if(S.lang==='Struggle with languages')insights.push({align:false,msg:'⚠️ Many international careers need multilingual skills. Consider this.'});if(S.lang==='Struggle with languages'&&S.cc.some(c=>['france','spain','germany'].includes(c)))insights.push({align:false,msg:'⚠️ France/Spain/Germany often require native language skills'});return insights}function generateCountriesInsights(){const insights=[];if(!S.cc||S.cc.length===0)return insights;const eu=['sweden','uk','germany','netherlands','france','italy','spain','denmark','ireland'];const hasEU=S.cc.some(c=>eu.includes(c));const hasUS=S.cc.some(c=>c==='us');if(S.vision==='Abroad'&&hasEU)insights.push({align:true,msg:'✅ EU countries align with your vision to work abroad in 5 years.'});if(S.vision==='Primarily in US'&&hasEU)insights.push({align:false,msg:'⚠️ You prefer staying in the US, but selected EU countries. Reconsider alignment.'});if(S.vision==='Primarily in US'&&!hasUS)insights.push({align:false,msg:'⚠️ You want to stay in US but haven\'t selected US universities'});if(S.cost==='Cost is critical')insights.push({align:false,msg:'💡 Cost is critical. Compare tuition carefully across countries.'});if(S.lang==='Struggle with languages'&&S.cc.some(c=>['sweden','netherlands'].includes(c)))insights.push({align:true,msg:'✅ Sweden & Netherlands offer English-taught programs.'});return insights}function generateCostsInsights(){const insights=[];if(!S.cost)return insights;if(S.cost==='Cost is critical')insights.push({align:false,msg:'🎯 Cost is critical. Focus on scholarships and financial aid.'});else if(S.cost==='I can manage some debt')insights.push({align:true,msg:'✅ With flexibility on cost, you have more university options'});else if(S.cost==='Cost matters a lot')insights.push({align:true,msg:'💰 Balance cost with program quality and career outcomes.'});if(S.debtYrs==='5 years')insights.push({align:true,msg:'💡 With 5-year debt tolerance, prioritize scholarships and lower-cost programs.'});return insights}function generateFilterInsights(){const insights=[];if(!S.prac||S.prac.length===0)return insights;const practiceLocation=S.prac;const careerPortability=S.subCareers.length>0;if(S.vision==='Abroad'&&careerPortability)insights.push({align:true,msg:'✅ Your portable careers support working in '+practiceLocation+' long-term.'});if(S.motivations.includes('Independence & flexibility'))insights.push({align:true,msg:'✅ Portable credentials give you the flexibility and independence you seek.'});return insights}function generateScholarshipInsights(){const insights=[];if(!S.cc||S.cc.length===0)return insights;if(S.citizen&&S.citizen.length>0){const citizen=S.citizen[0];if(citizen==='EU')insights.push({align:true,msg:'✅ EU citizens often qualify for tuition-free or reduced programs in European universities.'});if(citizen==='US')insights.push({align:false,msg:'⚠️ As a US citizen, you typically pay international rates. Focus on merit scholarships.'})}if(S.cost==='Cost is critical')insights.push({align:false,msg:'🎯 Cost is critical for you. Maximize scholarships and financial aid to reduce out-of-pocket costs.'});return insights}
+function generateCareersInsights(){const insights=[];if(!S.cats||S.cats.length===0)return insights;if(S.motivations&&S.motivations.length>0){if(S.motivations.includes('Making real impact'))insights.push({align:true,msg:'💡 Jobs in social good, healthcare, education align with your impact motivation.'});if(S.motivations.includes('Financial security'))insights.push({align:true,msg:'💰 Tech, finance, engineering offer strong earning potential.'});if(S.motivations.includes('Creative expression'))insights.push({align:true,msg:'🎨 Creative/Arts careers support your expression needs.'});if(S.motivations.includes('Intellectual challenge'))insights.push({align:true,msg:'🧠 Research, science, advanced tech provide intellectual challenge.'})}if(S.vision==='In Europe'&&S.cats.some(c=>['tech','eng','sci'].includes(c)))insights.push({align:true,msg:'🌍 Tech/science careers are globally portable for working abroad.'});if(S.lang==='Slower language learner')insights.push({align:false,msg:'⚠️ Many international careers need multilingual skills. Consider this.'});if(S.lang==='Slower language learner'&&S.cc.some(c=>['france','spain','germany'].includes(c)))insights.push({align:false,msg:'⚠️ France/Spain/Germany often require native language skills'});return insights}function generateCountriesInsights(){const insights=[];if(!S.cc||S.cc.length===0)return insights;const eu=['sweden','uk','germany','netherlands','france','italy','spain','denmark','ireland'];const hasEU=S.cc.some(c=>eu.includes(c));const hasUS=S.cc.some(c=>c==='us');if(S.vision==='In Europe'&&hasEU)insights.push({align:true,msg:'✅ EU countries align with your vision to work abroad in 5 years.'});if(S.vision==='In the US'&&hasEU)insights.push({align:false,msg:'⚠️ You prefer staying in the US, but selected EU countries. Reconsider alignment.'});if(S.vision==='In the US'&&!hasUS)insights.push({align:false,msg:'⚠️ You want to stay in US but haven\'t selected US universities'});if(S.cost==='Critical')insights.push({align:false,msg:'💡 Cost is critical. Compare tuition carefully across countries.'});if(S.lang==='Slower language learner'&&S.cc.some(c=>['sweden','netherlands'].includes(c)))insights.push({align:true,msg:'✅ Sweden & Netherlands offer English-taught programs.'});return insights}function generateCostsInsights(){const insights=[];if(!S.cost)return insights;if(S.cost==='Critical')insights.push({align:false,msg:'🎯 Cost is critical. Focus on scholarships and financial aid.'});else if(S.cost==='Not critical')insights.push({align:true,msg:'✅ With flexibility on cost, you have more university options'});else if(S.cost==='Balanced with other factors')insights.push({align:true,msg:'💰 Balance cost with program quality and career outcomes.'});if(S.debtYrs==='5 years')insights.push({align:true,msg:'💡 With 5-year debt tolerance, prioritize scholarships and lower-cost programs.'});return insights}function generateFilterInsights(){const insights=[];if(!S.prac||S.prac.length===0)return insights;const practiceLocation=S.prac;const careerPortability=S.subCareers.length>0;if(S.vision==='In Europe'&&careerPortability)insights.push({align:true,msg:'✅ Your portable careers support working in '+practiceLocation+' long-term.'});if(S.motivations.includes('Independence & flexibility'))insights.push({align:true,msg:'✅ Portable credentials give you the flexibility and independence you seek.'});return insights}function generateScholarshipInsights(){const insights=[];if(!S.cc||S.cc.length===0)return insights;if(S.citizen&&S.citizen.length>0){const citizen=S.citizen[0];if(citizen==='EU')insights.push({align:true,msg:'✅ EU citizens often qualify for tuition-free or reduced programs in European universities.'});if(citizen==='US')insights.push({align:false,msg:'⚠️ As a US citizen, you typically pay international rates. Focus on merit scholarships.'})}if(S.cost==='Critical')insights.push({align:false,msg:'🎯 Cost is critical for you. Maximize scholarships and financial aid to reduce out-of-pocket costs.'});return insights}
 
 function displayTabInsights(tabName){
 // Removed - insights now shown in table columns
