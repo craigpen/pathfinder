@@ -156,6 +156,20 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
   .ct{display:none !important}
   .carousel-wrap{display:block !important}
   .photo-carousel{height:160px}
+  /* Mobile insights layout - stack vertically */
+  .insights-table-wrapper{display:block !important}
+  .insights-table-wrapper table{font-size:14px}
+  .insights-table-wrapper th{font-size:13px;padding:8px 10px}
+  .insights-table-wrapper td{font-size:13px;padding:8px 10px;word-break:break-word}
+  .insights-table-wrapper thead tr{display:grid;grid-template-columns:1fr;gap:0}
+  .insights-table-wrapper tbody tr{display:grid;grid-template-columns:1fr;gap:0}
+  .insights-table-wrapper th:nth-child(1),
+  .insights-table-wrapper td:nth-child(1){grid-column:1;min-width:auto;width:100%}
+  .insights-table-wrapper th:nth-child(2),
+  .insights-table-wrapper td:nth-child(2){grid-column:1;min-width:auto;width:100%;display:block;padding:8px 10px}
+  .insights-table-wrapper th:nth-child(3),
+  .insights-table-wrapper td:nth-child(3){grid-column:1;min-width:auto;width:100%;display:block;padding:8px 10px}
+  .insights-table-wrapper tbody tr{border-bottom:8px solid #fff !important}
 }
 
 @media(max-aspect-ratio:1/1.2){
@@ -192,12 +206,12 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 <div class="tabs">
 <button class="tb on" onclick="go('discover')">Discovery</button>
 <button class="tb" onclick="go('careers')">Careers</button>
-<button class="tb" onclick="go('compare')">Countries</button>
-<button class="tb" onclick="go('scholar')">Scholarships</button>
+<button class="tb" onclick="go('countries')">Countries</button>
+<button class="tb" onclick="go('scholarships')">Scholarships</button>
 <button class="tb" onclick="go('universities')">Universities</button>
 <button class="tb" onclick="go('costs')">Costs</button>
 <button class="tb" onclick="go('insights')">Insights</button>
-<button class="tb" onclick="go('explore')">Deep Dive</button>
+<button class="tb" onclick="go('deepDive')">Deep Dive</button>
 <button class="tb" onclick="go('resources')">Resources</button>
 </div>
 
@@ -232,7 +246,7 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 <div id="filter-analysis"></div>
 <div id="filter-result"></div>
 
-<div class="bg"><button class="btn bs pos-left" onclick="go('discover')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('compare')">Next</button></div>
+<div class="bg"><button class="btn bs pos-left" onclick="go('discover')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('countries')">Next</button></div>
 </div>
 <div class="pan" id="filter" style="display:none">
 <div class="qb"><div class="ql">Select multiple</div><div class="qt">How portable are your chosen careers?</div><div class="qs">Some professions require country-specific education or licensing. That single fact narrows your choices more than anything else.</div></div>
@@ -241,22 +255,22 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 <div class="qb"><div class="ql">Portability in Practice</div><div class="qt">How your credentials travel</div><div class="qs">Based on your career choices and the 5-year vision you shared in Discovery, here's how portable your credentials would be across different regions.</div></div>
 <div id="filter-result"></div>
 
-<div class="bg"><button class="btn bs pos-left" onclick="go('careers')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('compare')">Next</button></div>
+<div class="bg"><button class="btn bs pos-left" onclick="go('careers')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('countries')">Next</button></div>
 </div>
-<div class="pan" id="compare">
+<div class="pan" id="countries">
 <div class="qb"><div class="ql">Select multiple</div><div class="qt">Which countries are you considering?</div><div class="qs">Pick countries. Add or remove anytime. All costs in USD.</div></div>
 <div class="pills" id="cc-chips"></div>
 <div id="cc-table"></div>
 
 
-<div class="bg"><button class="btn bs pos-left" onclick="go('careers')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('scholar')">Next</button></div>
+<div class="bg"><button class="btn bs pos-left" onclick="go('careers')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('scholarships')">Next</button></div>
 </div>
-<div class="pan" id="scholar">
+<div class="pan" id="scholarships">
 <div class="qb"><div class="ql">Select any</div><div class="qt">What funding is available?</div><div class="qs">This compares how scholarships, grants, and other "free" contributions typically work in each selected country.</div></div>
 <div class="pills" id="scholar-cc-pills"></div>
 <div id="scholar-table"></div>
 
-<div class="bg"><button class="btn bs pos-left" onclick="go('compare')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('universities')">Next</button></div>
+<div class="bg"><button class="btn bs pos-left" onclick="go('countries')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('universities')">Next</button></div>
 </div>
 <div class="pan" id="universities">
 <div class="qb"><div class="ql">Select any</div><div class="qt">Which universities match your profile?</div><div class="qs">Based on your selected careers and countries, here are recommended universities. Click on a career row to see details about each university's ranking, admission difficulty, and cost.</div></div>
@@ -287,7 +301,7 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 
 <div id="uni-content"></div>
 
-<div class="bg"><button class="btn bs pos-left" onclick="go('scholar')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('costs')">Next</button></div>
+<div class="bg"><button class="btn bs pos-left" onclick="go('scholarships')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('costs')">Next</button></div>
 </div>
 <div class="pan" id="costs">
 <div class="qb"><div class="ql">Select any</div><div class="qt">What will your education cost?</div><div class="qs">University is expensive, and you will probably use several sources to pay for it. Adjust the sliders to model scholarships, payments from part time work, and loan terms. You would take loans for whatever is left. All amounts in USD.</div></div>
@@ -320,14 +334,15 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 </div>
 <div id="cost-table"></div>
 
-<div class="bg"><button class="btn bs pos-left" onclick="go('universities')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('insights')">Next</button></div>
+<div class="bg"><button class="btn bs pos-left" onclick="go('universities')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('deepDive')">Next</button></div>
 </div>
 <div class="pan" id="insights" style="padding:24px">
 <h2 style="margin-top:0">Your Narrative Summary</h2>
 <div id="narrative-display" style="color:var(--tx1);font-size:16px;line-height:1.6;margin-bottom:24px;margin-top:12px"></div>
 <div id="insights-container" style="color:var(--tx1)"></div>
+<div class="bg"><button class="btn bs pos-left" onclick="go('costs')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('deepDive')">Next</button></div>
 </div>
-<div class="pan" id="explore">
+<div class="pan" id="deepDive">
 <div class="qb"><div class="ql">Select one</div><div class="qt">What's the full story for this country?</div><div class="qs">Review basic facts about a country, education roadmap and next steps, key decision points, and resources for further research. Click any country to switch.</div></div>
 <div class="pills" id="ex-chips"></div>
 <div id="path-content"></div>
@@ -336,6 +351,7 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 <div class="pan" id="resources">
 <div class="qb"><div class="qt">All Resources &amp; References</div><div class="qs">Every source in this tool, organized by topic.</div></div>
 <div id="res-content"></div>
+<div class="bg"><button class="btn bs pos-left" onclick="go('deepDive')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><span class="pos-right"></span></div>
 </div>
 </div>
 <script>
@@ -40661,7 +40677,7 @@ function initHdrCarousel(){startHdrCarousel();}
 function updateHdrCarousel(){startHdrCarousel();}
 function toggleMusic(){const pills=document.getElementById('playlist-pills');const sw=document.getElementById('spotify-wrap');const on=pills.classList.toggle('show');const btn=document.getElementById('music-btn');btn.classList.toggle('active',on);if(!on){sw.classList.remove('show');document.querySelectorAll('.pp').forEach(b=>b.classList.remove('active'));S.playlist=null;document.getElementById('spotify-frame').src='about:blank';}}
 function selPlaylist(playlist,el){if(!document.getElementById('playlist-pills').classList.contains('show'))return;S.playlist=playlist;document.querySelectorAll('.pp').forEach(b=>b.classList.remove('active'));el.classList.add('active');const sw=document.getElementById('spotify-wrap');sw.classList.add('show');const frame=document.getElementById('spotify-frame');frame.src=PLAYLISTS[playlist]}
-function go(id){document.querySelectorAll('.pan').forEach(p=>p.classList.remove('on'));document.querySelectorAll('.tb').forEach(b=>b.classList.remove('on'));document.getElementById(id).classList.add('on');const tabs=['discover','careers','compare','scholar','universities','costs','insights','explore','resources'];const i=tabs.indexOf(id);if(i>=0)document.querySelectorAll('.tb')[i].classList.add('on');if(id==='discover')renderDiscoveryPills();else if(id==='careers'){renderCareerView();renderSubPills();renderFilterAnalysis();renderFilterResult()}else if(id==='compare'){renderCCChips();updateHdrCarousel()}else if(id==='scholar')renderScholar();else if(id==='universities')renderUniversities();else if(id==='costs'){if(!S.costCC.length&&S.cc.length)S.costCC=[...S.cc];renderCostChips()}else if(id==='insights'){renderInsights()}else if(id==='explore'){if(!S.expl&&S.cc&&S.cc.length)S.expl=S.cc[0];renderExChips();if(S.expl)renderPath(S.expl);}window.scrollTo(0,0)}
+function go(id){document.querySelectorAll('.pan').forEach(p=>p.classList.remove('on'));document.querySelectorAll('.tb').forEach(b=>b.classList.remove('on'));document.getElementById(id).classList.add('on');const tabs=['discover','careers','countries','scholarships','universities','costs','insights','deepDive','resources'];const i=tabs.indexOf(id);if(i>=0)document.querySelectorAll('.tb')[i].classList.add('on');if(id==='discover')renderDiscoveryPills();else if(id==='careers'){renderCareerView();renderSubPills();renderFilterAnalysis();renderFilterResult()}else if(id==='countries'){renderCCChips();updateHdrCarousel()}else if(id==='scholarships')renderScholar();else if(id==='universities')renderUniversities();else if(id==='costs'){if(!S.costCC.length&&S.cc.length)S.costCC=[...S.cc];renderCostChips()}else if(id==='insights'){renderInsights()}else if(id==='deepDive'){if(!S.expl&&S.cc&&S.cc.length)S.expl=S.cc[0];renderExChips();if(S.expl)renderPath(S.expl);}window.scrollTo(0,0)}
 function startOver(){S.cats=[];S.motivations=[];S.subCareers=[];S.prac=[];S.cc=[];S.costCC=[];S.expl=null;S.playlist=null;S.flex=null;S.cost=null;S.vision=null;S.lang=null;S.citizen=[];S.debtYrs=null;S.ncPref=null;S.uniSelectivity=null;document.querySelectorAll('.pill').forEach(o=>o.classList.remove('on'));document.querySelectorAll('.pill').forEach(p=>p.classList.remove('on'));document.getElementById('playlist-pills').classList.remove('show');document.getElementById('spotify-wrap').classList.remove('show');go('discover')}
 function initDiscover(){const co=document.getElementById('cat-opts');Object.entries(CATS).forEach(([k,v])=>{const d=document.createElement('div');d.className='pill';d.textContent=v.name;d.dataset.cat=k;d.onclick=()=>{d.classList.toggle('on');if(S.cats.includes(k)){S.cats=S.cats.filter(c=>c!==k);S.subCareers=S.subCareers.filter(f=>!Object.keys(CATS[k].subs).includes(f))}else S.cats.push(k)};co.appendChild(d)});const dr=document.getElementById('motivation-opts');['Making real impact','Intellectual challenge','Creative expression','Financial security','Helping people','Independence & flexibility'].forEach(d=>{const el=document.createElement('div');el.className='pill';el.textContent=d;el.onclick=()=>{el.classList.toggle('on');if(S.motivations.includes(d)){S.motivations=S.motivations.filter(x=>x!==d)}else S.motivations.push(d)};dr.appendChild(el)})};function renderDiscoveryPills(){document.querySelectorAll('#cat-opts .pill').forEach(p=>{const cat=p.dataset.cat;if(S.cats.includes(cat))p.classList.add('on');else p.classList.remove('on')});renderSubPills()}
 function renderCareerView(){const fc=document.getElementById('fcat-chips');let h='';Object.entries(CATS).forEach(([k,v])=>{h+=`<div class="pill${S.cats.includes(k)?' on':''}" onclick="togCat('${k}')">${v.name}</div>`});fc.innerHTML=h;renderCatTable();renderSubPills();renderCareerTable()}
@@ -42038,34 +42054,41 @@ function renderInsights(){
   const years = parseFloat(document.getElementById('sl-yrs').value) || 10;
   const isUSCitizen = S.citizen && S.citizen.includes('US');
   
-  // Display narrative - clean grid, no box styling
-  let narrativeHTML = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:16px;color:var(--tx1);line-height:1.5">';
+  // Display narrative as table - styled distinctly from data tables
+  let narrativeRows = [];
   if(S.cats.length > 0) {
     const catNames = S.cats.map(k => CATS[k].name).join(', ');
-    narrativeHTML += '<div><strong style="color:var(--tx0)">Categories:</strong> ' + catNames + '</div>';
+    narrativeRows.push({label: 'Categories', value: catNames});
   }
   if(S.subCareers.length > 0) {
-    narrativeHTML += '<div><strong style="color:var(--tx0)">Careers:</strong> ' + S.subCareers.join(', ') + '</div>';
+    narrativeRows.push({label: 'Careers', value: S.subCareers.join(', ')});
   }
   if(S.cc.length > 0) {
     const countryNames = S.cc.map(k => COUNTRIES[k].n).join(', ');
-    narrativeHTML += '<div><strong style="color:var(--tx0)">Countries:</strong> ' + countryNames + '</div>';
+    narrativeRows.push({label: 'Countries', value: countryNames});
   }
-  if(S.motivations.length > 0) narrativeHTML += '<div><strong style="color:var(--tx0)">Motivations:</strong> ' + S.motivations.join(', ') + '</div>';
-  if(S.prac && S.prac.length > 0) narrativeHTML += '<div><strong style="color:var(--tx0)">Work type:</strong> ' + S.prac.join(', ') + '</div>';
-  if(S.flex) narrativeHTML += '<div><strong style="color:var(--tx0)">Study location:</strong> ' + S.flex + '</div>';
-  if(S.ncPref) narrativeHTML += '<div><strong style="color:var(--tx0)">NC preference:</strong> ' + S.ncPref + '</div>';
-  if(S.vision) narrativeHTML += '<div><strong style="color:var(--tx0)">Live and work:</strong> ' + S.vision + '</div>';
-  if(S.cost) narrativeHTML += '<div><strong style="color:var(--tx0)">Cost Priority:</strong> ' + S.cost + '</div>';
-  if(S.languages && S.languages.length > 0) narrativeHTML += '<div><strong style="color:var(--tx0)">Languages:</strong> ' + S.languages.join(', ') + '</div>';
-  if(S.lang) narrativeHTML += '<div><strong style="color:var(--tx0)">Language comfort:</strong> ' + S.lang + '</div>';
-  if(S.citizen && S.citizen.length > 0) narrativeHTML += '<div><strong style="color:var(--tx0)">Citizenship:</strong> ' + S.citizen.join(', ') + '</div>';
-  if(S.postGrad) narrativeHTML += '<div><strong style="color:var(--tx0)">Post-grad studies:</strong> ' + S.postGrad + '</div>';
-  if(S.debtYrs) narrativeHTML += '<div><strong style="color:var(--tx0)">Debt Tolerance:</strong> ' + S.debtYrs + '</div>';
+  if(S.motivations.length > 0) narrativeRows.push({label: 'Motivations', value: S.motivations.join(', ')});
+  if(S.prac && S.prac.length > 0) narrativeRows.push({label: 'Work type', value: S.prac.join(', ')});
+  if(S.flex) narrativeRows.push({label: 'Study location', value: S.flex});
+  if(S.ncPref) narrativeRows.push({label: 'NC preference', value: S.ncPref});
+  if(S.vision) narrativeRows.push({label: 'Live and work', value: S.vision});
+  if(S.cost) narrativeRows.push({label: 'Cost Priority', value: S.cost});
+  if(S.languages && S.languages.length > 0) narrativeRows.push({label: 'Languages', value: S.languages.join(', ')});
+  if(S.lang) narrativeRows.push({label: 'Language comfort', value: S.lang});
+  if(S.citizen && S.citizen.length > 0) narrativeRows.push({label: 'Citizenship', value: S.citizen.join(', ')});
+  if(S.postGrad) narrativeRows.push({label: 'Post-grad studies', value: S.postGrad});
+  if(S.debtYrs) narrativeRows.push({label: 'Debt Tolerance', value: S.debtYrs});
   if(schol > 0 || savings > 0 || work > 0 || family > 0) {
-    narrativeHTML += '<div><strong style="color:var(--tx0)">Financing:</strong> Scholarship ' + Math.round(schol) + '%, Savings $' + savings.toLocaleString() + ', Work $' + work.toLocaleString() + '/yr, Family $' + family.toLocaleString() + '/yr</div>';
+    const finValue = 'Scholarship ' + Math.round(schol) + '%, Savings $' + savings.toLocaleString() + ', Work $' + work.toLocaleString() + '/yr, Family $' + family.toLocaleString() + '/yr';
+    narrativeRows.push({label: 'Financing', value: finValue});
   }
-  narrativeHTML += '</div>';
+
+  let narrativeHTML = '<table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:15px;background:rgba(241,245,249,.5);border:1px solid rgba(100,150,200,.2);border-radius:6px;overflow:hidden">';
+  narrativeHTML += '<tbody>';
+  narrativeRows.forEach((row, idx) => {
+    narrativeHTML += '<tr style="border-bottom:' + (idx < narrativeRows.length - 1 ? '1px solid rgba(100,150,200,.15)' : 'none') + '"><td style="padding:10px 14px;font-weight:600;color:var(--pri);background:rgba(241,245,249,.7);width:140px;vertical-align:top">' + row.label + '</td><td style="padding:10px 14px;color:var(--tx1);vertical-align:top">' + row.value + '</td></tr>';
+  });
+  narrativeHTML += '</tbody></table>';
   narr.innerHTML = narrativeHTML;
   
   let careerFits = [];
@@ -42518,7 +42541,7 @@ function renderInsights(){
   } else {
     if(careerFits.length > 0){
       html += '<h3 style="margin:24px 0 12px 0;color:var(--ok);font-size:20px">Career Insights</h3>';
-      html += '<div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;background:rgba(59,130,246,.04);border:1px solid rgba(59,130,246,.2);font-size:16px">';
+      html += '<div class="insights-table-wrapper" style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;background:rgba(59,130,246,.04);border:1px solid rgba(59,130,246,.2);font-size:16px">';
       html += '<thead><tr style="border-bottom:1px solid rgba(59,130,246,.2);background:rgba(59,130,246,.08)"><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;min-width:140px">Career</th><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;width:50%">Pros</th><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;width:50%">Cons</th></tr></thead>';
       html += '<tbody>';
       careerFits.forEach(cf => {
@@ -42531,7 +42554,7 @@ function renderInsights(){
     
     if(countryFits.length > 0){
       html += '<h3 style="margin:24px 0 12px 0;color:var(--ok);font-size:20px">Country Insights</h3>';
-      html += '<div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;background:rgba(59,130,246,.04);border:1px solid rgba(59,130,246,.2);font-size:16px">';
+      html += '<div class="insights-table-wrapper" style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;background:rgba(59,130,246,.04);border:1px solid rgba(59,130,246,.2);font-size:16px">';
       html += '<thead><tr style="border-bottom:1px solid rgba(59,130,246,.2);background:rgba(59,130,246,.08)"><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;min-width:140px">Country</th><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;width:50%">Pros</th><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;width:50%">Cons</th></tr></thead>';
       html += '<tbody>';
       
@@ -42568,7 +42591,7 @@ function renderInsights(){
     
     if(costAnalysis.length > 0){
       html += '<h3 style="margin:24px 0 12px 0;color:var(--ok);font-size:20px">Cost Insights</h3>';
-      html += '<div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;background:rgba(59,130,246,.04);border:1px solid rgba(59,130,246,.2);font-size:16px">';
+      html += '<div class="insights-table-wrapper" style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;background:rgba(59,130,246,.04);border:1px solid rgba(59,130,246,.2);font-size:16px">';
       html += '<thead><tr style="border-bottom:1px solid rgba(59,130,246,.2);background:rgba(59,130,246,.08)"><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;min-width:140px">Country</th><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;width:50%">Pros</th><th style="padding:12px;text-align:left;color:var(--ok);font-weight:600;width:50%">Cons</th></tr></thead>';
       html += '<tbody>';
       
