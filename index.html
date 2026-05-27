@@ -42972,6 +42972,31 @@ function renderInsights(){
       });
     }
   }, 100);
+
+  // Add resize listener to update card/table visibility when viewport changes
+  window.addEventListener('resize', () => {
+    setTimeout(() => {
+      const cards = document.querySelectorAll('.insights-card-container');
+      const tables = document.querySelectorAll('.insights-table-display');
+      const isMobile = window.innerHeight > window.innerWidth * 1.2;
+
+      if(isMobile) {
+        cards.forEach(el => {
+          el.style.cssText = 'display: flex !important; flex-wrap: wrap; gap: 12px; margin-bottom: 24px;';
+        });
+        tables.forEach(el => {
+          el.style.cssText = 'display: none !important;';
+        });
+      } else {
+        cards.forEach(el => {
+          el.style.cssText = 'display: none !important;';
+        });
+        tables.forEach(el => {
+          el.style.cssText = 'display: block !important;';
+        });
+      }
+    }, 50);
+  });
 }
 
 function pick1(q,el){document.querySelectorAll(`[data-q="${q}"] .pill`).forEach(o=>o.classList.remove('on'));el.classList.add('on');if(q==='citizen')S.citizen=[el.textContent];else if(q==='flex')S.flex=el.textContent;else if(q==='cost')S.cost=el.textContent;else if(q==='vision')S.vision=el.textContent;else if(q==='lang')S.lang=el.textContent;else if(q==='debtYrs')S.debtYrs=el.textContent;else if(q==='postGrad')S.postGrad=el.textContent;else if(q==='inStateTuitionPref')S.inStateTuitionPref=el.textContent;else if(q==='stateOfResidency')S.stateOfResidency=el.textContent;else if(q==='uniSelectivity')S.uniSelectivity=el.textContent}
