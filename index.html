@@ -41631,9 +41631,9 @@ function renderScholar(){
   // Initialize carousel
   setTimeout(()=>initCarousel('scholar-carousel'), 50);
 }
-function renderCostChips(){const el=document.getElementById('cost-chips');let h='';Object.entries(COUNTRIES).forEach(([k,v])=>{h+=`<div class="pill${S.costCC.includes(k)?' on':''}" onclick="togCost('${k}')">${v.e} ${v.n}</div>`});el.innerHTML=h;const ncToggle=document.getElementById('nc-instate-toggle');if(S.costCC.includes('us')&&S.ncPref==='North Carolina'){ncToggle.style.display='block'}else{ncToggle.style.display='none';S.ncInstate=false}const usBaseTui=getUSBaseTuition();CD.us.cy.tui=usBaseTui;renderCostTable()}
+function renderCostChips(){const el=document.getElementById('cost-chips');let h='';Object.entries(COUNTRIES).forEach(([k,v])=>{h+=`<div class="pill${S.costCC.includes(k)?' on':''}" onclick="togCost('${k}')">${v.e} ${v.n}</div>`});el.innerHTML=h;const ncToggle=document.getElementById('nc-instate-toggle');if(S.costCC.includes('us')&&S.ncPref==='In-State'){ncToggle.style.display='block'}else{ncToggle.style.display='none';S.ncInstate=false}const usBaseTui=getUSBaseTuition();CD.us.cy.tui=usBaseTui;renderCostTable()}
 function togNCInstate(isInstate){S.ncInstate=isInstate;const ncIn=document.getElementById('nc-in');const ncOut=document.getElementById('nc-out');if(isInstate){ncIn.classList.add('on');ncOut.classList.remove('on')}else{ncOut.classList.add('on');ncIn.classList.remove('on')}const usBaseTui=getUSBaseTuition();CD.us.cy.tui=usBaseTui}
-function getUSBaseTuition(){if(S.ncInstate&&S.ncPref==='North Carolina'){return 10000}return 35000}
+function getUSBaseTuition(){if(S.ncInstate&&S.ncPref==='In-State'){return 10000}return 35000}
 function togCost(k){if(S.costCC.includes(k))S.costCC=S.costCC.filter(x=>x!==k);else S.costCC.push(k);renderCostChips()}
 // ===== COST CALCULATION HELPER =====
 function calculateCostData(countryCode, scholarship, savingsTotal, workContrib, parentContrib, interestRate, loanYears) {
@@ -42159,7 +42159,7 @@ function generateConflictInsights() {
   if(S.ncPref && S.ncPref === 'Out-of-State' && S.flex && S.flex.includes('Study in the US')) {
     insights.push({type: 'conflict', title: 'Location Contradiction', msg: 'You want to leave NC but prefer studying in the US. These aren\'t mutually exclusive—consider US universities outside NC.'});
   }
-  if(S.cost === 'Critical' && S.uniSelectivity === 'Elite / Ivy League') {
+  if(S.cost === 'Critical' && S.uniSelectivity === 'Very selective') {
     insights.push({type: 'conflict', title: 'Cost & Selectivity Tension', msg: 'Cost is critical AND aiming for elite schools. Elite institutions are expensive, but many offer generous need-based aid. Focus on schools with strong aid packages.'});
   }
   if(S.vision === 'In the US' && (S.cc.includes('sweden') || S.cc.includes('germany') || S.cc.includes('france') || S.cc.includes('italy') || S.cc.includes('spain') || S.cc.includes('netherlands') || S.cc.includes('denmark') || S.cc.includes('ireland'))) {
@@ -42184,12 +42184,12 @@ function generateSelectionInsights() {
     if(!S.citizen.includes('US')) insights.push({type: 'pro', title: 'EU Citizenship Advantage', msg: '✅ Tuition-free or low-cost in most European countries; work rights across 27 countries.'});
   }
   if(S.cost === 'Critical') insights.push({type: 'pro', title: 'Cost-Conscious Strategy', msg: '✅ European public universities (€0-3K/yr) vs US private schools ($50K+/yr)—significant savings possible.'});
-  else if(S.cost === 'Cost matters, but quality is paramount') insights.push({type: 'neutral', title: 'Balanced Approach', msg: 'ℹ️Seek value universities with strong rankings and reasonable costs (e.g., UK Russell Group £15-20K/yr).'});
-  else if(S.cost === 'Cost is not a barrier') insights.push({type: 'neutral', title: 'Premium Options Available', msg: 'ℹ️Can access elite universities globally; focus on fit and reputation over price.'});
-  if(S.uniSelectivity === 'Elite / Ivy League') insights.push({type: 'pro', title: 'Selective Admissions Path', msg: '✅ These schools have strong aid packages and recognizable degrees globally.'});
-  else if(S.uniSelectivity === 'Highly selective') insights.push({type: 'neutral', title: 'Competitive Admissions', msg: 'ℹ️Strong credentials needed; these schools offer excellent aid to accepted students.'});
+  else if(S.cost === 'Balanced with other factors') insights.push({type: 'neutral', title: 'Balanced Approach', msg: 'ℹ️Seek value universities with strong rankings and reasonable costs (e.g., UK Russell Group £15-20K/yr).'});
+  else if(S.cost === 'Not critical') insights.push({type: 'neutral', title: 'Premium Options Available', msg: 'ℹ️Can access elite universities globally; focus on fit and reputation over price.'});
+  if(S.uniSelectivity === 'Very selective') insights.push({type: 'pro', title: 'Selective Admissions Path', msg: '✅ These schools have strong aid packages and recognizable degrees globally.'});
+  else if(S.uniSelectivity === 'Very selective') insights.push({type: 'neutral', title: 'Competitive Admissions', msg: 'ℹ️Strong credentials needed; these schools offer excellent aid to accepted students.'});
   else if(S.uniSelectivity === 'Selective') insights.push({type: 'neutral', title: 'Selective Schools', msg: 'ℹ️Good balance of selectivity and access; many world-ranked universities in this tier.'});
-  else if(S.uniSelectivity === 'Open admission') insights.push({type: 'pro', title: 'Access-Focused Path', msg: '✅ Focus on transfer to selective schools or strong professional outcomes from accessible universities.'});
+  else if(S.uniSelectivity === 'Less selective') insights.push({type: 'pro', title: 'Access-Focused Path', msg: '✅ Focus on transfer to selective schools or strong professional outcomes from accessible universities.'});
   if(S.postGrad === 'Willing to pursue post-grad') insights.push({type: 'pro', title: 'Graduate Planning', msg: '✅ Consider undergrad programs with strong research opportunities and master\'s pathways.'});
   else if(S.postGrad === 'Undecided') insights.push({type: 'neutral', title: 'Keep Options Open', msg: 'ℹ️Choose programs with flexibility; many undergrads decide later about graduate study.'});
   else if(S.postGrad === 'Only willing to pursue bachelor') insights.push({type: 'neutral', title: 'Career-First Focus', msg: 'ℹ️Prioritize internships, co-ops, and employer connections in your chosen field.'});
@@ -42199,7 +42199,7 @@ function generateSelectionInsights() {
     insights.push({type: 'neutral', title: 'US Career Path', msg: msg});
   }
   else if(S.vision === 'In Europe') insights.push({type: 'pro', title: 'International Career', msg: '✅ Studying abroad often supports international careers; EU degrees give work rights across 27 countries.'});
-  else if(S.vision === 'Flexible—open to both') insights.push({type: 'neutral', title: 'Career Flexibility', msg: 'ℹ️This flexibility is valuable; degrees from top universities are portable globally.'});
+  else if(S.vision === 'Anywhere globally') insights.push({type: 'neutral', title: 'Career Flexibility', msg: 'ℹ️This flexibility is valuable; degrees from top universities are portable globally.'});
   if(S.motivations && S.motivations.length > 0) {
     if(S.motivations.includes('Financial security')) insights.push({type: 'pro', title: 'Financial Focus', msg: '✅ Prioritize career ROI; technical fields offer strongest earnings potential.'});
     if(S.motivations.includes('Making real impact')) insights.push({type: 'pro', title: 'Impact-Driven', msg: '✅ Consider fields in medicine, engineering, environmental science, or social innovation.'});
@@ -42615,7 +42615,7 @@ function renderInsights(){
   }
   
   // 4. NC preference impact
-  if(S.ncPref === 'North Carolina' && S.subCareers.length > 0) {
+  if(S.ncPref === 'In-State' && S.subCareers.length > 0) {
     const firstCareer = S.subCareers[0];
     const ncUnis = (UNIVERSITIES_BY_SUBJECT[firstCareer] || []).filter(u => u.country === 'us' && u.state === 'NC');
     const usUnis = (UNIVERSITIES_BY_SUBJECT[firstCareer] || []).filter(u => u.country === 'us');
