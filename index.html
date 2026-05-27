@@ -42764,6 +42764,7 @@ function renderInsights(){
     // Display Discovery Insights (conflicts and selections) - cards for mobile, table for desktop
     if(allDiscoveryInsights.length > 0) {
       html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">Narrative Insights</h2>';
+      html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5">Insights based on your Discovery selections. Look for conflicts or opportunities. Revisit the Discovery tab to refine your profile and see new insights.</div>';
 
       // Mobile: Card layout (carousel)
       html += buildInsightCarouselHTML(allDiscoveryInsights, 'narrative-carousel');
@@ -42788,6 +42789,7 @@ function renderInsights(){
     
     if(careerFits.length > 0){
       html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">Career Insights</h2>';
+      html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5">Insights based on your career interests and motivations. Consider which careers align with your values and next steps. Explore the Careers tab to discover more.</div>';
 
       // Mobile: Card layout (carousel)
       html += buildInsightCarouselHTML(careerFits, 'career-carousel');
@@ -42806,6 +42808,7 @@ function renderInsights(){
 
     if(countryFits.length > 0){
       html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">Country Insights</h2>';
+      html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5">Insights based on your location preferences and citizenship. Use these to narrow your university choices by country. Update your Countries selection to see how different locations match your priorities.</div>';
 
       // Add country insights
       const countryInsightsByCountry = {};
@@ -42859,6 +42862,7 @@ function renderInsights(){
 
     if(costAnalysis.length > 0){
       html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">Cost Insights</h2>';
+      html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5">Insights based on your financial situation and cost priorities. Compare countries by affordability and aid availability. Adjust your financial profile on the Costs tab to see updated recommendations.</div>';
 
       // Add cost university insights
       const costInsightsByCountry = {};
