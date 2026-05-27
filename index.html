@@ -156,16 +156,33 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
   .ct{display:none !important}
   .carousel-wrap{display:block !important}
   .photo-carousel{height:160px}
-  /* Mobile insights layout - full width with compact display */
-  .insights-table-wrapper{display:block !important;overflow:visible !important}
-  .insights-table-wrapper table{display:block !important;width:100% !important;font-size:12px;border-collapse:collapse}
-  .insights-table-wrapper thead{display:block !important;background:rgba(59,130,246,.08)}
-  .insights-table-wrapper thead tr{display:grid !important;grid-template-columns:80px 1fr 1fr;width:100%}
-  .insights-table-wrapper tbody{display:block !important}
-  .insights-table-wrapper tbody tr{display:grid !important;grid-template-columns:80px 1fr 1fr;width:100%;border-bottom:1px solid rgba(59,130,246,.1) !important;gap:0}
-  .insights-table-wrapper th{font-size:10px;padding:6px 6px;text-align:left;font-weight:600;color:var(--ok);background:rgba(59,130,246,.08);word-break:break-word}
-  .insights-table-wrapper td{font-size:11px;padding:6px;vertical-align:top;word-break:break-word;line-height:1.3}
 }
+
+  /* Default desktop/landscape: Show tables, hide cards */
+  .insights-card-container { display: none !important; }
+  .insights-table-display { display: block !important; }
+  .insights-card { flex: 1 1 100%; min-width: 280px; background: #fff; border: 1px solid var(--bdr); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .insights-card-header { background: var(--pri); color: #fff; padding: 12px; font-size: 14px; font-weight: 600; line-height: 1.3; word-wrap: break-word; }
+  .insights-card-body { padding: 12px; font-size: 13px; line-height: 1.5; }
+  .insights-card-pros { color: var(--ok); margin-bottom: 8px; }
+  .insights-card-pros div { margin-bottom: 6px; }
+  .insights-card-cons { color: var(--warn); }
+  .insights-card-cons div { margin-bottom: 6px; }
+  .insights-card-empty { color: var(--tx2); font-style: italic; }
+  .insights-table-wrapper { display: block !important; overflow: visible !important; }
+  .insights-table-wrapper table { display: block !important; width: 100% !important; font-size: 13px; border-collapse: collapse; }
+  .insights-table-wrapper thead { display: block !important; }
+  .insights-table-wrapper thead tr { display: grid !important; grid-template-columns: 1fr 2fr 2fr; width: 100%; }
+  .insights-table-wrapper tbody { display: block !important; }
+  .insights-table-wrapper tbody tr { display: grid !important; grid-template-columns: 1fr 2fr 2fr; width: 100%; gap: 0; }
+  .insights-table-wrapper th { font-size: 13px; padding: 8px 10px; text-align: left; font-weight: 700; color: var(--dk); word-break: break-word; }
+  .insights-table-wrapper td { font-size: 13px; padding: 8px 10px; vertical-align: top; word-break: break-word; line-height: 1.4; }
+
+  /* Mobile portrait: Show cards, hide tables */
+  @media(max-aspect-ratio:1/1.2){
+    .insights-card-container { display: flex !important; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+    .insights-table-display { display: none !important; }
+  }
 
 @media(max-aspect-ratio:1/1.2){
   /* Ensure carousels are fully visible on mobile */
@@ -42710,11 +42727,31 @@ function renderInsights(){
   if(careerFits.length === 0 && countryFits.length === 0 && costAnalysis.length === 0 && allDiscoveryInsights.length === 0){
     html = '<p style="color:var(--tx2);font-style:italic">Make selections across tabs to see personalized insights.</p>';
   } else {
-    // Display Discovery Insights (conflicts and selections) first
+    // Display Discovery Insights (conflicts and selections) - cards for mobile, table for desktop
     if(allDiscoveryInsights.length > 0) {
       html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">Narrative Insights</h2>';
-      html += '<div class="insights-table-wrapper" style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
-      html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:15%;white-space:nowrap">Insight</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700">Details</th></tr></thead>';
+
+      // Mobile: Card layout
+      html += '<div class="insights-card-container">';
+      allDiscoveryInsights.forEach(insight => {
+        let textColor = 'var(--tx)';
+        if(insight.type === 'pro') {
+          textColor = 'var(--ok)';
+        } else if(insight.type === 'conflict') {
+          textColor = 'var(--warn)';
+        } else if(insight.type === 'con') {
+          textColor = 'var(--warn)';
+        }
+        html += '<div class="insights-card">';
+        html += '<div class="insights-card-header">' + insight.title + '</div>';
+        html += '<div class="insights-card-body" style="color:' + textColor + '">' + insight.msg + '</div>';
+        html += '</div>';
+      });
+      html += '</div>';
+
+      // Desktop: Table layout
+      html += '<div class="insights-table-display"><div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
+      html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:20%;white-space:nowrap">Insight</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:80%">Details</th></tr></thead>';
       html += '<tbody>';
       allDiscoveryInsights.forEach(insight => {
         let textColor = 'var(--tx)';
@@ -42725,29 +42762,43 @@ function renderInsights(){
         } else if(insight.type === 'con') {
           textColor = 'var(--warn)';
         }
-        html += '<tr style="border-bottom:1px solid var(--bdr);background:#fff"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;width:15%;line-height:1.4;background:rgba(241,245,249,.5);white-space:nowrap">' + insight.title + '</td><td style="padding:8px 10px;vertical-align:top;color:' + textColor + ';line-height:1.4">' + insight.msg + '</td></tr>';
+        html += '<tr style="border-bottom:1px solid var(--bdr);background:#fff"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;width:20%;line-height:1.4;background:rgba(241,245,249,.5);white-space:nowrap">' + insight.title + '</td><td style="padding:8px 10px;vertical-align:top;color:' + textColor + ';line-height:1.4;width:80%">' + insight.msg + '</td></tr>';
       });
-      html += '</tbody></table></div>';
+      html += '</tbody></table></div></div>';
     }
     
     if(careerFits.length > 0){
       html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">Career Insights</h2>';
-      html += '<div class="insights-table-wrapper" style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
-      html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:15%;white-space:nowrap">Career</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:42.5%">Pros</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:42.5%">Cons</th></tr></thead>';
+
+      // Mobile: Card layout
+      html += '<div class="insights-card-container">';
+      careerFits.forEach(cf => {
+        const prosHTML = cf.pros.length > 0 ? cf.pros.map(p => '<div style="margin-bottom:6px">✅ ' + p + '</div>').join('') : '<span class="insights-card-empty">—</span>';
+        const consHTML = cf.cons.length > 0 ? cf.cons.map(c => '<div style="margin-bottom:6px">⚠️ ' + c + '</div>').join('') : '<span class="insights-card-empty">—</span>';
+        html += '<div class="insights-card">';
+        html += '<div class="insights-card-header">' + cf.name + '</div>';
+        html += '<div class="insights-card-body">';
+        html += '<div class="insights-card-pros">' + prosHTML + '</div>';
+        html += '<div class="insights-card-cons">' + consHTML + '</div>';
+        html += '</div>';
+        html += '</div>';
+      });
+      html += '</div>';
+
+      // Desktop: Table layout
+      html += '<div class="insights-table-display"><div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
+      html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:20%;white-space:nowrap">Career</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:40%">Strengths</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:40%">Considerations</th></tr></thead>';
       html += '<tbody>';
       careerFits.forEach(cf => {
-        const prosHTML = cf.pros.length > 0 ? cf.pros.map(p => '<div style="margin-bottom:6px">✅ ' + p + '</div>').join('') : '<span style="color:var(--tx2)">—</span>';
-        const consHTML = cf.cons.length > 0 ? cf.cons.map(c => '<div style="margin-bottom:6px">⚠️ ' + c + '</div>').join('') : '<span style="color:var(--tx2)">—</span>';
-        html += '<tr style="border-bottom:1px solid var(--bdr)"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;line-height:1.4;background:rgba(241,245,249,.5);width:15%;white-space:nowrap">' + cf.name + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--ok);line-height:1.4">' + prosHTML + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--warn);line-height:1.4">' + consHTML + '</td></tr>';
+        const prosHTML = cf.pros.length > 0 ? cf.pros.map(p => '✅ ' + p).join('<br>') : '—';
+        const consHTML = cf.cons.length > 0 ? cf.cons.map(c => '⚠️ ' + c).join('<br>') : '—';
+        html += '<tr style="border-bottom:1px solid var(--bdr);background:#fff"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;width:20%;line-height:1.4;background:rgba(241,245,249,.5);white-space:nowrap">' + cf.name + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--tx);line-height:1.4">' + prosHTML + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--tx);line-height:1.4">' + consHTML + '</td></tr>';
       });
-      html += '</tbody></table></div>';
+      html += '</tbody></table></div></div>';
     }
 
     if(countryFits.length > 0){
       html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">Country Insights</h2>';
-      html += '<div class="insights-table-wrapper" style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
-      html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:15%;white-space:nowrap">Country</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:42.5%">Pros</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:42.5%">Cons</th></tr></thead>';
-      html += '<tbody>';
 
       // Add country insights
       const countryInsightsByCountry = {};
@@ -42757,11 +42808,13 @@ function renderInsights(){
         if(insight.pro) countryInsightsByCountry[country].pros.push(insight.msg);
         else countryInsightsByCountry[country].cons.push(insight.msg);
       });
-      
+
+      // Mobile: Card layout
+      html += '<div class="insights-card-container">';
       countryFits.forEach(cf => {
         let prosHTML = cf.pros.length > 0 ? cf.pros.map(p => '<div style="margin-bottom:6px">✅ ' + p + '</div>').join('') : '';
         let consHTML = cf.cons.length > 0 ? cf.cons.map(c => '<div style="margin-bottom:6px">⚠️ ' + c + '</div>').join('') : '';
-        
+
         // Add university insights for this country
         if(countryInsightsByCountry[cf.name]) {
           countryInsightsByCountry[cf.name].pros.forEach(p => {
@@ -42771,20 +42824,48 @@ function renderInsights(){
             consHTML += '<div style="margin-bottom:6px">⚠️ ' + c + '</div>';
           });
         }
-        
-        prosHTML = prosHTML || '<span style="color:var(--tx2)">—</span>';
-        consHTML = consHTML || '<span style="color:var(--tx2)">—</span>';
 
-        html += '<tr style="border-bottom:1px solid var(--bdr)"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;line-height:1.4;background:rgba(241,245,249,.5);width:15%;white-space:nowrap">' + cf.name + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--ok);line-height:1.4">' + prosHTML + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--warn);line-height:1.4">' + consHTML + '</td></tr>';
+        prosHTML = prosHTML || '<span class="insights-card-empty">—</span>';
+        consHTML = consHTML || '<span class="insights-card-empty">—</span>';
+
+        html += '<div class="insights-card">';
+        html += '<div class="insights-card-header">' + cf.name + '</div>';
+        html += '<div class="insights-card-body">';
+        html += '<div class="insights-card-pros">' + prosHTML + '</div>';
+        html += '<div class="insights-card-cons">' + consHTML + '</div>';
+        html += '</div>';
+        html += '</div>';
       });
-      html += '</tbody></table></div>';
+      html += '</div>';
+
+      // Desktop: Table layout
+      html += '<div class="insights-table-display"><div class="insights-table-wrapper" style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
+      html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:20%;white-space:nowrap">Country</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:40%">Strengths</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:40%">Considerations</th></tr></thead>';
+      html += '<tbody>';
+      countryFits.forEach(cf => {
+        let prosText = cf.pros.length > 0 ? cf.pros.map(p => '✅ ' + p).join('<br>') : '';
+        let consText = cf.cons.length > 0 ? cf.cons.map(c => '⚠️ ' + c).join('<br>') : '';
+
+        // Add university insights for this country
+        if(countryInsightsByCountry[cf.name]) {
+          countryInsightsByCountry[cf.name].pros.forEach(p => {
+            prosText += (prosText ? '<br>' : '') + '✅ ' + p;
+          });
+          countryInsightsByCountry[cf.name].cons.forEach(c => {
+            consText += (consText ? '<br>' : '') + '⚠️ ' + c;
+          });
+        }
+
+        prosText = prosText || '—';
+        consText = consText || '—';
+
+        html += '<tr style="border-bottom:1px solid var(--bdr);background:#fff"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;width:20%;line-height:1.4;background:rgba(241,245,249,.5);white-space:nowrap">' + cf.name + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--tx);line-height:1.4">' + prosText + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--tx);line-height:1.4">' + consText + '</td></tr>';
+      });
+      html += '</tbody></table></div></div>';
     }
 
     if(costAnalysis.length > 0){
       html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">Cost Insights</h2>';
-      html += '<div class="insights-table-wrapper" style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
-      html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:15%;white-space:nowrap">Country</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:42.5%">Pros</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:42.5%">Cons</th></tr></thead>';
-      html += '<tbody>';
 
       // Add cost university insights
       const costInsightsByCountry = {};
@@ -42794,11 +42875,13 @@ function renderInsights(){
         if(insight.pro) costInsightsByCountry[country].pros.push(insight.msg);
         else costInsightsByCountry[country].cons.push(insight.msg);
       });
-      
+
+      // Mobile: Card layout
+      html += '<div class="insights-card-container">';
       costAnalysis.forEach(cf => {
         let prosHTML = cf.pros.length > 0 ? cf.pros.map(p => '<div style="margin-bottom:6px">✅ ' + p + '</div>').join('') : '';
         let consHTML = cf.cons.length > 0 ? cf.cons.map(c => '<div style="margin-bottom:6px">⚠️ ' + c + '</div>').join('') : '';
-        
+
         // Add university insights for this country
         if(costInsightsByCountry[cf.name]) {
           costInsightsByCountry[cf.name].pros.forEach(p => {
@@ -42808,13 +42891,44 @@ function renderInsights(){
             consHTML += '<div style="margin-bottom:6px">⚠️ ' + c + '</div>';
           });
         }
-        
-        prosHTML = prosHTML || '<span style="color:var(--tx2)">—</span>';
-        consHTML = consHTML || '<span style="color:var(--tx2)">—</span>';
 
-        html += '<tr style="border-bottom:1px solid var(--bdr)"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;line-height:1.4;background:rgba(241,245,249,.5);width:15%;white-space:nowrap">' + cf.name + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--ok);line-height:1.4">' + prosHTML + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--warn);line-height:1.4">' + consHTML + '</td></tr>';
+        prosHTML = prosHTML || '<span class="insights-card-empty">—</span>';
+        consHTML = consHTML || '<span class="insights-card-empty">—</span>';
+
+        html += '<div class="insights-card">';
+        html += '<div class="insights-card-header">' + cf.name + '</div>';
+        html += '<div class="insights-card-body">';
+        html += '<div class="insights-card-pros">' + prosHTML + '</div>';
+        html += '<div class="insights-card-cons">' + consHTML + '</div>';
+        html += '</div>';
+        html += '</div>';
       });
-      html += '</tbody></table></div>';
+      html += '</div>';
+
+      // Desktop: Table layout
+      html += '<div class="insights-table-display"><div class="insights-table-wrapper" style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
+      html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:20%;white-space:nowrap">Cost Category</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:40%">Strengths</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:40%">Considerations</th></tr></thead>';
+      html += '<tbody>';
+      costAnalysis.forEach(cf => {
+        let prosText = cf.pros.length > 0 ? cf.pros.map(p => '✅ ' + p).join('<br>') : '';
+        let consText = cf.cons.length > 0 ? cf.cons.map(c => '⚠️ ' + c).join('<br>') : '';
+
+        // Add university insights for this category
+        if(costInsightsByCountry[cf.name]) {
+          costInsightsByCountry[cf.name].pros.forEach(p => {
+            prosText += (prosText ? '<br>' : '') + '✅ ' + p;
+          });
+          costInsightsByCountry[cf.name].cons.forEach(c => {
+            consText += (consText ? '<br>' : '') + '⚠️ ' + c;
+          });
+        }
+
+        prosText = prosText || '—';
+        consText = consText || '—';
+
+        html += '<tr style="border-bottom:1px solid var(--bdr);background:#fff"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;width:20%;line-height:1.4;background:rgba(241,245,249,.5);white-space:nowrap">' + cf.name + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--tx);line-height:1.4">' + prosText + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--tx);line-height:1.4">' + consText + '</td></tr>';
+      });
+      html += '</tbody></table></div></div>';
     }
 
     if(universityInsights.length > 0 && universityInsights.some(u => u.type === 'cost' && u.country === 'General')) {
@@ -42829,8 +42943,35 @@ function renderInsights(){
       });
     }
   }
-  
+
   el.innerHTML = html;
+
+  // Use JavaScript to control card/table visibility based on viewport (CSS media queries not working)
+  setTimeout(() => {
+    const cards = document.querySelectorAll('.insights-card-container');
+    const tables = document.querySelectorAll('.insights-table-display');
+
+    // Check if viewport is portrait (mobile) or landscape (desktop)
+    const isMobile = window.innerHeight > window.innerWidth * 1.2;
+
+    if(isMobile) {
+      // Mobile: show cards, hide tables
+      cards.forEach(el => {
+        el.style.cssText = 'display: flex !important; flex-wrap: wrap; gap: 12px; margin-bottom: 24px;';
+      });
+      tables.forEach(el => {
+        el.style.cssText = 'display: none !important;';
+      });
+    } else {
+      // Desktop: hide cards, show tables
+      cards.forEach(el => {
+        el.style.cssText = 'display: none !important;';
+      });
+      tables.forEach(el => {
+        el.style.cssText = 'display: block !important;';
+      });
+    }
+  }, 100);
 }
 
 function pick1(q,el){document.querySelectorAll(`[data-q="${q}"] .pill`).forEach(o=>o.classList.remove('on'));el.classList.add('on');if(q==='citizen')S.citizen=[el.textContent];else if(q==='flex')S.flex=el.textContent;else if(q==='cost')S.cost=el.textContent;else if(q==='vision')S.vision=el.textContent;else if(q==='lang')S.lang=el.textContent;else if(q==='debtYrs')S.debtYrs=el.textContent;else if(q==='postGrad')S.postGrad=el.textContent;else if(q==='inStateTuitionPref')S.inStateTuitionPref=el.textContent;else if(q==='stateOfResidency')S.stateOfResidency=el.textContent;else if(q==='uniSelectivity')S.uniSelectivity=el.textContent}
