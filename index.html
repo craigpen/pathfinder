@@ -80,6 +80,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Segoe UI Emoji',Ro
 .tli b{color:var(--dk)}
 
 .pills{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0}
+.pill{white-space:nowrap}
+.highlight-tag{display:inline-block;background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.3);color:var(--pri);padding:2px 8px;border-radius:4px;font-weight:600;white-space:nowrap;margin:0 2px}
 .pill{padding:4px 10px;border-radius:14px;font-size:13px;font-weight:600;cursor:pointer;border:2px solid var(--bdr);transition:.15s;background:#f9fafb;user-select:none;box-shadow:0 1px 2px rgba(0,0,0,.04);line-height:1.4}
 .pill:hover{border-color:var(--pri);background:#ffffff}.pill.on{border-color:var(--pri);background:rgba(37,99,235,.1);color:var(--pri)}
 table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;margin:12px 0}
@@ -43244,23 +43246,27 @@ function getCostInsight(countryKey, countryData) {
 
 function buildNarrative() {
   let parts = [];
-  
+
+  // Helper to wrap text in highlight tag
+  const hl = (text) => `<span class="highlight-tag">${text}</span>`;
+
   // Citizenship
   let hasCitizen = false;
   if (S.citizen && S.citizen.length > 0) {
     const citizenText = S.citizen.join('/');
     // Use "an" for vowel sounds: EU, Dual. Use "a" for consonants: US, US/EU
     const article = citizenText.startsWith('E') || citizenText.startsWith('D') ? 'an' : 'a';
-    parts.push(`You are ${article} ${citizenText} citizen`);
+    parts.push(`You are ${article} ${hl(citizenText)} citizen`);
     hasCitizen = true;
   }
-  
+
   // Categories and careers
   let careerPart = '';
   if (S.cats && S.cats.length > 0) {
-    careerPart = `interested in ${S.cats.map(c => CATS[c].name).join(', ')}`;
+    const catNames = S.cats.map(c => hl(CATS[c].name)).join(', ');
+    careerPart = `interested in ${catNames}`;
     if (S.subCareers && S.subCareers.length > 0) {
-      const careers = S.subCareers;
+      const careers = S.subCareers.map(c => hl(c));
       if (careers.length === 1) {
         careerPart += ` — in particular ${careers[0]}`;
       } else {
@@ -43276,62 +43282,65 @@ function buildNarrative() {
       parts.push(`You're ${careerPart}`);
     }
   }
-  
+
   // Motivations
   if (S.motivations && S.motivations.length > 0) {
-    parts.push(`. You're driven by ${S.motivations.join(', ')}`);
+    const motivations = S.motivations.map(m => hl(m)).join(', ');
+    parts.push(`. You're driven by ${motivations}`);
   }
-  
+
   // Flexibility + Vision combined
   let studyVisionPart = '';
   if (S.flex || S.vision) {
     studyVisionPart = '. You envision ';
-    
+
     // Flexibility (where to study)
     if (S.flex && S.flex.length > 0) {
       const flexMap = {
         "Study in the US": "studying in the US",
         "Study in Europe": "studying in Europe"
       };
-      const flexTexts = S.flex.map(f => flexMap[f] || f.toLowerCase());
+      const flexTexts = S.flex.map(f => hl(flexMap[f] || f.toLowerCase()));
       studyVisionPart += flexTexts.join(" and ");
     }
-    
+
     // Vision (where living/working in 5 years)
     if (S.vision) {
       const visionMap = {
-        'In the US': 'and living and working in the US in 5 years',
-        'Abroad': 'and living and working abroad in 5 years',
-        'Anywhere globally': 'and living and working anywhere in 5 years'
+        'In the US': 'living and working in the US in 5 years',
+        'Abroad': 'living and working abroad in 5 years',
+        'Anywhere globally': 'living and working anywhere in 5 years'
       };
       const visionText = visionMap[S.vision] || '';
+      const highlightedVision = hl(visionText);
       // Add "and" only if flex exists, otherwise just start with "living"
       if (S.flex) {
-        studyVisionPart += ' ' + visionText;
+        studyVisionPart += ' and ' + highlightedVision;
       } else {
-        studyVisionPart += visionText.replace('and ', '');
+        studyVisionPart += highlightedVision;
       }
     }
-    
+
     parts.push(studyVisionPart);
   }
-  
+
   // Language - comes after vision with comma
   if (S.lang) {
     const langMap = {
-      'Slower language learner': 'someone who is a slower language learner',
-      'Normal language learner': 'an average language learner',
-      'Natural linguist': 'a natural linguist'
+      'Slower language learner': 'slower language learner',
+      'Normal language learner': 'average language learner',
+      'Natural linguist': 'natural linguist'
     };
-    
+
+    const langText = hl(langMap[S.lang] || S.lang.toLowerCase());
     // If there's a vision sentence, add with comma. Otherwise start new sentence.
     if (S.vision || S.flex) {
-      parts.push(`, as ${langMap[S.lang] || S.lang.toLowerCase()}`);
+      parts.push(`, as a ${langText}`);
     } else {
-      parts.push(`. You are ${langMap[S.lang] || S.lang.toLowerCase()}`);
+      parts.push(`. You are a ${langText}`);
     }
   }
-  
+
   // Cost sensitivity
   if (S.cost) {
     const costMap = {
@@ -43340,21 +43349,23 @@ function buildNarrative() {
       "Critical": "critical"
     };
     const costText = costMap[S.cost] || S.cost.toLowerCase();
+    const highlightedCost = hl(costText);
     // Use "is" for single words (manageable, critical), omit for phrases (matters a lot)
-    const costSentence = costText.includes(' ') 
-      ? `. Cost ${costText} for you`
-      : `. Cost is ${costText} for you`;
+    const costSentence = costText.includes(' ')
+      ? `. Cost ${highlightedCost} for you`
+      : `. Cost is ${highlightedCost} for you`;
     parts.push(costSentence);
   }
-  
+
   // Debt tolerance
   if (S.debtYrs) {
+    const highlightedDebt = hl(S.debtYrs);
     if (S.cost) {
       // Comma conjunction if cost exists
-      parts.push(`, and you're willing to carry loan debt for ${S.debtYrs}`);
+      parts.push(`, and you're willing to carry loan debt for ${highlightedDebt}`);
     } else {
       // New sentence if no cost
-      parts.push(`. You're willing to carry loan debt for ${S.debtYrs}`);
+      parts.push(`. You're willing to carry loan debt for ${highlightedDebt}`);
     }
   }
   
