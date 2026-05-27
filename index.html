@@ -31,7 +31,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Segoe UI Emoji',Ro
 .spotify-frame{width:100%;height:96px;border:0;display:block}
 .spotify-wrap.show{visibility:visible;pointer-events:auto}
 .tabs{display:flex;background:var(--lt);border-bottom:2px solid var(--bdr);width:100%;overflow-x:auto;overflow-y:hidden}
-.tb{flex:0 0 auto;padding:12px 8px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:600;color:var(--tx2);transition:.2s;white-space:nowrap;text-align:center;min-width:70px}
+.tb{flex:0 0 auto;padding:12px 8px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:600;color:var(--tx2);transition:.2s;white-space:nowrap;text-align:center;min-width:90px}
 @media(min-aspect-ratio:1/1.2){
   /* Desktop - distribute tabs evenly */
   .tabs{overflow:hidden}
@@ -157,6 +157,15 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
   .carousel-wrap{display:block !important}
   .photo-carousel{height:160px}
 }
+
+@media(max-aspect-ratio:1/1.2){
+  /* Ensure carousels are fully visible on mobile */
+  .uni-carousel-wrap{display:block !important;visibility:visible !important}
+  .carousel-wrap{display:block !important;visibility:visible !important}
+  .uni-carousel-wrap .uni-country-carousel{display:flex !important;overflow-x:auto !important}
+  .carousel-wrap .carousel-container{display:flex !important;overflow-x:auto !important}
+}
+
 </style>
 </head>
 <body>
