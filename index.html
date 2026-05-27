@@ -156,11 +156,15 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
   .ct{display:none !important}
   .carousel-wrap{display:block !important}
   .photo-carousel{height:160px}
-  /* Mobile insights layout - horizontal scroll with reduced font */
-  .insights-table-wrapper{overflow-x:auto !important;-webkit-overflow-scrolling:touch}
-  .insights-table-wrapper table{font-size:12px;min-width:100%;width:auto}
-  .insights-table-wrapper th{font-size:11px;padding:6px 8px}
-  .insights-table-wrapper td{font-size:12px;padding:6px 8px;word-break:break-word}
+  /* Mobile insights layout - full width with compact display */
+  .insights-table-wrapper{display:block !important;overflow:visible !important}
+  .insights-table-wrapper table{display:block !important;width:100% !important;font-size:12px;border-collapse:collapse}
+  .insights-table-wrapper thead{display:block !important;background:rgba(59,130,246,.08)}
+  .insights-table-wrapper thead tr{display:grid !important;grid-template-columns:80px 1fr 1fr;width:100%}
+  .insights-table-wrapper tbody{display:block !important}
+  .insights-table-wrapper tbody tr{display:grid !important;grid-template-columns:80px 1fr 1fr;width:100%;border-bottom:1px solid rgba(59,130,246,.1) !important;gap:0}
+  .insights-table-wrapper th{font-size:10px;padding:6px 6px;text-align:left;font-weight:600;color:var(--ok);background:rgba(59,130,246,.08);word-break:break-word}
+  .insights-table-wrapper td{font-size:11px;padding:6px;vertical-align:top;word-break:break-word;line-height:1.3}
 }
 
 @media(max-aspect-ratio:1/1.2){
@@ -325,7 +329,7 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 </div>
 <div id="cost-table"></div>
 
-<div class="bg"><button class="btn bs pos-left" onclick="go('universities')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('deepDive')">Next</button></div>
+<div class="bg"><button class="btn bs pos-left" onclick="go('universities')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('insights')">Next</button></div>
 </div>
 <div class="pan" id="insights" style="padding:24px">
 <h2 style="margin-top:0">Your Narrative Summary</h2>
