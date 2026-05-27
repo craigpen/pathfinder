@@ -42242,6 +42242,26 @@ function generateSelectionInsights() {
   }
   return insights;
 }
+function buildInsightCarouselHTML(items, carouselId) {
+  let html = `<div class="carousel-wrap"><div class="carousel-container">`;
+  items.forEach(item => {
+    let contentHTML = '';
+    if(item.pros || item.msg) {
+      const mainContent = item.msg || item.pros.map(p => '✅ ' + p).join('<br>');
+      contentHTML = `<div class="carousel-card-row" style="color:var(--tx)">${mainContent}</div>`;
+      if(item.cons) {
+        contentHTML += `<div class="carousel-card-row" style="color:var(--tx);margin-top:8px">${item.cons.map(c => '⚠️ ' + c).join('<br>')}</div>`;
+      }
+    }
+    html += `<div class="carousel-card">
+      <div class="carousel-card-header">${item.title || item.name}</div>
+      <div class="carousel-card-content">${contentHTML || '<div class="carousel-card-row">—</div>'}</div>
+    </div>`;
+  });
+  html += '</div></div>';
+  return html;
+}
+
 function renderInsights(){
   const el = document.getElementById('insights-container');
   const narr = document.getElementById('narrative-display');
@@ -42731,23 +42751,8 @@ function renderInsights(){
     if(allDiscoveryInsights.length > 0) {
       html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">Narrative Insights</h2>';
 
-      // Mobile: Card layout
-      html += '<div class="insights-card-container">';
-      allDiscoveryInsights.forEach(insight => {
-        let textColor = 'var(--tx)';
-        if(insight.type === 'pro') {
-          textColor = 'var(--ok)';
-        } else if(insight.type === 'conflict') {
-          textColor = 'var(--warn)';
-        } else if(insight.type === 'con') {
-          textColor = 'var(--warn)';
-        }
-        html += '<div class="insights-card">';
-        html += '<div class="insights-card-header">' + insight.title + '</div>';
-        html += '<div class="insights-card-body" style="color:' + textColor + '">' + insight.msg + '</div>';
-        html += '</div>';
-      });
-      html += '</div>';
+      // Mobile: Card layout (carousel)
+      html += buildInsightCarouselHTML(allDiscoveryInsights, 'narrative-carousel');
 
       // Desktop: Table layout
       html += '<div class="insights-table-display"><div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
@@ -42770,20 +42775,8 @@ function renderInsights(){
     if(careerFits.length > 0){
       html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">Career Insights</h2>';
 
-      // Mobile: Card layout
-      html += '<div class="insights-card-container">';
-      careerFits.forEach(cf => {
-        const prosHTML = cf.pros.length > 0 ? cf.pros.map(p => '<div style="margin-bottom:6px">✅ ' + p + '</div>').join('') : '<span class="insights-card-empty">—</span>';
-        const consHTML = cf.cons.length > 0 ? cf.cons.map(c => '<div style="margin-bottom:6px">⚠️ ' + c + '</div>').join('') : '<span class="insights-card-empty">—</span>';
-        html += '<div class="insights-card">';
-        html += '<div class="insights-card-header">' + cf.name + '</div>';
-        html += '<div class="insights-card-body">';
-        html += '<div class="insights-card-pros">' + prosHTML + '</div>';
-        html += '<div class="insights-card-cons">' + consHTML + '</div>';
-        html += '</div>';
-        html += '</div>';
-      });
-      html += '</div>';
+      // Mobile: Card layout (carousel)
+      html += buildInsightCarouselHTML(careerFits, 'career-carousel');
 
       // Desktop: Table layout
       html += '<div class="insights-table-display"><div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
@@ -42809,34 +42802,20 @@ function renderInsights(){
         else countryInsightsByCountry[country].cons.push(insight.msg);
       });
 
-      // Mobile: Card layout
-      html += '<div class="insights-card-container">';
-      countryFits.forEach(cf => {
-        let prosHTML = cf.pros.length > 0 ? cf.pros.map(p => '<div style="margin-bottom:6px">✅ ' + p + '</div>').join('') : '';
-        let consHTML = cf.cons.length > 0 ? cf.cons.map(c => '<div style="margin-bottom:6px">⚠️ ' + c + '</div>').join('') : '';
+      // Mobile: Card layout (carousel) - merge country fits with university insights
+      const countryCarouselItems = countryFits.map(cf => {
+        let pros = [...cf.pros];
+        let cons = [...cf.cons];
 
         // Add university insights for this country
         if(countryInsightsByCountry[cf.name]) {
-          countryInsightsByCountry[cf.name].pros.forEach(p => {
-            prosHTML += '<div style="margin-bottom:6px">✅ ' + p + '</div>';
-          });
-          countryInsightsByCountry[cf.name].cons.forEach(c => {
-            consHTML += '<div style="margin-bottom:6px">⚠️ ' + c + '</div>';
-          });
+          pros = pros.concat(countryInsightsByCountry[cf.name].pros);
+          cons = cons.concat(countryInsightsByCountry[cf.name].cons);
         }
 
-        prosHTML = prosHTML || '<span class="insights-card-empty">—</span>';
-        consHTML = consHTML || '<span class="insights-card-empty">—</span>';
-
-        html += '<div class="insights-card">';
-        html += '<div class="insights-card-header">' + cf.name + '</div>';
-        html += '<div class="insights-card-body">';
-        html += '<div class="insights-card-pros">' + prosHTML + '</div>';
-        html += '<div class="insights-card-cons">' + consHTML + '</div>';
-        html += '</div>';
-        html += '</div>';
+        return { name: cf.name, pros, cons };
       });
-      html += '</div>';
+      html += buildInsightCarouselHTML(countryCarouselItems, 'country-carousel');
 
       // Desktop: Table layout
       html += '<div class="insights-table-display"><div class="insights-table-wrapper" style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
@@ -42876,34 +42855,20 @@ function renderInsights(){
         else costInsightsByCountry[country].cons.push(insight.msg);
       });
 
-      // Mobile: Card layout
-      html += '<div class="insights-card-container">';
-      costAnalysis.forEach(cf => {
-        let prosHTML = cf.pros.length > 0 ? cf.pros.map(p => '<div style="margin-bottom:6px">✅ ' + p + '</div>').join('') : '';
-        let consHTML = cf.cons.length > 0 ? cf.cons.map(c => '<div style="margin-bottom:6px">⚠️ ' + c + '</div>').join('') : '';
+      // Mobile: Card layout (carousel) - merge cost analysis with university insights
+      const costCarouselItems = costAnalysis.map(cf => {
+        let pros = [...cf.pros];
+        let cons = [...cf.cons];
 
-        // Add university insights for this country
+        // Add university insights for this category
         if(costInsightsByCountry[cf.name]) {
-          costInsightsByCountry[cf.name].pros.forEach(p => {
-            prosHTML += '<div style="margin-bottom:6px">✅ ' + p + '</div>';
-          });
-          costInsightsByCountry[cf.name].cons.forEach(c => {
-            consHTML += '<div style="margin-bottom:6px">⚠️ ' + c + '</div>';
-          });
+          pros = pros.concat(costInsightsByCountry[cf.name].pros);
+          cons = cons.concat(costInsightsByCountry[cf.name].cons);
         }
 
-        prosHTML = prosHTML || '<span class="insights-card-empty">—</span>';
-        consHTML = consHTML || '<span class="insights-card-empty">—</span>';
-
-        html += '<div class="insights-card">';
-        html += '<div class="insights-card-header">' + cf.name + '</div>';
-        html += '<div class="insights-card-body">';
-        html += '<div class="insights-card-pros">' + prosHTML + '</div>';
-        html += '<div class="insights-card-cons">' + consHTML + '</div>';
-        html += '</div>';
-        html += '</div>';
+        return { name: cf.name, pros, cons };
       });
-      html += '</div>';
+      html += buildInsightCarouselHTML(costCarouselItems, 'cost-carousel');
 
       // Desktop: Table layout
       html += '<div class="insights-table-display"><div class="insights-table-wrapper" style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
