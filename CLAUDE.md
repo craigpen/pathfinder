@@ -9,6 +9,7 @@
 
 ### After Completing Work
 - Show the diff before committing: `git diff [files]`
+- Report file size in the commit message: include `index.html` size so you can quickly spot bloat
 - Create a commit with a clear, descriptive message
 - Never use `--force` or `--no-verify` without explicit user approval
 - Confirm branch before pushing (never push to main without asking)
