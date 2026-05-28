@@ -44,6 +44,13 @@
 - **Deploy**: Push to GitHub (syncs to your github.io page)
 - **Sharing**: Test on mobile device via github.io before finalizing
 
+## Versioning (Semantic)
+
+I'll automatically determine and increment the version based on your request:
+- **PATCH** (v1.0.1, v1.0.2, etc.) — Bug fixes, styling tweaks, mobile responsiveness fixes, carousel adjustments, copy corrections
+- **MINOR** (v1.1.0, v1.2.0, etc.) — New features or content sections (new career, country, tab, slider), structural changes, UI enhancements
+- **MAJOR** (v2.0.0, etc.) — Complete redesign, major architecture changes, significant user flow changes
+
 ## index.html Specific Guidelines
 
 ### 1. Syntax Correctness (Critical)
