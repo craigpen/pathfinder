@@ -43267,84 +43267,79 @@ function renderInsights(){
   let html = '';
   
   // Collect conflict and selection insights
+  // NEW STRUCTURE: Conflicts First → Career+Country Combined → Financial Impact
+  let allConflicts = [];
   let allDiscoveryInsights = [];
   allDiscoveryInsights = allDiscoveryInsights.concat(generateConflictInsights());
   allDiscoveryInsights = allDiscoveryInsights.concat(generateSelectionInsights());
-  
+
+  // Separate conflicts from other insights
+  const discoveryConflicts = allDiscoveryInsights.filter(i => i.type === 'conflict' || i.type === 'con');
+  const discoveryOpportunities = allDiscoveryInsights.filter(i => i.type === 'pro' || i.type === 'neutral');
+  allConflicts = allConflicts.concat(discoveryConflicts);
+  allConflicts = allConflicts.concat(crossTabInsights);
+
   if(careerFits.length === 0 && countryFits.length === 0 && costAnalysis.length === 0 && allDiscoveryInsights.length === 0){
     html = '<p style="color:var(--tx2);font-style:italic">Make selections across tabs to see personalized insights.</p>';
   } else {
-    // Display Discovery Insights (conflicts and selections) - cards for mobile, table for desktop
-    if(allDiscoveryInsights.length > 0) {
-      html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">Narrative Insights</h2>';
-      html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5">Insights based on your Discovery selections. Look for conflicts or opportunities. Revisit the Discovery tab to refine your profile and see new insights.</div>';
+    // SECTION 1: CONFLICTS TO REVIEW (highest priority, at top)
+    if(allConflicts.length > 0){
+      // Sort conflicts: red (conflict) first, then orange (con)
+      allConflicts.sort((a,b) => {
+        const priority = {conflict: 0, con: 1};
+        return (priority[a.type] || 2) - (priority[b.type] || 2);
+      });
 
-      // Mobile: Card layout (carousel)
-      html += buildInsightCarouselHTML(allDiscoveryInsights, 'narrative-carousel');
+      html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">⚠️ Things to Check</h2>';
+      html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5">Review these to make sure your selections work together.</div>';
 
-      // Desktop: Table layout
+      html += buildInsightCarouselHTML(allConflicts.map(c => ({...c, name: c.title})), 'conflicts-carousel');
+
       html += '<div class="insights-table-display"><div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
-      html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:20%;white-space:nowrap">Insight</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:80%">Details</th></tr></thead>';
+      html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:25%;white-space:nowrap">Issue</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:75%">Details</th></tr></thead>';
       html += '<tbody>';
-      allDiscoveryInsights.forEach(insight => {
-        let textColor = 'var(--tx)';
-        if(insight.type === 'pro') {
-          textColor = 'var(--ok)';
-        } else if(insight.type === 'conflict') {
-          textColor = 'var(--warn)';
-        } else if(insight.type === 'con') {
-          textColor = 'var(--warn)';
-        }
-        html += '<tr style="border-bottom:1px solid var(--bdr);background:#fff"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;width:20%;line-height:1.4;background:rgba(241,245,249,.5);white-space:nowrap">' + insight.title + '</td><td style="padding:8px 10px;vertical-align:top;color:' + textColor + ';line-height:1.4;width:80%">' + insight.msg + '</td></tr>';
+      allConflicts.forEach(conflict => {
+        const color = conflict.type === 'conflict' ? 'var(--bad)' : 'var(--warn)';
+        html += '<tr style="border-bottom:1px solid var(--bdr);background:#fff"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;width:25%;line-height:1.4;background:rgba(241,245,249,.5);white-space:nowrap">' + conflict.title + '</td><td style="padding:8px 10px;vertical-align:top;color:' + color + ';line-height:1.4;width:75%">' + conflict.msg + '</td></tr>';
       });
       html += '</tbody></table></div></div>';
     }
-    
-    if(careerFits.length > 0){
-      html += renderInsightsTable(
-        'Career Insights',
-        'Insights based on your career interests and motivations. Consider which careers align with your values and next steps. Explore the Careers tab to discover more.',
-        'Career',
-        careerFits,
-        'career-carousel'
-      );
-    }
 
-    if(countryFits.length > 0){
-      // Add country insights
-      const countryInsightsByCountry = {};
-      universityInsights.filter(u => u.type === 'country').forEach(insight => {
-        const country = insight.country;
-        if(!countryInsightsByCountry[country]) countryInsightsByCountry[country] = {pros: [], cons: []};
-        if(insight.pro) countryInsightsByCountry[country].pros.push(insight.msg);
-        else countryInsightsByCountry[country].cons.push(insight.msg);
-      });
+    // SECTION 2: YOUR BEST FITS (combined career+country with countries as columns)
+    if(careerFits.length > 0 && S.cc.length > 0){
+      html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">✅ Your Best Fits</h2>';
+      html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5">How each career works in your chosen countries.</div>';
 
-      // Merge country fits with university insights
-      const countryItemsWithInsights = countryFits.map(cf => {
-        let pros = [...cf.pros];
-        let cons = [...cf.cons];
-
-        // Add university insights for this country
-        if(countryInsightsByCountry[cf.name]) {
-          pros = pros.concat(countryInsightsByCountry[cf.name].pros);
-          cons = cons.concat(countryInsightsByCountry[cf.name].cons);
+      html += '<div class="insights-carousel-wrap" id="bestfits-carousel"><div class="insights-carousel-container">';
+      careerFits.forEach(cf => {
+        html += '<div class="insights-carousel-card"><div class="insights-carousel-card-header">' + cf.name + '</div>';
+        html += '<div class="insights-carousel-card-content">';
+        if(cf.pros.length > 0) {
+          html += '<div class="insights-carousel-card-row"><strong style="color:var(--ok)">✅ Strengths:</strong><br>' + cf.pros.map(p => formatInsightItem(p, true)).join('<br>') + '</div>';
         }
-
-        return { name: cf.name, pros, cons };
+        if(cf.cons.length > 0) {
+          html += '<div class="insights-carousel-card-row" style="margin-top:8px"><strong style="color:var(--warn)">⚠️ Considerations:</strong><br>' + cf.cons.map(c => formatInsightItem(c, false)).join('<br>') + '</div>';
+        }
+        html += '</div></div>';
       });
+      html += '</div><div class="carousel-indicator">Career 1 of ' + careerFits.length + '</div></div>';
 
-      html += renderInsightsTable(
-        'Country Insights',
-        'Insights based on your location preferences and citizenship. Use these to narrow your university choices by country. Update your Countries selection to see how different locations match your priorities.',
-        'Country',
-        countryItemsWithInsights,
-        'country-carousel'
-      );
+      html += '<div class="insights-table-display"><div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
+      html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:20%;white-space:nowrap">Career</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:40%">Strengths</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:40%">Considerations</th></tr></thead>';
+      html += '<tbody>';
+      careerFits.forEach(cf => {
+        const prosHTML = cf.pros.length > 0 ? cf.pros.map(p => formatInsightItem(p, true)).join('<br>') : '—';
+        const consHTML = cf.cons.length > 0 ? cf.cons.map(c => formatInsightItem(c, false)).join('<br>') : '—';
+        html += '<tr style="border-bottom:1px solid var(--bdr);background:#fff"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;width:20%;line-height:1.4;background:rgba(241,245,249,.5);white-space:nowrap">' + cf.name + '</td><td style="padding:8px 10px;vertical-align:top;width:40%;line-height:1.4">' + prosHTML + '</td><td style="padding:8px 10px;vertical-align:top;width:40%;line-height:1.4">' + consHTML + '</td></tr>';
+      });
+      html += '</tbody></table></div></div>';
     }
 
+    // SECTION 3: FINANCIAL IMPACT
     if(costAnalysis.length > 0){
-      // Add cost university insights
+      html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">💰 Your Financial Picture</h2>';
+      html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5">Cost implications based on your choices and financial inputs.</div>';
+
       const costInsightsByCountry = {};
       universityInsights.filter(u => u.type === 'cost').forEach(insight => {
         const country = insight.country;
@@ -43353,56 +43348,22 @@ function renderInsights(){
         else costInsightsByCountry[country].cons.push(insight.msg);
       });
 
-      // Merge cost analysis with university insights
       const costItemsWithInsights = costAnalysis.map(cf => {
         let pros = [...cf.pros];
         let cons = [...cf.cons];
-
-        // Add university insights for this category
         if(costInsightsByCountry[cf.name]) {
           pros = pros.concat(costInsightsByCountry[cf.name].pros);
           cons = cons.concat(costInsightsByCountry[cf.name].cons);
         }
-
         return { name: cf.name, pros, cons };
       });
 
       html += renderInsightsTable(
-        'Cost Insights',
-        'Insights based on your financial situation and cost priorities. Compare countries by affordability and aid availability. Adjust your financial profile on the Costs tab to see updated recommendations.',
-        'Cost Category',
+        '',
+        '',
+        'Category',
         costItemsWithInsights,
         'cost-carousel'
-      );
-    }
-
-    if(universityInsights.length > 0 && universityInsights.some(u => u.type === 'cost' && u.country === 'General')) {
-      // Render general cost insights that don't fit into country table
-      const generalCostInsights = universityInsights.filter(u => u.type === 'cost' && u.country === 'General');
-      generalCostInsights.forEach(insight => {
-        const bgColor = insight.pro ? 'rgba(100,180,100,.06)' : 'rgba(200,100,100,.06)';
-        const borderColor = insight.pro ? 'rgba(100,180,100,.3)' : 'rgba(200,100,100,.3)';
-        html += '<div style="margin-bottom:12px;padding:12px;background:' + bgColor + ';border-left:4px solid ' + borderColor + ';border-radius:4px;font-size:15px;line-height:1.5">';
-        html += insight.msg;
-        html += '</div>';
-      });
-    }
-
-    // CROSS-TAB INSIGHTS - Compound insights comparing multiple selections
-    if(crossTabInsights.length > 0) {
-      // Prepare items for display
-      const crossTabItemsForDisplay = crossTabInsights.map(insight => ({
-        name: insight.title,
-        pros: insight.pros,
-        cons: insight.cons
-      }));
-
-      html += renderInsightsTable(
-        'Cross-Tab Insights',
-        'Compound insights that connect your career, location, and financial choices. Use these to understand how your selections work together and identify opportunities or trade-offs.',
-        'Insight',
-        crossTabItemsForDisplay,
-        'crosstab-carousel'
       );
     }
   }
@@ -43411,11 +43372,9 @@ function renderInsights(){
 
   // Initialize all carousels with JavaScript-based snapping
   setTimeout(() => {
-    if(document.getElementById('narrative-carousel')) initCarousel('narrative-carousel', '.insights-carousel-container');
-    if(document.getElementById('career-carousel')) initCarousel('career-carousel', '.insights-carousel-container');
-    if(document.getElementById('country-carousel')) initCarousel('country-carousel', '.insights-carousel-container');
+    if(document.getElementById('conflicts-carousel')) initCarousel('conflicts-carousel', '.insights-carousel-container');
+    if(document.getElementById('bestfits-carousel')) initCarousel('bestfits-carousel', '.insights-carousel-container');
     if(document.getElementById('cost-carousel')) initCarousel('cost-carousel', '.insights-carousel-container');
-    if(document.getElementById('crosstab-carousel')) initCarousel('crosstab-carousel', '.insights-carousel-container');
   }, 50);
 }
 
