@@ -42414,6 +42414,13 @@ function renderInsights(){
   const el = document.getElementById('insights-container');
   const narr = document.getElementById('narrative-display');
 
+  // Sync costCC with cc if not already set, so cost insights use current country selections
+  if(S.cc.length > 0 && S.costCC.length === 0) {
+    S.costCC = [...S.cc];
+  } else if(S.cc.length === 0) {
+    S.costCC = [];
+  }
+
   // Get slider values
   const schol = parseFloat(document.getElementById('sl-schol').value) || 0;
   const savings = parseFloat(document.getElementById('sl-savings').value) || 0;
