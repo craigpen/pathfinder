@@ -40583,7 +40583,7 @@ const UNIVERSITIES_BY_SUBJECT = {
 const CAREER_TO_QS_SUBJECT={"Accounting":"Accounting & Finance","Architecture":"Architecture","Biology / Biotech":"Biological Sciences","Chemistry":"Chemistry","Computer Science":"Computer Science & IT","Cybersecurity":"Computer Science & IT","Data Science / AI":"Data Science & Artificial Intelligence","Economics":"Economics & Econometrics","Electrical Engineering":"Engineering – Electrical & Electronic","Entrepreneurship":"Business & Management Studies","Environmental / Climate":"Environmental Sciences","European Law":"Law","Film / Media Production":"Communications & Media Studies","Finance / Banking":"Accounting & Finance","Graphic / UX Design":"Art & Design","International Relations":"Politics & International Studies","Marketing / Management":"Business & Management Studies","Math / Statistics":"Mathematics","Mechanical Engineering":"Engineering – Mechanical, Aeronautical & Manufacturing","Medicine (MD/DO)":"Medicine","Nursing":"Nursing","Pharmacy":"Pharmacy & Pharmacology","Physical Therapy":"Health & Clinical Sciences","Physics":"Physics & Astronomy","Psychology (Clinical)":"Psychology","Public Policy":"Politics & International Studies","Software Engineering":"Computer Science & IT","Technical Theater / Live Events":"Performing Arts","Theater & Performing Arts":"Performing Arts","US Law (JD)":"Law","Writing / Communications":"Communications & Media Studies"};
 
 const S={cats:[],motivations:[],subCareers:[],prac:[],cc:[],costCC:[],expl:null,playlist:null,flex:[],cost:null,vision:null,lang:null,citizen:[],debtYrs:null,languages:[],postGrad:null,inStateTuitionPref:null,stateOfResidency:null,inStateToggle:false,uniSelectivity:null,scholarshipPct:null,collegeSavings:null,partTimeWork:null,familySupport:null,loanRate:null,loanRepaymentYears:null};
-const VERSION='v1.0.29';
+const VERSION='v1.0.30';
 function saveState(){const stateToSave={cats:S.cats,motivations:S.motivations,subCareers:S.subCareers,flex:S.flex,cost:S.cost,vision:S.vision,lang:S.lang,citizen:S.citizen,debtYrs:S.debtYrs,languages:S.languages,postGrad:S.postGrad,inStateTuitionPref:S.inStateTuitionPref,stateOfResidency:S.stateOfResidency,cc:S.cc,costCC:S.costCC,expl:S.expl,uniSelectivity:S.uniSelectivity,scholarshipPct:S.scholarshipPct,collegeSavings:S.collegeSavings,partTimeWork:S.partTimeWork,familySupport:S.familySupport,loanRate:S.loanRate,loanRepaymentYears:S.loanRepaymentYears,inStateToggle:S.inStateToggle};localStorage.setItem('univPathfinderState',JSON.stringify(stateToSave));}
 function loadState(){const saved=localStorage.getItem('univPathfinderState');if(saved){const state=JSON.parse(saved);Object.assign(S,state);if(state.scholarshipPct!==undefined)document.getElementById('sl-schol').value=state.scholarshipPct;if(state.collegeSavings!==undefined)document.getElementById('sl-savings').value=state.collegeSavings;if(state.partTimeWork!==undefined)document.getElementById('sl-work').value=state.partTimeWork;if(state.familySupport!==undefined)document.getElementById('sl-parent').value=state.familySupport;if(state.loanRate!==undefined)document.getElementById('sl-rate').value=state.loanRate;if(state.loanRepaymentYears!==undefined)document.getElementById('sl-yrs').value=state.loanRepaymentYears;if(state.inStateToggle!==undefined){const instateIn=document.getElementById('instate-in');const instateOut=document.getElementById('instate-out');if(state.inStateToggle){instateIn.classList.add('on');instateOut.classList.remove('on')}else{instateOut.classList.add('on');instateIn.classList.remove('on')}}}}
 const PLAYLISTS={lofi:'https://open.spotify.com/embed/playlist/37i9dQZF1DWWQRwui0ExPn?utm_source=generator&theme=0',jazz:'https://open.spotify.com/embed/playlist/37i9dQZF1EIdxUC4rBWFbj?utm_source=generator&theme=0',focus:'https://open.spotify.com/embed/playlist/37i9dQZF1DWZeKCadgRdKQ?utm_source=generator&theme=0',brain:'https://open.spotify.com/embed/playlist/37i9dQZF1DWXLeA8Omikj7?utm_source=generator&theme=0'};
@@ -42282,7 +42282,7 @@ function generateConflictInsights() {
   }
 
   if(S.vision === 'In the US' && (S.cc.includes('sweden') || S.cc.includes('germany') || S.cc.includes('france') || S.cc.includes('italy') || S.cc.includes('spain') || S.cc.includes('netherlands') || S.cc.includes('denmark') || S.cc.includes('ireland'))) {
-    insights.push({type: 'info', title: 'Bridging Vision & Location', msg: 'ℹ️ You want to work in the US but are exploring European universities. This may be a cost effective path. You should ensure the EU degree you are pursuing will be marketable in the US job market.'});
+    insights.push({type: 'info', title: 'Bridging Vision & Location', msg: 'ℹ️ You want to work in the US but are exploring European universities. This may be a very cost effective path. Ensure the EU degree you are pursuing will be marketable in the US for the career you are targeting.'});
   }
   if(S.lang === 'Slower language learner' && S.languages && S.languages.length >= 2) {
     insights.push({type: 'info', title: 'Language Capability', msg: 'ℹ️ You\'ve selected multiple languages despite finding languages challenging. This shows determination—consider studying abroad where you can immerse in new languages.'});
@@ -42527,7 +42527,7 @@ function renderInsights(){
           // Moderate cost - neutral, don't add
         }
         else if(d.cUS <= 250000){
-          cons.push('Expensive education');
+          cons.push('Typically expensive education, depending on country and financing');
           // Add ROI context if salary data exists
           if(d.sUS && d.sUS.toLowerCase().includes('$150k') || d.sUS.toLowerCase().includes('$200k')){
             pros.push('However, graduates typically earn $150K+, with education investment paid off in ~5-7 years');
@@ -42551,7 +42551,7 @@ function renderInsights(){
         if(d.typicalPostGradYears >= 5){
           cons.push('Requires ' + d.typicalPostGradYears + '+ years post-grad study/training');
         } else if(d.typicalPostGradYears >= 3){
-          cons.push('Requires ' + d.typicalPostGradYears + ' years additional post-grad training');
+          cons.push('Typically requires ' + d.typicalPostGradYears + ' years additional post-grad training');
         }
       }
       
