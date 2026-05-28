@@ -41188,6 +41188,13 @@ const UNIVERSITIES={
   ]
 };
 
+// Map internal selectivity values to display names
+const SELECTIVITY_DISPLAY = {
+  'elite': 'Very selective',
+  'mid-tier': 'Selective',
+  'regional': 'Less selective'
+};
+
 // ===== CAROUSEL BUILDER FOR UNIVERSITIES BY COUNTRY =====
 function buildUniversitiesCarouselByCountry(data) {
   const { country, countryCode, universities, careerUniMap } = data;
@@ -41258,7 +41265,7 @@ function buildUniversitiesCarouselByCountry(data) {
         <div class="uni-card-row"><span class="uni-label">Students</span> <span class="uni-value">${u.student_pop ? parseInt(u.student_pop).toLocaleString() : '—'}</span></div>
         <div class="uni-card-row"><span class="uni-label">Tuition</span> <span class="uni-value"><strong>${tuitionDisplay}</strong><span style="font-size:11px">${tuitionNote}</span></span></div>
         <div class="uni-card-row"><span class="uni-label">Programs</span> <span class="uni-value">${programsStr}</span></div>
-        <div class="uni-card-row"><span class="uni-label">Selectivity</span> <span class="uni-value"><span style="padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600;background:${selectivityBg};color:${selectivityColor}">${selectivityDisplay[u.selectivity] || u.selectivity}</span></span></div>
+        <div class="uni-card-row"><span class="uni-label">Selectivity</span> <span class="uni-value"><span style="padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600;background:${selectivityBg};color:${selectivityColor}">${SELECTIVITY_DISPLAY[u.selectivity] || u.selectivity}</span></span></div>
       </div>
     </div>`;
   });
@@ -41272,13 +41279,6 @@ function buildUniversitiesCarouselByCountry(data) {
 }
 
 function renderUniversities(){
-  // Map internal selectivity values to display names
-  const selectivityDisplay = {
-    'elite': 'Very selective',
-    'mid-tier': 'Selective',
-    'regional': 'Less selective'
-  };
-
   // Render country pills
   const ccPills = document.getElementById('uni-country-pills');
   if(ccPills){
@@ -41516,7 +41516,7 @@ function renderUniversities(){
           <td style="padding:8px;text-align:right;color:var(--tx2);font-size:13px;background:#fff">${tuitionDisplay}<span style="font-size:13px;color:var(--tx2)">${tuitionNote}</span></td>
           <td style="padding:8px;text-align:right;color:var(--tx2);background:#fff">${studentPop}</td>
           <td style="padding:8px;font-size:13px;color:var(--tx1);background:#fff">${programsStr}</td>
-          <td style="padding:8px;text-align:center;background:#fff"><span style="padding:2px 6px;border-radius:3px;font-size:13px;font-weight:600;background:${selectivityBg};color:${selectivityColor}">${selectivityDisplay[u.selectivity] || u.selectivity}</span></td>
+          <td style="padding:8px;text-align:center;background:#fff"><span style="padding:2px 6px;border-radius:3px;font-size:13px;font-weight:600;background:${selectivityBg};color:${selectivityColor}">${SELECTIVITY_DISPLAY[u.selectivity] || u.selectivity}</span></td>
         </tr>`;
       });
       
