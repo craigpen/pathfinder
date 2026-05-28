@@ -41391,9 +41391,9 @@ function renderUniversities(){
     // Apply selectivity filter
     if(S.uniSelectivity){
       const selectivityMap = {
-        'Very selective': 'elite',
-        'Selective': 'mid-tier',
-        'Less selective': 'regional'
+        'Very selective': 'Very selective',
+        'Selective': 'Selective',
+        'Less selective': 'Less selective'
       };
       const targetSelectivity = selectivityMap[S.uniSelectivity];
       if(targetSelectivity === 'Selective'){
@@ -41559,9 +41559,9 @@ function renderUniversities(){
     
     if(S.uniSelectivity){
       const selectivityMap = {
-        'Very selective': 'elite',
-        'Selective': 'mid-tier',
-        'Less selective': 'regional'
+        'Very selective': 'Very selective',
+        'Selective': 'Selective',
+        'Less selective': 'Less selective'
       };
       const targetSelectivity = selectivityMap[S.uniSelectivity];
       if(targetSelectivity === 'Selective'){
