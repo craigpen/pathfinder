@@ -43406,9 +43406,9 @@ function renderInsights(){
 
     // CROSS-TAB INSIGHTS - Compound insights comparing multiple selections
     if(crossTabInsights.length > 0) {
-      // Prepare items for display (add ℹ️ emoji to titles)
+      // Prepare items for display
       const crossTabItemsForDisplay = crossTabInsights.map(insight => ({
-        name: 'ℹ️ ' + insight.title,
+        name: insight.title,
         pros: insight.pros,
         cons: insight.cons
       }));
