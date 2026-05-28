@@ -42313,6 +42313,17 @@ function generateSelectionInsights() {
   }
 
 
+  // Check for insufficient funding sources
+  const schol = Math.min(100, Math.max(0, S.scholarshipPct || 0));
+  const savings = Math.max(0, S.collegeSavings || 0);
+  const work = Math.max(0, S.partTimeWork || 0);
+  const family = Math.max(0, S.familySupport || 0);
+  const totalNonScholarship = savings + work + family;
+
+  if(schol < 20 && totalNonScholarship < 50000) {
+    insights.push({type: 'con', title: 'Insufficient Funding Sources', msg: '⚠️ Your current funding plan (scholarships, savings, work, family support) may be insufficient. Consider: merit scholarships, employer sponsorship, additional savings, or more part-time work during studies.'});
+  }
+
   // ENHANCED: Add context from other selections where relevant
   // Career and Country Context insights are now added directly to careerFits and countryFits arrays
   // in the renderInsights() function, not as separate narrative insights
