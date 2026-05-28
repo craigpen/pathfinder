@@ -42324,6 +42324,11 @@ function generateSelectionInsights() {
     insights.push({type: 'con', title: 'Insufficient Funding Sources', msg: '⚠️ Your current funding plan (scholarships, savings, work, family support) may be insufficient. Consider: merit scholarships, employer sponsorship, additional savings, or more part-time work during studies.'});
   }
 
+  // Check for loan repayment timeline mismatch between Discovery and Costs tabs
+  if(S.debtYrs && S.loanRepaymentYears && parseInt(S.debtYrs) !== parseInt(S.loanRepaymentYears)) {
+    insights.push({type: 'con', title: 'Loan Repayment Mismatch', msg: '⚠️ You indicated comfort with ' + S.debtYrs + ' years of loan repayment, but your financing plan forecasts ' + S.loanRepaymentYears + ' years. Adjust your loan term to align with your goals.'});
+  }
+
   // ENHANCED: Add context from other selections where relevant
   // Career and Country Context insights are now added directly to careerFits and countryFits arrays
   // in the renderInsights() function, not as separate narrative insights
@@ -43320,6 +43325,8 @@ function renderInsights(){
           action = 'Compare curriculum with your prerequisites';
         } else if(conflict.title.includes('Career') || conflict.title.includes('ROI')) {
           action = 'Evaluate financial sustainability';
+        } else if(conflict.title.includes('Loan Repayment')) {
+          action = 'Adjust your loan term on the Scholarships tab';
         } else if(conflict.title.includes('Funding')) {
           action = 'Adjust cost sliders or work to secure more financial support';
         } else if(conflict.title.includes('Financial')) {
