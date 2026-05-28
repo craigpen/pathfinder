@@ -42369,17 +42369,17 @@ function formatInsightItem(text, isProItem) {
     // Already has success emoji
     return '<span style="color:var(--ok);">' + text + '</span>';
   } else if(text.startsWith('⚠️')) {
-    // Already has warning emoji
-    return '<span style="color:var(--bad);">' + text + '</span>';
+    // Con/warning emoji - use orange
+    return '<span style="color:var(--warn);">' + text + '</span>';
   } else if(text.startsWith('💥')) {
-    // Already has conflict emoji
+    // Conflict emoji - use red
     return '<span style="color:var(--bad);">' + text + '</span>';
   }
   // No emoji - add the appropriate one
   if(isProItem) {
     return '<span style="color:var(--ok);">✅ ' + text + '</span>';
   } else {
-    return '<span style="color:var(--bad);">⚠️ ' + text + '</span>';
+    return '<span style="color:var(--warn);">⚠️ ' + text + '</span>';
   }
 }
 

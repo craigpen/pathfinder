@@ -100,13 +100,14 @@ Insights are categorized by type and displayed in standardized tables. Follow th
 **Insight Types & Emoji:**
 - `type: 'pro'` — Positive/aligned insight → **✅ (green)** — Use when selection aligns well with goals
 - `type: 'neutral'` — Informational/balanced → **ℹ️ (gray)** — Use for general advice, context, or neutral tradeoffs
-- `type: 'con'` — Negative/misaligned insight → **⚠️ (red)** — Use when selection is problematic
+- `type: 'con'` — Negative/misaligned insight → **⚠️ (orange)** — Use when one selection is problematic
 - `type: 'conflict'` — Contradiction between selections → **💥 (red)** — Use when two selections directly contradict each other
 
 **Color Mapping (via CSS variables):**
-- Green: `var(--ok)` (#16a34a) for pro/positive insights
-- Red: `var(--bad)` (#dc2626) for con/negative and conflict insights  
-- Gray: `var(--tx2)` (#64748b) for neutral insights
+- Green: `var(--ok)` (#16a34a) for pro/positive insights (✅)
+- Orange: `var(--warn)` (#ea580c) for con/warning insights (⚠️) — less severe
+- Red: `var(--bad)` (#dc2626) for conflict insights (💥) — most severe
+- Gray: `var(--tx2)` (#64748b) for neutral insights (ℹ️)
 
 **Emoji Placement:**
 - Emoji **must** be at the start of the insight message (the `msg` field)
