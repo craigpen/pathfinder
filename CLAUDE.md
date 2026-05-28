@@ -34,9 +34,20 @@
 - Don't add error handling for impossible scenarios
 
 ## Testing & Verification
-- Run tests after changes if they exist
-- Verify UI changes in the browser before committing
+- Open `index.html` directly in a browser to test changes
+- Only commit after verifying changes work locally
 - Use git diff to visually confirm changes match intent
+
+## Project Workflow
+- **Development**: Edit `index.html`, test locally in browser
+- **Commit**: After testing passes, create a commit with a clear message
+- **Deploy**: Push to GitHub (syncs to your github.io page)
+- **Sharing**: Test on mobile device via github.io before finalizing
+
+## Key Files
+- `index.html` — Single-page app with embedded CSS/JS (1.3MB)
+  - This is your main deliverable; treat edits carefully
+  - Always test in browser before committing
 
 ---
 
