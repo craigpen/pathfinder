@@ -43277,7 +43277,12 @@ function renderInsights(){
   const discoveryConflicts = allDiscoveryInsights.filter(i => i.type === 'conflict' || i.type === 'con');
   const discoveryOpportunities = allDiscoveryInsights.filter(i => i.type === 'pro' || i.type === 'neutral');
   allConflicts = allConflicts.concat(discoveryConflicts);
-  allConflicts = allConflicts.concat(crossTabInsights);
+  // Convert crossTabInsights to conflict format (they have pros/cons arrays instead of msg)
+  allConflicts = allConflicts.concat(crossTabInsights.map(cti => ({
+    type: 'conflict',
+    title: cti.title,
+    msg: (cti.pros && cti.pros.length > 0 ? cti.pros[0] : '') + (cti.cons && cti.cons.length > 0 ? ' ' + cti.cons[0] : '')
+  })));
 
   if(careerFits.length === 0 && countryFits.length === 0 && costAnalysis.length === 0 && allDiscoveryInsights.length === 0){
     html = '<p style="color:var(--tx2);font-style:italic">Make selections across tabs to see personalized insights.</p>';
