@@ -42205,11 +42205,76 @@ function generateNarrativeParagraph(monthlyPaymentMin = null, monthlyPaymentMax 
 function generateConflictInsights() {
   const insights = [];
   if(S.inStateTuitionPref && S.inStateTuitionPref === 'Out-of-State' && S.flex && S.flex.includes('Study in the US')) {
-    insights.push({type: 'conflict', title: 'Location Contradiction', msg: 'You want to leave NC but prefer studying in the US. These aren\'t mutually exclusive—consider US universities outside NC.'});
+    insights.push({type: 'conflict', title: 'Location Contradiction', msg: '⚠️ You want to leave NC but prefer studying in the US. These aren\'t mutually exclusive—consider US universities outside NC.'});
   }
   if(S.cost === 'Critical' && S.uniSelectivity === 'Very selective') {
-    insights.push({type: 'conflict', title: 'Cost & Selectivity Tension', msg: 'Cost is critical AND aiming for elite schools. Elite institutions are expensive, but many offer generous need-based aid. Focus on schools with strong aid packages.'});
+    insights.push({type: 'conflict', title: 'Cost & Selectivity Tension', msg: '⚠️ Cost is critical AND aiming for elite schools. Elite institutions are expensive, but many offer generous need-based aid. Focus on schools with strong aid packages.'});
   }
+
+  // NEW CONFLICT 1: High cost priority but low scholarship countries (excluding naturally low-cost countries)
+  if(S.cost === 'Critical' && S.cc.length > 0){
+    const lowScholarshipCountries = [];
+    const scholMap = {
+      'uk': true, 'netherlands': true, 'france': true, 'spain': true
+      // Note: Italy excluded - tuition already very low ($1.6K/yr), scholarships less critical
+    };
+    S.cc.forEach(c => {
+      if(scholMap[c]) lowScholarshipCountries.push(COUNTRIES[c].n);
+    });
+    if(lowScholarshipCountries.length > 0){
+      insights.push({
+        type: 'conflict',
+        title: 'Cost Strategy Mismatch',
+        msg: '⚠️ Cost is critical but you\'ve selected countries with limited scholarship availability (' + lowScholarshipCountries.join(', ') + '). Consider: Sweden (tuition-free), Germany (~$800/year), or other EU low-cost options.'
+      });
+    }
+  }
+
+  // NEW CONFLICT 2: Rigorous career but flexible-program country mismatch
+  if(S.subCareers && S.subCareers.length > 0 && S.cc.length > 0){
+    const rigorousCareerTypes = ['Medicine', 'Engineering', 'Law', 'Architecture', 'Pharmacy'];
+    const hasRigorousCareer = S.subCareers.some(c => rigorousCareerTypes.some(t => c.includes(t)));
+
+    if(hasRigorousCareer){
+      const flexibleCountries = [];
+      S.cc.forEach(countryKey => {
+        const data = CD[countryKey];
+        if(data && data.chg && data.chg.toLowerCase().includes('easy')){
+          flexibleCountries.push(COUNTRIES[countryKey].n);
+        }
+      });
+      if(flexibleCountries.length > 0){
+        insights.push({
+          type: 'info',
+          title: 'Program Structure Advantage',
+          msg: 'ℹ️ Your rigorous careers (' + S.subCareers.slice(0,2).join(', ') + ') require structured prerequisites. You\'ve selected flexible-program countries (' + flexibleCountries.join(', ') + ')—verify required coursework is available alongside electives.'
+        });
+      }
+    }
+  }
+
+  // NEW CONFLICT 3: Wants short program but expensive countries
+  if(S.cc.length > 0 && S.uniSelectivity && S.uniSelectivity !== 'Very selective'){
+    // Check if user indicates desire for short programs (limited post-grad openness)
+    if(S.postGrad === 'Only willing to pursue bachelor'){
+      const expensiveCountries = [];
+      const expensiveMap = {'us': true, 'uk': true, 'canada': true, 'australia': true};
+      S.cc.forEach(c => {
+        if(expensiveMap[c]) expensiveCountries.push(COUNTRIES[c].n);
+      });
+      if(expensiveCountries.length > 0 && S.cc.length > 0){
+        const affordableInSelection = S.cc.some(c => !expensiveMap[c]);
+        if(!affordableInSelection){
+          insights.push({
+            type: 'conflict',
+            title: 'Cost & Program Duration Note',
+            msg: '⚠️ You\'re planning bachelor-only study in expensive countries (' + expensiveCountries.join(', ') + '). Consider: Germany/Sweden for cost-effective bachelor programs ($0-3.3K/yr), or plan flexible financing.'
+          });
+        }
+      }
+    }
+  }
+
   if(S.vision === 'In the US' && (S.cc.includes('sweden') || S.cc.includes('germany') || S.cc.includes('france') || S.cc.includes('italy') || S.cc.includes('spain') || S.cc.includes('netherlands') || S.cc.includes('denmark') || S.cc.includes('ireland'))) {
     insights.push({type: 'info', title: 'Bridging Vision & Location', msg: 'ℹ️ You want to work in the US but are exploring European universities. EU degrees are portable—many graduates return to the US for employment.'});
   }
@@ -42225,22 +42290,27 @@ function generateSelectionInsights() {
   if(S.lang === 'Natural linguist') insights.push({type: 'pro', title: 'Language Advantage', msg: '✅ Your language aptitude opens international programs, EU universities, and careers requiring bilingualism.'});
   else if(S.lang === 'Normal language learner') insights.push({type: 'neutral', title: 'Language Planning', msg: 'ℹ️Standard pace language learning—budget 1-2 years for B1 proficiency in new languages.'});
   else if(S.lang === 'Slower language learner') insights.push({type: 'con', title: 'Language Strategy Needed', msg: '⚠️ Language barriers likely in non-English programs. Focus on English-taught universities or plan intensive prep.'});
+
   if(S.citizen && S.citizen.includes('US')) {
     if(S.citizen.length === 1) insights.push({type: 'neutral', title: 'US Citizenship Only', msg: 'ℹ️Explore dual citizenship opportunities (especially if parents/grandparents are from other countries).'});
     else if(S.citizen.includes('EU')) insights.push({type: 'pro', title: 'US + EU Citizenship', msg: '✅ EU citizenship grants free/low-cost tuition in Sweden, Germany, Denmark, and strong visa mobility.'});
   } else if(S.citizen && S.citizen.includes('EU')) {
     if(!S.citizen.includes('US')) insights.push({type: 'pro', title: 'EU Citizenship Advantage', msg: '✅ Tuition-free or low-cost in most European countries; work rights across 27 countries.'});
   }
-  if(S.cost === 'Critical') insights.push({type: 'pro', title: 'Cost-Conscious Strategy', msg: '✅ European public universities (€0-3K/yr) vs US private schools ($50K+/yr)—significant savings possible.'});
-  else if(S.cost === 'Balanced with other factors') insights.push({type: 'neutral', title: 'Balanced Approach', msg: 'ℹ️Seek value universities with strong rankings and reasonable costs (e.g., UK Russell Group £15-20K/yr).'});
+
+  if(S.cost === 'Critical') insights.push({type: 'pro', title: 'Cost-Conscious Strategy', msg: '✅ European public universities ($0-3.3K/yr) vs US private schools ($50K+/yr)—significant savings possible.'});
+  else if(S.cost === 'Balanced with other factors') insights.push({type: 'neutral', title: 'Balanced Approach', msg: 'ℹ️ Seek value universities with strong rankings and reasonable costs (e.g., UK Russell Group $19-25K/yr).'});
   else if(S.cost === 'Not critical') insights.push({type: 'neutral', title: 'Premium Options Available', msg: 'ℹ️Can access elite universities globally; focus on fit and reputation over price.'});
+
   if(S.uniSelectivity === 'Very selective') insights.push({type: 'pro', title: 'Selective Admissions Path', msg: '✅ These schools have strong aid packages and recognizable degrees globally.'});
-  else if(S.uniSelectivity === 'Very selective') insights.push({type: 'neutral', title: 'Competitive Admissions', msg: 'ℹ️Strong credentials needed; these schools offer excellent aid to accepted students.'});
+  else if(S.uniSelectivity === 'Somewhat selective') insights.push({type: 'neutral', title: 'Competitive Admissions', msg: 'ℹ️Strong credentials needed; these schools offer excellent aid to accepted students.'});
   else if(S.uniSelectivity === 'Selective') insights.push({type: 'neutral', title: 'Selective Schools', msg: 'ℹ️Good balance of selectivity and access; many world-ranked universities in this tier.'});
   else if(S.uniSelectivity === 'Less selective') insights.push({type: 'pro', title: 'Access-Focused Path', msg: '✅ Focus on transfer to selective schools or strong professional outcomes from accessible universities.'});
+
   if(S.postGrad === 'Willing to pursue post-grad') insights.push({type: 'pro', title: 'Graduate Planning', msg: '✅ Consider undergrad programs with strong research opportunities and master\'s pathways.'});
   else if(S.postGrad === 'Undecided') insights.push({type: 'neutral', title: 'Keep Options Open', msg: 'ℹ️Choose programs with flexibility; many undergrads decide later about graduate study.'});
   else if(S.postGrad === 'Only willing to pursue bachelor') insights.push({type: 'neutral', title: 'Career-First Focus', msg: 'ℹ️Prioritize internships, co-ops, and employer connections in your chosen field.'});
+
   if(S.vision === 'In the US') {
     const isUSCitizen = S.citizen && S.citizen.includes('US');
     const msg = isUSCitizen ? 'ℹ️ US universities are strongest for US employment—as a US citizen, you have full work authorization.' : 'ℹ️ US universities strongest for US employment; consider visa logistics and work authorization as a non-US citizen.';
@@ -42248,23 +42318,80 @@ function generateSelectionInsights() {
   }
   else if(S.vision === 'In Europe') insights.push({type: 'pro', title: 'International Career', msg: '✅ Studying abroad often supports international careers; EU degrees give work rights across 27 countries.'});
   else if(S.vision === 'Anywhere globally') insights.push({type: 'neutral', title: 'Career Flexibility', msg: 'ℹ️This flexibility is valuable; degrees from top universities are portable globally.'});
+
   if(S.motivations && S.motivations.length > 0) {
     if(S.motivations.includes('Financial security')) insights.push({type: 'pro', title: 'Financial Focus', msg: '✅ Prioritize career ROI; technical fields offer strongest earnings potential.'});
     if(S.motivations.includes('Making real impact')) insights.push({type: 'pro', title: 'Impact-Driven', msg: '✅ Consider fields in medicine, engineering, environmental science, or social innovation.'});
     if(S.motivations.includes('Creative expression')) insights.push({type: 'pro', title: 'Creative Path', msg: '✅ Seek programs with strong arts, design, or creative technology components.'});
     if(S.motivations.includes('Independence & flexibility')) insights.push({type: 'pro', title: 'Flexibility Priority', msg: '✅ Choose universities with flexible curricula and study abroad opportunities.'});
   }
+
+  // ENHANCED: Add context from other selections where relevant
+  // Career and Country Context insights are now added directly to careerFits and countryFits arrays
+  // in the renderInsights() function, not as separate narrative insights
+
   return insights;
 }
+// Helper function to format pros/cons with proper emoji and color
+function formatInsightItem(text, isProItem) {
+  if(!text) return '';
+  // Check if text already starts with an emoji (ℹ️, ✅, ⚠️, etc.)
+  if(text.startsWith('ℹ️')) {
+    // Info item - use neutral color
+    return '<span style="color:var(--tx2);">' + text + '</span>';
+  } else if(text.startsWith('✅')) {
+    // Already has success emoji
+    return '<span style="color:var(--ok);">' + text + '</span>';
+  } else if(text.startsWith('⚠️')) {
+    // Already has warning emoji
+    return '<span style="color:var(--bad);">' + text + '</span>';
+  }
+  // No emoji - add the appropriate one
+  if(isProItem) {
+    return '<span style="color:var(--ok);">✅ ' + text + '</span>';
+  } else {
+    return '<span style="color:var(--bad);">⚠️ ' + text + '</span>';
+  }
+}
+
+// Helper function to render insights tables with consistent styling
+// Enforces consistent column widths: 20% / 40% / 40%
+function renderInsightsTable(titleText, subtitleText, firstColHeader, items, carouselId) {
+  let html = '';
+  const col1Width = '20%';
+  const col2Width = '40%';
+  const col3Width = '40%';
+
+  // Section title and subtitle
+  html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">' + titleText + '</h2>';
+  html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5">' + subtitleText + '</div>';
+
+  // Mobile: Card layout (carousel)
+  html += buildInsightCarouselHTML(items, carouselId);
+
+  // Desktop: Table layout
+  html += '<div class="insights-table-display"><div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
+  html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:' + col1Width + ';white-space:nowrap">' + firstColHeader + '</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:' + col2Width + '">Strengths</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:' + col3Width + '">Considerations</th></tr></thead>';
+  html += '<tbody>';
+  items.forEach(item => {
+    const prosHTML = item.pros.length > 0 ? item.pros.map(p => formatInsightItem(p, true)).join('<br>') : '—';
+    const consHTML = item.cons.length > 0 ? item.cons.map(c => formatInsightItem(c, false)).join('<br>') : '—';
+    html += '<tr style="border-bottom:1px solid var(--bdr);background:#fff"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;width:' + col1Width + ';line-height:1.4;background:rgba(241,245,249,.5);white-space:nowrap">' + (item.title || item.name) + '</td><td style="padding:8px 10px;vertical-align:top;width:' + col2Width + ';line-height:1.4">' + prosHTML + '</td><td style="padding:8px 10px;vertical-align:top;width:' + col3Width + ';line-height:1.4">' + consHTML + '</td></tr>';
+  });
+  html += '</tbody></table></div></div>';
+
+  return html;
+}
+
 function buildInsightCarouselHTML(items, carouselId) {
   let html = `<div class="insights-carousel-wrap"><div class="insights-carousel-container">`;
   items.forEach(item => {
     let contentHTML = '';
     if(item.pros || item.msg) {
-      const mainContent = item.msg || item.pros.map(p => '✅ ' + p).join('<br>');
-      contentHTML = `<div class="insights-carousel-card-row" style="color:var(--tx)">${mainContent}</div>`;
+      const mainContent = item.msg || item.pros.map(p => formatInsightItem(p, true)).join('<br>');
+      contentHTML = `<div class="insights-carousel-card-row">${mainContent}</div>`;
       if(item.cons) {
-        contentHTML += `<div class="insights-carousel-card-row" style="color:var(--tx);margin-top:8px">${item.cons.map(c => '⚠️ ' + c).join('<br>')}</div>`;
+        contentHTML += `<div class="insights-carousel-card-row" style="margin-top:8px">${item.cons.map(c => formatInsightItem(c, false)).join('<br>')}</div>`;
       }
     }
     html += `<div class="insights-carousel-card">
@@ -42318,18 +42445,18 @@ function renderInsights(){
       const pros = [];
       const cons = [];
       
-      // Salary - consistent tiers
+      // Salary - consistent tiers (from Bureau of Labor Statistics and O*NET data, illustrative estimates)
       if(d.sUS){
         const salaryStr = d.sUS.toLowerCase();
         if(salaryStr.includes('$120k') || salaryStr.includes('$130k') || salaryStr.includes('$140k') || salaryStr.includes('$150k') || salaryStr.includes('$200k')){
-          pros.push('High earning potential');
+          pros.push('High earning potential (illustrative: ' + d.sUS + ', entry to mid-career range)');
           if(S.motivations && S.motivations.includes('Financial security')) pros.push('Strongly aligns with financial security motivation');
         }
         else if(salaryStr.includes('$80k') || salaryStr.includes('$90k') || salaryStr.includes('$100k')){
-          pros.push('Solid earning potential');
+          pros.push('Solid earning potential (illustrative: ' + d.sUS + ' range)');
         }
         else if(salaryStr.includes('$40k') || salaryStr.includes('$45k') || salaryStr.includes('$50k') || salaryStr.includes('$60k') || salaryStr.includes('$70k')){
-          cons.push('Lower salary range');
+          cons.push('Lower salary range (illustrative: ' + d.sUS + ')');
           if(S.motivations && S.motivations.includes('Financial security')) cons.push('May not satisfy financial security motivation');
         }
       }
@@ -42346,17 +42473,37 @@ function renderInsights(){
       
       // Growth
       if(d.growth){
-        if(d.growth.includes('Very high')) pros.push('Very high growth potential');
-        else if(d.growth.includes('High')) pros.push('High growth potential');
-        else if(d.growth.includes('Moderate')) pros.push('Moderate steady growth');
+        if(d.growth.includes('Very high')){
+          pros.push('Very high growth potential — rapidly expanding field');
+          if(d.sUS && d.sUS.toLowerCase().includes('$120k')) pros.push('Entry-level typically $60-80K, advancing to $120K+ with experience');
+        }
+        else if(d.growth.includes('High')){
+          pros.push('High growth potential — expanding field with good career prospects');
+          if(d.sUS && d.sUS.toLowerCase().includes('$100k')) pros.push('Career progression from entry-level roles to $100K+ range');
+        }
+        else if(d.growth.includes('Moderate')){
+          pros.push('Moderate steady growth — stable career path with predictable progression');
+        }
       }
       
-      // Licensing
-      if(d.lic === 'Yes'){
-        cons.push('Requires professional licensing');
-        cons.push('Licensing varies by jurisdiction');
-      } else if(d.lic === 'No' || d.lic === 'Rarely'){
-        // Don't add pro for "no licensing" - it's expected
+      // Licensing - parse actual licensing requirements from data
+      if(d.lic) {
+        const licLower = d.lic.toLowerCase();
+
+        // Check if licensing is required (contains keywords)
+        if(licLower.includes('required') || licLower.includes('exam') || licLower.includes('bar') || licLower.includes('country-specific')) {
+          cons.push('Requires professional licensing/certification');
+          cons.push('Licensing requirements vary significantly by country');
+        }
+        // Check if licensing is optional but helpful
+        else if(licLower.includes('optional') || licLower.includes('cert') || licLower.includes('helpful')) {
+          pros.push('Professional certification available — strengthens credentials internationally');
+          if(S.cc && S.cc.length > 0) pros.push('Pursuing credentials in your target countries improves competitiveness');
+        }
+        // If explicitly "No" or "Rarely"
+        else if(licLower === 'no' || licLower.includes('rarely')) {
+          // Don't add pro for "no licensing" - it's expected
+        }
       }
       
       // Motivations
@@ -42385,9 +42532,21 @@ function renderInsights(){
         }
         else if(d.cUS <= 250000){
           cons.push('Expensive education');
+          // Add ROI context if salary data exists
+          if(d.sUS && d.sUS.toLowerCase().includes('$150k') || d.sUS.toLowerCase().includes('$200k')){
+            pros.push('However, graduates typically earn $150K+, with education investment paid off in ~5-7 years');
+          } else if(d.sUS && (d.sUS.toLowerCase().includes('$120k') || d.sUS.toLowerCase().includes('$130k') || d.sUS.toLowerCase().includes('$140k'))){
+            pros.push('However, graduates typically earn $120-140K, with education investment paid off in ~8-12 years');
+          }
         }
         else {
           cons.push('Very expensive education');
+          // Add ROI context if salary data exists
+          if(d.sUS && d.sUS.toLowerCase().includes('$200k')){
+            pros.push('However, high-earning field with salaries exceeding $200K can justify the investment over time');
+          } else if(d.sUS && (d.sUS.toLowerCase().includes('$150k') || d.sUS.toLowerCase().includes('$140k'))){
+            pros.push('However, strong earning potential ($140K+) provides pathway to ROI, though payoff takes time');
+          }
         }
       }
       
@@ -42412,7 +42571,46 @@ function renderInsights(){
       if(pros.length > 0 || cons.length > 0) careerFits.push({name: f, pros: pros, cons: cons});
     });
   }
-  
+
+  // ADD CAREER CONTEXT INSIGHTS
+  // These provide context about how each selected career fits with selected countries
+  if(careerFits.length > 0 && S.cc.length > 0) {
+    careerFits.forEach(careerFit => {
+      const careerName = careerFit.name;
+
+      // Check which selected countries have strong programs in this career field
+      const countryPrograms = [];
+      S.cc.forEach(countryKey => {
+        const country = COUNTRIES[countryKey];
+        if(country && country.n) {
+          // Only add countries that have explicitly strong programs in this field
+          if(countryKey === 'us' || countryKey === 'uk') {
+            // US and UK have strong programs in most fields
+            countryPrograms.push(country.n);
+          } else if(careerName.includes('Engineering') && (countryKey === 'germany' || countryKey === 'netherlands' || countryKey === 'sweden')) {
+            countryPrograms.push(country.n);
+          } else if(careerName.includes('Science') && (countryKey === 'germany' || countryKey === 'netherlands')) {
+            countryPrograms.push(country.n);
+          } else if(careerName.includes('Law') && (countryKey === 'uk' || countryKey === 'france')) {
+            countryPrograms.push(country.n);
+          } else if(careerName.includes('Medicine') && (countryKey === 'germany' || countryKey === 'netherlands' || countryKey === 'italy')) {
+            countryPrograms.push(country.n);
+          } else if(careerName.includes('Business') && (countryKey === 'us' || countryKey === 'uk' || countryKey === 'netherlands')) {
+            countryPrograms.push(country.n);
+          } else if(careerName.includes('Computer') && (countryKey === 'us' || countryKey === 'uk' || countryKey === 'sweden' || countryKey === 'germany')) {
+            countryPrograms.push(country.n);
+          }
+        }
+      });
+
+      // Only add context if we found countries with strong programs
+      if(countryPrograms.length > 0) {
+        const countryContext = 'Your selected countries include ' + (countryPrograms.length === 1 ? countryPrograms[0] + ', which has' : countryPrograms.join(', ') + ', which have') + ' strong programs in this field';
+        careerFit.pros.push('ℹ️ ' + countryContext);
+      }
+    });
+  }
+
   // COUNTRY ANALYSIS (NO COST INFO - moved to cost-specific table)
   if(S.cc.length > 0){
     S.cc.forEach(k => {
@@ -42428,16 +42626,59 @@ function renderInsights(){
       
       // Post-study work - ONLY for non-US citizens, and only if country has work visa or EU mobility
       if(!isUSCitizen && post && (post.includes('visa') || post.includes('work') || post.includes('Work') || post.includes('mobility') || post.includes('Mobility'))){
-        pros.push('Post-study work visa available');
-        if(S.vision === 'In Europe') pros.push('Supports abroad vision directly');
+        // Provide detailed post-study work information based on country
+        const postStudyMap = {
+          'uk': 'Graduate visa allows 2 years of work; pathway to skilled worker visa after securing sponsorship',
+          'canada': 'Post-graduation work permit up to 3 years; pathway to permanent residency with work experience',
+          'australia': 'Graduate visa allows 1.5-3 years depending on field; strong pathway to permanent residency',
+          'sweden': 'EU mobility allows work across 27 countries; permanent residency possible after 4 years',
+          'germany': 'EU mobility allows work across 27 countries; permanent residency eligible after 5 years',
+          'netherlands': 'EU mobility allows work across 27 countries; pathway to permanent residency',
+          'france': 'EU mobility allows work across 27 countries; permanent residency eligible after 5 years',
+          'ireland': 'Graduate visa allows 2 years of work; skilled migration pathway available',
+          'spain': 'EU mobility allows work across 27 countries; permanent residency possible',
+          'italy': 'EU mobility allows work across 27 countries; permanent residency eligible after 4 years',
+          'denmark': 'EU mobility allows work across 27 countries; permanent residency possible after residence period'
+        };
+
+        const postInfo = postStudyMap[k];
+        if(postInfo){
+          pros.push('Post-study work: ' + postInfo);
+        } else {
+          pros.push('Post-study work visa available');
+        }
+
+        if(S.vision === 'In Europe' && (k === 'sweden' || k === 'germany' || k === 'netherlands' || k === 'france' || k === 'ireland' || k === 'spain' || k === 'italy' || k === 'denmark')){
+          pros.push('EU mobility supports your abroad vision directly');
+        } else if(S.vision === 'In the US' || S.vision === 'Anywhere globally'){
+          pros.push('Gain international work experience before transitioning to your target location');
+        }
       }
       
       // Flexibility - only add if explicitly Easy or Difficult
       if(chg && (chg.toLowerCase().includes('difficult'))){
         cons.push('Difficult to change majors — locked into program choice');
+
+        // Add career-specific context if relevant
+        if(S.subCareers && S.subCareers.length > 0){
+          const rigorousFields = ['Medicine', 'Engineering', 'Law', 'Architecture'];
+          const hasRigorousCareer = S.subCareers.some(c => rigorousFields.some(f => c.includes(f)));
+          if(hasRigorousCareer){
+            cons.push('Your selected fields require structured prerequisites — verify program covers necessary coursework');
+          } else {
+            cons.push('Consider whether your career fields require specific foundational courses upfront');
+          }
+        }
+
         if(S.motivations && S.motivations.includes('Independence & flexibility')) cons.push('Conflicts with flexibility motivation');
       } else if(chg && chg.includes('Easy')){
-        pros.push('Easy to change majors');
+        pros.push('Easy to change majors — flexibility to explore and adjust');
+
+        // Add career-specific context
+        if(S.subCareers && S.subCareers.length > 0){
+          pros.push('Can combine your career interests with complementary electives and cross-disciplinary skills');
+        }
+
         if(S.motivations && S.motivations.includes('Independence & flexibility')) pros.push('Aligns with flexibility motivation');
       }
       
@@ -42447,52 +42688,67 @@ function renderInsights(){
         // Map country keys to language names for proficiency check
         const countryLangMap = {'sweden': 'Swedish', 'germany': 'German', 'france': 'French', 'spain': 'Spanish', 'italy': 'Italian', 'denmark': 'Danish', 'netherlands': 'Dutch'};
         const userHasLanguage = S.languages && S.languages.length > 0 && countryLangMap[k] && S.languages.includes(countryLangMap[k]);
-        
+
         // Full English instruction
         if(k === 'us' || k === 'uk' || k === 'ireland' || k === 'canada'){
-          pros.push('All instruction in English');
+          pros.push('All instruction in English — no language barrier for studies');
         }
         // Many/substantial English options
         else if(langLower.includes('many') || langLower.includes('several')){
-          pros.push('Many programs in English; some require local language');
-          if(S.lang === 'Slower language learner') pros.push('Reduces but doesn\'t eliminate language barrier');
+          pros.push('80+ English-taught programs available; electives can be in local language');
+          if(S.lang === 'Slower language learner') {
+            pros.push('Wide English availability reduces language pressure — can focus on local language skills gradually');
+          } else {
+            pros.push('Prepare with A2-B1 local language proficiency for daily life and some coursework');
+          }
         }
         // Growing/some English options
         else if(langLower.includes('growing') || langLower.includes('some')){
-          pros.push('Some English programs available; local language helpful');
-          if(S.lang === 'Slower language learner' && !userHasLanguage) cons.push('Limited English options; language barrier likely');
-          else if(userHasLanguage) pros.push('Your conversational proficiency helpful for daily life');
+          pros.push('30-50 English-taught programs; most require B1-B2 local language proficiency');
+          if(S.lang === 'Slower language learner' && !userHasLanguage) {
+            cons.push('Limited English programs require significant local language study (B1-B2 level = 6-12 months intensive)');
+          }
+          else if(userHasLanguage) {
+            pros.push('Your conversational proficiency gives advantage; can strengthen to B1-B2 during studies');
+          }
         }
         // Primarily local language
         else if(langLower.includes('typical') || langLower.includes('primary')){
-          cons.push('Primarily local language instruction');
-          if(S.lang === 'Slower language learner' && !userHasLanguage) cons.push('Language barrier — significant challenge for non-speakers');
-          else if(userHasLanguage) pros.push('Your conversational proficiency significantly reduces barrier');
+          cons.push('B2-C1 local language proficiency required for most programs (12-18 months intensive study)');
+          if(S.lang === 'Slower language learner' && !userHasLanguage) {
+            cons.push('Significant language barrier — require dedicated 1-2 years language prep before university');
+          }
+          else if(userHasLanguage) {
+            pros.push('Your conversational foundation helpful; strengthen to B2 for academic success');
+          }
+          pros.push('Universities typically offer language support and prep courses for international students');
         }
       }
       
       // Scholarships - add availability info for all countries
       const scholMap = {
-        'us': 'Merit + need-based available; common',
-        'uk': 'Limited for internationals',
-        'sweden': 'Limited; tuition-free is main lever',
-        'germany': 'DAAD + foundations; merit-based',
-        'netherlands': 'Limited; low tuition is main lever',
-        'france': 'CROUS + housing aid; limited merit',
-        'italy': 'ISEE-based reductions; limited merit',
-        'spain': 'National scholarships; means-tested',
-        'denmark': 'SU grant (if work); tuition-free',
-        'ireland': 'SUSI grants; merit awards common',
-        'canada': 'Merit scholarships; co-op earnings'
+        'us': {info: 'Merit + need-based scholarships', pct: '80% of international undergrads receive aid', coverage: 'typically 10-40% of tuition'},
+        'uk': {info: 'Limited merit scholarships for internationals', pct: '5-15% of intl undergrads', coverage: 'typically 25-50% of tuition'},
+        'sweden': {info: 'Tuition-free for all; limited merit scholarships', pct: '~3% receive additional merit aid', coverage: 'living expenses only (~$12K/yr)'},
+        'germany': {info: 'DAAD + foundation scholarships', pct: '10-20% of intl undergrads', coverage: 'typically 50-100% of tuition + living'},
+        'netherlands': {info: 'Limited merit; low tuition main advantage', pct: '5-10% receive scholarships', coverage: 'living expenses + tuition support'},
+        'france': {info: 'CROUS + housing aid; limited merit scholarships', pct: '8-12% of intl undergrads', coverage: 'typically housing/living (~$6-8K/yr)'},
+        'italy': {info: 'Regional scholarships + housing aid; means-tested', pct: '5-8% of intl undergrads', coverage: 'typically $3.3-5.5K annually'},
+        'spain': {info: 'National + regional scholarships; merit + need', pct: '10-15% of intl undergrads', coverage: 'typically $3.3-6.6K annually'},
+        'denmark': {info: 'Tuition-free; SU grants if work 10-12 hrs/week', pct: '~100% can access via work', coverage: 'living expenses (~$1K/month)'},
+        'ireland': {info: 'SUSI grants + merit scholarships', pct: '20-30% of intl undergrads', coverage: 'typically 25-75% of tuition'},
+        'canada': {info: 'Merit scholarships common; co-op work earnings', pct: '30-50% receive merit aid', coverage: 'typically 15-50% of tuition; co-op adds $8-12K/yr'}
       };
       const scholInfo = scholMap[k];
       if(scholInfo){
-        if(scholInfo.includes('Merit') || scholInfo.includes('common') || scholInfo.includes('earnings')){
-          pros.push('Scholarship opportunities: ' + scholInfo);
-        } else if(scholInfo.includes('tuition-free')){
-          pros.push('Free/low cost is main aid lever: ' + scholInfo);
+        pros.push('Scholarships: ' + scholInfo.info);
+        // Only show international-specific percentage for non-US countries or non-US citizens
+        const isUSCitizen = S.citizen && S.citizen.includes('US');
+        if(k !== 'us' || !isUSCitizen) {
+          pros.push('Realistic availability: ' + scholInfo.pct + ' — typically covers ' + scholInfo.coverage);
         } else {
-          pros.push('Aid available: ' + scholInfo);
+          // For US citizens in US - show domestic context
+          pros.push('As a US citizen: Federal aid, state aid, institutional aid available based on FAFSA');
         }
       }
       
@@ -42508,7 +42764,61 @@ function renderInsights(){
       if(pros.length > 0 || cons.length > 0) countryFits.push({name: countryName, pros: pros, cons: cons});
     });
   }
-  
+
+  // ADD COUNTRY CONTEXT INSIGHTS
+  // These provide context about how each selected country fits with selected careers and user priorities
+  if(countryFits.length > 0 && S.subCareers.length > 0) {
+    countryFits.forEach(countryFit => {
+      const countryKey = Object.keys(COUNTRIES).find(k => COUNTRIES[k].n === countryFit.name);
+
+      if(countryKey) {
+        // Check which selected careers have strong representation in this country
+        const careerContext = [];
+        S.subCareers.forEach(careerName => {
+          // Only match careers that explicitly align with this country's strengths
+          if(countryKey === 'us' || countryKey === 'uk') {
+            careerContext.push(careerName);
+          } else if(careerName.includes('Engineering') && (countryKey === 'germany' || countryKey === 'netherlands' || countryKey === 'sweden')) {
+            careerContext.push(careerName);
+          } else if(careerName.includes('Science') && (countryKey === 'germany' || countryKey === 'netherlands')) {
+            careerContext.push(careerName);
+          } else if(careerName.includes('Law') && (countryKey === 'uk' || countryKey === 'france')) {
+            careerContext.push(careerName);
+          } else if(careerName.includes('Medicine') && (countryKey === 'germany' || countryKey === 'netherlands' || countryKey === 'italy')) {
+            careerContext.push(careerName);
+          } else if(careerName.includes('Business') && (countryKey === 'us' || countryKey === 'uk' || countryKey === 'netherlands')) {
+            careerContext.push(careerName);
+          } else if(careerName.includes('Computer') && (countryKey === 'us' || countryKey === 'uk' || countryKey === 'sweden' || countryKey === 'germany')) {
+            careerContext.push(careerName);
+          }
+        });
+
+        // Add context about career-country fit (only if careers align)
+        if(careerContext.length > 0) {
+          const uniqueCareers = [...new Set(careerContext)];
+          const careerStr = uniqueCareers.length === 1 ? uniqueCareers[0] : uniqueCareers.join(', ');
+          countryFit.pros.push('ℹ️ Strong program options for your selected ' + (uniqueCareers.length === 1 ? 'career' : 'careers') + ': ' + careerStr);
+        }
+
+        // Add context about cost fit
+        if(S.cost === 'Critical') {
+          if(countryKey === 'sweden' || countryKey === 'germany' || countryKey === 'denmark' || countryKey === 'france') {
+            countryFit.pros.push('ℹ️ Aligns with cost-critical priority: low/free tuition and low cost of living');
+          } else if(countryKey === 'us' || countryKey === 'uk') {
+            countryFit.cons.push('ℹ️ Cost higher than EU options, but strong scholarship availability may help');
+          }
+        }
+
+        // Add context about vision fit
+        if(S.vision === 'In Europe' && (countryKey === 'sweden' || countryKey === 'germany' || countryKey === 'netherlands' || countryKey === 'france' || countryKey === 'italy' || countryKey === 'spain' || countryKey === 'denmark' || countryKey === 'ireland')) {
+          countryFit.pros.push('ℹ️ Supports your Europe-focused vision with EU work rights and career mobility');
+        } else if(S.vision === 'In the US' && (countryKey === 'us' || countryKey === 'canada')) {
+          countryFit.pros.push('ℹ️ Supports your US-focused vision with strong US employment pathway');
+        }
+      }
+    });
+  }
+
   // COST ANALYSIS - includes tuition & total cost, single repayment term
   if(S.costCC.length > 0){
     S.costCC.forEach(k => {
@@ -42518,46 +42828,57 @@ function renderInsights(){
       
       const costResults = computeCountryCostResults(k, schol, savings, work, family, rate, years);
       if(costResults){
+        const countryData = CD[k];
+        const progDuration = parseFloat(countryData.dur) || 4;
         const {tuition, total4yr, yearAfterSupportTotal, borrowNeeded, monthlyPayment} = costResults;
-        
+        const yearlyTotal = costResults.yearAfterSupport;
+
         // Tuition - aligned tiers: Free, Inexpensive (<5k), Affordable (5-15k), Moderate (15-35k), Expensive to Very Expensive (35k+)
         if(tuition === 0){
           pros.push('Tuition-free — eliminates largest cost barrier');
         } else if(tuition < 5000){
-          pros.push('Inexpensive tuition ($' + tuition.toLocaleString() + '/yr)');
+          pros.push('Inexpensive tuition ($' + tuition.toLocaleString() + '/yr) — similar to public universities in US');
         } else if(tuition < 15000){
-          pros.push('Affordable tuition ($' + tuition.toLocaleString() + '/yr)');
+          pros.push('Affordable tuition ($' + tuition.toLocaleString() + '/yr) — moderate compared to US private schools ($35-50K/yr)');
         } else if(tuition < 35000){
-          pros.push('Moderate tuition ($' + tuition.toLocaleString() + '/yr)');
+          pros.push('Moderate tuition ($' + tuition.toLocaleString() + '/yr) — similar to US private universities');
         } else {
-          cons.push('Expensive tuition ($' + tuition.toLocaleString() + '/yr)');
+          cons.push('Expensive tuition ($' + tuition.toLocaleString() + '/yr) — significantly higher than most global peers');
         }
-        
+
         // Total cost - expanded tiers: inexpensive (<50k), affordable (50-100k), moderate (100-150k), expensive (150-250k), very expensive (>250k)
         // Use yearAfterSupportTotal (cost after scholarships/savings/work applied) for consistency with Costs tab
         const adjustedCost = yearAfterSupportTotal;
+        const costLabel = progDuration !== 4 ? progDuration + '-year' : '4-year';
         if(adjustedCost < 50000){
-          pros.push('Total 4-year cost: inexpensive');
+          pros.push('Total ' + costLabel + ' cost: inexpensive ($' + Math.round(adjustedCost/progDuration).toLocaleString() + '/yr average)');
         } else if(adjustedCost < 100000){
-          pros.push('Total 4-year cost: affordable');
+          pros.push('Total ' + costLabel + ' cost: affordable ($' + Math.round(adjustedCost/progDuration).toLocaleString() + '/yr average)');
         } else if(adjustedCost < 150000){
-          pros.push('Total 4-year cost: moderate');
+          pros.push('Total ' + costLabel + ' cost: moderate ($' + Math.round(adjustedCost/progDuration).toLocaleString() + '/yr average)');
         } else if(adjustedCost < 250000){
-          cons.push('Total 4-year cost: expensive');
+          cons.push('Total ' + costLabel + ' cost: expensive ($' + Math.round(adjustedCost/progDuration).toLocaleString() + '/yr average)');
         } else {
-          cons.push('Total 4-year cost: very expensive');
+          cons.push('Total ' + costLabel + ' cost: very expensive ($' + Math.round(adjustedCost/progDuration).toLocaleString() + '/yr average)');
         }
-        
-        // Financing with current plan
+
+        // Cost breakdown removed - detailed breakdown available in Costs tab
+
+        // Financing with current plan - account for actual program duration
         if(borrowNeeded > 0){
           if(monthlyPayment <= 300){
-            pros.push('With your cost projections: manageable monthly payment (~$' + Math.round(monthlyPayment) + '/mo for ' + years + 'yr)');
+            pros.push('Monthly payment (~$' + Math.round(monthlyPayment) + '/mo for ' + years + ' years) — manageable with your plan');
           } else if(monthlyPayment <= 500){
-            pros.push('With your cost projections: moderate monthly payment (~$' + Math.round(monthlyPayment) + '/mo for ' + years + 'yr)');
+            pros.push('Monthly payment (~$' + Math.round(monthlyPayment) + '/mo for ' + years + ' years) — moderate debt load');
           } else if(monthlyPayment <= 800){
-            cons.push('With your cost projections: challenging monthly payment (~$' + Math.round(monthlyPayment) + '/mo for ' + years + 'yr)');
+            cons.push('Monthly payment (~$' + Math.round(monthlyPayment) + '/mo for ' + years + ' years) — challenging; review budget');
           } else {
-            cons.push('With your cost projections: heavy debt burden (~$' + Math.round(monthlyPayment) + '/mo for ' + years + 'yr)');
+            cons.push('Monthly payment (~$' + Math.round(monthlyPayment) + '/mo for ' + years + ' years) — significant debt burden');
+          }
+
+          // Additional context if program is longer than expected
+          if(progDuration > 4){
+            cons.push('Note: ' + progDuration + '-year program increases total cost; verify program length matches your career field');
           }
         } else {
           // Only show if actually fully covered (borrowNeeded = 0)
@@ -42565,17 +42886,170 @@ function renderInsights(){
             pros.push('Your financing covers all costs — no borrowing needed');
           }
         }
-        
+
         if(S.debtYrs === '5 years' && years > 5) cons.push('Your ' + years + '-year repayment exceeds 5-year debt comfort goal');
+
+        // Add dorm living tip if living expenses are significant AND dorms are typical in that country
+        const room = countryData.cy.room || 0;
+        const personal = countryData.cy.personal || 0;
+        const livingCosts = room + personal;
+        const dormTypicalCountries = ['us', 'uk', 'canada', 'ireland']; // Countries where dorms are common for undergrads
+        if(livingCosts > 8000 && dormTypicalCountries.includes(k)) {
+          pros.push('Living in university dorms can reduce housing costs by 20-40% compared to private rentals');
+        }
       }
-      
+
       if(pros.length > 0 || cons.length > 0) costAnalysis.push({name: countryName, pros: pros, cons: cons});
     });
   }
   
+  // CROSS-TAB INSIGHTS - Compound insights comparing multiple tabs
+  let crossTabInsights = [];
+
+  // 1. CAREER-COUNTRY MATCH ANALYSIS
+  if(S.subCareers.length > 0 && S.cc.length > 0) {
+    const careerCountryMatches = [];
+    const careerSalaryMap = {
+      'Computer Science': '$120-150K', 'Engineering': '$100-140K', 'Medicine': '$150K+',
+      'Business': '$80-120K', 'Data Science': '$130K+', 'Finance': '$100-150K',
+      'Law': '$120-180K', 'Psychology': '$60-90K', 'Environmental Science': '$50-80K'
+    };
+
+    S.subCareers.forEach(career => {
+      const careerShort = career.split(' - ')[0];
+      const salary = careerSalaryMap[careerShort] || 'varies';
+
+      S.cc.forEach(country => {
+        const countryName = COUNTRIES[country].n;
+        // Check if country has strong market for this career
+        const strongMarkets = {
+          'us': ['Engineering', 'Computer Science', 'Finance', 'Business', 'Law'],
+          'uk': ['Finance', 'Business', 'Law', 'Medicine'],
+          'germany': ['Engineering', 'Computer Science', 'Environmental Science'],
+          'canada': ['Engineering', 'Computer Science', 'Business'],
+          'netherlands': ['Engineering', 'Computer Science'],
+          'sweden': ['Engineering', 'Technology', 'Environmental Science']
+        };
+
+        const isStrong = strongMarkets[country] && strongMarkets[country].some(m => careerShort.includes(m) || m.includes(careerShort));
+        if(isStrong) {
+          careerCountryMatches.push({
+            career: careerShort,
+            country: countryName,
+            salary: salary
+          });
+        }
+      });
+    });
+
+    if(careerCountryMatches.length > 0) {
+      const match = careerCountryMatches[0];
+      crossTabInsights.push({
+        type: 'career-country',
+        title: 'Career-Country Match',
+        pros: [match.career + ' is in strong demand in ' + match.country + ', with typical salaries around ' + match.salary + '. This country is well-suited for your career choice.'],
+        cons: []
+      });
+    }
+  }
+
+  // 2. COST-CAREER ROI ANALYSIS
+  if(S.subCareers.length > 0 && S.costCC.length > 0) {
+    const careerEarningsMap = {
+      'Computer Science': 130000, 'Engineering': 110000, 'Medicine': 180000,
+      'Business': 100000, 'Data Science': 140000, 'Finance': 125000,
+      'Law': 150000, 'Psychology': 70000, 'Environmental Science': 65000
+    };
+
+    S.costCC.forEach(country => {
+      const costResults = computeCountryCostResults(country, schol, savings, work, family, rate, years);
+      if(costResults && S.subCareers.length > 0) {
+        const careerShort = S.subCareers[0].split(' - ')[0];
+        const avgEarnings = careerEarningsMap[careerShort] || 100000;
+        const totalCost = costResults.yearAfterSupportTotal || costResults.total4yr;
+        const yearlyNet = avgEarnings - (totalCost / (parseFloat(CD[country].dur) || 4));
+        const payoffYears = totalCost > 0 ? Math.round(totalCost / (avgEarnings * 0.6)) : 0; // Rough estimate accounting for taxes/living
+
+        if(payoffYears > 0 && payoffYears < 20) {
+          const countryName = COUNTRIES[country].n;
+          crossTabInsights.push({
+            type: 'cost-career-roi',
+            title: 'Career ROI Analysis',
+            pros: [careerShort + ' degree costs ~$' + Math.round(totalCost).toLocaleString() + ' in ' + countryName + ' (with your plan). Typical graduate earnings: $' + avgEarnings.toLocaleString() + '/yr. Net ROI timeline: approximately ' + payoffYears + ' years. Based on your current financial inputs.'],
+            cons: []
+          });
+        }
+      }
+    });
+  }
+
+  // 3. PROGRAM STRUCTURE-CAREER ALIGNMENT
+  if(S.subCareers.length > 0 && S.cc.length > 0) {
+    const rigorousCareerTypes = ['Medicine', 'Engineering', 'Law', 'Architecture', 'Pharmacy'];
+    const hasRigorousCareer = S.subCareers.some(c => rigorousCareerTypes.some(t => c.includes(t)));
+
+    if(hasRigorousCareer) {
+      S.cc.forEach(country => {
+        const data = CD[country];
+        if(data && data.chg) {
+          const countryName = COUNTRIES[country].n;
+          const programStructure = data.chg.toLowerCase().includes('easy') ? 'flexible' : 'structured/rigid';
+          const alignment = programStructure === 'flexible' ? 'allows electives alongside required coursework' : 'ensures all prerequisites are covered';
+
+          crossTabInsights.push({
+            type: 'program-structure',
+            title: 'Program Alignment Check',
+            pros: [],
+            cons: [S.subCareers[0].split(' - ')[0] + ' requires specific prerequisites. ' + countryName + ' offers ' + programStructure + ' programs, which ' + alignment + '. Verify curriculum matches your field requirements.']
+          });
+        }
+      });
+    }
+  }
+
+  // 4. FINANCIAL PATHWAY PLANNING
+  if(S.cc.length > 0 && S.costCC.length > 0) {
+    S.cc.forEach(country => {
+      const costResults = computeCountryCostResults(country, schol, savings, work, family, rate, years);
+      if(costResults) {
+        const countryName = COUNTRIES[country].n;
+        const totalCost = costResults.yearAfterSupportTotal;
+        const data = CD[country];
+
+        // Estimate post-study work income
+        const postStudyEarnings = {
+          'us': 0, 'uk': 3000, 'canada': 2500, 'ireland': 2800,
+          'germany': 2200, 'netherlands': 2400, 'sweden': 2600,
+          'france': 2000, 'spain': 1800, 'italy': 1600, 'denmark': 2800
+        };
+
+        const monthlyPostStudyIncome = postStudyEarnings[country] || 2000;
+        const yearsOfWork = 2; // Typical post-study work period
+        const incomeFromWork = monthlyPostStudyIncome * 12 * yearsOfWork;
+        const percentageCovered = totalCost > 0 ? Math.round((incomeFromWork / totalCost) * 100) : 0;
+
+        if(percentageCovered > 0 && percentageCovered < 100) {
+          crossTabInsights.push({
+            type: 'financial-pathway',
+            title: 'Financial Pathway',
+            pros: ['In ' + countryName + ', total cost is ~$' + Math.round(totalCost).toLocaleString() + '. Post-study work typically pays ~$' + monthlyPostStudyIncome.toLocaleString() + '/month. Working 2 years covers ~' + percentageCovered + '% of costs while building professional experience. Your scholarships/savings/work plan covers the remaining balance.'],
+            cons: []
+          });
+        } else if(percentageCovered >= 100) {
+          crossTabInsights.push({
+            type: 'financial-pathway',
+            title: 'Financial Pathway',
+            pros: ['In ' + countryName + ', post-study work earnings (~$' + monthlyPostStudyIncome.toLocaleString() + '/month for 2 years) can fully offset your education costs. Combined with your current plan, you\'ll have financial flexibility after graduation.'],
+            cons: []
+          });
+        }
+      }
+    });
+  }
+
   // UNIVERSITY INSIGHTS - based on selections
   let universityInsights = [];
-  
+
   // Map country names to codes for database lookup
   const countryCodeMap = {
     'us': 'us',
@@ -42788,28 +43262,16 @@ function renderInsights(){
     }
     
     if(careerFits.length > 0){
-      html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">Career Insights</h2>';
-      html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5">Insights based on your career interests and motivations. Consider which careers align with your values and next steps. Explore the Careers tab to discover more.</div>';
-
-      // Mobile: Card layout (carousel)
-      html += buildInsightCarouselHTML(careerFits, 'career-carousel');
-
-      // Desktop: Table layout
-      html += '<div class="insights-table-display"><div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
-      html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:20%;white-space:nowrap">Career</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:40%">Strengths</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:40%">Considerations</th></tr></thead>';
-      html += '<tbody>';
-      careerFits.forEach(cf => {
-        const prosHTML = cf.pros.length > 0 ? cf.pros.map(p => '✅ ' + p).join('<br>') : '—';
-        const consHTML = cf.cons.length > 0 ? cf.cons.map(c => '⚠️ ' + c).join('<br>') : '—';
-        html += '<tr style="border-bottom:1px solid var(--bdr);background:#fff"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;width:20%;line-height:1.4;background:rgba(241,245,249,.5);white-space:nowrap">' + cf.name + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--tx);line-height:1.4">' + prosHTML + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--tx);line-height:1.4">' + consHTML + '</td></tr>';
-      });
-      html += '</tbody></table></div></div>';
+      html += renderInsightsTable(
+        'Career Insights',
+        'Insights based on your career interests and motivations. Consider which careers align with your values and next steps. Explore the Careers tab to discover more.',
+        'Career',
+        careerFits,
+        'career-carousel'
+      );
     }
 
     if(countryFits.length > 0){
-      html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">Country Insights</h2>';
-      html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5">Insights based on your location preferences and citizenship. Use these to narrow your university choices by country. Update your Countries selection to see how different locations match your priorities.</div>';
-
       // Add country insights
       const countryInsightsByCountry = {};
       universityInsights.filter(u => u.type === 'country').forEach(insight => {
@@ -42819,8 +43281,8 @@ function renderInsights(){
         else countryInsightsByCountry[country].cons.push(insight.msg);
       });
 
-      // Mobile: Card layout (carousel) - merge country fits with university insights
-      const countryCarouselItems = countryFits.map(cf => {
+      // Merge country fits with university insights
+      const countryItemsWithInsights = countryFits.map(cf => {
         let pros = [...cf.pros];
         let cons = [...cf.cons];
 
@@ -42832,38 +43294,17 @@ function renderInsights(){
 
         return { name: cf.name, pros, cons };
       });
-      html += buildInsightCarouselHTML(countryCarouselItems, 'country-carousel');
 
-      // Desktop: Table layout
-      html += '<div class="insights-table-display"><div class="insights-table-wrapper" style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
-      html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:20%;white-space:nowrap">Country</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:40%">Strengths</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:40%">Considerations</th></tr></thead>';
-      html += '<tbody>';
-      countryFits.forEach(cf => {
-        let prosText = cf.pros.length > 0 ? cf.pros.map(p => '✅ ' + p).join('<br>') : '';
-        let consText = cf.cons.length > 0 ? cf.cons.map(c => '⚠️ ' + c).join('<br>') : '';
-
-        // Add university insights for this country
-        if(countryInsightsByCountry[cf.name]) {
-          countryInsightsByCountry[cf.name].pros.forEach(p => {
-            prosText += (prosText ? '<br>' : '') + '✅ ' + p;
-          });
-          countryInsightsByCountry[cf.name].cons.forEach(c => {
-            consText += (consText ? '<br>' : '') + '⚠️ ' + c;
-          });
-        }
-
-        prosText = prosText || '—';
-        consText = consText || '—';
-
-        html += '<tr style="border-bottom:1px solid var(--bdr);background:#fff"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;width:20%;line-height:1.4;background:rgba(241,245,249,.5);white-space:nowrap">' + cf.name + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--tx);line-height:1.4">' + prosText + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--tx);line-height:1.4">' + consText + '</td></tr>';
-      });
-      html += '</tbody></table></div></div>';
+      html += renderInsightsTable(
+        'Country Insights',
+        'Insights based on your location preferences and citizenship. Use these to narrow your university choices by country. Update your Countries selection to see how different locations match your priorities.',
+        'Country',
+        countryItemsWithInsights,
+        'country-carousel'
+      );
     }
 
     if(costAnalysis.length > 0){
-      html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">Cost Insights</h2>';
-      html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5">Insights based on your financial situation and cost priorities. Compare countries by affordability and aid availability. Adjust your financial profile on the Costs tab to see updated recommendations.</div>';
-
       // Add cost university insights
       const costInsightsByCountry = {};
       universityInsights.filter(u => u.type === 'cost').forEach(insight => {
@@ -42873,8 +43314,8 @@ function renderInsights(){
         else costInsightsByCountry[country].cons.push(insight.msg);
       });
 
-      // Mobile: Card layout (carousel) - merge cost analysis with university insights
-      const costCarouselItems = costAnalysis.map(cf => {
+      // Merge cost analysis with university insights
+      const costItemsWithInsights = costAnalysis.map(cf => {
         let pros = [...cf.pros];
         let cons = [...cf.cons];
 
@@ -42886,32 +43327,14 @@ function renderInsights(){
 
         return { name: cf.name, pros, cons };
       });
-      html += buildInsightCarouselHTML(costCarouselItems, 'cost-carousel');
 
-      // Desktop: Table layout
-      html += '<div class="insights-table-display"><div class="insights-table-wrapper" style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
-      html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:20%;white-space:nowrap">Cost Category</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:40%">Strengths</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:40%">Considerations</th></tr></thead>';
-      html += '<tbody>';
-      costAnalysis.forEach(cf => {
-        let prosText = cf.pros.length > 0 ? cf.pros.map(p => '✅ ' + p).join('<br>') : '';
-        let consText = cf.cons.length > 0 ? cf.cons.map(c => '⚠️ ' + c).join('<br>') : '';
-
-        // Add university insights for this category
-        if(costInsightsByCountry[cf.name]) {
-          costInsightsByCountry[cf.name].pros.forEach(p => {
-            prosText += (prosText ? '<br>' : '') + '✅ ' + p;
-          });
-          costInsightsByCountry[cf.name].cons.forEach(c => {
-            consText += (consText ? '<br>' : '') + '⚠️ ' + c;
-          });
-        }
-
-        prosText = prosText || '—';
-        consText = consText || '—';
-
-        html += '<tr style="border-bottom:1px solid var(--bdr);background:#fff"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;width:20%;line-height:1.4;background:rgba(241,245,249,.5);white-space:nowrap">' + cf.name + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--tx);line-height:1.4">' + prosText + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--tx);line-height:1.4">' + consText + '</td></tr>';
-      });
-      html += '</tbody></table></div></div>';
+      html += renderInsightsTable(
+        'Cost Insights',
+        'Insights based on your financial situation and cost priorities. Compare countries by affordability and aid availability. Adjust your financial profile on the Costs tab to see updated recommendations.',
+        'Cost Category',
+        costItemsWithInsights,
+        'cost-carousel'
+      );
     }
 
     if(universityInsights.length > 0 && universityInsights.some(u => u.type === 'cost' && u.country === 'General')) {
@@ -42924,6 +43347,24 @@ function renderInsights(){
         html += insight.msg;
         html += '</div>';
       });
+    }
+
+    // CROSS-TAB INSIGHTS - Compound insights comparing multiple selections
+    if(crossTabInsights.length > 0) {
+      // Prepare items for display (add ℹ️ emoji to titles)
+      const crossTabItemsForDisplay = crossTabInsights.map(insight => ({
+        name: 'ℹ️ ' + insight.title,
+        pros: insight.pros,
+        cons: insight.cons
+      }));
+
+      html += renderInsightsTable(
+        'Cross-Tab Insights',
+        'Compound insights that connect your career, location, and financial choices. Use these to understand how your selections work together and identify opportunities or trade-offs.',
+        'Insight',
+        crossTabItemsForDisplay,
+        'crosstab-carousel'
+      );
     }
   }
 
