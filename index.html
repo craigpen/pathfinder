@@ -40583,7 +40583,7 @@ const UNIVERSITIES_BY_SUBJECT = {
 const CAREER_TO_QS_SUBJECT={"Accounting":"Accounting & Finance","Architecture":"Architecture","Biology / Biotech":"Biological Sciences","Chemistry":"Chemistry","Computer Science":"Computer Science & IT","Cybersecurity":"Computer Science & IT","Data Science / AI":"Data Science & Artificial Intelligence","Economics":"Economics & Econometrics","Electrical Engineering":"Engineering – Electrical & Electronic","Entrepreneurship":"Business & Management Studies","Environmental / Climate":"Environmental Sciences","European Law":"Law","Film / Media Production":"Communications & Media Studies","Finance / Banking":"Accounting & Finance","Graphic / UX Design":"Art & Design","International Relations":"Politics & International Studies","Marketing / Management":"Business & Management Studies","Math / Statistics":"Mathematics","Mechanical Engineering":"Engineering – Mechanical, Aeronautical & Manufacturing","Medicine (MD/DO)":"Medicine","Nursing":"Nursing","Pharmacy":"Pharmacy & Pharmacology","Physical Therapy":"Health & Clinical Sciences","Physics":"Physics & Astronomy","Psychology (Clinical)":"Psychology","Public Policy":"Politics & International Studies","Software Engineering":"Computer Science & IT","Technical Theater / Live Events":"Performing Arts","Theater & Performing Arts":"Performing Arts","US Law (JD)":"Law","Writing / Communications":"Communications & Media Studies"};
 
 const S={cats:[],motivations:[],subCareers:[],prac:[],cc:[],costCC:[],expl:null,playlist:null,flex:[],cost:null,vision:null,lang:null,citizen:[],debtYrs:null,languages:[],postGrad:null,inStateTuitionPref:null,stateOfResidency:null,inStateToggle:false,uniSelectivity:null,scholarshipPct:null,collegeSavings:null,partTimeWork:null,familySupport:null,loanRate:null,loanRepaymentYears:null};
-const VERSION='v1.0.21';
+const VERSION='v1.0.22';
 function saveState(){const stateToSave={cats:S.cats,motivations:S.motivations,subCareers:S.subCareers,flex:S.flex,cost:S.cost,vision:S.vision,lang:S.lang,citizen:S.citizen,debtYrs:S.debtYrs,languages:S.languages,postGrad:S.postGrad,inStateTuitionPref:S.inStateTuitionPref,stateOfResidency:S.stateOfResidency,cc:S.cc,costCC:S.costCC,expl:S.expl,uniSelectivity:S.uniSelectivity,scholarshipPct:S.scholarshipPct,collegeSavings:S.collegeSavings,partTimeWork:S.partTimeWork,familySupport:S.familySupport,loanRate:S.loanRate,loanRepaymentYears:S.loanRepaymentYears,inStateToggle:S.inStateToggle};localStorage.setItem('univPathfinderState',JSON.stringify(stateToSave));}
 function loadState(){const saved=localStorage.getItem('univPathfinderState');if(saved){const state=JSON.parse(saved);Object.assign(S,state);if(state.scholarshipPct!==undefined)document.getElementById('sl-schol').value=state.scholarshipPct;if(state.collegeSavings!==undefined)document.getElementById('sl-savings').value=state.collegeSavings;if(state.partTimeWork!==undefined)document.getElementById('sl-work').value=state.partTimeWork;if(state.familySupport!==undefined)document.getElementById('sl-parent').value=state.familySupport;if(state.loanRate!==undefined)document.getElementById('sl-rate').value=state.loanRate;if(state.loanRepaymentYears!==undefined)document.getElementById('sl-yrs').value=state.loanRepaymentYears;if(state.inStateToggle!==undefined){const instateIn=document.getElementById('instate-in');const instateOut=document.getElementById('instate-out');if(state.inStateToggle){instateIn.classList.add('on');instateOut.classList.remove('on')}else{instateOut.classList.add('on');instateIn.classList.remove('on')}}}}
 const PLAYLISTS={lofi:'https://open.spotify.com/embed/playlist/37i9dQZF1DWWQRwui0ExPn?utm_source=generator&theme=0',jazz:'https://open.spotify.com/embed/playlist/37i9dQZF1EIdxUC4rBWFbj?utm_source=generator&theme=0',focus:'https://open.spotify.com/embed/playlist/37i9dQZF1DWZeKCadgRdKQ?utm_source=generator&theme=0',brain:'https://open.spotify.com/embed/playlist/37i9dQZF1DWXLeA8Omikj7?utm_source=generator&theme=0'};
@@ -43293,6 +43293,7 @@ function renderInsights(){
       const locationVisionConflicts = allConflicts.filter(c => c.title && (c.title.includes('Location') || c.title.includes('Vision') || c.title.includes('Bridging')));
       const costConflicts = allConflicts.filter(c => c.title && (c.title.includes('Cost') || c.title.includes('Selectivity')));
       const languageConflicts = allConflicts.filter(c => c.title && (c.title.includes('Language') || c.title.includes('Capability')));
+      const otherConflicts = allConflicts.filter(c => !locationVisionConflicts.includes(c) && !costConflicts.includes(c) && !languageConflicts.includes(c));
 
       html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">⚠️ Things to Check</h2>';
       html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5">Review these to make sure your selections work together.</div>';
@@ -43327,6 +43328,18 @@ function renderInsights(){
         html += '<div style="overflow-x:auto;margin-bottom:16px"><table style="width:100%;border-collapse:collapse;font-size:13px">';
         html += '<tbody>';
         languageConflicts.forEach(conflict => {
+          const color = conflict.type === 'conflict' ? 'var(--bad)' : 'var(--warn)';
+          html += '<tr style="border-bottom:1px solid var(--bdr);background:#fff"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;width:30%;line-height:1.4;background:rgba(241,245,249,.5);white-space:nowrap">' + conflict.title + '</td><td style="padding:8px 10px;vertical-align:top;color:' + color + ';line-height:1.4;width:70%">' + conflict.msg + '</td></tr>';
+        });
+        html += '</tbody></table></div>';
+      }
+
+      // Other Issues
+      if(otherConflicts.length > 0){
+        html += '<h3 style="margin:16px 0 8px 0;color:var(--dk);font-size:16px">📋 Other Considerations</h3>';
+        html += '<div style="overflow-x:auto;margin-bottom:16px"><table style="width:100%;border-collapse:collapse;font-size:13px">';
+        html += '<tbody>';
+        otherConflicts.forEach(conflict => {
           const color = conflict.type === 'conflict' ? 'var(--bad)' : 'var(--warn)';
           html += '<tr style="border-bottom:1px solid var(--bdr);background:#fff"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;width:30%;line-height:1.4;background:rgba(241,245,249,.5);white-space:nowrap">' + conflict.title + '</td><td style="padding:8px 10px;vertical-align:top;color:' + color + ';line-height:1.4;width:70%">' + conflict.msg + '</td></tr>';
         });
