@@ -40583,7 +40583,7 @@ const UNIVERSITIES_BY_SUBJECT = {
 const CAREER_TO_QS_SUBJECT={"Accounting":"Accounting & Finance","Architecture":"Architecture","Biology / Biotech":"Biological Sciences","Chemistry":"Chemistry","Computer Science":"Computer Science & IT","Cybersecurity":"Computer Science & IT","Data Science / AI":"Data Science & Artificial Intelligence","Economics":"Economics & Econometrics","Electrical Engineering":"Engineering – Electrical & Electronic","Entrepreneurship":"Business & Management Studies","Environmental / Climate":"Environmental Sciences","European Law":"Law","Film / Media Production":"Communications & Media Studies","Finance / Banking":"Accounting & Finance","Graphic / UX Design":"Art & Design","International Relations":"Politics & International Studies","Marketing / Management":"Business & Management Studies","Math / Statistics":"Mathematics","Mechanical Engineering":"Engineering – Mechanical, Aeronautical & Manufacturing","Medicine (MD/DO)":"Medicine","Nursing":"Nursing","Pharmacy":"Pharmacy & Pharmacology","Physical Therapy":"Health & Clinical Sciences","Physics":"Physics & Astronomy","Psychology (Clinical)":"Psychology","Public Policy":"Politics & International Studies","Software Engineering":"Computer Science & IT","Technical Theater / Live Events":"Performing Arts","Theater & Performing Arts":"Performing Arts","US Law (JD)":"Law","Writing / Communications":"Communications & Media Studies"};
 
 const S={cats:[],motivations:[],subCareers:[],prac:[],cc:[],costCC:[],expl:null,playlist:null,flex:[],cost:null,vision:null,lang:null,citizen:[],debtYrs:null,languages:[],postGrad:null,inStateTuitionPref:null,stateOfResidency:null,inStateToggle:false,uniSelectivity:null,scholarshipPct:null,collegeSavings:null,partTimeWork:null,familySupport:null,loanRate:null,loanRepaymentYears:null};
-const VERSION='v1.0.26';
+const VERSION='v1.0.27';
 function saveState(){const stateToSave={cats:S.cats,motivations:S.motivations,subCareers:S.subCareers,flex:S.flex,cost:S.cost,vision:S.vision,lang:S.lang,citizen:S.citizen,debtYrs:S.debtYrs,languages:S.languages,postGrad:S.postGrad,inStateTuitionPref:S.inStateTuitionPref,stateOfResidency:S.stateOfResidency,cc:S.cc,costCC:S.costCC,expl:S.expl,uniSelectivity:S.uniSelectivity,scholarshipPct:S.scholarshipPct,collegeSavings:S.collegeSavings,partTimeWork:S.partTimeWork,familySupport:S.familySupport,loanRate:S.loanRate,loanRepaymentYears:S.loanRepaymentYears,inStateToggle:S.inStateToggle};localStorage.setItem('univPathfinderState',JSON.stringify(stateToSave));}
 function loadState(){const saved=localStorage.getItem('univPathfinderState');if(saved){const state=JSON.parse(saved);Object.assign(S,state);if(state.scholarshipPct!==undefined)document.getElementById('sl-schol').value=state.scholarshipPct;if(state.collegeSavings!==undefined)document.getElementById('sl-savings').value=state.collegeSavings;if(state.partTimeWork!==undefined)document.getElementById('sl-work').value=state.partTimeWork;if(state.familySupport!==undefined)document.getElementById('sl-parent').value=state.familySupport;if(state.loanRate!==undefined)document.getElementById('sl-rate').value=state.loanRate;if(state.loanRepaymentYears!==undefined)document.getElementById('sl-yrs').value=state.loanRepaymentYears;if(state.inStateToggle!==undefined){const instateIn=document.getElementById('instate-in');const instateOut=document.getElementById('instate-out');if(state.inStateToggle){instateIn.classList.add('on');instateOut.classList.remove('on')}else{instateOut.classList.add('on');instateIn.classList.remove('on')}}}}
 const PLAYLISTS={lofi:'https://open.spotify.com/embed/playlist/37i9dQZF1DWWQRwui0ExPn?utm_source=generator&theme=0',jazz:'https://open.spotify.com/embed/playlist/37i9dQZF1EIdxUC4rBWFbj?utm_source=generator&theme=0',focus:'https://open.spotify.com/embed/playlist/37i9dQZF1DWZeKCadgRdKQ?utm_source=generator&theme=0',brain:'https://open.spotify.com/embed/playlist/37i9dQZF1DWXLeA8Omikj7?utm_source=generator&theme=0'};
@@ -42231,32 +42231,13 @@ function generateNarrativeParagraph(monthlyPaymentMin = null, monthlyPaymentMax 
 function generateConflictInsights() {
   const insights = [];
   if(S.inStateTuitionPref && S.inStateTuitionPref === 'Out-of-State' && S.flex && S.flex.includes('Study in the US')) {
-    insights.push({type: 'conflict', title: 'Location Contradiction', msg: '💥 You want to leave NC but prefer studying in the US. These aren\'t mutually exclusive—consider US universities outside NC.'});
+    insights.push({type: 'conflict', title: 'Location Awareness', msg: '💥 You want to leave NC but prefer studying in the US. Keep in mind that out-of-state universities will cost more regardless of their quality.'});
   }
-  if(S.cost === 'Critical' && S.uniSelectivity === 'Very selective') {
-    insights.push({type: 'conflict', title: 'Cost & Selectivity Tension', msg: '💥 Cost is critical AND aiming for elite schools. Elite institutions are expensive, but many offer generous need-based aid. Focus on schools with strong aid packages.'});
-  }
-
-  // NEW CONFLICT 1: High cost priority but low scholarship countries (excluding naturally low-cost countries)
-  if(S.cost === 'Critical' && S.cc.length > 0){
-    const lowScholarshipCountries = [];
-    const scholMap = {
-      'uk': true, 'netherlands': true, 'france': true, 'spain': true
-      // Note: Italy excluded - tuition already very low ($1.6K/yr), scholarships less critical
-    };
-    S.cc.forEach(c => {
-      if(scholMap[c]) lowScholarshipCountries.push(COUNTRIES[c].n);
-    });
-    if(lowScholarshipCountries.length > 0){
-      insights.push({
-        type: 'conflict',
-        title: 'Cost Strategy Mismatch',
-        msg: '💥 Cost is critical but you\'ve selected countries with limited scholarship availability (' + lowScholarshipCountries.join(', ') + '). Consider: Sweden (tuition-free), Germany (~$800/year), or other EU low-cost options.'
-      });
-    }
+  if((S.cost === 'Critical' || S.cost === 'Balanced with other factors') && S.uniSelectivity === 'Very selective') {
+    insights.push({type: 'conflict', title: 'Cost & Selectivity Tension', msg: '💥 Cost is a priority and you are targeting selective schools. Selective schools tend to be more expensive, but many offer generous need-based aid. Cost can also be offset by merit-based scholarships. Focus on schools with strong aid packages.'});
   }
 
-  // NEW CONFLICT 2: Rigorous career but flexible-program country mismatch
+  // Rigorous career course requirements check
   if(S.subCareers && S.subCareers.length > 0 && S.cc.length > 0){
     const rigorousCareerTypes = ['Medicine', 'Engineering', 'Law', 'Architecture', 'Pharmacy'];
     const hasRigorousCareer = S.subCareers.some(c => rigorousCareerTypes.some(t => c.includes(t)));
@@ -42273,15 +42254,14 @@ function generateConflictInsights() {
         insights.push({
           type: 'info',
           title: 'Course Requirements',
-          msg: 'ℹ️ Your careers (' + S.subCareers.slice(0,2).join(', ') + ') require specific courses. Verify these are available in your chosen countries.'
+          msg: 'ℹ️ Jobs in your chosen careers (' + S.subCareers.slice(0,2).join(', ') + ') may require specific courses taken during your studies. Verify your chosen universities offer those courses or specializations based on the career you are targeting.'
         });
       }
     }
   }
 
-  // NEW CONFLICT 3: Wants short program but expensive countries
+  // Bachelor-only study in expensive countries
   if(S.cc.length > 0 && S.uniSelectivity && S.uniSelectivity !== 'Very selective'){
-    // Check if user indicates desire for short programs (limited post-grad openness)
     if(S.postGrad === 'Only willing to pursue bachelor'){
       const expensiveCountries = [];
       const expensiveMap = {'us': true, 'uk': true, 'canada': true, 'australia': true};
@@ -42293,8 +42273,8 @@ function generateConflictInsights() {
         if(!affordableInSelection){
           insights.push({
             type: 'conflict',
-            title: 'Cost & Program Duration Note',
-            msg: '💥 You\'re planning bachelor-only study in expensive countries (' + expensiveCountries.join(', ') + '). Consider: Germany/Sweden for cost-effective bachelor programs ($0-3.3K/yr), or plan flexible financing.'
+            title: 'Cost & Undergraduate Degree focus',
+            msg: '💥 You\'re planning undergraduate-only study in expensive countries (' + expensiveCountries.join(', ') + '). Consider: Germany/Sweden for cost-effective undergraduate programs ($0-3.3K/yr), or plan flexible financing.'
           });
         }
       }
@@ -42302,10 +42282,10 @@ function generateConflictInsights() {
   }
 
   if(S.vision === 'In the US' && (S.cc.includes('sweden') || S.cc.includes('germany') || S.cc.includes('france') || S.cc.includes('italy') || S.cc.includes('spain') || S.cc.includes('netherlands') || S.cc.includes('denmark') || S.cc.includes('ireland'))) {
-    insights.push({type: 'info', title: 'Bridging Vision & Location', msg: 'ℹ️ You want to work in the US but are exploring European universities. EU degrees are portable—many graduates return to the US for employment.'});
+    insights.push({type: 'info', title: 'Bridging Vision & Location', msg: 'ℹ️ You want to work in the US but are exploring European universities. This may be a cost effective path. You should ensure the EU degree you are pursuing will be marketable in the US job market.'});
   }
   if(S.lang === 'Slower language learner' && S.languages && S.languages.length >= 2) {
-    insights.push({type: 'info', title: 'Language Capability Note', msg: 'ℹ️ You\'ve selected multiple languages despite finding languages challenging. This shows determination—consider studying abroad where you can immerse in new languages.'});
+    insights.push({type: 'info', title: 'Language Capability', msg: 'ℹ️ You\'ve selected multiple languages despite finding languages challenging. This shows determination—consider studying abroad where you can immerse in new languages.'});
   }
   return insights;
 }
@@ -42314,7 +42294,7 @@ function generateConflictInsights() {
 function generateSelectionInsights() {
   const insights = [];
   if(S.lang === 'Normal language learner') insights.push({type: 'neutral', title: 'Language Planning', msg: 'ℹ️ Plan 1-2 years to reach conversational fluency in a new language.'});
-  else if(S.lang === 'Slower language learner') insights.push({type: 'con', title: 'Language Strategy Needed', msg: '⚠️ Language barrier in non-English programs. Look for English-taught options or plan intensive language prep.'});
+  else if(S.lang === 'Slower language learner') insights.push({type: 'con', title: 'Language Strategy', msg: '⚠️ You may encounter a language barrier in non-English programs. Look for English-taught options or plan intensive language prep. Some EU countries are much stronger than others for English degree programs.'});
 
   if(S.citizen && S.citizen.includes('US')) {
     if(S.citizen.includes('EU')) insights.push({type: 'pro', title: 'US + EU Citizenship', msg: '✅ Free/low tuition in Sweden, Germany, Denmark. Work rights across EU.'});
@@ -43022,7 +43002,7 @@ function renderInsights(){
             type: 'program-structure',
             title: 'Course Requirements',
             pros: [],
-            cons: [S.subCareers[0].split(' - ')[0] + ' requires specific courses. ' + countryName + ' offers ' + programStructure + ' programs, which ' + alignment + '. Verify the courses you need are available.']
+            cons: ['Jobs in ' + S.subCareers[0].split(' - ')[0] + ' may require specific courses. ' + countryName + ' offers ' + programStructure + ' programs. Verify your chosen university offers the courses or specializations needed for your career.']
           });
         }
       });
