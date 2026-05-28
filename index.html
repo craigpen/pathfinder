@@ -41397,7 +41397,7 @@ function renderUniversities(){
       };
       const targetSelectivity = selectivityMap[S.uniSelectivity];
       if(targetSelectivity === 'Selective'){
-        filteredUnis = filteredUnis.filter(u => u.selectivity === 'Selective' || u.selectivity === 'Less selective');
+        filteredUnis = filteredUnis.filter(u => u.selectivity === 'Selective');
       } else if(targetSelectivity === 'Less selective'){
         filteredUnis = filteredUnis.filter(u => u.selectivity === 'Less selective');
       } else if(targetSelectivity === 'Very selective'){
@@ -41565,7 +41565,7 @@ function renderUniversities(){
       };
       const targetSelectivity = selectivityMap[S.uniSelectivity];
       if(targetSelectivity === 'Selective'){
-        filteredUnis = filteredUnis.filter(u => u.selectivity === 'Selective' || u.selectivity === 'Less selective');
+        filteredUnis = filteredUnis.filter(u => u.selectivity === 'Selective');
       } else if(targetSelectivity === 'Less selective'){
         filteredUnis = filteredUnis.filter(u => u.selectivity === 'Less selective');
       } else if(targetSelectivity === 'Very selective'){
