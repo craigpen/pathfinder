@@ -42231,10 +42231,10 @@ function generateNarrativeParagraph(monthlyPaymentMin = null, monthlyPaymentMax 
 function generateConflictInsights() {
   const insights = [];
   if(S.inStateTuitionPref && S.inStateTuitionPref === 'Out-of-State' && S.flex && S.flex.includes('Study in the US')) {
-    insights.push({type: 'conflict', title: 'Location Contradiction', msg: '⚠️ You want to leave NC but prefer studying in the US. These aren\'t mutually exclusive—consider US universities outside NC.'});
+    insights.push({type: 'conflict', title: 'Location Contradiction', msg: '💥 You want to leave NC but prefer studying in the US. These aren\'t mutually exclusive—consider US universities outside NC.'});
   }
   if(S.cost === 'Critical' && S.uniSelectivity === 'Very selective') {
-    insights.push({type: 'conflict', title: 'Cost & Selectivity Tension', msg: '⚠️ Cost is critical AND aiming for elite schools. Elite institutions are expensive, but many offer generous need-based aid. Focus on schools with strong aid packages.'});
+    insights.push({type: 'conflict', title: 'Cost & Selectivity Tension', msg: '💥 Cost is critical AND aiming for elite schools. Elite institutions are expensive, but many offer generous need-based aid. Focus on schools with strong aid packages.'});
   }
 
   // NEW CONFLICT 1: High cost priority but low scholarship countries (excluding naturally low-cost countries)
@@ -42251,7 +42251,7 @@ function generateConflictInsights() {
       insights.push({
         type: 'conflict',
         title: 'Cost Strategy Mismatch',
-        msg: '⚠️ Cost is critical but you\'ve selected countries with limited scholarship availability (' + lowScholarshipCountries.join(', ') + '). Consider: Sweden (tuition-free), Germany (~$800/year), or other EU low-cost options.'
+        msg: '💥 Cost is critical but you\'ve selected countries with limited scholarship availability (' + lowScholarshipCountries.join(', ') + '). Consider: Sweden (tuition-free), Germany (~$800/year), or other EU low-cost options.'
       });
     }
   }
@@ -42294,7 +42294,7 @@ function generateConflictInsights() {
           insights.push({
             type: 'conflict',
             title: 'Cost & Program Duration Note',
-            msg: '⚠️ You\'re planning bachelor-only study in expensive countries (' + expensiveCountries.join(', ') + '). Consider: Germany/Sweden for cost-effective bachelor programs ($0-3.3K/yr), or plan flexible financing.'
+            msg: '💥 You\'re planning bachelor-only study in expensive countries (' + expensiveCountries.join(', ') + '). Consider: Germany/Sweden for cost-effective bachelor programs ($0-3.3K/yr), or plan flexible financing.'
           });
         }
       }
@@ -42361,7 +42361,7 @@ function generateSelectionInsights() {
 // Helper function to format pros/cons with proper emoji and color
 function formatInsightItem(text, isProItem) {
   if(!text) return '';
-  // Check if text already starts with an emoji (ℹ️, ✅, ⚠️, etc.)
+  // Check if text already starts with an emoji (ℹ️, ✅, ⚠️, 💥, etc.)
   if(text.startsWith('ℹ️')) {
     // Info item - use neutral color
     return '<span style="color:var(--tx2);">' + text + '</span>';
@@ -42370,6 +42370,9 @@ function formatInsightItem(text, isProItem) {
     return '<span style="color:var(--ok);">' + text + '</span>';
   } else if(text.startsWith('⚠️')) {
     // Already has warning emoji
+    return '<span style="color:var(--bad);">' + text + '</span>';
+  } else if(text.startsWith('💥')) {
+    // Already has conflict emoji
     return '<span style="color:var(--bad);">' + text + '</span>';
   }
   // No emoji - add the appropriate one

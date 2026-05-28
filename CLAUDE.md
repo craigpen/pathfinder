@@ -100,12 +100,12 @@ Insights are categorized by type and displayed in standardized tables. Follow th
 **Insight Types & Emoji:**
 - `type: 'pro'` — Positive/aligned insight → **✅ (green)** — Use when selection aligns well with goals
 - `type: 'neutral'` — Informational/balanced → **ℹ️ (gray)** — Use for general advice, context, or neutral tradeoffs
-- `type: 'con'` — Negative/misaligned insight → **⚠️ (red)** — Use when selection conflicts with goals
-- `type: 'conflict'` — Tension between selections → **⚠️ (red)** — Use when two selections contradict
+- `type: 'con'` — Negative/misaligned insight → **⚠️ (red)** — Use when selection is problematic
+- `type: 'conflict'` — Contradiction between selections → **💥 (red)** — Use when two selections directly contradict each other
 
 **Color Mapping (via CSS variables):**
 - Green: `var(--ok)` (#16a34a) for pro/positive insights
-- Red: `var(--bad)` (#dc2626) for con/negative insights  
+- Red: `var(--bad)` (#dc2626) for con/negative and conflict insights  
 - Gray: `var(--tx2)` (#64748b) for neutral insights
 
 **Emoji Placement:**
@@ -144,10 +144,11 @@ insights.push({
 - ✅ All new insights must be added to one of the four tables above
 - ✅ Each insight must have a clear title (no emoji) and message (with emoji at start)
 - ✅ Use appropriate type ('pro', 'neutral', 'con', 'conflict') based on alignment
-- ✅ Start message text with correct emoji: ✅ ℹ️ or ⚠️
+- ✅ Start message text with correct emoji: ✅ for pro, ℹ️ for neutral, ⚠️ for con, 💥 for conflict
 - ❌ Do NOT create new insight tables or display insights outside these four tables
 - ❌ Do NOT add emoji to titles—only to message text
 - ❌ Do NOT mix types inconsistently (e.g., don't use 'pro' for a negative insight)
+- ❌ Do NOT confuse 'con' (warning about one selection) with 'conflict' (two selections contradict)
 
 ## Key Files & Functions
 - `index.html` — Single-page app with embedded CSS/JS (1.3MB)
