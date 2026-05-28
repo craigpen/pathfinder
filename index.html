@@ -42254,7 +42254,7 @@ function generateConflictInsights() {
         insights.push({
           type: 'info',
           title: 'Course Requirements',
-          msg: 'ℹ️ Jobs in your chosen careers (' + S.subCareers.slice(0,2).join(', ') + ') may require specific courses taken during your studies. Verify your chosen universities offer those courses or specializations based on the career you are targeting.'
+          msg: 'ℹ️ Jobs in your chosen careers (' + S.subCareers.slice(0,2).join(', ') + ') may require specific courses taken during your studies.'
         });
       }
     }
@@ -42282,7 +42282,7 @@ function generateConflictInsights() {
   }
 
   if(S.vision === 'In the US' && (S.cc.includes('sweden') || S.cc.includes('germany') || S.cc.includes('france') || S.cc.includes('italy') || S.cc.includes('spain') || S.cc.includes('netherlands') || S.cc.includes('denmark') || S.cc.includes('ireland'))) {
-    insights.push({type: 'info', title: 'Bridging Vision & Location', msg: 'ℹ️ You want to work in the US but are exploring European universities. This may be a very cost effective path. Ensure the EU degree you are pursuing will be marketable in the US for the career you are targeting.'});
+    insights.push({type: 'info', title: 'Bridging Vision & Location', msg: 'ℹ️ You want to work in the US but are exploring European universities. This may be a very cost effective path.'});
   }
   if(S.lang === 'Slower language learner' && S.languages && S.languages.length >= 2) {
     insights.push({type: 'info', title: 'Language Capability', msg: 'ℹ️ You\'ve selected multiple languages despite finding languages challenging. This shows determination—consider studying abroad where you can immerse in new languages.'});
@@ -42321,7 +42321,7 @@ function generateSelectionInsights() {
   const totalNonScholarship = savings + work + family;
 
   if(schol < 20 && totalNonScholarship < 50000) {
-    insights.push({type: 'con', title: 'Insufficient Funding Sources', msg: '⚠️ Your current funding plan (scholarships, savings, work, family support) may be insufficient. Consider: merit scholarships, employer sponsorship, additional savings, or more part-time work during studies.'});
+    insights.push({type: 'con', title: 'Insufficient Funding Sources', msg: '⚠️ Your current funding plan (scholarships, savings, work, family support) may be insufficient.'});
   }
 
   // Check for loan repayment timeline mismatch between Discovery and Costs tabs
@@ -43315,11 +43315,15 @@ function renderInsights(){
         meaning = severity + ' ' + meaning;
 
         let action = '';
-        if(conflict.title.includes('Cost') || conflict.title.includes('Selectivity')) {
+        if(conflict.title.includes('Course Requirements')) {
+          action = 'Verify your chosen universities offer those courses or specializations based on the career you are targeting.';
+        } else if(conflict.title.includes('Bridging')) {
+          action = 'Ensure the EU degree you are pursuing will be marketable in the US for the career you are targeting.';
+        } else if(conflict.title.includes('Cost') || conflict.title.includes('Selectivity')) {
           action = 'Research scholarship options and affordability factors';
         } else if(conflict.title.includes('Language')) {
           action = 'Plan language prep or seek English-taught programs';
-        } else if(conflict.title.includes('Location') || conflict.title.includes('Vision') || conflict.title.includes('Bridging')) {
+        } else if(conflict.title.includes('Location') || conflict.title.includes('Vision')) {
           action = 'Verify alignment with your post-graduation plans';
         } else if(conflict.title.includes('Program')) {
           action = 'Compare curriculum with your prerequisites';
@@ -43328,7 +43332,7 @@ function renderInsights(){
         } else if(conflict.title.includes('Loan Repayment')) {
           action = 'Adjust your loan term on the Costs tab';
         } else if(conflict.title.includes('Funding')) {
-          action = 'Adjust cost sliders or work to secure more financial support';
+          action = 'Consider merit scholarships, employer sponsorship, additional savings, or more part-time work during studies.';
         } else if(conflict.title.includes('Financial')) {
           action = 'Refine financial planning strategy';
         } else {
