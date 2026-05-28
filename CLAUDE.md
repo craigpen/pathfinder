@@ -93,6 +93,62 @@ I'll automatically determine and increment the version based on your request:
 - When creating UI for similar data, check what rendering functions already exist
 - Minimize file size: single-page app means every KB counts
 
+### 6. Insights System (Emoji, Colors, and Tables)
+
+Insights are categorized by type and displayed in standardized tables. Follow this system strictly for all new insights.
+
+**Insight Types & Emoji:**
+- `type: 'pro'` — Positive/aligned insight → **✅ (green)** — Use when selection aligns well with goals
+- `type: 'neutral'` — Informational/balanced → **ℹ️ (gray)** — Use for general advice, context, or neutral tradeoffs
+- `type: 'con'` — Negative/misaligned insight → **⚠️ (red)** — Use when selection conflicts with goals
+- `type: 'conflict'` — Tension between selections → **⚠️ (red)** — Use when two selections contradict
+
+**Color Mapping (via CSS variables):**
+- Green: `var(--ok)` (#16a34a) for pro/positive insights
+- Red: `var(--bad)` (#dc2626) for con/negative insights  
+- Gray: `var(--tx2)` (#64748b) for neutral insights
+
+**Emoji Placement:**
+- Emoji **must** be at the start of the insight message (the `msg` field)
+- Emoji are automatically formatted with color by `formatInsightItem()` function
+- **Do NOT** add emoji to insight titles/labels—only to the message text
+
+**Example Insight Format:**
+```javascript
+insights.push({
+  type: 'pro',
+  title: 'EU Citizenship Advantage',  // NO emoji here
+  msg: '✅ Tuition-free in Sweden, Germany, Denmark. Work rights across 27 countries.'  // emoji at start
+});
+```
+
+**Existing Insight Tables (Add all new insights to one of these):**
+1. **Career Insights** — Career matches based on motivations, language skills, etc.
+   - Use when insight relates to career fields, motivations, or career-specific constraints
+   - Function: `careerFits` array → `renderInsightsTable('Career Insights', ...)`
+   
+2. **Country Insights** — Location/citizenship recommendations
+   - Use when insight relates to specific countries, tuition, visa policy, language requirements
+   - Function: `countryFits` array + `countryInsightsByCountry` (country-specific nested insights)
+   
+3. **Cost Insights** — Financial and affordability analysis
+   - Use when insight relates to tuition costs, scholarships, debt, financial aid
+   - Function: `costAnalysis` array + `costInsightsByCountry` (cost category analysis)
+   
+4. **Cross-Tab Insights** — Compound insights connecting career + location + cost
+   - Use for insights that compare selections across multiple tabs (e.g., "You want EU work + chose low-cost countries")
+   - Function: `crossTabInsights` array
+   - Most complex insights go here
+
+**Rules for New Insights:**
+- ✅ All new insights must be added to one of the four tables above
+- ✅ Each insight must have a clear title (no emoji) and message (with emoji at start)
+- ✅ Use appropriate type ('pro', 'neutral', 'con', 'conflict') based on alignment
+- ✅ Start message text with correct emoji: ✅ ℹ️ or ⚠️
+- ❌ Do NOT create new insight tables or display insights outside these four tables
+- ❌ Do NOT add emoji to titles—only to message text
+- ❌ Do NOT mix types inconsistently (e.g., don't use 'pro' for a negative insight)
+
 ## Key Files & Functions
 - `index.html` — Single-page app with embedded CSS/JS (1.3MB)
   - This is your main deliverable; treat edits carefully
@@ -102,6 +158,10 @@ I'll automatically determine and increment the version based on your request:
   - `buildCarouselHTML()` — Creates carousel container and cards
   - `initCarousel(carouselId)` — Initializes drag/touch/snap behavior for a carousel
   - Never forget to call `initCarousel()` after dynamically rendering carousels
+- Insight helpers:
+  - `formatInsightItem(text, isProItem)` — Applies emoji and color based on sentiment
+  - `renderInsightsTable()` — Renders standardized insight table with carousel
+  - Always add insights to existing `careerFits`, `countryFits`, `costAnalysis`, or `crossTabInsights` arrays
 
 ---
 
