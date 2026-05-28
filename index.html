@@ -43274,7 +43274,7 @@ function renderInsights(){
   allDiscoveryInsights = allDiscoveryInsights.concat(generateSelectionInsights());
 
   // Separate conflicts from other insights
-  const discoveryConflicts = allDiscoveryInsights.filter(i => i.type === 'conflict' || i.type === 'con');
+  const discoveryConflicts = allDiscoveryInsights.filter(i => i.type === 'conflict' || i.type === 'con' || i.type === 'info');
   const discoveryOpportunities = allDiscoveryInsights.filter(i => i.type === 'pro' || i.type === 'neutral');
   allConflicts = allConflicts.concat(discoveryConflicts);
   // Convert crossTabInsights to conflict format (they have pros/cons arrays instead of msg)
