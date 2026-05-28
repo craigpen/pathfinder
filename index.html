@@ -42398,8 +42398,9 @@ function renderInsightsTable(titleText, subtitleText, firstColHeader, items, car
 
 function buildInsightCarouselHTML(items, carouselId) {
   // Create a carousel that fills the viewport width properly
-  // Accounts for parent padding by breaking out with negative margin
-  let html = `<div class="insights-carousel-wrap" id="${carouselId}" style="width:100vw;margin-left:calc(-50vw + 50%);margin-right:calc(-50vw + 50%)"><div class="insights-carousel-container">`;
+  // Uses same pattern as buildCarouselHTML with JavaScript-based snapping via initCarousel()
+  let html = `<div class="insights-carousel-wrap" id="${carouselId}"><div class="insights-carousel-container">`;
+
   items.forEach(item => {
     let contentHTML = '';
     if(item.pros || item.msg) {
@@ -42409,12 +42410,15 @@ function buildInsightCarouselHTML(items, carouselId) {
         contentHTML += `<div class="insights-carousel-card-row" style="margin-top:8px">${item.cons.map(c => formatInsightItem(c, false)).join('<br>')}</div>`;
       }
     }
-    html += `<div class="insights-carousel-card" style="scroll-snap-align:start;scroll-snap-stop:always">
+    html += `<div class="insights-carousel-card">
       <div class="insights-carousel-card-header">${item.title || item.name}</div>
       <div class="insights-carousel-card-content">${contentHTML || '<div class="insights-carousel-card-row">—</div>'}</div>
     </div>`;
   });
-  html += '</div></div>';
+
+  html += '</div>'; // insights-carousel-container
+  html += '<div class="carousel-indicator">Card 1 of ' + items.length + '</div>';
+  html += '</div>'; // insights-carousel-wrap
   return html;
 }
 
@@ -43407,6 +43411,15 @@ function renderInsights(){
   }
 
   el.innerHTML = html;
+
+  // Initialize all carousels with JavaScript-based snapping
+  setTimeout(() => {
+    if(document.getElementById('narrative-carousel')) initCarousel('narrative-carousel', '.insights-carousel-container');
+    if(document.getElementById('career-carousel')) initCarousel('career-carousel', '.insights-carousel-container');
+    if(document.getElementById('country-carousel')) initCarousel('country-carousel', '.insights-carousel-container');
+    if(document.getElementById('cost-carousel')) initCarousel('cost-carousel', '.insights-carousel-container');
+    if(document.getElementById('crosstab-carousel')) initCarousel('crosstab-carousel', '.insights-carousel-container');
+  }, 50);
 }
 
 function pick1(q,el){document.querySelectorAll(`[data-q="${q}"] .pill`).forEach(o=>o.classList.remove('on'));el.classList.add('on');if(q==='citizen')S.citizen=[el.textContent];else if(q==='flex')S.flex=el.textContent;else if(q==='cost')S.cost=el.textContent;else if(q==='vision')S.vision=el.textContent;else if(q==='lang')S.lang=el.textContent;else if(q==='debtYrs')S.debtYrs=el.textContent;else if(q==='postGrad')S.postGrad=el.textContent;else if(q==='inStateTuitionPref')S.inStateTuitionPref=el.textContent;else if(q==='stateOfResidency')S.stateOfResidency=el.textContent;else if(q==='uniSelectivity')S.uniSelectivity=el.textContent}
@@ -43917,8 +43930,11 @@ function initCarousel(wrapperId, containerSelector = '.carousel-container') {
   let velocity = 0;
   const GAP = containerSelector.includes('uni') ? 0 : 6; // uni carousels have no gap
   
-  // Get cards - handle both .carousel-card and .uni-* types
+  // Get cards - handle .carousel-card, .insights-carousel-card, and .uni-* types
   let cards = container.querySelectorAll('.carousel-card');
+  if (cards.length === 0) {
+    cards = container.querySelectorAll('.insights-carousel-card');
+  }
   if (cards.length === 0) {
     cards = container.querySelectorAll('.uni-country-slide, .uni-card');
   }
