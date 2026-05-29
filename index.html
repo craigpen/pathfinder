@@ -20201,7 +20201,7 @@ function renderUniversities(){
     
     filteredUnis = filteredUnis.filter(u => {
       if (!u.programs) return true;
-      const hasProgram = u.programs.some(p => selectedSubjects.has(p.qsSubject));
+      const hasProgram = u.programs.some(p => selectedSubjects.has(p));
       return hasProgram;
     });
     
