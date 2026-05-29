@@ -19308,7 +19308,7 @@ const TUITION_AVERAGES = {
 const CAREER_TO_QS_SUBJECT={"Accounting":"Accounting & Finance","Architecture":"Architecture","Biology / Biotech":"Biological Sciences","Chemistry":"Chemistry","Computer Science":"Computer Science & IT","Cybersecurity":"Computer Science & IT","Data Science / AI":"Data Science & Artificial Intelligence","Economics":"Economics & Econometrics","Electrical Engineering":"Engineering – Electrical & Electronic","Engineering":"Engineering","Entrepreneurship":"Business & Management Studies","Environmental / Climate":"Environmental Sciences","European Law":"Law","Film / Media Production":"Communications & Media Studies","Finance / Banking":"Accounting & Finance","Graphic / UX Design":"Art & Design","International Relations":"Politics & International Studies","Marketing / Management":"Business & Management Studies","Math / Statistics":"Mathematics","Mechanical Engineering":"Engineering – Mechanical, Aeronautical & Manufacturing","Medicine (MD/DO)":"Medicine","Nursing":"Nursing","Pharmacy":"Pharmacy & Pharmacology","Physical Therapy":"Health & Clinical Sciences","Physics":"Physics & Astronomy","Psychology (Clinical)":"Psychology","Public Policy":"Politics & International Studies","Software Engineering":"Computer Science & IT","Technical Theater / Live Events":"Performing Arts","Theater & Performing Arts":"Performing Arts","US Law (JD)":"Law","Writing / Communications":"Communications & Media Studies","Zoology":"Zoology"};
 
 const S={cats:[],motivations:[],subCareers:[],prac:[],cc:[],costCC:[],expl:null,playlist:null,flex:[],cost:null,vision:null,lang:null,citizen:[],debtYrs:null,languages:[],postGrad:null,inStateTuitionPref:null,stateOfResidency:null,inStateToggle:false,usUniversityType:null,uniSelectivity:null,scholarshipPct:null,collegeSavings:null,partTimeWork:null,familySupport:null,loanRate:null,loanRepaymentYears:null};
-const VERSION='v1.4.1';
+const VERSION='v1.4.2';
 document.addEventListener('DOMContentLoaded',()=>{const b=document.getElementById('version-badge');if(b)b.innerText=VERSION;});
 function saveState(){const stateToSave={cats:S.cats,motivations:S.motivations,subCareers:S.subCareers,flex:S.flex,cost:S.cost,vision:S.vision,lang:S.lang,citizen:S.citizen,debtYrs:S.debtYrs,languages:S.languages,postGrad:S.postGrad,inStateTuitionPref:S.inStateTuitionPref,stateOfResidency:S.stateOfResidency,cc:S.cc,costCC:S.costCC,expl:S.expl,uniSelectivity:S.uniSelectivity,scholarshipPct:S.scholarshipPct,collegeSavings:S.collegeSavings,partTimeWork:S.partTimeWork,familySupport:S.familySupport,loanRate:S.loanRate,loanRepaymentYears:S.loanRepaymentYears,inStateToggle:S.inStateToggle,usUniversityType:S.usUniversityType};localStorage.setItem('univPathfinderState',JSON.stringify(stateToSave));}
 function loadState(){const saved=localStorage.getItem('univPathfinderState');if(saved){const state=JSON.parse(saved);Object.assign(S,state);if(state.scholarshipPct!==undefined)document.getElementById('sl-schol').value=state.scholarshipPct;if(state.collegeSavings!==undefined)document.getElementById('sl-savings').value=state.collegeSavings;if(state.partTimeWork!==undefined)document.getElementById('sl-work').value=state.partTimeWork;if(state.familySupport!==undefined)document.getElementById('sl-parent').value=state.familySupport;if(state.loanRate!==undefined)document.getElementById('sl-rate').value=state.loanRate;if(state.loanRepaymentYears!==undefined)document.getElementById('sl-yrs').value=state.loanRepaymentYears;if(state.inStateToggle!==undefined){const instateIn=document.getElementById('instate-in');const instateOut=document.getElementById('instate-out');if(state.inStateToggle){instateIn.classList.add('on');instateOut.classList.remove('on')}else{instateOut.classList.add('on');instateIn.classList.remove('on')}}}}
@@ -20463,13 +20463,13 @@ function renderCostTable(){
   const yrs=+document.getElementById('sl-yrs').value;
   const months=yrs*12;
 
-  // Store slider values in state for narrative
-  S.scholarshipPct = document.getElementById('sl-schol').value + '%';
-  S.collegeSavings = savingsTotal > 0 ? '$' + savingsTotal.toLocaleString() : null;
-  S.partTimeWork = work > 0 ? '$' + work.toLocaleString() + '/yr' : null;
-  S.familySupport = parent > 0 ? '$' + parent.toLocaleString() + '/yr' : null;
-  S.loanRate = document.getElementById('sl-rate').value + '%';
-  S.loanRepaymentYears = yrs + ' years';
+  // Store slider values in state (keep as numbers for proper restoration)
+  S.scholarshipPct = +document.getElementById('sl-schol').value;
+  S.collegeSavings = savingsTotal > 0 ? savingsTotal : null;
+  S.partTimeWork = work > 0 ? work : null;
+  S.familySupport = parent > 0 ? parent : null;
+  S.loanRate = +document.getElementById('sl-rate').value;
+  S.loanRepaymentYears = yrs;
 
   // Update slider display values
   document.getElementById('sl-schol-v').textContent=document.getElementById('sl-schol').value+'%';
@@ -20849,15 +20849,15 @@ function generateNarrativeParagraph(monthlyPaymentMin = null, monthlyPaymentMax 
   // ===== FINANCIAL NARRATIVE =====
   if(S.scholarshipPct || S.collegeSavings) {
     let scholarshipParts = [];
-    if(S.scholarshipPct) scholarshipParts.push('You anticipate scholarships or grants will reduce your tuition by ' + makePill(S.scholarshipPct));
-    if(S.collegeSavings) scholarshipParts.push('and you have college savings of ' + makePill(S.collegeSavings) + ' to contribute to the total cost of your education');
+    if(S.scholarshipPct) scholarshipParts.push('You anticipate scholarships or grants will reduce your tuition by ' + makePill(S.scholarshipPct + '%'));
+    if(S.collegeSavings) scholarshipParts.push('and you have college savings of ' + makePill('$' + S.collegeSavings.toLocaleString()) + ' to contribute to the total cost of your education');
     if(scholarshipParts.length > 0) financialParts.push(scholarshipParts.join(', ') + '.');
   }
 
   if(S.partTimeWork || S.familySupport) {
     let fundingParts = [];
-    if(S.partTimeWork) fundingParts.push('You are considering a part-time job while in school, and expect to contribute ' + makePill(S.partTimeWork) + ' to your tuition');
-    if(S.familySupport) fundingParts.push('You anticipate family contributions of about ' + makePill(S.familySupport) + ' to help pay for your living expenses or tuition');
+    if(S.partTimeWork) fundingParts.push('You are considering a part-time job while in school, and expect to contribute ' + makePill('$' + S.partTimeWork.toLocaleString() + '/yr') + ' to your tuition');
+    if(S.familySupport) fundingParts.push('You anticipate family contributions of about ' + makePill('$' + S.familySupport.toLocaleString() + '/yr') + ' to help pay for your living expenses or tuition');
     if(fundingParts.length > 0) financialParts.push(fundingParts.join('.  ') + '.');
   }
 
@@ -20867,8 +20867,8 @@ function generateNarrativeParagraph(monthlyPaymentMin = null, monthlyPaymentMax 
 
   if(S.loanRate || S.loanRepaymentYears) {
     let loanParts = [];
-    if(S.loanRate) loanParts.push('You are estimating a loan rate of ' + makePill(S.loanRate));
-    if(S.loanRepaymentYears) loanParts.push('to be repaid monthly over ' + makePill(S.loanRepaymentYears));
+    if(S.loanRate) loanParts.push('You are estimating a loan rate of ' + makePill(S.loanRate + '%'));
+    if(S.loanRepaymentYears) loanParts.push('to be repaid monthly over ' + makePill(S.loanRepaymentYears + ' years'));
     if(loanParts.length > 0) financialParts.push('Once you start working after graduation, you will  make payments on these loans every month until they are paid off.  ' + loanParts.join(', ') + '.');
   }
 
@@ -20876,7 +20876,7 @@ function generateNarrativeParagraph(monthlyPaymentMin = null, monthlyPaymentMax 
   if(monthlyPaymentMin !== null && monthlyPaymentMax !== null && S.loanRepaymentYears) {
     const formattedMin = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(monthlyPaymentMin);
     const formattedMax = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(monthlyPaymentMax);
-    financialParts.push('With these loan terms, selected countries, and your cost projections, you should expect to pay between ' + makePill(formattedMin) + ' and ' + makePill(formattedMax) + ' monthly over ' + makePill(S.loanRepaymentYears) + '.');
+    financialParts.push('With these loan terms, selected countries, and your cost projections, you should expect to pay between ' + makePill(formattedMin) + ' and ' + makePill(formattedMax) + ' monthly over ' + makePill(S.loanRepaymentYears + ' years') + '.');
   }
 
   // Build HTML
