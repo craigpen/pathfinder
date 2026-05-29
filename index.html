@@ -263,7 +263,7 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 <div class="qb"><div class="ql">Select One or More</div><div class="qt">Broad interest areas?</div><div class="qs">Pick any categories that seem interesting to you. Then drill into specific careers on the next tab.</div><div class="pills" id="cat-opts"></div></div>
 <div class="qb"><div class="ql">Select One or More</div><div class="qt">What are your motivations?</div><div class="qs">Use this thought exercise to help you choose possible careers.</div><div class="pills" id="motivation-opts"></div></div>
 <div class="qb"><div class="ql">Select One or More</div><div class="qt">Open to university locations?</div><div class="qs">This should help inform your choices on the following pages.</div><div class="pills" data-q="flex"><div class="pill" onclick="pickN('flex',this)">Study in the US</div><div class="pill" onclick="pickN('flex',this)">Study in Europe</div></div></div>
-<div class="qb"><div class="ql">Select one</div><div class="qt">Prefer in-state for US universities?</div><div class="qs">In-state tuition at public universities saves $15k–25k/year compared to out-of-state. This affects both your university options and your cost model.</div><div class="pills" data-q="inStateTuitionPref"><div class="pill" onclick="pick1('inStateTuitionPref',this)">In-State</div><div class="pill" onclick="pick1('inStateTuitionPref',this)">Any state</div><div class="pill" onclick="pick1('inStateTuitionPref',this)">Out-of-State</div></div></div>
+<div class="qb"><div class="ql">Select one</div><div class="qt">Prefer in-state US university options?</div><div class="qs">In-state tuition at public universities saves $15k–25k/year compared to out-of-state. Private universities cost the same regardless of where you live. Selecting <State of Residency> will limit results to your state and show in-state tuition rates.</div><div class="pills" data-q="inStateTuitionPref" id="uni-instate-pills"></div></div>
 
 <div class="qb"><div class="ql">Select one</div><div class="qt">What is your state of residency?</div><div class="qs">This helps identify in-state tuition options and universities near you.</div><div class="pills" data-q="stateOfResidency"><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">AL</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">AK</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">AZ</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">AR</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">CA</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">CO</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">CT</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">DE</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">FL</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">GA</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">HI</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">ID</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">IL</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">IN</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">IA</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">KS</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">KY</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">LA</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">ME</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">MD</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">MA</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">MI</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">MN</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">MS</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">MO</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">MT</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">NC</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">ND</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">NE</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">NH</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">NJ</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">NM</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">NV</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">NY</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">OH</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">OK</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">OR</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">PA</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">RI</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">SC</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">SD</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">TN</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">TX</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">UT</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">VT</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">VA</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">WA</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">WV</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">WI</div><div class="pill" onclick="pick1('stateOfResidency',this);if(document.getElementById('uni-content'))renderUniversities()">WY</div></div></div>
 
@@ -19863,15 +19863,26 @@ function buildUniversitiesCarouselByCountry(data) {
     const locationStr = u.country === 'us'
       ? (u.city ? (u.city.includes(',') ? u.city : `${u.city}, ${u.state}`) : u.state)
       : u.city;
-    
-    // Calculate citizenship-adjusted tuition
+
+    // Determine tuition to display
     let tuitionDisplay = `$${u.tuition}`;
     let tuitionNote = '';
-    
-    if(u.country !== 'us' && S.citizen && S.citizen.length > 0) {
+
+    if(countryCode === 'us') {
+      // For US universities, show in-state or out-of-state based on preference
+      if(S.inStateTuitionPref === S.stateOfResidency && u.tuition_instate) {
+        tuitionDisplay = `$${u.tuition_instate}`;
+        tuitionNote = ' (in-state)';
+      } else if(S.inStateTuitionPref === 'Any State' && u.tuition_outofstate) {
+        tuitionDisplay = `$${u.tuition_outofstate}`;
+        tuitionNote = ' (out-of-state)';
+      } else {
+        tuitionDisplay = `$${u.tuition}`;
+      }
+    } else if(u.country !== 'us' && S.citizen && S.citizen.length > 0) {
       const citizenship = S.citizen[0];
       const isEU = citizenship === 'EU';
-      
+
       if(isEU) {
         if(countryCode === 'se') {
           tuitionDisplay = 'FREE';
@@ -19897,7 +19908,7 @@ function buildUniversitiesCarouselByCountry(data) {
         tuitionNote = ' (intl)';
       }
     }
-    
+
     // Find which selected careers this university offers
     const offeredCareers = [];
     S.subCareers.forEach(career => {
@@ -19906,16 +19917,20 @@ function buildUniversitiesCarouselByCountry(data) {
         offeredCareers.push(career);
       }
     });
-    
+
     const programsStr = offeredCareers.length > 0 ? offeredCareers.join(', ') : '—';
     const selectivityColor = u.selectivity === 'Very selective' ? '#c83232' : u.selectivity === 'Selective' ? '#9664c8' : '#6496c8';
     const selectivityBg = u.selectivity === 'Very selective' ? 'rgba(200,50,50,.2)' : u.selectivity === 'Selective' ? 'rgba(150,100,200,.2)' : 'rgba(100,150,200,.2)';
-    
+    const uniType = u.country === 'us' ? (u.type === 'Public' ? 'Public' : 'Private') : null;
+
     carouselHTML += `<div class="uni-card">
       <div class="uni-card-header">${u.name}</div>
       <div class="uni-card-body">
-        <div class="uni-card-row"><span class="uni-label">Location</span> <span class="uni-value">${locationStr}</span></div>
-        <div class="uni-card-row"><span class="uni-label">Admission</span> <span class="uni-value">${u.acceptance_rate}%</span></div>
+        <div class="uni-card-row"><span class="uni-label">Location</span> <span class="uni-value">${locationStr}</span></div>`;
+    if(countryCode === 'us'){
+      carouselHTML += `<div class="uni-card-row"><span class="uni-label">Type</span> <span class="uni-value">${uniType}</span></div>`;
+    }
+    carouselHTML += `<div class="uni-card-row"><span class="uni-label">Admission</span> <span class="uni-value">${u.acceptance_rate}%</span></div>
         <div class="uni-card-row"><span class="uni-label">Students</span> <span class="uni-value">${u.student_pop ? parseInt(u.student_pop).toLocaleString() : '—'}</span></div>
         <div class="uni-card-row"><span class="uni-label">Tuition</span> <span class="uni-value"><strong>${tuitionDisplay}</strong><span style="font-size:11px">${tuitionNote}</span></span></div>
         <div class="uni-card-row"><span class="uni-label">Programs</span> <span class="uni-value">${programsStr}</span></div>
@@ -19961,7 +19976,8 @@ function renderUniversities(){
   // Render NC preference pills
   const ncPills = document.getElementById('uni-instate-pills');
   if(ncPills){
-    const ncOptions = ['In-State', 'Any state', 'Out-of-State'];
+    const stateLabel = S.stateOfResidency ? S.stateOfResidency : '<State of Residency>';
+    const ncOptions = [stateLabel, 'Any State'];
     let h = '';
     ncOptions.forEach(option => {
       h += `<div class="pill${S.inStateTuitionPref === option ? ' on' : ''}\" onclick="S.inStateTuitionPref='${option}';renderUniversities()">${option}</div>`;
@@ -20061,14 +20077,11 @@ function renderUniversities(){
     
     // Apply state filter based on preference (US only)
     if(countryCode === 'us' && S.inStateTuitionPref && S.stateOfResidency){
-      if(S.inStateTuitionPref === 'In-State'){
-        // Show only universities in the selected state
+      if(S.inStateTuitionPref === S.stateOfResidency){
+        // Show only universities in the selected state (in-state preference)
         filteredUnis = filteredUnis.filter(u => u.state === S.stateOfResidency);
-      } else if(S.inStateTuitionPref === 'Out-of-State'){
-        // Show only universities NOT in the selected state
-        filteredUnis = filteredUnis.filter(u => u.state !== S.stateOfResidency);
       }
-      // 'Any state' - no filtering, show all universities
+      // 'Any State' - no filtering, show all universities
     }
     
     // Sort universities by selectivity (acceptance rate)
@@ -20082,21 +20095,26 @@ function renderUniversities(){
       html += '<p style="color:var(--tx2);margin:0">No universities match your preferences</p>';
     } else {
       // Build table: universities with their matching careers
+      const tuitionLabel = countryCode === 'us' ? (S.inStateTuitionPref === S.stateOfResidency ? 'Tuition/yr (in-state)' : 'Tuition/yr (out-of-state)') : 'Tuition/yr';
       html += '<table style="width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed">';
       html += '<colgroup>';
       html += '<col style="width:15%">';  // University
-      html += '<col style="width:13%">';  // Location
+      html += '<col style="width:12%">';  // Location
+      html += '<col style="width:7%">';   // Public/Private (US only)
       html += '<col style="width:8%">';   // Admission %
       html += '<col style="width:7%">';   // Tuition/yr
-      html += '<col style="width:9%">';   // Students
-      html += '<col style="width:29%">';  // Programs
-      html += '<col style="width:11%">';  // Selectivity
+      html += '<col style="width:8%">';   // Students
+      html += '<col style="width:26%">';  // Programs
+      html += '<col style="width:10%">';  // Selectivity
       html += '</colgroup>';
       html += '<thead><tr style="background:rgba(100,150,200,.1);border-bottom:2px solid rgba(100,150,200,.3)">';
       html += '<th style="padding:8px;text-align:left;font-weight:700;overflow:hidden;text-overflow:ellipsis">University</th>';
       html += '<th style="padding:8px;text-align:left;font-weight:700;overflow:hidden;text-overflow:ellipsis">Location</th>';
+      if(countryCode === 'us'){
+        html += '<th style="padding:8px;text-align:left;font-weight:700;overflow:hidden;text-overflow:ellipsis">Type</th>';
+      }
       html += '<th style="padding:8px;text-align:center;font-weight:700;overflow:hidden;text-overflow:ellipsis">Admission %</th>';
-      html += '<th style="padding:8px;text-align:right;font-weight:700;overflow:hidden;text-overflow:ellipsis">Tuition/yr</th>';
+      html += '<th style="padding:8px;text-align:right;font-weight:700;overflow:hidden;text-overflow:ellipsis">' + tuitionLabel + '</th>';
       html += '<th style="padding:8px;text-align:right;font-weight:700;overflow:hidden;text-overflow:ellipsis">Students</th>';
       html += '<th style="padding:8px;text-align:left;font-weight:700;overflow:hidden;text-overflow:ellipsis">Programs</th>';
       html += '<th style="padding:8px;text-align:center;font-weight:700;overflow:hidden;text-overflow:ellipsis;word-wrap:break-word">Selectivity</th>';
@@ -20107,15 +20125,24 @@ function renderUniversities(){
         const locationStr = u.country === 'us'
           ? (u.city ? (u.city.includes(',') ? u.city : `${u.city}, ${u.state}`) : u.state)
           : u.city;
-        
-        // Calculate citizenship-adjusted tuition
+
+        // Determine tuition to display
         let tuitionDisplay = `$${u.tuition}`;
         let tuitionNote = '';
-        
-        if(u.country !== 'us' && S.citizen && S.citizen.length > 0) {
+
+        if(countryCode === 'us') {
+          // For US universities, show in-state or out-of-state based on preference
+          if(S.inStateTuitionPref === S.stateOfResidency && u.tuition_instate) {
+            tuitionDisplay = `$${u.tuition_instate}`;
+          } else if(S.inStateTuitionPref === 'Any State' && u.tuition_outofstate) {
+            tuitionDisplay = `$${u.tuition_outofstate}`;
+          } else {
+            tuitionDisplay = `$${u.tuition}`;
+          }
+        } else if(u.country !== 'us' && S.citizen && S.citizen.length > 0) {
           const citizenship = S.citizen[0]; // Take first citizenship
           const isEU = citizenship === 'EU';
-          
+
           // Special handling for countries with free/reduced tuition for EU/Dual citizens
           if(isEU) {
             if(countryCode === 'se') { // Sweden
@@ -20145,7 +20172,7 @@ function renderUniversities(){
             tuitionNote = ' (intl)';
           }
         }
-        
+
         // Find which selected careers this university offers
         const offeredCareers = [];
         S.subCareers.forEach(career => {
@@ -20154,16 +20181,21 @@ function renderUniversities(){
             offeredCareers.push(career);
           }
         });
-        
+
         const programsStr = offeredCareers.length > 0 ? offeredCareers.join(', ') : '—';
         const selectivityColor = u.selectivity === 'Very selective' ? '#c83232' : u.selectivity === 'Selective' ? '#9664c8' : '#6496c8';
         const selectivityBg = u.selectivity === 'Very selective' ? 'rgba(200,50,50,.2)' : u.selectivity === 'Selective' ? 'rgba(150,100,200,.2)' : 'rgba(100,150,200,.2)';
-        
+
         const studentPop = u.student_pop ? parseInt(u.student_pop).toLocaleString() : '—';
+        const uniType = u.country === 'us' ? (u.type === 'Public' ? 'Public' : 'Private') : null;
+
         html += `<tr style="border-bottom:1px solid rgba(100,150,200,.15);background:#fff" onmouseover="this.style.background='rgba(100,150,200,.08)'" onmouseout="this.style.background='#fff'">
           <td style="padding:8px;background:rgba(241,245,249,.5)"><strong>${u.name}</strong></td>
-          <td style="padding:8px;background:#fff">${locationStr}</td>
-          <td style="padding:8px;text-align:center;background:#fff">${u.acceptance_rate}%</td>
+          <td style="padding:8px;background:#fff">${locationStr}</td>`;
+        if(countryCode === 'us'){
+          html += `<td style="padding:8px;background:#fff">${uniType}</td>`;
+        }
+        html += `<td style="padding:8px;text-align:center;background:#fff">${u.acceptance_rate}%</td>
           <td style="padding:8px;text-align:right;color:var(--tx2);font-size:13px;background:#fff">${tuitionDisplay}<span style="font-size:13px;color:var(--tx2)">${tuitionNote}</span></td>
           <td style="padding:8px;text-align:right;color:var(--tx2);background:#fff">${studentPop}</td>
           <td style="padding:8px;font-size:13px;color:var(--tx1);background:#fff">${programsStr}</td>
@@ -20224,8 +20256,12 @@ function renderUniversities(){
       }
     }
 
-    if(countryCode === 'us' && S.inStateTuitionPref === 'In-State'){
-      filteredUnis = filteredUnis.filter(u => u.city && (u.city.includes('Durham') || u.city.includes('Chapel Hill') || u.city.includes('Winston-Salem') || u.city.includes('Boone') || u.city.includes('Elon') || u.city.includes('Charlotte') || u.city.includes('Greensboro') || u.city.includes('Raleigh') || u.city.includes('Wilmington') || u.city.includes('Greenville') || u.city.includes('Fayetteville') || u.city.includes('Pembroke')));
+    if(countryCode === 'us' && S.inStateTuitionPref && S.stateOfResidency){
+      if(S.inStateTuitionPref === S.stateOfResidency){
+        // Show only universities in the selected state (in-state preference)
+        filteredUnis = filteredUnis.filter(u => u.state === S.stateOfResidency);
+      }
+      // 'Any State' - no filtering, show all universities
     }
     
     filteredUnis.sort((a,b) => parseFloat(a.acceptance_rate) - parseFloat(b.acceptance_rate));
