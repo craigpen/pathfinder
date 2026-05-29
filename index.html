@@ -21973,16 +21973,10 @@ function renderInsights(){
         }
       });
 
-      html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">⚠️ Things to Check</h2>';
-      html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5">Review these to make sure your selections work together.</div>';
-
-      // Mobile carousel version
-      html += '<div class="insights-carousel-wrap" id="conflicts-carousel" style="display:none"><div class="insights-carousel-container">';
-      deduped.forEach(conflict => {
-        const color = conflict.type === 'conflict' ? 'var(--bad)' : 'var(--warn)';
+      // Transform conflicts to fit renderInsightsTable format (items with title, pros, cons)
+      const conflictItems = deduped.map(conflict => {
         const severity = conflict.type === 'conflict' ? '💥' : '⚠️';
         let meaning = conflict.msg.replace(/^[💥⚠️ℹ️]+\s*/, '').trim();
-        meaning = severity + ' ' + meaning;
 
         let action = '';
         if(conflict.title.includes('Course Requirements')) {
@@ -22009,52 +22003,14 @@ function renderInsights(){
           action = 'Review details carefully';
         }
 
-        html += '<div class="insights-carousel-card"><div class="insights-carousel-card-header">' + conflict.title + '</div>';
-        html += '<div class="insights-carousel-card-content">';
-        html += '<div class="insights-carousel-card-row"><strong style="color:' + color + '">' + severity + ' ' + meaning.replace(/^[💥⚠️]\s*/, '') + '</strong></div>';
-        html += '<div class="insights-carousel-card-row" style="margin-top:8px"><strong>What to do:</strong><br>' + action + '</div>';
-        html += '</div></div>';
+        return {
+          title: conflict.title,
+          pros: [action],
+          cons: [severity + ' ' + meaning]
+        };
       });
-      html += '</div><div class="carousel-indicator">Check 1 of ' + deduped.length + '</div></div>';
 
-      // Desktop table version
-      html += '<div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
-      html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:20%;white-space:nowrap">Issue</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:50%">What it means</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:30%">What to do</th></tr></thead>';
-      html += '<tbody>';
-      deduped.forEach(conflict => {
-        const color = conflict.type === 'conflict' ? 'var(--bad)' : 'var(--warn)';
-        const severity = conflict.type === 'conflict' ? '💥' : '⚠️';
-        let meaning = conflict.msg.replace(/^[💥⚠️ℹ️]+\s*/, '').trim();
-        meaning = severity + ' ' + meaning;
-
-        let action = '';
-        if(conflict.title.includes('Course Requirements')) {
-          action = 'Verify your chosen universities offer those courses or specializations based on the career you are targeting.';
-        } else if(conflict.title.includes('Bridging')) {
-          action = 'Ensure the EU degree you are pursuing will be marketable in the US for the career you are targeting.';
-        } else if(conflict.title.includes('Cost') || conflict.title.includes('Selectivity')) {
-          action = 'Research scholarship options and affordability factors';
-        } else if(conflict.title.includes('Language')) {
-          action = 'Plan language prep or seek English-taught programs';
-        } else if(conflict.title.includes('Location') || conflict.title.includes('Vision')) {
-          action = 'Verify alignment with your post-graduation plans';
-        } else if(conflict.title.includes('Program')) {
-          action = 'Compare curriculum with your prerequisites';
-        } else if(conflict.title.includes('Career') || conflict.title.includes('ROI')) {
-          action = 'Evaluate financial sustainability';
-        } else if(conflict.title.includes('Loan Repayment')) {
-          action = 'Adjust your loan term on the Costs tab';
-        } else if(conflict.title.includes('Funding')) {
-          action = 'Consider merit scholarships, employer sponsorship, additional savings, or more part-time work during studies.';
-        } else if(conflict.title.includes('Financial')) {
-          action = 'Refine financial planning strategy';
-        } else {
-          action = 'Review details carefully';
-        }
-
-        html += '<tr style="border-bottom:1px solid var(--bdr);background:#fff"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;width:20%;line-height:1.4;background:rgba(241,245,249,.5);white-space:nowrap">' + conflict.title + '</td><td style="padding:8px 10px;vertical-align:top;color:' + color + ';line-height:1.4;width:50%">' + meaning + '</td><td style="padding:8px 10px;vertical-align:top;color:var(--tx);line-height:1.4;width:30%">' + action + '</td></tr>';
-      });
-      html += '</tbody></table></div>';
+      html += renderInsightsTable('⚠️ Things to Check', 'Review these to make sure your selections work together.', 'Issue', conflictItems, 'conflicts-carousel');
     }
 
     // SECTION 2: YOUR BEST FITS (combined career+country with countries as columns)
