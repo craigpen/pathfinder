@@ -19314,7 +19314,7 @@ const CAREER_TO_QS_SUBJECT={"Accounting":"Accounting & Finance","Architecture":"
 const STATE_NAMES={AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',FL:'Florida',GA:'Georgia',HI:'Hawaii',ID:'Idaho',IL:'Illinois',IN:'Indiana',IA:'Iowa',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',MS:'Mississippi',MO:'Missouri',MT:'Montana',NC:'North Carolina',ND:'North Dakota',NE:'Nebraska',NH:'New Hampshire',NJ:'New Jersey',NM:'New Mexico',NV:'Nevada',NY:'New York',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',SD:'South Dakota',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',VA:'Virginia',WA:'Washington',WV:'West Virginia',WI:'Wisconsin',WY:'Wyoming'};
 
 const S={cats:[],motivations:[],subCareers:[],prac:[],cc:[],costCC:[],expl:null,playlist:null,flex:[],cost:null,vision:null,lang:null,citizen:[],debtYrs:null,languages:[],postGrad:null,inStateTuitionPref:null,stateOfResidency:null,inStateToggle:false,usUniversityType:null,uniSelectivity:null,scholarshipPct:null,collegeSavings:null,partTimeWork:null,familySupport:null,loanRate:null,loanRepaymentYears:null};
-const VERSION='v1.7.14';
+const VERSION='v1.7.15';
 document.addEventListener('DOMContentLoaded',()=>{const b=document.getElementById('version-badge');if(b)b.innerText=VERSION;});
 function saveState(){const stateToSave={cats:S.cats,motivations:S.motivations,subCareers:S.subCareers,flex:S.flex,cost:S.cost,vision:S.vision,lang:S.lang,citizen:S.citizen,debtYrs:S.debtYrs,languages:S.languages,postGrad:S.postGrad,inStateTuitionPref:S.inStateTuitionPref,stateOfResidency:S.stateOfResidency,cc:S.cc,costCC:S.costCC,expl:S.expl,uniSelectivity:S.uniSelectivity,scholarshipPct:S.scholarshipPct,collegeSavings:S.collegeSavings,partTimeWork:S.partTimeWork,familySupport:S.familySupport,loanRate:S.loanRate,loanRepaymentYears:S.loanRepaymentYears,inStateToggle:S.inStateToggle,usUniversityType:S.usUniversityType};localStorage.setItem('univPathfinderState',JSON.stringify(stateToSave));}
 function loadState(){const saved=localStorage.getItem('univPathfinderState');if(saved){const state=JSON.parse(saved);Object.assign(S,state);if(state.scholarshipPct!==undefined)document.getElementById('sl-schol').value=state.scholarshipPct;if(state.collegeSavings!==undefined)document.getElementById('sl-savings').value=state.collegeSavings;if(state.partTimeWork!==undefined)document.getElementById('sl-work').value=state.partTimeWork;if(state.familySupport!==undefined)document.getElementById('sl-parent').value=state.familySupport;if(state.loanRate!==undefined)document.getElementById('sl-rate').value=state.loanRate;if(state.loanRepaymentYears!==undefined)document.getElementById('sl-yrs').value=state.loanRepaymentYears;if(state.inStateToggle!==undefined){const instateIn=document.getElementById('instate-in');const instateOut=document.getElementById('instate-out');if(state.inStateToggle){instateIn.classList.add('on');instateOut.classList.remove('on')}else{instateOut.classList.add('on');instateIn.classList.remove('on')}}}}
@@ -22042,8 +22042,8 @@ function renderInsights(){
         }
       });
 
-      html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">⚠️ Things to Check</h2>';
-      html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5">Review these to make sure your selections work together.</div>';
+      html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">Interest Alignment</h2>';
+      html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5">Review these to see how well your choices work together. Adjust your choices on the various tabs to refine or surface new insights.</div>';
 
       // Mobile carousel version
       html += '<div class="insights-carousel-wrap" id="conflicts-carousel"><div class="insights-carousel-container">';
@@ -22127,8 +22127,8 @@ function renderInsights(){
 
     // SECTION 2: YOUR BEST FITS (combined career+country with countries as columns)
     if(careerFits.length > 0 && S.cc.length > 0){
-      html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">✅ Your Best Fits</h2>';
-      html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5">How each career works in your chosen countries.</div>';
+      html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">Career Fit</h2>';
+      html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5">Review alignment of selected careers with your choices. Adjust your choices on the various tabs to refine or surface new insights.</div>';
 
       html += '<div class="insights-carousel-wrap" id="bestfits-carousel"><div class="insights-carousel-container">';
       careerFits.forEach(cf => {
@@ -22157,8 +22157,8 @@ function renderInsights(){
 
     // SECTION 3: FINANCIAL IMPACT
     if(costAnalysis.length > 0){
-      html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">💰 Your Financial Picture</h2>';
-      html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5">Cost implications based on your choices and financial inputs.</div>';
+      html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">Financial Fit</h2>';
+      html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5">Review the financial insights based on your selected countries and cost inputs. Adjust your choices on the various tabs to refine or surface new insights.</div>';
 
       const costInsightsByCountry = {};
       universityInsights.filter(u => u.type === 'cost').forEach(insight => {
