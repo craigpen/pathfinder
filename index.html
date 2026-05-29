@@ -22032,7 +22032,7 @@ function renderInsights(){
   })));
 
   if(careerFits.length === 0 && countryFits.length === 0 && costAnalysis.length === 0 && allDiscoveryInsights.length === 0){
-    html = '<p style="color:var(--tx2);font-style:italic">Make selections across tabs to see personalized insights.</p>';
+    html = guidanceMsg('Make selections across tabs to see personalized insights');
   } else {
     // SECTION 1: THINGS TO CHECK (impact table format)
     if(allConflicts.length > 0){
