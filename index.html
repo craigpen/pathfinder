@@ -20458,14 +20458,27 @@ function calculateCostData(countryCode, scholarship, savingsTotal, workContrib, 
   }
   
   const interest = totalRepaid - totalCost;
-  
+
+  let tuitionDetails = CD[countryCode].tn;
+  if(countryCode === 'us'){
+    const type = S.usUniversityType || 'public';
+    if(type === 'private'){
+      tuitionDetails = 'Private university average: $' + TUITION_AVERAGES.private.toLocaleString() + '/yr';
+    } else if(S.inStateToggle && S.stateOfResidency){
+      const stateAvg = TUITION_AVERAGES.instate[S.stateOfResidency] || 8000;
+      tuitionDetails = S.stateOfResidency + ' public in-state average: $' + stateAvg.toLocaleString() + '/yr';
+    } else {
+      tuitionDetails = 'Public out-of-state average: $' + TUITION_AVERAGES.outofstate.toLocaleString() + '/yr';
+    }
+  }
+
   return {
     tuition: adjTui,
     housing: c.room,
     books: c.books,
     personal: c.personal,
     travel: c.travel,
-    tuitionDetails: CD[countryCode].tn,
+    tuitionDetails: tuitionDetails,
     years: y,
     totalCost,
     monthlyPayment: Math.round(monthlyPayment),
