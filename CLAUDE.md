@@ -11,8 +11,8 @@
 - Test the code to ensure syntax is valid and nothing is broken (no need to open in browser)
 - Increment `const VERSION` in index.html (PATCH for bugs, MINOR for features, MAJOR for redesigns)
 - Commit with message that includes: version number and file size
-- Push to main immediately after committing
-- **Tell the user: the new version number and file size** so they can verify the update loaded correctly
+- **Tell the user: the new version number and file size** so they can test locally
+- DO NOT push to GitHub unless user explicitly asks — keep it clean for testing
 
 Never use `--force` or `--no-verify` without explicit user approval
 
