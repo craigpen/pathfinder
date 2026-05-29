@@ -48,12 +48,12 @@
 
 ## Versioning (Semantic)
 
-I'll automatically determine and increment the version based on your request:
-- **PATCH** (v1.0.1, v1.0.2, etc.) — Bug fixes, styling tweaks, mobile responsiveness fixes, carousel adjustments, copy corrections
+**Increment the version in `const VERSION='...'` with every commit using these rules:**
+- **PATCH** (v1.0.1, v1.0.2, etc.) — Bug fixes, syntax errors, data cleanup, JSON errors
 - **MINOR** (v1.1.0, v1.2.0, etc.) — New features or content sections (new career, country, tab, slider), structural changes, UI enhancements
 - **MAJOR** (v2.0.0, etc.) — Complete redesign, major architecture changes, significant user flow changes
 
-**After each commit**, I will tell you what version to expect to see. Check the version badge (bottom right of header) when you refresh your github.io page to confirm you're seeing the latest version. GitHub Pages can take 30–60 seconds to update, so if you see the old version, wait and refresh again.
+Check the version badge (bottom right of header) after refresh to confirm the latest version is loaded. GitHub Pages can take 30–60 seconds to update.
 
 ## index.html Specific Guidelines
 
