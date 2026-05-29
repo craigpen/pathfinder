@@ -20790,7 +20790,7 @@ function scholarCardHTML(k){
 function renderPath(k){
  if(carouselTimer) clearInterval(carouselTimer);
  const c=COUNTRIES[k], d=CD[k];
- if(!c || !d) return;
+ if(!c || !d){document.getElementById('path-content').innerHTML=guidanceMsg('Select a country to view the full story');return;}
   const pathCountries = [k]; // Single country for Deep Dive view
   const y=parseFloat(d.dur||'0')||0;
  const cy=d.cy||{tui:0,room:0,books:0,personal:0,travel:0};
