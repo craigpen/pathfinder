@@ -8435,8 +8435,14 @@ const IPEDS_UNIVERSITIES = [
   }
 ];
 
+
 // Merge IPEDS universities into all career categories
 Object.keys(UNIVERSITIES_BY_SUBJECT).forEach(career => {
   UNIVERSITIES_BY_SUBJECT[career] = UNIVERSITIES_BY_SUBJECT[career].concat(IPEDS_UNIVERSITIES);
 });
 
+
+
+</script>
+</body>
+</html>
