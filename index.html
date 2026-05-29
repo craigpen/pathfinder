@@ -20359,7 +20359,7 @@ function setUSUniversityType(type){S.usUniversityType=type;saveState();updatePub
 function updatePubPrivToggleUI(){const publicBtn=document.getElementById('pubpriv-public');const privateBtn=document.getElementById('pubpriv-private');if(S.usUniversityType==='private'){privateBtn.classList.add('on');publicBtn.classList.remove('on')}else{publicBtn.classList.add('on');privateBtn.classList.remove('on')}}
 function updateInStateToggleUI(){const instateIn=document.getElementById('instate-in');const instateOut=document.getElementById('instate-out');if(S.inStateToggle){instateIn.classList.add('on');instateOut.classList.remove('on')}else{instateOut.classList.add('on');instateIn.classList.remove('on')}}
 function getUSBaseTuition(){const type=S.usUniversityType||'public';if(type==='private'){return TUITION_AVERAGES.private}if(S.inStateToggle){const state=S.stateOfResidency;if(state&&TUITION_AVERAGES.instate[state]){return TUITION_AVERAGES.instate[state]}return 8000}return TUITION_AVERAGES.outofstate}
-function togCost(k){if(S.costCC.includes(k))S.costCC=S.costCC.filter(x=>x!==k);else S.costCC.push(k);renderCostChips()}
+function togCost(k){if(S.costCC.includes(k))S.costCC=S.costCC.filter(x=>x!==k);else S.costCC.push(k);saveState();renderCostChips()}
 // ===== COST CALCULATION HELPER =====
 function calculateCostData(countryCode, scholarship, savingsTotal, workContrib, parentContrib, interestRate, loanYears) {
   const sp = scholarship / 100;
