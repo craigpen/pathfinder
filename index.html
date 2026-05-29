@@ -328,7 +328,7 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 </div>
 <div class="qb" style="margin:0">
 <div class="qt">Prefer US university options in your state?</div>
-<div class="qs">In-state tuition at public universities saves $15k–25k/year compared to out-of-state. Private universities cost the same regardless of where you live. Selecting <State of Residency> will limit results to your state and show in-state tuition rates.</div>
+<div class="qs">In-state tuition at public universities saves $15k–25k/year compared to out-of-state. Private universities cost the same regardless of where you live. Choose which results and tuition rates you would like to see below.</div>
 <div class="pills" id="uni-instate-pills"></div>
 </div>
 </div>
@@ -19312,7 +19312,7 @@ const CAREER_TO_QS_SUBJECT={"Accounting":"Accounting & Finance","Architecture":"
 const STATE_NAMES={AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',FL:'Florida',GA:'Georgia',HI:'Hawaii',ID:'Idaho',IL:'Illinois',IN:'Indiana',IA:'Iowa',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',MS:'Mississippi',MO:'Missouri',MT:'Montana',NC:'North Carolina',ND:'North Dakota',NE:'Nebraska',NH:'New Hampshire',NJ:'New Jersey',NM:'New Mexico',NV:'Nevada',NY:'New York',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',SD:'South Dakota',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',VA:'Virginia',WA:'Washington',WV:'West Virginia',WI:'Wisconsin',WY:'Wyoming'};
 
 const S={cats:[],motivations:[],subCareers:[],prac:[],cc:[],costCC:[],expl:null,playlist:null,flex:[],cost:null,vision:null,lang:null,citizen:[],debtYrs:null,languages:[],postGrad:null,inStateTuitionPref:null,stateOfResidency:null,inStateToggle:false,usUniversityType:null,uniSelectivity:null,scholarshipPct:null,collegeSavings:null,partTimeWork:null,familySupport:null,loanRate:null,loanRepaymentYears:null};
-const VERSION='v1.6.3';
+const VERSION='v1.7.0';
 document.addEventListener('DOMContentLoaded',()=>{const b=document.getElementById('version-badge');if(b)b.innerText=VERSION;});
 function saveState(){const stateToSave={cats:S.cats,motivations:S.motivations,subCareers:S.subCareers,flex:S.flex,cost:S.cost,vision:S.vision,lang:S.lang,citizen:S.citizen,debtYrs:S.debtYrs,languages:S.languages,postGrad:S.postGrad,inStateTuitionPref:S.inStateTuitionPref,stateOfResidency:S.stateOfResidency,cc:S.cc,costCC:S.costCC,expl:S.expl,uniSelectivity:S.uniSelectivity,scholarshipPct:S.scholarshipPct,collegeSavings:S.collegeSavings,partTimeWork:S.partTimeWork,familySupport:S.familySupport,loanRate:S.loanRate,loanRepaymentYears:S.loanRepaymentYears,inStateToggle:S.inStateToggle,usUniversityType:S.usUniversityType};localStorage.setItem('univPathfinderState',JSON.stringify(stateToSave));}
 function loadState(){const saved=localStorage.getItem('univPathfinderState');if(saved){const state=JSON.parse(saved);Object.assign(S,state);if(state.scholarshipPct!==undefined)document.getElementById('sl-schol').value=state.scholarshipPct;if(state.collegeSavings!==undefined)document.getElementById('sl-savings').value=state.collegeSavings;if(state.partTimeWork!==undefined)document.getElementById('sl-work').value=state.partTimeWork;if(state.familySupport!==undefined)document.getElementById('sl-parent').value=state.familySupport;if(state.loanRate!==undefined)document.getElementById('sl-rate').value=state.loanRate;if(state.loanRepaymentYears!==undefined)document.getElementById('sl-yrs').value=state.loanRepaymentYears;if(state.inStateToggle!==undefined){const instateIn=document.getElementById('instate-in');const instateOut=document.getElementById('instate-out');if(state.inStateToggle){instateIn.classList.add('on');instateOut.classList.remove('on')}else{instateOut.classList.add('on');instateIn.classList.remove('on')}}}}
@@ -19870,13 +19870,13 @@ function buildUniversitiesCarouselByCountry(data) {
     let tuitionNote = '';
 
     if(countryCode === 'us') {
-      // For US universities, show in-state or out-of-state based on preference
-      if(S.inStateTuitionPref === S.stateOfResidency && u.tuition_instate) {
+      // For US universities, show tuition based on preference
+      if(S.inStateTuitionPref === 'in-state-public' && u.tuition_instate) {
         tuitionDisplay = `$${parseInt(u.tuition_instate).toLocaleString()}`;
-        tuitionNote = ' (in-state)';
-      } else if(S.inStateTuitionPref === 'Any State' && u.tuition_outofstate) {
+      } else if(S.inStateTuitionPref === 'out-of-state-public' && u.tuition_outofstate) {
         tuitionDisplay = `$${parseInt(u.tuition_outofstate).toLocaleString()}`;
-        tuitionNote = ' (out-of-state)';
+      } else if(S.inStateTuitionPref === 'private') {
+        tuitionDisplay = `$${parseInt(u.tuition).toLocaleString()}`;
       } else {
         tuitionDisplay = `$${parseInt(u.tuition).toLocaleString()}`;
       }
@@ -19977,12 +19977,13 @@ function renderUniversities(){
   // Render NC preference pills
   const ncPills = document.getElementById('uni-instate-pills');
   if(ncPills){
-    const stateLabel = S.stateOfResidency ? STATE_NAMES[S.stateOfResidency] || S.stateOfResidency : '<State of Residency>';
+    const stateAbbrev = S.stateOfResidency || '<state>';
     let h = '';
     if(S.stateOfResidency) {
-      h += `<div class="pill${S.inStateTuitionPref === S.stateOfResidency ? ' on' : ''}\" onclick="S.inStateTuitionPref='${S.stateOfResidency}';saveState();renderUniversities()">${stateLabel}</div>`;
+      h += `<div class="pill${S.inStateTuitionPref === 'in-state-public' ? ' on' : ''}\" onclick="S.inStateTuitionPref='in-state-public';saveState();renderUniversities()">In-state Public (${stateAbbrev})</div>`;
     }
-    h += `<div class="pill${S.inStateTuitionPref === 'Any State' ? ' on' : ''}\" onclick="S.inStateTuitionPref='Any State';saveState();renderUniversities()">Any State</div>`;
+    h += `<div class="pill${S.inStateTuitionPref === 'out-of-state-public' ? ' on' : ''}\" onclick="S.inStateTuitionPref='out-of-state-public';saveState();renderUniversities()">Out-of-state Public</div>`;
+    h += `<div class="pill${S.inStateTuitionPref === 'private' ? ' on' : ''}\" onclick="S.inStateTuitionPref='private';saveState();renderUniversities()">Private</div>`;
     ncPills.innerHTML = h;
   }
   
@@ -20076,13 +20077,18 @@ function renderUniversities(){
       }
     }
     
-    // Apply state filter based on preference (US only)
-    if(countryCode === 'us' && S.inStateTuitionPref && S.stateOfResidency){
-      if(S.inStateTuitionPref === S.stateOfResidency){
-        // Show only universities in the selected state (in-state preference)
-        filteredUnis = filteredUnis.filter(u => u.state === S.stateOfResidency);
+    // Apply state filter and university type filter based on preference (US only)
+    if(countryCode === 'us' && S.inStateTuitionPref){
+      if(S.inStateTuitionPref === 'in-state-public' && S.stateOfResidency){
+        // Show only public universities in the selected state
+        filteredUnis = filteredUnis.filter(u => u.state === S.stateOfResidency && u.type === 'Public');
+      } else if(S.inStateTuitionPref === 'out-of-state-public' && S.stateOfResidency){
+        // Show only public universities NOT in the selected state
+        filteredUnis = filteredUnis.filter(u => u.state !== S.stateOfResidency && u.type === 'Public');
+      } else if(S.inStateTuitionPref === 'private'){
+        // Show only private universities (both not-for-profit and for-profit)
+        filteredUnis = filteredUnis.filter(u => u.type !== 'Public');
       }
-      // 'Any State' - no filtering, show all universities
     }
     
     // Sort universities by selectivity (acceptance rate)
@@ -20096,7 +20102,12 @@ function renderUniversities(){
       html += '<p style="color:var(--tx2);margin:0">No universities match your preferences</p>';
     } else {
       // Build table: universities with their matching careers
-      const tuitionLabel = countryCode === 'us' ? (S.inStateTuitionPref === S.stateOfResidency ? 'Tuition/yr (in-state)' : 'Tuition/yr (out-of-state)') : 'Tuition/yr';
+      let tuitionLabel = 'Tuition/yr';
+      if(countryCode === 'us' && S.inStateTuitionPref){
+        if(S.inStateTuitionPref === 'in-state-public') tuitionLabel = 'Tuition/yr (In-state)';
+        else if(S.inStateTuitionPref === 'out-of-state-public') tuitionLabel = 'Tuition/yr (Out-of-state)';
+        else if(S.inStateTuitionPref === 'private') tuitionLabel = 'Tuition/yr (Private)';
+      }
       html += '<table style="width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed">';
       html += '<colgroup>';
       html += '<col style="width:15%">';  // University
@@ -20132,11 +20143,14 @@ function renderUniversities(){
         let tuitionNote = '';
 
         if(countryCode === 'us') {
-          // For US universities, show in-state or out-of-state based on preference
-          if(S.inStateTuitionPref === S.stateOfResidency && u.tuition_instate) {
+          // For US universities, show tuition based on preference
+          if(S.inStateTuitionPref === 'in-state-public' && u.tuition_instate) {
             tuitionDisplay = `$${parseInt(u.tuition_instate).toLocaleString()}`;
-          } else if(S.inStateTuitionPref === 'Any State' && u.tuition_outofstate) {
+          } else if(S.inStateTuitionPref === 'out-of-state-public' && u.tuition_outofstate) {
             tuitionDisplay = `$${parseInt(u.tuition_outofstate).toLocaleString()}`;
+          } else if(S.inStateTuitionPref === 'private') {
+            // For private universities, use the main tuition field
+            tuitionDisplay = `$${parseInt(u.tuition).toLocaleString()}`;
           } else {
             tuitionDisplay = `$${parseInt(u.tuition).toLocaleString()}`;
           }
@@ -20257,12 +20271,17 @@ function renderUniversities(){
       }
     }
 
-    if(countryCode === 'us' && S.inStateTuitionPref && S.stateOfResidency){
-      if(S.inStateTuitionPref === S.stateOfResidency){
-        // Show only universities in the selected state (in-state preference)
-        filteredUnis = filteredUnis.filter(u => u.state === S.stateOfResidency);
+    if(countryCode === 'us' && S.inStateTuitionPref){
+      if(S.inStateTuitionPref === 'in-state-public' && S.stateOfResidency){
+        // Show only public universities in the selected state
+        filteredUnis = filteredUnis.filter(u => u.state === S.stateOfResidency && u.type === 'Public');
+      } else if(S.inStateTuitionPref === 'out-of-state-public' && S.stateOfResidency){
+        // Show only public universities NOT in the selected state
+        filteredUnis = filteredUnis.filter(u => u.state !== S.stateOfResidency && u.type === 'Public');
+      } else if(S.inStateTuitionPref === 'private'){
+        // Show only private universities
+        filteredUnis = filteredUnis.filter(u => u.type !== 'Public');
       }
-      // 'Any State' - no filtering, show all universities
     }
     
     filteredUnis.sort((a,b) => parseFloat(a.acceptance_rate) - parseFloat(b.acceptance_rate));
