@@ -327,7 +327,7 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 <div class="ql">Select one</div>
 </div>
 <div class="qb" style="margin:0">
-<div class="qt">Prefer in-state US university options?</div>
+<div class="qt">Prefer US university options in your state?</div>
 <div class="qs">In-state tuition at public universities saves $15k–25k/year compared to out-of-state. Private universities cost the same regardless of where you live. Selecting <State of Residency> will limit results to your state and show in-state tuition rates.</div>
 <div class="pills" id="uni-instate-pills"></div>
 </div>
@@ -19866,19 +19866,19 @@ function buildUniversitiesCarouselByCountry(data) {
       : u.city;
 
     // Determine tuition to display
-    let tuitionDisplay = `$${u.tuition}`;
+    let tuitionDisplay = `$${parseInt(u.tuition).toLocaleString()}`;
     let tuitionNote = '';
 
     if(countryCode === 'us') {
       // For US universities, show in-state or out-of-state based on preference
       if(S.inStateTuitionPref === S.stateOfResidency && u.tuition_instate) {
-        tuitionDisplay = `$${u.tuition_instate}`;
+        tuitionDisplay = `$${parseInt(u.tuition_instate).toLocaleString()}`;
         tuitionNote = ' (in-state)';
       } else if(S.inStateTuitionPref === 'Any State' && u.tuition_outofstate) {
-        tuitionDisplay = `$${u.tuition_outofstate}`;
+        tuitionDisplay = `$${parseInt(u.tuition_outofstate).toLocaleString()}`;
         tuitionNote = ' (out-of-state)';
       } else {
-        tuitionDisplay = `$${u.tuition}`;
+        tuitionDisplay = `$${parseInt(u.tuition).toLocaleString()}`;
       }
     } else if(u.country !== 'us' && S.citizen && S.citizen.length > 0) {
       const citizenship = S.citizen[0];
@@ -19931,7 +19931,7 @@ function buildUniversitiesCarouselByCountry(data) {
     if(countryCode === 'us'){
       carouselHTML += `<div class="uni-card-row"><span class="uni-label">Type</span> <span class="uni-value">${uniType}</span></div>`;
     }
-    carouselHTML += `<div class="uni-card-row"><span class="uni-label">Admission</span> <span class="uni-value">${u.acceptance_rate}%</span></div>
+    carouselHTML += `<div class="uni-card-row"><span class="uni-label">Admission</span> <span class="uni-value">${parseFloat(u.acceptance_rate).toFixed(1)}%</span></div>
         <div class="uni-card-row"><span class="uni-label">Students</span> <span class="uni-value">${u.student_pop ? parseInt(u.student_pop).toLocaleString() : '—'}</span></div>
         <div class="uni-card-row"><span class="uni-label">Tuition</span> <span class="uni-value"><strong>${tuitionDisplay}</strong><span style="font-size:11px">${tuitionNote}</span></span></div>
         <div class="uni-card-row"><span class="uni-label">Programs</span> <span class="uni-value">${programsStr}</span></div>
@@ -20128,17 +20128,17 @@ function renderUniversities(){
           : u.city;
 
         // Determine tuition to display
-        let tuitionDisplay = `$${u.tuition}`;
+        let tuitionDisplay = `$${parseInt(u.tuition).toLocaleString()}`;
         let tuitionNote = '';
 
         if(countryCode === 'us') {
           // For US universities, show in-state or out-of-state based on preference
           if(S.inStateTuitionPref === S.stateOfResidency && u.tuition_instate) {
-            tuitionDisplay = `$${u.tuition_instate}`;
+            tuitionDisplay = `$${parseInt(u.tuition_instate).toLocaleString()}`;
           } else if(S.inStateTuitionPref === 'Any State' && u.tuition_outofstate) {
-            tuitionDisplay = `$${u.tuition_outofstate}`;
+            tuitionDisplay = `$${parseInt(u.tuition_outofstate).toLocaleString()}`;
           } else {
-            tuitionDisplay = `$${u.tuition}`;
+            tuitionDisplay = `$${parseInt(u.tuition).toLocaleString()}`;
           }
         } else if(u.country !== 'us' && S.citizen && S.citizen.length > 0) {
           const citizenship = S.citizen[0]; // Take first citizenship
@@ -20196,7 +20196,7 @@ function renderUniversities(){
         if(countryCode === 'us'){
           html += `<td style="padding:8px;background:#fff">${uniType}</td>`;
         }
-        html += `<td style="padding:8px;text-align:center;background:#fff">${u.acceptance_rate}%</td>
+        html += `<td style="padding:8px;text-align:center;background:#fff">${parseFloat(u.acceptance_rate).toFixed(1)}%</td>
           <td style="padding:8px;text-align:right;color:var(--tx2);font-size:13px;background:#fff">${tuitionDisplay}<span style="font-size:13px;color:var(--tx2)">${tuitionNote}</span></td>
           <td style="padding:8px;text-align:right;color:var(--tx2);background:#fff">${studentPop}</td>
           <td style="padding:8px;font-size:13px;color:var(--tx1);background:#fff">${programsStr}</td>
