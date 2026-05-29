@@ -9,10 +9,12 @@
 
 ### After Completing Work
 - Test the code to ensure syntax is valid and nothing is broken (no need to open in browser)
-- Report file size in the commit message: include `index.html` size so you can quickly spot bloat
-- Create a commit with a clear, descriptive message
-- Never use `--force` or `--no-verify` without explicit user approval
-- Push to main immediately after committing (no need to ask)
+- Increment `const VERSION` in index.html (PATCH for bugs, MINOR for features, MAJOR for redesigns)
+- Commit with message that includes: version number and file size
+- Push to main immediately after committing
+- **Tell the user: the new version number and file size** so they can verify the update loaded correctly
+
+Never use `--force` or `--no-verify` without explicit user approval
 
 ### Protecting Against Data Loss
 - Always commit atomically: one logical change per commit
