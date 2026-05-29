@@ -322,7 +322,7 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 
 <div class="pills" id="uni-country-pills"></div>
 
-<div style="margin:12px 0">
+<div style="margin:12px 0" id="uni-instate-selector">
 <div class="qb" style="margin:0">
 <div class="ql">Select one</div>
 </div>
@@ -19312,7 +19312,7 @@ const CAREER_TO_QS_SUBJECT={"Accounting":"Accounting & Finance","Architecture":"
 const STATE_NAMES={AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',FL:'Florida',GA:'Georgia',HI:'Hawaii',ID:'Idaho',IL:'Illinois',IN:'Indiana',IA:'Iowa',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',MS:'Mississippi',MO:'Missouri',MT:'Montana',NC:'North Carolina',ND:'North Dakota',NE:'Nebraska',NH:'New Hampshire',NJ:'New Jersey',NM:'New Mexico',NV:'Nevada',NY:'New York',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',SD:'South Dakota',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',VA:'Virginia',WA:'Washington',WV:'West Virginia',WI:'Wisconsin',WY:'Wyoming'};
 
 const S={cats:[],motivations:[],subCareers:[],prac:[],cc:[],costCC:[],expl:null,playlist:null,flex:[],cost:null,vision:null,lang:null,citizen:[],debtYrs:null,languages:[],postGrad:null,inStateTuitionPref:null,stateOfResidency:null,inStateToggle:false,usUniversityType:null,uniSelectivity:null,scholarshipPct:null,collegeSavings:null,partTimeWork:null,familySupport:null,loanRate:null,loanRepaymentYears:null};
-const VERSION='v1.7.0';
+const VERSION='v1.7.1';
 document.addEventListener('DOMContentLoaded',()=>{const b=document.getElementById('version-badge');if(b)b.innerText=VERSION;});
 function saveState(){const stateToSave={cats:S.cats,motivations:S.motivations,subCareers:S.subCareers,flex:S.flex,cost:S.cost,vision:S.vision,lang:S.lang,citizen:S.citizen,debtYrs:S.debtYrs,languages:S.languages,postGrad:S.postGrad,inStateTuitionPref:S.inStateTuitionPref,stateOfResidency:S.stateOfResidency,cc:S.cc,costCC:S.costCC,expl:S.expl,uniSelectivity:S.uniSelectivity,scholarshipPct:S.scholarshipPct,collegeSavings:S.collegeSavings,partTimeWork:S.partTimeWork,familySupport:S.familySupport,loanRate:S.loanRate,loanRepaymentYears:S.loanRepaymentYears,inStateToggle:S.inStateToggle,usUniversityType:S.usUniversityType};localStorage.setItem('univPathfinderState',JSON.stringify(stateToSave));}
 function loadState(){const saved=localStorage.getItem('univPathfinderState');if(saved){const state=JSON.parse(saved);Object.assign(S,state);if(state.scholarshipPct!==undefined)document.getElementById('sl-schol').value=state.scholarshipPct;if(state.collegeSavings!==undefined)document.getElementById('sl-savings').value=state.collegeSavings;if(state.partTimeWork!==undefined)document.getElementById('sl-work').value=state.partTimeWork;if(state.familySupport!==undefined)document.getElementById('sl-parent').value=state.familySupport;if(state.loanRate!==undefined)document.getElementById('sl-rate').value=state.loanRate;if(state.loanRepaymentYears!==undefined)document.getElementById('sl-yrs').value=state.loanRepaymentYears;if(state.inStateToggle!==undefined){const instateIn=document.getElementById('instate-in');const instateOut=document.getElementById('instate-out');if(state.inStateToggle){instateIn.classList.add('on');instateOut.classList.remove('on')}else{instateOut.classList.add('on');instateIn.classList.remove('on')}}}}
@@ -19974,17 +19974,23 @@ function renderUniversities(){
     'canada': 'ca'
   };
   
-  // Render NC preference pills
+  // Render NC preference pills and show/hide selector based on state selection
+  const selectorContainer = document.getElementById('uni-instate-selector');
   const ncPills = document.getElementById('uni-instate-pills');
-  if(ncPills){
-    const stateAbbrev = S.stateOfResidency || '<state>';
-    let h = '';
-    if(S.stateOfResidency) {
+  if(selectorContainer && ncPills){
+    if(!S.stateOfResidency){
+      // Hide selector if no state selected
+      selectorContainer.style.display = 'none';
+    } else {
+      // Show selector if state selected
+      selectorContainer.style.display = 'block';
+      const stateAbbrev = S.stateOfResidency;
+      let h = '';
       h += `<div class="pill${S.inStateTuitionPref === 'in-state-public' ? ' on' : ''}\" onclick="S.inStateTuitionPref='in-state-public';saveState();renderUniversities()">In-state Public (${stateAbbrev})</div>`;
+      h += `<div class="pill${S.inStateTuitionPref === 'out-of-state-public' ? ' on' : ''}\" onclick="S.inStateTuitionPref='out-of-state-public';saveState();renderUniversities()">Out-of-state Public</div>`;
+      h += `<div class="pill${S.inStateTuitionPref === 'private' ? ' on' : ''}\" onclick="S.inStateTuitionPref='private';saveState();renderUniversities()">Private</div>`;
+      ncPills.innerHTML = h;
     }
-    h += `<div class="pill${S.inStateTuitionPref === 'out-of-state-public' ? ' on' : ''}\" onclick="S.inStateTuitionPref='out-of-state-public';saveState();renderUniversities()">Out-of-state Public</div>`;
-    h += `<div class="pill${S.inStateTuitionPref === 'private' ? ' on' : ''}\" onclick="S.inStateTuitionPref='private';saveState();renderUniversities()">Private</div>`;
-    ncPills.innerHTML = h;
   }
   
   // Render selectivity pills
@@ -22186,7 +22192,7 @@ function renderInsights(){
   }, 50);
 }
 
-function pick1(q,el){document.querySelectorAll(`[data-q="${q}"] .pill`).forEach(o=>o.classList.remove('on'));el.classList.add('on');if(q==='citizen')S.citizen=[el.textContent];else if(q==='flex')S.flex=el.textContent;else if(q==='cost')S.cost=el.textContent;else if(q==='vision')S.vision=el.textContent;else if(q==='lang')S.lang=el.textContent;else if(q==='debtYrs')S.debtYrs=el.textContent;else if(q==='postGrad')S.postGrad=el.textContent;else if(q==='inStateTuitionPref'){S.inStateTuitionPref=el.textContent;if(document.getElementById('cost-table'))renderCostChips()}else if(q==='stateOfResidency'){S.stateOfResidency=el.textContent;if(document.getElementById('cost-table'))renderCostChips()}else if(q==='uniSelectivity')S.uniSelectivity=el.textContent;saveState();renderInsights()}
+function pick1(q,el){document.querySelectorAll(`[data-q="${q}"] .pill`).forEach(o=>o.classList.remove('on'));el.classList.add('on');if(q==='citizen')S.citizen=[el.textContent];else if(q==='flex')S.flex=el.textContent;else if(q==='cost')S.cost=el.textContent;else if(q==='vision')S.vision=el.textContent;else if(q==='lang')S.lang=el.textContent;else if(q==='debtYrs')S.debtYrs=el.textContent;else if(q==='postGrad')S.postGrad=el.textContent;else if(q==='inStateTuitionPref'){S.inStateTuitionPref=el.textContent;if(document.getElementById('cost-table'))renderCostChips()}else if(q==='stateOfResidency'){S.stateOfResidency=el.textContent;S.inStateTuitionPref='in-state-public';if(document.getElementById('uni-content'))renderUniversities();if(document.getElementById('cost-table'))renderCostChips()}else if(q==='uniSelectivity')S.uniSelectivity=el.textContent;saveState();renderInsights()}
 function pickN(q,el){el.classList.toggle('on');if(q==='citizen'){S.citizen=[];document.querySelectorAll(`[data-q="${q}"] .pill.on`).forEach(p=>S.citizen.push(p.textContent))}else if(q==='flex'){S.flex=[];document.querySelectorAll(`[data-q="${q}"] .pill.on`).forEach(p=>S.flex.push(p.textContent))}else if(q==='languages'){S.languages=[];document.querySelectorAll(`[data-q="${q}"] .pill.on`).forEach(p=>S.languages.push(p.textContent))};saveState();renderInsights()}
 function initRes(){document.getElementById('res-content').innerHTML=`<div class="qb"><h3 style="font-weight:700;margin-bottom:8px">📚 Career Exploration</h3><ul class="rl"><li><a href="https://www.bls.gov/ooh/" target="_blank">Bureau of Labor Statistics</a> – Careers, outlook, licensing</li><li><a href="https://www.onetonline.org/" target="_blank">O*NET OnLine</a> – Detailed occupation data</li><li><a href="https://www.16personalities.com/" target="_blank">16Personalities</a> – Free assessment</li><li><a href="https://www.linkedin.com/" target="_blank">LinkedIn</a></li></ul></div><div class="qb"><h3 style="font-weight:700;margin-bottom:8px">🇺🇸 US Universities</h3><ul class="rl"><li><a href="https://www.commonapp.org/" target="_blank">Common App</a></li><li><a href="https://www.niche.com/" target="_blank">Niche</a></li><li><a href="https://nces.ed.gov/collegenavigator/" target="_blank">College Navigator</a></li><li><a href="https://bigfuture.collegeboard.org/" target="_blank">Big Future</a></li></ul></div><div class="qb"><h3 style="font-weight:700;margin-bottom:8px">📈 Market Demand Data</h3><ul class="rl"><li><a href="https://www.bls.gov/ooh/" target="_blank">BLS Occupational Outlook Handbook</a> – US job outlook and projections</li><li><a href="https://wagedex.com/outlook/" target="_blank">BLS 2023–2033 projections index</a> – occupation growth through 2033</li></ul></div>
 <div class="qb"><h3 style="font-weight:700;margin-bottom:8px">💰 Scholarships & Aid</h3><ul class="rl">
