@@ -28,8 +28,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Segoe UI Emoji',Ro
 .playlist-pills.show{display:flex}
 .pp{padding:4px 10px;border-radius:12px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;transition:.15s;white-space:nowrap}
 .pp:hover,.pp.active{background:rgba(255,255,255,.25)}
-.spotify-wrap{display:block;width:320px;margin-top:8px;border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);height:96px;visibility:hidden;pointer-events:none}
-.spotify-frame{width:100%;height:96px;border:0;display:block}
+.spotify-wrap{display:block;width:320px;margin-top:2px;border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);height:85px;visibility:hidden;pointer-events:none}
+.spotify-frame{width:100%;height:85px;border:0;display:block}
 .spotify-wrap.show{visibility:visible;pointer-events:auto}
 .tabs{display:flex;background:var(--lt);border-bottom:2px solid var(--bdr);width:100%;overflow-x:auto;overflow-y:hidden}
 .tb{flex:0 0 auto;padding:12px 8px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:600;color:var(--tx2);transition:.2s;white-space:nowrap;text-align:center;min-width:90px}
@@ -148,7 +148,7 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
   .uni-table-container{display:none !important}
   .hdr{height:280px}
   .hdr-music{flex-direction:column;align-items:flex-start}
-  .spotify-wrap{display:block;width:320px;margin-top:8px;border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);height:96px;visibility:hidden;pointer-events:none}
+  .spotify-wrap{display:block;width:320px;margin-top:2px;border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);height:85px;visibility:hidden;pointer-events:none}
   .pan{padding:16px}
   .opts{flex-direction:column}
   .opt{width:100%}
@@ -235,10 +235,10 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 <div class="hdr-music">
 <button class="music-toggle" id="music-btn" onclick="toggleMusic()">🎵 Tunes</button>
 <div class="playlist-pills" id="playlist-pills">
-<button class="pp" onclick="selPlaylist('lofi', this)">Lofi Beats</button>
-<button class="pp" onclick="selPlaylist('jazz', this)">Jazz Beats</button>
-<button class="pp" onclick="selPlaylist('focus', this)">Deep Focus</button>
-<button class="pp" onclick="selPlaylist('brain', this)">Brain Food</button>
+<button class="pp" onclick="selPlaylist('lofi', this)">LoFi</button>
+<button class="pp" onclick="selPlaylist('groovy', this)">Groovy</button>
+<button class="pp" onclick="selPlaylist('relax', this)">Relax</button>
+<button class="pp" onclick="selPlaylist('zen', this)">Zen</button>
 </div>
 </div>
 <div class="spotify-wrap" id="spotify-wrap">
@@ -19317,11 +19317,11 @@ const CAREER_TO_QS_SUBJECT={"Accounting":"Accounting & Finance","Architecture":"
 const STATE_NAMES={AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',FL:'Florida',GA:'Georgia',HI:'Hawaii',ID:'Idaho',IL:'Illinois',IN:'Indiana',IA:'Iowa',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',MS:'Mississippi',MO:'Missouri',MT:'Montana',NC:'North Carolina',ND:'North Dakota',NE:'Nebraska',NH:'New Hampshire',NJ:'New Jersey',NM:'New Mexico',NV:'Nevada',NY:'New York',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',SD:'South Dakota',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',VA:'Virginia',WA:'Washington',WV:'West Virginia',WI:'Wisconsin',WY:'Wyoming'};
 
 const S={cats:[],motivations:[],subCareers:[],prac:[],cc:[],costCC:[],expl:null,playlist:null,flex:[],cost:null,vision:null,lang:null,citizen:[],debtYrs:null,languages:[],postGrad:null,inStateTuitionPref:null,stateOfResidency:null,inStateToggle:false,usUniversityType:null,uniSelectivity:null,scholarshipPct:null,collegeSavings:null,partTimeWork:null,familySupport:null,loanRate:null,loanRepaymentYears:null};
-const VERSION='v1.7.21';
+const VERSION='v1.8.0';
 document.addEventListener('DOMContentLoaded',()=>{const b=document.getElementById('version-badge');if(b)b.innerText=VERSION;});
 function saveState(){const stateToSave={cats:S.cats,motivations:S.motivations,subCareers:S.subCareers,flex:S.flex,cost:S.cost,vision:S.vision,lang:S.lang,citizen:S.citizen,debtYrs:S.debtYrs,languages:S.languages,postGrad:S.postGrad,inStateTuitionPref:S.inStateTuitionPref,stateOfResidency:S.stateOfResidency,cc:S.cc,costCC:S.costCC,expl:S.expl,uniSelectivity:S.uniSelectivity,scholarshipPct:S.scholarshipPct,collegeSavings:S.collegeSavings,partTimeWork:S.partTimeWork,familySupport:S.familySupport,loanRate:S.loanRate,loanRepaymentYears:S.loanRepaymentYears,inStateToggle:S.inStateToggle,usUniversityType:S.usUniversityType};localStorage.setItem('univPathfinderState',JSON.stringify(stateToSave));}
 function loadState(){const saved=localStorage.getItem('univPathfinderState');if(saved){const state=JSON.parse(saved);Object.assign(S,state);if(state.scholarshipPct!==undefined)document.getElementById('sl-schol').value=state.scholarshipPct;if(state.collegeSavings!==undefined)document.getElementById('sl-savings').value=state.collegeSavings;if(state.partTimeWork!==undefined)document.getElementById('sl-work').value=state.partTimeWork;if(state.familySupport!==undefined)document.getElementById('sl-parent').value=state.familySupport;if(state.loanRate!==undefined)document.getElementById('sl-rate').value=state.loanRate;if(state.loanRepaymentYears!==undefined)document.getElementById('sl-yrs').value=state.loanRepaymentYears;if(state.inStateToggle!==undefined){const instateIn=document.getElementById('instate-in');const instateOut=document.getElementById('instate-out');if(state.inStateToggle){instateIn.classList.add('on');instateOut.classList.remove('on')}else{instateOut.classList.add('on');instateIn.classList.remove('on')}}}}
-const PLAYLISTS={lofi:'https://open.spotify.com/embed/playlist/37i9dQZF1DWWQRwui0ExPn?utm_source=generator&theme=0',jazz:'https://open.spotify.com/embed/playlist/37i9dQZF1EIdxUC4rBWFbj?utm_source=generator&theme=0',focus:'https://open.spotify.com/embed/playlist/37i9dQZF1DWZeKCadgRdKQ?utm_source=generator&theme=0',brain:'https://open.spotify.com/embed/playlist/37i9dQZF1DWXLeA8Omikj7?utm_source=generator&theme=0'};
+const PLAYLISTS={lofi:'https://w.soundcloud.com/player/?url=https://soundcloud.com/dabootlegboy/sets/study-chill-lofi-hiphop&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&show_artwork=false',groovy:'https://w.soundcloud.com/player/?url=https://soundcloud.com/wearestereofox/sets/groovy-beats&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&show_artwork=false',relax:'https://w.soundcloud.com/player/?url=https://soundcloud.com/ambientchill-sc/sets/relaxing-ambient-music-2&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&show_artwork=false',zen:'https://w.soundcloud.com/player/?url=https://soundcloud.com/binauralbeatsresearch/sets/theta-waves-zen-meditation&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&show_artwork=false'};
 const HEADER_PHOTOS=[{src:'https://images.unsplash.com/photo-1441260038675-7329ab4cc264',cap:'University campus quad'},{src:'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a',cap:'Students studying together'},{src:'https://images.unsplash.com/photo-1441260038675-7329ab4cc264',cap:'Graduation day'},{src:'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad',cap:'Historic university architecture'},{src:'https://images.unsplash.com/photo-1539037116277-4db20889f2d4',cap:'European city streets'}];
 const FALLBACK_HDR_SVG="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1600' height='420'><rect width='1600' height='420' fill='%23667eea'/><text x='40' y='80' fill='white' font-size='28'>University Pathfinder</text></svg>";
 function wideImg(u){
