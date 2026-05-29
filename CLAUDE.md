@@ -8,11 +8,11 @@
 - If making risky edits, create a feature branch first
 
 ### After Completing Work
-- Show the diff before committing: `git diff [files]`
+- Test the code to ensure syntax is valid and nothing is broken (no need to open in browser)
 - Report file size in the commit message: include `index.html` size so you can quickly spot bloat
 - Create a commit with a clear, descriptive message
 - Never use `--force` or `--no-verify` without explicit user approval
-- Confirm branch before pushing (never push to main without asking)
+- Push to main immediately after committing (no need to ask)
 
 ### Protecting Against Data Loss
 - Always commit atomically: one logical change per commit
@@ -35,9 +35,10 @@
 - Don't add error handling for impossible scenarios
 
 ## Testing & Verification
-- Open `index.html` directly in a browser to test changes
-- Only commit after verifying changes work locally
-- Use git diff to visually confirm changes match intent
+- Verify code syntax is valid (no JSON errors, missing brackets, etc.)
+- Test changes to ensure nothing is broken (validate with linters, parsers, etc.)
+- Only commit after verification passes
+- No need to open in browser unless diagnosing a visual issue
 
 ## Project Workflow
 - **Development**: Edit `index.html`, test locally in browser
