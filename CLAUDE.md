@@ -51,9 +51,11 @@ Never use `--force` or `--no-verify` without explicit user approval
 ## Versioning (Semantic)
 
 **Increment the version in `const VERSION='...'` with every commit using these rules:**
-- **PATCH** (v1.0.1, v1.0.2, etc.) — Bug fixes, syntax errors, data cleanup, JSON errors
-- **MINOR** (v1.1.0, v1.2.0, etc.) — New features or content sections (new career, country, tab, slider), structural changes, UI enhancements
-- **MAJOR** (v2.0.0, etc.) — Complete redesign, major architecture changes, significant user flow changes
+- **PATCH** (v1.5.0 → v1.5.99) — Bug fixes, text updates, UI tweaks, small improvements, insight refinements
+- **MINOR** (v1.5.99 → v1.6.0) — New features, meaningful functionality additions, significant structural changes, new content sections
+- **MAJOR** (v2.0.0) — Complete redesign, major architecture changes, significant user flow changes
+
+Patch version can increment up to 99 before moving to the next minor version. This keeps version history granular without jumping too quickly.
 
 Check the version badge (bottom right of header) after refresh to confirm the latest version is loaded. GitHub Pages can take 30–60 seconds to update.
 
