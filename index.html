@@ -18828,7 +18828,7 @@ const UNIVERSITIES = [
 const CAREER_TO_QS_SUBJECT={"Accounting":"Accounting & Finance","Architecture":"Architecture","Biology / Biotech":"Biological Sciences","Chemistry":"Chemistry","Computer Science":"Computer Science & IT","Cybersecurity":"Computer Science & IT","Data Science / AI":"Data Science & Artificial Intelligence","Economics":"Economics & Econometrics","Electrical Engineering":"Engineering – Electrical & Electronic","Engineering":"Engineering","Entrepreneurship":"Business & Management Studies","Environmental / Climate":"Environmental Sciences","European Law":"Law","Film / Media Production":"Communications & Media Studies","Finance / Banking":"Accounting & Finance","Graphic / UX Design":"Art & Design","International Relations":"Politics & International Studies","Marketing / Management":"Business & Management Studies","Math / Statistics":"Mathematics","Mechanical Engineering":"Engineering – Mechanical, Aeronautical & Manufacturing","Medicine (MD/DO)":"Medicine","Nursing":"Nursing","Pharmacy":"Pharmacy & Pharmacology","Physical Therapy":"Health & Clinical Sciences","Physics":"Physics & Astronomy","Psychology (Clinical)":"Psychology","Public Policy":"Politics & International Studies","Software Engineering":"Computer Science & IT","Technical Theater / Live Events":"Performing Arts","Theater & Performing Arts":"Performing Arts","US Law (JD)":"Law","Writing / Communications":"Communications & Media Studies","Zoology":"Zoology"};
 
 const S={cats:[],motivations:[],subCareers:[],prac:[],cc:[],costCC:[],expl:null,playlist:null,flex:[],cost:null,vision:null,lang:null,citizen:[],debtYrs:null,languages:[],postGrad:null,inStateTuitionPref:null,stateOfResidency:null,inStateToggle:false,uniSelectivity:null,scholarshipPct:null,collegeSavings:null,partTimeWork:null,familySupport:null,loanRate:null,loanRepaymentYears:null};
-const VERSION='v1.3.7';
+const VERSION='v1.3.8';
 document.addEventListener('DOMContentLoaded',()=>{const b=document.getElementById('version-badge');if(b)b.innerText=VERSION;});
 function saveState(){const stateToSave={cats:S.cats,motivations:S.motivations,subCareers:S.subCareers,flex:S.flex,cost:S.cost,vision:S.vision,lang:S.lang,citizen:S.citizen,debtYrs:S.debtYrs,languages:S.languages,postGrad:S.postGrad,inStateTuitionPref:S.inStateTuitionPref,stateOfResidency:S.stateOfResidency,cc:S.cc,costCC:S.costCC,expl:S.expl,uniSelectivity:S.uniSelectivity,scholarshipPct:S.scholarshipPct,collegeSavings:S.collegeSavings,partTimeWork:S.partTimeWork,familySupport:S.familySupport,loanRate:S.loanRate,loanRepaymentYears:S.loanRepaymentYears,inStateToggle:S.inStateToggle};localStorage.setItem('univPathfinderState',JSON.stringify(stateToSave));}
 function loadState(){const saved=localStorage.getItem('univPathfinderState');if(saved){const state=JSON.parse(saved);Object.assign(S,state);if(state.scholarshipPct!==undefined)document.getElementById('sl-schol').value=state.scholarshipPct;if(state.collegeSavings!==undefined)document.getElementById('sl-savings').value=state.collegeSavings;if(state.partTimeWork!==undefined)document.getElementById('sl-work').value=state.partTimeWork;if(state.familySupport!==undefined)document.getElementById('sl-parent').value=state.familySupport;if(state.loanRate!==undefined)document.getElementById('sl-rate').value=state.loanRate;if(state.loanRepaymentYears!==undefined)document.getElementById('sl-yrs').value=state.loanRepaymentYears;if(state.inStateToggle!==undefined){const instateIn=document.getElementById('instate-in');const instateOut=document.getElementById('instate-out');if(state.inStateToggle){instateIn.classList.add('on');instateOut.classList.remove('on')}else{instateOut.classList.add('on');instateIn.classList.remove('on')}}}}
@@ -19432,7 +19432,6 @@ function buildUniversitiesCarouselByCountry(data) {
       <div class="uni-card-header">${u.name}</div>
       <div class="uni-card-body">
         <div class="uni-card-row"><span class="uni-label">Location</span> <span class="uni-value">${locationStr}</span></div>
-        <div class="uni-card-row"><span class="uni-label">QS Rank</span> <span class="uni-value">${u.qs_rank}</span></div>
         <div class="uni-card-row"><span class="uni-label">Admission</span> <span class="uni-value">${u.acceptance_rate}%</span></div>
         <div class="uni-card-row"><span class="uni-label">Students</span> <span class="uni-value">${u.student_pop ? parseInt(u.student_pop).toLocaleString() : '—'}</span></div>
         <div class="uni-card-row"><span class="uni-label">Tuition</span> <span class="uni-value"><strong>${tuitionDisplay}</strong><span style="font-size:11px">${tuitionNote}</span></span></div>
@@ -19604,7 +19603,6 @@ function renderUniversities(){
       html += '<colgroup>';
       html += '<col style="width:15%">';  // University
       html += '<col style="width:13%">';  // Location
-      html += '<col style="width:7%">';   // QS Rank
       html += '<col style="width:8%">';   // Admission %
       html += '<col style="width:7%">';   // Tuition/yr
       html += '<col style="width:9%">';   // Students
@@ -19614,7 +19612,6 @@ function renderUniversities(){
       html += '<thead><tr style="background:rgba(100,150,200,.1);border-bottom:2px solid rgba(100,150,200,.3)">';
       html += '<th style="padding:8px;text-align:left;font-weight:700;overflow:hidden;text-overflow:ellipsis">University</th>';
       html += '<th style="padding:8px;text-align:left;font-weight:700;overflow:hidden;text-overflow:ellipsis">Location</th>';
-      html += '<th style="padding:8px;text-align:center;font-weight:700;overflow:hidden;text-overflow:ellipsis">QS Rank</th>';
       html += '<th style="padding:8px;text-align:center;font-weight:700;overflow:hidden;text-overflow:ellipsis">Admission %</th>';
       html += '<th style="padding:8px;text-align:right;font-weight:700;overflow:hidden;text-overflow:ellipsis">Tuition/yr</th>';
       html += '<th style="padding:8px;text-align:right;font-weight:700;overflow:hidden;text-overflow:ellipsis">Students</th>';
@@ -19683,7 +19680,6 @@ function renderUniversities(){
         html += `<tr style="border-bottom:1px solid rgba(100,150,200,.15);background:#fff" onmouseover="this.style.background='rgba(100,150,200,.08)'" onmouseout="this.style.background='#fff'">
           <td style="padding:8px;background:rgba(241,245,249,.5)"><strong>${u.name}</strong></td>
           <td style="padding:8px;background:#fff">${locationStr}</td>
-          <td style="padding:8px;text-align:center;background:#fff">${u.qs_rank}</td>
           <td style="padding:8px;text-align:center;background:#fff">${u.acceptance_rate}%</td>
           <td style="padding:8px;text-align:right;color:var(--tx2);font-size:13px;background:#fff">${tuitionDisplay}<span style="font-size:13px;color:var(--tx2)">${tuitionNote}</span></td>
           <td style="padding:8px;text-align:right;color:var(--tx2);background:#fff">${studentPop}</td>
