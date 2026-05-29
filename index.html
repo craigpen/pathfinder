@@ -22592,7 +22592,7 @@ function initCarousel(wrapperId, containerSelector = '.carousel-container') {
   let lastX;
   let lastTime;
   let velocity = 0;
-  const GAP = containerSelector.includes('uni') ? 0 : 6; // uni carousels have no gap
+  const GAP = 6; // all carousels have 6px gap
   
   // Get cards - handle .carousel-card, .insights-carousel-card, and .uni-* types
   let cards = container.querySelectorAll('.carousel-card');
