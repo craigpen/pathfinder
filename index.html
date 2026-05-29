@@ -20341,7 +20341,7 @@ function renderScholar(){
   // Assumption: user has BOTH US and EU citizenship.
   const sel = (Array.isArray(S.cc) && S.cc.length) ? S.cc : [];
   if(!sel.length){
-    host.innerHTML = '<div style="padding:24px;text-align:center"><p style="color:var(--tx2);margin:0">👇 Select a country to view details</p></div>';
+    host.innerHTML = '<div style="padding:20px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2);border-radius:8px;color:var(--tx);font-size:14px;line-height:1.6"><span style="margin-right:8px">👇</span><strong>Select a country</strong> to view details.</div>';
     return;
   }
 
@@ -20499,7 +20499,7 @@ function renderCostTable(){
   const pgDiscl=document.getElementById('postgrad-disclaimer');
   
   if(!sel.length){
-    el.innerHTML='<div style="padding:24px;text-align:center"><p style="color:var(--tx2);margin:0">👇 Select a country to view details</p></div>';
+    el.innerHTML='<div style="padding:20px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2);border-radius:8px;color:var(--tx);font-size:14px;line-height:1.6"><span style="margin-right:8px">👇</span><strong>Select a country</strong> to view details.</div>';
     sr.style.display='none';
     pgDiscl.style.display='none';
     return;
