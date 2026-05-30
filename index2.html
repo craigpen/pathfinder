@@ -2586,11 +2586,16 @@ function renderTransition(){
   const careerEl = document.getElementById('transition-careers');
   let careerHTML = '';
   if(S.subCareers && S.subCareers.length > 0) {
-    S.subCareers.forEach(career => {
-      const sub = getSub(career);
-      const name = sub ? sub.name : career;
-      careerHTML += `<div class="pill on" style="pointer-events:none">${name}</div>`;
-    });
+    const validCareers = S.subCareers.filter(c => c); // Remove undefined/null values
+    if(validCareers.length > 0) {
+      validCareers.forEach(career => {
+        const sub = getSub(career);
+        const name = sub ? sub.name : career;
+        careerHTML += `<div class="pill on" style="pointer-events:none">${name}</div>`;
+      });
+    } else {
+      careerHTML = '<div style="font-size:13px;color:var(--tx2)">No careers selected. Go to Careers tab to select.</div>';
+    }
   } else {
     careerHTML = '<div style="font-size:13px;color:var(--tx2)">No careers selected. Go to Careers tab to select.</div>';
   }
@@ -2600,12 +2605,17 @@ function renderTransition(){
   const countryEl = document.getElementById('transition-study-countries');
   let countryHTML = '';
   if(S.cc && S.cc.length > 0) {
-    S.cc.forEach(cc => {
-      const country = countries[cc];
-      const name = country ? country.n : cc;
-      const flag = country ? country.e : '';
-      countryHTML += `<div class="pill on" style="pointer-events:none">${flag} ${name}</div>`;
-    });
+    const validCountries = S.cc.filter(c => c); // Remove undefined/null values
+    if(validCountries.length > 0) {
+      validCountries.forEach(cc => {
+        const country = countries[cc];
+        const name = country ? country.n : cc;
+        const flag = country ? country.e : '';
+        countryHTML += `<div class="pill on" style="pointer-events:none">${flag} ${name}</div>`;
+      });
+    } else {
+      countryHTML = '<div style="font-size:13px;color:var(--tx2)">No countries selected. Go to Universities tab to select.</div>';
+    }
   } else {
     countryHTML = '<div style="font-size:13px;color:var(--tx2)">No countries selected. Go to Universities tab to select.</div>';
   }
@@ -2627,8 +2637,12 @@ function renderTransition(){
     });
   }
 
+  // Filter out undefined/null values
+  const validCareers = (S.subCareers || []).filter(c => c);
+  const validCountries = (S.cc || []).filter(c => c);
+
   // If we don't have both careers and countries selected, show message
-  if(!S.subCareers || S.subCareers.length === 0 || !S.cc || S.cc.length === 0) {
+  if(validCareers.length === 0 || validCountries.length === 0) {
     document.getElementById('transition-table').innerHTML = guidanceMsg('Select at least one career and one study location to view scenarios');
     document.getElementById('transition-insights').innerHTML = '';
     return;
@@ -2641,8 +2655,8 @@ function renderTransition(){
   const yrs = +(document.getElementById('sl-yrs')?.value || 10);
   const months = yrs * 12;
 
-  S.subCareers.forEach(career => {
-    S.cc.forEach(cc => {
+  validCareers.forEach(career => {
+    validCountries.forEach(cc => {
       const costData = calculateCostData(cc, 0, 0, 0, 0, +(document.getElementById('sl-rate')?.value || 5.5), yrs);
       const totalCost = costData.totalCost;
       const monthlyDebt = totalCost > 0 ? (totalCost * rate) / (1 - Math.pow(1 + rate, -months)) : 0;
