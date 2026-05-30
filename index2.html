@@ -19912,10 +19912,10 @@ let hdrIdx=0, hdrTimer=null, hdrPaused=false, hdrPoolKey='';
 function headerImagePool(){
  // Priority: Deep Dive selection (S.expl) -> single selected country in Countries tab -> all selected -> all countries
  const active = S.expl || ((Array.isArray(S.cc) && S.cc.length===1) ? S.cc[0] : null);
- const keys = active ? [active] : ((Array.isArray(S.cc) && S.cc.length) ? [...S.cc] : Object.keys(CD));
+ const keys = active ? [active] : ((Array.isArray(S.cc) && S.cc.length) ? [...S.cc] : Object.keys(COUNTRIES));
  const pool=[];
  keys.forEach(k=>{
-   const photos = (CD[k] && Array.isArray(CD[k].photos)) ? CD[k].photos:[];
+   const photos = getCountryPhotos(k) || [];
    photos.forEach(p=>{
      const raw = (p && p.src) ? String(p.src).split('?')[0] : '';
      if(!raw) return;
@@ -20260,16 +20260,17 @@ function fmt(n){return'$'+Math.round(n).toLocaleString()}
 
 // Helper function to compute cost results for a country given current financing choices
 function computeCountryCostResults(countryKey, scholPercent, savingsTotal, workAnnual, familyAnnual, loanRate, loanYears){
-  const data = CD[countryKey];
-  if(!data || !data.cy) return null;
-  
+  const costBreakdown = getCountryCostBreakdown(countryKey);
+  const tuitionVal = getCountryCostTuition(countryKey);
+  if(!costBreakdown || tuitionVal === null) return null;
+
   const schol = scholPercent / 100;
-  let tui = Math.round(data.cy.tui * (1 - schol));
-  const room = data.cy.room || 0;
-  const books = data.cy.books || 0;
-  const personal = data.cy.personal || 0;
-  const travel = data.cy.travel || 0;
-  const dur = parseFloat(data.dur) || 4;
+  let tui = Math.round(tuitionVal * (1 - schol));
+  const room = getCountryCostRoom(countryKey) || 0;
+  const books = getCountryCostBooks(countryKey) || 0;
+  const personal = getCountryCostPersonal(countryKey) || 0;
+  const travel = getCountryCostTravel(countryKey) || 0;
+  const dur = parseFloat(getCountryDuration(countryKey)) || 4;
   
   const yearTotal = tui + room + books + personal + travel;
   const total4yr = yearTotal * dur;
@@ -20847,7 +20848,7 @@ function renderScholar(){
 
   function info(k){
     // Default mapping for countries not yet fully modeled.
-    return FUNDING[k] || {
+    return getCountryFunding(k) || {
       need:{what:'Varies',apply:'Check official sources',notes:''},
       merit:{what:'Varies',apply:'Check official sources',notes:''},
       external:{what:'Varies',apply:'Check official sources',notes:''},
@@ -20861,8 +20862,7 @@ function renderScholar(){
  const d=info(k);
  const links=[];
     (Array.isArray(d.links)?d.links:[]).forEach(x=>links.push(x));
-    const cd=CD[k];
-    const res=(cd && Array.isArray(cd.res)) ? cd.res : [];
+    const res=getCountryResources(k) || [];
     res.slice(0,3).forEach(r=>links.push({t:r.t,u:r.u}));
     const seen=new Set();
     const uniq=[];
