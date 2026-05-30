@@ -20934,20 +20934,20 @@ function calculateCostData(countryCode, scholarship, savingsTotal, workContrib, 
   const sp = scholarship / 100;
   const rate = interestRate / 100 / 12;
   const months = loanYears * 12;
-  
+
   // Get base tuition (handles NC in-state filter for US)
-  const baseTuition = (countryCode === 'us') ? getUSBaseTuition() : CD[countryCode].cy.tui;
-  
-  const c = CD[countryCode].cy;
+  const baseTuition = (countryCode === 'us') ? getUSBaseTuition() : getCountryCostTuition(countryCode);
+
+  const c = getCountryCostBreakdown(countryCode) || {room: 0, books: 0, personal: 0, travel: 0};
   const adjTui = Math.round(baseTuition * (1 - sp));
-  const yearTotal = adjTui + c.room + c.books + c.personal + c.travel;
-  const y = parseFloat(CD[countryCode].dur);
+  const yearTotal = adjTui + (c.room || 0) + (c.books || 0) + (c.personal || 0) + (c.travel || 0);
+  const y = parseFloat(getCountryDuration(countryCode));
   const annualSavings = savingsTotal / y;
   const totalSupport = workContrib + parentContrib + annualSavings;
   const afterSupport = Math.max(0, yearTotal - totalSupport);
-  
+
   const totalCost = afterSupport * y;
-  
+
   let monthlyPayment = 0;
   let totalRepaid = 0;
   if (totalCost > 0 && rate > 0) {
@@ -20956,10 +20956,10 @@ function calculateCostData(countryCode, scholarship, savingsTotal, workContrib, 
   } else if (totalCost > 0) {
     totalRepaid = totalCost;
   }
-  
+
   const interest = totalRepaid - totalCost;
 
-  let tuitionDetails = CD[countryCode].tn;
+  let tuitionDetails = getCountryTuitionNote(countryCode);
   if(countryCode === 'us'){
     const type = S.usUniversityType || 'public';
     if(type === 'private'){
@@ -21208,7 +21208,7 @@ function scholarSummaryShort(k){
   singapore:{need:"Tuition Grant is a subsidy with bond for non-citizens.",merit:"University scholarships exist for high achievers.",ext:"External awards vary; check terms.",free:"Tuition Grant reduces tuition; bond obligations apply for PR/international."}
  };
  const m=SM[k]||{};
- return {need:m.need||"N/A",merit:m.merit||"Varies by institution/program",ext:m.ext||"Varies by institution/program",free:m.free||(CD[k]&&CD[k].aid?CD[k].aid:"Varies"),note:"Loans and work-study are excluded here. Eligibility is country- and program-specific."};
+ return {need:m.need||"N/A",merit:m.merit||"Varies by institution/program",ext:m.ext||"Varies by institution/program",free:m.free||(getCountryFinancialAid(k)||"Varies"),note:"Loans and work-study are excluded here. Eligibility is country- and program-specific."};
 }
 function fundingNextSteps(k){
  const s=[];
@@ -21869,15 +21869,14 @@ function renderInsights(){
   // COUNTRY ANALYSIS (NO COST INFO - moved to cost-specific table)
   if(S.cc.length > 0){
     S.cc.forEach(k => {
-      const countryName = COUNTRIES[k].n;
-      const data = CD[k];
+      const countryName = getCountryName(k);
       const pros = [];
       const cons = [];
-      
-      const post = data.post || '';
-      const lang = data.lang || '';
-      const chg = data.chg || '';
-      const dur = parseFloat(data.dur) || 4;
+
+      const post = getCountryPostGradOpportunities(k) || '';
+      const lang = getCountryLanguage(k) || '';
+      const chg = getCountryChangePolicy(k) || '';
+      const dur = parseFloat(getCountryDuration(k)) || 4;
       
       // Post-study work - ONLY for non-US citizens, and only if country has work visa or EU mobility
       if(!isUSCitizen && post && (post.includes('visa') || post.includes('work') || post.includes('Work') || post.includes('mobility') || post.includes('Mobility'))){
@@ -22085,8 +22084,7 @@ function renderInsights(){
       
       const costResults = computeCountryCostResults(k, schol, savings, work, family, rate, years);
       if(costResults){
-        const countryData = CD[k];
-        const progDuration = parseFloat(countryData.dur) || 4;
+        const progDuration = parseFloat(getCountryDuration(k)) || 4;
         const {tuition, total4yr, yearAfterSupportTotal, borrowNeeded, monthlyPayment} = costResults;
         const yearlyTotal = costResults.yearAfterSupport;
 
