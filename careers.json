@@ -2,12 +2,12 @@
   "tech": {
     "name": "Tech / Engineering",
     "edu": "Bachelor's (4 yr) or Master's",
-    "costUS": "$80k\u00e2\u20ac\u201c$200k",
-    "costEU": "$0\u00e2\u20ac\u201c$15k",
-    "salUS": "$75k\u00e2\u20ac\u201c$150k",
-    "salEU": "$40k\u00e2\u20ac\u201c$70k",
+    "costUS": "$80kâ€“$200k",
+    "costEU": "$0â€“$15k",
+    "salUS": "$75kâ€“$150k",
+    "salEU": "$40kâ€“$70k",
     "growth": "Very high",
-    "portability": "HIGH \u00e2\u20ac\u201d skills transfer globally",
+    "portability": "HIGH â€” skills transfer globally",
     "licensing": "Rarely licensed",
     "subjects": {
       "Software Engineering": {
@@ -15,8 +15,8 @@
         "education": "Bachelor's (4 yr)",
         "costUS": 150000,
         "costEU": 8000,
-        "salaryUS": "$85k\u00e2\u20ac\u201c$140k",
-        "salaryEU": "$40k\u00e2\u20ac\u201c$70k",
+        "salaryUS": "$85kâ€“$140k",
+        "salaryEU": "$40kâ€“$70k",
         "portability": "HIGH",
         "licensing": "No",
         "resources": [
@@ -34,7 +34,7 @@
         "demand": {
           "label": "Very high",
           "pct": 15.8,
-          "period": "2023\u20132033",
+          "period": "2023–2033",
           "src": "https://wagedex.com/outlook/software-developers"
         }
       },
@@ -43,8 +43,8 @@
         "education": "Bachelor's (4 yr)",
         "costUS": 150000,
         "costEU": 8000,
-        "salaryUS": "$80k\u00e2\u20ac\u201c$130k",
-        "salaryEU": "$37k\u00e2\u20ac\u201c$64k",
+        "salaryUS": "$80kâ€“$130k",
+        "salaryEU": "$37kâ€“$64k",
         "portability": "HIGH",
         "licensing": "No",
         "resources": [
@@ -58,7 +58,7 @@
         "demand": {
           "label": "Very high",
           "pct": 15.8,
-          "period": "2023\u20132033",
+          "period": "2023–2033",
           "src": "https://wagedex.com/outlook/software-developers"
         }
       },
@@ -67,8 +67,8 @@
         "education": "Bachelor's or Master's",
         "costUS": 160000,
         "costEU": 10000,
-        "salaryUS": "$75k\u00e2\u20ac\u201c$115k",
-        "salaryEU": "$40k\u00e2\u20ac\u201c$64k",
+        "salaryUS": "$75kâ€“$115k",
+        "salaryEU": "$40kâ€“$64k",
         "portability": "HIGH",
         "licensing": "PE optional, transfers w/ exam",
         "resources": [
@@ -80,7 +80,7 @@
         "demand": {
           "label": "High",
           "pct": 7,
-          "period": "2024\u201334",
+          "period": "2024–34",
           "src": "https://www.bls.gov/ooh/architecture-and-engineering/electrical-and-electronics-engineers.htm"
         }
       },
@@ -89,8 +89,8 @@
         "education": "Bachelor's or Master's",
         "costUS": 160000,
         "costEU": 10000,
-        "salaryUS": "$70k\u00e2\u20ac\u201c$110k",
-        "salaryEU": "$38k\u00e2\u20ac\u201c$60k",
+        "salaryUS": "$70kâ€“$110k",
+        "salaryEU": "$38kâ€“$60k",
         "portability": "HIGH",
         "licensing": "PE optional",
         "resources": [
@@ -102,7 +102,7 @@
         "demand": {
           "label": "High",
           "pct": 9,
-          "period": "2024\u201334",
+          "period": "2024–34",
           "src": "https://www.bls.gov/ooh/architecture-and-engineering/mechanical-engineers.htm"
         }
       },
@@ -111,8 +111,8 @@
         "education": "Bachelor's + Master's typical",
         "costUS": 190000,
         "costEU": 12000,
-        "salaryUS": "$95k\u00e2\u20ac\u201c$160k",
-        "salaryEU": "$46k\u00e2\u20ac\u201c$81k",
+        "salaryUS": "$95kâ€“$160k",
+        "salaryEU": "$46kâ€“$81k",
         "portability": "HIGH",
         "licensing": "No",
         "resources": [
@@ -126,7 +126,7 @@
         "demand": {
           "label": "Very high",
           "pct": 33.5,
-          "period": "2023\u20132033",
+          "period": "2023–2033",
           "src": "https://wagedex.com/outlook/data-scientists"
         }
       },
@@ -135,20 +135,20 @@
         "education": "Bachelor's (4 yr)",
         "costUS": 150000,
         "costEU": 8000,
-        "salaryUS": "$80k\u00e2\u20ac\u201c$130k",
-        "salaryEU": "$40k\u00e2\u20ac\u201c$70k",
-        "portability": "HIGH \u00e2\u20ac\u201d certs are global",
+        "salaryUS": "$80kâ€“$130k",
+        "salaryEU": "$40kâ€“$70k",
+        "portability": "HIGH â€” certs are global",
         "licensing": "Certs (CISCP etc) global",
         "resources": [
           {
-            "title": "(ISC)\u00c2\u00b2",
+            "title": "(ISC)Â²",
             "url": "https://www.isc2.org/"
           }
         ],
         "demand": {
           "label": "Very high",
           "pct": 28.5,
-          "period": "2023\u20132033",
+          "period": "2023–2033",
           "src": "https://wagedex.com/outlook/information-security-analysts"
         }
       },
@@ -157,8 +157,8 @@
         "education": "Bachelor's or Master's",
         "costUS": 160000,
         "costEU": 10000,
-        "salaryUS": "$70k\u00e2\u20ac\u201c$120k",
-        "salaryEU": "$40k\u00e2\u20ac\u201c$65k",
+        "salaryUS": "$70kâ€“$120k",
+        "salaryEU": "$40kâ€“$65k",
         "portability": "HIGH",
         "licensing": "PE optional, varies by specialty",
         "resources": [
@@ -173,12 +173,12 @@
   "business": {
     "name": "Business / Finance",
     "edu": "Bachelor's (4 yr); MBA optional",
-    "costUS": "$80k\u00e2\u20ac\u201c$250k",
-    "costEU": "$0\u00e2\u20ac\u201c$20k",
-    "salUS": "$55k\u00e2\u20ac\u201c$120k",
-    "salEU": "$35k\u00e2\u20ac\u201c$64k",
+    "costUS": "$80kâ€“$250k",
+    "costEU": "$0â€“$20k",
+    "salUS": "$55kâ€“$120k",
+    "salEU": "$35kâ€“$64k",
     "growth": "High",
-    "portability": "HIGH \u00e2\u20ac\u201d global career",
+    "portability": "HIGH â€” global career",
     "licensing": "CPA/CFA optional",
     "subjects": {
       "Finance / Banking": {
@@ -186,9 +186,9 @@
         "education": "Bachelor's; MBA optional",
         "costUS": 180000,
         "costEU": 12000,
-        "salaryUS": "$70k\u00e2\u20ac\u201c$120k",
-        "salaryEU": "$35k\u00e2\u20ac\u201c$64k",
-        "portability": "HIGH \u00e2\u20ac\u201d CFA global",
+        "salaryUS": "$70kâ€“$120k",
+        "salaryEU": "$35kâ€“$64k",
+        "portability": "HIGH â€” CFA global",
         "licensing": "CFA optional, global",
         "resources": [
           {
@@ -199,7 +199,7 @@
         "demand": {
           "label": "Moderate",
           "pct": 6,
-          "period": "2024\u201334",
+          "period": "2024–34",
           "src": "https://www.bls.gov/ooh/business-and-financial/financial-analysts.htm"
         }
       },
@@ -208,9 +208,9 @@
         "education": "Bachelor's + CPA",
         "costUS": 150000,
         "costEU": 8000,
-        "salaryUS": "$55k\u00e2\u20ac\u201c$85k",
-        "salaryEU": "$32k\u00e2\u20ac\u201c$52k",
-        "portability": "MEDIUM \u00e2\u20ac\u201d CPA US-specific",
+        "salaryUS": "$55kâ€“$85k",
+        "salaryEU": "$32kâ€“$52k",
+        "portability": "MEDIUM â€” CPA US-specific",
         "licensing": "CPA (US), ACCA (intl)",
         "resources": [
           {
@@ -221,7 +221,7 @@
         "demand": {
           "label": "Moderate",
           "pct": 4.6,
-          "period": "2023\u20132033",
+          "period": "2023–2033",
           "src": "https://wagedex.com/outlook/accountants-and-auditors"
         }
       },
@@ -230,8 +230,8 @@
         "education": "Bachelor's (4 yr)",
         "costUS": 140000,
         "costEU": 8000,
-        "salaryUS": "$50k\u00e2\u20ac\u201c$80k",
-        "salaryEU": "$32k\u00e2\u20ac\u201c$52k",
+        "salaryUS": "$50kâ€“$80k",
+        "salaryEU": "$32kâ€“$52k",
         "portability": "HIGH",
         "licensing": "No",
         "resources": [
@@ -243,7 +243,7 @@
         "demand": {
           "label": "High",
           "pct": 7,
-          "period": "2024\u201334",
+          "period": "2024–34",
           "src": "https://www.bls.gov/ooh/business-and-financial/market-research-analysts.htm"
         }
       },
@@ -252,8 +252,8 @@
         "education": "Bachelor's; PhD for research",
         "costUS": 150000,
         "costEU": 8000,
-        "salaryUS": "$60k\u00e2\u20ac\u201c$100k",
-        "salaryEU": "$35k\u00e2\u20ac\u201c$58k",
+        "salaryUS": "$60kâ€“$100k",
+        "salaryEU": "$35kâ€“$58k",
         "portability": "HIGH",
         "licensing": "No",
         "resources": [
@@ -265,7 +265,7 @@
         "demand": {
           "label": "Low",
           "pct": 1,
-          "period": "2024\u201334",
+          "period": "2024–34",
           "src": "https://www.bls.gov/ooh/life-physical-and-social-science/economists.htm"
         }
       },
@@ -290,12 +290,12 @@
   "science": {
     "name": "Science / Research",
     "edu": "Bachelor's + Master's/PhD typical",
-    "costUS": "$100k\u00e2\u20ac\u201c$200k (PhD funded)",
-    "costEU": "$0\u00e2\u20ac\u201c$15k (PhD funded)",
-    "salUS": "$45k\u00e2\u20ac\u201c$100k",
-    "salEU": "$35k\u00e2\u20ac\u201c$64k",
-    "growth": "Moderate\u00e2\u20ac\u201cHigh",
-    "portability": "HIGH \u00e2\u20ac\u201d research is international",
+    "costUS": "$100kâ€“$200k (PhD funded)",
+    "costEU": "$0â€“$15k (PhD funded)",
+    "salUS": "$45kâ€“$100k",
+    "salEU": "$35kâ€“$64k",
+    "growth": "Moderateâ€“High",
+    "portability": "HIGH â€” research is international",
     "licensing": "Rarely",
     "subjects": {
       "Biology / Biotech": {
@@ -303,8 +303,8 @@
         "education": "Bachelor's + PhD",
         "costUS": 150000,
         "costEU": 8000,
-        "salaryUS": "$45k\u00e2\u20ac\u201c$90k",
-        "salaryEU": "$35k\u00e2\u20ac\u201c$58k",
+        "salaryUS": "$45kâ€“$90k",
+        "salaryEU": "$35kâ€“$58k",
         "portability": "HIGH",
         "licensing": "Rarely",
         "resources": [
@@ -318,7 +318,7 @@
         "demand": {
           "label": "Moderate",
           "pct": 6,
-          "period": "2024\u201334",
+          "period": "2024–34",
           "src": "https://www.bls.gov/ooh/life-physical-and-social-science/biochemists-and-biophysicists.htm"
         }
       },
@@ -327,8 +327,8 @@
         "education": "Bachelor's + PhD",
         "costUS": 150000,
         "costEU": 8000,
-        "salaryUS": "$50k\u00e2\u20ac\u201c$95k",
-        "salaryEU": "$35k\u00e2\u20ac\u201c$58k",
+        "salaryUS": "$50kâ€“$95k",
+        "salaryEU": "$35kâ€“$58k",
         "portability": "HIGH",
         "licensing": "Rarely",
         "resources": [
@@ -342,7 +342,7 @@
         "demand": {
           "label": "Moderate",
           "pct": 5,
-          "period": "2024\u201334",
+          "period": "2024–34",
           "src": "https://www.bls.gov/ooh/life-physical-and-social-science/chemists-and-materials-scientists.htm"
         }
       },
@@ -351,8 +351,8 @@
         "education": "Bachelor's + PhD",
         "costUS": 150000,
         "costEU": 8000,
-        "salaryUS": "$55k\u00e2\u20ac\u201c$100k",
-        "salaryEU": "$37k\u00e2\u20ac\u201c$64k",
+        "salaryUS": "$55kâ€“$100k",
+        "salaryEU": "$37kâ€“$64k",
         "portability": "HIGH",
         "licensing": "No",
         "resources": [
@@ -366,7 +366,7 @@
         "demand": {
           "label": "Moderate",
           "pct": 4,
-          "period": "2024\u201334",
+          "period": "2024–34",
           "src": "https://www.bls.gov/ooh/life-physical-and-social-science/physicists-and-astronomers.htm"
         }
       },
@@ -375,8 +375,8 @@
         "education": "Bachelor's or Master's",
         "costUS": 150000,
         "costEU": 8000,
-        "salaryUS": "$50k\u00e2\u20ac\u201c$85k",
-        "salaryEU": "$32k\u00e2\u20ac\u201c$56k",
+        "salaryUS": "$50kâ€“$85k",
+        "salaryEU": "$32kâ€“$56k",
         "portability": "HIGH",
         "licensing": "Rarely",
         "resources": [
@@ -388,7 +388,7 @@
         "demand": {
           "label": "Moderate",
           "pct": 4,
-          "period": "2024\u201334",
+          "period": "2024–34",
           "src": "https://www.bls.gov/ooh/life-physical-and-social-science/environmental-scientists-and-specialists.htm"
         }
       },
@@ -397,8 +397,8 @@
         "education": "Bachelor's; PhD for research",
         "costUS": 150000,
         "costEU": 8000,
-        "salaryUS": "$65k\u00e2\u20ac\u201c$110k",
-        "salaryEU": "$35k\u00e2\u20ac\u201c$64k",
+        "salaryUS": "$65kâ€“$110k",
+        "salaryEU": "$35kâ€“$64k",
         "portability": "HIGH",
         "licensing": "No",
         "resources": [
@@ -412,7 +412,7 @@
         "demand": {
           "label": "High",
           "pct": 8,
-          "period": "2024\u201334",
+          "period": "2024–34",
           "src": "https://www.bls.gov/ooh/math/mathematicians-and-statisticians.htm"
         }
       },
@@ -421,8 +421,8 @@
         "education": "Bachelor's + PhD typical",
         "costUS": 150000,
         "costEU": 8000,
-        "salaryUS": "$45k\u00e2\u20ac\u201c$85k",
-        "salaryEU": "$32k\u00e2\u20ac\u201c$58k",
+        "salaryUS": "$45kâ€“$85k",
+        "salaryEU": "$32kâ€“$58k",
         "portability": "HIGH",
         "licensing": "Rarely",
         "resources": [
@@ -442,23 +442,23 @@
   },
   "creative": {
     "name": "Creative / Arts",
-    "edu": "Bachelor's (3\u00e2\u20ac\u201c4 yr)",
-    "costUS": "$60k\u00e2\u20ac\u201c$200k",
-    "costEU": "$0\u00e2\u20ac\u201c$15k",
-    "salUS": "$35k\u00e2\u20ac\u201c$90k",
-    "salEU": "$29k\u00e2\u20ac\u201c$52k",
+    "edu": "Bachelor's (3â€“4 yr)",
+    "costUS": "$60kâ€“$200k",
+    "costEU": "$0â€“$15k",
+    "salUS": "$35kâ€“$90k",
+    "salEU": "$29kâ€“$52k",
     "growth": "Moderate",
-    "portability": "HIGH \u00e2\u20ac\u201d portfolio matters",
+    "portability": "HIGH â€” portfolio matters",
     "licensing": "Not licensed",
     "subjects": {
       "Graphic / UX Design": {
         "growth": "High",
-        "education": "Bachelor's (3\u00e2\u20ac\u201c4 yr)",
+        "education": "Bachelor's (3â€“4 yr)",
         "costUS": 150000,
         "costEU": 8000,
-        "salaryUS": "$50k\u00e2\u20ac\u201c$90k",
-        "salaryEU": "$29k\u00e2\u20ac\u201c$52k",
-        "portability": "HIGH \u00e2\u20ac\u201d portfolio",
+        "salaryUS": "$50kâ€“$90k",
+        "salaryEU": "$29kâ€“$52k",
+        "portability": "HIGH â€” portfolio",
         "licensing": "No",
         "resources": [
           {
@@ -469,17 +469,17 @@
         "demand": {
           "label": "Low",
           "pct": 2,
-          "period": "2024\u201334",
+          "period": "2024–34",
           "src": "https://www.bls.gov/ooh/arts-and-design/graphic-designers.htm"
         }
       },
       "Film / Media Production": {
         "growth": "Moderate",
-        "education": "Bachelor's (3\u00e2\u20ac\u201c4 yr)",
+        "education": "Bachelor's (3â€“4 yr)",
         "costUS": 180000,
         "costEU": 12000,
-        "salaryUS": "$40k\u00e2\u20ac\u201c$80k",
-        "salaryEU": "$26k\u00e2\u20ac\u201c$46k",
+        "salaryUS": "$40kâ€“$80k",
+        "salaryEU": "$26kâ€“$46k",
         "portability": "HIGH",
         "licensing": "No",
         "resources": [
@@ -491,17 +491,17 @@
         "demand": {
           "label": "Moderate",
           "pct": 5,
-          "period": "2024\u201334",
+          "period": "2024–34",
           "src": "https://www.bls.gov/ooh/entertainment-and-sports/producers-and-directors.htm"
         }
       },
       "Theater & Performing Arts": {
         "growth": "Moderate",
-        "education": "Bachelor's (3\u00e2\u20ac\u201c4 yr)",
+        "education": "Bachelor's (3â€“4 yr)",
         "costUS": 150000,
         "costEU": 8000,
-        "salaryUS": "$35k\u00e2\u20ac\u201c$75k",
-        "salaryEU": "$26k\u00e2\u20ac\u201c$50k",
+        "salaryUS": "$35kâ€“$75k",
+        "salaryEU": "$26kâ€“$50k",
         "portability": "HIGH",
         "licensing": "No",
         "resources": [
@@ -513,17 +513,17 @@
         "demand": {
           "label": "Flat",
           "pct": 0,
-          "period": "2024\u201334",
+          "period": "2024–34",
           "src": "https://www.bls.gov/ooh/entertainment-and-sports/actors.htm"
         }
       },
       "Technical Theater / Live Events": {
         "growth": "Moderate",
-        "education": "Bachelor's (3\u00e2\u20ac\u201c4 yr)",
+        "education": "Bachelor's (3â€“4 yr)",
         "costUS": 140000,
         "costEU": 7000,
-        "salaryUS": "$40k\u00e2\u20ac\u201c$70k",
-        "salaryEU": "$26k\u00e2\u20ac\u201c$48k",
+        "salaryUS": "$40kâ€“$70k",
+        "salaryEU": "$26kâ€“$48k",
         "portability": "HIGH",
         "licensing": "No",
         "resources": [
@@ -535,18 +535,18 @@
         "demand": {
           "label": "Moderate",
           "pct": 3,
-          "period": "2024\u201334",
+          "period": "2024–34",
           "src": "https://www.onetonline.org/link/localtrends/27-4011.00"
         }
       },
       "Architecture": {
         "growth": "Moderate",
-        "education": "Bachelor's + Master's (5\u00e2\u20ac\u201c6 yr)",
+        "education": "Bachelor's + Master's (5â€“6 yr)",
         "costUS": 250000,
         "costEU": 15000,
-        "salaryUS": "$55k\u00e2\u20ac\u201c$85k",
-        "salaryEU": "$32k\u00e2\u20ac\u201c$52k",
-        "portability": "MEDIUM \u00e2\u20ac\u201d licensing varies",
+        "salaryUS": "$55kâ€“$85k",
+        "salaryEU": "$32kâ€“$52k",
+        "portability": "MEDIUM â€” licensing varies",
         "licensing": "Licensed (varies by country)",
         "resources": [
           {
@@ -559,17 +559,17 @@
         "demand": {
           "label": "Moderate",
           "pct": 3.9,
-          "period": "2023\u20132033",
+          "period": "2023–2033",
           "src": "https://wagedex.com/outlook/architects-except-landscape-and-naval"
         }
       },
       "Writing / Communications": {
         "growth": "Moderate",
-        "education": "Bachelor's (3\u00e2\u20ac\u201c4 yr)",
+        "education": "Bachelor's (3â€“4 yr)",
         "costUS": 140000,
         "costEU": 7000,
-        "salaryUS": "$40k\u00e2\u20ac\u201c$70k",
-        "salaryEU": "$26k\u00e2\u20ac\u201c$44k",
+        "salaryUS": "$40kâ€“$70k",
+        "salaryEU": "$26kâ€“$44k",
         "portability": "HIGH (in English)",
         "licensing": "No",
         "resources": [
@@ -581,7 +581,7 @@
         "demand": {
           "label": "Moderate",
           "pct": 4,
-          "period": "2024\u201334",
+          "period": "2024–34",
           "src": "https://www.bls.gov/ooh/media-and-communication/writers-and-authors.htm"
         }
       }
@@ -589,22 +589,22 @@
   },
   "health": {
     "name": "Health / Medicine",
-    "edu": "Bachelor's + professional (6\u00e2\u20ac\u201c15 yr)",
-    "costUS": "$150k\u00e2\u20ac\u201c$400k+",
-    "costEU": "$0\u00e2\u20ac\u201c$50k",
-    "salUS": "$60k\u00e2\u20ac\u201c$400k+",
-    "salEU": "$29k\u00e2\u20ac\u201c$139k",
+    "edu": "Bachelor's + professional (6â€“15 yr)",
+    "costUS": "$150kâ€“$400k+",
+    "costEU": "$0â€“$50k",
+    "salUS": "$60kâ€“$400k+",
+    "salEU": "$29kâ€“$139k",
     "growth": "Very high",
-    "portability": "LOW \u00e2\u20ac\u201d country-specific",
+    "portability": "LOW â€” country-specific",
     "licensing": "Required everywhere",
     "subjects": {
       "Medicine (MD/DO)": {
         "growth": "Very high",
-        "education": "Bachelor's + Med + Residency (11\u00e2\u20ac\u201c15 yr)",
+        "education": "Bachelor's + Med + Residency (11â€“15 yr)",
         "costUS": 350000,
         "costEU": 30000,
-        "salaryUS": "$200k\u00e2\u20ac\u201c$400k+",
-        "salaryEU": "$58k\u00e2\u20ac\u201c$139k",
+        "salaryUS": "$200kâ€“$400k+",
+        "salaryEU": "$58kâ€“$139k",
         "portability": "LOW",
         "licensing": "USMLE (US), country-specific",
         "resources": [
@@ -618,7 +618,7 @@
         "demand": {
           "label": "Moderate",
           "pct": 3,
-          "period": "2024\u201334",
+          "period": "2024–34",
           "src": "https://www.bls.gov/ooh/healthcare/physicians-and-surgeons.htm"
         }
       },
@@ -627,8 +627,8 @@
         "education": "Bachelor's BSN (4 yr)",
         "costUS": 120000,
         "costEU": 7000,
-        "salaryUS": "$60k\u00e2\u20ac\u201c$95k",
-        "salaryEU": "$29k\u00e2\u20ac\u201c$52k",
+        "salaryUS": "$60kâ€“$95k",
+        "salaryEU": "$29kâ€“$52k",
         "portability": "LOW",
         "licensing": "NCLEX (US), country-specific",
         "resources": [
@@ -640,17 +640,17 @@
         "demand": {
           "label": "Moderate",
           "pct": 5,
-          "period": "2024\u201334",
+          "period": "2024–34",
           "src": "https://www.bls.gov/ooh/healthcare/registered-nurses.htm"
         }
       },
       "Pharmacy": {
         "growth": "Moderate",
-        "education": "Bachelor's + PharmD (6\u00e2\u20ac\u201c8 yr)",
+        "education": "Bachelor's + PharmD (6â€“8 yr)",
         "costUS": 250000,
         "costEU": 12000,
-        "salaryUS": "$120k\u00e2\u20ac\u201c$150k",
-        "salaryEU": "$41k\u00e2\u20ac\u201c$70k",
+        "salaryUS": "$120kâ€“$150k",
+        "salaryEU": "$41kâ€“$70k",
         "portability": "LOW",
         "licensing": "Country-specific",
         "resources": [
@@ -664,17 +664,17 @@
         "demand": {
           "label": "Moderate",
           "pct": 5,
-          "period": "2024\u201334",
+          "period": "2024–34",
           "src": "https://www.bls.gov/ooh/healthcare/pharmacists.htm"
         }
       },
       "Physical Therapy": {
         "growth": "High",
-        "education": "Bachelor's + DPT (6\u00e2\u20ac\u201c7 yr)",
+        "education": "Bachelor's + DPT (6â€“7 yr)",
         "costUS": 200000,
         "costEU": 8000,
-        "salaryUS": "$70k\u00e2\u20ac\u201c$95k",
-        "salaryEU": "$32k\u00e2\u20ac\u201c$52k",
+        "salaryUS": "$70kâ€“$95k",
+        "salaryEU": "$32kâ€“$52k",
         "portability": "LOW",
         "licensing": "Country-specific",
         "resources": [
@@ -688,17 +688,17 @@
         "demand": {
           "label": "High",
           "pct": 10.9,
-          "period": "2023\u20132033",
+          "period": "2023–2033",
           "src": "https://wagedex.com/outlook/physical-therapists"
         }
       },
       "Psychology (Clinical)": {
         "growth": "High",
-        "education": "Bachelor's + PhD/PsyD (8\u00e2\u20ac\u201c12 yr)",
+        "education": "Bachelor's + PhD/PsyD (8â€“12 yr)",
         "costUS": 250000,
         "costEU": 15000,
-        "salaryUS": "$60k\u00e2\u20ac\u201c$100k",
-        "salaryEU": "$35k\u00e2\u20ac\u201c$58k",
+        "salaryUS": "$60kâ€“$100k",
+        "salaryEU": "$35kâ€“$58k",
         "portability": "LOW",
         "licensing": "Country-specific",
         "resources": [
@@ -712,7 +712,7 @@
         "demand": {
           "label": "Moderate",
           "pct": 6,
-          "period": "2024\u201334",
+          "period": "2024–34",
           "src": "https://www.bls.gov/ooh/life-physical-and-social-science/psychologists.htm"
         }
       }
@@ -720,13 +720,13 @@
   },
   "law": {
     "name": "Law / Policy",
-    "edu": "Bachelor's + JD/Law (6\u00e2\u20ac\u201c7 yr)",
-    "costUS": "$200k\u00e2\u20ac\u201c$350k",
-    "costEU": "$0\u00e2\u20ac\u201c$15k",
-    "salUS": "$60k\u00e2\u20ac\u201c$215k",
-    "salEU": "$35k\u00e2\u20ac\u201c$81k",
+    "edu": "Bachelor's + JD/Law (6â€“7 yr)",
+    "costUS": "$200kâ€“$350k",
+    "costEU": "$0â€“$15k",
+    "salUS": "$60kâ€“$215k",
+    "salEU": "$35kâ€“$81k",
     "growth": "Moderate",
-    "portability": "LOW \u00e2\u20ac\u201d systems differ",
+    "portability": "LOW â€” systems differ",
     "licensing": "Bar exam required",
     "subjects": {
       "US Law (JD)": {
@@ -734,9 +734,9 @@
         "education": "Bachelor's + JD (7 yr)",
         "costUS": 300000,
         "costEU": null,
-        "salaryUS": "$60k\u00e2\u20ac\u201c$215k",
+        "salaryUS": "$60kâ€“$215k",
         "salaryEU": "N/A",
-        "portability": "LOW \u00e2\u20ac\u201d US bar only",
+        "portability": "LOW â€” US bar only",
         "licensing": "State bar exam",
         "resources": [
           {
@@ -749,18 +749,18 @@
         "demand": {
           "label": "Moderate",
           "pct": 4,
-          "period": "2024\u201334",
+          "period": "2024–34",
           "src": "https://www.bls.gov/ooh/legal/lawyers.htm"
         }
       },
       "European Law": {
         "growth": "Moderate",
-        "education": "Law bachelor's (3\u00e2\u20ac\u201c5 yr)",
+        "education": "Law bachelor's (3â€“5 yr)",
         "costUS": null,
         "costEU": 8000,
         "salaryUS": "N/A",
-        "salaryEU": "$35k\u00e2\u20ac\u201c$81k",
-        "portability": "LOW \u00e2\u20ac\u201d country-specific",
+        "salaryEU": "$35kâ€“$81k",
+        "portability": "LOW â€” country-specific",
         "licensing": "Country bar",
         "resources": [
           {
@@ -773,7 +773,7 @@
         "demand": {
           "label": "Moderate",
           "pct": 4,
-          "period": "2024\u201334",
+          "period": "2024–34",
           "src": "https://www.bls.gov/ooh/legal/lawyers.htm"
         }
       },
@@ -782,8 +782,8 @@
         "education": "Bachelor's (4 yr); Master's helpful",
         "costUS": 150000,
         "costEU": 8000,
-        "salaryUS": "$45k\u00e2\u20ac\u201c$80k",
-        "salaryEU": "$32k\u00e2\u20ac\u201c$58k",
+        "salaryUS": "$45kâ€“$80k",
+        "salaryEU": "$32kâ€“$58k",
         "portability": "HIGH",
         "licensing": "No",
         "resources": [
@@ -795,7 +795,7 @@
         "demand": {
           "label": "Low",
           "pct": -3,
-          "period": "2024\u201334",
+          "period": "2024–34",
           "src": "https://www.bls.gov/ooh/life-physical-and-social-science/political-scientists.htm"
         }
       },
@@ -804,8 +804,8 @@
         "education": "Bachelor's; MPP helpful",
         "costUS": 150000,
         "costEU": 8000,
-        "salaryUS": "$50k\u00e2\u20ac\u201c$85k",
-        "salaryEU": "$32k\u00e2\u20ac\u201c$56k",
+        "salaryUS": "$50kâ€“$85k",
+        "salaryEU": "$32kâ€“$56k",
         "portability": "MEDIUM",
         "licensing": "No",
         "resources": [
@@ -817,7 +817,7 @@
         "demand": {
           "label": "Low",
           "pct": -3,
-          "period": "2024\u201334",
+          "period": "2024–34",
           "src": "https://www.bls.gov/ooh/life-physical-and-social-science/political-scientists.htm"
         }
       }
