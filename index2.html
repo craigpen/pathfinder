@@ -1695,27 +1695,15 @@ function buildUniversitiesCarouselByCountry(data) {
       const citizenship = S.citizen[0];
       const isEU = citizenship === 'EU';
 
-      if(isEU) {
-        if(countryCode === 'se') {
+      if(isEU && u.tuition_eu !== undefined) {
+        // Use EU rate from universities.json
+        const euRate = parseInt(u.tuition_eu);
+        if(euRate === 0) {
           tuitionDisplay = 'FREE';
-          tuitionNote = ' (EU)';
-        } else if(countryCode === 'de') {
-          tuitionDisplay = '~$350';
-          tuitionNote = ' (admin)';
-        } else if(countryCode === 'dk') {
-          tuitionDisplay = 'FREE';
-          tuitionNote = ' (EU)';
-        } else if(countryCode === 'nl') {
-          if(u.tuition && parseInt(u.tuition) > 5000) {
-            tuitionDisplay = '~$2,700';
-            tuitionNote = ' (EU rate)';
-          }
-        } else if(countryCode === 'fr') {
-          if(u.tuition && parseInt(u.tuition) > 2000) {
-            tuitionDisplay = '~$460';
-            tuitionNote = ' (EU public)';
-          }
+        } else {
+          tuitionDisplay = `$${euRate.toLocaleString()}`;
         }
+        tuitionNote = ` ${u.tuition_eu_note || '(EU rate)'}`;
       } else if(citizenship === 'US') {
         tuitionNote = ' (intl)';
       }

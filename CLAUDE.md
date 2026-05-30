@@ -242,7 +242,7 @@ When externalizing reference data that's keyed by external data (e.g., DEMAND_MA
 - External data files (loaded asynchronously at startup):
   - `countries.json` (66KB) — Consolidated country data (13 countries with CD/FUNDING merged); loaded by `loadCountriesData()`. Access via helpers: `getCountryName()`, `getCountryTuition()`, etc.
   - `careers.json` (24KB) — Career categories and subcareers (33 total) with merged DEMAND_MAP data; loaded by `loadCareersData()`. Access via helpers: `getSub()`, `getCategorySubjects()`, etc. Each subcareer has `demand` field with {label, pct, period, src}
-  - `universities.json` (587 universities) — External university database; loaded by `loadUniversitiesData()`. Access via helpers: `getUniversity()`, `getUniversitiesByCountry()`, `getUniversitiesByProgram()`, etc.
+  - `universities.json` (587 universities) — External university database; loaded by `loadUniversitiesData()`. Schema includes dual tuition rates: `tuition` (international) and `tuition_eu` (EU citizen rate) with `tuition_eu_note` for transparency. Access via helpers: `getUniversity()`, `getUniversitiesByCountry()`, `getUniversitiesByProgram()`, etc.
   - `insights.json` (5 categories) — Career/country/cost/language/citizenship alignment data; loaded by `loadInsightsData()`. Access only via insight functions `getCareerInsight()`, `getCountryInsight()`, `getCostInsight()`, `getLanguageInsight()`, `getCitizenshipInsight()`.
   - **Always access via helpers**, never direct property access
 - Carousel helpers:
@@ -266,7 +266,49 @@ When externalizing reference data that's keyed by external data (e.g., DEMAND_MA
   - `getDemandForCat(key)` — Derive category-level demand by averaging subcareers' percentages
   - `demandCell(d)` — Format demand data for display; returns "—" if null
 
-## 8. Code Cleanup & Deduplication
+## 8. Citizenship-Aware Data: Dual Rates Pattern
+
+**When data varies by user selection, implement dual values in the data schema:**
+
+Example: University tuition varies for EU vs international students.
+
+**Data Schema:**
+```json
+{
+  "name": "Cambridge",
+  "tuition": 38000,              // International rate (primary/default)
+  "tuition_eu": 24000,           // EU citizen rate
+  "tuition_eu_note": "(post-Brexit: same as intl)"  // Transparency note
+}
+```
+
+**Display Logic:**
+```javascript
+if(isEU && uni.tuition_eu !== undefined) {
+  show tuition_eu + tuition_eu_note
+} else {
+  show tuition (international default)
+}
+```
+
+**Key Principles:**
+- Primary field (`tuition`) = international/default rate (always populated)
+- Secondary field (`tuition_eu`) = EU citizen rate (only if different)
+- Always include `*_note` field to explain the rate and its limitations
+- If data is incomplete/estimated, document it in the note: "(est. EU rate)", "(income-based)"
+- Display note transparently in UI so users know the data quality
+
+**When to use this pattern:**
+- Program costs vary by citizenship/residency (tuition, scholarships, work authorization)
+- Living costs vary by visa status
+- School availability changes by student nationality
+
+**Avoid:**
+- Hidden rate calculations based on citizenship (confusing)
+- Silently showing different numbers without explaining why
+- Hard-coding per-school rates (use data fields instead)
+
+## 9. Code Cleanup & Deduplication
 
 **Completed as of v1.8.15:** All four major data structures have been successfully externalized and cleaned of duplicate functions:
 
@@ -287,4 +329,4 @@ When externalizing reference data that's keyed by external data (e.g., DEMAND_MA
 
 ---
 
-**Last Updated:** 2026-05-30
+**Last Updated:** 2026-05-30 (v1.8.15 — citizenship-aware tuition rates added)
