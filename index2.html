@@ -790,6 +790,83 @@ function debugAllCountries() {
   return validation;
 }
 
+function getCountrySchemaTemplate() {
+  const template = {};
+  for (const [field, rules] of Object.entries(COUNTRY_SCHEMA)) {
+    if (rules.type === 'object') {
+      template[field] = {};
+    } else if (rules.type === 'array') {
+      template[field] = [];
+    } else if (Array.isArray(rules.type)) {
+      template[field] = rules.type[0] === 'string' ? '' : 0;
+    } else if (rules.type === 'string') {
+      template[field] = '';
+    } else if (rules.type === 'number') {
+      template[field] = 0;
+    }
+  }
+  return template;
+}
+
+function validateCountryCompleteness(code) {
+  const country = window.COUNTRIES?.[code];
+  if (!country) return { code, status: 'NOT_FOUND', errors: ['Country does not exist'] };
+
+  const errors = [];
+  const warnings = [];
+
+  for (const [field, rules] of Object.entries(COUNTRY_SCHEMA)) {
+    if (rules.required) {
+      if (!(field in country)) {
+        errors.push(`Missing required field: ${field}`);
+      } else {
+        const value = country[field];
+        if (value === '' || value === null || value === undefined || (Array.isArray(value) && value.length === 0) || (typeof value === 'object' && Object.keys(value).length === 0)) {
+          errors.push(`Required field empty: ${field}`);
+        }
+      }
+    } else if (field in country) {
+      const value = country[field];
+      if (value === '' || value === null || (Array.isArray(value) && value.length === 0)) {
+        warnings.push(`Optional field empty: ${field}`);
+      }
+    }
+  }
+
+  return {
+    code,
+    status: errors.length === 0 ? 'COMPLETE' : 'INCOMPLETE',
+    errors,
+    warnings
+  };
+}
+
+function validateCountriesJSON(jsonContent) {
+  try {
+    const data = JSON.parse(jsonContent);
+    if (typeof data !== 'object' || Array.isArray(data)) {
+      return { valid: false, error: 'countries.json must be an object with country codes as keys' };
+    }
+
+    const results = { valid: true, total: 0, valid: 0, invalid: 0, details: {} };
+
+    for (const [code, countryData] of Object.entries(data)) {
+      results.total++;
+      const validation = validateCountrySchema(code, countryData);
+      if (validation === true) {
+        results.valid++;
+      } else {
+        results.invalid++;
+        results.details[code] = validation;
+      }
+    }
+
+    return results;
+  } catch (e) {
+    return { valid: false, error: `JSON parse error: ${e.message}` };
+  }
+}
+
 // ============================================================================
 // PHASE 2: LOAD countries.json AT STARTUP
 // ============================================================================
