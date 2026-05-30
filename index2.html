@@ -1553,16 +1553,67 @@ function buildTransitionTable(scenarios, workTarget) {
 
   // Column keys are the scenario indices
   const columnKeys = Object.keys(scenarios);
-  const columnLabel = (idx) => {
-    const scenario = scenarios[idx];
-    if(!scenario) return 'Scenario ' + idx;
-    const country = countries[scenario.studyCountry];
-    const careerName = scenario.career;
-    const flag = country ? `<img src="${country.flag}" style="height:0.9em;vertical-align:middle">` : '';
-    return `${careerName}<br/>${flag}`;
-  };
 
-  return buildTableHTML(rows, columnKeys, columnLabel, 'transition-table');
+  // Build table with custom header (career rowspan + flags)
+  let html = `<table class="ct" id="transition-table"><thead>`;
+
+  // Group scenarios by career to calculate rowspan
+  const careerGroups = {};
+  columnKeys.forEach(key => {
+    const scenario = scenarios[key];
+    const career = scenario.career;
+    if(!careerGroups[career]) careerGroups[career] = [];
+    careerGroups[career].push(key);
+  });
+
+  // Header row 1: Career names with rowspan
+  html += '<tr><th></th>';
+  columnKeys.forEach(key => {
+    const scenario = scenarios[key];
+    const career = scenario.career;
+    const careerCount = careerGroups[career].length;
+    const isFirstInGroup = careerGroups[career][0] === key;
+    if(isFirstInGroup) {
+      html += `<th class="ch" colspan="1" rowspan="2" style="vertical-align:middle;text-align:center">${career}</th>`;
+    }
+  });
+  html += '</tr>';
+
+  // Header row 2: Flags
+  html += '<tr><th></th>';
+  columnKeys.forEach(key => {
+    const scenario = scenarios[key];
+    const country = countries[scenario.studyCountry];
+    const flag = country ? `<img src="${country.flag}" style="height:0.9em;vertical-align:middle">` : '';
+    html += `<th class="ch" style="text-align:center">${flag}</th>`;
+  });
+  html += '</tr>';
+
+  html += '</thead><tbody>';
+
+  // Add data rows
+  rows.forEach(row => {
+    const [label, dataFn] = row;
+    html += '<tr><td class="al">' + label + '</td>';
+
+    columnKeys.forEach(key => {
+      let cellData = dataFn ? dataFn(key) : '—';
+      let cellClass = '';
+
+      if (typeof cellData === 'object' && cellData !== null && cellData.content !== undefined) {
+        cellClass = cellData.className ? ` class="${cellData.className}"` : '';
+        cellData = cellData.content;
+      }
+
+      html += `<td${cellClass}>${cellData}</td>`;
+    });
+
+    html += '</tr>';
+  });
+
+  html += '</tbody></table>';
+
+  return html;
 }
 
 // ===== TABLE RENDERING =====
