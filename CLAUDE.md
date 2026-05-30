@@ -157,11 +157,54 @@ insights.push({
 - ❌ Do NOT mix types inconsistently (e.g., don't use 'pro' for a negative insight)
 - ❌ Do NOT confuse 'con' (warning about one selection) with 'conflict' (two selections contradict)
 
+## 7. Data Externalization & Field Naming
+
+**Lessons from COUNTRIES and CAREERS migrations:**
+
+When externalizing data structures into external JSON files (countries.json, careers.json), follow these patterns to prevent data corruption and maintain consistency:
+
+**Field Naming Rules:**
+- ✅ Use **full, human-readable field names** in external JSON: `salaryUS`, `portability`, `licensing`, `costUS`, not `sUS`, `port`, `lic`, `cUS`
+- ✅ Keep abbreviated names ONLY for nested cost-breakdown objects (e.g., `costBreakdown.tui`, `costBreakdown.room`) where they're documented and stable
+- ⚠️ **Rename all field references in code** — don't just update the data file. Search for all abbreviated field names in: rendering functions, insights generation, debug functions, filter/analysis code
+
+**Helper Function Pattern (Required for all external data):**
+Each externalized data source needs these function types:
+1. **Query helpers** — `getCountryName(code)`, `getSub(careerName)` — safe getters with null checks
+2. **Category helpers** — `getCategorySubjects(catKey)`, `getCategoryField(catKey, fieldName)` — for grouped data
+3. **Validation helpers** — `validateCountrySchema()`, `validateAllCountries()` — ensure data integrity on load
+4. **Debug helpers** — `debugCountry(code)`, `debugCareer(name)` — console output for testing
+
+**Async Loading Safety:**
+- Declare `let DATA_LOADED = false` at module scope
+- Set to `true` in the async loader after successful fetch and Object.assign()
+- Add null-safe fallbacks in all entry functions: `const data = window.CAREERS || {};` (prevents crashes before load completes)
+- Never rely on `window.OBJECTNAME` without a fallback — async load may not be complete yet
+
+**Field Name Audit Checklist (Before shipping):**
+1. Search code for all abbreviated field names used in your data (e.g., `\.sUS`, `\.port`, `\.lic`)
+2. Check **rendering functions** — especially table/carousel builders (they access fields from database)
+3. Check **insights generation** — insights may use fields for analysis (e.g., salary-based pros/cons)
+4. Check **debug functions** — console output functions might use old field names
+5. Check **filter/analysis functions** — any code that evaluates career/country data
+6. Verify all field accesses go through **helpers**, not inline data access (except nested cost-breakdown)
+7. Test actual UI to ensure no "—" (missing value) placeholders
+
+**Common Pitfalls:**
+- ❌ Keeping fallback to embedded data (`window.CAREERS || CATS`) — masks incomplete refactoring
+- ❌ Mixing abbreviated and full field names in same codebase — causes silent failures
+- ❌ Leaving `const CATS = {...}` embedded "just in case" — defeats purpose of externalization
+- ❌ Forgetting `Object.assign(COUNTRIES, data)` in async loader — data loads but isn't accessible
+
 ## Key Files & Functions
-- `index.html` — Single-page app with embedded CSS/JS (1.3MB)
+- `index.html` — Single-page app with embedded CSS/JS (776KB)
   - This is your main deliverable; treat edits carefully
   - Always test in browser before committing
-  - Data: `UNIVERSITIES_BY_SUBJECT`, `CATS`, `COUNTRIES`, etc. defined in `<script>`
+  - Data: `UNIVERSITIES_BY_SUBJECT` defined in `<script>`; `COUNTRIES` and `CAREERS` loaded from external JSON at startup
+- External data files:
+  - `countries.json` (66KB) — Consolidated country data; loaded by `loadCountriesData()`
+  - `careers.json` (19KB) — Career categories and subcareers; loaded by `loadCareersData()`
+  - Always access via helpers (`getCountryName()`, `getSub()`, etc.), never direct property access
 - Carousel helpers:
   - `buildCarouselHTML()` — Creates carousel container and cards
   - `initCarousel(carouselId)` — Initializes drag/touch/snap behavior for a carousel
@@ -173,4 +216,4 @@ insights.push({
 
 ---
 
-**Last Updated:** 2026-05-28
+**Last Updated:** 2026-05-30
