@@ -1554,10 +1554,10 @@ function buildTransitionTable(scenarios, workTarget) {
   // Column keys are the scenario indices
   const columnKeys = Object.keys(scenarios);
 
-  // Build table with custom header (career rowspan + flags)
+  // Build table with custom header (career colspan + flags)
   let html = `<table class="ct" id="transition-table"><thead>`;
 
-  // Group scenarios by career to calculate rowspan
+  // Group scenarios by career to calculate colspan
   const careerGroups = {};
   columnKeys.forEach(key => {
     const scenario = scenarios[key];
@@ -1566,15 +1566,16 @@ function buildTransitionTable(scenarios, workTarget) {
     careerGroups[career].push(key);
   });
 
-  // Header row 1: Career names with rowspan
+  // Header row 1: Career names with colspan
   html += '<tr><th></th>';
+  let addedCareers = new Set();
   columnKeys.forEach(key => {
     const scenario = scenarios[key];
     const career = scenario.career;
-    const careerCount = careerGroups[career].length;
-    const isFirstInGroup = careerGroups[career][0] === key;
-    if(isFirstInGroup) {
-      html += `<th class="ch" colspan="1" rowspan="2" style="vertical-align:middle;text-align:center">${career}</th>`;
+    if(!addedCareers.has(career)) {
+      const careerCount = careerGroups[career].length;
+      html += `<th class="ch" colspan="${careerCount}" style="vertical-align:middle;text-align:center">${career}</th>`;
+      addedCareers.add(career);
     }
   });
   html += '</tr>';
