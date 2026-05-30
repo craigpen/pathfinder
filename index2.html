@@ -22145,8 +22145,8 @@ function renderInsights(){
         if(S.debtYrs === '5 years' && years > 5) cons.push('Your ' + years + '-year repayment exceeds 5-year debt comfort goal');
 
         // Add dorm living tip if living expenses are significant AND dorms are typical in that country
-        const room = countryData.cy.room || 0;
-        const personal = countryData.cy.personal || 0;
+        const room = getCountryCostRoom(k) || 0;
+        const personal = getCountryCostPersonal(k) || 0;
         const livingCosts = room + personal;
         const dormTypicalCountries = ['us', 'uk', 'canada', 'ireland']; // Countries where dorms are common for undergrads
         if(livingCosts > 8000 && dormTypicalCountries.includes(k)) {
