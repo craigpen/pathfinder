@@ -20345,7 +20345,7 @@ function buildUniversitiesCarouselByCountry(data) {
   const { country, countryCode, universities, careerUniMap } = data;
   
   let carouselHTML = `<div class="uni-country-carousel-section">
-    <div class="uni-country-title">${COUNTRIES[country].flag} ${COUNTRIES[country].name} (${universities.length})</div>
+    <div class="uni-country-title"><img src="${COUNTRIES[country].flag}" style="height:0.9em;vertical-align:middle"> ${COUNTRIES[country].name} (${universities.length})</div>
     <div class="uni-country-carousel-wrap">
       <div class="uni-country-carousel">`;
   
