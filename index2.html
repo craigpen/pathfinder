@@ -804,7 +804,7 @@ async function loadCountriesData() {
 
     const data = await response.json();
     // Initialize COUNTRIES from consolidated data from countries.json
-    window.COUNTRIES = data;
+    Object.assign(COUNTRIES, data);
     COUNTRIES_LOADED = true;
 
     const validation = validateAllCountries();
