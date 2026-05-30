@@ -1,0 +1,1274 @@
+{
+  "us": {
+    "name": "United States",
+    "flag": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3NDEwIDM5MDAiPjxyZWN0IHdpZHRoPSI3NDEwIiBoZWlnaHQ9IjM5MDAiIGZpbGw9IiNiMjIyMzQiLz48cGF0aCBkPSJNMCAzMDBoNzQxMG0wIDYwMEgwbTAgNjAwaDc0MTBtMCA2MDBIMG0wIDYwMGg3NDEwbTAgNjAwSDBtMCA2MDBoNzQxMCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjMwMCIvPjxyZWN0IHdpZHRoPSIyOTY0IiBoZWlnaHQ9IjIxMDAiIGZpbGw9IiMzYzNiNmIiLz48L3N2Zz4=",
+    "tuition": "$15k–$85k/yr",
+    "tuitionNote": "In-state public ~$10k, out-of-state ~$25k, private ~$55k.",
+    "duration": "4",
+    "language": "English",
+    "changePolicy": "Easy — switch majors freely",
+    "postGradOpportunities": "Strong US network; OPT work authorization for grads",
+    "financialAid": "Merit + need-based; FAFSA for US residents",
+    "admissions": "Holistic (GPA, essays, SAT/ACT, activities)",
+    "culture": "Campus life, dorms, sports, Greek life",
+    "portal": "commonapp.org",
+    "costBreakdown": {
+      "tui": 35000,
+      "room": 12000,
+      "books": 1200,
+      "personal": 3000,
+      "travel": 1500
+    },
+    "resources": [
+      {
+        "t": "Common App",
+        "u": "https://www.commonapp.org/"
+      },
+      {
+        "t": "Niche",
+        "u": "https://www.niche.com/"
+      },
+      {
+        "t": "College Navigator",
+        "u": "https://nces.ed.gov/collegenavigator/"
+      },
+      {
+        "t": "Big Future",
+        "u": "https://bigfuture.collegeboard.org/"
+      }
+    ],
+    "photos": [
+      {
+        "src": "https://images.unsplash.com/photo-1441260038675-7329ab4cc264?w=800&q=80",
+        "cap": "Classic American university campus"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=800&q=80",
+        "cap": "College campus life"
+      }
+    ],
+    "steps": [
+      "Take SAT/ACT junior year (or confirm test-optional schools on your list)",
+      "Build school list on Common App — aim for 8–12: 3–4 reach, 4–5 target, 2–3 likely",
+      "Model this on the Costs tab to estimate your actual costs across schools",
+      "Ask 2–3 teachers for recommendation letters by November 1",
+      "Draft Common App personal statement (650 words) by October",
+      "Write school-specific \"Why us?\" essays — reference specific programs, professors, clubs",
+      "Search Fastweb.com and Scholarships.com for external awards",
+      "File FAFSA if you're a US resident with a parent who files taxes",
+      "Submit all applications by January 1–15",
+      "Compare financial aid letters in April; negotiate if needed"
+    ],
+    "faqs": [
+      {
+        "q": "SAT vs ACT?",
+        "a": "Take a practice test of each. Many schools are test-optional, but strong scores unlock merit scholarships ($10k–$40k/yr)."
+      },
+      {
+        "q": "Public vs private university?",
+        "a": "Public is cheaper (in-state ~$10k/yr) but larger classes. Private costs more but often gives merit aid and smaller classes. Model it on the Costs tab."
+      },
+      {
+        "q": "How to build a strong application?",
+        "a": "Your essay needs a specific story. Recommendation letters from teachers who know you personally matter. Show genuine interest in each school."
+      },
+      {
+        "q": "Merit vs need-based aid?",
+        "a": "Merit is easier for citizens. Apply to schools where your stats are in the top 25% of admits — that's where scholarships flow."
+      }
+    ],
+    "need": {
+      "what": "Need-based aid is based on family financial circumstances (income/assets/hardship). Typical outcomes are grants and institutional need-based aid (free money).",
+      "apply": "Submit FAFSA (and CSS Profile where required) to establish financial need; then schools package grants based on COA vs SAI/need.",
+      "notes": "Not all schools meet full need. Awards can change year-to-year with updated financial info. Total free aid is typically capped by cost of attendance."
+    },
+    "merit": {
+      "what": "Merit scholarships reward achievement (grades/test scores/leadership/talent). Often used to attract students; can be automatic or competitive.",
+      "apply": "Apply to schools; check each school's merit policy (automatic vs separate application). Target schools where your stats are strong relative to admits.",
+      "notes": "Merit awards can be program-specific and may require maintaining GPA."
+    },
+    "external": {
+      "what": "External scholarships come from organizations (nonprofits, employers, community groups, foundations). Many are small but stackable.",
+      "apply": "Start early. Use scholarship databases + local/community lists; reuse essays; track deadlines; apply broadly to fit scholarships with lower competition.",
+      "notes": "Report awards to the school. Some schools reduce institutional aid when outside scholarships are added (COA cap)."
+    },
+    "free": {
+      "what": "Public grants (e.g., Pell-type grants) and institutional grants are free money.",
+      "apply": "Primarily unlocked via FAFSA/CSS + school financial aid office processes.",
+      "notes": "Work-study is not a scholarship (earned wages). Loans are excluded from this page."
+    },
+    "timeline": "Fall–Winter: applications + FAFSA/CSS. Spring: award letters + appeals/negotiation. External scholarships have separate deadlines.",
+    "links": [
+      {
+        "t": "FAFSA",
+        "u": "https://studentaid.gov/"
+      },
+      {
+        "t": "Fastweb",
+        "u": "https://www.fastweb.com/"
+      },
+      {
+        "t": "Scholarships.com",
+        "u": "https://www.scholarships.com/"
+      }
+    ]
+  },
+  "uk": {
+    "name": "United Kingdom",
+    "flag": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCAzMCI+PHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjMwIiBmaWxsPSIjMDEyMTY5Ii8+PHBhdGggZD0iTTAgMEw2MCAzME02MCAwTDAgMzAiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSI2Ii8+PHBhdGggZD0iTTMwIDB2MzBNMCAxNWg2MCIgc3Ryb2tlPSIjYzgxMDJlIiBzdHJva2Utd2lkdGg9IjQiLz48L3N2Zz4=",
+    "tuition": "$17k/yr (international)",
+    "tuitionNote": "International students pay $17–20k/yr.",
+    "duration": "3",
+    "language": "English",
+    "changePolicy": "Difficult — you commit at application",
+    "postGradOpportunities": "2-year Graduate Route visa for post-study work",
+    "financialAid": "Limited scholarships for international students",
+    "admissions": "Predicted grades + personal statement via UCAS",
+    "culture": "College system, tutorials, independent study, pub culture",
+    "portal": "ucas.com",
+    "costBreakdown": {
+      "tui": 18000,
+      "room": 13000,
+      "books": 500,
+      "personal": 3000,
+      "travel": 2500
+    },
+    "resources": [
+      {
+        "t": "UCAS",
+        "u": "https://www.ucas.com/"
+      },
+      {
+        "t": "Discover Uni",
+        "u": "https://discoveruni.gov.uk/"
+      }
+    ],
+    "photos": [
+      {
+        "src": "https://images.unsplash.com/photo-1548625149-fc4a29cf7092?w=800&q=80",
+        "cap": "Oxford University"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80",
+        "cap": "London skyline"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800&q=80",
+        "cap": "Edinburgh"
+      }
+    ],
+    "steps": [
+      "Register on UCAS.com by September — apply to up to 5 universities",
+      "Write your UCAS personal statement (4,000 characters) — focus on academic passion",
+      "Request predicted grades from your counselor",
+      "Research courses carefully — UK applications are program-specific, not general major",
+      "Submit UCAS by January 15 (October 15 for Oxford/Cambridge)",
+      "Prepare for interviews if applying to Oxford, Cambridge, or medicine",
+      "Accept firm and insurance choices by deadline in May",
+      "Apply for accommodation early — competitive in major cities"
+    ],
+    "faqs": [
+      {
+        "q": "Which universities?",
+        "a": "Russell Group (Oxford, Cambridge, Imperial, UCL, Edinburgh) are most selective. But mid-tier universities have excellent programs. Check subject-specific rankings."
+      },
+      {
+        "q": "UCAS personal statement?",
+        "a": "Purely academic — explain why you want to study this, what you've read to explore it. Same statement for all 5 choices; don't name specific universities."
+      },
+      {
+        "q": "Work after graduation?",
+        "a": "2-year Graduate Route visa lets you work in the UK post-graduation. No sponsorship needed — significant advantage."
+      },
+      {
+        "q": "International cost vs US?",
+        "a": "3-year degree at $17k/yr = $51k total vs US 4-year program. On par or cheaper for international students."
+      }
+    ],
+    "need": {
+      "what": "Need-based bursaries are limited for international students; most UK universities offer small bursaries. Chevening Scholarships (UK government program) cover full tuition + living costs for exceptional candidates (highly competitive). UCAS shows institutional aid on university pages.",
+      "apply": "Check individual university websites for bursary eligibility. Apply to Chevening.org by November 14 (for September start). Contact universities' financial aid offices for means-tested support.",
+      "notes": "Bursaries are often $2,500–6,400/yr and rare for internationals. Chevening is prestigious but highly competitive. Most need-based support targets UK/EU residents."
+    },
+    "merit": {
+      "what": "Merit scholarships from universities reward strong academics (A-level/international equivalent). Russell Group universities (Oxford, Cambridge, Imperial, UCL, LSE) and others offer merit scholarships ($3,800–19,000/yr). Subject-specific scholarships also available.",
+      "apply": "Apply to universities; check individual scholarship pages during application cycle. Submit strong academic records and supporting essays.",
+      "notes": "Merit scholarships are competitive. Top universities often bundle merit aid with admissions offer. Check scholarship deadlines—often different from application deadlines."
+    },
+    "external": {
+      "what": "Commonwealth Scholarships (for Commonwealth countries), British Academy grants, and subject-specific funding (e.g., AHRC for humanities). Most are limited or postgraduate-focused. Erasmus+ support for exchange.",
+      "apply": "Search Commonwealth Scholarships website. Check British Academy award listings. Apply through UCAS or directly to universities for Erasmus+ exchange support.",
+      "notes": "External scholarships for undergrad internationals are rare. More opportunities for postgraduate study."
+    },
+    "free": {
+      "what": "No free tuition for international students. Tuition is fixed at ~$19,000–25,400/yr. Scholarships can reduce this; Chevening is the main full-funding option. 3-year degree duration keeps total cost lower than US.",
+      "apply": "Apply for scholarships (above). Consider student loans from home country if available. Work part-time (students can work 20 hrs/wk during term).",
+      "notes": "Part-time work (minimum wage ~$14.50/hr) can offset ~$6,400–8,900/yr in living costs over the year."
+    },
+    "timeline": "Chevening applications: September 1 – November 14 (for September year after next). University applications: October 15 (early deadline for Oxford/Cambridge), January 15 (standard). Merit scholarships: deadlines vary by university.",
+    "links": [
+      {
+        "t": "Chevening Scholarships",
+        "u": "https://www.chevening.org/"
+      },
+      {
+        "t": "UCAS",
+        "u": "https://www.ucas.com/"
+      },
+      {
+        "t": "UK Scholarships Finder",
+        "u": "https://study-uk.britishcouncil.org/scholarships-funding"
+      },
+      {
+        "t": "Discover Uni",
+        "u": "https://discoveruni.gov.uk/"
+      }
+    ]
+  },
+  "sweden": {
+    "name": "Sweden",
+    "flag": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAyMiI+PHJlY3Qgd2lkdGg9IjM2IiBoZWlnaHQ9IjIyIiBmaWxsPSIjMDA2QUE3Ii8+PHJlY3Qgd2lkdGg9IjYiIGhlaWdodD0iMjIiIHg9IjgiIGZpbGw9IiNGRkNEMDAiLz48cmVjdCB3aWR0aD0iMzYiIGhlaWdodD0iNiIgeT0iOCIgZmlsbD0iI0ZGQ0QwMCIvPjwvc3ZnPg==",
+    "tuition": "FREE for EU/EEA citizens",
+    "tuitionNote": "Free for EU/EEA citizens .",
+    "duration": "3",
+    "language": "Some English programs; Swedish helps",
+    "changePolicy": "Difficult — locked into program",
+    "postGradOpportunities": "EU-wide work mobility; strong Nordic job market",
+    "financialAid": "Limited; Swedish residency required for most grants",
+    "admissions": "GPA + standardized tests",
+    "culture": "Independent, student nations (social clubs), fika culture, equality-focused",
+    "portal": "universityadmissions.se",
+    "costBreakdown": {
+      "tui": 0,
+      "room": 7000,
+      "books": 600,
+      "personal": 3500,
+      "travel": 2500
+    },
+    "resources": [
+      {
+        "t": "University Admissions",
+        "u": "https://www.universityadmissions.se/"
+      },
+      {
+        "t": "Study in Sweden",
+        "u": "https://studyinsweden.se/"
+      },
+      {
+        "t": "CSN",
+        "u": "https://www.csn.se/"
+      }
+    ],
+    "photos": [
+      {
+        "src": "https://images.unsplash.com/photo-1509356843151-3e7d96241e11?w=800&q=80",
+        "cap": "Stockholm waterfront"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1565791380713-1756b9a05343?w=800&q=80",
+        "cap": "Northern lights in Sweden"
+      }
+    ],
+    "steps": [
+      "Decide: language immersion year first? (Recommended for Swedish-taught programs)",
+      "Browse folkhögskola (folk high school) options for intensive Swedish language",
+      "Research programs on universityadmissions.se — filter by English or Swedish",
+      "Check if your US transcript meets entry requirements",
+      "Take SAT/ACT if your program requires it",
+      "Apply via universityadmissions.se by April deadline",
+      "Arrange student housing (apply early — competitive in Stockholm/Lund/Uppsala)",
+      "Register for personnummer (Swedish personal ID number) upon arrival"
+    ],
+    "faqs": [
+      {
+        "q": "Language immersion year?",
+        "a": "If you want Swedish-taught programs or plan to work in Sweden: yes. A folkhögskola year gives fluency, network, and time to explore. If you'll study in English: optional."
+      },
+      {
+        "q": "Which city?",
+        "a": "Stockholm (KTH, Uni of Stockholm): most international, most expensive. Uppsala: classic university town. Lund: great student life, close to Copenhagen. Gothenburg (Chalmers): strong engineering, second city."
+      },
+      {
+        "q": "Student life in Sweden?",
+        "a": "No US-style dorms/campus. Students live in \"student corridors\" or apartments. Social life revolves around \"student nations\" — regional clubs with events and parties."
+      },
+      {
+        "q": "Post-graduation work?",
+        "a": "As an EU citizen: yes, no visa needed. Strong job market in tech, engineering, sustainability. Swedish language skills improve employment prospects significantly."
+      }
+    ],
+    "need": {
+      "what": "N/A for tuition (EU citizens generally pay no tuition). Need-based scholarships are not the primary lever for EU students.",
+      "apply": "If pursuing free-money support, check whether you qualify for the CSN grant portion (loans excluded here).",
+      "notes": "Scholarships are not guaranteed. Degree level and intake term restrictions can apply."
+    },
+    "merit": {
+      "what": "University scholarships mainly target fee-paying (non‑EU/EEA) applicants and are commonly merit-based tuition waivers.",
+      "apply": "Apply to programs via University Admissions. Then apply separately for university scholarships if eligible.",
+      "notes": "Many Swedish scholarships are tuition waivers, not cash stipends."
+    },
+    "external": {
+      "what": "Limited external scholarship ecosystem compared with the US; opportunities vary by university/program.",
+      "apply": "Search university scholarship pages and official listings; treat as targeted opportunities rather than a broad strategy.",
+      "notes": "Expect fewer general external scholarships."
+    },
+    "free": {
+      "what": "Tuition-free for EU/EEA citizens is the biggest free lever (not a scholarship). CSN includes a grant portion (free) and a loan portion (repayable; excluded here).",
+      "apply": "Confirm tuition-free status + CSN grant eligibility rules via official sources.",
+      "notes": "Swedish Institute (SI) scholarships are for master's studies starting in the autumn semester; no scholarships for bachelor's studies or spring-start programs."
+    },
+    "timeline": "Admissions cycle-driven; scholarship deadlines vary by provider (SI and universities publish dates).",
+    "links": [
+      {
+        "t": "University Admissions – Scholarships",
+        "u": "https://www.universityadmissions.se/en/fees-scholarships-residence-permit/scholarships/"
+      },
+      {
+        "t": "Study in Sweden – EU citizens",
+        "u": "https://studyinsweden.se/for-our-eu-visitors/"
+      },
+      {
+        "t": "CSN",
+        "u": "https://www.csn.se/languages/english/student-grants-and-loans-for-studies-in-sweden.html"
+      },
+      {
+        "t": "Swedish Institute Scholarships",
+        "u": "https://si.se/en/apply/scholarships/"
+      }
+    ]
+  },
+  "germany": {
+    "name": "Germany",
+    "flag": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1IDMiPjxyZWN0IHdpZHRoPSI1IiBoZWlnaHQ9IjEiIGZpbGw9IiMwMDAiLz48cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSIxIiB5PSIxIiBmaWxsPSIjZDAwIi8+PHJlY3Qgd2lkdGg9IjUiIGhlaWdodD0iMSIgeT0iMiIgZmlsbD0iI2ZmY2UwMCIvPjwvc3ZnPg==",
+    "tuition": "FREE (~$350/semester admin)",
+    "tuitionNote": "Free at public universities for all including international. ~$350/semester covers admin + transit pass.",
+    "duration": "3",
+    "language": "Growing English options; German typical",
+    "changePolicy": "Very difficult — locked into program",
+    "postGradOpportunities": "EU mobility; 18-month job-seeker visa for graduates",
+    "financialAid": "Limited for internationals; varies by state",
+    "admissions": "GPA-focused, test scores optional",
+    "culture": "Independent study, research-oriented, affordable student cities, beer gardens",
+    "portal": "daad.de",
+    "costBreakdown": {
+      "tui": 700,
+      "room": 6400,
+      "books": 580,
+      "personal": 2900,
+      "travel": 2300
+    },
+    "resources": [
+      {
+        "t": "DAAD",
+        "u": "https://www.daad.de/en/"
+      },
+      {
+        "t": "Study in Germany",
+        "u": "https://www.study-in-germany.de/en/"
+      }
+    ],
+    "photos": [
+      {
+        "src": "https://images.unsplash.com/photo-1574867555993-0ea690bf28f1?w=800&q=80",
+        "cap": "Heidelberg University"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?w=800&q=80",
+        "cap": "Munich cityscape"
+      }
+    ],
+    "steps": [
+      "Check uni-assist.de for transcript evaluation — Germany has specific entry requirements",
+      "Browse DAAD database for English-taught or German-taught programs",
+      "Decide: German-taught = plan a year for intensive German (reach B2/C1)",
+      "Apply through uni-assist or directly (deadlines often July 15 for winter semester)",
+      "Arrange a blocked account ($11,904/yr) as proof of funds for student visa",
+      "Apply for student housing through Studierendenwerk early — long waiting lists",
+      "Register at Bürgeramt (office) within 2 weeks of arrival",
+      "Open a German bank account linked to your blocked account"
+    ],
+    "faqs": [
+      {
+        "q": "German-taught or English-taught?",
+        "a": "~160 bachelor's programs are English-taught (DAAD database). German-taught programs offer deeper integration and more choices, but require B2+ German."
+      },
+      {
+        "q": "Getting in — numerus clausus?",
+        "a": "Some programs use \"numerus clausus\" (NC) — GPA-based, no essays. Others accept all qualified applicants. Engineering and CS are generally less competitive than medicine/psychology."
+      },
+      {
+        "q": "Cost of living by city?",
+        "a": "Leipzig, Dresden, Freiburg: ~$700–900/mo. Munich, Hamburg: ~$1,100–1,400/mo. The blocked account ($11,904/yr) gives a practical budget."
+      },
+      {
+        "q": "Post-graduation work?",
+        "a": "18-month job-seeker visa after graduation — one of Europe's most generous. If you find a job related to your degree, you can stay. German language skills dramatically improve employment prospects."
+      }
+    ],
+    "need": {
+      "what": "BAföG is NOT available to international students. Need-based support exists through DAAD scholarships and foundation grants, but is merit-dependent.",
+      "apply": "Apply through DAAD database and search foundation grant programs. Document financial need in application essays.",
+      "notes": "Limited availability. Competition is high. Most need-based support goes to German/EU citizens via BAföG."
+    },
+    "merit": {
+      "what": "DAAD scholarships (monthly stipends €861+), Deutsche Telekom Foundation, Konrad-Adenauer-Stiftung, and Friedrich-Ebert-Stiftung offer merit-based awards. University-specific scholarships (TU Munich, Heidelberg) also available.",
+      "apply": "Search DAAD database by country/field; apply directly to universities for merit scholarships; apply to political/ideological foundations if your values align.",
+      "notes": "DAAD favors strong academics and has language requirements (German B2+ helps). Funding is competitive but substantial if awarded."
+    },
+    "external": {
+      "what": "German political foundations (Konrad-Adenauer, Friedrich-Ebert, Bertelsmann, Rosa-Luxemburg) offer scholarships tied to political alignment. Erasmus+ support available if doing exchange.",
+      "apply": "Identify foundation aligned with your values; apply with essays explaining political/philosophical fit. Erasmus+ applied automatically if on exchange.",
+      "notes": "Expect annual stipend if awarded (~€500–934/mo for full scholarships)."
+    },
+    "free": {
+      "what": "Tuition-free (€350/semester covers admin) is the primary free lever for all students. Some universities waive administrative fees for scholarship recipients.",
+      "apply": "Confirm free tuition status; some scholarships include fee waivers.",
+      "notes": "Living costs can be offset by part-time work earnings (typically €520/mo for 20 hrs/wk)."
+    },
+    "timeline": "DAAD: applications June 30 for Sept entry. Foundation scholarships: rolling deadlines (apply early). University scholarships: by application deadline.",
+    "links": [
+      {
+        "t": "DAAD",
+        "u": "https://www.daad.de/en/"
+      },
+      {
+        "t": "DAAD Scholarships",
+        "u": "https://www.daad.de/en/study-and-research-in-germany/scholarships/our-scholarships/"
+      },
+      {
+        "t": "Funding Database",
+        "u": "https://www.daad.de/en/study-and-research-in-germany/scholarships/database/"
+      }
+    ]
+  },
+  "netherlands": {
+    "name": "Netherlands",
+    "flag": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5IDYiPjxyZWN0IHdpZHRoPSI5IiBoZWlnaHQ9IjIiIGZpbGw9IiNBRTFDMjgiLz48cmVjdCB3aWR0aD0iOSIgaGVpZ2h0PSIyIiB5PSIyIiBmaWxsPSJ3aGl0ZSIvPjxyZWN0IHdpZHRoPSI5IiBoZWlnaHQ9IjIiIHk9IjQiIGZpbGw9IiMyMTQ2OEIiLz48L3N2Zz4=",
+    "tuition": "~$2,700/yr (EU statutory rate)",
+    "tuitionNote": "EU/EEA citizens pay statutory rate (~$2,700/yr).",
+    "duration": "3",
+    "language": "Many programs in English",
+    "changePolicy": "Difficult",
+    "postGradOpportunities": "EU mobility; orientation year visa for graduates",
+    "financialAid": "DUO student finance for EU citizens who work part-time",
+    "admissions": "Diploma + GPA; some programs use lottery",
+    "culture": "International atmosphere, cycling everywhere, direct communication",
+    "portal": "studyinholland.nl",
+    "costBreakdown": {
+      "tui": 3200,
+      "room": 8100,
+      "books": 580,
+      "personal": 2900,
+      "travel": 2300
+    },
+    "resources": [
+      {
+        "t": "Study in Holland",
+        "u": "https://www.studyinholland.nl/"
+      },
+      {
+        "t": "Studielink",
+        "u": "https://www.studielink.nl/"
+      }
+    ],
+    "photos": [
+      {
+        "src": "https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=800&q=80",
+        "cap": "Amsterdam canals"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=800&q=80",
+        "cap": "Dutch university campus"
+      }
+    ],
+    "steps": [
+      "Search English-taught bachelor's programs on studyinholland.nl",
+      "Apply through Studielink.nl (central system) by January 15 or May 1",
+      "Check if your program uses \"numerus fixus\" (limited enrollment) — earlier deadline applies",
+      "Submit US transcript with evaluation (Nuffic credential evaluation)",
+      "Apply for student housing immediately — Dutch housing shortage is significant",
+      "Register with gemeente (municipality) upon arrival",
+      "Open a Dutch bank account (ING, ABN AMRO, Rabobank)",
+      "Apply for DUO student finance if you're an EU citizen working part-time"
+    ],
+    "faqs": [
+      {
+        "q": "Why Netherlands?",
+        "a": "Most English-taught programs in continental Europe. Very international. Strong in business, engineering, social sciences. Close to other EU cities by train."
+      },
+      {
+        "q": "Housing crisis?",
+        "a": "Real and serious. Start looking the moment you're accepted. University housing fills fast. Private market is expensive. Cities outside Amsterdam (Delft, Groningen, Eindhoven) are cheaper."
+      },
+      {
+        "q": "DUO student finance?",
+        "a": "EU citizens working part-time alongside studies can access DUO loans and grants. Requires qualifying work hours per month. Significantly offsets living costs."
+      },
+      {
+        "q": "After graduation?",
+        "a": "\"Orientation year\" (zoekjaar) visa gives 1 year to find work. Strong job market in tech, finance, logistics. English widely spoken in workplaces."
+      }
+    ],
+    "need": {
+      "what": "Limited need-based aid for internationals. DUO student finance available ONLY if you work 56+ hours/month as an EU citizen. Institutional need-based aid is rare.",
+      "apply": "If EU citizen + working 10–12 hrs/wk: apply to DUO for loans/grants. Otherwise, check individual universities for limited hardship funds.",
+      "notes": "Need-based aid is not the primary funding lever in Netherlands. Most support comes from low tuition rates."
+    },
+    "merit": {
+      "what": "Excellence scholarships (Erasmus Mundus, Holland Scholarship, Nuffic grants) reward strong academics. Individual universities offer merit scholarships (Amsterdam Excellence, Leiden Fellowship).",
+      "apply": "Check studyinholland.nl and individual university websites. Apply through admissions portal with strong GPA/test scores.",
+      "notes": "Merit scholarships often cover partial tuition or living stipend; rarely full funding."
+    },
+    "external": {
+      "what": "Erasmus+ support for exchange students. Fulbright (US citizens only). Foundation scholarships via local/international organizations.",
+      "apply": "Check Erasmus+ eligibility; apply through university for Erasmus+ living allowance. Fulbright requires US citizenship.",
+      "notes": "Erasmus+ provides monthly stipend if on exchange year."
+    },
+    "free": {
+      "what": "Statutory tuition (~€2,700/yr for EU) is the primary free/low-cost lever. Some universities offer tuition-free or reduced programs for merit scholars.",
+      "apply": "Confirm statutory rate at enrollment. DUO grants (if eligible) function as free money if you work the required hours.",
+      "notes": "DUO grants (€1,000–5,000/yr) are available to EU citizens working 56+ hrs/month — effectively free if you qualify."
+    },
+    "timeline": "Admissions deadlines Jan 15 or May 1 (check program). Scholarship deadlines vary; apply by admissions deadline.",
+    "links": [
+      {
+        "t": "Study in Holland",
+        "u": "https://www.studyinholland.nl/"
+      },
+      {
+        "t": "Nuffic Grants",
+        "u": "https://www.nuffic.nl/en/netherlands-scholarships"
+      },
+      {
+        "t": "DUO Student Finance",
+        "u": "https://www.duo.nl/particulier/student-finance-english.jsp"
+      },
+      {
+        "t": "Holland Scholarship",
+        "u": "https://www.hollandscholarship.com/"
+      }
+    ]
+  },
+  "france": {
+    "name": "France",
+    "flag": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzIDIiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDIzOTUiLz48cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIyIiB4PSIxIiBmaWxsPSIjZmZmIi8+PHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMiIgeD0iMiIgZmlsbD0iI2VjMTQxZSIvPjwvc3ZnPg==",
+    "tuition": "~$460/yr (public, EU)",
+    "tuitionNote": "Public universities: ~$460/yr for EU students. Grandes écoles cost more.",
+    "duration": "3",
+    "language": "French typical; some English programs",
+    "changePolicy": "Moderate",
+    "postGradOpportunities": "EU mobility; strong global brand in engineering, arts, luxury",
+    "financialAid": "CAF housing aid (~$100–250/mo); CROUS grants for residents",
+    "admissions": "Dossier-based via Parcoursup",
+    "culture": "Intellectual tradition, café culture, long lunches, rich history",
+    "portal": "campusfrance.org",
+    "costBreakdown": {
+      "tui": 460,
+      "room": 7000,
+      "books": 460,
+      "personal": 2900,
+      "travel": 2300
+    },
+    "resources": [
+      {
+        "t": "Campus France",
+        "u": "https://www.campusfrance.org/en"
+      },
+      {
+        "t": "Parcoursup",
+        "u": "https://www.parcoursup.fr/"
+      }
+    ],
+    "photos": [
+      {
+        "src": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80",
+        "cap": "Paris and the Eiffel Tower"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80",
+        "cap": "French university campus"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&q=80",
+        "cap": "Lyon, France"
+      }
+    ],
+    "steps": [
+      "Decide between public university (cheap, large, independent) and grande école (selective, expensive, excellent networks)",
+      "Search programs on Campus France — filter by English or French language",
+      "Apply through Parcoursup (public) or directly (grandes écoles) by March",
+      "French-taught programs require B2 French minimum — plan language study",
+      "Apply for CAF housing aid immediately after arriving (everyone qualifies, ~$100–250/mo back)",
+      "Arrange student housing through CROUS (subsidized) or private market",
+      "Open a French bank account (required for CAF aid)",
+      "Get your carte vitale (health insurance) — free for students"
+    ],
+    "faqs": [
+      {
+        "q": "University vs grande école?",
+        "a": "Public universities are nearly free but less selective. Grandes écoles (HEC, ESSEC, Sciences Po, Polytechnique) are elite — highly selective, better networks, $10–20k/yr. Both lead to good careers."
+      },
+      {
+        "q": "French language requirement?",
+        "a": "French-taught programs: yes, B2 minimum. ~1,500 English-taught programs exist. Living in France without French is harder than studying — invest in basic French regardless."
+      },
+      {
+        "q": "Housing aid (CAF/APL)?",
+        "a": "France gives every student ~$100–250/mo in housing aid. Not means-tested. Apply day you sign your lease. Significantly reduces living costs."
+      },
+      {
+        "q": "University culture?",
+        "a": "Very different from the US. No campus life. Students live in the city, go to class, socialize in cafés. More adult, independent, less structured."
+      }
+    ],
+    "need": {
+      "what": "CROUS grants (Bourses du Ministère) are means-tested and available to eligible EU residents living in France. CAF housing aid (~€100–250/mo) is NOT means-tested — everyone qualifies.",
+      "apply": "To apply for CROUS: submit a social grant application (dossier social) via CROUS portal with family income documentation. CAF: apply to CAF office after signing lease (immediate reimbursement in following month).",
+      "notes": "CROUS grants require minimum GPA and registered residency. CAF housing aid is automatic if you live in eligible housing."
+    },
+    "merit": {
+      "what": "University merit scholarships exist but are limited and competitive. Sciences Po and HEC Paris offer merit scholarships for strong applicants.",
+      "apply": "Apply through Parcoursup or directly to grandes écoles. Merit scholarships usually require top GPA (3.8+) and strong essays.",
+      "notes": "Merit scholarship amounts vary; rarely full funding."
+    },
+    "external": {
+      "what": "Erasmus+ support for exchange. Fulbright (US citizens). Regional government scholarships vary by region; check région website.",
+      "apply": "Apply through university for Erasmus+ exchange living allowance. Fulbright requires US citizenship and high GPA. Check your région's scholarship portal.",
+      "notes": "Erasmus+ and regional scholarships typically €500–1,500/mo if awarded."
+    },
+    "free": {
+      "what": "Tuition is nearly free (~€460/yr for public universities). CAF housing aid (€100–250/mo) is the main 'free' support — not a scholarship but a government benefit available to all students. CROUS grants add to this if eligible.",
+      "apply": "Enroll at university (tuition automatically cheap). Apply to CAF within 2 weeks of signing lease with proof of enrollment.",
+      "notes": "CAF is not means-tested; essentially free money for all students. CROUS grants stack on top if family income qualifies."
+    },
+    "timeline": "CAF applications: ongoing (apply within 2 weeks of lease). CROUS grants: deadlines March–May (varies by university). Parcoursup: Jan 20–April 3.",
+    "links": [
+      {
+        "t": "Campus France",
+        "u": "https://www.campusfrance.org/en"
+      },
+      {
+        "t": "CROUS",
+        "u": "https://www.crous-bourgogne.fr/en/"
+      },
+      {
+        "t": "CAF Housing Aid",
+        "u": "https://www.caf.fr/"
+      },
+      {
+        "t": "Parcoursup",
+        "u": "https://www.parcoursup.fr/"
+      }
+    ]
+  },
+  "italy": {
+    "name": "Italy",
+    "flag": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzIDIiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDkyNDYiLz48cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIyIiB4PSIxIiBmaWxsPSIjZmZmIi8+PHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMiIgeD0iMiIgZmlsbD0iI2NlMmIzNyIvPjwvc3ZnPg==",
+    "tuition": "~$2,300/yr (income-based)",
+    "tuitionNote": "Public universities use ISEE (income) scale. Low-income students ~$170/yr. Higher income up to ~$4,600/yr.",
+    "duration": "3",
+    "language": "Italian typical; some English options",
+    "changePolicy": "Difficult",
+    "postGradOpportunities": "EU mobility; historically rich universities",
+    "financialAid": "Regional grants; income-based tuition reductions",
+    "admissions": "Diploma + entrance exam for some programs",
+    "culture": "Historic universities (Bologna 1088), social life, regional food",
+    "portal": "universitaly.it",
+    "costBreakdown": {
+      "tui": 2300,
+      "room": 5800,
+      "books": 460,
+      "personal": 2300,
+      "travel": 2300
+    },
+    "resources": [
+      {
+        "t": "Universitaly",
+        "u": "https://www.universitaly.it/"
+      }
+    ],
+    "photos": [
+      {
+        "src": "https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=800&q=80",
+        "cap": "Bologna — oldest university in the world"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1534445867742-43195f401b6c?w=800&q=80",
+        "cap": "Rome"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=800&q=80",
+        "cap": "Italian coastline"
+      }
+    ],
+    "steps": [
+      "Search English-taught programs on Universitaly.it",
+      "Check if your program requires an entrance exam (common for medicine, architecture)",
+      "Apply through university portals (deadlines vary, often May–September)",
+      "Get US transcript evaluated for Italian equivalency",
+      "Apply for income-based tuition reduction (ISEE) — can reduce costs dramatically if you qualify",
+      "Arrange housing through university or private market",
+      "Apply for codice fiscale (tax ID) upon arrival — needed for everything",
+      "Learn basic Italian even for English-taught programs — daily life requires it"
+    ],
+    "faqs": [
+      {
+        "q": "Which Italian cities?",
+        "a": "Milan: business, fashion, design, most international. Bologna: oldest university, great student city. Rome: arts, culture, humanities. Turin: engineering. Padua: strong research, affordable."
+      },
+      {
+        "q": "Income-based tuition?",
+        "a": "Italian universities charge sliding scale by family income. Below certain thresholds = $170–1,000/yr. Apply for ISEE calculation after enrolling to potentially save thousands."
+      },
+      {
+        "q": "Italian language?",
+        "a": "Not required for English-taught programs. But basic Italian is essential for daily life. Italians appreciate effort. Outside Milan/Rome, English proficiency drops significantly."
+      },
+      {
+        "q": "Jobs after?",
+        "a": "Italy's job market is tougher than northern Europe, especially for young grads. Internships during university are critical. Many use their degree to work elsewhere in the EU."
+      }
+    ],
+    "need": {
+      "what": "ISEE-based tuition reductions (not scholarships, but dramatically reduce costs). Low income: €170/yr. Higher income up to €4,600/yr. DSU grants (~€4,000–8,000/yr) awarded to qualifying low-income students based on ISEE assessment.",
+      "apply": "File ISEE documentation with your university (ask Ufficio Tasse/Ammissione). Award ISEE certification from municipality if not already have one. DSU grants: apply through university's scholarship office with ISEE.",
+      "notes": "ISEE is the key lever. Grants are highly competitive; ISEE tuition reduction is automatic if you qualify."
+    },
+    "merit": {
+      "what": "University merit awards (borse di studio) are limited and competitive. Focus on strong GPA (3.7+) and sometimes essay. Polytecnico di Milano and Bocconi offer competitive merit scholarships.",
+      "apply": "Check university website for merit scholarship applications; usually due by July. Some universities award automatically based on entry exam scores; others require separate application.",
+      "notes": "Merit scholarships typically €2,000–5,000/yr; full scholarships are rare."
+    },
+    "external": {
+      "what": "Erasmus+ support for exchange. Italian government scholarships (very limited). Regional government grants vary by region.",
+      "apply": "Apply for Erasmus+ exchange living allowance (~€500–1,000/mo) through university. Contact regional government (Regione) for regional scholarships.",
+      "notes": "Erasmus+ is significant if you study abroad; regional scholarships are small and competitive."
+    },
+    "free": {
+      "what": "Low tuition + ISEE reductions are the primary 'free' levers (not traditional scholarships). Tuition ranges from €170/yr (low income) to €4,600/yr (high income). DSU grants layer on top for qualifying students.",
+      "apply": "File ISEE; university automatically calculates your tier. Apply for DSU grant through university scholarship office.",
+      "notes": "ISEE reductions are substantial — can save €1,000–3,000/yr depending on income. DSU grants are pure free money if eligible."
+    },
+    "timeline": "ISEE applications: ongoing (apply ASAP). DSU grants: deadlines March–May (varies by university). Merit scholarships: deadlines June–July.",
+    "links": [
+      {
+        "t": "Universitaly",
+        "u": "https://www.universitaly.it/"
+      },
+      {
+        "t": "MIUR Scholarships",
+        "u": "https://www.miur.gov.it/"
+      },
+      {
+        "t": "Agenzia delle Entrate (ISEE)",
+        "u": "https://www.agenziaentrate.gov.it/"
+      }
+    ]
+  },
+  "spain": {
+    "name": "Spain",
+    "flag": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiA4Ij48cmVjdCB3aWR0aD0iMTIiIGhlaWdodD0iMiIgZmlsbD0iI0M2MEIxRSIvPjxyZWN0IHdpZHRoPSIxMiIgaGVpZ2h0PSI0IiB5PSIyIiBmaWxsPSIjRkZDNDAwIi8+PHJlY3Qgd2lkdGg9IjEyIiBoZWlnaHQ9IjIiIHk9IjYiIGZpbGw9IiNDNjBCMUUiLz48L3N2Zz4=",
+    "tuition": "~$2,100/yr (EU public)",
+    "tuitionNote": "EU public universities: ~$2,100/yr. Note: Spanish bachelor's is 4 years (not 3).",
+    "duration": "4",
+    "language": "Spanish typical; some English",
+    "changePolicy": "Difficult",
+    "postGradOpportunities": "EU mobility; growing tech scene in Madrid/Barcelona",
+    "financialAid": "Limited state grants; private scholarships available",
+    "admissions": "Via university portals",
+    "culture": "Social, late schedule (dinner at 10pm), vibrant nightlife, fiestas, regional pride",
+    "portal": "universidades.gob.es",
+    "costBreakdown": {
+      "tui": 2100,
+      "room": 5800,
+      "books": 460,
+      "personal": 2600,
+      "travel": 2300
+    },
+    "resources": [
+      {
+        "t": "Study in Spain",
+        "u": "https://www.studyinspain.info/en/"
+      }
+    ],
+    "photos": [
+      {
+        "src": "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=800&q=80",
+        "cap": "Barcelona"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=800&q=80",
+        "cap": "Madrid"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=800&q=80",
+        "cap": "Seville"
+      }
+    ],
+    "steps": [
+      "Check if your US diploma needs credential evaluation (UNED)",
+      "Apply through university portals — no central system for most",
+      "Search for English-taught programs or be prepared for Spanish-taught",
+      "Apply by university deadline (typically May–July)",
+      "Apply for student housing or shared apartments (pisos compartidos are common)",
+      "Get your NIE (foreigner ID) — required for everything",
+      "Open a Spanish bank account",
+      "Register with your local municipal office (empadronamiento)"
+    ],
+    "faqs": [
+      {
+        "q": "Which Spanish cities?",
+        "a": "Barcelona: most international, design/tech, bilingual (Catalan+Spanish). Madrid: capital, tech boom, largest system. Valencia: growing tech, cheaper. Granada/Salamanca: classic student cities, affordable."
+      },
+      {
+        "q": "Spanish language?",
+        "a": "English-taught programs are limited. Daily life requires basic Spanish minimum. Spanish is one of the world's most useful languages regardless of career."
+      },
+      {
+        "q": "4-year system?",
+        "a": "Spain is one of few EU countries with 4-year bachelor's (like US). Longer total time but more depth than 3-year programs."
+      },
+      {
+        "q": "Jobs in Spain?",
+        "a": "Youth unemployment higher than northern Europe. Many grads work abroad initially. Strong internship culture — start looking in year 2."
+      }
+    ],
+    "need": {
+      "what": "Limited need-based support at university level. Becas (need-based grants) from Ministerio de Educación are competitive and primarily for Spanish/EU citizens with low income. Regional governments offer additional grants.",
+      "apply": "Apply through Ministerio de Educación portal (becas.educacionyfp.gob.es) by deadline (usually May). Regions also offer grants — check your target region's education portal.",
+      "notes": "Competitive and limited. Priority goes to low-income Spanish citizens; international students have lower priority."
+    },
+    "merit": {
+      "what": "University merit scholarships and prizes (becas al rendimiento) reward strong academics. Regional governments offer merit scholarships. Fundación Carolina offers merit scholarships for exceptional students.",
+      "apply": "Apply through university and Fundación Carolina. Check individual universities and regional government websites for merit award deadlines.",
+      "notes": "Merit awards are smaller (€1,000–3,000/yr typically) and competitive."
+    },
+    "external": {
+      "what": "Erasmus+ support for exchange. Limited international foundation scholarships. Regional government scholarships vary.",
+      "apply": "Apply for Erasmus+ exchange living allowance through university. Check regional government (Consejería de Educación) and foundation listings.",
+      "notes": "Erasmus+ provides monthly stipend (€500–1,500) if doing exchange year."
+    },
+    "free": {
+      "what": "Moderate public tuition (~€2,100/yr for EU) is relatively low compared to US. Some regional scholarships cover full tuition for merit/need. Spanish bachelor's is 4 years (not 3), so total cost can be higher.",
+      "apply": "Enroll at university. Apply for scholarships via Ministerio and regional portals.",
+      "notes": "4-year degree increases total tuition cost vs 3-year EU programs. Scholarships can offset this if awarded."
+    },
+    "timeline": "Ministerio becas: typically April 15 deadline. Regional scholarships: vary (check region). University merit: by application deadline.",
+    "links": [
+      {
+        "t": "Study in Spain",
+        "u": "https://www.studyinspain.info/en/"
+      },
+      {
+        "t": "Ministerio de Educación Becas",
+        "u": "https://www.becas.educacionyfp.gob.es/"
+      },
+      {
+        "t": "Fundación Carolina",
+        "u": "https://www.fundacioncarolina.es/"
+      }
+    ]
+  },
+  "denmark": {
+    "name": "Denmark",
+    "flag": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNyAyMiI+PHJlY3Qgd2lkdGg9IjM3IiBoZWlnaHQ9IjIyIiBmaWxsPSIjYzgxMDJlIi8+PHJlY3Qgd2lkdGg9IjYiIGhlaWdodD0iMjIiIHg9IjEyIiBmaWxsPSIjZmZmIi8+PHJlY3Qgd2lkdGg9IjM3IiBoZWlnaHQ9IjYiIHk9IjgiIGZpbGw9IiNmZmYiLz48L3N2Zz4=",
+    "tuition": "FREE for EU/EEA citizens",
+    "tuitionNote": "Free for EU/EEA citizens . SU grant (~$1,050/mo) if you work 10–12 hrs/wk.",
+    "duration": "3",
+    "language": "Danish typical; many English programs",
+    "changePolicy": "Difficult",
+    "postGradOpportunities": "EU mobility; strong in design, sustainability, green energy",
+    "financialAid": "SU grant (~$1,050/mo) for students working 10–12 hrs/wk",
+    "admissions": "GPA-focused; quota system",
+    "culture": "Hygge, work-life balance, design-oriented, cycling, flat hierarchy",
+    "portal": "optagelse.dk",
+    "costBreakdown": {
+      "tui": 0,
+      "room": 9300,
+      "books": 580,
+      "personal": 3500,
+      "travel": 2900
+    },
+    "resources": [
+      {
+        "t": "Study in Denmark",
+        "u": "https://studyindenmark.dk/"
+      }
+    ],
+    "photos": [
+      {
+        "src": "https://images.unsplash.com/photo-1504610926078-a1611febcad3?w=800&q=80",
+        "cap": "Copenhagen harbor"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=800&q=80",
+        "cap": "Danish countryside"
+      }
+    ],
+    "steps": [
+      "Browse English-taught programs on studyindenmark.dk — Denmark has many",
+      "Apply through optagelse.dk (central system) by March 15",
+      "Check quota system — Quota 1 (grades only) vs Quota 2 (motivation, experience)",
+      "If accepted: apply for CPR number (civil registration) immediately",
+      "Find student housing through university or boligportal.dk — start early",
+      "Open a Danish bank account (MobilePay is essential for daily life)",
+      "Register for SU student grant if working 10–12 hrs/wk — ~$1,050/mo",
+      "Get a bicycle — essential in Denmark"
+    ],
+    "faqs": [
+      {
+        "q": "Why Denmark?",
+        "a": "Free tuition + SU grant make Denmark cheapest option overall. Strong in sustainability, design, technology. Highest quality of life in Europe. English widely spoken."
+      },
+      {
+        "q": "SU grant?",
+        "a": "If you're an EU citizen and work 10–12 hours/week, you qualify for ~$1,050/mo. Effectively pays for your living costs. One of Europe's best student deals."
+      },
+      {
+        "q": "Copenhagen vs other cities?",
+        "a": "Copenhagen: biggest, most international, expensive housing. Aarhus: excellent university, cheaper. Aalborg: engineering-focused, most affordable. Odense: good for health sciences."
+      },
+      {
+        "q": "Danish culture?",
+        "a": "Friendly but reserved initially. Student culture: study groups, Friday bars, cycling everywhere. Flat hierarchy — professors are approachable. Work-life balance is a core Danish value."
+      }
+    ],
+    "need": {
+      "what": "No traditional need-based institutional aid. SU grant (~€1,050/mo) is NOT means-tested but requires working 10–12 hrs/wk. Available to all qualifying students regardless of family income.",
+      "apply": "Register as EU student with residency. Get a CPR number. Work 10–12 hrs/wk legally (proof of employment). Apply to SU portal — automatic if you meet work/study requirements.",
+      "notes": "SU is effectively free money — not a scholarship but a government support program. If you work the required hours, you get it."
+    },
+    "merit": {
+      "what": "University merit scholarships are available but limited. Check individual universities (e.g., University of Copenhagen, Aarhus University offer merit awards).",
+      "apply": "Check university websites during application cycle. Apply with strong GPA and supporting documents.",
+      "notes": "Merit scholarships typically cover partial tuition or small stipends; rarely full funding."
+    },
+    "external": {
+      "what": "Erasmus+ support for exchange. Limited international scholarships. Danish foundations offer small grants.",
+      "apply": "Apply for Erasmus+ exchange living allowance through university. Check Danish foundation listings for other opportunities.",
+      "notes": "Erasmus+ provides monthly support (€500–1,500) if on exchange."
+    },
+    "free": {
+      "what": "Tuition-free for EU/EEA citizens + SU grant (~€1,050/mo) if you work 10–12 hrs/wk. Combined, these effectively cover living costs. This is one of Europe's best financial deals for students.",
+      "apply": "Enroll in program (tuition-free). Work 10–12 hrs/wk. Apply to SU portal.",
+      "notes": "SU is the game-changer — essentially pays for your living costs if you meet the work requirement."
+    },
+    "timeline": "SU applications: ongoing (no fixed deadline). University scholarships: check individual universities. Admissions: March 15 deadline.",
+    "links": [
+      {
+        "t": "Study in Denmark",
+        "u": "https://studyindenmark.dk/"
+      },
+      {
+        "t": "SU (State Educational Grant)",
+        "u": "https://www.su.dk/english/"
+      },
+      {
+        "t": "SU Application Portal",
+        "u": "https://www.kkik.dk/"
+      }
+    ]
+  },
+  "ireland": {
+    "name": "Ireland",
+    "flag": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzIDIiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjIiIGZpbGw9IiMxNjliNjIiLz48cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIyIiB4PSIxIiBmaWxsPSIjZmZmIi8+PHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMiIgeD0iMiIgZmlsbD0iI2ZmODgwMCIvPjwvc3ZnPg==",
+    "tuition": "~$3,500/yr (EU contribution)",
+    "tuitionNote": "EU students pay ~$3,500/yr \"student contribution.\" English widely spoken.",
+    "duration": "3",
+    "language": "English",
+    "changePolicy": "Moderate",
+    "postGradOpportunities": "EU mobility + English-speaking tech hub (Google, Meta, Apple EU HQs here)",
+    "financialAid": "SUSI grants for residents meeting income criteria",
+    "admissions": "CAO points system",
+    "culture": "Social, literary tradition, music scene, tech boom, friendly",
+    "portal": "cao.ie",
+    "costBreakdown": {
+      "tui": 4100,
+      "room": 9300,
+      "books": 580,
+      "personal": 2900,
+      "travel": 2300
+    },
+    "resources": [
+      {
+        "t": "CAO",
+        "u": "https://www.cao.ie/"
+      },
+      {
+        "t": "Education in Ireland",
+        "u": "https://www.educationinireland.com/"
+      }
+    ],
+    "photos": [
+      {
+        "src": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=800&q=80",
+        "cap": "Trinity College Dublin"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1564959130747-897fb406b9af?w=800&q=80",
+        "cap": "Cliffs of Moher"
+      }
+    ],
+    "steps": [
+      "Apply through CAO.ie — Ireland's central application system",
+      "Check how your US credentials convert to CAO points (contact CAO)",
+      "Apply by February 1 deadline",
+      "Research programs — Ireland uses different naming conventions than US",
+      "Apply for student accommodation early — Dublin housing shortage is serious",
+      "Get your PPS number (like Social Security) upon arrival",
+      "Apply for SUSI grant if eligible (residency + income criteria)",
+      "Look into part-time work — EU citizens can work freely; strong tech job market"
+    ],
+    "faqs": [
+      {
+        "q": "Why Ireland?",
+        "a": "English-speaking + EU member = best of both worlds. Ireland is Europe's tech hub (Google, Meta, Apple EU HQs in Dublin). Strong universities (Trinity, UCD, University of Galway). No work visa needed post-graduation."
+      },
+      {
+        "q": "Dublin vs other cities?",
+        "a": "Dublin: tech hub, most opportunities, extremely expensive housing ($700–1,200/mo room). Cork, Galway, Limerick: cheaper, strong communities, more affordable cost of living."
+      },
+      {
+        "q": "Housing shortage?",
+        "a": "Dublin's shortage is real and severe. Apply for university accommodation immediately. Cork and Galway have better housing availability."
+      },
+      {
+        "q": "After graduation?",
+        "a": "As an EU citizen: work immediately with no visa. Ireland's tech sector is booming, actively hiring. Strong graduate employment rates."
+      }
+    ],
+    "need": {
+      "what": "SUSI grants (Student Universal Support Ireland) are means-tested and available to eligible EU residents meeting income criteria. Grants cover tuition + living stipend.",
+      "apply": "Apply via SUSI portal by January 15 deadline. Must be registered and studying full-time. Income assessment determines award amount.",
+      "notes": "SUSI is substantial if you qualify (~€5,000–10,000+/yr). Priority for low-income students."
+    },
+    "merit": {
+      "what": "University merit scholarships available from Trinity College Dublin, UCD, University College Cork. Check individual universities for merit-based awards.",
+      "apply": "Apply through university admissions. Merit scholarships often require top GPA and strong essays.",
+      "notes": "Merit scholarship amounts vary by university; partial funding is typical."
+    },
+    "external": {
+      "what": "Erasmus+ support for exchange. Fulbright (US citizens). Limited international foundation scholarships.",
+      "apply": "Apply for Erasmus+ exchange living allowance through university. US citizens check Fulbright Ireland.",
+      "notes": "Erasmus+ provides monthly stipend (€500–1,500) if on exchange."
+    },
+    "free": {
+      "what": "Tuition contribution (~€3,500/yr) is relatively high for EU, but SUSI can cover it if you qualify. Low tuition for STEM fields (€2,000/yr) in some programs.",
+      "apply": "Enroll and apply for SUSI by January 15. If approved, tuition is covered.",
+      "notes": "SUSI is the primary 'free' lever for eligible students."
+    },
+    "timeline": "SUSI: January 15 deadline (applies to current year). University merit scholarships: check individual universities. CAO admissions: February 1 deadline.",
+    "links": [
+      {
+        "t": "CAO",
+        "u": "https://www.cao.ie/"
+      },
+      {
+        "t": "SUSI Grants",
+        "u": "https://www.susi.ie/"
+      },
+      {
+        "t": "Education in Ireland",
+        "u": "https://www.educationinireland.com/"
+      }
+    ]
+  },
+  "canada": {
+    "name": "Canada",
+    "flag": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1IDMiPjxyZWN0IHdpZHRoPSI1IiBoZWlnaHQ9IjMiIGZpbGw9IiNmZjAwMDAiLz48cmVjdCB3aWR0aD0iMyIgaGVpZ2h0PSIzIiB4PSIxIiBmaWxsPSIjZmZmIi8+PHBvbHlnb24gcG9pbnRzPSIyLjUsMC43NSAyLjksMS45NSA0LjEsMS45NSAzLjIsMi42NSAzLjYsMy44NSAyLjUsMy4xNSAxLjQsMy44NSAxLjgsMi42NSAwLjksMS45NSAyLjEsMS45NSIgZmlsbD0iI2ZmMDAwMCIvPjwvc3ZnPg==",
+    "tuition": "$13k–$20k/yr (intl)",
+    "tuitionNote": "International students: ~$13k–20k/yr. Some programs with co-op add paid work terms.",
+    "duration": "4",
+    "language": "English (French in Québec)",
+    "changePolicy": "Moderate",
+    "postGradOpportunities": "Post-Graduation Work Permit (1–3 yr) + permanent residency pathway",
+    "financialAid": "Some merit scholarships; co-op earnings offset costs",
+    "admissions": "GPA-focused; some holistic",
+    "culture": "Multicultural, safe, outdoorsy, sports, welcoming",
+    "portal": "universitystudy.ca",
+    "costBreakdown": {
+      "tui": 13100,
+      "room": 7300,
+      "books": 580,
+      "personal": 1800,
+      "travel": 1800
+    },
+    "resources": [
+      {
+        "t": "Universities Canada",
+        "u": "https://www.universitystudy.ca/"
+      },
+      {
+        "t": "EduCanada",
+        "u": "https://www.educanada.ca/"
+      }
+    ],
+    "photos": [
+      {
+        "src": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80",
+        "cap": "University of British Columbia"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=800&q=80",
+        "cap": "Canadian Rockies"
+      }
+    ],
+    "steps": [
+      "Research universities by province — tuition varies significantly",
+      "Check if the university offers co-op programs (paid work terms built into degree)",
+      "Apply directly to each university (no central system for most)",
+      "Submit US transcript — Canadian universities accept it directly",
+      "Apply for study permit (student visa) after acceptance",
+      "Apply for on-campus housing early — competitive in major cities",
+      "Get your Social Insurance Number (SIN) to work part-time",
+      "Explore co-op and internship opportunities starting year 2"
+    ],
+    "faqs": [
+      {
+        "q": "Which province/city?",
+        "a": "Ontario (Toronto, Waterloo): largest system, famous co-op (Waterloo is tech legend). BC (Vancouver): beautiful, expensive. Québec (Montreal): cheapest tuition, bilingual. Alberta (Calgary): strong engineering."
+      },
+      {
+        "q": "Co-op programs?",
+        "a": "Alternates study + paid work terms. Waterloo is legendary — students graduate with 2+ years experience + $30–50k earned. UBC, Toronto, McGill also offer co-op."
+      },
+      {
+        "q": "Immigration pathway?",
+        "a": "Post-Graduation Work Permit (1–3 yrs) + Canadian experience = clear path to permanent residency (PR). One of Canada's biggest advantages."
+      },
+      {
+        "q": "Cost vs US?",
+        "a": "Cheaper than US for international students. Factor in co-op earnings and immigration pathway — total value is strong."
+      }
+    ],
+    "need": {
+      "what": "Institutional need-based aid varies significantly by university. Most Canadian universities meet demonstrated need for domestic students; limited aid for international students.",
+      "apply": "Submit FAFSA or Canadian equivalent (varies by school). Contact university financial aid office with family income documentation.",
+      "notes": "International students typically receive less need-based aid. Co-op earnings can offset needs significantly."
+    },
+    "merit": {
+      "what": "Entrance scholarships are common and competitive. Most Canadian universities offer merit scholarships based on GPA/test scores. Co-op programs provide paid work terms (students earn $15k–25k during degree).",
+      "apply": "Apply to universities; check each school's merit scholarship policy. Apply to co-op program if available — admission is competitive but earnings are substantial.",
+      "notes": "Merit scholarships range $1,000–20,000+/yr. Co-op earnings over 2 years can total $30,000–50,000."
+    },
+    "external": {
+      "what": "Limited scholarships for international students. Canadian government scholarships require citizenship. Some international foundation scholarships available.",
+      "apply": "Check individual universities and EduCanada.ca for international scholarship databases.",
+      "notes": "EduCanada database lists provincial and institutional scholarships."
+    },
+    "free": {
+      "what": "No free tuition. High tuition (~$13k–20k/yr for internationals) is offset by merit scholarships, co-op earnings, and lower living costs than US. Immigration pathway (post-grad work permit + PR eligibility) is significant advantage.",
+      "apply": "Apply for merit scholarships. Join co-op program if available. Work part-time after first year.",
+      "notes": "Total cost is higher than many EU countries but co-op earnings and PR pathway provide unique value."
+    },
+    "timeline": "Fall admissions: apply Sept–Jan. Spring/Winter admissions: apply earlier. Co-op: apply by year 2–3.",
+    "links": [
+      {
+        "t": "EduCanada",
+        "u": "https://www.educanada.ca/"
+      },
+      {
+        "t": "Universities Canada",
+        "u": "https://www.universitystudy.ca/"
+      },
+      {
+        "t": "Canadian Awards",
+        "u": "https://www.studycanada.ca/"
+      }
+    ]
+  },
+  "no": {
+    "name": "Norway",
+    "flag": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMiAxNiI+PHJlY3Qgd2lkdGg9IjIyIiBoZWlnaHQ9IjE2IiBmaWxsPSIjZWYyYjJkIi8+PHJlY3Qgd2lkdGg9IjQiIGhlaWdodD0iMTYiIHg9IjYiIGZpbGw9IiMwMDI4NjgiLz48cmVjdCB3aWR0aD0iMjIiIGhlaWdodD0iNCIgeT0iNiIgZmlsbD0iIzAwMjg2OCIvPjxyZWN0IHdpZHRoPSIyIiBoZWlnaHQ9IjE2IiB4PSI3IiBmaWxsPSIjZmZmIi8+PHJlY3Qgd2lkdGg9IjIyIiBoZWlnaHQ9IjIiIHk9IjciIGZpbGw9IiNmZmYiLz48L3N2Zz4=",
+    "tuition": "FREE",
+    "tuitionNote": "Free",
+    "duration": "3",
+    "language": "English/Norwegian",
+    "changePolicy": "Moderate",
+    "postGradOpportunities": "EU mobility",
+    "financialAid": "Limited",
+    "admissions": "GPA",
+    "culture": "Outdoor",
+    "portal": "no.is",
+    "costBreakdown": {
+      "tui": 0,
+      "room": 7200,
+      "books": 600,
+      "personal": 3000,
+      "travel": 2500
+    },
+    "resources": [],
+    "photos": [],
+    "steps": [],
+    "faqs": [],
+    "need": {
+      "what": "Free tuition",
+      "apply": "Check",
+      "notes": "EU"
+    },
+    "merit": {
+      "what": "Available",
+      "apply": "Apply",
+      "notes": "Varies"
+    },
+    "external": {
+      "what": "Erasmus+",
+      "apply": "Exchange",
+      "notes": "Limited"
+    },
+    "free": {
+      "what": "Tuition-free",
+      "apply": "Confirm",
+      "notes": "Main benefit"
+    },
+    "timeline": "Varies",
+    "links": []
+  },
+  "ch": {
+    "name": "Switzerland",
+    "flag": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjZmYwMDAwIi8+PHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjYiIHg9IjYiIHk9IjEzIiBmaWxsPSIjZmZmIi8+PHJlY3Qgd2lkdGg9IjYiIGhlaWdodD0iMjAiIHg9IjEzIiB5PSI2IiBmaWxsPSIjZmZmIi8+PC9zdmc+",
+    "tuition": "~$800/yr",
+    "tuitionNote": "Affordable",
+    "duration": "3",
+    "language": "English/German",
+    "changePolicy": "Difficult",
+    "postGradOpportunities": "EU access",
+    "financialAid": "Merit-based",
+    "admissions": "Exams",
+    "culture": "Research",
+    "portal": "ch.ch",
+    "costBreakdown": {
+      "tui": 1000,
+      "room": 8400,
+      "books": 600,
+      "personal": 3500,
+      "travel": 2500
+    },
+    "resources": [],
+    "photos": [],
+    "steps": [],
+    "faqs": [],
+    "need": {
+      "what": "Limited",
+      "apply": "Search",
+      "notes": "Competitive"
+    },
+    "merit": {
+      "what": "Merit-based",
+      "apply": "Apply",
+      "notes": "Varies"
+    },
+    "external": {
+      "what": "Erasmus+",
+      "apply": "Exchange",
+      "notes": "Limited"
+    },
+    "free": {
+      "what": "Low tuition",
+      "apply": "Enroll",
+      "notes": "~$1000/yr"
+    },
+    "timeline": "Rolling",
+    "links": []
+  }
+}
