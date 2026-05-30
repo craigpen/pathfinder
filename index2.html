@@ -23449,10 +23449,22 @@ function exportNewCountriesSchemaAsCode() {
 }
 
 function exportCareersSchemaAsCode() {
-  // Export CATS as JSON ready for careers.json
+  // Export CATS as prettified JSON ready for careers.json
   const exported = JSON.stringify(CATS, null, 2);
-  console.log('Copy the output below and save as careers.json:');
+  console.clear();
+  console.log('%c=== COPY EVERYTHING BELOW AND SAVE AS careers.json ===', 'font-weight:bold;color:#16a34a;font-size:14px');
   console.log(exported);
+  console.log('%c=== END ===', 'font-weight:bold;color:#16a34a;font-size:14px');
+
+  // Also copy to clipboard if possible
+  try {
+    navigator.clipboard.writeText(exported).then(() => {
+      console.log('%c✓ Copied to clipboard!', 'color:#16a34a;font-weight:bold');
+    });
+  } catch (e) {
+    console.log('Clipboard copy failed, manually select and copy above');
+  }
+
   return exported;
 }
 </script>
