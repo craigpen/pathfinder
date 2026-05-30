@@ -1566,6 +1566,14 @@ function buildTransitionTable(scenarios, workTarget) {
     careerGroups[career].push(key);
   });
 
+  // Identify last column index of each career group for border styling
+  const careerLastColumnIndex = {};
+  let currentIndex = 0;
+  Object.entries(careerGroups).forEach(([career, keys]) => {
+    careerLastColumnIndex[career] = currentIndex + keys.length - 1;
+    currentIndex += keys.length;
+  });
+
   // Header row 1: Career names with colspan
   html += '<tr><th></th>';
   let addedCareers = new Set();
@@ -1574,7 +1582,8 @@ function buildTransitionTable(scenarios, workTarget) {
     const career = scenario.career;
     if(!addedCareers.has(career)) {
       const careerCount = careerGroups[career].length;
-      html += `<th class="ch" colspan="${careerCount}" style="vertical-align:middle;text-align:center">${career}</th>`;
+      const rightBorder = careerCount < columnKeys.length && careerLastColumnIndex[career] < columnKeys.length - 1 ? 'border-right:1px solid rgba(0,0,0,0.08)' : '';
+      html += `<th class="ch" colspan="${careerCount}" style="vertical-align:middle;text-align:center;${rightBorder}">${career}</th>`;
       addedCareers.add(career);
     }
   });
@@ -1582,11 +1591,12 @@ function buildTransitionTable(scenarios, workTarget) {
 
   // Header row 2: Flags
   html += '<tr><th></th>';
-  columnKeys.forEach(key => {
+  columnKeys.forEach((key, idx) => {
     const scenario = scenarios[key];
     const country = countries[scenario.studyCountry];
     const flag = country ? `<img src="${country.flag}" style="height:0.9em;vertical-align:middle">` : '';
-    html += `<th class="ch" style="text-align:center">${flag}</th>`;
+    const rightBorder = idx < columnKeys.length - 1 && Object.values(careerLastColumnIndex).includes(idx) ? 'border-right:1px solid rgba(0,0,0,0.08)' : '';
+    html += `<th class="ch" style="text-align:center;${rightBorder}">${flag}</th>`;
   });
   html += '</tr>';
 
@@ -1597,16 +1607,22 @@ function buildTransitionTable(scenarios, workTarget) {
     const [label, dataFn] = row;
     html += '<tr><td class="al">' + label + '</td>';
 
-    columnKeys.forEach(key => {
+    columnKeys.forEach((key, idx) => {
       let cellData = dataFn ? dataFn(key) : '—';
       let cellClass = '';
+      let cellStyle = '';
 
       if (typeof cellData === 'object' && cellData !== null && cellData.content !== undefined) {
         cellClass = cellData.className ? ` class="${cellData.className}"` : '';
         cellData = cellData.content;
       }
 
-      html += `<td${cellClass}>${cellData}</td>`;
+      // Add border to last column of each career group
+      if(idx < columnKeys.length - 1 && Object.values(careerLastColumnIndex).includes(idx)) {
+        cellStyle = ' style="border-right:1px solid rgba(0,0,0,0.08)"';
+      }
+
+      html += `<td${cellClass}${cellStyle}>${cellData}</td>`;
     });
 
     html += '</tr>';
