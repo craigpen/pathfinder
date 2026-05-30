@@ -10,8 +10,6 @@
     "subs": {
       "Software Engineering": {
         "growth": "Very high",
-        "typicalPostGradYears": 0,
-        "postGradFunded": false,
         "education": "Bachelor's (4 yr)",
         "costUS": 150000,
         "costEU": 8000,
@@ -21,19 +19,19 @@
         "licensing": "No",
         "resources": [
           {
-            "t": "IEEE",
-            "u": "https://www.ieee.org/"
+            "title": "IEEE",
+            "url": "https://www.ieee.org/"
           },
           {
-            "t": "Stack Overflow Survey",
-            "u": "https://survey.stackoverflow.co/"
+            "title": "Stack Overflow Survey",
+            "url": "https://survey.stackoverflow.co/"
           }
-        ]
+        ],
+        "postGraduateFunded": false,
+        "typicalPostGraduateYears": 0
       },
       "Computer Science": {
         "growth": "Very high",
-        "typicalPostGradYears": 0,
-        "postGradFunded": false,
         "education": "Bachelor's (4 yr)",
         "costUS": 150000,
         "costEU": 8000,
@@ -43,10 +41,12 @@
         "licensing": "No",
         "resources": [
           {
-            "t": "ACM",
-            "u": "https://www.acm.org/"
+            "title": "ACM",
+            "url": "https://www.acm.org/"
           }
-        ]
+        ],
+        "postGraduateFunded": false,
+        "typicalPostGraduateYears": 0
       },
       "Electrical Engineering": {
         "growth": "High",
@@ -59,8 +59,8 @@
         "licensing": "PE optional, transfers w/ exam",
         "resources": [
           {
-            "t": "IEEE",
-            "u": "https://www.ieee.org/"
+            "title": "IEEE",
+            "url": "https://www.ieee.org/"
           }
         ]
       },
@@ -75,15 +75,13 @@
         "licensing": "PE optional",
         "resources": [
           {
-            "t": "ASME",
-            "u": "https://www.asme.org/"
+            "title": "ASME",
+            "url": "https://www.asme.org/"
           }
         ]
       },
       "Data Science / AI": {
         "growth": "Very high",
-        "typicalPostGradYears": 2,
-        "postGradFunded": false,
         "education": "Bachelor's + Master's typical",
         "costUS": 190000,
         "costEU": 12000,
@@ -93,10 +91,12 @@
         "licensing": "No",
         "resources": [
           {
-            "t": "Kaggle",
-            "u": "https://www.kaggle.com/"
+            "title": "Kaggle",
+            "url": "https://www.kaggle.com/"
           }
-        ]
+        ],
+        "postGraduateFunded": false,
+        "typicalPostGraduateYears": 2
       },
       "Cybersecurity": {
         "growth": "Very high",
@@ -109,8 +109,8 @@
         "licensing": "Certs (CISCP etc) global",
         "resources": [
           {
-            "t": "(ISC)²",
-            "u": "https://www.isc2.org/"
+            "title": "(ISC)²",
+            "url": "https://www.isc2.org/"
           }
         ]
       },
@@ -125,8 +125,8 @@
         "licensing": "PE optional, varies by specialty",
         "resources": [
           {
-            "t": "IEEE",
-            "u": "https://www.ieee.org/"
+            "title": "IEEE",
+            "url": "https://www.ieee.org/"
           }
         ]
       }
@@ -154,8 +154,8 @@
         "licensing": "CFA optional, global",
         "resources": [
           {
-            "t": "CFA Institute",
-            "u": "https://www.cfainstitute.org/"
+            "title": "CFA Institute",
+            "url": "https://www.cfainstitute.org/"
           }
         ]
       },
@@ -170,8 +170,8 @@
         "licensing": "CPA (US), ACCA (intl)",
         "resources": [
           {
-            "t": "AICPA",
-            "u": "https://www.aicpa.org/"
+            "title": "AICPA",
+            "url": "https://www.aicpa.org/"
           }
         ]
       },
@@ -186,8 +186,8 @@
         "licensing": "No",
         "resources": [
           {
-            "t": "AMA",
-            "u": "https://www.ama.org/"
+            "title": "AMA",
+            "url": "https://www.ama.org/"
           }
         ]
       },
@@ -202,8 +202,8 @@
         "licensing": "No",
         "resources": [
           {
-            "t": "AEA",
-            "u": "https://www.aeaweb.org/"
+            "title": "AEA",
+            "url": "https://www.aeaweb.org/"
           }
         ]
       },
@@ -218,8 +218,8 @@
         "licensing": "No",
         "resources": [
           {
-            "t": "YC Library",
-            "u": "https://www.ycombinator.com/library"
+            "title": "YC Library",
+            "url": "https://www.ycombinator.com/library"
           }
         ]
       }
@@ -238,8 +238,6 @@
     "subs": {
       "Biology / Biotech": {
         "growth": "High",
-        "typicalPostGradYears": 4,
-        "postGradFunded": true,
         "education": "Bachelor's + PhD",
         "costUS": 150000,
         "costEU": 8000,
@@ -249,15 +247,15 @@
         "licensing": "Rarely",
         "resources": [
           {
-            "t": "Nature Careers",
-            "u": "https://www.nature.com/naturecareers"
+            "title": "Nature Careers",
+            "url": "https://www.nature.com/naturecareers"
           }
-        ]
+        ],
+        "postGraduateFunded": true,
+        "typicalPostGraduateYears": 4
       },
       "Chemistry": {
         "growth": "Moderate",
-        "typicalPostGradYears": 4,
-        "postGradFunded": true,
         "education": "Bachelor's + PhD",
         "costUS": 150000,
         "costEU": 8000,
@@ -267,15 +265,15 @@
         "licensing": "Rarely",
         "resources": [
           {
-            "t": "ACS",
-            "u": "https://www.acs.org/"
+            "title": "ACS",
+            "url": "https://www.acs.org/"
           }
-        ]
+        ],
+        "postGraduateFunded": true,
+        "typicalPostGraduateYears": 4
       },
       "Physics": {
         "growth": "Moderate",
-        "typicalPostGradYears": 4,
-        "postGradFunded": true,
         "education": "Bachelor's + PhD",
         "costUS": 150000,
         "costEU": 8000,
@@ -285,10 +283,12 @@
         "licensing": "No",
         "resources": [
           {
-            "t": "APS",
-            "u": "https://www.aps.org/"
+            "title": "APS",
+            "url": "https://www.aps.org/"
           }
-        ]
+        ],
+        "postGraduateFunded": true,
+        "typicalPostGraduateYears": 4
       },
       "Environmental / Climate": {
         "growth": "Very high",
@@ -301,15 +301,13 @@
         "licensing": "Rarely",
         "resources": [
           {
-            "t": "EPA Careers",
-            "u": "https://www.epa.gov/careers"
+            "title": "EPA Careers",
+            "url": "https://www.epa.gov/careers"
           }
         ]
       },
       "Math / Statistics": {
         "growth": "High",
-        "typicalPostGradYears": 4,
-        "postGradFunded": true,
         "education": "Bachelor's; PhD for research",
         "costUS": 150000,
         "costEU": 8000,
@@ -319,15 +317,15 @@
         "licensing": "No",
         "resources": [
           {
-            "t": "AMS",
-            "u": "https://www.ams.org/"
+            "title": "AMS",
+            "url": "https://www.ams.org/"
           }
-        ]
+        ],
+        "postGraduateFunded": true,
+        "typicalPostGraduateYears": 4
       },
       "Zoology": {
         "growth": "Moderate",
-        "typicalPostGradYears": 4,
-        "postGradFunded": true,
         "education": "Bachelor's + PhD typical",
         "costUS": 150000,
         "costEU": 8000,
@@ -337,14 +335,16 @@
         "licensing": "Rarely",
         "resources": [
           {
-            "t": "Wildlife Society",
-            "u": "https://wildlife.org/"
+            "title": "Wildlife Society",
+            "url": "https://wildlife.org/"
           },
           {
-            "t": "Ecological Society",
-            "u": "https://www.esa.org/"
+            "title": "Ecological Society",
+            "url": "https://www.esa.org/"
           }
-        ]
+        ],
+        "postGraduateFunded": true,
+        "typicalPostGraduateYears": 4
       }
     },
     "portability": "HIGH — research is international",
@@ -370,8 +370,8 @@
         "licensing": "No",
         "resources": [
           {
-            "t": "AIGA",
-            "u": "https://www.aiga.org/"
+            "title": "AIGA",
+            "url": "https://www.aiga.org/"
           }
         ]
       },
@@ -386,8 +386,8 @@
         "licensing": "No",
         "resources": [
           {
-            "t": "Sundance",
-            "u": "https://collab.sundance.org/"
+            "title": "Sundance",
+            "url": "https://collab.sundance.org/"
           }
         ]
       },
@@ -402,8 +402,8 @@
         "licensing": "No",
         "resources": [
           {
-            "t": "TCG",
-            "u": "https://www.tcg.org/"
+            "title": "TCG",
+            "url": "https://www.tcg.org/"
           }
         ]
       },
@@ -418,15 +418,13 @@
         "licensing": "No",
         "resources": [
           {
-            "t": "USITT",
-            "u": "https://www.usitt.org/"
+            "title": "USITT",
+            "url": "https://www.usitt.org/"
           }
         ]
       },
       "Architecture": {
         "growth": "Moderate",
-        "typicalPostGradYears": 2,
-        "postGradFunded": false,
         "education": "Bachelor's + Master's (5–6 yr)",
         "costUS": 250000,
         "costEU": 15000,
@@ -436,10 +434,12 @@
         "licensing": "Licensed (varies by country)",
         "resources": [
           {
-            "t": "NCARB",
-            "u": "https://www.ncarb.org/"
+            "title": "NCARB",
+            "url": "https://www.ncarb.org/"
           }
-        ]
+        ],
+        "postGraduateFunded": false,
+        "typicalPostGraduateYears": 2
       },
       "Writing / Communications": {
         "growth": "Moderate",
@@ -452,8 +452,8 @@
         "licensing": "No",
         "resources": [
           {
-            "t": "AWP",
-            "u": "https://www.awpwriter.org/"
+            "title": "AWP",
+            "url": "https://www.awpwriter.org/"
           }
         ]
       }
@@ -472,8 +472,6 @@
     "subs": {
       "Medicine (MD/DO)": {
         "growth": "Very high",
-        "typicalPostGradYears": 8,
-        "postGradFunded": false,
         "education": "Bachelor's + Med + Residency (11–15 yr)",
         "costUS": 350000,
         "costEU": 30000,
@@ -483,10 +481,12 @@
         "licensing": "USMLE (US), country-specific",
         "resources": [
           {
-            "t": "AAMC",
-            "u": "https://www.aamc.org/"
+            "title": "AAMC",
+            "url": "https://www.aamc.org/"
           }
-        ]
+        ],
+        "postGraduateFunded": false,
+        "typicalPostGraduateYears": 8
       },
       "Nursing": {
         "growth": "Very high",
@@ -499,15 +499,13 @@
         "licensing": "NCLEX (US), country-specific",
         "resources": [
           {
-            "t": "AANP",
-            "u": "https://www.aanp.org/"
+            "title": "AANP",
+            "url": "https://www.aanp.org/"
           }
         ]
       },
       "Pharmacy": {
         "growth": "Moderate",
-        "typicalPostGradYears": 3,
-        "postGradFunded": false,
         "education": "Bachelor's + PharmD (6–8 yr)",
         "costUS": 250000,
         "costEU": 12000,
@@ -517,15 +515,15 @@
         "licensing": "Country-specific",
         "resources": [
           {
-            "t": "AACP",
-            "u": "https://www.aacp.org/"
+            "title": "AACP",
+            "url": "https://www.aacp.org/"
           }
-        ]
+        ],
+        "postGraduateFunded": false,
+        "typicalPostGraduateYears": 3
       },
       "Physical Therapy": {
         "growth": "High",
-        "typicalPostGradYears": 3,
-        "postGradFunded": false,
         "education": "Bachelor's + DPT (6–7 yr)",
         "costUS": 200000,
         "costEU": 8000,
@@ -535,15 +533,15 @@
         "licensing": "Country-specific",
         "resources": [
           {
-            "t": "APTA",
-            "u": "https://www.apta.org/"
+            "title": "APTA",
+            "url": "https://www.apta.org/"
           }
-        ]
+        ],
+        "postGraduateFunded": false,
+        "typicalPostGraduateYears": 3
       },
       "Psychology (Clinical)": {
         "growth": "High",
-        "typicalPostGradYears": 5,
-        "postGradFunded": false,
         "education": "Bachelor's + PhD/PsyD (8–12 yr)",
         "costUS": 250000,
         "costEU": 15000,
@@ -553,10 +551,12 @@
         "licensing": "Country-specific",
         "resources": [
           {
-            "t": "APA",
-            "u": "https://www.apa.org/"
+            "title": "APA",
+            "url": "https://www.apa.org/"
           }
-        ]
+        ],
+        "postGraduateFunded": false,
+        "typicalPostGraduateYears": 5
       }
     },
     "portability": "LOW — country-specific",
@@ -573,8 +573,6 @@
     "subs": {
       "US Law (JD)": {
         "growth": "Moderate",
-        "typicalPostGradYears": 3,
-        "postGradFunded": false,
         "education": "Bachelor's + JD (7 yr)",
         "costUS": 300000,
         "costEU": null,
@@ -584,15 +582,15 @@
         "licensing": "State bar exam",
         "resources": [
           {
-            "t": "ABA",
-            "u": "https://www.americanbar.org/"
+            "title": "ABA",
+            "url": "https://www.americanbar.org/"
           }
-        ]
+        ],
+        "postGraduateFunded": false,
+        "typicalPostGraduateYears": 3
       },
       "European Law": {
         "growth": "Moderate",
-        "typicalPostGradYears": 0,
-        "postGradFunded": false,
         "education": "Law bachelor's (3–5 yr)",
         "costUS": null,
         "costEU": 8000,
@@ -602,10 +600,12 @@
         "licensing": "Country bar",
         "resources": [
           {
-            "t": "CCBE",
-            "u": "https://www.ccbe.eu/"
+            "title": "CCBE",
+            "url": "https://www.ccbe.eu/"
           }
-        ]
+        ],
+        "postGraduateFunded": false,
+        "typicalPostGraduateYears": 0
       },
       "International Relations": {
         "growth": "Moderate",
@@ -618,8 +618,8 @@
         "licensing": "No",
         "resources": [
           {
-            "t": "ISA",
-            "u": "https://www.isanet.org/"
+            "title": "ISA",
+            "url": "https://www.isanet.org/"
           }
         ]
       },
@@ -634,8 +634,8 @@
         "licensing": "No",
         "resources": [
           {
-            "t": "APPAM",
-            "u": "https://www.appam.org/"
+            "title": "APPAM",
+            "url": "https://www.appam.org/"
           }
         ]
       }
