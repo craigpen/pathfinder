@@ -12,6 +12,10 @@
 - Increment `const VERSION` in index.html (PATCH for bugs, MINOR for features, MAJOR for redesigns)
 - Commit with message that includes: version number and file size
 - **Tell the user: the new version number and file size** so they can test locally
+- **Update documentation:** After each action, evaluate what was learned and what patterns need documenting:
+  - Add/update CLAUDE.md sections if new patterns emerged or existing patterns proved valuable
+  - Create/update memory files for feedback, patterns, or project state that will be relevant in future conversations
+  - Always commit documentation updates atomically with the work they document
 - DO NOT push to GitHub unless user explicitly asks — keep it clean for testing
 
 Never use `--force` or `--no-verify` without explicit user approval
@@ -29,6 +33,31 @@ Never use `--force` or `--no-verify` without explicit user approval
 - Rebase on main
 - Amending published commits
 - Destructive file operations (`rm -rf`, etc.)
+
+## Documentation as First-Class Work
+
+**Documentation updates are not optional cleanup — they are part of the workflow.** After every significant action or learning, update CLAUDE.md and memory files immediately:
+
+**When to update CLAUDE.md:**
+- New patterns discovered that will recur (e.g., data externalization, carousel behavior, character encoding)
+- Existing patterns proved valuable and need emphasizing
+- Lessons learned from failures or unexpected behavior
+- New helper functions or code structures that others need to know about
+- File size, architecture, or project state changes worth preserving
+
+**When to create/update memory files:**
+- **Feedback:** User corrects or confirms an approach — save what worked and why
+- **Patterns:** Reusable solution discovered (e.g., "5-step data externalization process")
+- **Project state:** Current known-good version, pending features, architecture milestones
+- **Reference:** Where to find information in external systems (Linear, Grafana, docs, etc.)
+
+**How to do it:**
+- After completing work, spend 2-3 minutes asking: "Did we learn anything? Do any existing patterns need updating? Is there state future-me should know?"
+- If yes, update CLAUDE.md and/or memory files
+- Commit documentation changes atomically: `git add CLAUDE.md memory/*.md && git commit -m "..."`
+- This takes ~5 minutes per session and saves hours in future conversations
+
+**Why this matters:** Each time you return to the codebase, memory files bootstrap context in seconds instead of re-deriving patterns from scratch. CLAUDE.md accumulates institutional knowledge so the same lessons don't get re-learned.
 
 ## Code Changes
 - Default to small, focused edits over large refactors
