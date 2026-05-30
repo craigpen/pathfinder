@@ -23449,7 +23449,10 @@ function exportNewCountriesSchemaAsCode() {
 }
 
 function exportCareersSchemaAsCode() {
+  console.log('%c=== CATS DATA (right-click → Copy object) ===', 'font-weight:bold;color:#16a34a');
+  console.log(CATS);
   const exported = JSON.stringify(CATS, null, 2);
+  console.log('%c=== JSON STRING (for careers.json) ===', 'font-weight:bold;color:#16a34a');
   console.log(exported);
   return exported;
 }
