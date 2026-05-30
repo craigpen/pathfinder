@@ -20091,14 +20091,14 @@ function debugCareer(name) {
   }
   console.group(`Career: ${name}`);
   console.log(`Category: ${career.category}`);
-  console.log(`Education: ${career.data.edu}`);
-  console.log(`Cost (US): $${career.data.cUS}`);
-  console.log(`Cost (EU): €${career.data.cEU}`);
-  console.log(`Salary (US): ${career.data.sUS}`);
-  console.log(`Salary (EU): ${career.data.sEU}`);
+  console.log(`Education: ${career.data.education}`);
+  console.log(`Cost (US): $${career.data.costUS}`);
+  console.log(`Cost (EU): €${career.data.costEU}`);
+  console.log(`Salary (US): ${career.data.salaryUS}`);
+  console.log(`Salary (EU): ${career.data.salaryEU}`);
   console.log(`Growth: ${career.data.growth}`);
-  console.log(`Portability: ${career.data.port}`);
-  console.log(`Licensing: ${career.data.lic}`);
+  console.log(`Portability: ${career.data.portability}`);
+  console.log(`Licensing: ${career.data.licensing}`);
   console.groupEnd();
   return career.data;
 }
@@ -20370,8 +20370,8 @@ careers.forEach(f=>{
  const d=getSub(f);
  if(!d)return;
  let level='HIGH';
- if(d.port?.startsWith('LOW')) level='LOW';
- else if(d.port?.startsWith('MEDIUM')) level='MEDIUM';
+ if(d.portability?.startsWith('LOW')) level='LOW';
+ else if(d.portability?.startsWith('MEDIUM')) level='MEDIUM';
  h+=`<div class="rc"><h4>${f}: ${level==='LOW'?'LOW ⚠️':level==='MEDIUM'?'MEDIUM ⚖️':'HIGH ✓'}</h4><p>${level==='LOW'?'Country-specific licensing. Study where you plan to practice.':level==='MEDIUM'?'Partially transferable. Some certifications or adjustments may be needed.':'Skills transfer globally. Study wherever fits.'}</p></div>`;
 });
 el.innerHTML=h
@@ -20387,9 +20387,9 @@ let lowCareers=[];
 
 careers.forEach(f=>{
  const d=getSub(f);
- if(!d || !d.port) return;
- if(d.port.startsWith('LOW')){ hasLow=true; lowCareers.push(f); }
- else if(d.port.startsWith('MEDIUM')) hasMedium=true;
+ if(!d || !d.portability) return;
+ if(d.portability.startsWith('LOW')){ hasLow=true; lowCareers.push(f); }
+ else if(d.portability.startsWith('MEDIUM')) hasMedium=true;
 });
 
 let msg='';
@@ -20424,8 +20424,8 @@ careers.forEach(f=>{
  const d=getSub(f);
  if(!d)return;
  let level='HIGH';
- if(d.port?.startsWith('LOW')) level='LOW';
- else if(d.port?.startsWith('MEDIUM')) level='MEDIUM';
+ if(d.portability?.startsWith('LOW')) level='LOW';
+ else if(d.portability?.startsWith('MEDIUM')) level='MEDIUM';
  h+=`<div class="rc"><h4>${f}: ${level==='LOW'?'LOW ⚠️':level==='MEDIUM'?'MEDIUM ⚖️':'HIGH ✓'}</h4><p>${level==='LOW'?'Country-specific licensing. Study where you plan to practice.':level==='MEDIUM'?'Partially transferable. Some certifications or adjustments may be needed.':'Skills transfer globally. Study wherever fits.'}</p></div>`;
 });
 el.innerHTML=h
@@ -21905,40 +21905,40 @@ function renderInsights(){
       const cons = [];
       
       // Salary - consistent tiers (from Bureau of Labor Statistics and O*NET data, illustrative estimates)
-      if(d.sUS){
-        const salaryStr = d.sUS.toLowerCase();
+      if(d.salaryUS){
+        const salaryStr = d.salaryUS.toLowerCase();
         if(salaryStr.includes('$120k') || salaryStr.includes('$130k') || salaryStr.includes('$140k') || salaryStr.includes('$150k') || salaryStr.includes('$200k')){
-          pros.push('High earning potential (illustrative: ' + d.sUS + ', entry to mid-career range)');
+          pros.push('High earning potential (illustrative: ' + d.salaryUS + ', entry to mid-career range)');
           if(S.motivations && S.motivations.includes('Financial security')) pros.push('Matches your financial security goal');
         }
         else if(salaryStr.includes('$80k') || salaryStr.includes('$90k') || salaryStr.includes('$100k')){
-          pros.push('Solid earning potential (illustrative: ' + d.sUS + ' range)');
+          pros.push('Solid earning potential (illustrative: ' + d.salaryUS + ' range)');
         }
         else if(salaryStr.includes('$40k') || salaryStr.includes('$45k') || salaryStr.includes('$50k') || salaryStr.includes('$60k') || salaryStr.includes('$70k')){
-          cons.push('Typically lower salary range (illustrative: ' + d.sUS + ')');
+          cons.push('Typically lower salary range (illustrative: ' + d.salaryUS + ')');
           if(S.motivations && S.motivations.includes('Financial security')) cons.push('May not match financial security goal');
         }
       }
       
       // Portability
-      if(d.port && S.vision === 'In Europe'){
-        if(d.port === 'HIGH') pros.push('High portability abroad');
-        else if(d.port === 'LOW') cons.push('Limited portability abroad');
-        else if(d.port === 'MEDIUM') pros.push('Moderate portability abroad');
-      } else if(d.port && !S.vision){
-        if(d.port === 'HIGH') pros.push('HIGH international portability');
-        else if(d.port === 'LOW') cons.push('LOW international portability');
+      if(d.portability && S.vision === 'In Europe'){
+        if(d.portability === 'HIGH') pros.push('High portability abroad');
+        else if(d.portability === 'LOW') cons.push('Limited portability abroad');
+        else if(d.portability === 'MEDIUM') pros.push('Moderate portability abroad');
+      } else if(d.portability && !S.vision){
+        if(d.portability === 'HIGH') pros.push('HIGH international portability');
+        else if(d.portability === 'LOW') cons.push('LOW international portability');
       }
       
       // Growth
       if(d.growth){
         if(d.growth.includes('Very high')){
           pros.push('Very high job growth');
-          if(d.sUS && d.sUS.toLowerCase().includes('$120k')) pros.push('Entry-level typically $60-80K, advancing to $120K+ with experience');
+          if(d.salaryUS && d.salaryUS.toLowerCase().includes('$120k')) pros.push('Entry-level typically $60-80K, advancing to $120K+ with experience');
         }
         else if(d.growth.includes('High')){
           pros.push('High job growth');
-          if(d.sUS && d.sUS.toLowerCase().includes('$100k')) pros.push('Career progression from entry-level roles to $100K+ range');
+          if(d.salaryUS && d.salaryUS.toLowerCase().includes('$100k')) pros.push('Career progression from entry-level roles to $100K+ range');
         }
         else if(d.growth.includes('Moderate')){
           pros.push('Stable, steady growth');
@@ -21946,8 +21946,8 @@ function renderInsights(){
       }
       
       // Licensing - parse actual licensing requirements from data
-      if(d.lic) {
-        const licLower = d.lic.toLowerCase();
+      if(d.licensing) {
+        const licLower = d.licensing.toLowerCase();
 
         // Check if licensing is required (contains keywords)
         if(licLower.includes('required') || licLower.includes('exam') || licLower.includes('bar') || licLower.includes('country-specific')) {
@@ -21979,31 +21979,31 @@ function renderInsights(){
       }
       
       // Cost - remove dollar amounts, just show tier
-      if(d.cUS){
-        if(d.cUS < 50000){
+      if(d.costUS){
+        if(d.costUS < 50000){
           pros.push('Inexpensive education');
         }
-        else if(d.cUS < 100000){
+        else if(d.costUS < 100000){
           pros.push('Affordable education');
         }
-        else if(d.cUS <= 150000){
+        else if(d.costUS <= 150000){
           // Moderate cost - neutral, don't add
         }
-        else if(d.cUS <= 250000){
+        else if(d.costUS <= 250000){
           cons.push('Typically expensive education, depending on country and financing');
           // Add ROI context if salary data exists
-          if(d.sUS && d.sUS.toLowerCase().includes('$150k') || d.sUS.toLowerCase().includes('$200k')){
+          if(d.salaryUS && d.salaryUS.toLowerCase().includes('$150k') || d.salaryUS.toLowerCase().includes('$200k')){
             pros.push('However, graduates typically earn $150K+, with education investment paid off in ~5-7 years');
-          } else if(d.sUS && (d.sUS.toLowerCase().includes('$120k') || d.sUS.toLowerCase().includes('$130k') || d.sUS.toLowerCase().includes('$140k'))){
+          } else if(d.salaryUS && (d.salaryUS.toLowerCase().includes('$120k') || d.salaryUS.toLowerCase().includes('$130k') || d.salaryUS.toLowerCase().includes('$140k'))){
             pros.push('However, graduates typically earn $120-140K, with education investment paid off in ~8-12 years');
           }
         }
         else {
           cons.push('Very expensive education');
           // Add ROI context if salary data exists
-          if(d.sUS && d.sUS.toLowerCase().includes('$200k')){
+          if(d.salaryUS && d.salaryUS.toLowerCase().includes('$200k')){
             pros.push('However, high-earning field with salaries exceeding $200K can justify the investment over time');
-          } else if(d.sUS && (d.sUS.toLowerCase().includes('$150k') || d.sUS.toLowerCase().includes('$140k'))){
+          } else if(d.salaryUS && (d.salaryUS.toLowerCase().includes('$150k') || d.salaryUS.toLowerCase().includes('$140k'))){
             pros.push('However, strong earning potential ($140K+) provides pathway to ROI, though payoff takes time');
           }
         }
@@ -23068,8 +23068,8 @@ function getCareerInsight(careerName, careerData) {
   }
   
   // Financial security motivation
-  if (S.motivations && S.motivations.includes('Financial security') && careerData.sUS) {
-    const salary = careerData.sUS;
+  if (S.motivations && S.motivations.includes('Financial security') && careerData.salaryUS) {
+    const salary = careerData.salaryUS;
     if (salary.includes('$100k') || salary.includes('$120k') || salary.includes('$130k') || salary.includes('$140k') || salary.includes('$150k') || salary.includes('$200k')) {
       return '✅ Strong salary aligns with financial security motivation';
     }
@@ -23086,21 +23086,21 @@ function getCareerInsight(careerName, careerData) {
   }
   
   // Portability for abroad vision
-  if (S.vision === 'In Europe' && careerData.port) {
-    if (careerData.port === 'HIGH') {
+  if (S.vision === 'In Europe' && careerData.portability) {
+    if (careerData.portability === 'HIGH') {
       return '✅ HIGH portability supports abroad vision';
     }
-    if (careerData.port === 'LOW') {
+    if (careerData.portability === 'LOW') {
       return '⚠️ LOW portability limits international work';
     }
   }
-  
+
   // Cost priority
-  if (S.cost === 'Critical' && careerData.cUS) {
-    if (careerData.cUS < 150000) {
+  if (S.cost === 'Critical' && careerData.costUS) {
+    if (careerData.costUS < 150000) {
       return '✅ Affordable education cost aligns with budget';
     }
-    if (careerData.cUS > 250000) {
+    if (careerData.costUS > 250000) {
       return '⚠️ High education cost vs budget priority';
     }
   }
