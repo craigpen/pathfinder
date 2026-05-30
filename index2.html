@@ -2614,6 +2614,7 @@ function renderTransition(){
     S.cc.forEach(cc => {
       if(!cc) return; // Skip undefined/null
       const country = countries[cc];
+      console.log('Country lookup for',cc,':',country);
       const name = country ? country.n : cc;
       const flag = country ? country.e : '';
       if(name) countryHTML += `<div class="pill on" style="pointer-events:none">${flag} ${name}</div>`;
