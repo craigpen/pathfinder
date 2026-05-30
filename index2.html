@@ -1692,10 +1692,11 @@ function buildUniversitiesCarouselByCountry(data) {
         tuitionDisplay = `$${parseInt(u.tuition).toLocaleString()}`;
       }
     } else if(u.country !== 'us' && S.citizen && S.citizen.length > 0) {
-      const citizenship = S.citizen[0];
-      const isEU = citizenship === 'EU';
+      // Prioritize EU citizenship if present
+      const hasEU = S.citizen.includes('EU');
+      const hasUS = S.citizen.includes('US');
 
-      if(isEU && u.tuition_eu !== undefined) {
+      if(hasEU && u.tuition_eu !== undefined) {
         // Use EU rate from universities.json
         const euRate = parseInt(u.tuition_eu);
         if(euRate === 0) {
@@ -1704,7 +1705,7 @@ function buildUniversitiesCarouselByCountry(data) {
           tuitionDisplay = `$${euRate.toLocaleString()}`;
         }
         tuitionNote = ` ${u.tuition_eu_note || '(EU rate)'}`;
-      } else if(citizenship === 'US') {
+      } else if(hasUS) {
         tuitionNote = ' (intl)';
       }
     }
@@ -1966,34 +1967,20 @@ function renderUniversities(){
             tuitionDisplay = `$${parseInt(u.tuition).toLocaleString()}`;
           }
         } else if(u.country !== 'us' && S.citizen && S.citizen.length > 0) {
-          const citizenship = S.citizen[0]; // Take first citizenship
-          const isEU = citizenship === 'EU';
+          // Prioritize EU citizenship if present
+          const hasEU = S.citizen.includes('EU');
+          const hasUS = S.citizen.includes('US');
 
-          // Special handling for countries with free/reduced tuition for EU/Dual citizens
-          if(isEU) {
-            if(countryCode === 'se') { // Sweden
+          if(hasEU && u.tuition_eu !== undefined) {
+            // Use EU rate from universities.json
+            const euRate = parseInt(u.tuition_eu);
+            if(euRate === 0) {
               tuitionDisplay = 'FREE';
-              tuitionNote = ' (EU)';
-            } else if(countryCode === 'de') { // Germany
-              tuitionDisplay = '~$350';
-              tuitionNote = ' (admin)';
-            } else if(countryCode === 'dk') { // Denmark
-              tuitionDisplay = 'FREE';
-              tuitionNote = ' (EU)';
-            } else if(countryCode === 'nl') { // Netherlands
-              // EU statutory rate (~$2,700)
-              if(u.tuition && parseInt(u.tuition) > 5000) {
-                tuitionDisplay = '~$2,700';
-                tuitionNote = ' (EU rate)';
-              }
-            } else if(countryCode === 'fr') { // France
-              // EU rate is cheaper than international
-              if(u.tuition && parseInt(u.tuition) > 2000) {
-                tuitionDisplay = '~$460';
-                tuitionNote = ' (EU public)';
-              }
+            } else {
+              tuitionDisplay = `$${euRate.toLocaleString()}`;
             }
-          } else if(citizenship === 'US') {
+            tuitionNote = ` ${u.tuition_eu_note || '(EU rate)'}`;
+          } else if(hasUS) {
             // US citizens pay international rates everywhere
             tuitionNote = ' (intl)';
           }
@@ -3661,8 +3648,7 @@ function renderInsights(){
   
   // 2. Citizenship advantage calculation
   if(S.citizen && S.citizen.length > 0 && S.cc.length > 0) {
-    const citizenship = S.citizen[0];
-    const isEU = citizenship === 'EU';
+    const isEU = S.citizen.includes('EU');
     
     if(isEU && S.cc.includes('sweden')) {
       const intlRate = 14000;
@@ -4222,7 +4208,7 @@ function updateNarrative() {
 }
 
 function validateSelections(){const issues=[];if(!S.cats||S.cats.length===0)issues.push('No careers selected');if(!S.cc||S.cc.length===0)issues.push('No countries selected');if(S.cost===null)issues.push('Cost preference not set');return issues;}
-function generateCareersInsights(){const insights=[];if(!S.cats||S.cats.length===0)return insights;if(S.motivations&&S.motivations.length>0){if(S.motivations.includes('Making real impact'))insights.push({align:true,msg:'💡 Jobs in social good, healthcare, education align with your impact motivation.'});if(S.motivations.includes('Financial security'))insights.push({align:true,msg:'💰 Tech, finance, engineering offer strong earning potential.'});if(S.motivations.includes('Creative expression'))insights.push({align:true,msg:'🎨 Creative/Arts careers support your expression needs.'});if(S.motivations.includes('Intellectual challenge'))insights.push({align:true,msg:'🧠 Research, science, advanced tech provide intellectual challenge.'})}if(S.vision==='In Europe'&&S.cats.some(c=>['tech','eng','sci'].includes(c)))insights.push({align:true,msg:'🌍 Tech/science careers are globally portable for working abroad.'});if(S.lang==='Slower language learner')insights.push({align:false,msg:'⚠️ Many international careers need multilingual skills. Consider this.'});if(S.lang==='Slower language learner'&&S.cc.some(c=>['france','spain','germany'].includes(c)))insights.push({align:false,msg:'⚠️ France/Spain/Germany often require native language skills'});return insights}function generateCountriesInsights(){const insights=[];if(!S.cc||S.cc.length===0)return insights;const eu=['sweden','uk','germany','netherlands','france','italy','spain','denmark','ireland','no','ch'];const hasEU=S.cc.some(c=>eu.includes(c));const hasUS=S.cc.some(c=>c==='us');if(S.vision==='In Europe'&&hasEU)insights.push({align:true,msg:'✅ EU countries align with your vision to work abroad in 5 years.'});if(S.vision==='In the US'&&hasEU)insights.push({align:false,msg:'⚠️ You prefer staying in the US, but selected EU countries. Reconsider alignment.'});if(S.vision==='In the US'&&!hasUS)insights.push({align:false,msg:'⚠️ You want to stay in US but haven\'t selected US universities'});if(S.cost==='Critical')insights.push({align:false,msg:'💡 Cost is critical. Compare tuition carefully across countries.'});if(S.lang==='Slower language learner'&&S.cc.some(c=>['sweden','netherlands'].includes(c)))insights.push({align:true,msg:'✅ Sweden & Netherlands offer English-taught programs.'});return insights}function generateCostsInsights(){const insights=[];if(!S.cost)return insights;if(S.cost==='Critical')insights.push({align:false,msg:'🎯 Cost is critical. Focus on scholarships and financial aid.'});else if(S.cost==='Not critical')insights.push({align:true,msg:'✅ With flexibility on cost, you have more university options'});else if(S.cost==='Balanced with other factors')insights.push({align:true,msg:'💰 Balance cost with program quality and career outcomes.'});if(S.debtYrs==='5 years')insights.push({align:true,msg:'💡 With 5-year debt tolerance, prioritize scholarships and lower-cost programs.'});return insights}function generateFilterInsights(){const insights=[];if(!S.prac||S.prac.length===0)return insights;const practiceLocation=S.prac;const careerPortability=S.subCareers.length>0;if(S.vision==='In Europe'&&careerPortability)insights.push({align:true,msg:'✅ Your portable careers support working in '+practiceLocation+' long-term.'});if(S.motivations.includes('Independence & flexibility'))insights.push({align:true,msg:'✅ Portable credentials give you the flexibility and independence you seek.'});return insights}function generateScholarshipInsights(){const insights=[];if(!S.cc||S.cc.length===0)return insights;if(S.citizen&&S.citizen.length>0){const citizen=S.citizen[0];if(citizen==='EU')insights.push({align:true,msg:'✅ EU citizens often qualify for tuition-free or reduced programs in European universities.'});if(citizen==='US')insights.push({align:false,msg:'⚠️ As a US citizen, you typically pay international rates. Focus on merit scholarships.'})}if(S.cost==='Critical')insights.push({align:false,msg:'🎯 Cost is critical for you. Maximize scholarships and financial aid to reduce out-of-pocket costs.'});return insights}
+function generateCareersInsights(){const insights=[];if(!S.cats||S.cats.length===0)return insights;if(S.motivations&&S.motivations.length>0){if(S.motivations.includes('Making real impact'))insights.push({align:true,msg:'💡 Jobs in social good, healthcare, education align with your impact motivation.'});if(S.motivations.includes('Financial security'))insights.push({align:true,msg:'💰 Tech, finance, engineering offer strong earning potential.'});if(S.motivations.includes('Creative expression'))insights.push({align:true,msg:'🎨 Creative/Arts careers support your expression needs.'});if(S.motivations.includes('Intellectual challenge'))insights.push({align:true,msg:'🧠 Research, science, advanced tech provide intellectual challenge.'})}if(S.vision==='In Europe'&&S.cats.some(c=>['tech','eng','sci'].includes(c)))insights.push({align:true,msg:'🌍 Tech/science careers are globally portable for working abroad.'});if(S.lang==='Slower language learner')insights.push({align:false,msg:'⚠️ Many international careers need multilingual skills. Consider this.'});if(S.lang==='Slower language learner'&&S.cc.some(c=>['france','spain','germany'].includes(c)))insights.push({align:false,msg:'⚠️ France/Spain/Germany often require native language skills'});return insights}function generateCountriesInsights(){const insights=[];if(!S.cc||S.cc.length===0)return insights;const eu=['sweden','uk','germany','netherlands','france','italy','spain','denmark','ireland','no','ch'];const hasEU=S.cc.some(c=>eu.includes(c));const hasUS=S.cc.some(c=>c==='us');if(S.vision==='In Europe'&&hasEU)insights.push({align:true,msg:'✅ EU countries align with your vision to work abroad in 5 years.'});if(S.vision==='In the US'&&hasEU)insights.push({align:false,msg:'⚠️ You prefer staying in the US, but selected EU countries. Reconsider alignment.'});if(S.vision==='In the US'&&!hasUS)insights.push({align:false,msg:'⚠️ You want to stay in US but haven\'t selected US universities'});if(S.cost==='Critical')insights.push({align:false,msg:'💡 Cost is critical. Compare tuition carefully across countries.'});if(S.lang==='Slower language learner'&&S.cc.some(c=>['sweden','netherlands'].includes(c)))insights.push({align:true,msg:'✅ Sweden & Netherlands offer English-taught programs.'});return insights}function generateCostsInsights(){const insights=[];if(!S.cost)return insights;if(S.cost==='Critical')insights.push({align:false,msg:'🎯 Cost is critical. Focus on scholarships and financial aid.'});else if(S.cost==='Not critical')insights.push({align:true,msg:'✅ With flexibility on cost, you have more university options'});else if(S.cost==='Balanced with other factors')insights.push({align:true,msg:'💰 Balance cost with program quality and career outcomes.'});if(S.debtYrs==='5 years')insights.push({align:true,msg:'💡 With 5-year debt tolerance, prioritize scholarships and lower-cost programs.'});return insights}function generateFilterInsights(){const insights=[];if(!S.prac||S.prac.length===0)return insights;const practiceLocation=S.prac;const careerPortability=S.subCareers.length>0;if(S.vision==='In Europe'&&careerPortability)insights.push({align:true,msg:'✅ Your portable careers support working in '+practiceLocation+' long-term.'});if(S.motivations.includes('Independence & flexibility'))insights.push({align:true,msg:'✅ Portable credentials give you the flexibility and independence you seek.'});return insights}function generateScholarshipInsights(){const insights=[];if(!S.cc||S.cc.length===0)return insights;if(S.citizen&&S.citizen.length>0){const hasEU=S.citizen.includes('EU');const hasUS=S.citizen.includes('US');if(hasEU)insights.push({align:true,msg:'✅ EU citizens often qualify for tuition-free or reduced programs in European universities.'});if(hasUS)insights.push({align:false,msg:'⚠️ As a US citizen, you typically pay international rates. Focus on merit scholarships.'})}if(S.cost==='Critical')insights.push({align:false,msg:'🎯 Cost is critical for you. Maximize scholarships and financial aid to reduce out-of-pocket costs.'});return insights}
 
 function displayTabInsights(tabName){
 // Removed - insights now shown in table columns
