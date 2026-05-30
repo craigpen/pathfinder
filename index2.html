@@ -23447,6 +23447,14 @@ function exportNewCountriesSchemaAsCode() {
 
   return 'const COUNTRIES = ' + JSON.stringify(consolidated, null, 2) + ';';
 }
+
+function exportCareersSchemaAsCode() {
+  // Export CATS as JSON ready for careers.json
+  const exported = JSON.stringify(CATS, null, 2);
+  console.log('Copy the output below and save as careers.json:');
+  console.log(exported);
+  return exported;
+}
 </script>
 </body>
 </html>
