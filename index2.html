@@ -20308,8 +20308,8 @@ function computeCountryCostResults(countryKey, scholPercent, savingsTotal, workA
 }
 
 function info(k){
-    // Default mapping for countries not yet fully modeled.
-    return FUNDING[k] || {
+    const funding = getCountryFunding(k);
+    return funding || {
       need:{what:'Varies',apply:'Check official sources',notes:''},
       merit:{what:'Varies',apply:'Check official sources',notes:''},
       external:{what:'Varies',apply:'Check official sources',notes:''},
