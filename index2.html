@@ -2616,7 +2616,7 @@ function renderTransition(){
       const country = countries[cc];
       const name = country ? country.n : cc;
       const flag = country ? country.e : '';
-      countryHTML += `<div class="pill on" style="pointer-events:none">${flag} ${name}</div>`;
+      if(name) countryHTML += `<div class="pill on" style="pointer-events:none">${flag} ${name}</div>`;
     });
   }
   if(!countryHTML) {
