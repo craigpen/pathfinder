@@ -20314,8 +20314,7 @@ function keyLinks(k){
  const d=info(k);
  const links=[];
     (Array.isArray(d.links)?d.links:[]).forEach(x=>links.push(x));
-    const cd=CD[k];
-    const res=(cd && Array.isArray(cd.res)) ? cd.res : [];
+    const res=getCountryResources(k);
     res.slice(0,3).forEach(r=>links.push({t:r.t,u:r.u}));
     const seen=new Set();
     const uniq=[];
@@ -22200,11 +22199,11 @@ function renderInsights(){
         const careerShort = S.subCareers[0].split(' - ')[0];
         const avgEarnings = careerEarningsMap[careerShort] || 100000;
         const totalCost = costResults.yearAfterSupportTotal || costResults.total4yr;
-        const yearlyNet = avgEarnings - (totalCost / (parseFloat(CD[country].dur) || 4));
+        const yearlyNet = avgEarnings - (totalCost / (parseFloat(getCountryDuration(country)) || 4));
         const payoffYears = totalCost > 0 ? Math.round(totalCost / (avgEarnings * 0.6)) : 0; // Rough estimate accounting for taxes/living
 
         if(payoffYears > 0 && payoffYears < 20) {
-          const countryName = COUNTRIES[country].n;
+          const countryName = getCountryName(country);
           crossTabInsights.push({
             type: 'cost-career-roi',
             title: 'Career ROI Analysis',
@@ -22223,10 +22222,10 @@ function renderInsights(){
 
     if(hasRigorousCareer) {
       S.cc.forEach(country => {
-        const data = CD[country];
-        if(data && data.chg) {
-          const countryName = COUNTRIES[country].n;
-          const programStructure = data.chg.toLowerCase().includes('easy') ? 'flexible' : 'structured/rigid';
+        const changePolicy = getCountryChangePolicy(country);
+        if(changePolicy) {
+          const countryName = getCountryName(country);
+          const programStructure = changePolicy.toLowerCase().includes('easy') ? 'flexible' : 'structured/rigid';
           const alignment = programStructure === 'flexible' ? 'allows electives alongside required coursework' : 'ensures all prerequisites are covered';
 
           crossTabInsights.push({
@@ -22245,9 +22244,8 @@ function renderInsights(){
     S.cc.forEach(country => {
       const costResults = computeCountryCostResults(country, schol, savings, work, family, rate, years);
       if(costResults) {
-        const countryName = COUNTRIES[country].n;
+        const countryName = getCountryName(country);
         const totalCost = costResults.yearAfterSupportTotal;
-        const data = CD[country];
 
         // Estimate post-study work income
         const postStudyEarnings = {
