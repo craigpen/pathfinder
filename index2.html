@@ -2579,44 +2579,40 @@ function renderCostTable(){
   }
 }
 function renderTransition(){
+  console.log('renderTransition called. S.subCareers:', S.subCareers, 'S.cc:', S.cc);
+
   const careers = window.CAREERS || {};
   const countries = window.COUNTRIES || {};
 
-  // Populate career pills
+  // Populate career pills - just display what's selected
   const careerEl = document.getElementById('transition-careers');
   let careerHTML = '';
   if(S.subCareers && S.subCareers.length > 0) {
-    const validCareers = S.subCareers.filter(c => c); // Remove undefined/null values
-    if(validCareers.length > 0) {
-      validCareers.forEach(career => {
-        const sub = getSub(career);
-        const name = sub ? sub.name : career;
-        careerHTML += `<div class="pill on" style="pointer-events:none">${name}</div>`;
-      });
-    } else {
-      careerHTML = '<div style="font-size:13px;color:var(--tx2)">No careers selected. Go to Careers tab to select.</div>';
-    }
-  } else {
+    S.subCareers.forEach(career => {
+      if(!career) return; // Skip undefined/null
+      const sub = getSub(career);
+      const name = sub ? sub.name : career;
+      careerHTML += `<div class="pill on" style="pointer-events:none">${name}</div>`;
+    });
+  }
+  if(!careerHTML) {
     careerHTML = '<div style="font-size:13px;color:var(--tx2)">No careers selected. Go to Careers tab to select.</div>';
   }
   careerEl.innerHTML = careerHTML;
 
-  // Populate study country pills
+  // Populate study country pills - just display what's selected
   const countryEl = document.getElementById('transition-study-countries');
   let countryHTML = '';
   if(S.cc && S.cc.length > 0) {
-    const validCountries = S.cc.filter(c => c); // Remove undefined/null values
-    if(validCountries.length > 0) {
-      validCountries.forEach(cc => {
-        const country = countries[cc];
-        const name = country ? country.n : cc;
-        const flag = country ? country.e : '';
-        countryHTML += `<div class="pill on" style="pointer-events:none">${flag} ${name}</div>`;
-      });
-    } else {
-      countryHTML = '<div style="font-size:13px;color:var(--tx2)">No countries selected. Go to Universities tab to select.</div>';
-    }
-  } else {
+    S.cc.forEach(cc => {
+      if(!cc) return; // Skip undefined/null
+      const country = countries[cc];
+      const name = country ? country.n : cc;
+      const flag = country ? country.e : '';
+      countryHTML += `<div class="pill on" style="pointer-events:none">${flag} ${name}</div>`;
+    });
+  }
+  if(!countryHTML) {
     countryHTML = '<div style="font-size:13px;color:var(--tx2)">No countries selected. Go to Universities tab to select.</div>';
   }
   countryEl.innerHTML = countryHTML;
