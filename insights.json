@@ -1,0 +1,300 @@
+{
+  "careersDrives": {
+    "Creative expression": {
+      "Creative Arts": {
+        "align": true,
+        "msg": "Your creative motivation aligns perfectly with Creative Arts careers."
+      },
+      "Tech/Engineering": {
+        "align": false,
+        "msg": "Tech/Engineering isn't the typical path for creative thinkers, but they can motivation innovation in design, UX, and human-centered tech."
+      },
+      "Business/Finance": {
+        "align": false,
+        "msg": "Business/Finance doesn't usually attract creative-first minds, but creative problem-solving shines in entrepreneurship and marketing."
+      },
+      "Law/Policy": {
+        "align": false,
+        "msg": "Law/Policy isn't the typical path for creative thinkers, but they can blend beautifully in policy advocacy, human rights, and environmental law."
+      },
+      "Science/Research": {
+        "align": false,
+        "msg": "Science/Research doesn't typically attract creative-driven people, but creative approaches revolutionize research and scientific communication."
+      },
+      "Education": {
+        "align": true,
+        "msg": "Your creative motivation is a natural fit for Education careers."
+      }
+    },
+    "Financial security": {
+      "Business/Finance": {
+        "align": true,
+        "msg": "Business/Finance aligns well with your focus on financial security."
+      },
+      "Tech/Engineering": {
+        "align": true,
+        "msg": "Tech/Engineering offers strong earning potential for financial security."
+      },
+      "Law/Policy": {
+        "align": true,
+        "msg": "Law offers good earning potential aligned with your security focus."
+      },
+      "Creative Arts": {
+        "align": false,
+        "msg": "Creative Arts careers often have variable income - this may not align with your financial security priority."
+      },
+      "Education": {
+        "align": false,
+        "msg": "Education is rewarding but typically offers modest salaries compared to your financial priorities."
+      }
+    },
+    "Making real impact": {
+      "Law/Policy": {
+        "align": true,
+        "msg": "Law/Policy is a direct path to making systemic impact."
+      },
+      "Science/Research": {
+        "align": true,
+        "msg": "Science/Research careers create real-world impact through innovation."
+      },
+      "Education": {
+        "align": true,
+        "msg": "Education creates lasting impact by shaping future generations."
+      },
+      "Tech/Engineering": {
+        "align": true,
+        "msg": "Tech/Engineering can motivation significant societal impact through innovation."
+      },
+      "Business/Finance": {
+        "align": false,
+        "msg": "Business/Finance isn't typically impact-focused, though social enterprises and sustainable finance are growing."
+      }
+    }
+  },
+  "countriesVision": {
+    "In the US": {
+      "us": {
+        "align": true,
+        "msg": "US study aligns with your 5-year vision."
+      },
+      "sweden": {
+        "align": false,
+        "msg": "You prefer staying in the US long-term, but studying in an EU country offers EU access if plans change."
+      },
+      "canada": {
+        "align": true,
+        "msg": "Canada study keeps you close to the US market."
+      },
+      "uk": {
+        "align": false,
+        "msg": "You prefer staying in the US long-term, but studying in an EU country offers EU access if plans change."
+      },
+      "germany": {
+        "align": false,
+        "msg": "You prefer staying in the US long-term, but studying in an EU country offers EU access if plans change."
+      },
+      "netherlands": {
+        "align": false,
+        "msg": "You prefer staying in the US long-term, but studying in an EU country offers EU access if plans change."
+      },
+      "france": {
+        "align": false,
+        "msg": "You prefer staying in the US long-term, but studying in an EU country offers EU access if plans change."
+      },
+      "italy": {
+        "align": false,
+        "msg": "You prefer staying in the US long-term, but studying in an EU country offers EU access if plans change."
+      },
+      "spain": {
+        "align": false,
+        "msg": "You prefer staying in the US long-term, but studying in an EU country offers EU access if plans change."
+      },
+      "denmark": {
+        "align": false,
+        "msg": "You prefer staying in the US long-term, but studying in an EU country offers EU access if plans change."
+      },
+      "ireland": {
+        "align": false,
+        "msg": "You prefer staying in the US long-term, but studying in an EU country offers EU access if plans change."
+      }
+    },
+    "In Europe": {
+      "us": {
+        "align": false,
+        "msg": "You want to work abroad, but studying in the US may make it harder to build international connections."
+      },
+      "sweden": {
+        "align": true,
+        "msg": "Studying in an EU country positions you well for European work."
+      },
+      "canada": {
+        "align": false,
+        "msg": "Canada doesn't position you as well for working abroad compared to EU options."
+      },
+      "uk": {
+        "align": true,
+        "msg": "Studying in an EU country positions you well for European work."
+      },
+      "germany": {
+        "align": true,
+        "msg": "Studying in an EU country positions you well for European work."
+      },
+      "netherlands": {
+        "align": true,
+        "msg": "Studying in an EU country positions you well for European work."
+      },
+      "france": {
+        "align": true,
+        "msg": "Studying in an EU country positions you well for European work."
+      },
+      "italy": {
+        "align": true,
+        "msg": "Studying in an EU country positions you well for European work."
+      },
+      "spain": {
+        "align": true,
+        "msg": "Studying in an EU country positions you well for European work."
+      },
+      "denmark": {
+        "align": true,
+        "msg": "Studying in an EU country positions you well for European work."
+      },
+      "ireland": {
+        "align": true,
+        "msg": "Studying in an EU country positions you well for European work."
+      }
+    },
+    "Anywhere globally": {
+      "us": {
+        "align": true,
+        "msg": "US offers strong career options globally."
+      },
+      "sweden": {
+        "align": true,
+        "msg": "Studying in an EU country opens both European and international opportunities. Certain fields have credential lock-in, so research portability."
+      },
+      "canada": {
+        "align": true,
+        "msg": "Canada provides a flexible base for international work."
+      },
+      "uk": {
+        "align": true,
+        "msg": "Studying in an EU country opens both European and international opportunities. Certain fields have credential lock-in, so research portability."
+      },
+      "germany": {
+        "align": true,
+        "msg": "Studying in an EU country opens both European and international opportunities. Certain fields have credential lock-in, so research portability."
+      },
+      "netherlands": {
+        "align": true,
+        "msg": "Studying in an EU country opens both European and international opportunities. Certain fields have credential lock-in, so research portability."
+      },
+      "france": {
+        "align": true,
+        "msg": "Studying in an EU country opens both European and international opportunities. Certain fields have credential lock-in, so research portability."
+      },
+      "italy": {
+        "align": true,
+        "msg": "Studying in an EU country opens both European and international opportunities. Certain fields have credential lock-in, so research portability."
+      },
+      "spain": {
+        "align": true,
+        "msg": "Studying in an EU country opens both European and international opportunities. Certain fields have credential lock-in, so research portability."
+      },
+      "denmark": {
+        "align": true,
+        "msg": "Studying in an EU country opens both European and international opportunities. Certain fields have credential lock-in, so research portability."
+      },
+      "ireland": {
+        "align": true,
+        "msg": "Studying in an EU country opens both European and international opportunities. Certain fields have credential lock-in, so research portability."
+      }
+    }
+  },
+  "costPriority": {
+    "Can manage some debt": {
+      "expensive": {
+        "align": true,
+        "msg": "You can manage some debt, so higher-cost countries are viable if the fit is right."
+      },
+      "affordable": {
+        "align": true,
+        "msg": "Affordable options leave less debt burden and faster repayment."
+      }
+    },
+    "Matters a lot": {
+      "expensive": {
+        "align": false,
+        "msg": "You've prioritized cost, but selected expensive countries - consider lower-cost alternatives."
+      },
+      "affordable": {
+        "align": true,
+        "msg": "Your cost focus aligns with choosing affordable countries."
+      }
+    },
+    "Critical factor": {
+      "expensive": {
+        "align": false,
+        "msg": "Cost is critical for you, but you've selected expensive countries - strongly consider EU or other ways to reduce cost."
+      },
+      "affordable": {
+        "align": true,
+        "msg": "Your critical cost focus aligns perfectly with affordable country choices."
+      }
+    }
+  },
+  "languageAptitude": {
+    "Slower language learner": {
+      "english": {
+        "align": true,
+        "msg": "English-taught programs align well with your language comfort."
+      },
+      "non_english": {
+        "align": false,
+        "msg": "You're a slower language learner, but you've selected non-English countries - consider English-taught programs in those countries."
+      }
+    },
+    "Normal language learner": {
+      "english": {
+        "align": true,
+        "msg": "English-taught programs are a solid choice for your language level."
+      },
+      "non_english": {
+        "align": true,
+        "msg": "You have the foundation to learn in non-English countries while improving language skills."
+      }
+    },
+    "Natural linguist": {
+      "english": {
+        "align": true,
+        "msg": "You have the language skills for any country."
+      },
+      "non_english": {
+        "align": true,
+        "msg": "Your language aptitude opens doors to non-English countries and programs. Consider a year of immersion learning."
+      }
+    }
+  },
+  "citizenship": {
+    "US": {
+      "us": {
+        "align": true,
+        "msg": "As a US citizen, US study is straightforward."
+      },
+      "eu": {
+        "align": false,
+        "msg": "As a US citizen, EU countries may charge international rates - research visa and work permit options."
+      }
+    },
+    "EU": {
+      "eu": {
+        "align": true,
+        "msg": "As an EU citizen, EU study gives you tuition advantages and mobility."
+      },
+      "us": {
+        "align": false,
+        "msg": "As an EU citizen, US study requires visa sponsorship - factor in work authorization needs."
+      }
+    }
+  }
+}
