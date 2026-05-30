@@ -21581,8 +21581,8 @@ function formatInsightItem(text, isProItem) {
 function renderInsightsTable(titleText, subtitleText, firstColHeader, items, carouselId) {
   let html = '';
   const col1Width = '20%';
-  const col2Width = '40%';
-  const col3Width = '40%';
+  const col2Width = '50%';
+  const col3Width = '30%';
 
   // Section title and subtitle
   html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">' + titleText + '</h2>';
@@ -22625,12 +22625,12 @@ function renderInsights(){
       html += '</div><div class="carousel-indicator">Career 1 of ' + careerFits.length + '</div></div>';
 
       html += '<div class="insights-table-display"><div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
-      html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:20%;white-space:nowrap">Career</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:40%">Strengths</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:40%">Considerations</th></tr></thead>';
+      html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:20%;white-space:nowrap">Career</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:50%">Strengths</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:30%">Considerations</th></tr></thead>';
       html += '<tbody>';
       careerFits.forEach(cf => {
         const prosHTML = cf.pros.length > 0 ? cf.pros.map(p => formatInsightItem(p, true)).join('<br>') : '—';
         const consHTML = cf.cons.length > 0 ? cf.cons.map(c => formatInsightItem(c, false)).join('<br>') : '—';
-        html += '<tr style="border-bottom:1px solid var(--bdr);background:#fff"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;width:20%;line-height:1.4;background:rgba(241,245,249,.5);white-space:nowrap">' + cf.name + '</td><td style="padding:8px 10px;vertical-align:top;width:40%;line-height:1.4">' + prosHTML + '</td><td style="padding:8px 10px;vertical-align:top;width:40%;line-height:1.4">' + consHTML + '</td></tr>';
+        html += '<tr style="border-bottom:1px solid var(--bdr);background:#fff"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;width:20%;line-height:1.4;background:rgba(241,245,249,.5);white-space:nowrap">' + cf.name + '</td><td style="padding:8px 10px;vertical-align:top;width:50%;line-height:1.4">' + prosHTML + '</td><td style="padding:8px 10px;vertical-align:top;width:30%;line-height:1.4">' + consHTML + '</td></tr>';
       });
       html += '</tbody></table></div></div>';
     }
