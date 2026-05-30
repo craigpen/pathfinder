@@ -1553,10 +1553,9 @@ function buildTransitionTable(scenarios, workTarget) {
   const columnLabel = (idx) => {
     const scenario = scenarios[idx];
     if(!scenario) return 'Scenario ' + idx;
-    const sub = getSub(scenario.career);
     const country = countries[scenario.studyCountry];
-    const careerName = sub ? sub.name : scenario.career;
-    const countryName = country ? country.n : scenario.studyCountry;
+    const careerName = scenario.career;
+    const countryName = country ? country.name : scenario.studyCountry;
     return `${careerName}<br/>Study: ${countryName}`;
   };
 
@@ -2614,10 +2613,10 @@ function renderTransition(){
     S.cc.forEach(cc => {
       if(!cc) return; // Skip undefined/null
       const country = countries[cc];
-      console.log('Country lookup for',cc,':',country);
-      const name = country ? country.n : cc;
-      const flag = country ? country.e : '';
-      if(name) countryHTML += `<div class="pill on" style="pointer-events:none">${flag} ${name}</div>`;
+      const name = country ? country.name : cc;
+      const flag = country ? country.flag : '';
+      if(flag) countryHTML += `<div class="pill on" style="pointer-events:none"><img src="${flag}" style="height:0.9em;vertical-align:middle"> ${name}</div>`;
+      else if(name) countryHTML += `<div class="pill on" style="pointer-events:none">${name}</div>`;
     });
   }
   if(!countryHTML) {
