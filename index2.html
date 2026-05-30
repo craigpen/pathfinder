@@ -20442,7 +20442,7 @@ function renderUniversities(){
   if(ccPills){
     let h = '';
     Object.entries(COUNTRIES).forEach(([k,v])=>{
-      h += `<div class="pill${S.cc.includes(k)?' on':''}\" onclick=\"togCC('${k}');renderUniversities()\">${v.e} ${v.n}</div>`;
+      h += `<div class="pill${S.cc.includes(k)?' on':''}" onclick="togCC('${k}');renderUniversities()"><img src="${v.flag}" style="height:0.9em;vertical-align:middle"> ${v.name}</div>`;
     });
     ccPills.innerHTML = h;
   }
@@ -20818,7 +20818,7 @@ function renderScholar(){
   if(pillsHost) {
     let h = '';
     Object.entries(COUNTRIES).forEach(([k,v]) => {
-      h += `<div class="pill${S.cc.includes(k) ? ' on' : ''}" onclick="togCC('${k}'); renderScholar()">${v.e} ${v.n}</div>`;
+      h += `<div class="pill${S.cc.includes(k) ? ' on' : ''}" onclick="togCC('${k}'); renderScholar()"><img src="${v.flag}" style="height:0.9em;vertical-align:middle"> ${v.name}</div>`;
     });
     pillsHost.innerHTML = h;
   }
