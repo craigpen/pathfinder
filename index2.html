@@ -530,7 +530,7 @@ function getCountryFlag(code) {
   if (!country) return null;
   const val = country.flag;
   if (!val?.startsWith?.('data:image')) console.warn(`getCountryFlag(${code}): flag is not a data URI`);
-  return val;
+  return `<img src="${val}" style="height:0.9em;vertical-align:middle">`;
 }
 
 function getCountryTuition(code) {
@@ -20177,24 +20177,7 @@ el.innerHTML=msg;
 function renderCCChips(){const el=document.getElementById('cc-chips');let h='';Object.entries(COUNTRIES).forEach(([k,v])=>{h+=`<div class="pill${S.cc.includes(k)?' on':''}" onclick="togCC('${k}')">${v.e} ${v.n}</div>`});el.innerHTML=h;renderCCTable()}
 function togCC(k){if(S.cc.includes(k))S.cc=S.cc.filter(x=>x!==k);else S.cc.push(k);saveState();renderCCChips();updateHdrCarousel();renderUniversities();renderInsights()}
 function renderCCTable(){const sel=S.cc;const el=document.getElementById('cc-table');if(sel.length<1){el.innerHTML=guidanceMsg('Select a country to view details');return}const attrs=[['Tuition',(k)=>{const val=getCountryTuition(k)||'—';const note=getCountryTuitionNote(k);return `${val}${note?'<div class="note">'+note+'</div>':''}`;},null],['Degree Length',(k)=>(getCountryDuration(k)||'—')+' years'],['Language',(k)=>getCountryLanguage(k)||'—'],['Change Majors?',(k)=>getCountryChangePolicy(k)||'—'],['After Graduation',(k)=>getCountryPostGradOpportunities(k)||'—'],['Financial Aid',(k)=>getCountryFinancialAid(k)||'—'],['Admissions',(k)=>getCountryAdmissions(k)||'—'],['Culture',(k)=>getCountryCulture(k)||'—'],['Apply At',(k)=>getCountryPortal(k)||'—'],['Resources',(k)=>{const resources=getCountryResources(k)||[];return resources.map(r=>`<a href="${r.u}" target="_blank">${r.t}</a>`).join(', ')||'—';}]];const columnLabel=(k)=>`${getCountryFlag(k)} ${getCountryName(k)} <span class="xr" onclick="togCC('${k}')">✕</span>`;const t=buildTableHTML(attrs,sel,columnLabel,'cc-table');el.innerHTML=t;let insights=[];const seenMsgs=new Set();if(S.vision){const eu=['sweden','uk','germany','netherlands','france','italy','spain','denmark','ireland','no','ch'];const hasUS=sel.some(k=>k==='us'||k==='canada'||k==='australia'||k==='singapore');const hasEU=sel.some(k=>eu.includes(k));let visionMsg='';if(hasUS&&hasEU){if(S.vision==='In the US'){visionMsg='You prefer staying in the US long-term, but you\'ve selected EU countries. Consider if EU study aligns with your goals.';}else if(S.vision==='In Europe'){visionMsg='Your vision to work abroad aligns well with EU country choices.';}else if(S.vision==='Anywhere globally'){visionMsg='Your flexible vision works with both US and EU options. Pick based on other factors.';}}else if(hasEU&&!hasUS){if(S.vision==='In the US'){visionMsg='You prefer staying in the US, but selected only EU countries. Reconsider your country choices.';}else if(S.vision==='In Europe'||S.vision==='Anywhere globally'){visionMsg='Studying in an EU country positions you well for European work.';}}else if(hasUS&&!hasEU){if(S.vision==='In the US'||S.vision==='Anywhere globally'){visionMsg='US study aligns with your 5-year vision.';}else if(S.vision==='In Europe'){visionMsg='You want to work abroad, but studying in the US may make it harder to build international connections.';}}if(visionMsg&&!seenMsgs.has(visionMsg)){insights.push({align:!visionMsg.includes('Reconsider'),msg:visionMsg});seenMsgs.add(visionMsg)}}if(S.cost){const costs=sel.map(k=>getCountryCostTuition(k)||0);const hasExpensive=costs.some(c=>c>30000);const hasAffordable=costs.some(c=>c<=30000);let costMsg='';let isAlign=true;if(hasExpensive&&hasAffordable){costMsg='You\'ve selected both expensive and affordable countries. Consider which best matches your '+S.cost.toLowerCase()+' priority.';isAlign=false;}else{const insight=getCostInsight(sel,S.cost);if(insight){costMsg=insight.msg;isAlign=insight.align;}}if(costMsg&&!seenMsgs.has(costMsg)){insights.push({align:isAlign,msg:costMsg});seenMsgs.add(costMsg)}}if(S.lang&&S.cc.length>0){const langInsight=getLanguageInsight(S.cc[0],S.lang);if(langInsight&&!seenMsgs.has(langInsight.msg)){insights.push(langInsight);seenMsgs.add(langInsight.msg)}}if(S.citizen&&S.citizen.length>0){const citizenInsights=[];S.citizen.forEach(cit=>{const insight=getCitizenshipInsight(S.cc[0],cit);if(insight)citizenInsights.push(insight)});if(citizenInsights.length>0){const sample=citizenInsights[0];if(!seenMsgs.has(sample.msg)){insights.push(sample);seenMsgs.add(sample.msg)}}}
-t+='</tbody></table>';
-  
-  // Mobile carousel
-  const rows = attrs.map(([l,a,nk]) => [
-    l,
-    (k) => {
-      const v=CD[k]?.[a]||'—';
-      const cls=(a==='tui'&&CD[k]?.euFree)?' style="background:rgba(22,163,74,.08);font-weight:600"':'';
-      const note=nk?CD[k]?.[nk]:'';
-      return `<div${cls}>${a==='dur'?v+' years':v}${note?'<div class="note">'+note+'</div>':''}</div>`;
-    }
-  ]);
-  
-  const carousel = buildCarouselHTML(rows, sel, (k) => COUNTRIES[k].e + ' ' + COUNTRIES[k].n, 'cc-carousel');
-  el.innerHTML = t + carousel;
-  
-  // Initialize carousel
-  setTimeout(()=>initCarousel('cc-carousel'), 50);
+const carouselRows=attrs.map(([l,a])=>[l,(k)=>{const cellData=a(k);let content=cellData;if(typeof cellData==='object'&&cellData.content!==undefined){content=cellData.content}return `<div>${content}</div>`;}]);const carousel=buildCarouselHTML(carouselRows,sel,(k)=>`${getCountryFlag(k)} ${getCountryName(k)}`,'cc-carousel');el.innerHTML=t+carousel;setTimeout(()=>initCarousel('cc-carousel'),50);
 }
 function renderFilterSubPills(){const el=document.getElementById('filter-sub-pills');if(!S.cats.length){el.innerHTML='';return}let h='';S.cats.forEach(ck=>{Object.keys(CATS[ck].subs).forEach(fn=>{h+=`<div class="pill${S.subCareers.includes(fn)?' on':''}\" onclick=\"togSub('${fn}',null);renderFilterSubPills();renderFilterAnalysis()\">${fn}</div>`})});el.innerHTML=h}
 function renderPracPills(){const el=document.querySelector('.pills[data-q="practice"]');let h='';const labels={us:'United States',eu:'Europe',oth:'Other',idk:'Not sure yet'};['us','eu','oth','idk'].forEach(v=>{h+=`<div class="pill${S.prac[0]===v?' on':''}" onclick="togPrac('${v}')">${labels[v]}</div>`});el.innerHTML=h}
