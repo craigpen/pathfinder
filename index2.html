@@ -20595,7 +20595,7 @@ function renderUniversities(){
     
     // Build country section
     html += `<div style="margin:20px 0;padding:12px;background:rgba(100,150,200,.08);border:1px solid rgba(100,150,200,.2);border-radius:6px">
-      <h3 style="margin:0 0 12px 0;font-size:18px">${COUNTRIES[country].flag} ${COUNTRIES[country].name} (${filteredUnis.length})</h3>`;
+      <h3 style="margin:0 0 12px 0;font-size:18px"><img src="${COUNTRIES[country].flag}" style="height:0.9em;vertical-align:middle"> ${COUNTRIES[country].name} (${filteredUnis.length})</h3>`;
     
     if(filteredUnis.length === 0){
       html += '<p style="color:var(--tx2);margin:0">No universities match your preferences</p>';
@@ -20896,7 +20896,7 @@ function renderScholar(){
     }
   ]);
   
-  const carousel = buildCarouselHTML(carouselRows, sel, (k) => COUNTRIES[k].flag + ' ' + COUNTRIES[k].name, 'scholar-carousel');
+  const carousel = buildCarouselHTML(carouselRows, sel, (k) => `<img src="${COUNTRIES[k].flag}" style="height:0.9em;vertical-align:middle"> ${COUNTRIES[k].name}`, 'scholar-carousel');
   host.innerHTML = t + carousel;
   
   // Initialize carousel
@@ -21043,7 +21043,7 @@ function renderCostTable(){
   let t='<table class="ct"><thead><tr><th></th>';
   
   sel.forEach(k=>{
-    t+=`<th class="ch">${COUNTRIES[k].flag} ${COUNTRIES[k].name} <span class="xr" onclick="togCost('${k}')">✕</span></th>`;
+    t+=`<th class="ch"><img src="${COUNTRIES[k].flag}" style="height:0.9em;vertical-align:middle"> ${COUNTRIES[k].name} <span class="xr" onclick="togCost('${k}')">✕</span></th>`;
   });
   t+='</tr></thead><tbody>';
   
@@ -21131,7 +21131,7 @@ function renderCostTable(){
   
   sel.forEach(k=>{
     carousel+=`<div class="carousel-card">`;
-    carousel+=`<div class="carousel-card-header">${COUNTRIES[k].flag} ${COUNTRIES[k].name}</div>`;
+    carousel+=`<div class="carousel-card-header"><img src="${COUNTRIES[k].flag}" style="height:0.9em;vertical-align:middle"> ${COUNTRIES[k].name}</div>`;
     carousel+=`<div class="carousel-card-labels">`;
     carouselRows.forEach(([label])=>{
       carousel+=`<div class="carousel-card-label">${label}</div>`;
