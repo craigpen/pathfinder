@@ -21469,9 +21469,9 @@ function generateConflictInsights() {
     if(hasRigorousCareer){
       const flexibleCountries = [];
       S.cc.forEach(countryKey => {
-        const data = CD[countryKey];
-        if(data && data.chg && data.chg.toLowerCase().includes('easy')){
-          flexibleCountries.push(COUNTRIES[countryKey].n);
+        const changePolicy = getCountryChangePolicy(countryKey);
+        if(changePolicy && changePolicy.toLowerCase().includes('easy')){
+          flexibleCountries.push(getCountryName(countryKey));
         }
       });
       if(flexibleCountries.length > 0){
@@ -23313,26 +23313,13 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 
 function exportNewCountriesSchemaAsCode() {
-  const fieldMap = {n:'name', e:'flag', tui:'tuition', tn:'tuitionNote', dur:'duration',
-    lang:'language', chg:'changePolicy', post:'postGradOpportunities', aid:'financialAid',
-    adm:'admissions', cy:'costBreakdown', res:'resources', dec:'faqs'};
-
+  // Export unified COUNTRIES data structure (already consolidated from countries.json)
   const consolidated = {};
   const codes = Object.keys(COUNTRIES);
 
   for(const code of codes) {
-    const c = COUNTRIES[code] || {};
-    const d = CD[code] || {};
-    const f = FUNDING[code] || {};
-    const merged = {...c, ...d, ...f};
-
-    const renamed = {};
-    for(const [k,v] of Object.entries(merged)) {
-      const newKey = fieldMap[k] || k;
-      renamed[newKey] = v;
-    }
-
-    consolidated[code] = renamed;
+    const data = getCountryAllData(code);
+    if(data) consolidated[code] = data;
   }
 
   return 'const COUNTRIES = ' + JSON.stringify(consolidated, null, 2) + ';';
