@@ -1578,7 +1578,7 @@ function renderCatTable(){
   setTimeout(()=>initCarousel('cat-carousel'),50);
 }
 
-function renderSubPills(){const el=document.getElementById('sub-pills');if(!S.cats.length){el.innerHTML='';return}let h='';S.cats.forEach(ck=>{Object.keys(getCategorySubjects(ck)).forEach(fn=>{h+=`<div class="pill${S.subCareers.includes(fn)?' on':''}" onclick="togSub('${fn}',this)">${fn}</div>`})});el.innerHTML=h}
+function renderSubPills(){const el=document.getElementById('sub-pills');if(!S.cats.length){el.innerHTML='';return}let h='';S.cats.forEach(ck=>{const subjects=getCategorySubjects(ck);console.log('Career category',ck,'has subjects:',Object.keys(subjects));Object.keys(subjects).forEach(fn=>{const sub=subjects[fn];h+=`<div class="pill${S.subCareers.includes(fn)?' on':''}" onclick="togSub('${fn}',this)">${sub.name||fn}</div>`})});el.innerHTML=h}
 function togSub(fn,el){
  if(S.subCareers.includes(fn)) S.subCareers=S.subCareers.filter(f=>f!==fn);
  else S.subCareers.push(fn);
