@@ -2667,7 +2667,7 @@ function generateNarrativeParagraph(monthlyPaymentMin = null, monthlyPaymentMax 
   if(S.cost || S.uniSelectivity || S.cc.length > 0) {
     let costParts = [];
     if(S.cost) costParts.push('Your view of total education cost suggests it is ' + makePill(S.cost.toLowerCase()));
-    const countryList = S.cc.length > 0 ? Object.entries(COUNTRIES).filter(([k,v]) => S.cc.includes(k)).map(([k,v]) => v.n).join(', ') : '';
+    const countryList = S.cc.length > 0 && COUNTRIES_LOADED ? Object.entries(COUNTRIES).filter(([k,v]) => S.cc.includes(k)).map(([k,v]) => v.name).join(', ') : '';
     if(S.uniSelectivity && countryList) costParts.push('and you\'re considering universities in ' + makePill(countryList) + ' that are ' + makePill(S.uniSelectivity.toLowerCase()) + ' in their admission process');
     else if(S.uniSelectivity) costParts.push('and you\'re considering universities that are ' + makePill(S.uniSelectivity.toLowerCase()) + ' in their admission process');
     if(costParts.length > 0) discoveryParts.push(costParts.join(', ') + '.');
