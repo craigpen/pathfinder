@@ -816,6 +816,13 @@ async function loadCountriesData() {
       console.log('✓ All countries passed validation');
     }
 
+    // Clean up state with invalid country codes
+    const validCodes = Object.keys(data);
+    if (S.cc) S.cc = S.cc.filter(k => validCodes.includes(k));
+    if (S.costCC) S.costCC = S.costCC.filter(k => validCodes.includes(k));
+    if (S.expl && !validCodes.includes(S.expl)) S.expl = null;
+    saveState();
+
     return true;
   } catch (error) {
     console.error('✗ Failed to load countries.json:', error.message);
@@ -20817,7 +20824,7 @@ function renderScholar(){
   }
 
   // Assumption: user has BOTH US and EU citizenship.
-  const sel = (Array.isArray(S.cc) && S.cc.length) ? S.cc : [];
+  const sel = (Array.isArray(S.cc) && S.cc.length) ? S.cc.filter(k => COUNTRIES[k]) : [];
   if(!sel.length){
     host.innerHTML=guidanceMsg('Select a country to view details');
     return;
