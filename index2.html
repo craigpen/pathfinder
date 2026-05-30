@@ -23456,13 +23456,13 @@ function exportCareersSchemaAsCode() {
   console.log(exported);
   console.log('%c=== END ===', 'font-weight:bold;color:#16a34a;font-size:14px');
 
-  // Also copy to clipboard if possible
-  try {
-    navigator.clipboard.writeText(exported).then(() => {
-      console.log('%c✓ Copied to clipboard!', 'color:#16a34a;font-weight:bold');
+  // Try to copy to clipboard (fails if document not focused)
+  if (navigator.clipboard && document.hasFocus && document.hasFocus()) {
+    navigator.clipboard.writeText(exported).catch(() => {
+      console.log('Tip: Manually select and copy the JSON above');
     });
-  } catch (e) {
-    console.log('Clipboard copy failed, manually select and copy above');
+  } else {
+    console.log('Tip: Manually select and copy the JSON above');
   }
 
   return exported;
