@@ -206,14 +206,15 @@ When externalizing reference data that's keyed by external data (e.g., DEMAND_MA
 - ❌ Creating separate reference JSON files instead of merging into parent structure — bloats file count and complicates async loading
 
 ## Key Files & Functions
-- `index.html` — Single-page app with embedded CSS/JS (originally 776KB, now uses external data)
+- `index.html` — Single-page app with embedded CSS/JS (originally 776KB, now **269KB** with all data externalized)
   - This is your main deliverable; treat edits carefully
   - Always test in browser before committing
-  - **Note:** index2.html (285.9KB) is the working file; copy over index.html when done
+  - **Note:** index2.html is the working file; copy over index.html when deploying
 - External data files (loaded asynchronously at startup):
   - `countries.json` (66KB) — Consolidated country data (13 countries with CD/FUNDING merged); loaded by `loadCountriesData()`. Access via helpers: `getCountryName()`, `getCountryTuition()`, etc.
   - `careers.json` (24KB) — Career categories and subcareers (33 total) with merged DEMAND_MAP data; loaded by `loadCareersData()`. Access via helpers: `getSub()`, `getCategorySubjects()`, etc. Each subcareer has `demand` field with {label, pct, period, src}
   - `universities.json` (587 universities) — External university database; loaded by `loadUniversitiesData()`. Access via helpers: `getUniversity()`, `getUniversitiesByCountry()`, `getUniversitiesByProgram()`, etc.
+  - `insights.json` (5 categories) — Career/country/cost/language/citizenship alignment data; loaded by `loadInsightsData()`. Access only via insight functions `getCareerInsight()`, `getCountryInsight()`, `getCostInsight()`, `getLanguageInsight()`, `getCitizenshipInsight()`.
   - **Always access via helpers**, never direct property access
 - Carousel helpers:
   - `buildCarouselHTML()` — Creates carousel container and cards
@@ -235,6 +236,25 @@ When externalizing reference data that's keyed by external data (e.g., DEMAND_MA
   - `getDemandForCareer(name)` — Get BLS demand data for a specific career; returns {label, pct, period, src} or null
   - `getDemandForCat(key)` — Derive category-level demand by averaging subcareers' percentages
   - `demandCell(d)` — Format demand data for display; returns "—" if null
+
+## 8. Code Cleanup & Deduplication
+
+**Completed as of v1.8.15:** All four major data structures have been successfully externalized and cleaned of duplicate functions:
+
+✅ **Externalized Data:**
+- COUNTRIES → countries.json (13 countries, 66KB)
+- CAREERS → careers.json (33 subcareers, 24KB)
+- UNIVERSITIES → universities.json (587 universities)
+- INSIGHTS → insights.json (5 categories: careers, countries, cost, language, citizenship)
+
+✅ **Removed Duplicate Functions:**
+- Duplicate render functions (renderCCChips, renderFilterSubPills, renderPracPills, renderFilterAnalysis)
+- Old hardcoded insight functions with different signatures (getCareerInsight, getCountryInsight, getCostInsight, getLanguageInsight, getCitizenshipInsight)
+- All remaining insight functions now exclusively use externalized INSIGHTS JSON data
+
+**File Size Reduction: 776KB → 269KB** (65% reduction achieved through data externalization)
+
+**Key Principle:** Never embed multiple versions of the same function or data. Always delete the old version after refactoring to prevent confusion and silent bugs where old code is accidentally used.
 
 ---
 
