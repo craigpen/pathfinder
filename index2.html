@@ -1562,59 +1562,49 @@ el.innerHTML=h
 }
 
 function renderCCChips(){const el=document.getElementById('cc-chips');if(!COUNTRIES_LOADED){el.innerHTML='<p>Loading countries...</p>';setTimeout(renderCCChips,100);return;}let h='';Object.entries(COUNTRIES).forEach(([k,v])=>{h+=`<div class="pill${S.cc.includes(k)?' on':''}" onclick="togCC('${k}')"><img src="${v.flag}" style="height:0.9em;vertical-align:middle"> ${v.name}</div>`});el.innerHTML=h;renderCCTable()}
-const DEMAND_MAP={
-  careers:{
-    'Software Engineering':{label:'Very high',pct:15.8,period:'2023–2033',src:'https://wagedex.com/outlook/software-developers'},
-    'Computer Science':{label:'Very high',pct:15.8,period:'2023–2033',src:'https://wagedex.com/outlook/software-developers'},
-    'Data Science / AI':{label:'Very high',pct:33.5,period:'2023–2033',src:'https://wagedex.com/outlook/data-scientists'},
-    'Cybersecurity':{label:'Very high',pct:28.5,period:'2023–2033',src:'https://wagedex.com/outlook/information-security-analysts'},
-    'Electrical Engineering':{label:'High',pct:7,period:'2024–34',src:'https://www.bls.gov/ooh/architecture-and-engineering/electrical-and-electronics-engineers.htm'},
-    'Mechanical Engineering':{label:'High',pct:9,period:'2024–34',src:'https://www.bls.gov/ooh/architecture-and-engineering/mechanical-engineers.htm'},
-    'Finance / Banking':{label:'Moderate',pct:6,period:'2024–34',src:'https://www.bls.gov/ooh/business-and-financial/financial-analysts.htm'},
-    'Accounting':{label:'Moderate',pct:4.6,period:'2023–2033',src:'https://wagedex.com/outlook/accountants-and-auditors'},
-    'Marketing / Management':{label:'High',pct:7,period:'2024–34',src:'https://www.bls.gov/ooh/business-and-financial/market-research-analysts.htm'},
-    'Economics':{label:'Low',pct:1,period:'2024–34',src:'https://www.bls.gov/ooh/life-physical-and-social-science/economists.htm'},
-    'Biology / Biotech':{label:'Moderate',pct:6,period:'2024–34',src:'https://www.bls.gov/ooh/life-physical-and-social-science/biochemists-and-biophysicists.htm'},
-    'Chemistry':{label:'Moderate',pct:5,period:'2024–34',src:'https://www.bls.gov/ooh/life-physical-and-social-science/chemists-and-materials-scientists.htm'},
-    'Physics':{label:'Moderate',pct:4,period:'2024–34',src:'https://www.bls.gov/ooh/life-physical-and-social-science/physicists-and-astronomers.htm'},
-    'Environmental / Climate':{label:'Moderate',pct:4,period:'2024–34',src:'https://www.bls.gov/ooh/life-physical-and-social-science/environmental-scientists-and-specialists.htm'},
-    'Math / Statistics':{label:'High',pct:8,period:'2024–34',src:'https://www.bls.gov/ooh/math/mathematicians-and-statisticians.htm'},
-    'Graphic / UX Design':{label:'Low',pct:2,period:'2024–34',src:'https://www.bls.gov/ooh/arts-and-design/graphic-designers.htm'},
-    'Film / Media Production':{label:'Moderate',pct:5,period:'2024–34',src:'https://www.bls.gov/ooh/entertainment-and-sports/producers-and-directors.htm'},
-    'Theater & Performing Arts':{label:'Flat',pct:0,period:'2024–34',src:'https://www.bls.gov/ooh/entertainment-and-sports/actors.htm'},
-    'Technical Theater / Live Events':{label:'Moderate',pct:3,period:'2024–34',src:'https://www.onetonline.org/link/localtrends/27-4011.00'},
-    'Architecture':{label:'Moderate',pct:3.9,period:'2023–2033',src:'https://wagedex.com/outlook/architects-except-landscape-and-naval'},
-    'Writing / Communications':{label:'Moderate',pct:4,period:'2024–34',src:'https://www.bls.gov/ooh/media-and-communication/writers-and-authors.htm'},
-    'Medicine (MD/DO)':{label:'Moderate',pct:3,period:'2024–34',src:'https://www.bls.gov/ooh/healthcare/physicians-and-surgeons.htm'},
-    'Nursing':{label:'Moderate',pct:5,period:'2024–34',src:'https://www.bls.gov/ooh/healthcare/registered-nurses.htm'},
-    'Pharmacy':{label:'Moderate',pct:5,period:'2024–34',src:'https://www.bls.gov/ooh/healthcare/pharmacists.htm'},
-    'Physical Therapy':{label:'High',pct:10.9,period:'2023–2033',src:'https://wagedex.com/outlook/physical-therapists'},
-    'Psychology (Clinical)':{label:'Moderate',pct:6,period:'2024–34',src:'https://www.bls.gov/ooh/life-physical-and-social-science/psychologists.htm'},
-    'US Law (JD)':{label:'Moderate',pct:4,period:'2024–34',src:'https://www.bls.gov/ooh/legal/lawyers.htm'},
-    'European Law':{label:'Moderate',pct:4,period:'2024–34',src:'https://www.bls.gov/ooh/legal/lawyers.htm'},
-    'International Relations':{label:'Low',pct:-3,period:'2024–34',src:'https://www.bls.gov/ooh/life-physical-and-social-science/political-scientists.htm'},
-    'Public Policy':{label:'Low',pct:-3,period:'2024–34',src:'https://www.bls.gov/ooh/life-physical-and-social-science/political-scientists.htm'}
-  },
-  cats:{
-    tech:{label:'Very high',pct:15.8,period:'2023–2033',src:'https://wagedex.com/outlook/software-developers'},
-    business:{label:'Moderate',pct:6,period:'2024–34',src:'https://www.bls.gov/ooh/business-and-financial/financial-analysts.htm'},
-    science:{label:'Mixed',pct:5,period:'2024–34',src:'https://www.bls.gov/ooh/life-physical-and-social-science/chemists-and-materials-scientists.htm'},
-    creative:{label:'Mixed',pct:2,period:'2024–34',src:'https://www.bls.gov/ooh/arts-and-design/graphic-designers.htm'},
-    health:{label:'High',pct:5,period:'2024–34',src:'https://www.bls.gov/ooh/healthcare/registered-nurses.htm'},
-    law:{label:'Moderate',pct:4,period:'2024–34',src:'https://www.bls.gov/ooh/legal/lawyers.htm'}
-  }
-};
+// DEMAND_MAP merged into careers.json — access via getSub(career)?.demand
 function demandCell(d){
  if(!d) return '—';
  const v=Math.round(d.pct);
  if(v>0) return `+${v}%`;
  return `${v}%`;
 }
-function getDemandForCareer(name){return DEMAND_MAP.careers[name]||null}
+function getDemandForCareer(name){
+  const career = getSub(name);
+  return career?.demand || null;
+}
 const HAS_US=true;
 const HAS_EU=true;
 
-function getDemandForCat(key){return DEMAND_MAP.cats[key]||null}
+function getDemandForCat(key){
+  // Derive category demand from subcareers' demand percentages
+  const subs = getCategorySubjects(key);
+  if (!subs || Object.keys(subs).length === 0) return null;
+
+  const demands = Object.values(subs)
+    .map(subcareer => subcareer?.demand)
+    .filter(d => d && typeof d.pct === 'number');
+
+  if (demands.length === 0) return null;
+
+  const avgPct = demands.reduce((sum, d) => sum + d.pct, 0) / demands.length;
+  const labels = demands.map(d => d.label);
+
+  // Determine overall label based on average percentage
+  let label = 'Moderate';
+  if (avgPct > 10) label = 'Very high';
+  else if (avgPct > 7) label = 'High';
+  else if (avgPct > 4) label = 'Moderate';
+  else if (avgPct < 0) label = 'Declining';
+  else label = 'Low';
+
+  return {
+    label: label,
+    pct: Math.round(avgPct * 10) / 10,
+    period: '2024-34',
+    src: null
+  };
+}
 
 function fmt(n){return'$'+Math.round(n).toLocaleString()}
 
