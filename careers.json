@@ -1,0 +1,646 @@
+{
+  "tech": {
+    "name": "Tech / Engineering",
+    "edu": "Bachelor's (4 yr) or Master's",
+    "costUS": "$80k–$200k",
+    "costEU": "$0–$15k",
+    "salUS": "$75k–$150k",
+    "salEU": "$40k–$70k",
+    "growth": "Very high",
+    "subs": {
+      "Software Engineering": {
+        "growth": "Very high",
+        "typicalPostGradYears": 0,
+        "postGradFunded": false,
+        "education": "Bachelor's (4 yr)",
+        "costUS": 150000,
+        "costEU": 8000,
+        "salaryUS": "$85k–$140k",
+        "salaryEU": "$40k–$70k",
+        "portability": "HIGH",
+        "licensing": "No",
+        "resources": [
+          {
+            "t": "IEEE",
+            "u": "https://www.ieee.org/"
+          },
+          {
+            "t": "Stack Overflow Survey",
+            "u": "https://survey.stackoverflow.co/"
+          }
+        ]
+      },
+      "Computer Science": {
+        "growth": "Very high",
+        "typicalPostGradYears": 0,
+        "postGradFunded": false,
+        "education": "Bachelor's (4 yr)",
+        "costUS": 150000,
+        "costEU": 8000,
+        "salaryUS": "$80k–$130k",
+        "salaryEU": "$37k–$64k",
+        "portability": "HIGH",
+        "licensing": "No",
+        "resources": [
+          {
+            "t": "ACM",
+            "u": "https://www.acm.org/"
+          }
+        ]
+      },
+      "Electrical Engineering": {
+        "growth": "High",
+        "education": "Bachelor's or Master's",
+        "costUS": 160000,
+        "costEU": 10000,
+        "salaryUS": "$75k–$115k",
+        "salaryEU": "$40k–$64k",
+        "portability": "HIGH",
+        "licensing": "PE optional, transfers w/ exam",
+        "resources": [
+          {
+            "t": "IEEE",
+            "u": "https://www.ieee.org/"
+          }
+        ]
+      },
+      "Mechanical Engineering": {
+        "growth": "Moderate",
+        "education": "Bachelor's or Master's",
+        "costUS": 160000,
+        "costEU": 10000,
+        "salaryUS": "$70k–$110k",
+        "salaryEU": "$38k–$60k",
+        "portability": "HIGH",
+        "licensing": "PE optional",
+        "resources": [
+          {
+            "t": "ASME",
+            "u": "https://www.asme.org/"
+          }
+        ]
+      },
+      "Data Science / AI": {
+        "growth": "Very high",
+        "typicalPostGradYears": 2,
+        "postGradFunded": false,
+        "education": "Bachelor's + Master's typical",
+        "costUS": 190000,
+        "costEU": 12000,
+        "salaryUS": "$95k–$160k",
+        "salaryEU": "$46k–$81k",
+        "portability": "HIGH",
+        "licensing": "No",
+        "resources": [
+          {
+            "t": "Kaggle",
+            "u": "https://www.kaggle.com/"
+          }
+        ]
+      },
+      "Cybersecurity": {
+        "growth": "Very high",
+        "education": "Bachelor's (4 yr)",
+        "costUS": 150000,
+        "costEU": 8000,
+        "salaryUS": "$80k–$130k",
+        "salaryEU": "$40k–$70k",
+        "portability": "HIGH — certs are global",
+        "licensing": "Certs (CISCP etc) global",
+        "resources": [
+          {
+            "t": "(ISC)²",
+            "u": "https://www.isc2.org/"
+          }
+        ]
+      },
+      "Engineering": {
+        "growth": "High",
+        "education": "Bachelor's or Master's",
+        "costUS": 160000,
+        "costEU": 10000,
+        "salaryUS": "$70k–$120k",
+        "salaryEU": "$40k–$65k",
+        "portability": "HIGH",
+        "licensing": "PE optional, varies by specialty",
+        "resources": [
+          {
+            "t": "IEEE",
+            "u": "https://www.ieee.org/"
+          }
+        ]
+      }
+    },
+    "portability": "HIGH — skills transfer globally",
+    "licensing": "Rarely licensed"
+  },
+  "business": {
+    "name": "Business / Finance",
+    "edu": "Bachelor's (4 yr); MBA optional",
+    "costUS": "$80k–$250k",
+    "costEU": "$0–$20k",
+    "salUS": "$55k–$120k",
+    "salEU": "$35k–$64k",
+    "growth": "High",
+    "subs": {
+      "Finance / Banking": {
+        "growth": "High",
+        "education": "Bachelor's; MBA optional",
+        "costUS": 180000,
+        "costEU": 12000,
+        "salaryUS": "$70k–$120k",
+        "salaryEU": "$35k–$64k",
+        "portability": "HIGH — CFA global",
+        "licensing": "CFA optional, global",
+        "resources": [
+          {
+            "t": "CFA Institute",
+            "u": "https://www.cfainstitute.org/"
+          }
+        ]
+      },
+      "Accounting": {
+        "growth": "Moderate",
+        "education": "Bachelor's + CPA",
+        "costUS": 150000,
+        "costEU": 8000,
+        "salaryUS": "$55k–$85k",
+        "salaryEU": "$32k–$52k",
+        "portability": "MEDIUM — CPA US-specific",
+        "licensing": "CPA (US), ACCA (intl)",
+        "resources": [
+          {
+            "t": "AICPA",
+            "u": "https://www.aicpa.org/"
+          }
+        ]
+      },
+      "Marketing / Management": {
+        "growth": "Moderate",
+        "education": "Bachelor's (4 yr)",
+        "costUS": 140000,
+        "costEU": 8000,
+        "salaryUS": "$50k–$80k",
+        "salaryEU": "$32k–$52k",
+        "portability": "HIGH",
+        "licensing": "No",
+        "resources": [
+          {
+            "t": "AMA",
+            "u": "https://www.ama.org/"
+          }
+        ]
+      },
+      "Economics": {
+        "growth": "Moderate",
+        "education": "Bachelor's; PhD for research",
+        "costUS": 150000,
+        "costEU": 8000,
+        "salaryUS": "$60k–$100k",
+        "salaryEU": "$35k–$58k",
+        "portability": "HIGH",
+        "licensing": "No",
+        "resources": [
+          {
+            "t": "AEA",
+            "u": "https://www.aeaweb.org/"
+          }
+        ]
+      },
+      "Entrepreneurship": {
+        "growth": "High",
+        "education": "Bachelor's; experience > degree",
+        "costUS": 150000,
+        "costEU": 8000,
+        "salaryUS": "Variable",
+        "salaryEU": "Variable",
+        "portability": "HIGH",
+        "licensing": "No",
+        "resources": [
+          {
+            "t": "YC Library",
+            "u": "https://www.ycombinator.com/library"
+          }
+        ]
+      }
+    },
+    "portability": "HIGH — global career",
+    "licensing": "CPA/CFA optional"
+  },
+  "science": {
+    "name": "Science / Research",
+    "edu": "Bachelor's + Master's/PhD typical",
+    "costUS": "$100k–$200k (PhD funded)",
+    "costEU": "$0–$15k (PhD funded)",
+    "salUS": "$45k–$100k",
+    "salEU": "$35k–$64k",
+    "growth": "Moderate–High",
+    "subs": {
+      "Biology / Biotech": {
+        "growth": "High",
+        "typicalPostGradYears": 4,
+        "postGradFunded": true,
+        "education": "Bachelor's + PhD",
+        "costUS": 150000,
+        "costEU": 8000,
+        "salaryUS": "$45k–$90k",
+        "salaryEU": "$35k–$58k",
+        "portability": "HIGH",
+        "licensing": "Rarely",
+        "resources": [
+          {
+            "t": "Nature Careers",
+            "u": "https://www.nature.com/naturecareers"
+          }
+        ]
+      },
+      "Chemistry": {
+        "growth": "Moderate",
+        "typicalPostGradYears": 4,
+        "postGradFunded": true,
+        "education": "Bachelor's + PhD",
+        "costUS": 150000,
+        "costEU": 8000,
+        "salaryUS": "$50k–$95k",
+        "salaryEU": "$35k–$58k",
+        "portability": "HIGH",
+        "licensing": "Rarely",
+        "resources": [
+          {
+            "t": "ACS",
+            "u": "https://www.acs.org/"
+          }
+        ]
+      },
+      "Physics": {
+        "growth": "Moderate",
+        "typicalPostGradYears": 4,
+        "postGradFunded": true,
+        "education": "Bachelor's + PhD",
+        "costUS": 150000,
+        "costEU": 8000,
+        "salaryUS": "$55k–$100k",
+        "salaryEU": "$37k–$64k",
+        "portability": "HIGH",
+        "licensing": "No",
+        "resources": [
+          {
+            "t": "APS",
+            "u": "https://www.aps.org/"
+          }
+        ]
+      },
+      "Environmental / Climate": {
+        "growth": "Very high",
+        "education": "Bachelor's or Master's",
+        "costUS": 150000,
+        "costEU": 8000,
+        "salaryUS": "$50k–$85k",
+        "salaryEU": "$32k–$56k",
+        "portability": "HIGH",
+        "licensing": "Rarely",
+        "resources": [
+          {
+            "t": "EPA Careers",
+            "u": "https://www.epa.gov/careers"
+          }
+        ]
+      },
+      "Math / Statistics": {
+        "growth": "High",
+        "typicalPostGradYears": 4,
+        "postGradFunded": true,
+        "education": "Bachelor's; PhD for research",
+        "costUS": 150000,
+        "costEU": 8000,
+        "salaryUS": "$65k–$110k",
+        "salaryEU": "$35k–$64k",
+        "portability": "HIGH",
+        "licensing": "No",
+        "resources": [
+          {
+            "t": "AMS",
+            "u": "https://www.ams.org/"
+          }
+        ]
+      },
+      "Zoology": {
+        "growth": "Moderate",
+        "typicalPostGradYears": 4,
+        "postGradFunded": true,
+        "education": "Bachelor's + PhD typical",
+        "costUS": 150000,
+        "costEU": 8000,
+        "salaryUS": "$45k–$85k",
+        "salaryEU": "$32k–$58k",
+        "portability": "HIGH",
+        "licensing": "Rarely",
+        "resources": [
+          {
+            "t": "Wildlife Society",
+            "u": "https://wildlife.org/"
+          },
+          {
+            "t": "Ecological Society",
+            "u": "https://www.esa.org/"
+          }
+        ]
+      }
+    },
+    "portability": "HIGH — research is international",
+    "licensing": "Rarely"
+  },
+  "creative": {
+    "name": "Creative / Arts",
+    "edu": "Bachelor's (3–4 yr)",
+    "costUS": "$60k–$200k",
+    "costEU": "$0–$15k",
+    "salUS": "$35k–$90k",
+    "salEU": "$29k–$52k",
+    "growth": "Moderate",
+    "subs": {
+      "Graphic / UX Design": {
+        "growth": "High",
+        "education": "Bachelor's (3–4 yr)",
+        "costUS": 150000,
+        "costEU": 8000,
+        "salaryUS": "$50k–$90k",
+        "salaryEU": "$29k–$52k",
+        "portability": "HIGH — portfolio",
+        "licensing": "No",
+        "resources": [
+          {
+            "t": "AIGA",
+            "u": "https://www.aiga.org/"
+          }
+        ]
+      },
+      "Film / Media Production": {
+        "growth": "Moderate",
+        "education": "Bachelor's (3–4 yr)",
+        "costUS": 180000,
+        "costEU": 12000,
+        "salaryUS": "$40k–$80k",
+        "salaryEU": "$26k–$46k",
+        "portability": "HIGH",
+        "licensing": "No",
+        "resources": [
+          {
+            "t": "Sundance",
+            "u": "https://collab.sundance.org/"
+          }
+        ]
+      },
+      "Theater & Performing Arts": {
+        "growth": "Moderate",
+        "education": "Bachelor's (3–4 yr)",
+        "costUS": 150000,
+        "costEU": 8000,
+        "salaryUS": "$35k–$75k",
+        "salaryEU": "$26k–$50k",
+        "portability": "HIGH",
+        "licensing": "No",
+        "resources": [
+          {
+            "t": "TCG",
+            "u": "https://www.tcg.org/"
+          }
+        ]
+      },
+      "Technical Theater / Live Events": {
+        "growth": "Moderate",
+        "education": "Bachelor's (3–4 yr)",
+        "costUS": 140000,
+        "costEU": 7000,
+        "salaryUS": "$40k–$70k",
+        "salaryEU": "$26k–$48k",
+        "portability": "HIGH",
+        "licensing": "No",
+        "resources": [
+          {
+            "t": "USITT",
+            "u": "https://www.usitt.org/"
+          }
+        ]
+      },
+      "Architecture": {
+        "growth": "Moderate",
+        "typicalPostGradYears": 2,
+        "postGradFunded": false,
+        "education": "Bachelor's + Master's (5–6 yr)",
+        "costUS": 250000,
+        "costEU": 15000,
+        "salaryUS": "$55k–$85k",
+        "salaryEU": "$32k–$52k",
+        "portability": "MEDIUM — licensing varies",
+        "licensing": "Licensed (varies by country)",
+        "resources": [
+          {
+            "t": "NCARB",
+            "u": "https://www.ncarb.org/"
+          }
+        ]
+      },
+      "Writing / Communications": {
+        "growth": "Moderate",
+        "education": "Bachelor's (3–4 yr)",
+        "costUS": 140000,
+        "costEU": 7000,
+        "salaryUS": "$40k–$70k",
+        "salaryEU": "$26k–$44k",
+        "portability": "HIGH (in English)",
+        "licensing": "No",
+        "resources": [
+          {
+            "t": "AWP",
+            "u": "https://www.awpwriter.org/"
+          }
+        ]
+      }
+    },
+    "portability": "HIGH — portfolio matters",
+    "licensing": "Not licensed"
+  },
+  "health": {
+    "name": "Health / Medicine",
+    "edu": "Bachelor's + professional (6–15 yr)",
+    "costUS": "$150k–$400k+",
+    "costEU": "$0–$50k",
+    "salUS": "$60k–$400k+",
+    "salEU": "$29k–$139k",
+    "growth": "Very high",
+    "subs": {
+      "Medicine (MD/DO)": {
+        "growth": "Very high",
+        "typicalPostGradYears": 8,
+        "postGradFunded": false,
+        "education": "Bachelor's + Med + Residency (11–15 yr)",
+        "costUS": 350000,
+        "costEU": 30000,
+        "salaryUS": "$200k–$400k+",
+        "salaryEU": "$58k–$139k",
+        "portability": "LOW",
+        "licensing": "USMLE (US), country-specific",
+        "resources": [
+          {
+            "t": "AAMC",
+            "u": "https://www.aamc.org/"
+          }
+        ]
+      },
+      "Nursing": {
+        "growth": "Very high",
+        "education": "Bachelor's BSN (4 yr)",
+        "costUS": 120000,
+        "costEU": 7000,
+        "salaryUS": "$60k–$95k",
+        "salaryEU": "$29k–$52k",
+        "portability": "LOW",
+        "licensing": "NCLEX (US), country-specific",
+        "resources": [
+          {
+            "t": "AANP",
+            "u": "https://www.aanp.org/"
+          }
+        ]
+      },
+      "Pharmacy": {
+        "growth": "Moderate",
+        "typicalPostGradYears": 3,
+        "postGradFunded": false,
+        "education": "Bachelor's + PharmD (6–8 yr)",
+        "costUS": 250000,
+        "costEU": 12000,
+        "salaryUS": "$120k–$150k",
+        "salaryEU": "$41k–$70k",
+        "portability": "LOW",
+        "licensing": "Country-specific",
+        "resources": [
+          {
+            "t": "AACP",
+            "u": "https://www.aacp.org/"
+          }
+        ]
+      },
+      "Physical Therapy": {
+        "growth": "High",
+        "typicalPostGradYears": 3,
+        "postGradFunded": false,
+        "education": "Bachelor's + DPT (6–7 yr)",
+        "costUS": 200000,
+        "costEU": 8000,
+        "salaryUS": "$70k–$95k",
+        "salaryEU": "$32k–$52k",
+        "portability": "LOW",
+        "licensing": "Country-specific",
+        "resources": [
+          {
+            "t": "APTA",
+            "u": "https://www.apta.org/"
+          }
+        ]
+      },
+      "Psychology (Clinical)": {
+        "growth": "High",
+        "typicalPostGradYears": 5,
+        "postGradFunded": false,
+        "education": "Bachelor's + PhD/PsyD (8–12 yr)",
+        "costUS": 250000,
+        "costEU": 15000,
+        "salaryUS": "$60k–$100k",
+        "salaryEU": "$35k–$58k",
+        "portability": "LOW",
+        "licensing": "Country-specific",
+        "resources": [
+          {
+            "t": "APA",
+            "u": "https://www.apa.org/"
+          }
+        ]
+      }
+    },
+    "portability": "LOW — country-specific",
+    "licensing": "Required everywhere"
+  },
+  "law": {
+    "name": "Law / Policy",
+    "edu": "Bachelor's + JD/Law (6–7 yr)",
+    "costUS": "$200k–$350k",
+    "costEU": "$0–$15k",
+    "salUS": "$60k–$215k",
+    "salEU": "$35k–$81k",
+    "growth": "Moderate",
+    "subs": {
+      "US Law (JD)": {
+        "growth": "Moderate",
+        "typicalPostGradYears": 3,
+        "postGradFunded": false,
+        "education": "Bachelor's + JD (7 yr)",
+        "costUS": 300000,
+        "costEU": null,
+        "salaryUS": "$60k–$215k",
+        "salaryEU": "N/A",
+        "portability": "LOW — US bar only",
+        "licensing": "State bar exam",
+        "resources": [
+          {
+            "t": "ABA",
+            "u": "https://www.americanbar.org/"
+          }
+        ]
+      },
+      "European Law": {
+        "growth": "Moderate",
+        "typicalPostGradYears": 0,
+        "postGradFunded": false,
+        "education": "Law bachelor's (3–5 yr)",
+        "costUS": null,
+        "costEU": 8000,
+        "salaryUS": "N/A",
+        "salaryEU": "$35k–$81k",
+        "portability": "LOW — country-specific",
+        "licensing": "Country bar",
+        "resources": [
+          {
+            "t": "CCBE",
+            "u": "https://www.ccbe.eu/"
+          }
+        ]
+      },
+      "International Relations": {
+        "growth": "Moderate",
+        "education": "Bachelor's (4 yr); Master's helpful",
+        "costUS": 150000,
+        "costEU": 8000,
+        "salaryUS": "$45k–$80k",
+        "salaryEU": "$32k–$58k",
+        "portability": "HIGH",
+        "licensing": "No",
+        "resources": [
+          {
+            "t": "ISA",
+            "u": "https://www.isanet.org/"
+          }
+        ]
+      },
+      "Public Policy": {
+        "growth": "Moderate",
+        "education": "Bachelor's; MPP helpful",
+        "costUS": 150000,
+        "costEU": 8000,
+        "salaryUS": "$50k–$85k",
+        "salaryEU": "$32k–$56k",
+        "portability": "MEDIUM",
+        "licensing": "No",
+        "resources": [
+          {
+            "t": "APPAM",
+            "u": "https://www.appam.org/"
+          }
+        ]
+      }
+    },
+    "portability": "LOW — systems differ",
+    "licensing": "Bar exam required"
+  }
+}
