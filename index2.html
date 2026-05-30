@@ -19991,20 +19991,65 @@ function getCareerByName(name) {
   return null;
 }
 
+function getCareerEducation(name) {
+  const career = getCareerByName(name);
+  return career ? career.data.education : null;
+}
+
+function getCareerCostUS(name) {
+  const career = getCareerByName(name);
+  return career ? career.data.costUS : null;
+}
+
+function getCareerCostEU(name) {
+  const career = getCareerByName(name);
+  return career ? career.data.costEU : null;
+}
+
+function getCareerSalaryUS(name) {
+  const career = getCareerByName(name);
+  return career ? career.data.salaryUS : null;
+}
+
+function getCareerSalaryEU(name) {
+  const career = getCareerByName(name);
+  return career ? career.data.salaryEU : null;
+}
+
+function getCareerGrowth(name) {
+  const career = getCareerByName(name);
+  return career ? career.data.growth : null;
+}
+
+function getCareerPortability(name) {
+  const career = getCareerByName(name);
+  return career ? career.data.portability : null;
+}
+
+function getCareerLicensing(name) {
+  const career = getCareerByName(name);
+  return career ? career.data.licensing : null;
+}
+
+function getCareerResources(name) {
+  const career = getCareerByName(name);
+  return career ? (career.data.resources || []) : [];
+}
+
 function getCareersSchemaTemplate() {
   return {
     name: 'Career Name',
-    edu: 'Education requirement',
-    cUS: 0,
-    cEU: 0,
-    sUS: 'Salary range',
-    sEU: 'Salary range',
+    education: 'Education requirement',
+    costUS: 0,
+    costEU: 0,
+    salaryUS: 'Salary range',
+    salaryEU: 'Salary range',
     growth: 'Job growth rate',
-    port: 'Portability level',
-    lic: 'Licensing info',
-    typicalPostGradYears: 0,
-    postGradFunded: false,
-    res: [{ t: 'Resource Title', u: 'https://example.com' }]
+    portability: 'Portability level',
+    licensing: 'Licensing info',
+    typicalPostGraduateYears: 0,
+    postGraduateFunded: false,
+    resources: [{ title: 'Resource Title', url: 'https://example.com' }]
   };
 }
 
