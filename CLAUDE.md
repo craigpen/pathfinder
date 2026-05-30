@@ -180,6 +180,7 @@ Each externalized data source needs these function types:
 - Set to `true` in the async loader after successful fetch and Object.assign()
 - Add null-safe fallbacks in all entry functions: `const data = window.CAREERS || {};` (prevents crashes before load completes)
 - Never rely on `window.OBJECTNAME` without a fallback — async load may not be complete yet
+- **Race condition warning:** Initialization that depends on async data (e.g., `initDiscover()` needs CAREERS) must wait for `_LOADED` flag. Wrap in async function with polling loop: `while (!CAREERS_LOADED) await new Promise(r => setTimeout(r, 10));` before calling dependent code
 
 **Field Name Audit Checklist (Before shipping):**
 1. Search code for all abbreviated field names used in your data (e.g., `\.sUS`, `\.port`, `\.lic`)
@@ -190,29 +191,50 @@ Each externalized data source needs these function types:
 6. Verify all field accesses go through **helpers**, not inline data access (except nested cost-breakdown)
 7. Test actual UI to ensure no "—" (missing value) placeholders
 
+**Derived/Computed Data (Reference data keyed by primary data):**
+When externalizing reference data that's keyed by external data (e.g., DEMAND_MAP keyed by career names):
+- ✅ **Merge into the parent structure** if the reference is always accessed through the parent (e.g., DEMAND_MAP → careers.json as `demand` field per career)
+- ✅ **Write helper function to derive** if the data is sparse or needs computation (e.g., `getDemandForCat(key)` averages subcareers' demand percentages)
+- ✅ **Handle missing data gracefully** — use null checks and fallback display values (e.g., demandCell(d) returns '—' if d is null)
+- ❌ Don't create separate JSON files for lookup tables that are always accessed via primary keys — merge them instead
+
 **Common Pitfalls:**
 - ❌ Keeping fallback to embedded data (`window.CAREERS || CATS`) — masks incomplete refactoring
 - ❌ Mixing abbreviated and full field names in same codebase — causes silent failures
 - ❌ Leaving `const CATS = {...}` embedded "just in case" — defeats purpose of externalization
 - ❌ Forgetting `Object.assign(COUNTRIES, data)` in async loader — data loads but isn't accessible
+- ❌ Creating separate reference JSON files instead of merging into parent structure — bloats file count and complicates async loading
 
 ## Key Files & Functions
-- `index.html` — Single-page app with embedded CSS/JS (776KB)
+- `index.html` — Single-page app with embedded CSS/JS (originally 776KB, now uses external data)
   - This is your main deliverable; treat edits carefully
   - Always test in browser before committing
-  - Data: `UNIVERSITIES_BY_SUBJECT` defined in `<script>`; `COUNTRIES` and `CAREERS` loaded from external JSON at startup
-- External data files:
-  - `countries.json` (66KB) — Consolidated country data; loaded by `loadCountriesData()`
-  - `careers.json` (19KB) — Career categories and subcareers; loaded by `loadCareersData()`
-  - Always access via helpers (`getCountryName()`, `getSub()`, etc.), never direct property access
+  - **Note:** index2.html (285.9KB) is the working file; copy over index.html when done
+- External data files (loaded asynchronously at startup):
+  - `countries.json` (66KB) — Consolidated country data (13 countries with CD/FUNDING merged); loaded by `loadCountriesData()`. Access via helpers: `getCountryName()`, `getCountryTuition()`, etc.
+  - `careers.json` (24KB) — Career categories and subcareers (33 total) with merged DEMAND_MAP data; loaded by `loadCareersData()`. Access via helpers: `getSub()`, `getCategorySubjects()`, etc. Each subcareer has `demand` field with {label, pct, period, src}
+  - `universities.json` (587 universities) — External university database; loaded by `loadUniversitiesData()`. Access via helpers: `getUniversity()`, `getUniversitiesByCountry()`, `getUniversitiesByProgram()`, etc.
+  - **Always access via helpers**, never direct property access
 - Carousel helpers:
   - `buildCarouselHTML()` — Creates carousel container and cards
   - `initCarousel(carouselId)` — Initializes drag/touch/snap behavior for a carousel
   - Never forget to call `initCarousel()` after dynamically rendering carousels
+- University helpers:
+  - `getUniversity(name)` — Query single university by name
+  - `getUniversitiesByCountry(countryCode)` — Filter universities by country code
+  - `getUniversitiesByProgram(program)` — Filter universities offering a specific program
+  - `getUniversitiesBySelectivity(level)` — Filter by selectivity tier
+  - `validateUniversitySchema(uni)` — Validate single university object
+  - `validateAllUniversities()` — Validate entire dataset on load
+  - `debugUniversity(name)` and `debugAllUniversities()` — Console output for testing
 - Insight helpers:
   - `formatInsightItem(text, isProItem)` — Applies emoji and color based on sentiment
   - `renderInsightsTable()` — Renders standardized insight table with carousel
   - Always add insights to existing `careerFits`, `countryFits`, `costAnalysis`, or `crossTabInsights` arrays
+- Career demand helpers (merged from DEMAND_MAP):
+  - `getDemandForCareer(name)` — Get BLS demand data for a specific career; returns {label, pct, period, src} or null
+  - `getDemandForCat(key)` — Derive category-level demand by averaging subcareers' percentages
+  - `demandCell(d)` — Format demand data for display; returns "—" if null
 
 ---
 
