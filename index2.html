@@ -1558,8 +1558,8 @@ function buildTransitionTable(scenarios, workTarget) {
     if(!scenario) return 'Scenario ' + idx;
     const country = countries[scenario.studyCountry];
     const careerName = scenario.career;
-    const countryName = country ? country.name : scenario.studyCountry;
-    return `${careerName}<br/>Study: ${countryName}`;
+    const flag = country ? `<img src="${country.flag}" style="height:0.9em;vertical-align:middle">` : '';
+    return `${careerName}<br/>${flag}`;
   };
 
   return buildTableHTML(rows, columnKeys, columnLabel, 'transition-table');
