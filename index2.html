@@ -21322,12 +21322,12 @@ function renderPath(k){
 })();
 h += `<div class=\"ss\"><h3>Your Timeline & Next Steps</h3><div>${stepsHtml}</div></div>`;
 
-h += `<div class="ss"><h3>Key Decisions for ${c.n}</h3>`+
-   `${(d.dec||[]).map(x=>`<div style="margin-bottom:10px"><div style="font-weight:700;font-size:13px;color:var(--dk);margin-bottom:2px">${x.q}</div><div style="font-size:13px;line-height:1.4">${x.a}</div></div>`).join('')}`+
+h += `<div class="ss"><h3>Key Decisions for ${getCountryName(k)}</h3>`+
+   `${(getCountryFaqs(k)||[]).map(x=>`<div style="margin-bottom:10px"><div style="font-weight:700;font-size:13px;color:var(--dk);margin-bottom:2px">${x.q}</div><div style="font-size:13px;line-height:1.4">${x.a}</div></div>`).join('')}`+
  `</div>`;
 
- h += `<div class="ss"><h3>Resources for ${c.n}</h3><ul class="rl">`+
-   `${(d.res||[]).map(r=>`<li><a href="${r.u}" target="_blank">${r.t}</a></li>`).join('')}`+
+ h += `<div class="ss"><h3>Resources for ${getCountryName(k)}</h3><ul class="rl">`+
+   `${(getCountryResources(k)||[]).map(r=>`<li><a href="${r.u}" target="_blank">${r.t}</a></li>`).join('')}`+
  `</ul></div>`+
  `<div class="ss"><h3>Funding & Scholarships Links</h3><ul class="rl">`+
  `<li>${keyLinks(k)}</li>`+
