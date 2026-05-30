@@ -400,7 +400,7 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 <div class="qb"><div class="ql">Select Your Preferences</div><div class="qt">What will your life look like after graduation?</div><div class="qs">Your salary and cost of living vary dramatically depending on where you work. This tab combines your career, study location, and work location to show realistic post-graduation budgets. Use this to understand whether your loan payments are manageable compared to your expected income.</div></div>
 <div style="margin-bottom:20px"><div style="font-weight:600;font-size:13px;margin-bottom:8px;color:var(--dk)">1. Career(s)</div><div class="pills" id="transition-careers" style="gap:8px"></div></div>
 <div style="margin-bottom:20px"><div style="font-weight:600;font-size:13px;margin-bottom:8px;color:var(--dk)">2. Study Location</div><div class="pills" id="transition-study-countries" style="gap:8px"></div></div>
-<div style="margin-bottom:20px"><div style="font-weight:600;font-size:13px;margin-bottom:8px;color:var(--dk)">3. Work Location</div><div class="pills" id="transition-work-target" style="gap:8px"><div class="pill" data-q="transitionWorkTarget" onclick="S.transitionWorkTarget='US';saveState();renderTransition()">United States</div><div class="pill" data-q="transitionWorkTarget" onclick="S.transitionWorkTarget='EU';saveState();renderTransition()">European Union</div></div></div>
+<div style="margin-bottom:20px"><div style="font-weight:600;font-size:13px;margin-bottom:8px;color:var(--dk)">3. Work Location</div><div class="pills" id="transition-work-target" style="gap:8px"><div class="pill" data-q="transitionWorkTarget" data-val="US" onclick="S.transitionWorkTarget='US';saveState();renderTransition()">United States</div><div class="pill" data-q="transitionWorkTarget" data-val="EU" onclick="S.transitionWorkTarget='EU';saveState();renderTransition()">European Union</div></div></div>
 <div id="transition-table" style="margin:20px 0"></div>
 <div id="transition-insights" style="margin:20px 0"></div>
 <div class="bg"><button class="btn bs pos-left" onclick="go('costs')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('insights')">Next</button></div>
@@ -2625,8 +2625,8 @@ function renderTransition(){
   countryEl.innerHTML = countryHTML;
 
   // Sync work target pills
-  document.querySelectorAll('[data-q="transitionWorkTarget"] .pill').forEach(p => {
-    if(p.textContent === S.transitionWorkTarget) p.classList.add('on');
+  document.querySelectorAll('[data-q="transitionWorkTarget"]').forEach(p => {
+    if(p.dataset.val === S.transitionWorkTarget) p.classList.add('on');
     else p.classList.remove('on');
   });
 
