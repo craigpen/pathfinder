@@ -398,8 +398,8 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 </div>
 <div class="pan" id="transition" style="padding:24px">
 <div class="qb"><div class="ql">Select Your Preferences</div><div class="qt">What will your life look like after graduation?</div><div class="qs">Your salary and cost of living vary dramatically depending on where you work. This tab combines your career, study location, and work location to show realistic post-graduation budgets. Use this to understand whether your loan payments are manageable compared to your expected income.</div></div>
-<div style="margin-bottom:20px"><div style="font-weight:600;font-size:13px;margin-bottom:8px;color:var(--dk)">1. Career(s)</div><div class="pills" id="transition-careers" style="gap:8px"></div></div>
-<div style="margin-bottom:20px"><div style="font-weight:600;font-size:13px;margin-bottom:8px;color:var(--dk)">2. Study Location</div><div class="pills" id="transition-study-countries" style="gap:8px"></div></div>
+<div style="margin-bottom:20px"><div style="font-weight:600;font-size:13px;margin-bottom:8px;color:var(--dk)">SELECT ONE OR MORE</div><div style="font-size:18px;font-weight:700;margin-bottom:10px;color:var(--dk)">What careers would you like to compare?</div><div class="pills" id="transition-careers" style="gap:8px"></div></div>
+<div style="margin-bottom:20px"><div style="font-weight:600;font-size:13px;margin-bottom:8px;color:var(--dk)">SELECT ONE OR MORE</div><div style="font-size:18px;font-weight:700;margin-bottom:10px;color:var(--dk)">Which countries are you considering?</div><div class="pills" id="transition-study-countries" style="gap:8px"></div></div>
 <div style="margin-bottom:20px"><div style="font-weight:600;font-size:13px;margin-bottom:8px;color:var(--dk)">3. Work Location</div><div class="pills" id="transition-work-target" style="gap:8px"><div class="pill" data-q="transitionWorkTarget" data-val="US" onclick="S.transitionWorkTarget='US';saveState();renderTransition()">United States</div><div class="pill" data-q="transitionWorkTarget" data-val="EU" onclick="S.transitionWorkTarget='EU';saveState();renderTransition()">European Union</div></div></div>
 <div id="transition-table" style="margin:20px 0"></div>
 <div id="transition-insights" style="margin:20px 0"></div>
@@ -2592,37 +2592,17 @@ function renderTransition(){
   const careers = window.CAREERS || {};
   const countries = window.COUNTRIES || {};
 
-  // Populate career pills - just display what's selected
+  // Render career pills - same as Careers tab
   const careerEl = document.getElementById('transition-careers');
-  let careerHTML = '';
-  if(S.subCareers && S.subCareers.length > 0) {
-    S.subCareers.forEach(career => {
-      if(!career) return; // Skip undefined/null
-      careerHTML += `<div class="pill on" style="pointer-events:none">${career}</div>`;
-    });
+  if(!S.cats.length){careerEl.innerHTML='';} else {
+    let h='';S.cats.forEach(ck=>{Object.keys(getCategorySubjects(ck)).forEach(fn=>{h+=`<div class="pill${S.subCareers.includes(fn)?' on':''}" onclick="togSub('${fn}',this)">${fn}</div>`})});careerEl.innerHTML=h;
   }
-  if(!careerHTML) {
-    careerHTML = '<div style="font-size:13px;color:var(--tx2)">No careers selected. Go to Careers tab to select.</div>';
-  }
-  careerEl.innerHTML = careerHTML;
 
-  // Populate study country pills - just display what's selected
+  // Render country pills - same as Countries tab
   const countryEl = document.getElementById('transition-study-countries');
-  let countryHTML = '';
-  if(S.cc && S.cc.length > 0) {
-    S.cc.forEach(cc => {
-      if(!cc) return; // Skip undefined/null
-      const country = countries[cc];
-      const name = country ? country.name : cc;
-      const flag = country ? country.flag : '';
-      if(flag) countryHTML += `<div class="pill on" style="pointer-events:none"><img src="${flag}" style="height:0.9em;vertical-align:middle"> ${name}</div>`;
-      else if(name) countryHTML += `<div class="pill on" style="pointer-events:none">${name}</div>`;
-    });
+  if(!COUNTRIES_LOADED){countryEl.innerHTML='<p>Loading countries...</p>';setTimeout(renderTransition,100);return;} else {
+    let h='';Object.entries(countries).forEach(([k,v])=>{h+=`<div class="pill${S.cc.includes(k)?' on':''}" onclick="togCC('${k}')"><img src="${v.flag}" style="height:0.9em;vertical-align:middle"> ${v.name}</div>`});countryEl.innerHTML=h;
   }
-  if(!countryHTML) {
-    countryHTML = '<div style="font-size:13px;color:var(--tx2)">No countries selected. Go to Universities tab to select.</div>';
-  }
-  countryEl.innerHTML = countryHTML;
 
   // Sync work target pills
   document.querySelectorAll('[data-q="transitionWorkTarget"]').forEach(p => {
