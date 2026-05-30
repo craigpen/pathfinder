@@ -19959,7 +19959,7 @@ const CATS={tech:{name:'Tech / Engineering',edu:"Bachelor's (4 yr) or Master's",
 
 function getCareerByName(name) {
   for (const catKey of Object.keys(CATS)) {
-    const subs = CATS[catKey].subs || {};
+    const subs = CATS[catKey].subjects || {};
     if (subs[name]) return { category: catKey, data: subs[name] };
   }
   return null;
@@ -20229,7 +20229,7 @@ function renderCatTable(){
     return;
   }
   function derive(cat){
-    const subs=CATS[cat]?.subs||{};
+    const subs=CATS[cat]?.subjects||{};
     const vals=[];
     Object.keys(subs).forEach(f=>{const d=getDemandForCareer(f); if(d&&typeof d.pct==='number') vals.push(d.pct)});
     if(!vals.length) return null;
@@ -20257,7 +20257,7 @@ function togSub(fn,el){
  renderUniversities();
  
 }
-function getSub(fn){for(const[,c]of Object.entries(CATS)){if(c.subs[fn])return c.subs[fn]}return null}
+function getSub(fn){for(const[,c]of Object.entries(CATS)){if(c.subjects[fn])return c.subjects[fn]}return null}
 function renderCareerTable(){const sel=S.subCareers;const el=document.getElementById('career-table');if(sel.length<1){el.innerHTML=guidanceMsg('Select a career to view details');return}const attrs=[['Education','edu'],['Market Demand','dem'],['Total Cost (US)','cUS'],['Total Cost (EU)','cEU'],['Salary (US)','sUS'],['Salary (EU)','sEU'],['Growth','growth'],['Portability','port'],['Licensing','lic'],['Resources',null]];const rows=attrs.map(([l,a])=>[l,(f)=>{const d=getSub(f);if(a===null){return (d?.res?.map(r=>`<a href="${r.u}" target="_blank">${r.t}</a>`).join(', ')||'—');}let v='—';if(a==='dem'){v=demandCell(getDemandForCareer(f));}else{v=d?.[a]??'—';}if((a==='cUS'||a==='cEU')&&typeof v==='number')v=fmt(v);if(v===null)v='N/A';if(a==='port'&&typeof v==='string'&&v.startsWith('HIGH')){return {content:v,className:'win'}}return v;}]);const t=buildTableHTML(rows,sel,(f)=>`${f} <span class="xr" onclick="togSub('${f}',null);renderCareerView()">✕</span>`,'career-table');const carouselRows=attrs.map(([l,a])=>[l,(f)=>{const d=getSub(f);if(a===null){return `<div>${(d?.res?.map(r=>`<a href="${r.u}" target="_blank">${r.t}</a>`).join(', ')||'—')}</div>`}let v='—';if(a==='dem'){v=demandCell(getDemandForCareer(f));}else{v=d?.[a]??'—';}if((a==='cUS'||a==='cEU')&&typeof v==='number')v=fmt(v);if(v===null)v='N/A';const cls=a==='port'&&typeof v==='string'&&v.startsWith('HIGH')?' style="background:rgba(22,163,74,.08);font-weight:600"':'';return `<div${cls}>${v}</div>`;}]);const carousel=buildCarouselHTML(carouselRows,sel,(f)=>f,'career-carousel');el.innerHTML=t+carousel;setTimeout(()=>initCarousel('career-carousel'),50);}
 function renderFilterSubPills(){const el=document.getElementById('filter-sub-pills');if(!S.cats.length){el.innerHTML='';return}let h='';S.cats.forEach(ck=>{Object.keys(CATS[ck].subs).forEach(fn=>{h+=`<div class="pill${S.subCareers.includes(fn)?' on':''}\" onclick=\"togSub('${fn}',null);renderFilterSubPills();renderFilterAnalysis()\">${fn}</div>`})});el.innerHTML=h}
 function togPrac(v){
@@ -21121,8 +21121,8 @@ function renderCostTable(){
   const careersNeedingPostGrad=S.subCareers.filter(career=>{
     for(let catKey of Object.keys(CATS)){
       const cat=CATS[catKey];
-      if(cat.subs&&cat.subs[career]){
-        const careerData=cat.subs[career];
+      if(cat.subs&&cat.subjects[career]){
+        const careerData=cat.subjects[career];
         if(careerData.typicalPostGradYears&&careerData.typicalPostGradYears>0)return true;
       }
     }

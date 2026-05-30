@@ -7,7 +7,9 @@
     "salUS": "$75k–$150k",
     "salEU": "$40k–$70k",
     "growth": "Very high",
-    "subs": {
+    "portability": "HIGH — skills transfer globally",
+    "licensing": "Rarely licensed",
+    "subjects": {
       "Software Engineering": {
         "growth": "Very high",
         "education": "Bachelor's (4 yr)",
@@ -130,9 +132,7 @@
           }
         ]
       }
-    },
-    "portability": "HIGH — skills transfer globally",
-    "licensing": "Rarely licensed"
+    }
   },
   "business": {
     "name": "Business / Finance",
@@ -142,7 +142,9 @@
     "salUS": "$55k–$120k",
     "salEU": "$35k–$64k",
     "growth": "High",
-    "subs": {
+    "portability": "HIGH — global career",
+    "licensing": "CPA/CFA optional",
+    "subjects": {
       "Finance / Banking": {
         "growth": "High",
         "education": "Bachelor's; MBA optional",
@@ -223,9 +225,7 @@
           }
         ]
       }
-    },
-    "portability": "HIGH — global career",
-    "licensing": "CPA/CFA optional"
+    }
   },
   "science": {
     "name": "Science / Research",
@@ -235,7 +235,9 @@
     "salUS": "$45k–$100k",
     "salEU": "$35k–$64k",
     "growth": "Moderate–High",
-    "subs": {
+    "portability": "HIGH — research is international",
+    "licensing": "Rarely",
+    "subjects": {
       "Biology / Biotech": {
         "growth": "High",
         "education": "Bachelor's + PhD",
@@ -346,9 +348,7 @@
         "postGraduateFunded": true,
         "typicalPostGraduateYears": 4
       }
-    },
-    "portability": "HIGH — research is international",
-    "licensing": "Rarely"
+    }
   },
   "creative": {
     "name": "Creative / Arts",
@@ -358,7 +358,9 @@
     "salUS": "$35k–$90k",
     "salEU": "$29k–$52k",
     "growth": "Moderate",
-    "subs": {
+    "portability": "HIGH — portfolio matters",
+    "licensing": "Not licensed",
+    "subjects": {
       "Graphic / UX Design": {
         "growth": "High",
         "education": "Bachelor's (3–4 yr)",
@@ -457,9 +459,7 @@
           }
         ]
       }
-    },
-    "portability": "HIGH — portfolio matters",
-    "licensing": "Not licensed"
+    }
   },
   "health": {
     "name": "Health / Medicine",
@@ -469,7 +469,9 @@
     "salUS": "$60k–$400k+",
     "salEU": "$29k–$139k",
     "growth": "Very high",
-    "subs": {
+    "portability": "LOW — country-specific",
+    "licensing": "Required everywhere",
+    "subjects": {
       "Medicine (MD/DO)": {
         "growth": "Very high",
         "education": "Bachelor's + Med + Residency (11–15 yr)",
@@ -558,9 +560,7 @@
         "postGraduateFunded": false,
         "typicalPostGraduateYears": 5
       }
-    },
-    "portability": "LOW — country-specific",
-    "licensing": "Required everywhere"
+    }
   },
   "law": {
     "name": "Law / Policy",
@@ -570,7 +570,9 @@
     "salUS": "$60k–$215k",
     "salEU": "$35k–$81k",
     "growth": "Moderate",
-    "subs": {
+    "portability": "LOW — systems differ",
+    "licensing": "Bar exam required",
+    "subjects": {
       "US Law (JD)": {
         "growth": "Moderate",
         "education": "Bachelor's + JD (7 yr)",
@@ -639,8 +641,6 @@
           }
         ]
       }
-    },
-    "portability": "LOW — systems differ",
-    "licensing": "Bar exam required"
+    }
   }
 }
