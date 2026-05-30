@@ -794,6 +794,7 @@ function debugAllCountries() {
 // PHASE 2: LOAD countries.json AT STARTUP
 // ============================================================================
 
+let COUNTRIES = {}; // Initialize empty, will be populated by loadCountriesData()
 let COUNTRIES_LOADED = false;
 
 async function loadCountriesData() {
@@ -20172,7 +20173,7 @@ else{
 }
 el.innerHTML=msg;
 }
-function renderCCChips(){const el=document.getElementById('cc-chips');let h='';Object.entries(COUNTRIES).forEach(([k,v])=>{h+=`<div class="pill${S.cc.includes(k)?' on':''}" onclick="togCC('${k}')">${v.e} ${v.n}</div>`});el.innerHTML=h;renderCCTable()}
+function renderCCChips(){const el=document.getElementById('cc-chips');let h='';Object.entries(COUNTRIES).forEach(([k,v])=>{h+=`<div class="pill${S.cc.includes(k)?' on':''}" onclick="togCC('${k}')">${v.flag} ${v.name}</div>`});el.innerHTML=h;renderCCTable()}
 function togCC(k){if(S.cc.includes(k))S.cc=S.cc.filter(x=>x!==k);else S.cc.push(k);saveState();renderCCChips();updateHdrCarousel();renderUniversities();renderInsights()}
 function renderCCTable(){const sel=S.cc;const el=document.getElementById('cc-table');if(sel.length<1){el.innerHTML=guidanceMsg('Select a country to view details');return}const attrs=[['Tuition',(k)=>{const val=getCountryTuition(k)||'—';const note=getCountryTuitionNote(k);return `${val}${note?'<div class="note">'+note+'</div>':''}`;},null],['Degree Length',(k)=>(getCountryDuration(k)||'—')+' years'],['Language',(k)=>getCountryLanguage(k)||'—'],['Change Majors?',(k)=>getCountryChangePolicy(k)||'—'],['After Graduation',(k)=>getCountryPostGradOpportunities(k)||'—'],['Financial Aid',(k)=>getCountryFinancialAid(k)||'—'],['Admissions',(k)=>getCountryAdmissions(k)||'—'],['Culture',(k)=>getCountryCulture(k)||'—'],['Apply At',(k)=>getCountryPortal(k)||'—'],['Resources',(k)=>{const resources=getCountryResources(k)||[];return resources.map(r=>`<a href="${r.u}" target="_blank">${r.t}</a>`).join(', ')||'—';}]];const columnLabel=(k)=>`${getCountryFlag(k)} ${getCountryName(k)} <span class="xr" onclick="togCC('${k}')">✕</span>`;const t=buildTableHTML(attrs,sel,columnLabel,'cc-table');el.innerHTML=t;let insights=[];const seenMsgs=new Set();if(S.vision){const eu=['sweden','uk','germany','netherlands','france','italy','spain','denmark','ireland','no','ch'];const hasUS=sel.some(k=>k==='us'||k==='canada'||k==='australia'||k==='singapore');const hasEU=sel.some(k=>eu.includes(k));let visionMsg='';if(hasUS&&hasEU){if(S.vision==='In the US'){visionMsg='You prefer staying in the US long-term, but you\'ve selected EU countries. Consider if EU study aligns with your goals.';}else if(S.vision==='In Europe'){visionMsg='Your vision to work abroad aligns well with EU country choices.';}else if(S.vision==='Anywhere globally'){visionMsg='Your flexible vision works with both US and EU options. Pick based on other factors.';}}else if(hasEU&&!hasUS){if(S.vision==='In the US'){visionMsg='You prefer staying in the US, but selected only EU countries. Reconsider your country choices.';}else if(S.vision==='In Europe'||S.vision==='Anywhere globally'){visionMsg='Studying in an EU country positions you well for European work.';}}else if(hasUS&&!hasEU){if(S.vision==='In the US'||S.vision==='Anywhere globally'){visionMsg='US study aligns with your 5-year vision.';}else if(S.vision==='In Europe'){visionMsg='You want to work abroad, but studying in the US may make it harder to build international connections.';}}if(visionMsg&&!seenMsgs.has(visionMsg)){insights.push({align:!visionMsg.includes('Reconsider'),msg:visionMsg});seenMsgs.add(visionMsg)}}if(S.cost){const costs=sel.map(k=>getCountryCostTuition(k)||0);const hasExpensive=costs.some(c=>c>30000);const hasAffordable=costs.some(c=>c<=30000);let costMsg='';let isAlign=true;if(hasExpensive&&hasAffordable){costMsg='You\'ve selected both expensive and affordable countries. Consider which best matches your '+S.cost.toLowerCase()+' priority.';isAlign=false;}else{const insight=getCostInsight(sel,S.cost);if(insight){costMsg=insight.msg;isAlign=insight.align;}}if(costMsg&&!seenMsgs.has(costMsg)){insights.push({align:isAlign,msg:costMsg});seenMsgs.add(costMsg)}}if(S.lang&&S.cc.length>0){const langInsight=getLanguageInsight(S.cc[0],S.lang);if(langInsight&&!seenMsgs.has(langInsight.msg)){insights.push(langInsight);seenMsgs.add(langInsight.msg)}}if(S.citizen&&S.citizen.length>0){const citizenInsights=[];S.citizen.forEach(cit=>{const insight=getCitizenshipInsight(S.cc[0],cit);if(insight)citizenInsights.push(insight)});if(citizenInsights.length>0){const sample=citizenInsights[0];if(!seenMsgs.has(sample.msg)){insights.push(sample);seenMsgs.add(sample.msg)}}}
 const carouselRows=attrs.map(([l,a])=>[l,(k)=>{const cellData=a(k);let content=cellData;if(typeof cellData==='object'&&cellData.content!==undefined){content=cellData.content}return `<div>${content}</div>`;}]);const carousel=buildCarouselHTML(carouselRows,sel,(k)=>`${getCountryFlag(k)} ${getCountryName(k)}`,'cc-carousel');el.innerHTML=t+carousel;setTimeout(()=>initCarousel('cc-carousel'),50);
@@ -20199,7 +20200,7 @@ careers.forEach(f=>{
 el.innerHTML=h
 }
 
-function renderCCChips(){const el=document.getElementById('cc-chips');let h='';Object.entries(COUNTRIES).forEach(([k,v])=>{h+=`<div class="pill${S.cc.includes(k)?' on':''}" onclick="togCC('${k}')">${v.e} ${v.n}</div>`});el.innerHTML=h;renderCCTable()}
+function renderCCChips(){const el=document.getElementById('cc-chips');let h='';Object.entries(COUNTRIES).forEach(([k,v])=>{h+=`<div class="pill${S.cc.includes(k)?' on':''}" onclick="togCC('${k}')">${v.flag} ${v.name}</div>`});el.innerHTML=h;renderCCTable()}
 const DEMAND_MAP={
   careers:{
     'Software Engineering':{label:'Very high',pct:15.8,period:'2023–2033',src:'https://wagedex.com/outlook/software-developers'},
@@ -20336,7 +20337,7 @@ function buildUniversitiesCarouselByCountry(data) {
   const { country, countryCode, universities, careerUniMap } = data;
   
   let carouselHTML = `<div class="uni-country-carousel-section">
-    <div class="uni-country-title">${COUNTRIES[country].e} ${COUNTRIES[country].n} (${universities.length})</div>
+    <div class="uni-country-title">${COUNTRIES[country].flag} ${COUNTRIES[country].name} (${universities.length})</div>
     <div class="uni-country-carousel-wrap">
       <div class="uni-country-carousel">`;
   
@@ -20586,7 +20587,7 @@ function renderUniversities(){
     
     // Build country section
     html += `<div style="margin:20px 0;padding:12px;background:rgba(100,150,200,.08);border:1px solid rgba(100,150,200,.2);border-radius:6px">
-      <h3 style="margin:0 0 12px 0;font-size:18px">${COUNTRIES[country].e} ${COUNTRIES[country].n} (${filteredUnis.length})</h3>`;
+      <h3 style="margin:0 0 12px 0;font-size:18px">${COUNTRIES[country].flag} ${COUNTRIES[country].name} (${filteredUnis.length})</h3>`;
     
     if(filteredUnis.length === 0){
       html += '<p style="color:var(--tx2);margin:0">No universities match your preferences</p>';
@@ -20874,7 +20875,7 @@ function renderScholar(){
     ['Key links', k => (keyLinks(k) || '')]
   ];
 
-  const t = buildTableHTML(rows, sel, (k) => COUNTRIES[k].e + ' ' + COUNTRIES[k].n, 'scholar-table');
+  const t = buildTableHTML(rows, sel, (k) => COUNTRIES[k].flag + ' ' + COUNTRIES[k].name, 'scholar-table');
   let insights=[];
   // Insights are now only on Insights tab
   
@@ -20887,7 +20888,7 @@ function renderScholar(){
     }
   ]);
   
-  const carousel = buildCarouselHTML(carouselRows, sel, (k) => COUNTRIES[k].e + ' ' + COUNTRIES[k].n, 'scholar-carousel');
+  const carousel = buildCarouselHTML(carouselRows, sel, (k) => COUNTRIES[k].flag + ' ' + COUNTRIES[k].name, 'scholar-carousel');
   host.innerHTML = t + carousel;
   
   // Initialize carousel
@@ -21034,7 +21035,7 @@ function renderCostTable(){
   let t='<table class="ct"><thead><tr><th></th>';
   
   sel.forEach(k=>{
-    t+=`<th class="ch">${COUNTRIES[k].e} ${COUNTRIES[k].n} <span class="xr" onclick="togCost('${k}')">✕</span></th>`;
+    t+=`<th class="ch">${COUNTRIES[k].flag} ${COUNTRIES[k].name} <span class="xr" onclick="togCost('${k}')">✕</span></th>`;
   });
   t+='</tr></thead><tbody>';
   
@@ -21122,7 +21123,7 @@ function renderCostTable(){
   
   sel.forEach(k=>{
     carousel+=`<div class="carousel-card">`;
-    carousel+=`<div class="carousel-card-header">${COUNTRIES[k].e} ${COUNTRIES[k].n}</div>`;
+    carousel+=`<div class="carousel-card-header">${COUNTRIES[k].flag} ${COUNTRIES[k].name}</div>`;
     carousel+=`<div class="carousel-card-labels">`;
     carouselRows.forEach(([label])=>{
       carousel+=`<div class="carousel-card-label">${label}</div>`;
@@ -21471,7 +21472,7 @@ function generateConflictInsights() {
       const expensiveCountries = [];
       const expensiveMap = {'us': true, 'uk': true, 'canada': true, 'australia': true};
       S.cc.forEach(c => {
-        if(expensiveMap[c]) expensiveCountries.push(COUNTRIES[c].n);
+        if(expensiveMap[c]) expensiveCountries.push(COUNTRIES[c].name);
       });
       if(expensiveCountries.length > 0 && S.cc.length > 0){
         const affordableInSelection = S.cc.some(c => !expensiveMap[c]);
@@ -21996,7 +21997,7 @@ function renderInsights(){
   // These provide context about how each selected country fits with selected careers and user priorities
   if(countryFits.length > 0 && S.subCareers.length > 0) {
     countryFits.forEach(countryFit => {
-      const countryKey = Object.keys(COUNTRIES).find(k => COUNTRIES[k].n === countryFit.name);
+      const countryKey = Object.keys(COUNTRIES).find(k => COUNTRIES[k].name === countryFit.name);
 
       if(countryKey) {
         // Check which selected careers have strong representation in this country
@@ -22049,7 +22050,7 @@ function renderInsights(){
   // COST ANALYSIS - includes tuition & total cost, single repayment term
   if(S.costCC.length > 0){
     S.costCC.forEach(k => {
-      const countryName = COUNTRIES[k].n;
+      const countryName = COUNTRIES[k].name;
       const pros = [];
       const cons = [];
       
@@ -22152,7 +22153,7 @@ function renderInsights(){
       const salary = careerSalaryMap[careerShort] || 'varies';
 
       S.cc.forEach(country => {
-        const countryName = COUNTRIES[country].n;
+        const countryName = COUNTRIES[country].name;
         // Check if country has strong market for this career
         const strongMarkets = {
           'us': ['Engineering', 'Computer Science', 'Finance', 'Business', 'Law'],
@@ -22329,7 +22330,7 @@ function renderInsights(){
     
     const countriesWithGaps = Object.entries(programCounts).filter(([c, count]) => count === 0);
     if(countriesWithGaps.length > 0) {
-      const gapCountries = countriesWithGaps.map(([c]) => COUNTRIES[c].n).join(', ');
+      const gapCountries = countriesWithGaps.map(([c]) => COUNTRIES[c].name).join(', ');
       universityInsights.push({
         type: 'country',
         country: gapCountries,
@@ -22456,7 +22457,7 @@ function renderInsights(){
         if(euCountries.includes(country)) {
           universityInsights.push({
             type: 'country',
-            country: COUNTRIES[country].n,
+            country: COUNTRIES[country].name,
             pro: true,
             msg: `EU work rights across 9 countries + job-seeker visas (12-18 mo).`
           });
@@ -22468,7 +22469,7 @@ function renderInsights(){
         if(euCountries.includes(country)) {
           universityInsights.push({
             type: 'country',
-            country: COUNTRIES[country].n,
+            country: COUNTRIES[country].name,
             pro: true,
             msg: `EU degree gives work rights across 9 countries—broader than US degree.`
           });
