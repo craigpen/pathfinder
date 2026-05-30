@@ -1450,6 +1450,16 @@ function buildTableHTML(rows, columnKeys, columnLabel, tableId) {
   return html;
 }
 
+function parseSalary(salaryStr) {
+  if(!salaryStr) return null;
+  if(typeof salaryStr === 'number') return salaryStr;
+  // Parse '$40k–$70k' format to get average: extract numbers and average them
+  const matches = salaryStr.match(/\$?([\d.]+)k/g);
+  if(!matches || matches.length === 0) return null;
+  const nums = matches.map(m => parseInt(m.replace(/\D/g, '')) * 1000);
+  return Math.round(nums.reduce((a,b) => a + b) / nums.length);
+}
+
 function buildTransitionTable(scenarios, workTarget) {
   const careers = window.CAREERS || {};
   const countries = window.COUNTRIES || {};
@@ -1462,15 +1472,15 @@ function buildTransitionTable(scenarios, workTarget) {
       if(!scenario) return '—';
       const sub = getSub(scenario.career);
       const salaryKey = isUS ? 'salaryUS' : 'salaryEU';
-      const salary = sub ? sub[salaryKey] : null;
-      return salary ? `$${salary.toLocaleString()}` : '—';
+      const salaryStr = sub ? sub[salaryKey] : null;
+      return salaryStr || '—';
     }],
     ['Taxes (~20-22%)', (key) => {
       const scenario = scenarios[key];
       if(!scenario) return '—';
       const sub = getSub(scenario.career);
       const salaryKey = isUS ? 'salaryUS' : 'salaryEU';
-      const salary = sub ? sub[salaryKey] : null;
+      const salary = parseSalary(sub ? sub[salaryKey] : null);
       if(!salary) return '—';
       const taxRate = isUS ? 0.20 : 0.22;
       const taxes = Math.round(salary * taxRate);
@@ -1481,7 +1491,7 @@ function buildTransitionTable(scenarios, workTarget) {
       if(!scenario) return '—';
       const sub = getSub(scenario.career);
       const salaryKey = isUS ? 'salaryUS' : 'salaryEU';
-      const salary = sub ? sub[salaryKey] : null;
+      const salary = parseSalary(sub ? sub[salaryKey] : null);
       if(!salary) return '—';
       const taxRate = isUS ? 0.20 : 0.22;
       const afterTax = salary * (1 - taxRate);
@@ -1509,7 +1519,7 @@ function buildTransitionTable(scenarios, workTarget) {
       if(!scenario) return '—';
       const sub = getSub(scenario.career);
       const salaryKey = isUS ? 'salaryUS' : 'salaryEU';
-      const salary = sub ? sub[salaryKey] : null;
+      const salary = parseSalary(sub ? sub[salaryKey] : null);
       if(!salary) return '—';
       const taxRate = isUS ? 0.20 : 0.22;
       const afterTax = salary * (1 - taxRate);
@@ -1522,7 +1532,7 @@ function buildTransitionTable(scenarios, workTarget) {
       if(!scenario) return '—';
       const sub = getSub(scenario.career);
       const salaryKey = isUS ? 'salaryUS' : 'salaryEU';
-      const salary = sub ? sub[salaryKey] : null;
+      const salary = parseSalary(sub ? sub[salaryKey] : null);
       if(!salary) return '—';
       const taxRate = isUS ? 0.20 : 0.22;
       const afterTax = salary * (1 - taxRate);
@@ -1578,7 +1588,7 @@ function renderCatTable(){
   setTimeout(()=>initCarousel('cat-carousel'),50);
 }
 
-function renderSubPills(){const el=document.getElementById('sub-pills');if(!S.cats.length){el.innerHTML='';return}let h='';S.cats.forEach(ck=>{const subjects=getCategorySubjects(ck);console.log('Career category',ck,'has subjects:',Object.keys(subjects));Object.keys(subjects).forEach(fn=>{const sub=subjects[fn];h+=`<div class="pill${S.subCareers.includes(fn)?' on':''}" onclick="togSub('${fn}',this)">${sub.name||fn}</div>`})});el.innerHTML=h}
+function renderSubPills(){const el=document.getElementById('sub-pills');if(!S.cats.length){el.innerHTML='';return}let h='';S.cats.forEach(ck=>{Object.keys(getCategorySubjects(ck)).forEach(fn=>{h+=`<div class="pill${S.subCareers.includes(fn)?' on':''}" onclick="togSub('${fn}',this)">${fn}</div>`})});el.innerHTML=h}
 function togSub(fn,el){
  if(S.subCareers.includes(fn)) S.subCareers=S.subCareers.filter(f=>f!==fn);
  else S.subCareers.push(fn);
@@ -1590,7 +1600,7 @@ function togSub(fn,el){
  renderUniversities();
  
 }
-function getSub(fn){const careers=window.CAREERS||{};for(const[,c]of Object.entries(careers)){if(c.subjects[fn]){console.log('getSub found',fn,'->',c.subjects[fn]);return c.subjects[fn]}}console.log('getSub NOT found:',fn);return null}
+function getSub(fn){const careers=window.CAREERS||{};for(const[,c]of Object.entries(careers)){if(c.subjects[fn])return c.subjects[fn]}return null}
 function renderCareerTable(){const sel=S.subCareers;const el=document.getElementById('career-table');if(sel.length<1){el.innerHTML=guidanceMsg('Select a career to view details');return}const attrs=[['Education','education'],['Market Demand','dem'],['Total Cost (US)','costUS'],['Total Cost (EU)','costEU'],['Salary (US)','salaryUS'],['Salary (EU)','salaryEU'],['Growth','growth'],['Portability','portability'],['Licensing','licensing'],['Resources',null]];const rows=attrs.map(([l,a])=>[l,(f)=>{const d=getSub(f);if(a===null){return (d?.resources?.map(r=>`<a href="${r.url}" target="_blank">${r.title}</a>`).join(', ')||'—');}let v='—';if(a==='dem'){v=demandCell(getDemandForCareer(f));}else{v=d?.[a]??'—';}if((a==='costUS'||a==='costEU')&&typeof v==='number')v=fmt(v);if(v===null)v='N/A';if(a==='portability'&&typeof v==='string'&&v.startsWith('HIGH')){return {content:v,className:'win'}}return v;}]);const t=buildTableHTML(rows,sel,(f)=>`${f} <span class="xr" onclick="togSub('${f}',null);renderCareerView()">✕</span>`,'career-table');const carouselRows=attrs.map(([l,a])=>[l,(f)=>{const d=getSub(f);if(a===null){return `<div>${(d?.resources?.map(r=>`<a href="${r.url}" target="_blank">${r.title}</a>`).join(', ')||'—')}</div>`}let v='—';if(a==='dem'){v=demandCell(getDemandForCareer(f));}else{v=d?.[a]??'—';}if((a==='costUS'||a==='costEU')&&typeof v==='number')v=fmt(v);if(v===null)v='N/A';const cls=a==='portability'&&typeof v==='string'&&v.startsWith('HIGH')?' style="background:rgba(22,163,74,.08);font-weight:600"':'';return `<div${cls}>${v}</div>`;}]);const carousel=buildCarouselHTML(carouselRows,sel,(f)=>f,'career-carousel');el.innerHTML=t+carousel;setTimeout(()=>initCarousel('career-carousel'),50);}
 function renderFilterSubPills(){const el=document.getElementById('filter-sub-pills');if(!S.cats.length){el.innerHTML='';return}let h='';S.cats.forEach(ck=>{Object.keys(getCategorySubjects(ck)).forEach(fn=>{h+=`<div class="pill${S.subCareers.includes(fn)?' on':''}\" onclick=\"togSub('${fn}',null);renderFilterSubPills();renderFilterAnalysis()\">${fn}</div>`})});el.innerHTML=h}
 function togPrac(v){
@@ -2579,7 +2589,6 @@ function renderCostTable(){
   }
 }
 function renderTransition(){
-  console.log('renderTransition called. S.subCareers:', S.subCareers, 'S.cc:', S.cc);
 
   const careers = window.CAREERS || {};
   const countries = window.COUNTRIES || {};
@@ -2590,9 +2599,7 @@ function renderTransition(){
   if(S.subCareers && S.subCareers.length > 0) {
     S.subCareers.forEach(career => {
       if(!career) return; // Skip undefined/null
-      const sub = getSub(career);
-      const name = sub ? sub.name : career;
-      careerHTML += `<div class="pill on" style="pointer-events:none">${name}</div>`;
+      careerHTML += `<div class="pill on" style="pointer-events:none">${career}</div>`;
     });
   }
   if(!careerHTML) {
@@ -2682,7 +2689,7 @@ function renderTransition(){
     const sub = getSub(scenario.career);
     const country = countries[scenario.studyCountry];
     const salaryKey = S.transitionWorkTarget === 'US' ? 'salaryUS' : 'salaryEU';
-    const salary = sub ? sub[salaryKey] : null;
+    const salary = parseSalary(sub ? sub[salaryKey] : null);
 
     if(salary) {
       const taxRate = S.transitionWorkTarget === 'US' ? 0.20 : 0.22;
