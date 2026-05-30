@@ -34,6 +34,52 @@ Never use `--force` or `--no-verify` without explicit user approval
 - Amending published commits
 - Destructive file operations (`rm -rf`, etc.)
 
+## State Management & Local Storage (Critical for Multi-Tab Apps)
+
+**When adding a new selector, input field, or user choice to any tab, follow these 3 steps or selections won't persist:**
+
+1. **Add to `saveState()` function** — Include new field in the stateToSave object that gets saved to localStorage
+   ```javascript
+   const stateToSave = {
+     cats: S.cats,
+     cost: S.cost,
+     pgPriority: S.pgPriority,  // ← Add any new selector here
+     // ... rest of fields
+   };
+   localStorage.setItem('univPathfinderState', JSON.stringify(stateToSave));
+   ```
+
+2. **Add to `loadState()` function** — Restore from localStorage on page load (add special handling if needed)
+   ```javascript
+   if(saved) {
+     const state = JSON.parse(saved);
+     Object.assign(S, state);  // Copies all fields including pgPriority
+   }
+   ```
+
+3. **Add to `renderDiscoveryPills()` function** — Sync visual state (pill active state, selector value, etc.) with S after load
+   ```javascript
+   // For selector: restore which option is selected
+   document.querySelectorAll('[data-q="pgPriority"] .pill').forEach(p => {
+     if(S.pgPriority === p.textContent) p.classList.add('on');
+     else p.classList.remove('on');
+   });
+   ```
+
+**Navigation between tabs:**
+- Use `go('tabName')` function to navigate: `go('discover')`, `go('costs')`, `go('postgad')`
+- Next/Back buttons should call `go()` with the next tab name
+- Tab names in HTML: `<div id="discover">`, `<div id="costs">`, `<div id="postgad">`
+- Current active tab is tracked in `currentTab` variable
+
+**Checklist for new selectors/inputs:**
+- ✅ Added to S object initialization
+- ✅ Added to saveState()
+- ✅ Added to loadState() (if special handling needed)
+- ✅ Added to renderDiscoveryPills() or equivalent sync function
+- ✅ Toggle/click handlers call saveState()
+- ✅ Next/Back buttons route to correct tabs via go()
+
 ## Documentation as First-Class Work
 
 **Documentation updates are not optional cleanup — they are part of the workflow.** After every significant action or learning, update CLAUDE.md and memory files immediately:
