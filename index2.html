@@ -21274,45 +21274,45 @@ function scholarCardHTML(k){
 
 function renderPath(k){
  if(carouselTimer) clearInterval(carouselTimer);
- const c=COUNTRIES[k], d=CD[k];
- if(!c || !d){document.getElementById('path-content').innerHTML=guidanceMsg('Select a country to view the full story');return;}
+ const c=COUNTRIES[k];
+ if(!c || !getCountryName(k)){document.getElementById('path-content').innerHTML=guidanceMsg('Select a country to view the full story');return;}
   const pathCountries = [k]; // Single country for Deep Dive view
-  const y=parseFloat(d.dur||'0')||0;
- const cy=d.cy||{tui:0,room:0,books:0,personal:0,travel:0};
+  const y=parseFloat(getCountryDuration(k)||'0')||0;
+ const cy={tui:getCountryCostTuition(k)||0,room:getCountryCostRoom(k)||0,books:getCountryCostBooks(k)||0,personal:getCountryCostPersonal(k)||0,travel:getCountryCostTravel(k)||0};
  const tot=(cy.tui+cy.room+cy.books+cy.personal+cy.travel)*y;
- const photos = Array.isArray(d.photos) ? d.photos:[];
+ const photos = getCountryPhotos(k) || [];
 
- let h = `<div class="qb" style="margin-top:14px"><div class="badge">${c.e} Studying in ${c.n}</div></div>`;
+ let h = `<div class="qb" style="margin-top:14px"><div class="badge">${getCountryFlag(k)} Studying in ${getCountryName(k)}</div></div>`;
 
  
 
 
  h += `<div class="g2">`+
   `<div class="cd"><h3>Quick Facts</h3>`+
-   `<p><b>Tuition:</b> ${d.tui||''}</p>`+
-   `<p class="note">${d.tn||''}</p>`+
-   `<p style="margin-top:6px"><b>Degree:</b> ${d.dur} years</p>`+
-   `<p><b>Language:</b> ${d.lang||''}</p>`+
-   `<p><b>Admissions:</b> ${d.adm||''}</p>`+
-   `<p style="margin-top:6px"><b>Apply at:</b> <a href="https://www.${d.portal||''}" target="_blank" style="color:var(--pri)">${d.portal||''}</a></p>`+
+   `<p><b>Tuition:</b> ${getCountryTuition(k)||''}</p>`+
+   `<p class="note">${getCountryTuitionNote(k)||''}</p>`+
+   `<p style="margin-top:6px"><b>Degree:</b> ${getCountryDuration(k)} years</p>`+
+   `<p><b>Language:</b> ${getCountryLanguage(k)||''}</p>`+
+   `<p><b>Admissions:</b> ${getCountryAdmissions(k)||''}</p>`+
+   `<p style="margin-top:6px"><b>Apply at:</b> <a href="https://www.${getCountryPortal(k)||''}" target="_blank" style="color:var(--pri)">${getCountryPortal(k)||''}</a></p>`+
   `</div>`+
   `<div class="cd"><h3>Cost Snapshot (USD)</h3>`+
    `<p><b>Tuition:</b> ${fmt(cy.tui)}/yr</p>`+
    `<p><b>Housing+food:</b> ${fmt(cy.room)}/yr</p>`+
    `<p><b>Other:</b> ${fmt(cy.books+cy.personal+cy.travel)}/yr</p>`+
    `<p style="margin-top:6px;font-weight:700">Total degree: ~${fmt(Math.round(tot))}</p>`+
-   `<p style="margin-top:4px"><b>Aid:</b> ${d.aid||''}</p>`+
+   `<p style="margin-top:4px"><b>Aid:</b> ${getCountryFinancialAid(k)||''}</p>`+
   `</div>`+
  `</div>`;
 
  h += `<div class="g2">`+
    `${scholarCardHTML(k)}`+
-   `<div class="cd"><h3>Student Life</h3><p>${d.culture||''}</p></div>`+
-   `<div class="cd"><h3>After Graduation</h3><p>${d.post||''}</p><p style="margin-top:6px"><b>Change majors:</b> ${d.chg||''}</p></div>`+
+   `<div class="cd"><h3>Student Life</h3><p>${getCountryCulture(k)||''}</p></div>`+
+   `<div class="cd"><h3>After Graduation</h3><p>${getCountryPostGradOpportunities(k)||''}</p><p style="margin-top:6px"><b>Change majors:</b> ${getCountryChangePolicy(k)||''}</p></div>`+
  `</div>`;
 
  const stepsHtml = (()=>{
-  const base=(d.steps||[]);
+  const base=(getCountrySteps(k)||[]);
   const extra=fundingNextSteps(k);
   const out=[]; const seen=new Set();
   const add=(x)=>{const n=(x||'').trim(); if(!n) return; const key=n.toLowerCase(); if(seen.has(key)) return; seen.add(key); out.push(n);};
@@ -22809,7 +22809,7 @@ function getCountryInsight(country, vision) {
 
 function getCostInsight(selectedCountries, cost) {
   if (!cost || !selectedCountries || selectedCountries.length === 0) return null;
-  const avgCost = selectedCountries.reduce((sum, k) => sum + (CD[k]?.cy?.tui || 0), 0) / selectedCountries.length;
+  const avgCost = selectedCountries.reduce((sum, k) => sum + (getCountryCostTuition(k) || 0), 0) / selectedCountries.length;
   const isExpensive = avgCost > 30000;
   const key = isExpensive ? 'expensive' : 'affordable';
   return INSIGHTS.costPriority[cost]?.[key];
@@ -22817,7 +22817,7 @@ function getCostInsight(selectedCountries, cost) {
 
 function getLanguageInsight(country, aptitude) {
   if (!country || !aptitude) return null;
-  const isEnglish = CD[country]?.lang?.toLowerCase().includes('english');
+  const isEnglish = (getCountryLanguage(country) || '').toLowerCase().includes('english');
   const key = isEnglish ? 'english' : 'non_english';
   return INSIGHTS.languageAptitude[aptitude]?.[key];
 }
