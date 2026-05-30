@@ -20893,19 +20893,9 @@ function renderScholar(){
     ['Key links', k => (keyLinks(k) || '')]
   ];
 
-  let t='<table class="ct"><thead><tr><th></th>';
-  sel.forEach(k=>{t+='<th class="ch">'+COUNTRIES[k].e+' '+COUNTRIES[k].n+'</th>';});
-  t+='</tr></thead><tbody>';
-  rows.forEach(r=>{
-    const label=r[0];
-    const fn=r[1];
-    t+='<tr><td class="al">'+label+'</td>';
-    sel.forEach(k=>{t+='<td>'+fn(k)+'</td>';});
-    t+='</tr>';
-  });
+  const t = buildTableHTML(rows, sel, (k) => COUNTRIES[k].e + ' ' + COUNTRIES[k].n, 'scholar-table');
   let insights=[];
   // Insights are now only on Insights tab
-  t+='</tbody></table>';
   
   // Mobile carousel
   const carouselRows = rows.map(([label, fn]) => [
