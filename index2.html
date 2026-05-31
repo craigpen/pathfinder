@@ -2839,11 +2839,11 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
   const colMonthly = Math.round((breakdown.room + breakdown.personal + breakdown.travel) / 12);
   const monthlyDebt = costData.monthlyPayment;
 
-  // Pre-calculate surplus for US and EU to determine label
-  const usAfterTaxCalc = parseSalary(sub.salaryUS) ? Math.round(parseSalary(sub.salaryUS) * 0.8 / 12) : 0;
-  const euAfterTaxCalc = parseSalary(sub.salaryEU) ? Math.round(parseSalary(sub.salaryEU) * 0.78 / 12) : 0;
-  const usSurplusCalc = usAfterTaxCalc - colMonthly - monthlyDebt;
-  const euSurplusCalc = euAfterTaxCalc - colMonthly - monthlyDebt;
+  // Calculate table values once (source of truth for both table and pie chart)
+  const usAfterTax = parseSalary(sub.salaryUS) ? Math.round(parseSalary(sub.salaryUS) * (1 - 0.20) / 12) : 0;
+  const euAfterTax = parseSalary(sub.salaryEU) ? Math.round(parseSalary(sub.salaryEU) * (1 - 0.22) / 12) : 0;
+  const usSurplus = usAfterTax - colMonthly - monthlyDebt;
+  const euSurplus = euAfterTax - colMonthly - monthlyDebt;
 
   const metrics = [
     {label: 'Annual salary', us: sub.salaryUS, eu: sub.salaryEU},
@@ -2913,12 +2913,8 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
     }
   });
 
-  // Add pie chart visualization row
-  const usAfterTax = parseSalary(sub.salaryUS) ? Math.round(parseSalary(sub.salaryUS) * 0.8 / 12) : 0;
-  const euAfterTax = parseSalary(sub.salaryEU) ? Math.round(parseSalary(sub.salaryEU) * 0.78 / 12) : 0;
+  // Add pie chart visualization row (uses values from table above)
   const loanMonthly = Math.round(monthlyDebt);
-  const usSurplus = usAfterTax - colMonthly - loanMonthly;
-  const euSurplus = euAfterTax - colMonthly - loanMonthly;
 
   const buildPieChart = (income, living, loan, surplus) => {
     if(income <= 0) return '<div style="font-size:11px;color:var(--tx2)">No data</div>';
