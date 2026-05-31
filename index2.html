@@ -2844,7 +2844,7 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
 
   const metrics = [
     {label: 'Annual salary', us: sub.salaryUS, eu: sub.salaryEU, color: 'var(--ok)'},
-    {label: 'Taxes (~20-22%)', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
+    {label: 'Taxes (20% US, 22% EU)', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
       if(!salary) return '—';
       const s = parseSalary(salary);
       if(!s) return '—';
