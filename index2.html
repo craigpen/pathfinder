@@ -2860,15 +2860,15 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
   };
 
   const metrics = [
-    {label: 'Annual salary', us: sub.salaryUS, eu: sub.salaryEU, color: 'var(--ok)'},
-    {label: 'Taxes (20% US, 22% EU)', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
+    {label: 'Annual salary', sublabel: 'Expected starting salary range', us: sub.salaryUS, eu: sub.salaryEU, color: 'var(--ok)'},
+    {label: 'Taxes (20% US, 22% EU)', sublabel: 'Estimated income tax deduction', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
       if(!salary) return '—';
       const s = parseSalary(salary);
       if(!s) return '—';
       const taxRate = isUS ? 0.20 : 0.22;
       return `$${Math.round(s * taxRate).toLocaleString()}`;
     }},
-    {label: 'Monthly income after taxes', us: null, eu: null, color: 'var(--ok)', fn: (salary, isUS) => {
+    {label: 'Monthly income after taxes', sublabel: 'What you keep each month', us: null, eu: null, color: 'var(--ok)', fn: (salary, isUS) => {
       if(!salary) return '—';
       const s = parseSalary(salary);
       if(!s) return '—';
@@ -2876,12 +2876,12 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
       const monthly = Math.round(s * (1 - taxRate) / 12);
       return `$${monthly.toLocaleString()}`;
     }},
-    {label: 'Monthly cost of living', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
+    {label: 'Monthly cost of living', sublabel: 'Housing, food, transport, and personal expenses', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
       const col = isUS ? usColMonthly : euColMonthly;
       return `$${col.toLocaleString()}`;
     }},
-    {label: 'Monthly loan payment', us: null, eu: null, color: 'var(--bad)', fn: () => `$${monthlyDebt.toLocaleString()}`},
-    {label: 'Debt-to-Income', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
+    {label: 'Monthly loan payment', sublabel: 'Monthly education loan repayment', us: null, eu: null, color: 'var(--bad)', fn: () => `$${monthlyDebt.toLocaleString()}`},
+    {label: 'Debt-to-Income', sublabel: 'Loan payment as % of monthly income', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
       if(!salary) return '—';
       const s = parseSalary(salary);
       if(!s) return '—';
@@ -2889,7 +2889,7 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
       const monthly = s * (1 - taxRate) / 12;
       return `${(monthlyDebt / monthly * 100).toFixed(1)}%`;
     }},
-    {label: null, us: null, eu: null, fn: (salary, isUS) => {
+    {label: null, sublabel: null, us: null, eu: null, fn: (salary, isUS) => {
       if(!salary) return {label: '—', html: '—'};
       const s = parseSalary(salary);
       if(!s) return {label: '—', html: '—'};
@@ -2899,16 +2899,17 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
       const surplus = monthlyIncome - col - monthlyDebt;
       const label = surplus >= 0 ? 'Surplus/mo' : 'Deficit/mo';
       const color = surplus >= 0 ? 'var(--ok)' : 'var(--bad)';
-      return {label, html: `<span style="color:${color}">$${Math.round(Math.abs(surplus)).toLocaleString()}</span>`};
+      return {label, sublabel: 'Money left over (or shortfall) each month', html: `<span style="color:${color}">$${Math.round(Math.abs(surplus)).toLocaleString()}</span>`};
     }}
   ];
 
   let html = '<table class="ct" style="margin-bottom:16px"><thead><tr style="background:var(--lt)"><th style="padding:8px 10px;text-align:left;width:40%">Metric</th><th style="padding:8px 10px;text-align:center">Live/Work in US</th><th style="padding:8px 10px;text-align:center">Live/Work in EU</th></tr></thead><tbody>';
 
-  metrics.forEach(({label, us, eu, color, fn}) => {
+  metrics.forEach(({label, sublabel, us, eu, color, fn}) => {
     let usVal = us || '';
     let euVal = eu || '';
     let rowLabel = label;
+    let rowSublabel = sublabel;
 
     if(fn) {
       const usResult = fn(us || sub.salaryUS, true);
@@ -2919,12 +2920,14 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
       if(usResult.label && euResult.label) {
         // If both have labels, use the US label (they should be the same)
         rowLabel = usResult.label;
+        rowSublabel = usResult.sublabel;
       }
     }
 
     if(rowLabel) {
       html += `<tr style="border-bottom:1px solid var(--bdr)">`;
-      html += `<td style="padding:8px 10px;font-weight:500;font-size:13px;background:rgba(241,245,249,.5)">${rowLabel}</td>`;
+      const labelHtml = rowSublabel ? `<div style="font-weight:700">${rowLabel}</div><div style="font-size:12px;color:var(--tx2);font-weight:400;margin-top:4px">${rowSublabel}</div>` : `<div style="font-weight:700">${rowLabel}</div>`;
+      html += `<td style="padding:8px 10px;font-size:13px;background:rgba(241,245,249,.5)">${labelHtml}</td>`;
       const cellStyle = color ? `color:${color};font-weight:600` : '';
       html += `<td style="padding:8px 10px;text-align:center;font-size:13px;${cellStyle}">${usVal}</td>`;
       html += `<td style="padding:8px 10px;text-align:center;font-size:13px;${cellStyle}">${euVal}</td>`;
