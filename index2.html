@@ -2761,6 +2761,14 @@ function renderCostTable(){
     if(langInsight)insights.push(langInsight);
   }
 }
+// Track the selected country for transition view (local toggle, not persisted)
+let transitionSelectedCountry = null;
+
+function setTransitionCountry(cc) {
+  transitionSelectedCountry = cc;
+  renderTransition();
+}
+
 function renderTransition(){
   const countries = window.COUNTRIES || {};
 
@@ -2778,28 +2786,45 @@ function renderTransition(){
     return;
   }
 
+  // Initialize selected country to first in list if not set
+  if(!transitionSelectedCountry || !validCountries.includes(transitionSelectedCountry)) {
+    transitionSelectedCountry = validCountries[0];
+  }
+
   const rate = +(document.getElementById('sl-rate')?.value || 5.5) / 100 / 12;
   const yrs = +(document.getElementById('sl-yrs')?.value || 10);
   const months = yrs * 12;
 
   let html = '';
 
+  // Add country selector
+  html += `<div class="qb"><div class="ql">Filter by university location</div><div class="qt">Choose one country to see post-graduation scenarios</div><div class="qs">To compare different countries, change your selections on the Countries tab and it will appear as an option here.</div></div>`;
+  html += `<div class="pills" style="margin-bottom:20px">`;
+  validCountries.forEach(cc => {
+    const country = countries[cc];
+    if(!country) return;
+    html += `<div class="pill${transitionSelectedCountry === cc ? ' on' : ''}" onclick="setTransitionCountry('${cc}')" style="cursor:pointer"><img src="${country.flag}" style="height:0.9em;vertical-align:middle;margin-right:6px">${country.name}</div>`;
+  });
+  html += `</div>`;
+
+  // Get the selected country data
+  const selectedCountry = countries[transitionSelectedCountry];
+  if(!selectedCountry) {
+    document.getElementById('transition-content').innerHTML = html + '<p style="color:var(--tx2)">Country data not available</p>';
+    return;
+  }
+
+  const costData = calculateCostData(transitionSelectedCountry, 0, 0, 0, 0, +(document.getElementById('sl-rate')?.value || 5.5), yrs);
+  const totalCost = costData.totalCost;
+  const monthlyDebt = totalCost > 0 ? (totalCost * rate) / (1 - Math.pow(1 + rate, -months)) : 0;
+
+  // Show header with selected country
+  html += `<h3 style="margin:24px 0 12px 0;color:var(--dk);font-size:18px">University location: <img src="${selectedCountry.flag}" style="height:0.9em;vertical-align:middle;margin-right:6px">${selectedCountry.name}</h3>`;
+
+  // Generate one table per career for the selected country
   validCareers.forEach(career => {
-    html += `<h3 style="margin:24px 0 12px 0;color:var(--dk);font-size:18px">Career: ${career}</h3>`;
-
-    // For this career, generate tables for each study country
-    validCountries.forEach(cc => {
-      const country = countries[cc];
-      if(!country) return;
-
-      const costData = calculateCostData(cc, 0, 0, 0, 0, +(document.getElementById('sl-rate')?.value || 5.5), yrs);
-      const totalCost = costData.totalCost;
-      const monthlyDebt = totalCost > 0 ? (totalCost * rate) / (1 - Math.pow(1 + rate, -months)) : 0;
-
-      html += `<h4 style="margin:16px 0 8px 0;color:var(--tx1);font-size:14px;font-weight:600">University location: <img src="${country.flag}" style="height:0.9em;vertical-align:middle;margin-right:4px">${country.name}</h4>`;
-
-      html += buildTransitionCareerTable(career, cc, monthlyDebt);
-    });
+    html += `<h4 style="margin:16px 0 8px 0;color:var(--tx1);font-size:14px;font-weight:600">Career: ${career}</h4>`;
+    html += buildTransitionCareerTable(career, transitionSelectedCountry, monthlyDebt);
   });
 
   document.getElementById('transition-content').innerHTML = html;
