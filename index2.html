@@ -2785,7 +2785,7 @@ function renderTransition(){
   let html = '';
 
   validCareers.forEach(career => {
-    html += `<h3 style="margin:24px 0 12px 0;color:var(--dk);font-size:18px">${career}</h3>`;
+    html += `<h3 style="margin:24px 0 12px 0;color:var(--dk);font-size:18px">Career: ${career}</h3>`;
 
     // For this career, generate tables for each study country
     validCountries.forEach(cc => {
@@ -2796,7 +2796,7 @@ function renderTransition(){
       const totalCost = costData.totalCost;
       const monthlyDebt = totalCost > 0 ? (totalCost * rate) / (1 - Math.pow(1 + rate, -months)) : 0;
 
-      html += `<h4 style="margin:16px 0 8px 0;color:var(--tx1);font-size:14px;font-weight:600"><img src="${country.flag}" style="height:0.9em;vertical-align:middle;margin-right:6px">${country.name}</h4>`;
+      html += `<h4 style="margin:16px 0 8px 0;color:var(--tx1);font-size:14px;font-weight:600">University location: <img src="${country.flag}" style="height:0.9em;vertical-align:middle;margin-right:4px">${country.name}</h4>`;
 
       html += buildTransitionCareerTable(career, cc, monthlyDebt);
     });
