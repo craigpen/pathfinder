@@ -2851,7 +2851,7 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
       const taxRate = isUS ? 0.20 : 0.22;
       return `$${Math.round(s * taxRate).toLocaleString()}`;
     }},
-    {label: 'After-tax monthly', us: null, eu: null, color: 'var(--ok)', fn: (salary, isUS) => {
+    {label: 'Monthly income after taxes', us: null, eu: null, color: 'var(--ok)', fn: (salary, isUS) => {
       if(!salary) return '—';
       const s = parseSalary(salary);
       if(!s) return '—';
