@@ -2843,15 +2843,15 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
   const euSurplus = euAfterTax - colMonthly - monthlyDebt;
 
   const metrics = [
-    {label: 'Annual salary', us: sub.salaryUS, eu: sub.salaryEU},
-    {label: 'Taxes (~20-22%)', us: null, eu: null, fn: (salary, isUS) => {
+    {label: 'Annual salary', us: sub.salaryUS, eu: sub.salaryEU, color: 'var(--ok)'},
+    {label: 'Taxes (~20-22%)', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
       if(!salary) return '—';
       const s = parseSalary(salary);
       if(!s) return '—';
       const taxRate = isUS ? 0.20 : 0.22;
       return `$${Math.round(s * taxRate).toLocaleString()}`;
     }},
-    {label: 'After-tax monthly', us: null, eu: null, fn: (salary, isUS) => {
+    {label: 'After-tax monthly', us: null, eu: null, color: 'var(--ok)', fn: (salary, isUS) => {
       if(!salary) return '—';
       const s = parseSalary(salary);
       if(!s) return '—';
@@ -2859,9 +2859,9 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
       const monthly = Math.round(s * (1 - taxRate) / 12);
       return `$${monthly.toLocaleString()}`;
     }},
-    {label: 'Cost of living/mo', us: null, eu: null, fn: () => `$${colMonthly.toLocaleString()}`},
-    {label: 'Monthly loan payment', us: null, eu: null, fn: () => `$${monthlyDebt.toLocaleString()}`},
-    {label: 'Debt-to-Income', us: null, eu: null, fn: (salary, isUS) => {
+    {label: 'Cost of living/mo', us: null, eu: null, color: 'var(--bad)', fn: () => `$${colMonthly.toLocaleString()}`},
+    {label: 'Monthly loan payment', us: null, eu: null, color: 'var(--bad)', fn: () => `$${monthlyDebt.toLocaleString()}`},
+    {label: 'Debt-to-Income', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
       if(!salary) return '—';
       const s = parseSalary(salary);
       if(!s) return '—';
@@ -2884,7 +2884,7 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
 
   let html = '<table class="ct" style="margin-bottom:16px"><thead><tr style="background:var(--lt)"><th style="padding:8px 10px;text-align:left;width:40%">Metric</th><th style="padding:8px 10px;text-align:center">Live/Work in US</th><th style="padding:8px 10px;text-align:center">Live/Work in EU</th></tr></thead><tbody>';
 
-  metrics.forEach(({label, us, eu, fn}) => {
+  metrics.forEach(({label, us, eu, color, fn}) => {
     let usVal = us || '';
     let euVal = eu || '';
     let rowLabel = label;
@@ -2904,8 +2904,9 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
     if(rowLabel) {
       html += `<tr style="border-bottom:1px solid var(--bdr)">`;
       html += `<td style="padding:8px 10px;font-weight:500;font-size:13px;background:rgba(241,245,249,.5)">${rowLabel}</td>`;
-      html += `<td style="padding:8px 10px;text-align:center;font-size:13px">${usVal}</td>`;
-      html += `<td style="padding:8px 10px;text-align:center;font-size:13px">${euVal}</td>`;
+      const cellStyle = color ? `color:${color};font-weight:600` : '';
+      html += `<td style="padding:8px 10px;text-align:center;font-size:13px;${cellStyle}">${usVal}</td>`;
+      html += `<td style="padding:8px 10px;text-align:center;font-size:13px;${cellStyle}">${euVal}</td>`;
       html += `</tr>`;
     }
   });
