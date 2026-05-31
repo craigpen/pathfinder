@@ -2933,20 +2933,19 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
   });
 
   // Bar chart visualization row (uses values from table above)
+  const maxIncome = Math.max(chartData.us.income, chartData.eu.income);
+  const baseWidth = 200;
+
   const buildHorizontalBar = (income, living, loan, surplus) => {
     if(income <= 0) return '<div style="font-size:11px;color:var(--tx2)">No data</div>';
 
-    const livingPct = (living / income * 100);
-    const loanPct = (loan / income * 100);
-    const surplusPct = (surplus / income * 100);
-
-    const surplusLabel = surplus >= 0 ? 'Surplus' : 'Deficit';
     const expenses = living + loan;
 
-    // Both bars scaled relative to income (200px = 100% of income)
-    const baseWidth = 200;
-    const incomeBarWidth = baseWidth;
-    const expensesBarWidth = (expenses / income) * baseWidth;
+    // Scale bars relative to max income across both columns
+    const incomeBarWidth = (income / maxIncome) * baseWidth;
+    const expensesBarWidth = (expenses / maxIncome) * baseWidth;
+
+    const surplusLabel = surplus >= 0 ? 'Surplus' : 'Deficit';
 
     return `<div style="display:flex;flex-direction:column;gap:20px;align-items:center;justify-content:center">
       <div style="text-align:left">
