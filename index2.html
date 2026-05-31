@@ -1005,7 +1005,7 @@ const STATE_NAMES={AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'Calif
 const S={cats:[],motivations:[],subCareers:[],prac:[],cc:[],costCC:[],expl:null,playlist:null,flex:[],cost:null,vision:null,lang:null,citizen:[],debtYrs:null,languages:[],postGrad:null,inStateTuitionPref:null,stateOfResidency:null,inStateToggle:false,usUniversityType:null,uniSelectivity:null,scholarshipPct:null,collegeSavings:null,partTimeWork:null,familySupport:null,loanRate:null,loanRepaymentYears:null};
 const VERSION='v1.9.3';
 document.addEventListener('DOMContentLoaded',()=>{const b=document.getElementById('version-badge');if(b)b.innerText=VERSION;});
-function saveState(){const stateToSave={cats:S.cats,motivations:S.motivations,subCareers:S.subCareers,flex:S.flex,cost:S.cost,vision:S.vision,lang:S.lang,citizen:S.citizen,debtYrs:S.debtYrs,languages:S.languages,postGrad:S.postGrad,inStateTuitionPref:S.inStateTuitionPref,stateOfResidency:S.stateOfResidency,cc:S.cc,costCC:S.costCC,expl:S.expl,uniSelectivity:S.uniSelectivity,scholarshipPct:S.scholarshipPct,collegeSavings:S.collegeSavings,partTimeWork:S.partTimeWork,familySupport:S.familySupport,loanRate:S.loanRate,loanRepaymentYears:S.loanRepaymentYears,inStateToggle:S.inStateToggle,usUniversityType:S.usUniversityType,transitionSalaryAdjust:S.transitionSalaryAdjust};localStorage.setItem('univPathfinderState',JSON.stringify(stateToSave));}
+function saveState(){const stateToSave={cats:S.cats,motivations:S.motivations,subCareers:S.subCareers,flex:S.flex,cost:S.cost,vision:S.vision,lang:S.lang,citizen:S.citizen,debtYrs:S.debtYrs,languages:S.languages,postGrad:S.postGrad,inStateTuitionPref:S.inStateTuitionPref,stateOfResidency:S.stateOfResidency,cc:S.cc,costCC:S.costCC,expl:S.expl,uniSelectivity:S.uniSelectivity,scholarshipPct:S.scholarshipPct,collegeSavings:S.collegeSavings,partTimeWork:S.partTimeWork,familySupport:S.familySupport,loanRate:S.loanRate,loanRepaymentYears:S.loanRepaymentYears,inStateToggle:S.inStateToggle,usUniversityType:S.usUniversityType};localStorage.setItem('univPathfinderState',JSON.stringify(stateToSave));}
 function loadState(){const saved=localStorage.getItem('univPathfinderState');if(saved){const state=JSON.parse(saved);Object.assign(S,state);if(state.scholarshipPct!==undefined)document.getElementById('sl-schol').value=state.scholarshipPct;if(state.collegeSavings!==undefined)document.getElementById('sl-savings').value=state.collegeSavings;if(state.partTimeWork!==undefined)document.getElementById('sl-work').value=state.partTimeWork;if(state.familySupport!==undefined)document.getElementById('sl-parent').value=state.familySupport;if(state.loanRate!==undefined)document.getElementById('sl-rate').value=state.loanRate;if(state.loanRepaymentYears!==undefined)document.getElementById('sl-yrs').value=state.loanRepaymentYears;if(state.inStateToggle!==undefined){const instateIn=document.getElementById('instate-in');const instateOut=document.getElementById('instate-out');if(state.inStateToggle){instateIn.classList.add('on');instateOut.classList.remove('on')}else{instateOut.classList.add('on');instateIn.classList.remove('on')}}}}
 const PLAYLISTS={lofi:'https://w.soundcloud.com/player/?url=https://soundcloud.com/dabootlegboy/sets/study-chill-lofi-hiphop&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&show_artwork=false',groovy:'https://w.soundcloud.com/player/?url=https://soundcloud.com/wearestereofox/sets/groovy-beats&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&show_artwork=false',relax:'https://w.soundcloud.com/player/?url=https://soundcloud.com/ambientchill-sc/sets/relaxing-ambient-music-2&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&show_artwork=false',zen:'https://w.soundcloud.com/player/?url=https://soundcloud.com/binauralbeatsresearch/sets/theta-waves-zen-meditation&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&show_artwork=false'};
 const HEADER_PHOTOS=[{src:'https://images.unsplash.com/photo-1441260038675-7329ab4cc264',cap:'University campus quad'},{src:'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a',cap:'Students studying together'},{src:'https://images.unsplash.com/photo-1441260038675-7329ab4cc264',cap:'Graduation day'},{src:'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad',cap:'Historic university architecture'},{src:'https://images.unsplash.com/photo-1539037116277-4db20889f2d4',cap:'European city streets'}];
@@ -1360,7 +1360,7 @@ function updateHdrCarousel(){startHdrCarousel();}
 function toggleMusic(){const pills=document.getElementById('playlist-pills');const sw=document.getElementById('spotify-wrap');const on=pills.classList.toggle('show');const btn=document.getElementById('music-btn');btn.classList.toggle('active',on);if(!on){sw.classList.remove('show');document.querySelectorAll('.pp').forEach(b=>b.classList.remove('active'));S.playlist=null;document.getElementById('spotify-frame').src='about:blank';}}
 function selPlaylist(playlist,el){if(!document.getElementById('playlist-pills').classList.contains('show'))return;S.playlist=playlist;document.querySelectorAll('.pp').forEach(b=>b.classList.remove('active'));el.classList.add('active');const sw=document.getElementById('spotify-wrap');sw.classList.add('show');const frame=document.getElementById('spotify-frame');frame.src=PLAYLISTS[playlist]}
 function go(id){document.querySelectorAll('.pan').forEach(p=>p.classList.remove('on'));document.querySelectorAll('.tb').forEach(b=>b.classList.remove('on'));document.getElementById(id).classList.add('on');const tabs=['discover','careers','countries','scholarships','universities','costs','transition','insights','deepDive','resources'];const i=tabs.indexOf(id);if(i>=0)document.querySelectorAll('.tb')[i].classList.add('on');if(id==='discover')renderDiscoveryPills();else if(id==='careers'){renderCareerView();renderSubPills();renderFilterAnalysis();renderFilterResult()}else if(id==='countries'){renderCCChips();updateHdrCarousel()}else if(id==='scholarships')renderScholar();else if(id==='universities')renderUniversities();else if(id==='costs'){S.costCC=[...S.cc];renderCostChips()}else if(id==='transition'){renderTransition()}else if(id==='insights'){renderInsights()}else if(id==='deepDive'){if(!S.expl&&S.cc&&S.cc.length)S.expl=S.cc[0];renderExChips();renderPath(S.expl);}window.scrollTo(0,0)}
-function startOver(){S.cats=[];S.motivations=[];S.subCareers=[];S.prac=[];S.cc=[];S.costCC=[];S.expl=null;S.playlist=null;S.flex=null;S.cost=null;S.vision=null;S.lang=null;S.postGrad=null;S.citizen=[];S.debtYrs=null;S.languages=[];S.stateOfResidency=null;S.inStateTuitionPref=null;S.uniSelectivity=null;S.usUniversityType=null;S.inStateToggle=false;S.scholarshipPct=null;S.collegeSavings=null;S.partTimeWork=null;S.familySupport=null;S.loanRate=null;S.loanRepaymentYears=null;S.transitionSalaryAdjust=50;document.getElementById('sl-schol').value=0;document.getElementById('sl-savings').value=0;document.getElementById('sl-work').value=0;document.getElementById('sl-parent').value=0;document.getElementById('sl-rate').value=5.5;document.getElementById('sl-yrs').value=10;localStorage.removeItem('univPathfinderState');document.querySelectorAll('.pill').forEach(o=>o.classList.remove('on'));document.querySelectorAll('.pill').forEach(p=>p.classList.remove('on'));document.getElementById('playlist-pills').classList.remove('show');document.getElementById('spotify-wrap').classList.remove('show');document.getElementById('transition-content').innerHTML='';go('discover')}
+function startOver(){S.cats=[];S.motivations=[];S.subCareers=[];S.prac=[];S.cc=[];S.costCC=[];S.expl=null;S.playlist=null;S.flex=null;S.cost=null;S.vision=null;S.lang=null;S.postGrad=null;S.citizen=[];S.debtYrs=null;S.languages=[];S.stateOfResidency=null;S.inStateTuitionPref=null;S.uniSelectivity=null;S.usUniversityType=null;S.inStateToggle=false;S.scholarshipPct=null;S.collegeSavings=null;S.partTimeWork=null;S.familySupport=null;S.loanRate=null;S.loanRepaymentYears=null;document.getElementById('sl-schol').value=0;document.getElementById('sl-savings').value=0;document.getElementById('sl-work').value=0;document.getElementById('sl-parent').value=0;document.getElementById('sl-rate').value=5.5;document.getElementById('sl-yrs').value=10;localStorage.removeItem('univPathfinderState');document.querySelectorAll('.pill').forEach(o=>o.classList.remove('on'));document.querySelectorAll('.pill').forEach(p=>p.classList.remove('on'));document.getElementById('playlist-pills').classList.remove('show');document.getElementById('spotify-wrap').classList.remove('show');document.getElementById('transition-content').innerHTML='';go('discover')}
 function initDiscover(){const dr=document.getElementById('motivation-opts');['Making real impact','Intellectual challenge','Creative expression','Financial security','Helping people','Independence & flexibility'].forEach(d=>{const el=document.createElement('div');el.className='pill';el.textContent=d;el.onclick=()=>{el.classList.toggle('on');if(S.motivations.includes(d)){S.motivations=S.motivations.filter(x=>x!==d)}else S.motivations.push(d);saveState()};dr.appendChild(el)})};function renderDiscoveryPills(){document.querySelectorAll('#motivation-opts .pill').forEach(p=>{if(S.motivations.includes(p.textContent))p.classList.add('on');else p.classList.remove('on')});document.querySelectorAll('[data-q="flex"] .pill').forEach(p=>{if(S.flex&&S.flex.includes(p.textContent))p.classList.add('on');else p.classList.remove('on')});document.querySelectorAll('[data-q="inStateTuitionPref"] .pill').forEach(p=>{if(p.dataset.val===S.inStateTuitionPref)p.classList.add('on');else p.classList.remove('on')});document.querySelectorAll('[data-q="stateOfResidency"] .pill').forEach(p=>{if(p.textContent===S.stateOfResidency)p.classList.add('on');else p.classList.remove('on')});document.querySelectorAll('[data-q="uniSelectivity"] .pill').forEach(p=>{if(p.textContent===S.uniSelectivity)p.classList.add('on');else p.classList.remove('on')});document.querySelectorAll('[data-q="cost"] .pill').forEach(p=>{if(p.textContent===S.cost)p.classList.add('on');else p.classList.remove('on')});document.querySelectorAll('[data-q="vision"] .pill').forEach(p=>{if(p.textContent===S.vision)p.classList.add('on');else p.classList.remove('on')});document.querySelectorAll('[data-q="lang"] .pill').forEach(p=>{if(p.textContent===S.lang)p.classList.add('on');else p.classList.remove('on')});document.querySelectorAll('[data-q="citizen"] .pill').forEach(p=>{if(S.citizen&&S.citizen.includes(p.textContent))p.classList.add('on');else p.classList.remove('on')});document.querySelectorAll('[data-q="languages"] .pill').forEach(p=>{if(S.languages&&S.languages.includes(p.textContent))p.classList.add('on');else p.classList.remove('on')});document.querySelectorAll('[data-q="postGrad"] .pill').forEach(p=>{if(p.textContent===S.postGrad)p.classList.add('on');else p.classList.remove('on')});document.querySelectorAll('[data-q="debtYrs"] .pill').forEach(p=>{if(p.textContent===S.debtYrs)p.classList.add('on');else p.classList.remove('on')});renderSubPills()}
 function renderCareerView(){const fc=document.getElementById('fcat-chips');let h='';const careers=window.CAREERS||{};Object.entries(careers).forEach(([k,v])=>{h+=`<div class="pill${S.cats.includes(k)?' on':''}" onclick="togCat('${k}')">${v.name}</div>`});fc.innerHTML=h;renderCatTable();renderSubPills();renderCareerTable()}
 function togCat(k){if(S.cats.includes(k)){S.cats=S.cats.filter(c=>c!==k);S.subCareers=S.subCareers.filter(f=>!Object.keys(getCategorySubjects(k)).includes(f))}else S.cats.push(k);saveState();renderCareerView();renderInsights()}
@@ -2847,30 +2847,9 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
   });
   const euColMonthly = euCountries.length > 0 ? Math.round(euColTotal / euCountries.length) : 0;
 
-  // Parse salary ranges for slider
-  const parseRange = (rangeStr) => {
-    if(!rangeStr) return {low: 0, high: 0};
-    const match = rangeStr.match(/\$?([\d.]+)k?\s*-\s*\$?([\d.]+)k?/i);
-    if(!match) return {low: 0, high: 0};
-    const low = parseInt(match[1]) * 1000;
-    const high = parseInt(match[2]) * 1000;
-    return {low, high};
-  };
-
-  const usRange = parseRange(sub.salaryUS);
-  const euRange = parseRange(sub.salaryEU);
-
-  // Salary adjustment from slider (0-100, default 50 = midpoint)
-  if(!S.transitionSalaryAdjust) S.transitionSalaryAdjust = 50;
-  const adjust = S.transitionSalaryAdjust / 100;
-
-  // Calculate actual salaries based on slider position
-  const usActualSalary = usRange.low + (usRange.high - usRange.low) * adjust;
-  const euActualSalary = euRange.low + (euRange.high - euRange.low) * adjust;
-
   // Calculate table values once (source of truth for both table and bar chart)
-  const usAfterTax = usActualSalary ? Math.round(usActualSalary * (1 - 0.20) / 12) : 0;
-  const euAfterTax = euActualSalary ? Math.round(euActualSalary * (1 - 0.22) / 12) : 0;
+  const usAfterTax = parseSalary(sub.salaryUS) ? Math.round(parseSalary(sub.salaryUS) * (1 - 0.20) / 12) : 0;
+  const euAfterTax = parseSalary(sub.salaryEU) ? Math.round(parseSalary(sub.salaryEU) * (1 - 0.22) / 12) : 0;
   const usSurplus = usAfterTax - usColMonthly - monthlyDebt;
   const euSurplus = euAfterTax - euColMonthly - monthlyDebt;
 
@@ -2881,7 +2860,7 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
   };
 
   const metrics = [
-    {label: 'Annual salary', sublabel: 'Expected starting salary range', hasSlider: true, us: sub.salaryUS, eu: sub.salaryEU, color: 'var(--ok)'},
+    {label: 'Annual salary', sublabel: 'Expected starting salary range', us: sub.salaryUS, eu: sub.salaryEU, color: 'var(--ok)'},
     {label: 'Taxes (20% US, 22% EU)', sublabel: 'Estimated income tax deduction', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
       if(!salary) return '—';
       const s = parseSalary(salary);
@@ -2926,7 +2905,7 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
 
   let html = '<table class="ct" style="margin-bottom:16px"><thead><tr style="background:var(--lt)"><th style="padding:8px 10px;text-align:left;width:40%">Metric</th><th style="padding:8px 10px;text-align:center">Live/Work in US</th><th style="padding:8px 10px;text-align:center">Live/Work in EU</th></tr></thead><tbody>';
 
-  metrics.forEach(({label, sublabel, hasSlider, us, eu, color, fn}) => {
+  metrics.forEach(({label, sublabel, us, eu, color, fn}) => {
     let usVal = us || '';
     let euVal = eu || '';
     let rowLabel = label;
@@ -2947,13 +2926,7 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
 
     if(rowLabel) {
       html += `<tr style="border-bottom:1px solid var(--bdr)">`;
-      let labelHtml = rowSublabel ? `<div style="font-weight:700">${rowLabel}</div><div style="font-size:12px;color:var(--tx2);font-weight:400;margin-top:4px">${rowSublabel}</div>` : `<div style="font-weight:700">${rowLabel}</div>`;
-
-      if(hasSlider) {
-        const sliderHtml = `<input type="range" min="0" max="100" value="${S.transitionSalaryAdjust}" style="width:120px;cursor:pointer;margin-left:12px;vertical-align:middle" onchange="S.transitionSalaryAdjust=parseInt(this.value);saveState();renderTransition()">`;
-        labelHtml = `<div style="display:flex;align-items:center"><div>${labelHtml}</div><div>${sliderHtml}</div></div>`;
-      }
-
+      const labelHtml = rowSublabel ? `<div style="font-weight:700">${rowLabel}</div><div style="font-size:12px;color:var(--tx2);font-weight:400;margin-top:4px">${rowSublabel}</div>` : `<div style="font-weight:700">${rowLabel}</div>`;
       html += `<td style="padding:8px 10px;font-size:13px;background:rgba(241,245,249,.5)">${labelHtml}</td>`;
       const cellStyle = color ? `color:${color};font-weight:600` : '';
       html += `<td style="padding:8px 10px;text-align:center;font-size:13px;${cellStyle}">${usVal}</td>`;
