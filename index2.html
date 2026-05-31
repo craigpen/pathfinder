@@ -1540,29 +1540,27 @@ function buildTransitionCarousel(scenarios, workTarget) {
     html += '<div class="carousel-card">';
     html += `<div class="carousel-card-header" style="text-align:center;font-weight:600;padding-bottom:12px;border-bottom:1px solid rgba(0,0,0,0.1);margin-bottom:12px">${career}</div>`;
 
-    // Build table within card
-    html += '<div style="font-size:12px;line-height:1.4">';
+    // Build table within card with proper column count
+    const colCount = items.length;
+    const gridCols = 'auto ' + Array(colCount).fill('1fr').join(' ');
+    html += `<div style="font-size:12px;line-height:1.4;display:grid;grid-template-columns:${gridCols};gap:8px 12px;align-items:center">`;
 
-    // Flag row
-    html += '<div style="display:grid;grid-template-columns:auto 1fr;gap:12px;margin-bottom:8px">';
-    html += '<div style="font-weight:600;padding-right:8px">Location</div>';
+    // Flag row header
+    html += '<div style="font-weight:600">Location</div>';
     items.forEach(({scenario}) => {
       const country = countries[scenario.studyCountry];
       const flag = country ? `<img src="${country.flag}" style="height:0.9em;vertical-align:middle">` : '';
-      html += `<div style="text-align:center">${flag}</div>`;
+      html += `<div style="text-align:center;font-size:11px">${flag}</div>`;
     });
-    html += '</div>';
 
     // Metric rows
     metrics.forEach(({label, fn}) => {
-      html += '<div style="display:grid;grid-template-columns:auto 1fr;gap:12px;margin-bottom:8px">';
-      html += `<div style="font-weight:500;padding-right:8px">${label}</div>`;
+      html += `<div style="font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${label}</div>`;
       items.forEach(({scenario}) => {
         const result = fn(scenario);
         const content = result.html ? result.html : result;
-        html += `<div style="text-align:center">${content}</div>`;
+        html += `<div style="text-align:center;font-size:11px">${content}</div>`;
       });
-      html += '</div>';
     });
 
     html += '</div></div>';
