@@ -2838,14 +2838,14 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
   const usBreakdown = countries['us'].costBreakdown || {room: 0, personal: 0, travel: 0};
   const usColMonthly = Math.round((usBreakdown.room + usBreakdown.personal + usBreakdown.travel) / 12);
 
-  // EU COL: average of all EU countries
-  const euCountryCodes = ['sweden', 'germany', 'netherlands', 'france', 'italy', 'spain', 'denmark', 'ireland'];
+  // EU COL: average of selected EU countries from Costs tab
+  const euCountries = (S.cc || []).filter(cc => cc !== 'us');
   let euColTotal = 0;
-  euCountryCodes.forEach(cc => {
+  euCountries.forEach(cc => {
     const breakdown = countries[cc].costBreakdown || {room: 0, personal: 0, travel: 0};
     euColTotal += (breakdown.room + breakdown.personal + breakdown.travel) / 12;
   });
-  const euColMonthly = Math.round(euColTotal / euCountryCodes.length);
+  const euColMonthly = euCountries.length > 0 ? Math.round(euColTotal / euCountries.length) : 0;
 
   // Calculate table values once (source of truth for both table and bar chart)
   const usAfterTax = parseSalary(sub.salaryUS) ? Math.round(parseSalary(sub.salaryUS) * (1 - 0.20) / 12) : 0;
