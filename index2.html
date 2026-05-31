@@ -2921,11 +2921,12 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
     const surplusPct = (surplus / income * 100);
 
     const surplusLabel = surplus >= 0 ? 'Surplus' : 'Deficit';
+    const expenses = living + loan;
 
     // Both bars scaled relative to income (200px = 100% of income)
     const baseWidth = 200;
     const incomeBarWidth = baseWidth;
-    const expensesBarWidth = ((living + loan) / income) * baseWidth;
+    const expensesBarWidth = (expenses / income) * baseWidth;
 
     return `<div style="display:flex;flex-direction:column;gap:20px;align-items:center;justify-content:center">
       <div style="font-size:10px;line-height:1.6;text-align:left;white-space:nowrap">
@@ -2935,11 +2936,9 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
       </div>
 
       <div style="text-align:left">
-        <div style="font-size:9px;color:var(--tx2);font-weight:500;margin-bottom:4px">After-tax income</div>
-        <div style="width:${incomeBarWidth}px;height:24px;border:1px solid var(--bdr);border-radius:4px;background:#16a34a"></div>
+        <div style="width:${incomeBarWidth}px;height:28px;border:1px solid var(--bdr);border-radius:4px;background:#2563eb;display:flex;align-items:center;padding-left:8px;color:white;font-size:11px;font-weight:500">After-tax: $${income.toFixed(0)}/mo</div>
 
-        <div style="font-size:9px;color:var(--tx2);font-weight:500;margin-top:12px;margin-bottom:4px">Expenses (living + loan)</div>
-        <div style="width:${expensesBarWidth}px;height:24px;border:1px solid var(--bdr);border-radius:4px;background:${surplus >= 0 ? '#cbd5e1' : '#dc2626'}"></div>
+        <div style="margin-top:12px;width:${expensesBarWidth}px;height:28px;border:1px solid var(--bdr);border-radius:4px;background:${surplus >= 0 ? '#16a34a' : '#dc2626'};display:flex;align-items:center;padding-left:8px;color:white;font-size:11px;font-weight:500">Expenses: $${expenses.toFixed(0)}/mo</div>
       </div>
     </div>`;
   };
