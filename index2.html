@@ -1540,7 +1540,7 @@ function buildTransitionCarousel(scenarios, workTarget) {
     html += '<div class="carousel-card">';
 
     // 3-column grid: labels | country1 | country2
-    html += `<div style="font-size:12px;line-height:1.5;display:grid;grid-template-columns:90px 1fr 1fr;gap:8px 12px;align-items:center;width:100%">`;
+    html += `<div style="font-size:12px;line-height:1.5;display:grid;grid-template-columns:1fr 2fr 2fr;gap:8px 12px;align-items:center;width:100%;min-width:0">`;
 
     // Row 1: Career header spanning all 3 columns with blue background
     html += `<div style="grid-column:1/4;text-align:center;font-weight:600;background:var(--pri);color:white;padding:8px 16px">${career}</div>`;
