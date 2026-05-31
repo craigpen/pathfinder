@@ -1542,8 +1542,10 @@ function buildTransitionCarousel(scenarios, workTarget) {
     // Blue career header
     html += `<div style="background:var(--pri);color:white;text-align:center;font-weight:600;padding:8px 16px">${career}</div>`;
 
-    // Combined grid: labels | country1 | country2 (includes flags and data)
-    html += `<div style="font-size:12px;line-height:1.5;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;padding:16px;align-items:center">`;
+    // Combined grid: labels | country1 [| country2] (includes flags and data)
+    const colCount = items.length + 1;
+    const gridCols = '1fr ' + Array(items.length).fill('1fr').join(' ');
+    html += `<div style="font-size:12px;line-height:1.5;display:grid;grid-template-columns:${gridCols};gap:0;padding:16px;align-items:center">`;
 
     // Flags row
     html += '<div></div>';
