@@ -2934,24 +2934,23 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
 
   // Bar chart visualization row (uses values from table above)
   const maxIncome = Math.max(chartData.us.income, chartData.eu.income);
-  const baseWidth = 200;
 
   const buildHorizontalBar = (income, living, loan, surplus) => {
     if(income <= 0) return '<div style="font-size:11px;color:var(--tx2)">No data</div>';
 
     const expenses = living + loan;
 
-    // Scale bars relative to max income across both columns
-    const incomeBarWidth = (income / maxIncome) * baseWidth;
-    const expensesBarWidth = (expenses / maxIncome) * baseWidth;
+    // Scale bars relative to max income (max income = 100% column width)
+    const incomeBarWidth = (income / maxIncome) * 100;
+    const expensesBarWidth = (expenses / maxIncome) * 100;
 
     const surplusLabel = surplus >= 0 ? 'Surplus' : 'Deficit';
 
-    return `<div style="display:flex;flex-direction:column;gap:20px;align-items:center;justify-content:center">
-      <div style="text-align:left">
-        <div style="width:${incomeBarWidth}px;height:28px;border:1px solid var(--bdr);border-radius:4px;background:#2563eb;display:flex;align-items:center;padding-left:8px;color:white;font-size:11px;font-weight:500">Monthly take home pay: $${income.toFixed(0)}</div>
+    return `<div style="display:flex;flex-direction:column;gap:20px;align-items:center;justify-content:center;width:100%">
+      <div style="text-align:left;width:100%">
+        <div style="width:${incomeBarWidth}%;height:28px;border:1px solid var(--bdr);border-radius:4px;background:#2563eb;display:flex;align-items:center;padding-left:8px;color:white;font-size:11px;font-weight:500">Monthly take home pay: $${income.toFixed(0)}</div>
 
-        <div style="margin-top:12px;width:${expensesBarWidth}px;height:28px;border:1px solid var(--bdr);border-radius:4px;background:${surplus >= 0 ? '#16a34a' : '#dc2626'};display:flex;align-items:center;padding-left:8px;color:white;font-size:11px;font-weight:500">Expenses: $${expenses.toFixed(0)}/mo</div>
+        <div style="margin-top:12px;width:${expensesBarWidth}%;height:28px;border:1px solid var(--bdr);border-radius:4px;background:${surplus >= 0 ? '#16a34a' : '#dc2626'};display:flex;align-items:center;padding-left:8px;color:white;font-size:11px;font-weight:500">Expenses: $${expenses.toFixed(0)}/mo</div>
       </div>
     </div>`;
   };
