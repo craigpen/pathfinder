@@ -161,6 +161,7 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
   .carousel-wrap{display:block !important}
   .carousel-container{scroll-snap-type:x mandatory !important;scroll-padding:4px !important}
   .carousel-card{flex:0 0 calc(100vw - 4px) !important;scroll-snap-align:start !important;scroll-snap-stop:always !important}
+  #transition-carousel{display:flex !important}
   .photo-carousel{height:160px}
 }
 
@@ -1534,7 +1535,8 @@ function buildTransitionCarousel(scenarios, workTarget) {
   ];
 
   // Custom carousel (not using .carousel-wrap/.carousel-card to avoid flex constraints)
-  let html = '<div style="display:flex;overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;gap:12px;padding:0 12px;scrollbar-width:none;scroll-snap-type:x mandatory;scroll-padding:12px;margin:0 -12px" id="transition-carousel">';
+  // Hidden on desktop, shown on mobile via media query
+  let html = '<div style="display:none;overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;gap:12px;padding:0 12px;scrollbar-width:none;scroll-snap-type:x mandatory;scroll-padding:12px;margin:0 -12px" id="transition-carousel">';
 
   Object.entries(careerGroups).forEach(([career, items]) => {
     html += '<div style="flex:0 0 100vw;display:flex;flex-direction:column;background:#fff;border:none;border-radius:0;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always;box-shadow:none;margin:0 -12px">';
