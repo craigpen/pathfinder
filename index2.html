@@ -1539,29 +1539,27 @@ function buildTransitionCarousel(scenarios, workTarget) {
   Object.entries(careerGroups).forEach(([career, items]) => {
     html += '<div style="flex:0 0 100%;display:flex;flex-direction:column;background:#fff;border:1px solid var(--bdr);border-radius:8px;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always;box-shadow:0 2px 8px rgba(0,0,0,.08)">';
 
-    // Blue header section: career title and flags
-    html += `<div style="background:var(--pri);color:white;padding:0">`;
-    // Career header
-    html += `<div style="text-align:center;font-weight:600;padding:8px 16px;border-bottom:1px solid rgba(255,255,255,0.2)">${career}</div>`;
+    // Blue career header
+    html += `<div style="background:var(--pri);color:white;text-align:center;font-weight:600;padding:8px 16px">${career}</div>`;
+
+    // Combined grid: labels | country1 | country2 (includes flags and data)
+    html += `<div style="font-size:12px;line-height:1.5;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;padding:16px;align-items:center">`;
+
     // Flags row
-    html += `<div style="display:grid;grid-template-columns:1fr 1fr;gap:0;padding:8px">`;
+    html += '<div></div>';
     items.forEach(({scenario}) => {
       const country = countries[scenario.studyCountry];
       const flag = country ? `<img src="${country.flag}" style="height:0.9em;vertical-align:middle">` : '';
-      html += `<div style="text-align:center;font-weight:500">${flag}</div>`;
+      html += `<div style="text-align:center;font-weight:500;padding:4px;border-bottom:2px solid var(--bdr)">${flag}</div>`;
     });
-    html += '</div></div>';
-
-    // Data grid: labels | country1 | country2
-    html += `<div style="font-size:12px;line-height:1.5;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;padding:16px;align-items:center">`;
 
     // Metric rows
     metrics.forEach(({label, fn}) => {
-      html += `<div style="font-weight:500;font-size:11px;padding:4px 0;border-bottom:1px solid var(--bdr);padding:6px 4px">${label}</div>`;
+      html += `<div style="font-weight:500;font-size:11px;padding:6px 4px;border-bottom:1px solid var(--bdr)">${label}</div>`;
       items.forEach(({scenario}) => {
         const result = fn(scenario);
         const content = result.html ? result.html : result;
-        html += `<div style="text-align:center;font-size:11px;border-bottom:1px solid var(--bdr);padding:6px 4px">${content}</div>`;
+        html += `<div style="text-align:center;font-size:11px;padding:6px 4px;border-bottom:1px solid var(--bdr)">${content}</div>`;
       });
     });
 
