@@ -2929,12 +2929,6 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
     const expensesBarWidth = (expenses / income) * baseWidth;
 
     return `<div style="display:flex;flex-direction:column;gap:20px;align-items:center;justify-content:center">
-      <div style="font-size:10px;line-height:1.6;text-align:left;white-space:nowrap">
-        <div><span style="display:inline-block;width:10px;height:10px;background:#94a3b8;border-radius:2px;margin-right:6px;vertical-align:middle"></span>Living: ${livingPct.toFixed(0)}%</div>
-        <div><span style="display:inline-block;width:10px;height:10px;background:#cbd5e1;border-radius:2px;margin-right:6px;vertical-align:middle"></span>Loan: ${loanPct.toFixed(0)}%</div>
-        <div><span style="display:inline-block;width:10px;height:10px;background:${surplus >= 0 ? '#16a34a' : '#dc2626'};border-radius:2px;margin-right:6px;vertical-align:middle"></span>${surplusLabel}: ${surplusPct.toFixed(0)}%</div>
-      </div>
-
       <div style="text-align:left">
         <div style="width:${incomeBarWidth}px;height:28px;border:1px solid var(--bdr);border-radius:4px;background:#2563eb;display:flex;align-items:center;padding-left:8px;color:white;font-size:11px;font-weight:500">After-tax: $${income.toFixed(0)}/mo</div>
 
