@@ -2832,20 +2832,25 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
 
   if(!sub || !country) return '—';
 
-  const breakdown = country.costBreakdown || {room: 0, personal: 0, travel: 0};
-  const colMonthly = Math.round((breakdown.room + breakdown.personal + breakdown.travel) / 12);
   const monthlyDebt = costData.monthlyPayment;
+
+  // Cost of living varies by work location
+  const usBreakdown = countries['us'].costBreakdown || {room: 0, personal: 0, travel: 0};
+  const usColMonthly = Math.round((usBreakdown.room + usBreakdown.personal + usBreakdown.travel) / 12);
+
+  const euBreakdown = country.costBreakdown || {room: 0, personal: 0, travel: 0};
+  const euColMonthly = Math.round((euBreakdown.room + euBreakdown.personal + euBreakdown.travel) / 12);
 
   // Calculate table values once (source of truth for both table and bar chart)
   const usAfterTax = parseSalary(sub.salaryUS) ? Math.round(parseSalary(sub.salaryUS) * (1 - 0.20) / 12) : 0;
   const euAfterTax = parseSalary(sub.salaryEU) ? Math.round(parseSalary(sub.salaryEU) * (1 - 0.22) / 12) : 0;
-  const usSurplus = usAfterTax - colMonthly - monthlyDebt;
-  const euSurplus = euAfterTax - colMonthly - monthlyDebt;
+  const usSurplus = usAfterTax - usColMonthly - monthlyDebt;
+  const euSurplus = euAfterTax - euColMonthly - monthlyDebt;
 
   // Values for bar chart (extracted from table calculations above)
   const chartData = {
-    us: {income: usAfterTax, living: colMonthly, loan: monthlyDebt, surplus: usSurplus},
-    eu: {income: euAfterTax, living: colMonthly, loan: monthlyDebt, surplus: euSurplus}
+    us: {income: usAfterTax, living: usColMonthly, loan: monthlyDebt, surplus: usSurplus},
+    eu: {income: euAfterTax, living: euColMonthly, loan: monthlyDebt, surplus: euSurplus}
   };
 
   const metrics = [
@@ -2865,7 +2870,10 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
       const monthly = Math.round(s * (1 - taxRate) / 12);
       return `$${monthly.toLocaleString()}`;
     }},
-    {label: 'Monthly cost of living', us: null, eu: null, color: 'var(--bad)', fn: () => `$${colMonthly.toLocaleString()}`},
+    {label: 'Monthly cost of living', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
+      const col = isUS ? usColMonthly : euColMonthly;
+      return `$${col.toLocaleString()}`;
+    }},
     {label: 'Monthly loan payment', us: null, eu: null, color: 'var(--bad)', fn: () => `$${monthlyDebt.toLocaleString()}`},
     {label: 'Debt-to-Income', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
       if(!salary) return '—';
@@ -2881,7 +2889,8 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
       if(!s) return {label: '—', html: '—'};
       const taxRate = isUS ? 0.20 : 0.22;
       const monthlyIncome = s * (1 - taxRate) / 12;
-      const surplus = monthlyIncome - colMonthly - monthlyDebt;
+      const col = isUS ? usColMonthly : euColMonthly;
+      const surplus = monthlyIncome - col - monthlyDebt;
       const label = surplus >= 0 ? 'Surplus/mo' : 'Deficit/mo';
       const color = surplus >= 0 ? 'var(--ok)' : 'var(--bad)';
       return {label, html: `<span style="color:${color}">$${Math.round(Math.abs(surplus)).toLocaleString()}</span>`};
