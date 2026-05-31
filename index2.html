@@ -2823,6 +2823,16 @@ function renderTransition(){
   });
 
   document.getElementById('transition-content').innerHTML = html;
+
+  // Initialize carousels for each career
+  setTimeout(() => {
+    validCareers.forEach(career => {
+      const carouselId = 'tc-' + career.replace(/\W+/g, '-').toLowerCase();
+      if(document.getElementById(carouselId)) {
+        initCarousel(carouselId);
+      }
+    });
+  }, 50);
 }
 
 function buildTransitionCareerTable(career, studyCountry, costData) {
@@ -2856,7 +2866,8 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
   // Values for bar chart (extracted from table calculations above)
   const chartData = {
     us: {income: usAfterTax, living: usColMonthly, loan: monthlyDebt, surplus: usSurplus},
-    eu: {income: euAfterTax, living: euColMonthly, loan: monthlyDebt, surplus: euSurplus}
+    eu: {income: euAfterTax, living: euColMonthly, loan: monthlyDebt, surplus: euSurplus},
+    maxIncome: Math.max(usAfterTax, euAfterTax)
   };
 
   const metrics = [
@@ -2965,6 +2976,84 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
   html += `</tr>`;
 
   html += '</tbody></table>';
+
+  // Build mobile carousel with same data
+  const carouselId = 'tc-' + career.replace(/\W+/g, '-').toLowerCase();
+
+  // Helper to format label with sublabel (10px smaller)
+  const labelWithSub = (title, sub) => `<b>${title}</b><div style="font-size:10px;color:var(--tx2);font-weight:400;margin-top:4px">${sub}</div>`;
+
+  // Helper for single-scenario bar chart
+  const buildSingleBar = (data) => {
+    const income = data.income;
+    const expenses = data.living + data.loan;
+    const incomeW = (income / chartData.maxIncome) * 100;
+    const expensesW = (expenses / chartData.maxIncome) * 100;
+    const surplus = data.surplus;
+    return `<div style="display:flex;flex-direction:column;gap:12px">
+      <div style="width:${incomeW}%;height:28px;border:1px solid var(--bdr);border-radius:4px;background:#2563eb;display:flex;align-items:center;padding-left:8px;color:white;font-size:11px;font-weight:500">Monthly take home: $${income.toFixed(0)}</div>
+      <div style="width:${expensesW}%;height:28px;border:1px solid var(--bdr);border-radius:4px;background:${surplus >= 0 ? '#16a34a' : '#dc2626'};display:flex;align-items:center;padding-left:8px;color:white;font-size:11px;font-weight:500">Expenses: $${expenses.toFixed(0)}/mo</div>
+    </div>`;
+  };
+
+  const carouselRows = [
+    [labelWithSub('Annual salary', 'Estimated starting salary range.  An average is used for calculations'),
+     (key) => {
+       const val = key === 'us' ? sub.salaryUS : sub.salaryEU;
+       return `<span style="color:var(--ok);font-weight:600">${val}</span>`;
+     }],
+    [labelWithSub('Taxes (20% US, 22% EU)', 'Estimated income taxes'),
+     (key) => {
+       const salary = key === 'us' ? sub.salaryUS : sub.salaryEU;
+       if(!salary) return '—';
+       const s = parseSalary(salary);
+       if(!s) return '—';
+       const taxRate = key === 'us' ? 0.20 : 0.22;
+       return `<span style="color:var(--bad);font-weight:600">$${Math.round(s * taxRate).toLocaleString()}</span>`;
+     }],
+    [labelWithSub('Monthly income after taxes', 'Your estimated monthly take home pay after taxes'),
+     (key) => {
+       const salary = key === 'us' ? sub.salaryUS : sub.salaryEU;
+       if(!salary) return '—';
+       const s = parseSalary(salary);
+       if(!s) return '—';
+       const taxRate = key === 'us' ? 0.20 : 0.22;
+       const monthly = Math.round(s * (1 - taxRate) / 12);
+       return `<span style="color:var(--ok);font-weight:600">$${monthly.toLocaleString()}</span>`;
+     }],
+    [labelWithSub('Monthly cost of living', 'Estimate of housing, food, travel, and personal expenses'),
+     (key) => {
+       const col = key === 'us' ? usColMonthly : euColMonthly;
+       return `<span style="color:var(--bad);font-weight:600">$${col.toLocaleString()}</span>`;
+     }],
+    [labelWithSub('Monthly loan payment', 'Amount you would owe to repay loans each month'),
+     (key) => {
+       return `<span style="color:var(--bad);font-weight:600">$${monthlyDebt.toLocaleString()}</span>`;
+     }],
+    [labelWithSub('Debt-to-Income', 'How much of your monthly pay goes to repaying loans?'),
+     (key) => {
+       const salary = key === 'us' ? sub.salaryUS : sub.salaryEU;
+       if(!salary) return '—';
+       const s = parseSalary(salary);
+       if(!s) return '—';
+       const taxRate = key === 'us' ? 0.20 : 0.22;
+       const monthly = s * (1 - taxRate) / 12;
+       const pct = (monthlyDebt / monthly * 100).toFixed(1);
+       return `<span style="color:var(--bad);font-weight:600">${pct}%</span>`;
+     }],
+    [labelWithSub('Surplus or deficit/mo', 'Money left over after expenses and loan payments each month.  Green means you have money left over.  Red means you don\'t have enough money to cover your expenses and loans.'),
+     (key) => {
+       const data = key === 'us' ? chartData.us : chartData.eu;
+       const color = data.surplus >= 0 ? 'var(--ok)' : 'var(--bad)';
+       return `<span style="color:${color};font-weight:600">$${Math.round(Math.abs(data.surplus)).toLocaleString()}</span>`;
+     }],
+    [labelWithSub('Monthly budget', ''),
+     (key) => buildSingleBar(key === 'us' ? chartData.us : chartData.eu)]
+  ];
+
+  const carousel = buildCarouselHTML(carouselRows, ['us', 'eu'], (key) => key === 'us' ? 'Live/Work in US' : 'Live/Work in EU', carouselId);
+  html += carousel;
+
   return html;
 }
 function renderExChips(){const el=document.getElementById('ex-chips');if(!COUNTRIES_LOADED){el.innerHTML='Loading...';setTimeout(renderExChips,100);return;}let h='';Object.entries(COUNTRIES).forEach(([k,v])=>{h+=`<div class="pill${S.expl===k?' on':''}" onclick="selEx('${k}')"><img src="${v.flag}" style="height:0.9em;vertical-align:middle"> ${v.name}</div>`});el.innerHTML=h}
