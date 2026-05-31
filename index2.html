@@ -2836,11 +2836,17 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
   const colMonthly = Math.round((breakdown.room + breakdown.personal + breakdown.travel) / 12);
   const monthlyDebt = costData.monthlyPayment;
 
-  // Calculate table values once (source of truth for both table and pie chart)
+  // Calculate table values once (source of truth for both table and bar chart)
   const usAfterTax = parseSalary(sub.salaryUS) ? Math.round(parseSalary(sub.salaryUS) * (1 - 0.20) / 12) : 0;
   const euAfterTax = parseSalary(sub.salaryEU) ? Math.round(parseSalary(sub.salaryEU) * (1 - 0.22) / 12) : 0;
   const usSurplus = usAfterTax - colMonthly - monthlyDebt;
   const euSurplus = euAfterTax - colMonthly - monthlyDebt;
+
+  // Values for bar chart (extracted from table calculations above)
+  const chartData = {
+    us: {income: usAfterTax, living: colMonthly, loan: monthlyDebt, surplus: usSurplus},
+    eu: {income: euAfterTax, living: colMonthly, loan: monthlyDebt, surplus: euSurplus}
+  };
 
   const metrics = [
     {label: 'Annual salary', us: sub.salaryUS, eu: sub.salaryEU, color: 'var(--ok)'},
@@ -2911,9 +2917,7 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
     }
   });
 
-  // Add pie chart visualization row (uses values from table above)
-  const loanMonthly = Math.round(monthlyDebt);
-
+  // Bar chart visualization row (uses values from table above)
   const buildHorizontalBar = (income, living, loan, surplus) => {
     if(income <= 0) return '<div style="font-size:11px;color:var(--tx2)">No data</div>';
 
@@ -2940,8 +2944,8 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
 
   html += `<tr style="border-top:2px solid var(--bdr)">`;
   html += `<td style="padding:12px 10px;font-weight:500;font-size:13px;background:rgba(241,245,249,.5)">Monthly budget</td>`;
-  html += `<td style="padding:12px 10px;text-align:center">${buildHorizontalBar(usAfterTax, colMonthly, loanMonthly, usSurplus)}</td>`;
-  html += `<td style="padding:12px 10px;text-align:center">${buildHorizontalBar(euAfterTax, colMonthly, loanMonthly, euSurplus)}</td>`;
+  html += `<td style="padding:12px 10px;text-align:center">${buildHorizontalBar(chartData.us.income, chartData.us.living, chartData.us.loan, chartData.us.surplus)}</td>`;
+  html += `<td style="padding:12px 10px;text-align:center">${buildHorizontalBar(chartData.eu.income, chartData.eu.living, chartData.eu.loan, chartData.eu.surplus)}</td>`;
   html += `</tr>`;
 
   html += '</tbody></table>';
