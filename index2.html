@@ -2814,7 +2814,7 @@ function renderTransition(){
     return;
   }
 
-  const costData = calculateCostData(transitionSelectedCountry, 0, 0, 0, 0, +(document.getElementById('sl-rate')?.value || 5.5), yrs);
+  const costData = calculateCostData(transitionSelectedCountry, S.scholarshipPct || 0, S.collegeSavings || 0, S.partTimeWork || 0, S.familySupport || 0, S.loanRate || 5.5, yrs);
 
   // Generate one table per career for the selected country
   validCareers.forEach(career => {
