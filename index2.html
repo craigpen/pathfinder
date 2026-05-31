@@ -1003,7 +1003,7 @@ const CAREER_TO_QS_SUBJECT={"Accounting":"Accounting & Finance","Architecture":"
 const STATE_NAMES={AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',FL:'Florida',GA:'Georgia',HI:'Hawaii',ID:'Idaho',IL:'Illinois',IN:'Indiana',IA:'Iowa',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',MS:'Mississippi',MO:'Missouri',MT:'Montana',NC:'North Carolina',ND:'North Dakota',NE:'Nebraska',NH:'New Hampshire',NJ:'New Jersey',NM:'New Mexico',NV:'Nevada',NY:'New York',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',SD:'South Dakota',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',VA:'Virginia',WA:'Washington',WV:'West Virginia',WI:'Wisconsin',WY:'Wyoming'};
 
 const S={cats:[],motivations:[],subCareers:[],prac:[],cc:[],costCC:[],expl:null,playlist:null,flex:[],cost:null,vision:null,lang:null,citizen:[],debtYrs:null,languages:[],postGrad:null,inStateTuitionPref:null,stateOfResidency:null,inStateToggle:false,usUniversityType:null,uniSelectivity:null,scholarshipPct:null,collegeSavings:null,partTimeWork:null,familySupport:null,loanRate:null,loanRepaymentYears:null};
-const VERSION='v1.9.0';
+const VERSION='v1.9.1';
 document.addEventListener('DOMContentLoaded',()=>{const b=document.getElementById('version-badge');if(b)b.innerText=VERSION;});
 function saveState(){const stateToSave={cats:S.cats,motivations:S.motivations,subCareers:S.subCareers,flex:S.flex,cost:S.cost,vision:S.vision,lang:S.lang,citizen:S.citizen,debtYrs:S.debtYrs,languages:S.languages,postGrad:S.postGrad,inStateTuitionPref:S.inStateTuitionPref,stateOfResidency:S.stateOfResidency,cc:S.cc,costCC:S.costCC,expl:S.expl,uniSelectivity:S.uniSelectivity,scholarshipPct:S.scholarshipPct,collegeSavings:S.collegeSavings,partTimeWork:S.partTimeWork,familySupport:S.familySupport,loanRate:S.loanRate,loanRepaymentYears:S.loanRepaymentYears,inStateToggle:S.inStateToggle,usUniversityType:S.usUniversityType};localStorage.setItem('univPathfinderState',JSON.stringify(stateToSave));}
 function loadState(){const saved=localStorage.getItem('univPathfinderState');if(saved){const state=JSON.parse(saved);Object.assign(S,state);if(state.scholarshipPct!==undefined)document.getElementById('sl-schol').value=state.scholarshipPct;if(state.collegeSavings!==undefined)document.getElementById('sl-savings').value=state.collegeSavings;if(state.partTimeWork!==undefined)document.getElementById('sl-work').value=state.partTimeWork;if(state.familySupport!==undefined)document.getElementById('sl-parent').value=state.familySupport;if(state.loanRate!==undefined)document.getElementById('sl-rate').value=state.loanRate;if(state.loanRepaymentYears!==undefined)document.getElementById('sl-yrs').value=state.loanRepaymentYears;if(state.inStateToggle!==undefined){const instateIn=document.getElementById('instate-in');const instateOut=document.getElementById('instate-out');if(state.inStateToggle){instateIn.classList.add('on');instateOut.classList.remove('on')}else{instateOut.classList.add('on');instateIn.classList.remove('on')}}}}
@@ -2913,7 +2913,7 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
   // Add pie chart visualization row (uses values from table above)
   const loanMonthly = Math.round(monthlyDebt);
 
-  const buildPieChart = (income, living, loan, surplus) => {
+  const buildHorizontalBar = (income, living, loan, surplus) => {
     if(income <= 0) return '<div style="font-size:11px;color:var(--tx2)">No data</div>';
 
     const total = income;
@@ -2921,13 +2921,31 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
     const loanPct = (loan / total * 100);
     const surplusPct = (surplus / total * 100);
 
-    const livingDeg = (living / total * 360);
-    const loanDeg = (loan / total * 360);
-
-    let conic = `conic-gradient(#94a3b8 0deg ${livingDeg}deg, #cbd5e1 ${livingDeg}deg ${livingDeg + loanDeg}deg, `;
-    conic += surplus >= 0 ? `#16a34a ${livingDeg + loanDeg}deg 360deg)` : `#dc2626 ${livingDeg + loanDeg}deg 360deg)`;
-
     const surplusLabel = surplus >= 0 ? 'Surplus' : 'Deficit';
+
+    // Calculate actual pixel widths for each segment (200px = 100% of income)
+    const barWidth = 200;
+    const livingW = (livingPct / 100) * barWidth;
+    const loanW = (loanPct / 100) * barWidth;
+    const surplusW = (Math.abs(surplusPct) / 100) * barWidth;
+
+    // Build bar segments: living + loan + surplus/deficit
+    let barHTML = '';
+    if(surplus >= 0) {
+      // Surplus case: all segments fit within the bar
+      barHTML = `
+        <div style="width:${livingW}px;height:100%;background:#94a3b8;border-right:1px solid rgba(255,255,255,0.6)"></div>
+        <div style="width:${loanW}px;height:100%;background:#cbd5e1;border-right:1px solid rgba(255,255,255,0.6)"></div>
+        <div style="flex:1;background:#16a34a"></div>
+      `;
+    } else {
+      // Deficit case: expenses exceed income, show overflow
+      barHTML = `
+        <div style="width:${livingW}px;height:100%;background:#94a3b8;border-right:1px solid rgba(255,255,255,0.6)"></div>
+        <div style="width:${loanW}px;height:100%;background:#cbd5e1"></div>
+        <div style="position:absolute;left:${barWidth}px;top:0;width:${surplusW}px;height:100%;background:#dc2626;border-left:1px solid var(--bdr)"></div>
+      `;
+    }
 
     return `<div style="display:flex;flex-direction:row;align-items:center;gap:12px;justify-content:center">
       <div style="font-size:10px;line-height:1.6;text-align:left;white-space:nowrap">
@@ -2935,14 +2953,16 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
         <div><span style="display:inline-block;width:10px;height:10px;background:#cbd5e1;border-radius:2px;margin-right:6px;vertical-align:middle"></span>Loan: ${loanPct.toFixed(0)}%</div>
         <div><span style="display:inline-block;width:10px;height:10px;background:${surplus >= 0 ? '#16a34a' : '#dc2626'};border-radius:2px;margin-right:6px;vertical-align:middle"></span>${surplusLabel}: ${surplusPct.toFixed(0)}%</div>
       </div>
-      <div style="width:100px;height:100px;border-radius:50%;background:${conic};border:2px solid var(--bdr);flex-shrink:0"></div>
+      <div style="display:flex;height:28px;border:1px solid var(--bdr);border-radius:4px;background:rgba(100,100,100,0.05);width:${barWidth}px;position:relative;overflow:visible">
+        ${barHTML}
+      </div>
     </div>`;
   };
 
   html += `<tr style="border-top:2px solid var(--bdr)">`;
   html += `<td style="padding:12px 10px;font-weight:500;font-size:13px;background:rgba(241,245,249,.5)">Monthly budget</td>`;
-  html += `<td style="padding:12px 10px;text-align:center">${buildPieChart(usAfterTax, colMonthly, loanMonthly, usSurplus)}</td>`;
-  html += `<td style="padding:12px 10px;text-align:center">${buildPieChart(euAfterTax, colMonthly, loanMonthly, euSurplus)}</td>`;
+  html += `<td style="padding:12px 10px;text-align:center">${buildHorizontalBar(usAfterTax, colMonthly, loanMonthly, usSurplus)}</td>`;
+  html += `<td style="padding:12px 10px;text-align:center">${buildHorizontalBar(euAfterTax, colMonthly, loanMonthly, euSurplus)}</td>`;
   html += `</tr>`;
 
   html += '</tbody></table>';
