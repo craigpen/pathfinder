@@ -2815,8 +2815,6 @@ function renderTransition(){
   }
 
   const costData = calculateCostData(transitionSelectedCountry, 0, 0, 0, 0, +(document.getElementById('sl-rate')?.value || 5.5), yrs);
-  const totalCost = costData.totalCost;
-  const monthlyDebt = totalCost > 0 ? (totalCost * rate) / (1 - Math.pow(1 + rate, -months)) : 0;
 
   // Show header with selected country
   html += `<h3 style="margin:24px 0 12px 0;color:var(--dk);font-size:18px">University location: <img src="${selectedCountry.flag}" style="height:0.9em;vertical-align:middle;margin-right:6px">${selectedCountry.name}</h3>`;
@@ -2824,18 +2822,21 @@ function renderTransition(){
   // Generate one table per career for the selected country
   validCareers.forEach(career => {
     html += `<h4 style="margin:16px 0 8px 0;color:var(--tx1);font-size:14px;font-weight:600">Career: ${career}</h4>`;
-    html += buildTransitionCareerTable(career, transitionSelectedCountry, monthlyDebt);
+    html += buildTransitionCareerTable(career, transitionSelectedCountry, costData);
   });
 
   document.getElementById('transition-content').innerHTML = html;
 }
 
-function buildTransitionCareerTable(career, studyCountry, monthlyDebt) {
+function buildTransitionCareerTable(career, studyCountry, costData) {
   const countries = window.COUNTRIES || {};
   const sub = getSub(career);
   const country = countries[studyCountry];
 
   if(!sub || !country) return '—';
+
+  const colMonthly = Math.round((costData.housing + costData.personal + costData.travel) / 12);
+  const monthlyDebt = costData.monthlyPayment;
 
   const metrics = [
     {label: 'Annual salary', us: sub.salaryUS, eu: sub.salaryEU},
@@ -2854,12 +2855,8 @@ function buildTransitionCareerTable(career, studyCountry, monthlyDebt) {
       const monthly = Math.round(s * (1 - taxRate) / 12);
       return `$${monthly.toLocaleString()}`;
     }},
-    {label: 'Cost of living/mo', us: null, eu: null, fn: () => {
-      if(!country.costBreakdown) return '—';
-      const monthly = (country.costBreakdown.room + country.costBreakdown.personal + country.costBreakdown.travel) / 12;
-      return `$${Math.round(monthly).toLocaleString()}`;
-    }},
-    {label: 'Monthly loan payment', us: null, eu: null, fn: () => `$${Math.round(monthlyDebt).toLocaleString()}`},
+    {label: 'Cost of living/mo', us: null, eu: null, fn: () => `$${colMonthly.toLocaleString()}`},
+    {label: 'Monthly loan payment', us: null, eu: null, fn: () => `$${monthlyDebt.toLocaleString()}`},
     {label: 'Debt-to-Income', us: null, eu: null, fn: (salary, isUS) => {
       if(!salary) return '—';
       const s = parseSalary(salary);
@@ -2874,8 +2871,6 @@ function buildTransitionCareerTable(career, studyCountry, monthlyDebt) {
       if(!s) return '—';
       const taxRate = isUS ? 0.20 : 0.22;
       const monthlyIncome = s * (1 - taxRate) / 12;
-      if(!country.costBreakdown) return '—';
-      const colMonthly = (country.costBreakdown.room + country.costBreakdown.personal + country.costBreakdown.travel) / 12;
       const surplus = monthlyIncome - colMonthly - monthlyDebt;
       const color = surplus >= 500 ? 'var(--ok)' : surplus >= 0 ? 'var(--tx)' : 'var(--bad)';
       return {html: `<span style="color:${color}">$${Math.round(surplus).toLocaleString()}</span>`};
@@ -2905,7 +2900,6 @@ function buildTransitionCareerTable(career, studyCountry, monthlyDebt) {
   // Add pie chart visualization row
   const usAfterTax = parseSalary(sub.salaryUS) ? Math.round(parseSalary(sub.salaryUS) * 0.8 / 12) : 0;
   const euAfterTax = parseSalary(sub.salaryEU) ? Math.round(parseSalary(sub.salaryEU) * 0.78 / 12) : 0;
-  const colMonthly = country.costBreakdown ? Math.round((country.costBreakdown.room + country.costBreakdown.personal + country.costBreakdown.travel) / 12) : 0;
   const loanMonthly = Math.round(monthlyDebt);
   const usSurplus = usAfterTax - colMonthly - loanMonthly;
   const euSurplus = euAfterTax - colMonthly - loanMonthly;
