@@ -2877,43 +2877,42 @@ function buildTransitionCareerTable(career, studyCountry, monthlyDebt) {
     html += `</tr>`;
   });
 
-  // Add chart visualization row
+  // Add pie chart visualization row
   const usAfterTax = parseSalary(sub.salaryUS) ? Math.round(parseSalary(sub.salaryUS) * 0.8 / 12) : 0;
   const euAfterTax = parseSalary(sub.salaryEU) ? Math.round(parseSalary(sub.salaryEU) * 0.78 / 12) : 0;
   const colMonthly = country.costBreakdown ? Math.round((country.costBreakdown.room + country.costBreakdown.books + country.costBreakdown.personal) / 12) : 0;
   const loanMonthly = Math.round(monthlyDebt);
-  const usExpenses = colMonthly + loanMonthly;
-  const euExpenses = colMonthly + loanMonthly;
-  const usSurplus = usAfterTax - usExpenses;
-  const euSurplus = euAfterTax - euExpenses;
+  const usSurplus = usAfterTax - colMonthly - loanMonthly;
+  const euSurplus = euAfterTax - colMonthly - loanMonthly;
 
-  const maxValue = Math.max(usAfterTax, euAfterTax) || 1;
-  const usIncomeWidth = (usAfterTax / maxValue * 100);
-  const euIncomeWidth = (euAfterTax / maxValue * 100);
+  const buildPieChart = (income, living, loan, surplus) => {
+    if(income <= 0) return '<div style="font-size:11px;color:var(--tx2)">No data</div>';
 
-  html += `<tr style="border-top:2px solid var(--bdr);padding:12px 8px">`;
-  html += `<td style="padding:12px 10px;font-weight:500;font-size:13px;background:rgba(241,245,249,.5)">Monthly breakdown</td>`;
+    const total = income;
+    const livingPct = (living / total * 100);
+    const loanPct = (loan / total * 100);
+    const surplusPct = (surplus / total * 100);
 
-  // US chart
-  html += `<td style="padding:8px 10px">
-    <div style="margin-bottom:4px;font-size:11px;color:var(--tx2)">Income: $${usAfterTax.toLocaleString()}</div>
-    <div style="display:grid;grid-template-columns:auto 1fr;gap:4px;font-size:10px;line-height:1.3">
-      <div style="width:60px">Living:</div><div style="background:rgba(200,50,50,.3);padding:2px 4px;border-radius:2px">$${colMonthly.toLocaleString()}</div>
-      <div>Loan:</div><div style="background:rgba(200,100,50,.3);padding:2px 4px;border-radius:2px">$${loanMonthly.toLocaleString()}</div>
-      <div style="font-weight:600;color:${usSurplus >= 500 ? 'var(--ok)' : usSurplus >= 0 ? 'var(--tx)' : 'var(--bad)'};margin-top:2px">Surplus:</div><div style="background:${usSurplus >= 500 ? 'rgba(22,163,74,.2)' : usSurplus >= 0 ? 'rgba(100,100,100,.2)' : 'rgba(220,38,38,.2)'};padding:2px 4px;border-radius:2px;font-weight:600">$${Math.round(usSurplus).toLocaleString()}</div>
-    </div>
-  </td>`;
+    const livingDeg = (living / total * 360);
+    const loanDeg = (loan / total * 360);
 
-  // EU chart
-  html += `<td style="padding:8px 10px">
-    <div style="margin-bottom:4px;font-size:11px;color:var(--tx2)">Income: $${euAfterTax.toLocaleString()}</div>
-    <div style="display:grid;grid-template-columns:auto 1fr;gap:4px;font-size:10px;line-height:1.3">
-      <div style="width:60px">Living:</div><div style="background:rgba(200,50,50,.3);padding:2px 4px;border-radius:2px">$${colMonthly.toLocaleString()}</div>
-      <div>Loan:</div><div style="background:rgba(200,100,50,.3);padding:2px 4px;border-radius:2px">$${loanMonthly.toLocaleString()}</div>
-      <div style="font-weight:600;color:${euSurplus >= 500 ? 'var(--ok)' : euSurplus >= 0 ? 'var(--tx)' : 'var(--bad)'};margin-top:2px">Surplus:</div><div style="background:${euSurplus >= 500 ? 'rgba(22,163,74,.2)' : euSurplus >= 0 ? 'rgba(100,100,100,.2)' : 'rgba(220,38,38,.2)'};padding:2px 4px;border-radius:2px;font-weight:600">$${Math.round(euSurplus).toLocaleString()}</div>
-    </div>
-  </td>`;
+    let conic = `conic-gradient(#c83232 0deg ${livingDeg}deg, #f97316 ${livingDeg}deg ${livingDeg + loanDeg}deg, `;
+    conic += surplus >= 0 ? `#16a34a ${livingDeg + loanDeg}deg 360deg)` : `#dc2626 ${livingDeg + loanDeg}deg 360deg)`;
 
+    return `<div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+      <div style="width:100px;height:100px;border-radius:50%;background:${conic};border:2px solid var(--bdr)"></div>
+      <div style="font-size:10px;line-height:1.4;text-align:center">
+        <div><span style="display:inline-block;width:10px;height:10px;background:#c83232;border-radius:2px;margin-right:4px"></span>Living: ${livingPct.toFixed(0)}%</div>
+        <div><span style="display:inline-block;width:10px;height:10px;background:#f97316;border-radius:2px;margin-right:4px"></span>Loan: ${loanPct.toFixed(0)}%</div>
+        <div><span style="display:inline-block;width:10px;height:10px;background:${surplus >= 0 ? '#16a34a' : '#dc2626'};border-radius:2px;margin-right:4px"></span>Surplus: ${surplusPct.toFixed(0)}%</div>
+      </div>
+    </div>`;
+  };
+
+  html += `<tr style="border-top:2px solid var(--bdr)">`;
+  html += `<td style="padding:12px 10px;font-weight:500;font-size:13px;background:rgba(241,245,249,.5)">Monthly budget</td>`;
+  html += `<td style="padding:12px 10px;text-align:center">${buildPieChart(usAfterTax, colMonthly, loanMonthly, usSurplus)}</td>`;
+  html += `<td style="padding:12px 10px;text-align:center">${buildPieChart(euAfterTax, colMonthly, loanMonthly, euSurplus)}</td>`;
   html += `</tr>`;
 
   html += '</tbody></table>';
