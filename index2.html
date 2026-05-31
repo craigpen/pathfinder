@@ -2910,7 +2910,7 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
       const surplus = monthlyIncome - col - monthlyDebt;
       const label = surplus >= 0 ? 'Surplus or deficit/mo' : 'Surplus or deficit/mo';
       const color = surplus >= 0 ? 'var(--ok)' : 'var(--bad)';
-      return {label, sublabel: 'Money left over after expenses and loan payments each month.  Green means you have money left over.  Red means you don\'t have enough money to cover your expenses and loans.', html: `<span style="color:${color}">$${Math.round(Math.abs(surplus)).toLocaleString()}</span>`};
+      return {label, sublabel: 'Money left over after expenses and loan payments each month.  Green is a surplus and red is a deficit.', html: `<span style="color:${color}">$${Math.round(Math.abs(surplus)).toLocaleString()}</span>`};
     }}
   ];
 
@@ -3041,7 +3041,7 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
        const pct = (monthlyDebt / monthly * 100).toFixed(1);
        return `<span style="color:var(--bad);font-weight:600">${pct}%</span>`;
      }],
-    [labelWithSub('Surplus or deficit/mo', 'Money left over after expenses and loan payments each month.  Green means you have money left over.  Red means you don\'t have enough money to cover your expenses and loans.'),
+    [labelWithSub('Surplus or deficit/mo', 'Money left over after expenses and loan payments each month.  Green is a surplus and red is a deficit.'),
      (key) => {
        const data = key === 'us' ? chartData.us : chartData.eu;
        const color = data.surplus >= 0 ? 'var(--ok)' : 'var(--bad)';
