@@ -1542,16 +1542,15 @@ function buildTransitionCarousel(scenarios, workTarget) {
     // 3-column grid: labels | country1 | country2
     html += `<div style="font-size:12px;line-height:1.5;display:grid;grid-template-columns:90px 1fr 1fr;gap:8px 12px;align-items:center;width:100%">`;
 
-    // Row 1: Career header spanning columns 2-3
-    html += '<div></div>';
-    html += `<div style="grid-column:2/4;text-align:center;font-weight:600;background:var(--pri);color:white;padding:8px;border-radius:4px 4px 0 0">${career}</div>`;
+    // Row 1: Career header spanning all 3 columns with blue background
+    html += `<div style="grid-column:1/4;text-align:center;font-weight:600;background:var(--pri);color:white;padding:8px 16px">${career}</div>`;
 
-    // Row 2: Empty cell | Flag 1 | Flag 2
-    html += '<div></div>';
+    // Row 2: Empty cell | Flag 1 | Flag 2 (all with blue background)
+    html += '<div style="background:var(--pri)"></div>';
     items.forEach(({scenario}) => {
       const country = countries[scenario.studyCountry];
       const flag = country ? `<img src="${country.flag}" style="height:0.9em;vertical-align:middle">` : '';
-      html += `<div style="text-align:center;font-weight:500;background:rgba(0,0,0,0.02);padding:6px">${flag}</div>`;
+      html += `<div style="text-align:center;font-weight:500;background:var(--pri);padding:8px">${flag}</div>`;
     });
 
     // Metric rows
