@@ -2818,7 +2818,7 @@ function renderTransition(){
 
   // Generate one table per career for the selected country
   validCareers.forEach(career => {
-    html += `<h4 style="margin:16px 0 8px 0;color:var(--tx1);font-size:14px;font-weight:600">Career: ${career}</h4>`;
+    html += `<h4 style="margin:16px 0 8px 0;color:var(--tx1);font-size:14px;font-weight:600"><b>Career:</b> ${career}</h4>`;
     html += buildTransitionCareerTable(career, transitionSelectedCountry, costData);
   });
 
