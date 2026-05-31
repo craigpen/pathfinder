@@ -1538,24 +1538,25 @@ function buildTransitionCarousel(scenarios, workTarget) {
 
   Object.entries(careerGroups).forEach(([career, items]) => {
     html += '<div class="carousel-card">';
-    html += `<div class="carousel-card-header" style="text-align:center;font-weight:600;padding-bottom:12px;border-bottom:1px solid rgba(0,0,0,0.1);margin-bottom:12px">${career}</div>`;
+    // 3-column grid: labels | country1 | country2
+    html += `<div style="font-size:12px;line-height:1.5;display:grid;grid-template-columns:100px 1fr 1fr;gap:8px 12px;align-items:center">`;
 
-    // Build table within card with proper column count
-    const colCount = items.length;
-    const gridCols = '120px ' + Array(colCount).fill('1fr').join(' ');
-    html += `<div style="font-size:12px;line-height:1.4;display:grid;grid-template-columns:${gridCols};gap:8px 12px;align-items:center;width:100%">`;
+    // Career header spanning columns 2-3
+    html += `<div style="grid-column:2/4;text-align:center;font-weight:600;padding:0 0 8px 0;border-bottom:1px solid rgba(0,0,0,0.1);margin-bottom:4px">${career}</div>`;
 
-    // Flag row header
-    html += '<div style="font-weight:600">Location</div>';
+    // Empty cell for top-left of location row
+    html += '<div></div>';
+
+    // Flag row
     items.forEach(({scenario}) => {
       const country = countries[scenario.studyCountry];
       const flag = country ? `<img src="${country.flag}" style="height:0.9em;vertical-align:middle">` : '';
-      html += `<div style="text-align:center;font-size:11px">${flag}</div>`;
+      html += `<div style="text-align:center;font-weight:500">${flag}</div>`;
     });
 
     // Metric rows
     metrics.forEach(({label, fn}) => {
-      html += `<div style="font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${label}</div>`;
+      html += `<div style="font-weight:500;font-size:11px">${label}</div>`;
       items.forEach(({scenario}) => {
         const result = fn(scenario);
         const content = result.html ? result.html : result;
