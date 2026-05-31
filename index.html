@@ -2860,15 +2860,15 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
   };
 
   const metrics = [
-    {label: 'Annual salary', sublabel: 'Expected starting salary range', us: sub.salaryUS, eu: sub.salaryEU, color: 'var(--ok)'},
-    {label: 'Taxes (20% US, 22% EU)', sublabel: 'Estimated income tax deduction', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
+    {label: 'Annual salary', sublabel: 'Estimated starting salary range.  An average is used for calculations', us: sub.salaryUS, eu: sub.salaryEU, color: 'var(--ok)'},
+    {label: 'Taxes (20% US, 22% EU)', sublabel: 'Estimated income taxes', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
       if(!salary) return '—';
       const s = parseSalary(salary);
       if(!s) return '—';
       const taxRate = isUS ? 0.20 : 0.22;
       return `$${Math.round(s * taxRate).toLocaleString()}`;
     }},
-    {label: 'Monthly income after taxes', sublabel: 'What you keep each month', us: null, eu: null, color: 'var(--ok)', fn: (salary, isUS) => {
+    {label: 'Monthly income after taxes', sublabel: 'Your estimated monthly take home pay after taxes', us: null, eu: null, color: 'var(--ok)', fn: (salary, isUS) => {
       if(!salary) return '—';
       const s = parseSalary(salary);
       if(!s) return '—';
@@ -2876,12 +2876,12 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
       const monthly = Math.round(s * (1 - taxRate) / 12);
       return `$${monthly.toLocaleString()}`;
     }},
-    {label: 'Monthly cost of living', sublabel: 'Housing, food, transport, and personal expenses', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
+    {label: 'Monthly cost of living', sublabel: 'Estimate of housing, food, travel, and personal expenses', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
       const col = isUS ? usColMonthly : euColMonthly;
       return `$${col.toLocaleString()}`;
     }},
-    {label: 'Monthly loan payment', sublabel: 'Monthly education loan repayment', us: null, eu: null, color: 'var(--bad)', fn: () => `$${monthlyDebt.toLocaleString()}`},
-    {label: 'Debt-to-Income', sublabel: 'Loan payment as % of monthly income', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
+    {label: 'Monthly loan payment', sublabel: 'Amount you would owe to repay loans each month', us: null, eu: null, color: 'var(--bad)', fn: () => `$${monthlyDebt.toLocaleString()}`},
+    {label: 'Debt-to-Income', sublabel: 'How much of your monthly pay goes to repaying loans?', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
       if(!salary) return '—';
       const s = parseSalary(salary);
       if(!s) return '—';
@@ -2897,9 +2897,9 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
       const monthlyIncome = s * (1 - taxRate) / 12;
       const col = isUS ? usColMonthly : euColMonthly;
       const surplus = monthlyIncome - col - monthlyDebt;
-      const label = surplus >= 0 ? 'Surplus/mo' : 'Deficit/mo';
+      const label = surplus >= 0 ? 'Surplus or deficit/mo' : 'Surplus or deficit/mo';
       const color = surplus >= 0 ? 'var(--ok)' : 'var(--bad)';
-      return {label, sublabel: 'Money left over (or shortfall) each month', html: `<span style="color:${color}">$${Math.round(Math.abs(surplus)).toLocaleString()}</span>`};
+      return {label, sublabel: 'Money left over after expenses and loan payments each month.  Green means you have money left over.  Red means you don\'t have enough money to cover your expenses and loans.', html: `<span style="color:${color}">$${Math.round(Math.abs(surplus)).toLocaleString()}</span>`};
     }}
   ];
 
