@@ -1003,7 +1003,7 @@ const CAREER_TO_QS_SUBJECT={"Accounting":"Accounting & Finance","Architecture":"
 const STATE_NAMES={AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',FL:'Florida',GA:'Georgia',HI:'Hawaii',ID:'Idaho',IL:'Illinois',IN:'Indiana',IA:'Iowa',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',MS:'Mississippi',MO:'Missouri',MT:'Montana',NC:'North Carolina',ND:'North Dakota',NE:'Nebraska',NH:'New Hampshire',NJ:'New Jersey',NM:'New Mexico',NV:'Nevada',NY:'New York',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',SD:'South Dakota',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',VA:'Virginia',WA:'Washington',WV:'West Virginia',WI:'Wisconsin',WY:'Wyoming'};
 
 const S={cats:[],motivations:[],subCareers:[],prac:[],cc:[],costCC:[],expl:null,playlist:null,flex:[],cost:null,vision:null,lang:null,citizen:[],debtYrs:null,languages:[],postGrad:null,inStateTuitionPref:null,stateOfResidency:null,inStateToggle:false,usUniversityType:null,uniSelectivity:null,scholarshipPct:null,collegeSavings:null,partTimeWork:null,familySupport:null,loanRate:null,loanRepaymentYears:null};
-const VERSION='v1.9.3';
+const VERSION='v1.11.0';
 document.addEventListener('DOMContentLoaded',()=>{const b=document.getElementById('version-badge');if(b)b.innerText=VERSION;});
 function saveState(){const stateToSave={cats:S.cats,motivations:S.motivations,subCareers:S.subCareers,flex:S.flex,cost:S.cost,vision:S.vision,lang:S.lang,citizen:S.citizen,debtYrs:S.debtYrs,languages:S.languages,postGrad:S.postGrad,inStateTuitionPref:S.inStateTuitionPref,stateOfResidency:S.stateOfResidency,cc:S.cc,costCC:S.costCC,expl:S.expl,uniSelectivity:S.uniSelectivity,scholarshipPct:S.scholarshipPct,collegeSavings:S.collegeSavings,partTimeWork:S.partTimeWork,familySupport:S.familySupport,loanRate:S.loanRate,loanRepaymentYears:S.loanRepaymentYears,inStateToggle:S.inStateToggle,usUniversityType:S.usUniversityType};localStorage.setItem('univPathfinderState',JSON.stringify(stateToSave));}
 function loadState(){const saved=localStorage.getItem('univPathfinderState');if(saved){const state=JSON.parse(saved);Object.assign(S,state);if(state.scholarshipPct!==undefined)document.getElementById('sl-schol').value=state.scholarshipPct;if(state.collegeSavings!==undefined)document.getElementById('sl-savings').value=state.collegeSavings;if(state.partTimeWork!==undefined)document.getElementById('sl-work').value=state.partTimeWork;if(state.familySupport!==undefined)document.getElementById('sl-parent').value=state.familySupport;if(state.loanRate!==undefined)document.getElementById('sl-rate').value=state.loanRate;if(state.loanRepaymentYears!==undefined)document.getElementById('sl-yrs').value=state.loanRepaymentYears;if(state.inStateToggle!==undefined){const instateIn=document.getElementById('instate-in');const instateOut=document.getElementById('instate-out');if(state.inStateToggle){instateIn.classList.add('on');instateOut.classList.remove('on')}else{instateOut.classList.add('on');instateIn.classList.remove('on')}}}}
@@ -2860,15 +2860,15 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
   };
 
   const metrics = [
-    {label: 'Annual salary', sublabel: 'Expected starting salary range', us: sub.salaryUS, eu: sub.salaryEU, color: 'var(--ok)'},
-    {label: 'Taxes (20% US, 22% EU)', sublabel: 'Estimated income tax deduction', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
+    {label: 'Annual salary', sublabel: 'Estimated starting salary range.  An average is used for calculations', us: sub.salaryUS, eu: sub.salaryEU, color: 'var(--ok)'},
+    {label: 'Taxes (20% US, 22% EU)', sublabel: 'Estimated income taxes', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
       if(!salary) return '—';
       const s = parseSalary(salary);
       if(!s) return '—';
       const taxRate = isUS ? 0.20 : 0.22;
       return `$${Math.round(s * taxRate).toLocaleString()}`;
     }},
-    {label: 'Monthly income after taxes', sublabel: 'What you keep each month', us: null, eu: null, color: 'var(--ok)', fn: (salary, isUS) => {
+    {label: 'Monthly income after taxes', sublabel: 'Your estimated monthly take home pay after taxes', us: null, eu: null, color: 'var(--ok)', fn: (salary, isUS) => {
       if(!salary) return '—';
       const s = parseSalary(salary);
       if(!s) return '—';
@@ -2876,12 +2876,12 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
       const monthly = Math.round(s * (1 - taxRate) / 12);
       return `$${monthly.toLocaleString()}`;
     }},
-    {label: 'Monthly cost of living', sublabel: 'Housing, food, transport, and personal expenses', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
+    {label: 'Monthly cost of living', sublabel: 'Estimate of housing, food, travel, and personal expenses', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
       const col = isUS ? usColMonthly : euColMonthly;
       return `$${col.toLocaleString()}`;
     }},
-    {label: 'Monthly loan payment', sublabel: 'Monthly education loan repayment', us: null, eu: null, color: 'var(--bad)', fn: () => `$${monthlyDebt.toLocaleString()}`},
-    {label: 'Debt-to-Income', sublabel: 'Loan payment as % of monthly income', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
+    {label: 'Monthly loan payment', sublabel: 'Amount you would owe to repay loans each month', us: null, eu: null, color: 'var(--bad)', fn: () => `$${monthlyDebt.toLocaleString()}`},
+    {label: 'Debt-to-Income', sublabel: 'How much of your monthly pay goes to repaying loans?', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
       if(!salary) return '—';
       const s = parseSalary(salary);
       if(!s) return '—';
@@ -2897,9 +2897,9 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
       const monthlyIncome = s * (1 - taxRate) / 12;
       const col = isUS ? usColMonthly : euColMonthly;
       const surplus = monthlyIncome - col - monthlyDebt;
-      const label = surplus >= 0 ? 'Surplus/mo' : 'Deficit/mo';
+      const label = surplus >= 0 ? 'Surplus or deficit/mo' : 'Surplus or deficit/mo';
       const color = surplus >= 0 ? 'var(--ok)' : 'var(--bad)';
-      return {label, sublabel: 'Money left over (or shortfall) each month', html: `<span style="color:${color}">$${Math.round(Math.abs(surplus)).toLocaleString()}</span>`};
+      return {label, sublabel: 'Money left over after expenses and loan payments each month.  Green means you have money left over.  Red means you don\'t have enough money to cover your expenses and loans.', html: `<span style="color:${color}">$${Math.round(Math.abs(surplus)).toLocaleString()}</span>`};
     }}
   ];
 
