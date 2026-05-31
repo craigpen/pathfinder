@@ -2798,7 +2798,7 @@ function renderTransition(){
   let html = '';
 
   // Add country selector
-  html += `<div class="qb"><div class="ql">Filter by university location</div><div class="qt">Select a university location to model post-graduation budgets below</div><div class="qs">To compare different university locations, change your selections on the <a href="javascript:void(0)" onclick="go('costs')" style="color:var(--ac);cursor:pointer;text-decoration:underline">Costs tab</a> and they will appear as options here.</div></div>`;
+  html += `<div class="qb"><div class="ql">Filter by university location</div><div class="qt">Select a university location to model post-graduation budgets below</div><div class="qs">The university locations and funding sources you've chosen on the <a href="javascript:void(0)" onclick="go('costs')" style="color:var(--ac);cursor:pointer;text-decoration:underline">Costs tab</a> model what your monthly loan payment would be post-graduation.   Choose one of those scenarios here to visualize.</div></div>`;
   html += `<div class="pills" style="margin-bottom:20px">`;
   validCountries.forEach(cc => {
     const country = countries[cc];
