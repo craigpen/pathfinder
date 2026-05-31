@@ -2835,7 +2835,8 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
 
   if(!sub || !country) return '—';
 
-  const colMonthly = Math.round((costData.housing + costData.personal + costData.travel) / 12);
+  const breakdown = country.costBreakdown || {room: 0, personal: 0, travel: 0};
+  const colMonthly = Math.round((breakdown.room + breakdown.personal + breakdown.travel) / 12);
   const monthlyDebt = costData.monthlyPayment;
 
   // Pre-calculate surplus for US and EU to determine label
