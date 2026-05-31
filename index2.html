@@ -2931,7 +2931,7 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
 
     return `<div style="display:flex;flex-direction:column;gap:20px;align-items:center;justify-content:center">
       <div style="text-align:left">
-        <div style="width:${incomeBarWidth}px;height:28px;border:1px solid var(--bdr);border-radius:4px;background:#2563eb;display:flex;align-items:center;padding-left:8px;color:white;font-size:11px;font-weight:500">After-tax: $${income.toFixed(0)}/mo</div>
+        <div style="width:${incomeBarWidth}px;height:28px;border:1px solid var(--bdr);border-radius:4px;background:#2563eb;display:flex;align-items:center;padding-left:8px;color:white;font-size:11px;font-weight:500">Monthly take home pay: $${income.toFixed(0)}</div>
 
         <div style="margin-top:12px;width:${expensesBarWidth}px;height:28px;border:1px solid var(--bdr);border-radius:4px;background:${surplus >= 0 ? '#16a34a' : '#dc2626'};display:flex;align-items:center;padding-left:8px;color:white;font-size:11px;font-weight:500">Expenses: $${expenses.toFixed(0)}/mo</div>
       </div>
