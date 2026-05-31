@@ -1537,7 +1537,7 @@ function buildTransitionCarousel(scenarios, workTarget) {
   let html = '<div style="display:flex;overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;gap:12px;padding:0 12px;scrollbar-width:none;scroll-snap-type:x mandatory;scroll-padding:12px;margin:0 -12px" id="transition-carousel">';
 
   Object.entries(careerGroups).forEach(([career, items]) => {
-    html += '<div style="flex:0 0 100%;display:flex;flex-direction:column;background:#fff;border:1px solid var(--bdr);border-radius:8px;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always;box-shadow:0 2px 8px rgba(0,0,0,.08)">';
+    html += '<div style="flex:0 0 100vw;display:flex;flex-direction:column;background:#fff;border:none;border-radius:0;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always;box-shadow:none;margin:0 -12px">';
 
     // Blue career header
     html += `<div style="background:var(--pri);color:white;text-align:center;font-weight:600;padding:8px 16px">${career}</div>`;
