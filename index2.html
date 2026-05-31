@@ -1496,7 +1496,7 @@ function buildTransitionCarousel(scenarios, workTarget) {
     {label: 'Cost of living/mo', fn: (scenario) => {
       const country = countries[scenario.studyCountry];
       if(!country || !country.costBreakdown) return '—';
-      const monthly = (country.costBreakdown.room + country.costBreakdown.books + country.costBreakdown.personal) / 12;
+      const monthly = (country.costBreakdown.room + country.costBreakdown.personal + country.costBreakdown.travel) / 12;
       return `$${Math.round(monthly).toLocaleString()}`;
     }},
     {label: 'Monthly loan payment', fn: (scenario) => `$${Math.round(scenario.monthlyDebt).toLocaleString()}`},
@@ -1518,7 +1518,7 @@ function buildTransitionCarousel(scenarios, workTarget) {
       const monthlyIncome = salary * (1 - taxRate) / 12;
       const country = countries[scenario.studyCountry];
       if(!country || !country.costBreakdown) return '—';
-      const colMonthly = (country.costBreakdown.room + country.costBreakdown.books + country.costBreakdown.personal) / 12;
+      const colMonthly = (country.costBreakdown.room + country.costBreakdown.personal + country.costBreakdown.travel) / 12;
       const surplus = monthlyIncome - colMonthly - scenario.monthlyDebt;
       const color = surplus >= 500 ? 'var(--ok)' : surplus >= 0 ? 'var(--tx)' : 'var(--bad)';
       return {html: `<span style="color:${color}">$${Math.round(surplus).toLocaleString()}</span>`};
@@ -2856,7 +2856,7 @@ function buildTransitionCareerTable(career, studyCountry, monthlyDebt) {
     }},
     {label: 'Cost of living/mo', us: null, eu: null, fn: () => {
       if(!country.costBreakdown) return '—';
-      const monthly = (country.costBreakdown.room + country.costBreakdown.books + country.costBreakdown.personal) / 12;
+      const monthly = (country.costBreakdown.room + country.costBreakdown.personal + country.costBreakdown.travel) / 12;
       return `$${Math.round(monthly).toLocaleString()}`;
     }},
     {label: 'Monthly loan payment', us: null, eu: null, fn: () => `$${Math.round(monthlyDebt).toLocaleString()}`},
@@ -2875,7 +2875,7 @@ function buildTransitionCareerTable(career, studyCountry, monthlyDebt) {
       const taxRate = isUS ? 0.20 : 0.22;
       const monthlyIncome = s * (1 - taxRate) / 12;
       if(!country.costBreakdown) return '—';
-      const colMonthly = (country.costBreakdown.room + country.costBreakdown.books + country.costBreakdown.personal) / 12;
+      const colMonthly = (country.costBreakdown.room + country.costBreakdown.personal + country.costBreakdown.travel) / 12;
       const surplus = monthlyIncome - colMonthly - monthlyDebt;
       const color = surplus >= 500 ? 'var(--ok)' : surplus >= 0 ? 'var(--tx)' : 'var(--bad)';
       return {html: `<span style="color:${color}">$${Math.round(surplus).toLocaleString()}</span>`};
@@ -2905,7 +2905,7 @@ function buildTransitionCareerTable(career, studyCountry, monthlyDebt) {
   // Add pie chart visualization row
   const usAfterTax = parseSalary(sub.salaryUS) ? Math.round(parseSalary(sub.salaryUS) * 0.8 / 12) : 0;
   const euAfterTax = parseSalary(sub.salaryEU) ? Math.round(parseSalary(sub.salaryEU) * 0.78 / 12) : 0;
-  const colMonthly = country.costBreakdown ? Math.round((country.costBreakdown.room + country.costBreakdown.books + country.costBreakdown.personal) / 12) : 0;
+  const colMonthly = country.costBreakdown ? Math.round((country.costBreakdown.room + country.costBreakdown.personal + country.costBreakdown.travel) / 12) : 0;
   const loanMonthly = Math.round(monthlyDebt);
   const usSurplus = usAfterTax - colMonthly - loanMonthly;
   const euSurplus = euAfterTax - colMonthly - loanMonthly;
