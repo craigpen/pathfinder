@@ -1542,8 +1542,8 @@ function buildTransitionCarousel(scenarios, workTarget) {
 
     // Build table within card with proper column count
     const colCount = items.length;
-    const gridCols = 'auto ' + Array(colCount).fill('1fr').join(' ');
-    html += `<div style="font-size:12px;line-height:1.4;display:grid;grid-template-columns:${gridCols};gap:8px 12px;align-items:center">`;
+    const gridCols = '120px ' + Array(colCount).fill('1fr').join(' ');
+    html += `<div style="font-size:12px;line-height:1.4;display:grid;grid-template-columns:${gridCols};gap:8px 12px;align-items:center;width:100%">`;
 
     // Flag row header
     html += '<div style="font-weight:600">Location</div>';
