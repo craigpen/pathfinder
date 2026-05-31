@@ -1181,94 +1181,198 @@
     "name": "Norway",
     "flag": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMiAxNiI+PHJlY3Qgd2lkdGg9IjIyIiBoZWlnaHQ9IjE2IiBmaWxsPSIjZWYyYjJkIi8+PHJlY3Qgd2lkdGg9IjQiIGhlaWdodD0iMTYiIHg9IjYiIGZpbGw9IiMwMDI4NjgiLz48cmVjdCB3aWR0aD0iMjIiIGhlaWdodD0iNCIgeT0iNiIgZmlsbD0iIzAwMjg2OCIvPjxyZWN0IHdpZHRoPSIyIiBoZWlnaHQ9IjE2IiB4PSI3IiBmaWxsPSIjZmZmIi8+PHJlY3Qgd2lkdGg9IjIyIiBoZWlnaHQ9IjIiIHk9IjciIGZpbGw9IiNmZmYiLz48L3N2Zz4=",
     "tuition": "FREE",
-    "tuitionNote": "Free",
+    "tuitionNote": "Tuition-free for all students at public universities; only semester fee (~$100/semester) applies.",
     "duration": "3",
     "language": "English/Norwegian",
-    "changePolicy": "Moderate",
-    "postGradOpportunities": "EU mobility",
-    "financialAid": "Limited",
-    "admissions": "GPA",
-    "culture": "Outdoor",
-    "portal": "no.is",
+    "changePolicy": "Moderate — can switch programs but requires planning",
+    "postGradOpportunities": "Strong EU/EEA network; Nordic work opportunities",
+    "financialAid": "Limited scholarships; Erasmus+ primary funding source",
+    "admissions": "Test scores + GPA (master's); Norwegian language required for bachelor's",
+    "culture": "Outdoor recreation, outdoor lifestyle, research-focused",
+    "portal": "studyinnorway.no",
     "costBreakdown": {
       "tui": 0,
-      "room": 7200,
+      "room": 8400,
       "books": 600,
-      "personal": 3000,
-      "travel": 2500
+      "personal": 5000,
+      "travel": 3700
     },
-    "resources": [],
-    "photos": [],
-    "steps": [],
-    "faqs": [],
+    "resources": [
+      {
+        "t": "Study in Norway",
+        "u": "https://studyinnorway.no/"
+      },
+      {
+        "t": "NTNU",
+        "u": "https://www.ntnu.edu/"
+      },
+      {
+        "t": "University of Oslo",
+        "u": "https://www.uio.no/english/"
+      },
+      {
+        "t": "Norwegian Directorate of Immigration",
+        "u": "https://www.udi.no/en/"
+      }
+    ],
+    "photos": [
+      {
+        "src": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+        "cap": "Norwegian fjords and mountain landscape"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80",
+        "cap": "Modern Nordic university architecture"
+      }
+    ],
+    "steps": [
+      "Research universities on studyinnorway.no — focus on English-taught master's programs",
+      "Check language requirements: master's programs taught in English require English proficiency test (IELTS 6.5+ or TOEFL 90+)",
+      "Gather documents: bachelor's diploma, transcript, passport, CV, statement of purpose",
+      "Apply directly to universities (no centralized portal) — deadline Oct 15–Nov 15 for non-EU students, Feb 1–Mar 1 for EU",
+      "If admitted, apply for residence permit at Norwegian Directorate of Immigration (allow 4–6 weeks)",
+      "Book accommodation early — university housing is competitive; private rentals cost €400–700/month",
+      "Register at municipality upon arrival for Norwegian person number (required for banking, housing, work)",
+      "Join Erasmus+ program if eligible for exchange stipend (covers living costs for semester)"
+    ],
+    "faqs": [
+      {
+        "q": "Do I need to speak Norwegian?",
+        "a": "For master's programs taught in English: no. For bachelor's: yes, proficiency required. Most students do NOT learn Norwegian pre-arrival; many universities offer online prep courses."
+      },
+      {
+        "q": "Is it really free?",
+        "a": "Yes, public universities charge zero tuition. Only ~$100/semester mandatory fee. Private universities do charge tuition ($8k–25k/yr)."
+      },
+      {
+        "q": "How do I fund living costs?",
+        "a": "Living is expensive (~$17,700/yr). Main options: Erasmus+ stipend (if you qualify), university scholarships (competitive, usually merit-based), part-time work (allow 6 months before starting), family support."
+      },
+      {
+        "q": "Can I work while studying?",
+        "a": "Yes, after 6 months of study registration. Limit: 15 hrs/week during semester, full-time during breaks. Student work visas available."
+      }
+    ],
     "need": {
-      "what": "Free tuition",
-      "apply": "Check",
-      "notes": "EU"
+      "what": "Need-based aid is extremely limited. No government need-based grants for international students. Universities may offer scholarships but they are highly competitive and merit-based.",
+      "apply": "Contact your university's financial aid office directly; check for country-specific scholarships.",
+      "notes": "Most international students fund via family support, part-time work, or Erasmus+ exchange programs."
     },
     "merit": {
-      "what": "Available",
-      "apply": "Apply",
-      "notes": "Varies"
+      "what": "Merit-based scholarships exist but are limited and competitive. University-specific awards typically require top academic credentials and sometimes essays.",
+      "apply": "Apply through university admissions process; scholarships are often automatically considered with your application.",
+      "notes": "NTNU, University of Oslo, and University of Bergen offer select merit awards. Check specific program pages."
     },
     "external": {
-      "what": "Erasmus+",
-      "apply": "Exchange",
-      "notes": "Limited"
+      "what": "Erasmus+ is the primary external funding for exchange students. Covers tuition waiver + monthly stipend. Some country-specific scholarships exist (check your home country's education ministry).",
+      "apply": "Apply through your home university's Erasmus+ coordinator. Must be enrolled at a partner institution.",
+      "notes": "Erasmus+ is the best-funded option for EU/EEA students. Check Erasmus Mundus Joint Masters for full funding."
     },
     "free": {
-      "what": "Tuition-free",
-      "apply": "Confirm",
-      "notes": "Main benefit"
+      "what": "Tuition is completely free at all public universities. This is Norway's main benefit as a study destination.",
+      "apply": "Enroll in any public university program.",
+      "notes": "The only cost is living expenses (~$17,700/yr) plus one-time fees (visa, residence permit). No hidden tuition."
     },
-    "timeline": "Varies",
+    "timeline": "October–November for non-EU, February–March for EU/EEA",
     "links": []
   },
   "ch": {
     "name": "Switzerland",
     "flag": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjZmYwMDAwIi8+PHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjYiIHg9IjYiIHk9IjEzIiBmaWxsPSIjZmZmIi8+PHJlY3Qgd2lkdGg9IjYiIGhlaWdodD0iMjAiIHg9IjEzIiB5PSI2IiBmaWxsPSIjZmZmIi8+PC9zdmc+",
-    "tuition": "~$800/yr",
-    "tuitionNote": "Affordable",
+    "tuition": "$4,800/yr",
+    "tuitionNote": "Public universities $500–$1,200/semester; ETH Zurich and EPFL $2,190/semester. MBA/Medicine programs $30k–$90k.",
     "duration": "3",
-    "language": "English/German",
-    "changePolicy": "Difficult",
-    "postGradOpportunities": "EU access",
-    "financialAid": "Merit-based",
-    "admissions": "Exams",
-    "culture": "Research",
-    "portal": "ch.ch",
+    "language": "German/French/Italian/English (varies by region)",
+    "changePolicy": "Difficult — program switching limited, requires approval",
+    "postGradOpportunities": "Strong Swiss/EU network; multinational company hubs",
+    "financialAid": "Merit-based government and university scholarships available",
+    "admissions": "High school diploma + language test (IELTS 6.5+, TOEFL 90+)",
+    "culture": "Research-intensive, precision engineering, mountain lifestyle",
+    "portal": "swissuniversities.ch",
     "costBreakdown": {
-      "tui": 1000,
-      "room": 8400,
-      "books": 600,
-      "personal": 3500,
-      "travel": 2500
+      "tui": 4800,
+      "room": 10000,
+      "books": 700,
+      "personal": 5500,
+      "travel": 1000
     },
-    "resources": [],
-    "photos": [],
-    "steps": [],
-    "faqs": [],
+    "resources": [
+      {
+        "t": "Swiss Universities",
+        "u": "https://www.swissuniversities.ch/en/"
+      },
+      {
+        "t": "ETH Zurich",
+        "u": "https://www.ethz.ch/"
+      },
+      {
+        "t": "University of Zurich",
+        "u": "https://www.uzh.ch/en.html"
+      },
+      {
+        "t": "State Secretariat for Migration",
+        "u": "https://www.sem.admin.ch/sem/en/home.html"
+      }
+    ],
+    "photos": [
+      {
+        "src": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
+        "cap": "Swiss Alps mountain landscape"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1518136247453-74e7b5265980?w=800&q=80",
+        "cap": "Modern Swiss university research facility"
+      }
+    ],
+    "steps": [
+      "Research universities on swissuniversities.ch — note language of instruction (German, French, Italian, or English)",
+      "Verify admission requirements: high school diploma + transcript + language proficiency (IELTS 6.5+, TOEFL 90+, Cambridge C1)",
+      "Check application deadlines: typically Dec–April for fall semester start, May–Sept for spring semester",
+      "Gather documents: diploma, transcript, passport, CV, motivation letter, language test results",
+      "Apply directly to university (no centralized portal). Each university has its own application system.",
+      "If admitted and you're non-EU/EFTA: apply for residence permit at your local cantonal immigration office (allow 6–8 weeks)",
+      "Arrange accommodation: university housing limited ($400–600/month); private rentals $600–1,200/month in major cities",
+      "Register with local authorities (Gemeinde) upon arrival; obtain Swiss insurance and open a bank account"
+    ],
+    "faqs": [
+      {
+        "q": "What language should I study?",
+        "a": "Many master's programs taught in English. Bachelor's often in local language (German, French, Italian). Check program pages for language of instruction."
+      },
+      {
+        "q": "How expensive is Switzerland?",
+        "a": "Very expensive. Living costs are $22k–$26k/year. Tuition is reasonable ($4.8k–$5.6k/yr public) but total budget is high. Budget $27k–$31k/year minimum."
+      },
+      {
+        "q": "Can I work while studying?",
+        "a": "Yes, after 6 months of residence. EU/EFTA: up to 15 hrs/week during term, full-time during breaks. Non-EU: limited work permit, consult cantonal office."
+      },
+      {
+        "q": "What scholarships are available?",
+        "a": "Swiss Government Excellence Scholarships ($1,920/month), ETH Excellence, university-specific merit awards. Highly competitive; apply early."
+      }
+    ],
     "need": {
-      "what": "Limited",
-      "apply": "Search",
-      "notes": "Competitive"
+      "what": "Need-based aid is limited and competitive. Swiss government Excellence Scholarships prioritize merit. Some cantons offer need-based aid for residents.",
+      "apply": "Contact university financial aid office. Research cantonal scholarships for your specific region.",
+      "notes": "Most need-based aid targets Swiss/EU residents. International students should prioritize merit scholarships or family support."
     },
     "merit": {
-      "what": "Merit-based",
-      "apply": "Apply",
-      "notes": "Varies"
+      "what": "Merit-based scholarships are competitive and well-funded. Swiss Government Excellence Scholarships offer $1,920/month plus travel. ETH Excellence, University Excellence programs, and cantonal scholarships available.",
+      "apply": "Apply through university admissions or directly to scholarship offices. Include strong academic record, motivation letter, language proficiency.",
+      "notes": "ETH Zurich, EPFL, and University of Zurich offer the most generous merit packages. Plan 3–6 months for application processing."
     },
     "external": {
-      "what": "Erasmus+",
-      "apply": "Exchange",
-      "notes": "Limited"
+      "what": "Erasmus+ available for EU/EEA exchange students (full tuition waiver + stipend). Switzerland is a partner country but access varies. Some international fellowships (Fulbright, DAAD) cover Switzerland.",
+      "apply": "Erasmus+ through home university. Check home country's education ministry for country-specific programs.",
+      "notes": "Erasmus+ access for Swiss universities depends on bilateral agreements. Research your home country's funding programs."
     },
     "free": {
-      "what": "Low tuition",
-      "apply": "Enroll",
-      "notes": "~$1000/yr"
+      "what": "Switzerland has affordable tuition ($4.8k–$5.6k/yr at public universities) but high living costs offset this. No tuition waivers for international students.",
+      "apply": "Enroll in any public university program.",
+      "notes": "The real cost is living expenses. Total budget ~$27k–$31k/year. This is expensive compared to Germany or Austria but reasonable for quality."
     },
-    "timeline": "Rolling",
+    "timeline": "December–April for fall semester, May–September for spring semester",
     "links": []
   }
 }
