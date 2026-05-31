@@ -1464,6 +1464,116 @@ function parseSalary(salaryStr) {
   return Math.round(nums.reduce((a,b) => a + b) / nums.length);
 }
 
+function buildTransitionCarousel(scenarios, workTarget) {
+  const careers = window.CAREERS || {};
+  const countries = window.COUNTRIES || {};
+  const isUS = workTarget === 'US';
+
+  // Group scenarios by career
+  const careerGroups = {};
+  Object.entries(scenarios).forEach(([idx, scenario]) => {
+    const career = scenario.career;
+    if(!careerGroups[career]) careerGroups[career] = [];
+    careerGroups[career].push({idx, scenario});
+  });
+
+  // Build metric calculation functions
+  const metrics = [
+    {label: 'Annual salary', fn: (scenario) => {
+      const sub = getSub(scenario.career);
+      const salaryKey = isUS ? 'salaryUS' : 'salaryEU';
+      return sub ? sub[salaryKey] : '—';
+    }},
+    {label: 'Taxes (~20-22%)', fn: (scenario) => {
+      const sub = getSub(scenario.career);
+      const salaryKey = isUS ? 'salaryUS' : 'salaryEU';
+      const salary = parseSalary(sub ? sub[salaryKey] : null);
+      if(!salary) return '—';
+      const taxRate = isUS ? 0.20 : 0.22;
+      return `$${Math.round(salary * taxRate).toLocaleString()}`;
+    }},
+    {label: 'After-tax monthly', fn: (scenario) => {
+      const sub = getSub(scenario.career);
+      const salaryKey = isUS ? 'salaryUS' : 'salaryEU';
+      const salary = parseSalary(sub ? sub[salaryKey] : null);
+      if(!salary) return '—';
+      const taxRate = isUS ? 0.20 : 0.22;
+      const monthly = Math.round(salary * (1 - taxRate) / 12);
+      return `$${monthly.toLocaleString()}`;
+    }},
+    {label: 'Cost of living/mo', fn: (scenario) => {
+      const country = countries[scenario.studyCountry];
+      if(!country || !country.costBreakdown) return '—';
+      const monthly = (country.costBreakdown.room + country.costBreakdown.books + country.costBreakdown.personal) / 12;
+      return `$${Math.round(monthly).toLocaleString()}`;
+    }},
+    {label: 'Monthly loan payment', fn: (scenario) => `$${Math.round(scenario.monthlyDebt).toLocaleString()}`},
+    {label: 'Debt-to-Income', fn: (scenario) => {
+      const sub = getSub(scenario.career);
+      const salaryKey = isUS ? 'salaryUS' : 'salaryEU';
+      const salary = parseSalary(sub ? sub[salaryKey] : null);
+      if(!salary) return '—';
+      const taxRate = isUS ? 0.20 : 0.22;
+      const monthly = salary * (1 - taxRate) / 12;
+      return `${(scenario.monthlyDebt / monthly * 100).toFixed(1)}%`;
+    }},
+    {label: 'Surplus/Deficit/mo', fn: (scenario) => {
+      const sub = getSub(scenario.career);
+      const salaryKey = isUS ? 'salaryUS' : 'salaryEU';
+      const salary = parseSalary(sub ? sub[salaryKey] : null);
+      if(!salary) return '—';
+      const taxRate = isUS ? 0.20 : 0.22;
+      const monthlyIncome = salary * (1 - taxRate) / 12;
+      const country = countries[scenario.studyCountry];
+      if(!country || !country.costBreakdown) return '—';
+      const colMonthly = (country.costBreakdown.room + country.costBreakdown.books + country.costBreakdown.personal) / 12;
+      const surplus = monthlyIncome - colMonthly - scenario.monthlyDebt;
+      const color = surplus >= 500 ? 'var(--ok)' : surplus >= 0 ? 'var(--tx)' : 'var(--bad)';
+      return {html: `<span style="color:${color}">$${Math.round(surplus).toLocaleString()}</span>`};
+    }}
+  ];
+
+  // Build carousel with one card per career
+  let html = '<div class="carousel-wrap" id="transition-carousel"><div class="carousel-container">';
+
+  Object.entries(careerGroups).forEach(([career, items]) => {
+    html += '<div class="carousel-card">';
+    html += `<div class="carousel-card-header" style="text-align:center;font-weight:600;padding-bottom:12px;border-bottom:1px solid rgba(0,0,0,0.1);margin-bottom:12px">${career}</div>`;
+
+    // Build table within card
+    html += '<div style="font-size:12px;line-height:1.4">';
+
+    // Flag row
+    html += '<div style="display:grid;grid-template-columns:auto 1fr;gap:12px;margin-bottom:8px">';
+    html += '<div style="font-weight:600;padding-right:8px">Location</div>';
+    items.forEach(({scenario}) => {
+      const country = countries[scenario.studyCountry];
+      const flag = country ? `<img src="${country.flag}" style="height:0.9em;vertical-align:middle">` : '';
+      html += `<div style="text-align:center">${flag}</div>`;
+    });
+    html += '</div>';
+
+    // Metric rows
+    metrics.forEach(({label, fn}) => {
+      html += '<div style="display:grid;grid-template-columns:auto 1fr;gap:12px;margin-bottom:8px">';
+      html += `<div style="font-weight:500;padding-right:8px">${label}</div>`;
+      items.forEach(({scenario}) => {
+        const result = fn(scenario);
+        const content = result.html ? result.html : result;
+        html += `<div style="text-align:center">${content}</div>`;
+      });
+      html += '</div>';
+    });
+
+    html += '</div></div>';
+  });
+
+  html += '</div>';
+  html += `<div class="carousel-indicator">Card 1 of ${Object.keys(careerGroups).length}</div>`;
+  html += '</div>';
+
+  return html;
+}
 function buildTransitionTable(scenarios, workTarget) {
   const careers = window.CAREERS || {};
   const countries = window.COUNTRIES || {};
@@ -2759,87 +2869,9 @@ function renderTransition(){
   const tableHTML = buildTransitionTable(scenarios, S.transitionWorkTarget);
   document.getElementById('transition-table').innerHTML = tableHTML;
 
-  // Build carousel for mobile using helper
-  const scenarioKeys = Object.keys(scenarios);
-  const carouselRows = [
-    ['Annual salary', (key) => {
-      const scenario = scenarios[key];
-      const sub = getSub(scenario.career);
-      const salaryKey = S.transitionWorkTarget === 'US' ? 'salaryUS' : 'salaryEU';
-      const salaryStr = sub ? sub[salaryKey] : null;
-      return salaryStr || '—';
-    }],
-    ['Taxes (~20-22%)', (key) => {
-      const scenario = scenarios[key];
-      const sub = getSub(scenario.career);
-      const salaryKey = S.transitionWorkTarget === 'US' ? 'salaryUS' : 'salaryEU';
-      const salary = parseSalary(sub ? sub[salaryKey] : null);
-      if(!salary) return '—';
-      const taxRate = S.transitionWorkTarget === 'US' ? 0.20 : 0.22;
-      const taxes = Math.round(salary * taxRate);
-      return `$${taxes.toLocaleString()}`;
-    }],
-    ['After-tax monthly income', (key) => {
-      const scenario = scenarios[key];
-      const sub = getSub(scenario.career);
-      const salaryKey = S.transitionWorkTarget === 'US' ? 'salaryUS' : 'salaryEU';
-      const salary = parseSalary(sub ? sub[salaryKey] : null);
-      if(!salary) return '—';
-      const taxRate = S.transitionWorkTarget === 'US' ? 0.20 : 0.22;
-      const afterTax = salary * (1 - taxRate);
-      const monthly = Math.round(afterTax / 12);
-      return `$${monthly.toLocaleString()}`;
-    }],
-    ['Cost of living/month', (key) => {
-      const scenario = scenarios[key];
-      const country = countries[scenario.studyCountry];
-      if(!country || !country.costBreakdown) return '—';
-      const col = country.costBreakdown;
-      const monthly = (col.room + col.books + col.personal) / 12;
-      return `$${Math.round(monthly).toLocaleString()}`;
-    }],
-    ['Monthly loan payment', (key) => {
-      const scenario = scenarios[key];
-      return `$${Math.round(scenario.monthlyDebt).toLocaleString()}`;
-    }],
-    ['Debt-to-Income Ratio', (key) => {
-      const scenario = scenarios[key];
-      const sub = getSub(scenario.career);
-      const salaryKey = S.transitionWorkTarget === 'US' ? 'salaryUS' : 'salaryEU';
-      const salary = parseSalary(sub ? sub[salaryKey] : null);
-      if(!salary) return '—';
-      const taxRate = S.transitionWorkTarget === 'US' ? 0.20 : 0.22;
-      const afterTax = salary * (1 - taxRate);
-      const monthly = afterTax / 12;
-      const dti = (scenario.monthlyDebt / monthly * 100).toFixed(1);
-      return `${dti}%`;
-    }],
-    ['Surplus/Deficit/month', (key) => {
-      const scenario = scenarios[key];
-      const sub = getSub(scenario.career);
-      const salaryKey = S.transitionWorkTarget === 'US' ? 'salaryUS' : 'salaryEU';
-      const salary = parseSalary(sub ? sub[salaryKey] : null);
-      if(!salary) return '—';
-      const taxRate = S.transitionWorkTarget === 'US' ? 0.20 : 0.22;
-      const afterTax = salary * (1 - taxRate);
-      const monthlyIncome = afterTax / 12;
-      const country = countries[scenario.studyCountry];
-      if(!country || !country.costBreakdown) return '—';
-      const col = country.costBreakdown;
-      const colMonthly = (col.room + col.books + col.personal) / 12;
-      const surplus = monthlyIncome - colMonthly - scenario.monthlyDebt;
-      const color = surplus >= 500 ? 'color:var(--ok)' : surplus >= 0 ? 'color:var(--tx)' : 'color:var(--bad)';
-      return `<div style="${color}">$${Math.round(surplus).toLocaleString()}</div>`;
-    }]
-  ];
-  const carouselLabel = (key) => {
-    const scenario = scenarios[key];
-    const country = countries[scenario.studyCountry];
-    const flag = country ? `<img src="${country.flag}" style="height:0.9em;vertical-align:middle">` : '';
-    return `${scenario.career} – ${flag} ${country?.name || ''}`;
-  };
-  const carousel = buildCarouselHTML(carouselRows, scenarioKeys, carouselLabel, 'transition-carousel');
-  document.getElementById('transition-carousel').innerHTML = carousel;
+  // Build carousel for mobile using new helper
+  const carouselHTML = buildTransitionCarousel(scenarios, S.transitionWorkTarget);
+  document.getElementById('transition-carousel').innerHTML = carouselHTML;
   setTimeout(() => initCarousel('transition-carousel'), 50);
 
   // Generate scenario-specific insights
