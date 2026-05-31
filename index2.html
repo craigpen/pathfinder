@@ -2838,6 +2838,12 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
   const colMonthly = Math.round((costData.housing + costData.personal + costData.travel) / 12);
   const monthlyDebt = costData.monthlyPayment;
 
+  // Pre-calculate surplus for US and EU to determine label
+  const usAfterTaxCalc = parseSalary(sub.salaryUS) ? Math.round(parseSalary(sub.salaryUS) * 0.8 / 12) : 0;
+  const euAfterTaxCalc = parseSalary(sub.salaryEU) ? Math.round(parseSalary(sub.salaryEU) * 0.78 / 12) : 0;
+  const usSurplusCalc = usAfterTaxCalc - colMonthly - monthlyDebt;
+  const euSurplusCalc = euAfterTaxCalc - colMonthly - monthlyDebt;
+
   const metrics = [
     {label: 'Annual salary', us: sub.salaryUS, eu: sub.salaryEU},
     {label: 'Taxes (~20-22%)', us: null, eu: null, fn: (salary, isUS) => {
@@ -2865,15 +2871,16 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
       const monthly = s * (1 - taxRate) / 12;
       return `${(monthlyDebt / monthly * 100).toFixed(1)}%`;
     }},
-    {label: 'Surplus/Deficit/mo', us: null, eu: null, fn: (salary, isUS) => {
-      if(!salary) return '—';
+    {label: null, us: null, eu: null, fn: (salary, isUS) => {
+      if(!salary) return {label: '—', html: '—'};
       const s = parseSalary(salary);
-      if(!s) return '—';
+      if(!s) return {label: '—', html: '—'};
       const taxRate = isUS ? 0.20 : 0.22;
       const monthlyIncome = s * (1 - taxRate) / 12;
       const surplus = monthlyIncome - colMonthly - monthlyDebt;
-      const color = surplus >= 500 ? 'var(--ok)' : surplus >= 0 ? 'var(--tx)' : 'var(--bad)';
-      return {html: `<span style="color:${color}">$${Math.round(surplus).toLocaleString()}</span>`};
+      const label = surplus >= 0 ? 'Surplus/mo' : 'Deficit/mo';
+      const color = surplus >= 0 ? 'var(--ok)' : 'var(--bad)';
+      return {label, html: `<span style="color:${color}">$${Math.round(Math.abs(surplus)).toLocaleString()}</span>`};
     }}
   ];
 
@@ -2882,19 +2889,27 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
   metrics.forEach(({label, us, eu, fn}) => {
     let usVal = us || '';
     let euVal = eu || '';
+    let rowLabel = label;
 
     if(fn) {
       const usResult = fn(us || sub.salaryUS, true);
       usVal = usResult.html ? usResult.html : usResult;
       const euResult = fn(eu || sub.salaryEU, false);
       euVal = euResult.html ? euResult.html : euResult;
+      // For dynamic labels, use the label from the result
+      if(usResult.label && euResult.label) {
+        // If both have labels, use the US label (they should be the same)
+        rowLabel = usResult.label;
+      }
     }
 
-    html += `<tr style="border-bottom:1px solid var(--bdr)">`;
-    html += `<td style="padding:8px 10px;font-weight:500;font-size:13px;background:rgba(241,245,249,.5)">${label}</td>`;
-    html += `<td style="padding:8px 10px;text-align:center;font-size:13px">${usVal}</td>`;
-    html += `<td style="padding:8px 10px;text-align:center;font-size:13px">${euVal}</td>`;
-    html += `</tr>`;
+    if(rowLabel) {
+      html += `<tr style="border-bottom:1px solid var(--bdr)">`;
+      html += `<td style="padding:8px 10px;font-weight:500;font-size:13px;background:rgba(241,245,249,.5)">${rowLabel}</td>`;
+      html += `<td style="padding:8px 10px;text-align:center;font-size:13px">${usVal}</td>`;
+      html += `<td style="padding:8px 10px;text-align:center;font-size:13px">${euVal}</td>`;
+      html += `</tr>`;
+    }
   });
 
   // Add pie chart visualization row
@@ -2915,14 +2930,16 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
     const livingDeg = (living / total * 360);
     const loanDeg = (loan / total * 360);
 
-    let conic = `conic-gradient(#c83232 0deg ${livingDeg}deg, #f97316 ${livingDeg}deg ${livingDeg + loanDeg}deg, `;
+    let conic = `conic-gradient(#94a3b8 0deg ${livingDeg}deg, #cbd5e1 ${livingDeg}deg ${livingDeg + loanDeg}deg, `;
     conic += surplus >= 0 ? `#16a34a ${livingDeg + loanDeg}deg 360deg)` : `#dc2626 ${livingDeg + loanDeg}deg 360deg)`;
+
+    const surplusLabel = surplus >= 0 ? 'Surplus' : 'Deficit';
 
     return `<div style="display:flex;flex-direction:row;align-items:center;gap:12px;justify-content:center">
       <div style="font-size:10px;line-height:1.6;text-align:left;white-space:nowrap">
-        <div><span style="display:inline-block;width:10px;height:10px;background:#c83232;border-radius:2px;margin-right:6px;vertical-align:middle"></span>Living: ${livingPct.toFixed(0)}%</div>
-        <div><span style="display:inline-block;width:10px;height:10px;background:#f97316;border-radius:2px;margin-right:6px;vertical-align:middle"></span>Loan: ${loanPct.toFixed(0)}%</div>
-        <div><span style="display:inline-block;width:10px;height:10px;background:${surplus >= 0 ? '#16a34a' : '#dc2626'};border-radius:2px;margin-right:6px;vertical-align:middle"></span>Surplus: ${surplusPct.toFixed(0)}%</div>
+        <div><span style="display:inline-block;width:10px;height:10px;background:#94a3b8;border-radius:2px;margin-right:6px;vertical-align:middle"></span>Living: ${livingPct.toFixed(0)}%</div>
+        <div><span style="display:inline-block;width:10px;height:10px;background:#cbd5e1;border-radius:2px;margin-right:6px;vertical-align:middle"></span>Loan: ${loanPct.toFixed(0)}%</div>
+        <div><span style="display:inline-block;width:10px;height:10px;background:${surplus >= 0 ? '#16a34a' : '#dc2626'};border-radius:2px;margin-right:6px;vertical-align:middle"></span>${surplusLabel}: ${surplusPct.toFixed(0)}%</div>
       </div>
       <div style="width:100px;height:100px;border-radius:50%;background:${conic};border:2px solid var(--bdr);flex-shrink:0"></div>
     </div>`;
