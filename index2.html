@@ -2859,7 +2859,7 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
       const monthly = Math.round(s * (1 - taxRate) / 12);
       return `$${monthly.toLocaleString()}`;
     }},
-    {label: 'Cost of living/mo', us: null, eu: null, color: 'var(--bad)', fn: () => `$${colMonthly.toLocaleString()}`},
+    {label: 'Monthly cost of living', us: null, eu: null, color: 'var(--bad)', fn: () => `$${colMonthly.toLocaleString()}`},
     {label: 'Monthly loan payment', us: null, eu: null, color: 'var(--bad)', fn: () => `$${monthlyDebt.toLocaleString()}`},
     {label: 'Debt-to-Income', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
       if(!salary) return '—';
