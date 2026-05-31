@@ -1537,7 +1537,7 @@ function buildTransitionCarousel(scenarios, workTarget) {
   let html = '<div class="carousel-wrap" id="transition-carousel"><div class="carousel-container">';
 
   Object.entries(careerGroups).forEach(([career, items]) => {
-    html += '<div class="carousel-card">';
+    html += '<div class="carousel-card" style="width:100%;box-sizing:border-box">';
 
     // 3-column grid: labels | country1 | country2
     html += `<div style="font-size:12px;line-height:1.5;display:grid;grid-template-columns:1fr 2fr 2fr;gap:8px 12px;align-items:center;width:100%;min-width:0">`;
