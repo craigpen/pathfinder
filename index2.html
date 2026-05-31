@@ -1009,10 +1009,10 @@ const CAREER_TO_QS_SUBJECT={"Accounting":"Accounting & Finance","Architecture":"
 
 const STATE_NAMES={AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',FL:'Florida',GA:'Georgia',HI:'Hawaii',ID:'Idaho',IL:'Illinois',IN:'Indiana',IA:'Iowa',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',MS:'Mississippi',MO:'Missouri',MT:'Montana',NC:'North Carolina',ND:'North Dakota',NE:'Nebraska',NH:'New Hampshire',NJ:'New Jersey',NM:'New Mexico',NV:'Nevada',NY:'New York',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',SD:'South Dakota',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',VA:'Virginia',WA:'Washington',WV:'West Virginia',WI:'Wisconsin',WY:'Wyoming'};
 
-const S={cats:[],motivations:[],subCareers:[],prac:[],cc:[],costCC:[],expl:null,playlist:null,flex:[],cost:null,vision:null,lang:null,citizen:[],debtYrs:null,languages:[],postGrad:null,inStateTuitionPref:null,stateOfResidency:null,inStateToggle:false,usUniversityType:null,uniSelectivity:null,scholarshipPct:null,collegeSavings:null,partTimeWork:null,familySupport:null,loanRate:null,loanRepaymentYears:null,transitionWorkTarget:null};
+const S={cats:[],motivations:[],subCareers:[],prac:[],cc:[],costCC:[],expl:null,playlist:null,flex:[],cost:null,vision:null,lang:null,citizen:[],debtYrs:null,languages:[],postGrad:null,inStateTuitionPref:null,stateOfResidency:null,inStateToggle:false,usUniversityType:null,uniSelectivity:null,scholarshipPct:null,collegeSavings:null,partTimeWork:null,familySupport:null,loanRate:null,loanRepaymentYears:null,transitionWorkTarget:null,transitionCareers:[],transitionCountries:[]};
 const VERSION='v1.9.0';
 document.addEventListener('DOMContentLoaded',()=>{const b=document.getElementById('version-badge');if(b)b.innerText=VERSION;});
-function saveState(){const stateToSave={cats:S.cats,motivations:S.motivations,subCareers:S.subCareers,flex:S.flex,cost:S.cost,vision:S.vision,lang:S.lang,citizen:S.citizen,debtYrs:S.debtYrs,languages:S.languages,postGrad:S.postGrad,inStateTuitionPref:S.inStateTuitionPref,stateOfResidency:S.stateOfResidency,cc:S.cc,costCC:S.costCC,expl:S.expl,uniSelectivity:S.uniSelectivity,scholarshipPct:S.scholarshipPct,collegeSavings:S.collegeSavings,partTimeWork:S.partTimeWork,familySupport:S.familySupport,loanRate:S.loanRate,loanRepaymentYears:S.loanRepaymentYears,inStateToggle:S.inStateToggle,usUniversityType:S.usUniversityType,transitionWorkTarget:S.transitionWorkTarget};localStorage.setItem('univPathfinderState',JSON.stringify(stateToSave));}
+function saveState(){const stateToSave={cats:S.cats,motivations:S.motivations,subCareers:S.subCareers,flex:S.flex,cost:S.cost,vision:S.vision,lang:S.lang,citizen:S.citizen,debtYrs:S.debtYrs,languages:S.languages,postGrad:S.postGrad,inStateTuitionPref:S.inStateTuitionPref,stateOfResidency:S.stateOfResidency,cc:S.cc,costCC:S.costCC,expl:S.expl,uniSelectivity:S.uniSelectivity,scholarshipPct:S.scholarshipPct,collegeSavings:S.collegeSavings,partTimeWork:S.partTimeWork,familySupport:S.familySupport,loanRate:S.loanRate,loanRepaymentYears:S.loanRepaymentYears,inStateToggle:S.inStateToggle,usUniversityType:S.usUniversityType,transitionWorkTarget:S.transitionWorkTarget,transitionCareers:S.transitionCareers,transitionCountries:S.transitionCountries};localStorage.setItem('univPathfinderState',JSON.stringify(stateToSave));}
 function loadState(){const saved=localStorage.getItem('univPathfinderState');if(saved){const state=JSON.parse(saved);Object.assign(S,state);if(state.scholarshipPct!==undefined)document.getElementById('sl-schol').value=state.scholarshipPct;if(state.collegeSavings!==undefined)document.getElementById('sl-savings').value=state.collegeSavings;if(state.partTimeWork!==undefined)document.getElementById('sl-work').value=state.partTimeWork;if(state.familySupport!==undefined)document.getElementById('sl-parent').value=state.familySupport;if(state.loanRate!==undefined)document.getElementById('sl-rate').value=state.loanRate;if(state.loanRepaymentYears!==undefined)document.getElementById('sl-yrs').value=state.loanRepaymentYears;if(state.inStateToggle!==undefined){const instateIn=document.getElementById('instate-in');const instateOut=document.getElementById('instate-out');if(state.inStateToggle){instateIn.classList.add('on');instateOut.classList.remove('on')}else{instateOut.classList.add('on');instateIn.classList.remove('on')}}}if(S.transitionWorkTarget)document.querySelectorAll('[data-q="transitionWorkTarget"] .pill').forEach(p=>{if(p.textContent===S.transitionWorkTarget)p.classList.add('on');else p.classList.remove('on')})}
 const PLAYLISTS={lofi:'https://w.soundcloud.com/player/?url=https://soundcloud.com/dabootlegboy/sets/study-chill-lofi-hiphop&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&show_artwork=false',groovy:'https://w.soundcloud.com/player/?url=https://soundcloud.com/wearestereofox/sets/groovy-beats&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&show_artwork=false',relax:'https://w.soundcloud.com/player/?url=https://soundcloud.com/ambientchill-sc/sets/relaxing-ambient-music-2&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&show_artwork=false',zen:'https://w.soundcloud.com/player/?url=https://soundcloud.com/binauralbeatsresearch/sets/theta-waves-zen-meditation&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&show_artwork=false'};
 const HEADER_PHOTOS=[{src:'https://images.unsplash.com/photo-1441260038675-7329ab4cc264',cap:'University campus quad'},{src:'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a',cap:'Students studying together'},{src:'https://images.unsplash.com/photo-1441260038675-7329ab4cc264',cap:'Graduation day'},{src:'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad',cap:'Historic university architecture'},{src:'https://images.unsplash.com/photo-1539037116277-4db20889f2d4',cap:'European city streets'}];
@@ -2658,21 +2658,50 @@ function renderCostTable(){
     if(langInsight)insights.push(langInsight);
   }
 }
+function togTransitionCareer(fn){
+  if(!S.transitionCareers) S.transitionCareers = [];
+  if(S.transitionCareers.includes(fn)){
+    S.transitionCareers = S.transitionCareers.filter(c => c !== fn);
+  } else if(S.transitionCareers.length < 2){
+    S.transitionCareers.push(fn);
+  }
+  S.subCareers = S.transitionCareers.slice();
+  saveState();
+  renderTransition();
+  renderSubPills();
+  renderCareerTable();
+}
+function togTransitionCountry(k){
+  if(!S.transitionCountries) S.transitionCountries = [];
+  if(S.transitionCountries.includes(k)){
+    S.transitionCountries = S.transitionCountries.filter(c => c !== k);
+  } else if(S.transitionCountries.length < 2){
+    S.transitionCountries.push(k);
+  }
+  S.cc = S.transitionCountries.slice();
+  saveState();
+  renderTransition();
+  renderCCChips();
+}
 function renderTransition(){
 
   const careers = window.CAREERS || {};
   const countries = window.COUNTRIES || {};
 
-  // Render career pills - same as Careers tab
+  // Initialize transition selections from other tabs (cap at 2)
+  if(!S.transitionCareers) S.transitionCareers = (S.subCareers || []).slice(0, 2);
+  if(!S.transitionCountries) S.transitionCountries = (S.cc || []).slice(0, 2);
+
+  // Render career pills with 1-2 limit
   const careerEl = document.getElementById('transition-careers');
   if(!S.cats.length){careerEl.innerHTML='';} else {
-    let h='';S.cats.forEach(ck=>{Object.keys(getCategorySubjects(ck)).forEach(fn=>{h+=`<div class="pill${S.subCareers.includes(fn)?' on':''}" onclick="togSub('${fn}',this)">${fn}</div>`})});careerEl.innerHTML=h;
+    let h='';S.cats.forEach(ck=>{Object.keys(getCategorySubjects(ck)).forEach(fn=>{h+=`<div class="pill${S.transitionCareers.includes(fn)?' on':''}" onclick="togTransitionCareer('${fn}')">${fn}</div>`})});careerEl.innerHTML=h;
   }
 
-  // Render country pills - same as Countries tab
+  // Render country pills with 1-2 limit
   const countryEl = document.getElementById('transition-study-countries');
   if(!COUNTRIES_LOADED){countryEl.innerHTML='<p>Loading countries...</p>';setTimeout(renderTransition,100);return;} else {
-    let h='';Object.entries(countries).forEach(([k,v])=>{h+=`<div class="pill${S.cc.includes(k)?' on':''}" onclick="togCC('${k}')"><img src="${v.flag}" style="height:0.9em;vertical-align:middle"> ${v.name}</div>`});countryEl.innerHTML=h;
+    let h='';Object.entries(countries).forEach(([k,v])=>{h+=`<div class="pill${S.transitionCountries.includes(k)?' on':''}" onclick="togTransitionCountry('${k}')"><img src="${v.flag}" style="height:0.9em;vertical-align:middle"> ${v.name}</div>`});countryEl.innerHTML=h;
   }
 
   // Sync work target pills
@@ -2692,8 +2721,8 @@ function renderTransition(){
   }
 
   // Filter out undefined/null values
-  const validCareers = (S.subCareers || []).filter(c => c);
-  const validCountries = (S.cc || []).filter(c => c);
+  const validCareers = (S.transitionCareers || []).filter(c => c);
+  const validCountries = (S.transitionCountries || []).filter(c => c);
 
   // If we don't have both careers and countries selected, show message
   if(validCareers.length === 0 || validCountries.length === 0) {
