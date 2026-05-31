@@ -2816,9 +2816,6 @@ function renderTransition(){
 
   const costData = calculateCostData(transitionSelectedCountry, 0, 0, 0, 0, +(document.getElementById('sl-rate')?.value || 5.5), yrs);
 
-  // Show header with selected country
-  html += `<h3 style="margin:24px 0 12px 0;color:var(--dk);font-size:18px">University location: <img src="${selectedCountry.flag}" style="height:0.9em;vertical-align:middle;margin-right:6px">${selectedCountry.name}</h3>`;
-
   // Generate one table per career for the selected country
   validCareers.forEach(career => {
     html += `<h4 style="margin:16px 0 8px 0;color:var(--tx1);font-size:14px;font-weight:600">Career: ${career}</h4>`;
