@@ -1985,8 +1985,8 @@ function renderCareerTable(){
     else if(a==='education'){v=formatEducationSummary(getCareerEducation(f));}
     else if(a==='costUS'){const range=getCareerCostUS(f);v=range?'$'+(Math.round((range.min+range.max)/2)/1000).toFixed(0)+'k Average':'—';}
     else if(a==='costEU'){const range=getCareerCostEU(f);v=range?'$'+(Math.round((range.min+range.max)/2)/1000).toFixed(0)+'k Average':'—';}
-    else if(a==='salaryUS'){const range=getCareerSalaryUS(f);v=range?'$'+(Math.round((range.min+range.max)/2)/1000).toFixed(0)+'k Average':'—';}
-    else if(a==='salaryEU'){const range=getCareerSalaryEU(f);v=range?'$'+(Math.round((range.min+range.max)/2)/1000).toFixed(0)+'k Average':'—';}
+    else if(a==='salaryUS'){const d=getSub(f);if(d?.salaryNote){v=d.salaryNote;}else{const range=getCareerSalaryUS(f);v=range?'$'+(Math.round((range.min+range.max)/2)/1000).toFixed(0)+'k Average':'—';}}
+    else if(a==='salaryEU'){const d=getSub(f);if(d?.salaryNote){v=d.salaryNote;}else{const range=getCareerSalaryEU(f);v=range?'$'+(Math.round((range.min+range.max)/2)/1000).toFixed(0)+'k Average':'—';}}
     else if(a==='growth'){v=formatGrowth(getCareerGrowth(f));}
     else if(a==='portability'){v=formatPortability(getCareerPortability(f));if(typeof v==='string'&&v.toUpperCase().startsWith('HIGH')){return {content:v,className:'win'}}}
     else if(a==='licensing'){v=formatLicensing(getCareerLicensing(f));}
@@ -2001,8 +2001,8 @@ function renderCareerTable(){
     else if(a==='education'){v=formatEducationSummary(getCareerEducation(f));}
     else if(a==='costUS'){const range=getCareerCostUS(f);v=range?'$'+(Math.round((range.min+range.max)/2)/1000).toFixed(0)+'k Average':'—';}
     else if(a==='costEU'){const range=getCareerCostEU(f);v=range?'$'+(Math.round((range.min+range.max)/2)/1000).toFixed(0)+'k Average':'—';}
-    else if(a==='salaryUS'){const range=getCareerSalaryUS(f);v=range?'$'+(Math.round((range.min+range.max)/2)/1000).toFixed(0)+'k Average':'—';}
-    else if(a==='salaryEU'){const range=getCareerSalaryEU(f);v=range?'$'+(Math.round((range.min+range.max)/2)/1000).toFixed(0)+'k Average':'—';}
+    else if(a==='salaryUS'){const d=getSub(f);if(d?.salaryNote){v=d.salaryNote;}else{const range=getCareerSalaryUS(f);v=range?'$'+(Math.round((range.min+range.max)/2)/1000).toFixed(0)+'k Average':'—';}}
+    else if(a==='salaryEU'){const d=getSub(f);if(d?.salaryNote){v=d.salaryNote;}else{const range=getCareerSalaryEU(f);v=range?'$'+(Math.round((range.min+range.max)/2)/1000).toFixed(0)+'k Average':'—';}}
     else if(a==='growth'){v=formatGrowth(getCareerGrowth(f));}
     else if(a==='portability'){v=formatPortability(getCareerPortability(f));}
     else if(a==='licensing'){v=formatLicensing(getCareerLicensing(f));}

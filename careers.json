@@ -731,7 +731,8 @@
         "costUS_min": 150000,
         "costUS_max": 150000,
         "costEU_min": 8000,
-        "costEU_max": 8000
+        "costEU_max": 8000,
+        "salaryNote": "Variable, tied to business success"
       },
       "Human Resources": {
         "growth": {
