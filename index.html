@@ -2886,6 +2886,10 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
   // Calculate table values once (source of truth for both table and bar chart)
   const usAvgSalary = getAvgSalary(sub.salaryUS_min, sub.salaryUS_max);
   const euAvgSalary = getAvgSalary(sub.salaryEU_min, sub.salaryEU_max);
+
+  // Make salary values available to metrics functions (either formatted string for display, or numeric for calculations)
+  const salaryDisplayUS = formatMoneyRange(sub.salaryUS_min, sub.salaryUS_max);
+  const salaryDisplayEU = formatMoneyRange(sub.salaryEU_min, sub.salaryEU_max);
   const usAfterTax = usAvgSalary ? Math.round(usAvgSalary * (1 - 0.20) / 12) : 0;
   const euAfterTax = euAvgSalary ? Math.round(euAvgSalary * (1 - 0.22) / 12) : 0;
   const usSurplus = usAfterTax - usColMonthly - monthlyDebt;
@@ -2899,15 +2903,15 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
   };
 
   const metrics = [
-    {label: 'Annual salary', sublabel: 'Estimated starting salary range.  An average is used for calculations', us: formatMoneyRange(sub.salaryUS_min, sub.salaryUS_max), eu: formatMoneyRange(sub.salaryEU_min, sub.salaryEU_max), color: 'var(--ok)'},
-    {label: 'Taxes (20% US, 22% EU)', sublabel: 'Estimated income taxes', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
+    {label: 'Annual salary', sublabel: 'Estimated starting salary range.  An average is used for calculations', us: salaryDisplayUS, eu: salaryDisplayEU, color: 'var(--ok)'},
+    {label: 'Taxes (20% US, 22% EU)', sublabel: 'Estimated income taxes', us: usAvgSalary, eu: euAvgSalary, color: 'var(--bad)', fn: (salary, isUS) => {
       if(!salary) return '—';
       const s = parseSalary(salary);
       if(!s) return '—';
       const taxRate = isUS ? 0.20 : 0.22;
       return `$${Math.round(s * taxRate).toLocaleString()}`;
     }},
-    {label: 'Monthly income after taxes', sublabel: 'Your estimated monthly take home pay after taxes', us: null, eu: null, color: 'var(--ok)', fn: (salary, isUS) => {
+    {label: 'Monthly income after taxes', sublabel: 'Your estimated monthly take home pay after taxes', us: usAvgSalary, eu: euAvgSalary, color: 'var(--ok)', fn: (salary, isUS) => {
       if(!salary) return '—';
       const s = parseSalary(salary);
       if(!s) return '—';
@@ -2915,12 +2919,12 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
       const monthly = Math.round(s * (1 - taxRate) / 12);
       return `$${monthly.toLocaleString()}`;
     }},
-    {label: 'Monthly cost of living', sublabel: 'Estimate of housing, food, travel, and personal expenses', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
+    {label: 'Monthly cost of living', sublabel: 'Estimate of housing, food, travel, and personal experiences', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
       const col = isUS ? usColMonthly : euColMonthly;
       return `$${col.toLocaleString()}`;
     }},
     {label: 'Monthly loan payment', sublabel: 'Amount you would owe to repay loans each month', us: null, eu: null, color: 'var(--bad)', fn: () => `$${monthlyDebt.toLocaleString()}`},
-    {label: 'Debt-to-Income', sublabel: 'How much of your monthly pay goes to repaying loans?', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
+    {label: 'Debt-to-Income', sublabel: 'How much of your monthly pay goes to repaying loans?', us: usAvgSalary, eu: euAvgSalary, color: 'var(--bad)', fn: (salary, isUS) => {
       if(!salary) return '—';
       const s = parseSalary(salary);
       if(!s) return '—';
@@ -2928,7 +2932,7 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
       const monthly = s * (1 - taxRate) / 12;
       return `${(monthlyDebt / monthly * 100).toFixed(1)}%`;
     }},
-    {label: null, sublabel: null, us: null, eu: null, fn: (salary, isUS) => {
+    {label: null, sublabel: null, us: usAvgSalary, eu: euAvgSalary, fn: (salary, isUS) => {
       if(!salary) return {label: '—', html: '—'};
       const s = parseSalary(salary);
       if(!s) return {label: '—', html: '—'};
