@@ -1264,7 +1264,8 @@ function formatEducationSummary(eduObj) {
 
 function formatGrowth(growthObj) {
   if (!growthObj || growthObj.pct === null) return '—';
-  const mag = (growthObj.magnitude || 'moderate').charAt(0).toUpperCase() + (growthObj.magnitude || 'moderate').slice(1);
+  const magnitude = (growthObj.magnitude || 'moderate').replace(/_/g, ' ');
+  const mag = magnitude.charAt(0).toUpperCase() + magnitude.slice(1);
   return mag + ' (' + (growthObj.pct > 0 ? '+' : '') + growthObj.pct + '%)';
 }
 
