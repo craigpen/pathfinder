@@ -3924,17 +3924,17 @@ function renderInsights(){
 
         // Tuition - aligned tiers: Free, Inexpensive (<5k), Affordable (5-15k), Moderate (15-35k), Expensive to Very Expensive (35k+)
         const yearlyTuition = Math.round(tuition / progDuration);
-        const tuitionContext = k === 'us' ? ' — similar to public universities in US' : '';
+        const tuitionContext = k !== 'us' ? ' — similar to public universities in US' : '';
         if(tuition === 0){
           pros.push('Tuition-free — eliminates largest cost barrier');
         } else if(yearlyTuition < 5000){
           pros.push('Inexpensive tuition ($' + yearlyTuition.toLocaleString() + '/yr)' + tuitionContext);
         } else if(yearlyTuition < 15000){
-          pros.push('Affordable tuition ($' + yearlyTuition.toLocaleString() + '/yr)');
+          pros.push('Affordable tuition ($' + yearlyTuition.toLocaleString() + '/yr)' + tuitionContext);
         } else if(yearlyTuition < 35000){
-          pros.push('Moderate tuition ($' + yearlyTuition.toLocaleString() + '/yr)');
+          pros.push('Moderate tuition ($' + yearlyTuition.toLocaleString() + '/yr)' + tuitionContext);
         } else {
-          cons.push('Expensive tuition ($' + yearlyTuition.toLocaleString() + '/yr)');
+          cons.push('Expensive tuition ($' + yearlyTuition.toLocaleString() + '/yr)' + tuitionContext);
         }
 
         // Total cost - expanded tiers: inexpensive (<50k), affordable (50-100k), moderate (100-150k), expensive (150-250k), very expensive (>250k)
