@@ -3482,8 +3482,8 @@
           "pct": 4,
           "src": "https://www.bls.gov/ooh/legal/lawyers.htm"
         },
-        "salaryUS_min": null,
-        "salaryUS_max": null,
+        "salaryUS_min": 55000,
+        "salaryUS_max": 170000,
         "salaryEU_min": 35000,
         "salaryEU_max": 81000,
         "costUS_min": 150000,

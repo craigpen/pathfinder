@@ -3802,6 +3802,10 @@ function renderInsights(){
         if(portability.level === 'HIGH') pros.push('High portability abroad');
         else if(portability.level === 'LOW') cons.push('Limited portability abroad');
         else if(portability.level === 'MEDIUM') pros.push('Moderate portability abroad');
+      } else if(portability && S.vision === 'Anywhere globally'){
+        if(portability.level === 'HIGH') pros.push('High global portability matches your flexible vision');
+        else if(portability.level === 'LOW') cons.push('Limited international portability — focused on home country');
+        else if(portability.level === 'MEDIUM') pros.push('Moderate global portability supports international options');
       } else if(portability && !S.vision){
         if(portability.level === 'HIGH') pros.push('HIGH international portability');
         else if(portability.level === 'LOW') cons.push('LOW international portability');
@@ -3843,7 +3847,7 @@ function renderInsights(){
       
       // Motivations
       if(S.motivations && S.motivations.includes('Creative expression')){
-        if(f.includes('Creative') || f.includes('Design') || f.includes('Arts') || f.includes('Theater') || f.includes('Music') || f.includes('Film') || f.includes('Writing')){
+        if(f.includes('Creative') || f.includes('Design') || f.includes('Arts') || f.includes('Theater') || f.includes('Music') || f.includes('Film') || f.includes('Writing') || f.includes('Photo') || f.includes('Animation') || f.includes('Architecture')){
           pros.push('Matches creative expression goal');
         }
       }
