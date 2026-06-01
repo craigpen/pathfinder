@@ -1110,40 +1110,71 @@ function aggregateCategoryData(catKey, fieldName) {
   if (fieldName === 'education') {
     const educations = careerList.map(c => c.education).filter(e => e);
     if (educations.length === 0) return null;
-    // Return first education as representative (or could merge all)
-    return formatEducationSummary(educations[0]);
+    // Aggregate degree requirements across all careers
+    const degreeNorms = { required: 0, typical: 0, optional: 0, doctorate: 0, professional: 0, residency: 0 };
+    const degreeTypes = { bachelor: 0, master: 0, professional: 0, doctorate: 0, residency: 0 };
+    educations.forEach(edu => {
+      if (!edu.degrees) return;
+      edu.degrees.forEach(deg => {
+        const norm = deg.norm || 'required';
+        degreeNorms[norm] = (degreeNorms[norm] || 0) + 1;
+        const level = deg.level || 'undergraduate';
+        if (level === 'undergraduate') degreeTypes.bachelor++;
+        else if (level === 'graduate') degreeTypes.master++;
+        else if (level === 'professional') degreeTypes.professional++;
+        else if (level === 'doctoral') degreeTypes.doctorate++;
+        else if (level === 'postdegree') degreeTypes.residency++;
+      });
+    });
+    // Determine majority pattern
+    const hasResidency = degreeTypes.residency > 0;
+    const hasProfessional = degreeTypes.professional > 0;
+    const hasDoctorat = degreeTypes.doctorate > 0;
+    const hasMaster = degreeTypes.master > 0;
+    if (hasResidency) return 'Bachelor, Professional, Residency typical';
+    if (hasProfessional || hasDoctorat) return 'Bachelor + (Professional/Doctorate typical)';
+    if (hasMaster) return 'Bachelor, Masters typical';
+    return 'Bachelor typical';
   }
 
   if (fieldName === 'costUS_min' || fieldName === 'costUS_max') {
-    const costs = careerList.map(c => c.costUS_min).filter(v => v !== null && v !== undefined);
-    if (costs.length === 0) return null;
-    const min = Math.min(...careerList.map(c => c.costUS_min).filter(v => v !== null));
-    const max = Math.max(...careerList.map(c => c.costUS_max).filter(v => v !== null));
-    return { min, max, display: formatMoneyRange(min, max) };
+    const minVals = careerList.map(c => c.costUS_min).filter(v => v !== null && v !== undefined);
+    const maxVals = careerList.map(c => c.costUS_max).filter(v => v !== null && v !== undefined);
+    if (minVals.length === 0) return null;
+    const avgMin = Math.round(minVals.reduce((a, b) => a + b, 0) / minVals.length);
+    const avgMax = Math.round(maxVals.reduce((a, b) => a + b, 0) / maxVals.length);
+    const avg = Math.round((avgMin + avgMax) / 2);
+    return { display: '$' + (avg >= 1000 ? (avg / 1000).toFixed(0) + 'k' : avg) + ' Average' };
   }
 
   if (fieldName === 'costEU_min' || fieldName === 'costEU_max') {
-    const costs = careerList.map(c => c.costEU_min).filter(v => v !== null && v !== undefined);
-    if (costs.length === 0) return null;
-    const min = Math.min(...careerList.map(c => c.costEU_min).filter(v => v !== null));
-    const max = Math.max(...careerList.map(c => c.costEU_max).filter(v => v !== null));
-    return { min, max, display: formatMoneyRange(min, max) };
+    const minVals = careerList.map(c => c.costEU_min).filter(v => v !== null && v !== undefined);
+    const maxVals = careerList.map(c => c.costEU_max).filter(v => v !== null && v !== undefined);
+    if (minVals.length === 0) return null;
+    const avgMin = Math.round(minVals.reduce((a, b) => a + b, 0) / minVals.length);
+    const avgMax = Math.round(maxVals.reduce((a, b) => a + b, 0) / maxVals.length);
+    const avg = Math.round((avgMin + avgMax) / 2);
+    return { display: '$' + (avg >= 1000 ? (avg / 1000).toFixed(0) + 'k' : avg) + ' Average' };
   }
 
   if (fieldName === 'salaryUS_min' || fieldName === 'salaryUS_max') {
-    const salaries = careerList.map(c => c.salaryUS_min).filter(v => v !== null && v !== undefined);
-    if (salaries.length === 0) return null;
-    const min = Math.min(...careerList.map(c => c.salaryUS_min).filter(v => v !== null));
-    const max = Math.max(...careerList.map(c => c.salaryUS_max).filter(v => v !== null));
-    return { min, max, display: formatMoneyRange(min, max) };
+    const minVals = careerList.map(c => c.salaryUS_min).filter(v => v !== null && v !== undefined);
+    const maxVals = careerList.map(c => c.salaryUS_max).filter(v => v !== null && v !== undefined);
+    if (minVals.length === 0) return null;
+    const avgMin = Math.round(minVals.reduce((a, b) => a + b, 0) / minVals.length);
+    const avgMax = Math.round(maxVals.reduce((a, b) => a + b, 0) / maxVals.length);
+    const avg = Math.round((avgMin + avgMax) / 2);
+    return { display: '$' + (avg >= 1000 ? (avg / 1000).toFixed(0) + 'k' : avg) + ' Average' };
   }
 
   if (fieldName === 'salaryEU_min' || fieldName === 'salaryEU_max') {
-    const salaries = careerList.map(c => c.salaryEU_min).filter(v => v !== null && v !== undefined);
-    if (salaries.length === 0) return null;
-    const min = Math.min(...careerList.map(c => c.salaryEU_min).filter(v => v !== null));
-    const max = Math.max(...careerList.map(c => c.salaryEU_max).filter(v => v !== null));
-    return { min, max, display: formatMoneyRange(min, max) };
+    const minVals = careerList.map(c => c.salaryEU_min).filter(v => v !== null && v !== undefined);
+    const maxVals = careerList.map(c => c.salaryEU_max).filter(v => v !== null && v !== undefined);
+    if (minVals.length === 0) return null;
+    const avgMin = Math.round(minVals.reduce((a, b) => a + b, 0) / minVals.length);
+    const avgMax = Math.round(maxVals.reduce((a, b) => a + b, 0) / maxVals.length);
+    const avg = Math.round((avgMin + avgMax) / 2);
+    return { display: '$' + (avg >= 1000 ? (avg / 1000).toFixed(0) + 'k' : avg) + ' Average' };
   }
 
   if (fieldName === 'growth') {
@@ -1229,7 +1260,8 @@ function formatPortability(portObj) {
 
 function formatLicensing(licObj) {
   if (!licObj) return '—';
-  const status = licObj.status ? licObj.status.charAt(0).toUpperCase() + licObj.status.slice(1) : '—';
+  const statusMap = { 'required': 'Required', 'optional': 'Optional', 'not_available': 'Not required' };
+  const status = licObj.status ? statusMap[licObj.status] || licObj.status.charAt(0).toUpperCase() + licObj.status.slice(1) : '—';
   const parts = [status];
   if (licObj.type && licObj.type.length > 0) {
     parts.push('(' + (Array.isArray(licObj.type) ? licObj.type.join(', ') : licObj.type) + ')');
