@@ -281,13 +281,12 @@ When externalizing reference data that's keyed by external data (e.g., DEMAND_MA
 - ❌ Creating separate reference JSON files instead of merging into parent structure — bloats file count and complicates async loading
 
 ## Key Files & Functions
-- `index.html` — Single-page app with embedded CSS/JS (originally 776KB, now **269KB** with all data externalized)
+- `index.html` — Single-page app with embedded CSS/JS (originally 776KB, now **310KB** with all data externalized)
   - This is your main deliverable; treat edits carefully
   - Always test in browser before committing
-  - **Note:** index2.html is the working file; copy over index.html when deploying
 - External data files (loaded asynchronously at startup):
   - `countries.json` (66KB) — Consolidated country data (13 countries with CD/FUNDING merged); loaded by `loadCountriesData()`. Access via helpers: `getCountryName()`, `getCountryTuition()`, etc.
-  - `careers.json` (24KB) — Career categories and subcareers (33 total) with merged DEMAND_MAP data; loaded by `loadCareersData()`. Access via helpers: `getSub()`, `getCategorySubjects()`, etc. Each subcareer has `demand` field with {label, pct, period, src}
+  - `careers.json` (106KB) — Career categories and subcareers (66 total, normalized schema); loaded by `loadCareersData()`. Access via helpers: `getSub()`, `getCategorySubjects()`, etc. Uses normalized schema with min/max ranges and structured objects for education, growth, licensing, portability, demand
   - `universities.json` (587 universities) — External university database; loaded by `loadUniversitiesData()`. Schema includes dual tuition rates: `tuition` (international) and `tuition_eu` (EU citizen rate) with `tuition_eu_note` for transparency. Access via helpers: `getUniversity()`, `getUniversitiesByCountry()`, `getUniversitiesByProgram()`, etc.
   - `insights.json` (5 categories) — Career/country/cost/language/citizenship alignment data; loaded by `loadInsightsData()`. Access only via insight functions `getCareerInsight()`, `getCountryInsight()`, `getCostInsight()`, `getLanguageInsight()`, `getCitizenshipInsight()`.
   - **Always access via helpers**, never direct property access
@@ -354,7 +353,226 @@ if(isEU && uni.tuition_eu !== undefined) {
 - Silently showing different numbers without explaining why
 - Hard-coding per-school rates (use data fields instead)
 
-## 9. Code Cleanup & Deduplication
+## 9. Career Database Normalized Schema
+
+**All 66 careers use a normalized, queryable schema with discrete fields for salary, cost, education, growth, licensing, and portability.**
+
+### Field Reference
+
+#### Salary Fields (numeric, USD)
+```json
+{
+  "salaryUS_min": 85000,      // minimum US salary, numeric USD
+  "salaryUS_max": 140000,     // maximum US salary, numeric USD
+  "salaryEU_min": 52000,      // minimum EU salary, numeric USD (not EUR!)
+  "salaryEU_max": 85000,      // maximum EU salary, numeric USD
+  "salaryNote": null          // optional: "Variable, tied to business success" for non-standard cases
+}
+```
+- All values stored as numeric USD (even EU salaries use USD for consistency)
+- Display via `formatMoneyRange(min, max)` → `"$85k–$140k"`
+- For missing US data (e.g., European Law), use EU data as fallback
+
+#### Cost Fields (numeric, USD, tuition-only)
+```json
+{
+  "costUS_min": 140000,       // minimum 4-year US cost (tuition), numeric USD
+  "costUS_max": 160000,       // maximum 4-year US cost (tuition), numeric USD
+  "costEU_min": 8000,         // minimum 4-year EU cost (tuition), numeric USD
+  "costEU_max": 8000          // maximum 4-year EU cost (tuition), numeric USD
+}
+```
+- All values represent tuition-only (no living expenses)
+- All stored as numeric USD
+- Display via `formatMoneyRange(min, max)` → `"$140k–$160k"`
+- Use min/max to show range; average for category summaries
+
+#### Education Field (structured, prerequisite-aware)
+```json
+{
+  "education": {
+    "degrees": [
+      {
+        "level": "undergraduate",         // undergraduate | graduate | professional | doctoral | postdegree
+        "names": ["Bachelor"],            // array of degree names
+        "us_years": 4,                    // duration in US (number or "3-7" for range)
+        "eu_years": 3,                    // duration in EU
+        "norm": "required",               // required | typical | optional
+        "prerequisite": null              // prerequisite degree name, or null for first degree
+      },
+      {
+        "level": "professional",
+        "names": ["MD", "DO"],
+        "us_years": 4,
+        "eu_years": 4,
+        "norm": "required",
+        "prerequisite": "Bachelor"
+      }
+    ],
+    "requirement_summary": "Bachelor and Professional required"  // for compact display
+  }
+}
+```
+- **Always includes Bachelor as the first degree** (foundational requirement)
+- Prerequisites form a chain: Bachelor → Professional → Residency
+- Display via `formatEducationSummary(eduObj)` → `"Bachelor, MD and Residency required"`
+- Use `requirement_summary` for quick category-level display
+
+#### Growth Field (structured, percentage-based)
+```json
+{
+  "growth": {
+    "direction": "positive",      // positive | negative | neutral
+    "magnitude": "very_high",     // flat | low | moderate | high | very_high
+    "pct": 15                     // numeric percentage (BLS/authoritative source)
+  }
+}
+```
+- Magnitude derives from pct using standard scale: Flat=0%, Low=1-3%, Moderate=4-7%, High=8-14%, Very high=15%+
+- Display via `formatGrowth(growthObj)` → `"Very high (+15%)"`
+- No period information stored (e.g., no "2024-2034")
+
+#### Licensing Field (structured, scope-aware)
+```json
+{
+  "licensing": {
+    "status": "required",         // required | optional | not_available
+    "type": ["PE", "CFA"],        // optional array of license abbreviations
+    "scope": "state",             // global | us | state | country_specific | varies
+    "qualifier": null             // optional: e.g., "varies by specialty", "for clinical roles"
+  }
+}
+```
+- Status must be one of the three standard values
+- Type array lists all relevant certifications
+- Scope describes geographic applicability
+- Display via `formatLicensing(licObj)` → `"Required (PE, state-level)"`
+
+#### Portability Field (structured, global context)
+```json
+{
+  "portability": {
+    "level": "HIGH",              // HIGH | MEDIUM | LOW
+    "qualifier": null             // optional: e.g., "CFA globally recognized", "US bar only"
+  }
+}
+```
+- Level is always uppercase
+- Qualifier provides context for international mobility
+- Display via `formatPortability(portObj)` → `"High (CFA globally recognized)"`
+
+#### Demand Field (consistent, authoritative)
+```json
+{
+  "demand": {
+    "label": "Very high",         // qualitative descriptor
+    "pct": 15.8,                  // numeric percentage from BLS or authoritative source
+    "src": "https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm"  // source URL
+  }
+}
+```
+- Label should match growth magnitude terminology for consistency
+- Pct is numeric percentage from authoritative source (BLS preferred)
+- Src provides traceability and allows users to verify data
+- Display via `demandCell(demand)` → `"+15%"`
+
+### Helper Functions
+
+#### Query Helpers (retrieve normalized data)
+```javascript
+getCareerSalaryUS(name)         // → {min, max} numeric object
+getCareerCostUS(name)           // → {min, max} numeric object
+getCareerEducation(name)        // → {degrees[], requirement_summary}
+getCareerGrowth(name)           // → {direction, magnitude, pct}
+getCareerLicensing(name)        // → {status, type, scope, qualifier}
+getCareerPortability(name)      // → {level, qualifier}
+getDemandForCareer(name)        // → {label, pct, src}
+getSub(name)                    // → full career object
+getCategorySubjects(catKey)     // → {careerName: careerObj, ...}
+```
+
+#### Display Formatters (convert to readable strings)
+```javascript
+formatMoneyRange(min, max)      // "$85k–$140k" (used for salary and cost)
+formatEducationSummary(eduObj)  // "Bachelor, MD and Residency required" (serial comma format)
+formatGrowth(growthObj)         // "Very high (+15%)" (magnitude with percentage)
+formatPortability(portObj)      // "High" or "High (CFA globally recognized)"
+formatLicensing(licObj)         // "Required (PE, state-level)"
+```
+
+#### Validation & Debug Helpers
+```javascript
+validateAllCareers()            // → {total: 66, valid: X, invalid: Y, errors: [...]}
+debugCareer(name)               // → console output of all career fields
+```
+
+### Category-Level Aggregation
+
+Use `aggregateCategoryData(catKey, fieldName)` to compute category summaries:
+
+```javascript
+aggregateCategoryData('tech', 'education')    // → {display: "Bachelor and Professional typical"}
+aggregateCategoryData('tech', 'salaryUS_min') // → {display: "$85k Average"}
+aggregateCategoryData('tech', 'growth')       // → {display: "Very high (+15%)"}
+```
+
+**Logic:**
+- **Education:** Analyzes degree patterns across all careers in category, returns intelligent summary ("Bachelor and Professional typical")
+- **Salary/Cost:** Averages min/max values, formats as single average figure
+- **Growth:** Finds most common magnitude, averages percentages
+- **Portability/Licensing:** Finds most common status
+
+### Adding a New Career
+
+**Step 1: Gather Data**
+- Salary (US & EU): numeric min/max from BLS or O*NET
+- Cost (US & EU): tuition-only 4-year estimates
+- Education: degrees with levels, prerequisites, and durations
+- Growth: direction, magnitude, percentage from BLS Labor Outlook
+- Licensing: status, types, scope, and qualifiers
+- Portability: level and context qualifiers
+- Demand: label, percentage, and authoritative source
+
+**Step 2: Create Career Object**
+```json
+{
+  "growth": {"direction": "positive", "magnitude": "high", "pct": 11},
+  "education": {
+    "degrees": [
+      {"level": "undergraduate", "names": ["Bachelor"], "us_years": 4, "eu_years": 3, "norm": "required"}
+    ],
+    "requirement_summary": "Bachelor required"
+  },
+  "portability": {"level": "HIGH", "qualifier": null},
+  "licensing": {"status": "optional", "type": ["CPA"], "scope": "us", "qualifier": null},
+  "resources": [{"title": "AICPA", "url": "https://www.aicpa.org/"}],
+  "postGraduateFunded": false,
+  "typicalPostGraduateYears": 0,
+  "demand": {"label": "Moderate", "pct": 6, "src": "https://www.bls.gov/ooh/..."},
+  "salaryUS_min": 70000,
+  "salaryUS_max": 120000,
+  "salaryEU_min": 35000,
+  "salaryEU_max": 64000,
+  "costUS_min": 180000,
+  "costUS_max": 180000,
+  "costEU_min": 12000,
+  "costEU_max": 12000
+}
+```
+
+**Step 3: Add to careers.json**
+1. Find the appropriate category (or create new one)
+2. Add career object to category.subjects with career name as key
+3. Validate JSON (no syntax errors)
+4. Test in browser to verify display
+
+**Step 4: Update Insights (if needed)**
+- Check if career needs custom insights in `renderInsights()` function
+- Add any career-specific conditions (motivation matching, country-specific notes, etc.)
+
+---
+
+## 10. Code Cleanup & Deduplication
 
 **Completed as of v1.8.15:** All four major data structures have been successfully externalized and cleaned of duplicate functions:
 
@@ -375,4 +593,4 @@ if(isEU && uni.tuition_eu !== undefined) {
 
 ---
 
-**Last Updated:** 2026-05-30 (v1.8.15 — citizenship-aware tuition rates added)
+**Last Updated:** 2026-06-01 (v1.17.12 — comprehensive career schema documentation added, insights logic fixed, 66 careers with normalized schema)
