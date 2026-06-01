@@ -1003,7 +1003,7 @@ const CAREER_TO_QS_SUBJECT={"Accounting":"Accounting & Finance","Agriculture":"A
 const STATE_NAMES={AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',FL:'Florida',GA:'Georgia',HI:'Hawaii',ID:'Idaho',IL:'Illinois',IN:'Indiana',IA:'Iowa',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',MS:'Mississippi',MO:'Missouri',MT:'Montana',NC:'North Carolina',ND:'North Dakota',NE:'Nebraska',NH:'New Hampshire',NJ:'New Jersey',NM:'New Mexico',NV:'Nevada',NY:'New York',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',SD:'South Dakota',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',VA:'Virginia',WA:'Washington',WV:'West Virginia',WI:'Wisconsin',WY:'Wyoming'};
 
 const S={cats:[],motivations:[],subCareers:[],prac:[],cc:[],costCC:[],expl:null,playlist:null,flex:[],cost:null,vision:null,lang:null,citizen:[],debtYrs:null,languages:[],postGrad:null,inStateTuitionPref:null,stateOfResidency:null,inStateToggle:false,usUniversityType:null,uniSelectivity:[],scholarshipAmount:null,collegeSavings:null,partTimeWork:null,familySupport:null,loanRate:null,loanRepaymentYears:null};
-const VERSION='v1.17.0';
+const VERSION='v1.17.1';
 document.addEventListener('DOMContentLoaded',()=>{const b=document.getElementById('version-badge');if(b)b.innerText=VERSION;});
 function saveState(){const stateToSave={cats:S.cats,motivations:S.motivations,subCareers:S.subCareers,flex:S.flex,cost:S.cost,vision:S.vision,lang:S.lang,citizen:S.citizen,debtYrs:S.debtYrs,languages:S.languages,postGrad:S.postGrad,inStateTuitionPref:S.inStateTuitionPref,stateOfResidency:S.stateOfResidency,cc:S.cc,costCC:S.costCC,expl:S.expl,uniSelectivity:S.uniSelectivity,scholarshipAmount:S.scholarshipAmount,collegeSavings:S.collegeSavings,partTimeWork:S.partTimeWork,familySupport:S.familySupport,loanRate:S.loanRate,loanRepaymentYears:S.loanRepaymentYears,inStateToggle:S.inStateToggle,usUniversityType:S.usUniversityType};localStorage.setItem('univPathfinderState',JSON.stringify(stateToSave));}
 function loadState(){const saved=localStorage.getItem('univPathfinderState');if(saved){const state=JSON.parse(saved);Object.assign(S,state);if(state.scholarshipAmount!==undefined)document.getElementById('sl-schol').value=state.scholarshipAmount;if(state.collegeSavings!==undefined)document.getElementById('sl-savings').value=state.collegeSavings;if(state.partTimeWork!==undefined)document.getElementById('sl-work').value=state.partTimeWork;if(state.familySupport!==undefined)document.getElementById('sl-parent').value=state.familySupport;if(state.loanRate!==undefined)document.getElementById('sl-rate').value=state.loanRate;if(state.loanRepaymentYears!==undefined)document.getElementById('sl-yrs').value=state.loanRepaymentYears;if(state.inStateToggle!==undefined){const instateIn=document.getElementById('instate-in');const instateOut=document.getElementById('instate-out');if(state.inStateToggle){instateIn.classList.add('on');instateOut.classList.remove('on')}else{instateOut.classList.add('on');instateIn.classList.remove('on')}};if(S.uniSelectivity&&S.uniSelectivity.length>0){document.querySelectorAll('[data-q="uniSelectivity"] .pill').forEach(p=>{S.uniSelectivity.includes(p.textContent)?p.classList.add('on'):p.classList.remove('on')})}}}
@@ -1860,11 +1860,9 @@ const seen=new Set();
 careers.forEach(f=>{
  if(seen.has(f))return;
  seen.add(f);
- const d=getSub(f);
- if(!d)return;
- let level='HIGH';
- if(d.portability?.startsWith('LOW')) level='LOW';
- else if(d.portability?.startsWith('MEDIUM')) level='MEDIUM';
+ const port=getCareerPortability(f);
+ if(!port)return;
+ let level=port.level || 'HIGH';
  h+=`<div class="rc"><h4>${f}: ${level==='LOW'?'LOW ⚠️':level==='MEDIUM'?'MEDIUM ⚖️':'HIGH ✓'}</h4><p>${level==='LOW'?'Country-specific licensing. Study where you plan to practice.':level==='MEDIUM'?'Partially transferable. Some certifications or adjustments may be needed.':'Skills transfer globally. Study wherever fits.'}</p></div>`;
 });
 el.innerHTML=h
@@ -1879,10 +1877,10 @@ let hasMedium=false;
 let lowCareers=[];
 
 careers.forEach(f=>{
- const d=getSub(f);
- if(!d || !d.portability) return;
- if(d.portability.startsWith('LOW')){ hasLow=true; lowCareers.push(f); }
- else if(d.portability.startsWith('MEDIUM')) hasMedium=true;
+ const port=getCareerPortability(f);
+ if(!port) return;
+ if(port.level === 'LOW'){ hasLow=true; lowCareers.push(f); }
+ else if(port.level === 'MEDIUM') hasMedium=true;
 });
 
 let msg='';
@@ -2953,9 +2951,9 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
     let rowSublabel = sublabel;
 
     if(fn) {
-      const usResult = fn(us || sub.salaryUS, true);
+      const usResult = fn(us, true);
       usVal = usResult.html ? usResult.html : usResult;
-      const euResult = fn(eu || sub.salaryEU, false);
+      const euResult = fn(eu, false);
       euVal = euResult.html ? euResult.html : euResult;
       // For dynamic labels, use the label from the result
       if(usResult.label && euResult.label) {
@@ -3030,23 +3028,24 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
   const carouselRows = [
     [labelWithSub('Annual salary', 'Estimated starting salary range.  An average is used for calculations'),
      (key) => {
-       const val = key === 'us' ? sub.salaryUS : sub.salaryEU;
-       return `<span style="color:var(--ok);font-weight:600">${val}</span>`;
+       const range = key === 'us' ? getCareerSalaryUS(sub.name) : getCareerSalaryEU(sub.name);
+       if(!range) return '—';
+       return `<span style="color:var(--ok);font-weight:600">${formatMoneyRange(range.min, range.max)}</span>`;
      }],
     [labelWithSub('Taxes (20% US, 22% EU)', 'Estimated income taxes'),
      (key) => {
-       const salary = key === 'us' ? sub.salaryUS : sub.salaryEU;
-       if(!salary) return '—';
-       const s = parseSalary(salary);
+       const range = key === 'us' ? getCareerSalaryUS(sub.name) : getCareerSalaryEU(sub.name);
+       if(!range) return '—';
+       const s = getAvgSalary(range.min, range.max);
        if(!s) return '—';
        const taxRate = key === 'us' ? 0.20 : 0.22;
        return `<span style="color:var(--bad);font-weight:600">$${Math.round(s * taxRate).toLocaleString()}</span>`;
      }],
     [labelWithSub('Monthly income after taxes', 'Your estimated monthly take home pay after taxes'),
      (key) => {
-       const salary = key === 'us' ? sub.salaryUS : sub.salaryEU;
-       if(!salary) return '—';
-       const s = parseSalary(salary);
+       const range = key === 'us' ? getCareerSalaryUS(sub.name) : getCareerSalaryEU(sub.name);
+       if(!range) return '—';
+       const s = getAvgSalary(range.min, range.max);
        if(!s) return '—';
        const taxRate = key === 'us' ? 0.20 : 0.22;
        const monthly = Math.round(s * (1 - taxRate) / 12);
@@ -3063,9 +3062,9 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
      }],
     [labelWithSub('Debt-to-Income', 'How much of your monthly pay goes to repaying loans?'),
      (key) => {
-       const salary = key === 'us' ? sub.salaryUS : sub.salaryEU;
-       if(!salary) return '—';
-       const s = parseSalary(salary);
+       const range = key === 'us' ? getCareerSalaryUS(sub.name) : getCareerSalaryEU(sub.name);
+       if(!range) return '—';
+       const s = getAvgSalary(range.min, range.max);
        if(!s) return '—';
        const taxRate = key === 'us' ? 0.20 : 0.22;
        const monthly = s * (1 - taxRate) / 12;
@@ -3602,64 +3601,66 @@ function renderInsights(){
       const cons = [];
       
       // Salary - consistent tiers (from Bureau of Labor Statistics and O*NET data, illustrative estimates)
-      if(d.salaryUS){
-        const salaryStr = d.salaryUS.toLowerCase();
-        if(salaryStr.includes('$120k') || salaryStr.includes('$130k') || salaryStr.includes('$140k') || salaryStr.includes('$150k') || salaryStr.includes('$200k')){
-          pros.push('High earning potential (illustrative: ' + d.salaryUS + ', entry to mid-career range)');
+      const salRange = getCareerSalaryUS(f);
+      if(salRange) {
+        const maxSalary = salRange.max;
+        const formattedRange = formatMoneyRange(salRange.min, salRange.max);
+        if(maxSalary >= 120000){
+          pros.push('High earning potential (illustrative: ' + formattedRange + ', entry to mid-career range)');
           if(S.motivations && S.motivations.includes('Financial security')) pros.push('Matches your financial security goal');
         }
-        else if(salaryStr.includes('$80k') || salaryStr.includes('$90k') || salaryStr.includes('$100k')){
-          pros.push('Solid earning potential (illustrative: ' + d.salaryUS + ' range)');
+        else if(maxSalary >= 80000){
+          pros.push('Solid earning potential (illustrative: ' + formattedRange + ' range)');
         }
-        else if(salaryStr.includes('$40k') || salaryStr.includes('$45k') || salaryStr.includes('$50k') || salaryStr.includes('$60k') || salaryStr.includes('$70k')){
-          cons.push('Typically lower salary range (illustrative: ' + d.salaryUS + ')');
+        else if(maxSalary < 80000){
+          cons.push('Typically lower salary range (illustrative: ' + formattedRange + ')');
           if(S.motivations && S.motivations.includes('Financial security')) cons.push('May not match financial security goal');
         }
       }
       
       // Portability
-      if(d.portability && S.vision === 'In Europe'){
-        if(d.portability === 'HIGH') pros.push('High portability abroad');
-        else if(d.portability === 'LOW') cons.push('Limited portability abroad');
-        else if(d.portability === 'MEDIUM') pros.push('Moderate portability abroad');
-      } else if(d.portability && !S.vision){
-        if(d.portability === 'HIGH') pros.push('HIGH international portability');
-        else if(d.portability === 'LOW') cons.push('LOW international portability');
+      const portability = getCareerPortability(f);
+      if(portability && S.vision === 'In Europe'){
+        if(portability.level === 'HIGH') pros.push('High portability abroad');
+        else if(portability.level === 'LOW') cons.push('Limited portability abroad');
+        else if(portability.level === 'MEDIUM') pros.push('Moderate portability abroad');
+      } else if(portability && !S.vision){
+        if(portability.level === 'HIGH') pros.push('HIGH international portability');
+        else if(portability.level === 'LOW') cons.push('LOW international portability');
       }
-      
+
       // Growth
-      if(d.growth){
-        if(d.growth.includes('Very high')){
+      const growth = getCareerGrowth(f);
+      if(growth){
+        if(growth.magnitude === 'very_high'){
           pros.push('Very high job growth');
-          if(d.salaryUS && d.salaryUS.toLowerCase().includes('$120k')) pros.push('Entry-level typically $60-80K, advancing to $120K+ with experience');
+          const salRange = getCareerSalaryUS(f);
+          if(salRange && salRange.max >= 120000) pros.push('Entry-level typically $60-80K, advancing to $120K+ with experience');
         }
-        else if(d.growth.includes('High')){
+        else if(growth.magnitude === 'high'){
           pros.push('High job growth');
-          if(d.salaryUS && d.salaryUS.toLowerCase().includes('$100k')) pros.push('Career progression from entry-level roles to $100K+ range');
+          const salRange = getCareerSalaryUS(f);
+          if(salRange && salRange.max >= 100000) pros.push('Career progression from entry-level roles to $100K+ range');
         }
-        else if(d.growth.includes('Moderate')){
+        else if(growth.magnitude === 'moderate'){
           pros.push('Stable, steady growth');
         }
       }
       
       // Licensing - parse actual licensing requirements from data
-      if(d.licensing) {
-        const licLower = d.licensing.toLowerCase();
-
-        // Check if licensing is required (contains keywords)
-        if(licLower.includes('required') || licLower.includes('exam') || licLower.includes('bar') || licLower.includes('country-specific')) {
+      const licensing = getCareerLicensing(f);
+      if(licensing) {
+        // Check if licensing is required
+        if(licensing.status === 'required') {
           cons.push('Requires professional licensing/certification');
-          cons.push('Requirements vary by country');
+          if(licensing.scope === 'country_specific') cons.push('Requirements vary by country');
         }
         // Check if licensing is optional but helpful
-        else if(licLower.includes('optional') || licLower.includes('cert') || licLower.includes('helpful')) {
+        else if(licensing.status === 'optional') {
           pros.push('Professional certification available');
           if(S.cc && S.cc.length > 0) pros.push('Pursuing credentials in your target countries improves competitiveness');
         }
-        // If explicitly "No" or "Rarely"
-        else if(licLower === 'no' || licLower.includes('rarely')) {
-          // Don't add pro for "no licensing" - it's expected
-        }
+        // If not available, don't add pro - it's expected
       }
       
       // Motivations
@@ -3676,31 +3677,35 @@ function renderInsights(){
       }
       
       // Cost - remove dollar amounts, just show tier
-      if(d.costUS){
-        if(d.costUS < 50000){
+      const costRange = getCareerCostUS(f);
+      if(costRange) {
+        const cost = costRange.max;
+        if(cost < 50000){
           pros.push('Inexpensive education');
         }
-        else if(d.costUS < 100000){
+        else if(cost < 100000){
           pros.push('Affordable education');
         }
-        else if(d.costUS <= 150000){
+        else if(cost <= 150000){
           // Moderate cost - neutral, don't add
         }
-        else if(d.costUS <= 250000){
+        else if(cost <= 250000){
           cons.push('Typically expensive education, depending on country and financing');
           // Add ROI context if salary data exists
-          if(d.salaryUS && d.salaryUS.toLowerCase().includes('$150k') || d.salaryUS.toLowerCase().includes('$200k')){
+          const salRange = getCareerSalaryUS(f);
+          if(salRange && salRange.max >= 150000){
             pros.push('However, graduates typically earn $150K+, with education investment paid off in ~5-7 years');
-          } else if(d.salaryUS && (d.salaryUS.toLowerCase().includes('$120k') || d.salaryUS.toLowerCase().includes('$130k') || d.salaryUS.toLowerCase().includes('$140k'))){
+          } else if(salRange && salRange.max >= 120000){
             pros.push('However, graduates typically earn $120-140K, with education investment paid off in ~8-12 years');
           }
         }
         else {
           cons.push('Very expensive education');
           // Add ROI context if salary data exists
-          if(d.salaryUS && d.salaryUS.toLowerCase().includes('$200k')){
+          const salRange = getCareerSalaryUS(f);
+          if(salRange && salRange.max >= 200000){
             pros.push('However, high-earning field with salaries exceeding $200K can justify the investment over time');
-          } else if(d.salaryUS && (d.salaryUS.toLowerCase().includes('$150k') || d.salaryUS.toLowerCase().includes('$140k'))){
+          } else if(salRange && salRange.max >= 140000){
             pros.push('However, strong earning potential ($140K+) provides pathway to ROI, though payoff takes time');
           }
         }
