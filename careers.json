@@ -174,7 +174,7 @@
         "costUS": 160000,
         "costEU": 24000,
         "salaryUS": "$80k-$211k",
-        "salaryEU": "65k-180k EUR",
+        "salaryEU": "$72k-$198k",
         "portability": "HIGH",
         "licensing": "Not required",
         "resources": [
@@ -319,7 +319,7 @@
         "costUS": 140000,
         "costEU": 20000,
         "salaryUS": "$84k-$239k",
-        "salaryEU": "68k-200k EUR",
+        "salaryEU": "$75k-$220k",
         "portability": "HIGH",
         "licensing": "Not required",
         "resources": [
@@ -343,7 +343,7 @@
         "costUS": 135000,
         "costEU": 19000,
         "salaryUS": "$65k-$140k",
-        "salaryEU": "53k-115k EUR",
+        "salaryEU": "$58k-$127k",
         "portability": "MEDIUM",
         "licensing": "Not required",
         "resources": [
@@ -367,7 +367,7 @@
         "costUS": 160000,
         "costEU": 25000,
         "salaryUS": "$60k-$174k",
-        "salaryEU": "49k-145k EUR",
+        "salaryEU": "$54k-$160k",
         "portability": "HIGH",
         "licensing": "Not required",
         "resources": [
@@ -391,7 +391,7 @@
         "costUS": 130000,
         "costEU": 18000,
         "salaryUS": "$50k-$120k",
-        "salaryEU": "40k-100k EUR",
+        "salaryEU": "$44k-$110k",
         "portability": "LOW",
         "licensing": "Required",
         "resources": [
@@ -415,7 +415,7 @@
         "costUS": 130000,
         "costEU": 18000,
         "salaryUS": "$46k-$100k",
-        "salaryEU": "37k-82k EUR",
+        "salaryEU": "$41k-$90k",
         "portability": "HIGH",
         "licensing": "Not required",
         "resources": [
@@ -439,7 +439,7 @@
         "costUS": 150000,
         "costEU": 22000,
         "salaryUS": "$80k-$190k",
-        "salaryEU": "65k-160k EUR",
+        "salaryEU": "$72k-$176k",
         "portability": "HIGH",
         "licensing": "Required (exams)",
         "resources": [
@@ -616,7 +616,7 @@
         "costUS": 200000,
         "costEU": 30000,
         "salaryUS": "$71k-$192k",
-        "salaryEU": "58k-160k EUR",
+        "salaryEU": "$64k-$176k",
         "portability": "HIGH",
         "licensing": "Not required",
         "resources": [
@@ -640,7 +640,7 @@
         "costUS": 140000,
         "costEU": 20000,
         "salaryUS": "$47k-$140k",
-        "salaryEU": "40k-110k EUR",
+        "salaryEU": "$44k-$121k",
         "portability": "HIGH",
         "licensing": "Not required",
         "resources": [
@@ -664,7 +664,7 @@
         "costUS": 150000,
         "costEU": 25000,
         "salaryUS": "$55k-$150k",
-        "salaryEU": "45k-125k EUR",
+        "salaryEU": "$50k-$138k",
         "portability": "HIGH",
         "licensing": "Not required",
         "resources": [
@@ -688,7 +688,7 @@
         "costUS": 145000,
         "costEU": 22000,
         "salaryUS": "$48k-$140k",
-        "salaryEU": "40k-110k EUR",
+        "salaryEU": "$44k-$121k",
         "portability": "HIGH",
         "licensing": "Not required",
         "resources": [
@@ -712,7 +712,7 @@
         "costUS": 130000,
         "costEU": 20000,
         "salaryUS": "$47k-$140k",
-        "salaryEU": "38k-110k EUR",
+        "salaryEU": "$42k-$121k",
         "portability": "MEDIUM",
         "licensing": "Not required",
         "resources": [
@@ -736,7 +736,7 @@
         "costUS": 160000,
         "costEU": 25000,
         "salaryUS": "$45k-$85k",
-        "salaryEU": "37k-70k EUR",
+        "salaryEU": "$41k-$77k",
         "portability": "HIGH",
         "licensing": "Not required",
         "resources": [
@@ -760,7 +760,7 @@
         "costUS": 170000,
         "costEU": 28000,
         "salaryUS": "$45k-$85k",
-        "salaryEU": "37k-70k EUR",
+        "salaryEU": "$41k-$77k",
         "portability": "HIGH",
         "licensing": "Not required",
         "resources": [
@@ -784,7 +784,7 @@
         "costUS": 130000,
         "costEU": 20000,
         "salaryUS": "$45k-$90k",
-        "salaryEU": "37k-75k EUR",
+        "salaryEU": "$41k-$82k",
         "portability": "HIGH",
         "licensing": "Not required",
         "resources": [
@@ -955,7 +955,7 @@
         "costUS": 145000,
         "costEU": 22000,
         "salaryUS": "$30k-$80k",
-        "salaryEU": "25k-65k EUR",
+        "salaryEU": "$28k-$72k",
         "portability": "HIGH",
         "licensing": "Not required",
         "resources": [
@@ -979,7 +979,7 @@
         "costUS": 130000,
         "costEU": 20000,
         "salaryUS": "$35k-$80k",
-        "salaryEU": "28k-65k EUR",
+        "salaryEU": "$31k-$72k",
         "portability": "HIGH",
         "licensing": "Not required",
         "resources": [
@@ -1003,7 +1003,7 @@
         "costUS": 135000,
         "costEU": 21000,
         "salaryUS": "$40k-$90k",
-        "salaryEU": "33k-75k EUR",
+        "salaryEU": "$36k-$82k",
         "portability": "MEDIUM",
         "licensing": "Required (some areas)",
         "resources": [
@@ -1027,7 +1027,7 @@
         "costUS": 140000,
         "costEU": 22000,
         "salaryUS": "$40k-$100k",
-        "salaryEU": "33k-82k EUR",
+        "salaryEU": "$36k-$90k",
         "portability": "HIGH",
         "licensing": "Not required",
         "resources": [
@@ -1051,7 +1051,7 @@
         "costUS": 160000,
         "costEU": 25000,
         "salaryUS": "$50k-$120k",
-        "salaryEU": "40k-100k EUR",
+        "salaryEU": "$44k-$110k",
         "portability": "HIGH",
         "licensing": "Not required",
         "resources": [
@@ -1079,7 +1079,7 @@
         "costUS": 150000,
         "costEU": 23000,
         "salaryUS": "$55k-$120k",
-        "salaryEU": "45k-100k EUR",
+        "salaryEU": "$50k-$110k",
         "portability": "MEDIUM",
         "licensing": "Required",
         "resources": [
@@ -1234,7 +1234,7 @@
         "costUS": 280000,
         "costEU": 50000,
         "salaryUS": "$70k-$213k",
-        "salaryEU": "60k-180k EUR",
+        "salaryEU": "$66k-$198k",
         "portability": "MEDIUM",
         "licensing": "Required by all jurisdictions",
         "resources": [
@@ -1262,7 +1262,7 @@
         "costUS": 250000,
         "costEU": 45000,
         "salaryUS": "$85k-$239k",
-        "salaryEU": "70k-200k EUR",
+        "salaryEU": "$77k-$220k",
         "portability": "MEDIUM",
         "licensing": "Required by all jurisdictions",
         "resources": [
@@ -1290,7 +1290,7 @@
         "costUS": 90000,
         "costEU": 18000,
         "salaryUS": "$42k-$113k",
-        "salaryEU": "35k-95k EUR",
+        "salaryEU": "$38k-$105k",
         "portability": "HIGH",
         "licensing": "Not required",
         "resources": [
@@ -1318,7 +1318,7 @@
         "costUS": 150000,
         "costEU": 25000,
         "salaryUS": "$130k-$210k",
-        "salaryEU": "110k-180k EUR",
+        "salaryEU": "$121k-$198k",
         "portability": "MEDIUM",
         "licensing": "Required - State-specific",
         "resources": [
@@ -1346,7 +1346,7 @@
         "costUS": 140000,
         "costEU": 20000,
         "salaryUS": "$51k-$94k",
-        "salaryEU": "42k-78k EUR",
+        "salaryEU": "$46k-$86k",
         "portability": "MEDIUM",
         "licensing": "Required for clinical roles (LCSW)",
         "resources": [
@@ -1374,7 +1374,7 @@
         "costUS": 180000,
         "costEU": 30000,
         "salaryUS": "$91k-$175k",
-        "salaryEU": "75k-145k EUR",
+        "salaryEU": "$82k-$160k",
         "portability": "MEDIUM",
         "licensing": "Required (OTR/L credential)",
         "resources": [
@@ -1402,7 +1402,7 @@
         "costUS": 200000,
         "costEU": 35000,
         "salaryUS": "$103k-$164k",
-        "salaryEU": "85k-140k EUR",
+        "salaryEU": "$94k-$154k",
         "portability": "MEDIUM",
         "licensing": "Required - State-specific",
         "resources": [
@@ -1430,7 +1430,7 @@
         "costUS": 120000,
         "costEU": 18000,
         "salaryUS": "$49k-$102k",
-        "salaryEU": "40k-85k EUR",
+        "salaryEU": "$44k-$94k",
         "portability": "MEDIUM",
         "licensing": "Required (RD/RDN varies by region)",
         "resources": [
@@ -1576,7 +1576,7 @@
         "costUS": 140000,
         "costEU": 15000,
         "salaryUS": "$47k-$105k",
-        "salaryEU": "38k-85k EUR",
+        "salaryEU": "$42k-$94k",
         "portability": "MEDIUM",
         "licensing": "Required",
         "resources": [
@@ -1604,7 +1604,7 @@
         "costUS": 180000,
         "costEU": 25000,
         "salaryUS": "$64k-$212k",
-        "salaryEU": "52k-180k EUR",
+        "salaryEU": "$57k-$198k",
         "portability": "HIGH",
         "licensing": "Not required",
         "resources": [
@@ -1628,7 +1628,7 @@
         "costUS": 130000,
         "costEU": 20000,
         "salaryUS": "$46k-$115k",
-        "salaryEU": "38k-95k EUR",
+        "salaryEU": "$42k-$105k",
         "portability": "HIGH",
         "licensing": "Not required",
         "resources": [
@@ -1665,7 +1665,7 @@
         "costUS": 140000,
         "costEU": 20000,
         "salaryUS": "$47k-$140k",
-        "salaryEU": "38k-110k EUR",
+        "salaryEU": "$42k-$121k",
         "portability": "MEDIUM",
         "licensing": "Not required",
         "resources": [
@@ -1689,7 +1689,7 @@
         "costUS": 150000,
         "costEU": 22000,
         "salaryUS": "$63k-$140k",
-        "salaryEU": "50k-110k EUR",
+        "salaryEU": "$55k-$121k",
         "portability": "HIGH",
         "licensing": "PE license optional",
         "resources": [
