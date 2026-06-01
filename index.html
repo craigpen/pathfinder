@@ -1238,8 +1238,17 @@ function formatEducationSummary(eduObj) {
   const parts = [];
   for (const norm of ['required', 'typical', 'optional']) {
     if (degreesByNorm[norm]) {
-      const degrees = degreesByNorm[norm].join(' and ');
-      parts.push(degrees + ' ' + norm);
+      const degrees = degreesByNorm[norm];
+      // Join multiple degrees with commas, using "and" before the last item
+      let degreeStr;
+      if (degrees.length === 1) {
+        degreeStr = degrees[0];
+      } else if (degrees.length === 2) {
+        degreeStr = degrees.join(' and ');
+      } else {
+        degreeStr = degrees.slice(0, -1).join(', ') + ' and ' + degrees[degrees.length - 1];
+      }
+      parts.push(degreeStr + ' ' + norm);
     }
   }
   return parts.length > 0 ? parts.join(', ') : '—';
