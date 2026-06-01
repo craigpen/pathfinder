@@ -17,6 +17,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -35,9 +36,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 0,
     "tuition_eu_note": "(FREE for EU)"
@@ -60,7 +60,9 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -73,15 +75,15 @@
       "Environmental Sciences",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Nursing",
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "region": "Central Jutland",
     "tuition_eu": 0,
@@ -191,6 +193,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -243,6 +246,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -306,6 +310,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -314,7 +320,10 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -369,6 +378,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -379,8 +390,12 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -407,6 +422,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -417,7 +434,9 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Hospitality & Leisure Management",
       "Law",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -443,6 +462,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -452,6 +472,8 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Hospitality & Leisure Management",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -507,6 +529,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -517,13 +541,17 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Public Health",
+      "Veterinary Medicine",
       "Zoology"
     ],
     "control": "Public"
@@ -576,6 +604,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -583,6 +612,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -608,6 +638,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -615,6 +647,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -642,6 +675,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -660,9 +694,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 2100,
     "tuition_eu_note": "(est. EU rate)"
@@ -714,6 +747,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -821,6 +855,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -830,8 +865,10 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -857,12 +894,14 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Hospitality & Leisure Management",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -913,6 +952,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -1024,6 +1064,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -1117,6 +1158,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -1141,6 +1183,8 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -1149,11 +1193,14 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Public"
   },
@@ -1180,6 +1227,8 @@
       "Chemistry",
       "Communications & Media Studies",
       "Engineering",
+      "Hospitality & Leisure Management",
+      "Marine Sciences",
       "Mathematics",
       "Physics & Astronomy",
       "Politics & International Studies",
@@ -1204,6 +1253,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -1287,6 +1337,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -1297,7 +1348,10 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -1324,13 +1378,16 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Geology",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -1356,6 +1413,9 @@
     "selectivity": "Very selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
+      "Archaeology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -1363,11 +1423,15 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Nursing",
@@ -1424,11 +1488,14 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
       "Computer Science & IT",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -1454,6 +1521,7 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -1511,6 +1579,9 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
+      "Archaeology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -1521,8 +1592,10 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -1549,12 +1622,14 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Communications & Media Studies",
       "Computer Science & IT",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Mathematics",
       "Physics & Astronomy",
       "Politics & International Studies",
@@ -1610,6 +1685,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -1628,9 +1704,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 24000,
     "tuition_eu_note": "(post-Brexit: same as intl)"
@@ -1652,6 +1727,8 @@
     "selectivity": "Very selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
+      "Archaeology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -1660,7 +1737,9 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Health & Clinical Sciences",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -1746,13 +1825,13 @@
     "selectivity": "Very selective",
     "state": "PA",
     "programs": [
+      "Architecture",
+      "Business & Management Studies",
+      "Chemistry",
       "Computer Science & IT",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
-      "Chemistry",
-      "Business & Management Studies",
-      "Performing Arts",
-      "Architecture"
+      "Performing Arts"
     ],
     "control": "Private not-for-profit"
   },
@@ -1772,12 +1851,16 @@
     "strengths": [],
     "selectivity": "Less selective",
     "programs": [
+      "Anthropology",
+      "Archaeology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Geology",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -1803,12 +1886,14 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -1833,6 +1918,7 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -1843,6 +1929,8 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -1868,11 +1956,11 @@
     "selectivity": "Very selective",
     "state": "CA",
     "programs": [
-      "Physics & Astronomy",
+      "Biological Sciences",
       "Chemistry",
-      "Mathematics",
       "Engineering",
-      "Biological Sciences"
+      "Mathematics",
+      "Physics & Astronomy"
     ],
     "control": "Private not-for-profit"
   },
@@ -1893,6 +1981,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -1900,7 +1989,9 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Health & Clinical Sciences",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -1960,6 +2051,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -1978,9 +2070,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 24000,
     "tuition_eu_note": "(post-Brexit: same as intl)"
@@ -2009,11 +2100,13 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Hospitality & Leisure Management",
       "Law",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Private not-for-profit"
   },
@@ -2065,10 +2158,12 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Business & Management Studies",
       "Computer Science & IT",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
+      "Marine Sciences",
       "Medicine",
       "Politics & International Studies"
     ],
@@ -2093,6 +2188,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -2111,9 +2207,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 2100,
     "tuition_eu_note": "(est. EU rate)"
@@ -2136,11 +2231,11 @@
     "selectivity": "Very selective",
     "state": "PA",
     "programs": [
-      "Performing Arts",
+      "Architecture",
+      "Business & Management Studies",
       "Computer Science & IT",
       "Engineering",
-      "Architecture",
-      "Business & Management Studies"
+      "Performing Arts"
     ],
     "control": "Private not-for-profit"
   },
@@ -2161,6 +2256,7 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Business & Management Studies",
       "Computer Science & IT",
@@ -2220,6 +2316,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -2252,23 +2349,29 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Nursing",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Private not-for-profit"
   },
@@ -2328,12 +2431,15 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Private not-for-profit"
   },
@@ -2354,6 +2460,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -2410,6 +2517,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -2419,6 +2528,9 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
+      "Hospitality & Leisure Management",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -2443,6 +2555,7 @@
     "strengths": [],
     "selectivity": "Less selective",
     "programs": [
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -2475,6 +2588,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -2483,8 +2598,11 @@
       "Computer Science & IT",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -2511,6 +2629,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -2576,6 +2695,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Health & Clinical Sciences",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -2611,7 +2731,8 @@
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Public"
   },
@@ -2639,6 +2760,7 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -2695,17 +2817,20 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Private not-for-profit"
   },
@@ -2756,6 +2881,7 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -2766,7 +2892,9 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -2797,6 +2925,7 @@
       "Biological Sciences",
       "Business & Management Studies",
       "Communications & Media Studies",
+      "Marine Sciences",
       "Medicine",
       "Politics & International Studies",
       "Psychology"
@@ -2820,6 +2949,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
+      "Archaeology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -2829,7 +2960,10 @@
       "Computer Science & IT",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -2863,6 +2997,7 @@
       "Computer Science & IT",
       "Engineering",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -2894,6 +3029,9 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
+      "Hospitality & Leisure Management",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -2926,6 +3064,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -2951,6 +3090,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -2961,12 +3102,17 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Veterinary Medicine",
       "Zoology"
     ],
     "control": "Public"
@@ -2988,6 +3134,8 @@
     "selectivity": "Very selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -2995,11 +3143,15 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Nursing",
@@ -3032,6 +3184,7 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Geology",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -3093,7 +3246,9 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Hospitality & Leisure Management",
       "Law",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -3154,6 +3309,7 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Hospitality & Leisure Management",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -3178,6 +3334,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -3186,11 +3343,14 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Hospitality & Leisure Management",
       "Law",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Private not-for-profit"
   },
@@ -3216,6 +3376,7 @@
       "Business & Management Studies",
       "Chemistry",
       "Computer Science & IT",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -3240,6 +3401,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -3270,6 +3432,9 @@
     "state": "NY",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
+      "Archaeology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -3280,13 +3445,18 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Veterinary Medicine",
       "Zoology"
     ],
     "control": "Private not-for-profit"
@@ -3308,20 +3478,25 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Law",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Nursing",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Private not-for-profit"
   },
@@ -3396,12 +3571,14 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -3427,13 +3604,17 @@
     "selectivity": "Very selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Health & Clinical Sciences",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -3464,6 +3645,8 @@
       "Business & Management Studies",
       "Chemistry",
       "Computer Science & IT",
+      "Hospitality & Leisure Management",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -3516,6 +3699,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -3523,6 +3707,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Hospitality & Leisure Management",
       "Law",
       "Mathematics",
       "Medicine",
@@ -3579,6 +3764,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -3597,9 +3783,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 2700,
     "tuition_eu_note": "(est. EU rate)"
@@ -3627,6 +3812,7 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Hospitality & Leisure Management",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -3652,6 +3838,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -3685,6 +3872,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -3694,6 +3882,7 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Mathematics",
       "Medicine",
@@ -3720,6 +3909,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -3731,7 +3922,8 @@
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Private not-for-profit"
   },
@@ -3752,6 +3944,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -3784,6 +3978,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -3821,6 +4016,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -3839,9 +4035,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 4100,
     "tuition_eu_note": "(EU contribution)"
@@ -3865,6 +4060,8 @@
     "state": "NC",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -3874,8 +4071,11 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -3931,6 +4131,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -3949,9 +4150,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 24000,
     "tuition_eu_note": "(post-Brexit: same as intl)"
@@ -3975,6 +4175,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -3982,14 +4183,19 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
+      "Hospitality & Leisure Management",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Nursing",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "state": "NC",
     "control": "Public"
@@ -4011,12 +4217,14 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Hospitality & Leisure Management",
       "Law",
       "Mathematics",
       "Medicine",
@@ -4043,6 +4251,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -4050,6 +4259,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Law",
       "Mathematics",
       "Medicine",
@@ -4076,6 +4286,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -4083,6 +4294,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -4107,6 +4319,9 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
+      "Archaeology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -4117,6 +4332,7 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -4166,12 +4382,14 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -4227,6 +4445,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -4245,9 +4464,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 24000,
     "tuition_eu_note": "(post-Brexit: same as intl)"
@@ -4276,6 +4494,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Marine Sciences",
       "Mathematics",
       "Politics & International Studies",
       "Psychology"
@@ -4300,6 +4519,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -4363,6 +4584,8 @@
     "selectivity": "Very selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -4372,6 +4595,7 @@
       "Engineering",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -4399,6 +4623,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -4417,9 +4642,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 2700,
     "tuition_eu_note": "(est. EU rate)"
@@ -4489,6 +4713,7 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -4571,7 +4796,8 @@
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Public"
   },
@@ -4616,6 +4842,8 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -4626,7 +4854,10 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -4652,6 +4883,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -4683,6 +4915,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -4715,12 +4948,14 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Communications & Media Studies",
       "Computer Science & IT",
       "Law",
+      "Marine Sciences",
       "Medicine",
       "Politics & International Studies",
       "Psychology"
@@ -4746,6 +4981,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -4764,9 +5000,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 350,
     "tuition_eu_note": "(admin fee)"
@@ -4788,6 +5023,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -4858,6 +5094,7 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -4882,6 +5119,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -4889,7 +5128,10 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -4915,13 +5157,13 @@
     "selectivity": "Selective",
     "state": "GA",
     "programs": [
-      "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
-      "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
-      "Engineering",
+      "Architecture",
+      "Business & Management Studies",
       "Chemistry",
       "Computer Science & IT",
-      "Architecture",
-      "Business & Management Studies"
+      "Engineering",
+      "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
+      "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing"
     ],
     "control": "Public"
   },
@@ -5006,6 +5248,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -5024,9 +5267,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 0,
     "tuition_eu_note": "(FREE for EU)"
@@ -5048,6 +5290,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -5079,6 +5322,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -5088,6 +5332,7 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Hospitality & Leisure Management",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -5177,12 +5422,14 @@
       "Computer Science & IT",
       "Engineering",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Private not-for-profit"
   },
@@ -5216,7 +5463,8 @@
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Private not-for-profit"
   },
@@ -5238,16 +5486,16 @@
     "selectivity": "Very selective",
     "state": "MA",
     "programs": [
-      "Chemistry",
-      "Physics & Astronomy",
-      "Mathematics",
       "Biological Sciences",
-      "Medicine",
-      "Law",
       "Business & Management Studies",
+      "Chemistry",
+      "Computer Science & IT",
       "Economics & Econometrics",
-      "Psychology",
-      "Computer Science & IT"
+      "Law",
+      "Mathematics",
+      "Medicine",
+      "Physics & Astronomy",
+      "Psychology"
     ],
     "control": "Private not-for-profit"
   },
@@ -5268,6 +5516,9 @@
     "selectivity": "Very selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
+      "Archaeology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -5275,11 +5526,15 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Nursing",
@@ -5312,6 +5567,7 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Hospitality & Leisure Management",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -5346,7 +5602,9 @@
       "Computer Science & IT",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
+      "Geology",
       "Health & Clinical Sciences",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -5373,6 +5631,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -5391,9 +5650,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "control": "Private not-for-profit",
     "tuition_eu": 350,
@@ -5439,6 +5697,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -5447,11 +5706,13 @@
       "Computer Science & IT",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
+      "Hospitality & Leisure Management",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Private not-for-profit"
   },
@@ -5501,16 +5762,19 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Hospitality & Leisure Management",
       "Law",
       "Mathematics",
       "Medicine",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Private not-for-profit"
   },
@@ -5586,6 +5850,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -5596,13 +5861,16 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Public"
   },
@@ -5623,6 +5891,7 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -5684,6 +5953,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Biological Sciences",
       "Business & Management Studies",
       "Communications & Media Studies",
@@ -5720,6 +5990,7 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -5744,6 +6015,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -5751,6 +6024,7 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Geology",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -5784,7 +6058,9 @@
       "Computer Science & IT",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
+      "Geology",
       "Health & Clinical Sciences",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -5844,14 +6120,14 @@
     "selectivity": "Very selective",
     "state": "MD",
     "programs": [
+      "Business & Management Studies",
+      "Chemistry",
+      "Engineering",
+      "Health & Clinical Sciences",
+      "Mathematics",
       "Medicine",
       "Nursing",
-      "Engineering",
-      "Physics & Astronomy",
-      "Chemistry",
-      "Mathematics",
-      "Business & Management Studies",
-      "Health & Clinical Sciences"
+      "Physics & Astronomy"
     ],
     "control": "Private not-for-profit"
   },
@@ -5872,6 +6148,9 @@
     "selectivity": "Very selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
+      "Archaeology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -5882,7 +6161,9 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -5909,12 +6190,14 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Hospitality & Leisure Management",
       "Medicine",
       "Politics & International Studies",
       "Psychology"
@@ -5975,6 +6258,7 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Hospitality & Leisure Management",
       "Law",
       "Mathematics",
       "Politics & International Studies",
@@ -6000,8 +6284,8 @@
     "selectivity": "Very selective",
     "state": "NY",
     "programs": [
-      "Performing Arts",
-      "Music"
+      "Music",
+      "Performing Arts"
     ],
     "control": "Private not-for-profit"
   },
@@ -6084,6 +6368,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -6102,9 +6387,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 0,
     "tuition_eu_note": "(FREE for EU)"
@@ -6134,7 +6418,9 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Law",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -6217,7 +6503,9 @@
     "selectivity": "Very selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -6230,15 +6518,15 @@
       "Environmental Sciences",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Nursing",
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 24000,
     "tuition_eu_note": "(post-Brexit: same as intl)"
@@ -6341,6 +6629,7 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -6399,6 +6688,8 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -6409,6 +6700,7 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Mathematics",
       "Medicine",
@@ -6437,6 +6729,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -6455,9 +6748,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 2700,
     "tuition_eu_note": "(est. EU rate)"
@@ -6479,6 +6771,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -6486,6 +6779,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -6516,6 +6810,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -6541,6 +6836,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -6548,6 +6845,8 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
+      "Hospitality & Leisure Management",
       "Law",
       "Mathematics",
       "Medicine",
@@ -6573,6 +6872,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Business & Management Studies",
       "Medicine"
     ],
@@ -6595,6 +6895,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -6625,6 +6926,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Archaeology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -6634,12 +6936,15 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Hospitality & Leisure Management",
       "Law",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Private not-for-profit"
   },
@@ -6664,6 +6969,7 @@
       "Biological Sciences",
       "Business & Management Studies",
       "Computer Science & IT",
+      "Hospitality & Leisure Management",
       "Mathematics",
       "Politics & International Studies",
       "Psychology"
@@ -6710,6 +7016,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -6728,9 +7035,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 24000,
     "tuition_eu_note": "(post-Brexit: same as intl)"
@@ -6760,6 +7066,7 @@
       "Computer Science & IT",
       "Engineering",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Psychology"
@@ -6783,6 +7090,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -6793,12 +7102,16 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Veterinary Medicine",
       "Zoology"
     ],
     "control": "Public"
@@ -6912,7 +7225,9 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Archaeology",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -6931,9 +7246,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "region": "Sk\u00c3\u00a5ne",
     "tuition_eu": 0,
@@ -6957,15 +7271,15 @@
     "selectivity": "Very selective",
     "state": "MA",
     "programs": [
-      "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
-      "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
-      "Computer Science & IT",
-      "Chemistry",
-      "Physics & Astronomy",
-      "Mathematics",
       "Architecture",
       "Biology",
-      "Data Science & Artificial Intelligence"
+      "Chemistry",
+      "Computer Science & IT",
+      "Data Science & Artificial Intelligence",
+      "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
+      "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Mathematics",
+      "Physics & Astronomy"
     ],
     "control": "Private not-for-profit"
   },
@@ -6993,7 +7307,9 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Hospitality & Leisure Management",
       "Law",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -7022,6 +7338,7 @@
       "Business & Management Studies",
       "Chemistry",
       "Engineering",
+      "Geology",
       "Health & Clinical Sciences",
       "Mathematics",
       "Physics & Astronomy"
@@ -7072,6 +7389,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -7079,11 +7397,13 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Private not-for-profit"
   },
@@ -7131,6 +7451,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -7193,6 +7514,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -7202,12 +7525,15 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Public"
   },
@@ -7228,12 +7554,14 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
       "Computer Science & IT",
       "Engineering",
+      "Hospitality & Leisure Management",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -7258,12 +7586,14 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Hospitality & Leisure Management",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -7326,6 +7656,7 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -7413,6 +7744,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -7444,6 +7776,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -7451,6 +7785,9 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
+      "Hospitality & Leisure Management",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -7476,6 +7813,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -7527,6 +7865,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -7534,6 +7874,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
       "Mathematics",
@@ -7567,6 +7908,8 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Geology",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -7601,6 +7944,7 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -7626,6 +7970,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -7636,11 +7981,14 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Veterinary Medicine",
       "Zoology"
     ],
     "control": "Public"
@@ -7693,6 +8041,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -7702,11 +8051,16 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
+      "Hospitality & Leisure Management",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Veterinary Medicine",
       "Zoology"
     ],
     "control": "Public"
@@ -7787,6 +8141,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -7825,6 +8180,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Law",
       "Mathematics",
       "Medicine",
@@ -7977,6 +8333,7 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -8005,6 +8362,7 @@
       "Business & Management Studies",
       "Computer Science & IT",
       "Engineering",
+      "Hospitality & Leisure Management",
       "Law",
       "Medicine"
     ],
@@ -8059,6 +8417,7 @@
       "Business & Management Studies",
       "Chemistry",
       "Communications & Media Studies",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -8134,11 +8493,14 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Hospitality & Leisure Management",
+      "Marine Sciences",
       "Medicine",
       "Politics & International Studies",
       "Psychology"
@@ -8167,6 +8529,7 @@
       "Business & Management Studies",
       "Chemistry",
       "Computer Science & IT",
+      "Geology",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -8192,6 +8555,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -8202,8 +8566,11 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -8229,6 +8596,9 @@
     "selectivity": "Very selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
+      "Archaeology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -8236,11 +8606,15 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Nursing",
@@ -8343,12 +8717,15 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Geology",
+      "Hospitality & Leisure Management",
       "Law",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Public"
   },
@@ -8369,12 +8746,12 @@
     ],
     "selectivity": "Less selective",
     "programs": [
-      "Engineering",
+      "Agriculture",
       "Business & Management Studies",
       "Chemistry",
-      "Mathematics",
       "Computer Science & IT",
-      "Agriculture"
+      "Engineering",
+      "Mathematics"
     ],
     "state": "NC",
     "control": "Public"
@@ -8396,6 +8773,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -8406,11 +8785,14 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Veterinary Medicine",
       "Zoology"
     ],
     "control": "Public"
@@ -8462,6 +8844,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -8472,12 +8856,15 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Public Health",
       "Zoology"
     ],
     "control": "Public"
@@ -8528,6 +8915,8 @@
     "selectivity": "Very selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -8538,13 +8927,16 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Private not-for-profit"
   },
@@ -8590,6 +8982,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -8600,8 +8993,12 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -8627,6 +9024,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -8634,6 +9032,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Law",
       "Mathematics",
       "Medicine",
@@ -8752,6 +9151,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -8760,6 +9160,7 @@
       "Computer Science & IT",
       "Engineering",
       "Health & Clinical Sciences",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -8816,6 +9217,8 @@
     "state": "IL",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -8826,8 +9229,11 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -8853,6 +9259,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -8863,6 +9270,7 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -8945,6 +9353,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -8952,17 +9362,24 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Nursing",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Public Health",
+      "Veterinary Medicine",
       "Zoology"
     ],
     "control": "Public"
@@ -8984,12 +9401,14 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -9048,6 +9467,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -9058,12 +9478,15 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Veterinary Medicine",
       "Zoology"
     ],
     "control": "Public"
@@ -9116,6 +9539,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -9123,6 +9547,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Health & Clinical Sciences",
       "Mathematics",
       "Medicine",
@@ -9150,6 +9575,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -9159,11 +9586,17 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
+      "Hospitality & Leisure Management",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Public Health",
+      "Veterinary Medicine",
       "Zoology"
     ],
     "control": "Public"
@@ -9185,6 +9618,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -9194,11 +9629,17 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
+      "Hospitality & Leisure Management",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Public Health",
+      "Veterinary Medicine",
       "Zoology"
     ],
     "control": "Public"
@@ -9248,6 +9689,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -9314,6 +9756,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -9332,9 +9775,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 24000,
     "tuition_eu_note": "(post-Brexit: same as intl)"
@@ -9414,6 +9856,9 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
+      "Archaeology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -9424,8 +9869,12 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -9491,11 +9940,14 @@
       "Computer Science & IT",
       "Engineering",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Public"
   },
@@ -9517,6 +9969,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -9535,9 +9988,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "region": "Lombardy",
     "tuition_eu": 2300,
@@ -9561,6 +10013,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -9579,9 +10032,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 2300,
     "tuition_eu_note": "(income-based ~\u20ac2k)"
@@ -9604,6 +10056,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -9622,9 +10075,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 2100,
     "tuition_eu_note": "(est. EU rate)"
@@ -9673,6 +10125,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -9691,9 +10144,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 460,
     "tuition_eu_note": "(public universities)"
@@ -9716,6 +10168,7 @@
     "programs": [
       "Accounting & Finance",
       "Art & Design",
+      "Marine Sciences",
       "Medicine",
       "Politics & International Studies",
       "Psychology"
@@ -9738,6 +10191,7 @@
     "strengths": [],
     "selectivity": "Very selective",
     "programs": [
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -9746,7 +10200,9 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Linguistics",
       "Mathematics",
       "Physics & Astronomy",
       "Politics & International Studies",
@@ -9771,6 +10227,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -9824,6 +10281,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -9832,6 +10290,8 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Hospitality & Leisure Management",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -9857,6 +10317,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -9867,12 +10329,17 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Public Health",
+      "Veterinary Medicine",
       "Zoology"
     ],
     "control": "Public"
@@ -9926,6 +10393,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -9956,6 +10424,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -9966,6 +10435,7 @@
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
       "Law",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -9997,6 +10467,8 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -10053,6 +10525,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -10060,11 +10533,13 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Health & Clinical Sciences",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Private not-for-profit"
   },
@@ -10113,12 +10588,16 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -10145,6 +10624,8 @@
     "state": "TX",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -10154,7 +10635,9 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -10186,6 +10669,7 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Geology",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -10223,6 +10707,8 @@
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -10249,6 +10735,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -10267,9 +10754,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 0,
     "tuition_eu_note": "(FREE for EU)"
@@ -10315,6 +10801,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -10333,9 +10820,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 0,
     "tuition_eu_note": "(FREE for EU)"
@@ -10414,12 +10900,14 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
       "Computer Science & IT",
       "Engineering",
+      "Hospitality & Leisure Management",
       "Law",
       "Mathematics",
       "Medicine",
@@ -10446,6 +10934,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -10453,17 +10943,22 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Nursing",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Public Health",
       "Zoology"
     ],
     "control": "Public"
@@ -10485,6 +10980,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -10493,6 +10990,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Law",
       "Mathematics",
       "Medicine",
@@ -10520,6 +11018,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -10529,6 +11028,7 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -10553,6 +11053,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -10710,6 +11211,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -10772,6 +11274,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -10811,6 +11314,7 @@
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
       "Health & Clinical Sciences",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -10836,6 +11340,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -10847,6 +11353,7 @@
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -10872,6 +11379,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -10879,6 +11388,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -10997,6 +11507,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Hospitality & Leisure Management",
       "Law",
       "Mathematics",
       "Medicine",
@@ -11024,6 +11535,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -11042,9 +11554,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 460,
     "tuition_eu_note": "(public universities)"
@@ -11066,6 +11577,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -11076,12 +11588,14 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Hospitality & Leisure Management",
       "Law",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Public"
   },
@@ -11102,6 +11616,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -11133,6 +11648,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Archaeology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -11142,6 +11659,7 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -11199,6 +11717,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -11208,6 +11728,8 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
+      "Hospitality & Leisure Management",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -11232,12 +11754,15 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Hospitality & Leisure Management",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -11272,6 +11797,7 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Hospitality & Leisure Management",
       "Law",
       "Mathematics",
       "Medicine",
@@ -11322,6 +11848,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -11331,6 +11859,8 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
+      "Hospitality & Leisure Management",
       "Law",
       "Mathematics",
       "Medicine",
@@ -11362,6 +11892,7 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Hospitality & Leisure Management",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -11386,6 +11917,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -11394,7 +11926,9 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -11420,6 +11954,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -11480,15 +12015,15 @@
     "selectivity": "Very selective",
     "state": "CA",
     "programs": [
+      "Business & Management Studies",
+      "Chemistry",
       "Computer Science & IT",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
-      "Chemistry",
-      "Physics & Astronomy",
+      "Law",
       "Mathematics",
-      "Business & Management Studies",
       "Medicine",
-      "Law"
+      "Physics & Astronomy"
     ],
     "control": "Private not-for-profit"
   },
@@ -11509,6 +12044,9 @@
     "selectivity": "Very selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
+      "Archaeology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -11518,8 +12056,11 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -11545,6 +12086,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -11604,6 +12146,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -11622,9 +12165,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 0,
     "tuition_eu_note": "(FREE for EU)"
@@ -11669,6 +12211,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -11676,10 +12219,14 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Nursing",
@@ -11706,6 +12253,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -11716,7 +12265,10 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -11846,6 +12398,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -11864,9 +12417,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "region": "Copenhagen",
     "tuition_eu": 0,
@@ -11891,6 +12443,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -11909,9 +12462,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 350,
     "tuition_eu_note": "(admin fee)"
@@ -11971,6 +12523,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -11995,6 +12548,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -12002,6 +12557,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -12027,6 +12583,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -12036,6 +12594,7 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -12061,6 +12620,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -12068,13 +12629,18 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Public"
   },
@@ -12121,6 +12687,7 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -12153,6 +12720,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -12163,13 +12732,18 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Veterinary Medicine"
     ],
     "control": "Public"
   },
@@ -12194,6 +12768,8 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -12204,13 +12780,17 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Public"
   },
@@ -12234,6 +12814,7 @@
       "Business & Management Studies",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Hospitality & Leisure Management",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -12286,6 +12867,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -12304,9 +12886,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "region": "Leinster",
     "tuition_eu": 4100,
@@ -12329,6 +12910,8 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -12336,6 +12919,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Health & Clinical Sciences",
       "Mathematics",
       "Medicine",
@@ -12362,6 +12946,8 @@
     "selectivity": "Very selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
+      "Archaeology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -12369,17 +12955,22 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Nursing",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health",
+      "Veterinary Medicine"
     ],
     "control": "Private not-for-profit"
   },
@@ -12400,6 +12991,8 @@
     "selectivity": "Very selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -12408,8 +13001,11 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -12446,11 +13042,13 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Hospitality & Leisure Management",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Veterinary Medicine"
     ],
     "control": "Private not-for-profit"
   },
@@ -12472,15 +13070,15 @@
     "selectivity": "Very selective",
     "state": "CA",
     "programs": [
-      "Engineering",
-      "Physics & Astronomy",
-      "Chemistry",
-      "Mathematics",
-      "Computer Science & IT",
       "Biological Sciences",
-      "Medicine",
+      "Business & Management Studies",
+      "Chemistry",
+      "Computer Science & IT",
+      "Engineering",
       "Law",
-      "Business & Management Studies"
+      "Mathematics",
+      "Medicine",
+      "Physics & Astronomy"
     ],
     "control": "Public"
   },
@@ -12554,13 +13152,13 @@
     "selectivity": "Selective",
     "state": "NC",
     "programs": [
-      "Medicine",
-      "Law",
+      "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
-      "Physics & Astronomy",
+      "Law",
       "Mathematics",
-      "Biological Sciences",
+      "Medicine",
+      "Physics & Astronomy",
       "Psychology"
     ],
     "control": "Public"
@@ -12582,11 +13180,11 @@
     ],
     "selectivity": "Less selective",
     "programs": [
-      "Business & Management Studies",
-      "Education",
-      "Psychology",
       "Biological Sciences",
-      "Computer Science & IT"
+      "Business & Management Studies",
+      "Computer Science & IT",
+      "Education",
+      "Psychology"
     ],
     "state": "NC",
     "control": "Public"
@@ -12609,8 +13207,8 @@
     "selectivity": "Very selective",
     "state": "NC",
     "programs": [
-      "Performing Arts",
-      "Art & Design"
+      "Art & Design",
+      "Performing Arts"
     ],
     "control": "Public"
   },
@@ -12630,6 +13228,7 @@
     "strengths": [],
     "selectivity": "Less selective",
     "programs": [
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -12638,6 +13237,8 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
+      "Linguistics",
       "Mathematics",
       "Physics & Astronomy",
       "Politics & International Studies",
@@ -12672,11 +13273,13 @@
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
       "Health & Clinical Sciences",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Public Health",
       "Zoology"
     ],
     "control": "Private not-for-profit"
@@ -12763,6 +13366,7 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Mathematics",
       "Physics & Astronomy",
       "Politics & International Studies"
@@ -12787,6 +13391,7 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Art & Design",
       "Biological Sciences",
       "Communications & Media Studies",
       "Data Science & Artificial Intelligence",
@@ -12798,8 +13403,7 @@
       "Nursing",
       "Performing Arts",
       "Pharmacy & Pharmacology",
-      "Politics & International Studies",
-      "Art & Design"
+      "Politics & International Studies"
     ],
     "region": "Madrid",
     "tuition_eu": 2100,
@@ -12905,6 +13509,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -12923,9 +13528,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "region": "Leinster",
     "tuition_eu": 4100,
@@ -12950,6 +13554,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -12968,9 +13573,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 24000,
     "tuition_eu_note": "(post-Brexit: same as intl)"
@@ -13017,6 +13621,9 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
+      "Archaeology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -13027,7 +13634,10 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -13053,6 +13663,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -13062,6 +13673,7 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -13087,6 +13699,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -13096,8 +13710,11 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -13122,6 +13739,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -13131,8 +13749,11 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -13160,6 +13781,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -13178,9 +13800,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "region": "North Holland",
     "tuition_eu": 2700,
@@ -13203,6 +13824,9 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
+      "Archaeology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -13213,13 +13837,18 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Public Health",
+      "Veterinary Medicine",
       "Zoology"
     ],
     "control": "Public"
@@ -13241,6 +13870,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -13251,7 +13882,10 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -13278,6 +13912,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -13286,7 +13922,9 @@
       "Computer Science & IT",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -13319,6 +13957,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Hospitality & Leisure Management",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -13346,6 +13985,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -13364,9 +14004,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "region": "Catalonia",
     "tuition_eu": 2100,
@@ -13391,6 +14030,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -13409,9 +14049,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 350,
     "tuition_eu_note": "(admin fee)"
@@ -13435,6 +14074,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -13453,9 +14093,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "region": "Emilia-Romagna",
     "tuition_eu": 2300,
@@ -13480,6 +14119,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -13498,9 +14138,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 350,
     "tuition_eu_note": "(admin fee)"
@@ -13524,6 +14163,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -13542,9 +14182,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 460,
     "tuition_eu_note": "(public universities)"
@@ -13566,6 +14205,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -13599,6 +14239,8 @@
     "selectivity": "Very selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -13609,8 +14251,11 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -13636,6 +14281,8 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -13646,13 +14293,16 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Public"
   },
@@ -13673,6 +14323,9 @@
     "selectivity": "Very selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
+      "Archaeology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -13680,11 +14333,15 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Nursing",
@@ -13711,6 +14368,8 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -13721,13 +14380,16 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Public Health",
       "Zoology"
     ],
     "control": "Public"
@@ -13748,6 +14410,8 @@
     "strengths": [],
     "selectivity": "Selective",
     "programs": [
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -13757,8 +14421,10 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -13785,6 +14451,8 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -13796,6 +14464,7 @@
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
       "Mathematics",
       "Medicine",
@@ -13822,6 +14491,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -13829,6 +14500,8 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Hospitality & Leisure Management",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -13853,6 +14526,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -13887,6 +14561,8 @@
     "selectivity": "Very selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -13894,8 +14570,11 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -13921,6 +14600,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -13931,8 +14612,10 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -13958,6 +14641,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -13992,6 +14676,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -13999,16 +14685,19 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
       "Health & Clinical Sciences",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Nursing",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Public"
   },
@@ -14029,6 +14718,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -14036,17 +14727,21 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Nursing",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Public Health",
       "Zoology"
     ],
     "control": "Public"
@@ -14069,7 +14764,9 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -14080,6 +14777,7 @@
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
       "Environmental Sciences",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
       "Mathematics",
@@ -14088,9 +14786,9 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology",
+      "Public Health"
     ],
     "region": "Copenhagen",
     "tuition_eu": 0,
@@ -14113,11 +14811,13 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
       "Computer Science & IT",
+      "Linguistics",
       "Mathematics",
       "Physics & Astronomy",
       "Politics & International Studies",
@@ -14142,6 +14842,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -14151,13 +14852,15 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Private not-for-profit"
   },
@@ -14178,6 +14881,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -14188,7 +14893,10 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -14215,6 +14923,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -14224,8 +14934,12 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -14251,6 +14965,8 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -14258,17 +14974,23 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Nursing",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Public Health",
+      "Veterinary Medicine",
       "Zoology"
     ],
     "control": "Public"
@@ -14291,6 +15013,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -14301,7 +15024,9 @@
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
       "Environmental Sciences",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
       "Mathematics",
       "Medicine",
@@ -14309,9 +15034,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "region": "Connacht",
     "tuition_eu": 4100,
@@ -14334,6 +15058,9 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
+      "Archaeology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -14344,13 +15071,19 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Public Health",
+      "Veterinary Medicine",
       "Zoology"
     ],
     "control": "Public"
@@ -14374,6 +15107,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -14392,9 +15126,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 2700,
     "tuition_eu_note": "(est. EU rate)"
@@ -14418,6 +15151,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -14436,9 +15170,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 350,
     "tuition_eu_note": "(admin fee)"
@@ -14460,6 +15193,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -14470,8 +15204,11 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -14521,6 +15258,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
+      "Archaeology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -14531,8 +15270,10 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -14559,6 +15300,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -14569,13 +15312,17 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Veterinary Medicine",
       "Zoology"
     ],
     "control": "Public"
@@ -14597,6 +15344,9 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
+      "Archaeology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -14606,6 +15356,9 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -14665,6 +15418,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -14683,9 +15437,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 4100,
     "tuition_eu_note": "(EU contribution)"
@@ -14713,11 +15466,13 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Public"
   },
@@ -14738,6 +15493,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -14745,11 +15502,14 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Nursing",
@@ -14782,6 +15542,8 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Geology",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -14807,6 +15569,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -14816,6 +15580,7 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Mathematics",
       "Medicine",
@@ -14871,11 +15636,14 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
       "Computer Science & IT",
+      "Geology",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -14930,6 +15698,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -14948,9 +15717,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 24000,
     "tuition_eu_note": "(post-Brexit: same as intl)"
@@ -14972,6 +15740,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -15005,6 +15774,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -15015,6 +15785,7 @@
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
       "Health & Clinical Sciences",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -15040,6 +15811,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -15050,13 +15823,17 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Veterinary Medicine",
       "Zoology"
     ],
     "control": "Public"
@@ -15078,6 +15855,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -15088,8 +15867,12 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -15115,6 +15898,8 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -15125,8 +15910,11 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -15153,14 +15941,14 @@
     "selectivity": "Selective",
     "state": "MI",
     "programs": [
-      "Engineering",
-      "Medicine",
-      "Law",
       "Business & Management Studies",
-      "Computer Science & IT",
       "Chemistry",
-      "Physics & Astronomy",
+      "Computer Science & IT",
+      "Engineering",
+      "Law",
       "Mathematics",
+      "Medicine",
+      "Physics & Astronomy",
       "Psychology"
     ],
     "control": "Public"
@@ -15182,6 +15970,8 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -15189,17 +15979,22 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Nursing",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Public"
   },
@@ -15220,6 +16015,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -15229,6 +16026,8 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -15254,6 +16053,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -15262,6 +16063,7 @@
       "Computer Science & IT",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -15290,6 +16092,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -15308,9 +16111,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 2300,
     "tuition_eu_note": "(income-based ~\u20ac2k)"
@@ -15332,6 +16134,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -15339,17 +16143,23 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Nursing",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Public Health",
+      "Veterinary Medicine",
       "Zoology"
     ],
     "control": "Public"
@@ -15371,22 +16181,29 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Nursing",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Public"
   },
@@ -15407,6 +16224,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -15417,6 +16236,7 @@
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
       "Health & Clinical Sciences",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -15442,12 +16262,14 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -15472,6 +16294,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -15507,6 +16330,7 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -15532,6 +16356,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -15540,7 +16365,9 @@
       "Computer Science & IT",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
+      "Geology",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -15566,6 +16393,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -15576,12 +16405,16 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Veterinary Medicine",
       "Zoology"
     ],
     "control": "Public"
@@ -15603,6 +16436,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -15610,11 +16445,15 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Nursing",
@@ -15641,6 +16480,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -15650,8 +16490,10 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -15681,12 +16523,15 @@
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
+      "Dentistry",
       "Health & Clinical Sciences",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Nursing",
       "Politics & International Studies",
       "Psychology",
+      "Public Health",
       "Zoology"
     ],
     "control": "Private not-for-profit"
@@ -15707,6 +16552,7 @@
     "strengths": [],
     "selectivity": "Less selective",
     "programs": [
+      "Actuarial Science",
       "Biological Sciences",
       "Business & Management Studies",
       "Communications & Media Studies",
@@ -15734,6 +16580,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -15744,7 +16592,11 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -15771,6 +16623,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -15782,6 +16635,7 @@
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
       "Mathematics",
       "Medicine",
@@ -15807,6 +16661,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -15817,12 +16672,15 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Public"
   },
@@ -15843,6 +16701,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -15852,7 +16712,10 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -15882,6 +16745,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -15889,12 +16754,15 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Health & Clinical Sciences",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Public"
   },
@@ -15915,6 +16783,9 @@
     "selectivity": "Very selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
+      "Archaeology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -15922,15 +16793,19 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Nursing",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Public"
   },
@@ -15952,6 +16827,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -15962,6 +16839,9 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -15989,6 +16869,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -15996,6 +16877,9 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Hospitality & Leisure Management",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -16053,6 +16937,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -16062,7 +16947,9 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -16089,6 +16976,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -16096,6 +16984,9 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -16121,6 +17012,8 @@
     "selectivity": "Very selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -16132,6 +17025,7 @@
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -16157,6 +17051,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -16164,17 +17059,22 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Nursing",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Public Health",
       "Zoology"
     ],
     "control": "Public"
@@ -16196,6 +17096,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -16204,8 +17106,10 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -16233,6 +17137,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -16251,9 +17156,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 2300,
     "tuition_eu_note": "(income-based ~\u20ac2k)"
@@ -16277,6 +17181,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -16295,9 +17200,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 460,
     "tuition_eu_note": "(public universities)"
@@ -16320,6 +17224,9 @@
     "state": "PA",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
+      "Archaeology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -16327,17 +17234,22 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Nursing",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Veterinary Medicine"
     ],
     "control": "Private not-for-profit"
   },
@@ -16358,6 +17270,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -16365,17 +17279,23 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Nursing",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Public"
   },
@@ -16396,6 +17316,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -16430,6 +17351,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -16440,12 +17363,15 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Public Health",
       "Zoology"
     ],
     "control": "Public"
@@ -16467,6 +17393,7 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -16499,6 +17426,8 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -16508,7 +17437,10 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -16536,6 +17468,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -16554,9 +17487,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "region": "Lazio",
     "tuition_eu": 2300,
@@ -16585,10 +17517,12 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Private not-for-profit"
   },
@@ -16610,6 +17544,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -16628,9 +17563,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 2100,
     "tuition_eu_note": "(est. EU rate)"
@@ -16682,6 +17616,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -16691,6 +17626,9 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
+      "Hospitality & Leisure Management",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -16716,6 +17654,9 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
+      "Archaeology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -16725,13 +17666,17 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Public"
   },
@@ -16752,6 +17697,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -16783,6 +17729,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -16790,7 +17738,10 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -16816,6 +17767,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -16826,12 +17778,17 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Public"
   },
@@ -16854,6 +17811,9 @@
     "state": "CA",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
+      "Archaeology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -16861,17 +17821,23 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Nursing",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Private not-for-profit"
   },
@@ -16892,6 +17858,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -16902,7 +17870,11 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -16928,6 +17900,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -16936,8 +17909,11 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -16965,6 +17941,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -16983,9 +17960,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 460,
     "tuition_eu_note": "(public universities)"
@@ -17007,6 +17983,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -17016,6 +17994,7 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Law",
       "Mathematics",
       "Medicine",
@@ -17042,6 +18021,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -17049,17 +18030,22 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Nursing",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Public"
   },
@@ -17082,6 +18068,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -17100,9 +18087,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 2700,
     "tuition_eu_note": "(est. EU rate)"
@@ -17125,6 +18111,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -17143,9 +18130,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "region": "Valencia",
     "tuition_eu": 2100,
@@ -17192,6 +18178,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -17202,7 +18189,10 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -17229,6 +18219,9 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
+      "Archaeology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -17241,6 +18234,8 @@
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -17268,6 +18263,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -17286,9 +18282,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 24000,
     "tuition_eu_note": "(post-Brexit: same as intl)"
@@ -17310,6 +18305,9 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
+      "Archaeology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -17317,17 +18315,22 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Nursing",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Public Health",
       "Zoology"
     ],
     "control": "Public"
@@ -17349,6 +18352,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Architecture",
       "Biological Sciences",
       "Business & Management Studies",
@@ -17413,12 +18417,14 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Geology",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -17444,6 +18450,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Archaeology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -17476,6 +18484,9 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
+      "Archaeology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -17486,13 +18497,18 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Public Health",
+      "Veterinary Medicine",
       "Zoology"
     ],
     "control": "Public"
@@ -17520,6 +18536,8 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Geology",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -17545,6 +18563,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -17555,6 +18575,7 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
       "Mathematics",
@@ -17562,6 +18583,7 @@
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Public Health",
       "Zoology"
     ],
     "control": "Public"
@@ -17583,9 +18605,11 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Biological Sciences",
       "Business & Management Studies",
       "Communications & Media Studies",
+      "Hospitality & Leisure Management",
       "Medicine",
       "Politics & International Studies",
       "Psychology"
@@ -17638,6 +18662,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -17656,9 +18681,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 460,
     "tuition_eu_note": "(public universities)"
@@ -17682,6 +18706,7 @@
     "programs": [
       "Accounting & Finance",
       "Architecture",
+      "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
@@ -17700,9 +18725,8 @@
       "Performing Arts",
       "Pharmacy & Pharmacology",
       "Physics & Astronomy",
-      "Psychology",
       "Politics & International Studies",
-      "Art & Design"
+      "Psychology"
     ],
     "tuition_eu": 0,
     "tuition_eu_note": "(FREE for EU)"
@@ -17755,6 +18779,8 @@
     "selectivity": "Very selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -17765,8 +18791,10 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -17792,6 +18820,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
+      "Archaeology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -17799,7 +18829,10 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -17825,6 +18858,7 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -17862,6 +18896,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -17872,11 +18907,16 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
+      "Hospitality & Leisure Management",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Veterinary Medicine",
       "Zoology"
     ],
     "control": "Public"
@@ -17905,6 +18945,7 @@
       "Computer Science & IT",
       "Engineering",
       "Health & Clinical Sciences",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -17955,6 +18996,8 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -17963,6 +19006,8 @@
       "Computer Science & IT",
       "Engineering",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -18068,6 +19113,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -18159,6 +19205,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -18169,11 +19217,17 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
+      "Hospitality & Leisure Management",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
       "Psychology",
+      "Public Health",
+      "Veterinary Medicine",
       "Zoology"
     ],
     "control": "Public"
@@ -18195,6 +19249,9 @@
     "selectivity": "Very selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
+      "Archaeology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -18205,8 +19262,11 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -18239,6 +19299,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Law",
       "Mathematics",
       "Physics & Astronomy",
@@ -18323,6 +19384,8 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -18330,17 +19393,23 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Dentistry",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
+      "Hospitality & Leisure Management",
       "Law",
+      "Linguistics",
+      "Marine Sciences",
       "Mathematics",
       "Medicine",
       "Nursing",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Public"
   },
@@ -18397,11 +19466,13 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Private not-for-profit"
   },
@@ -18422,6 +19493,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -18430,6 +19502,8 @@
       "Computer Science & IT",
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
+      "Geology",
+      "Hospitality & Leisure Management",
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
@@ -18515,6 +19589,7 @@
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
+      "Geology",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -18602,12 +19677,15 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
+      "Archaeology",
       "Art & Design",
       "Biological Sciences",
       "Chemistry",
       "Communications & Media Studies",
       "Computer Science & IT",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -18633,13 +19711,17 @@
     "selectivity": "Selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
+      "Anthropology",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
       "Chemistry",
       "Computer Science & IT",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -18673,7 +19755,8 @@
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Private not-for-profit"
   },
@@ -18758,6 +19841,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -18797,7 +19881,8 @@
       "Mathematics",
       "Medicine",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Private not-for-profit"
   },
@@ -18818,6 +19903,7 @@
     "selectivity": "Less selective",
     "programs": [
       "Accounting & Finance",
+      "Actuarial Science",
       "Art & Design",
       "Biological Sciences",
       "Business & Management Studies",
@@ -18825,6 +19911,7 @@
       "Communications & Media Studies",
       "Computer Science & IT",
       "Engineering",
+      "Geology",
       "Law",
       "Mathematics",
       "Medicine",
@@ -18894,7 +19981,8 @@
       "Medicine",
       "Physics & Astronomy",
       "Politics & International Studies",
-      "Psychology"
+      "Psychology",
+      "Public Health"
     ],
     "control": "Private not-for-profit"
   },
@@ -18915,6 +20003,8 @@
     "selectivity": "Very selective",
     "programs": [
       "Accounting & Finance",
+      "Anthropology",
+      "Archaeology",
       "Architecture",
       "Art & Design",
       "Biological Sciences",
@@ -18924,8 +20014,10 @@
       "Engineering",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Geology",
       "Health & Clinical Sciences",
       "Law",
+      "Linguistics",
       "Mathematics",
       "Medicine",
       "Physics & Astronomy",
@@ -19052,13 +20144,13 @@
     "selectivity": "Very selective",
     "programs": [
       "Computer Science & IT",
+      "Economics & Econometrics",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
-      "Physics & Astronomy",
-      "Mathematics",
       "Law",
-      "Psychology",
-      "Economics & Econometrics"
+      "Mathematics",
+      "Physics & Astronomy",
+      "Psychology"
     ],
     "region": "Oslo",
     "tuition_eu": 1300,
@@ -19080,12 +20172,12 @@
     ],
     "selectivity": "Very selective",
     "programs": [
+      "Architecture",
       "Computer Science & IT",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
-      "Architecture",
-      "Physics & Astronomy",
-      "Mathematics"
+      "Mathematics",
+      "Physics & Astronomy"
     ],
     "region": "Trondheim",
     "tuition_eu": 1300,
@@ -19109,10 +20201,10 @@
     "programs": [
       "Biological Sciences",
       "Chemistry",
-      "Physics & Astronomy",
-      "Environmental Sciences",
       "Computer Science & IT",
-      "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing"
+      "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
+      "Environmental Sciences",
+      "Physics & Astronomy"
     ],
     "region": "Bergen",
     "tuition_eu": 1300,
@@ -19133,9 +20225,9 @@
     ],
     "selectivity": "Less selective",
     "programs": [
+      "Computer Science & IT",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
-      "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
-      "Computer Science & IT"
+      "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing"
     ],
     "region": "Rogaland",
     "tuition_eu": 1300,
@@ -19158,12 +20250,12 @@
     ],
     "selectivity": "Very selective",
     "programs": [
+      "Architecture",
       "Computer Science & IT",
       "Engineering \u00e2\u20ac\u201c Electrical & Electronic",
       "Engineering \u00e2\u20ac\u201c Mechanical, Aeronautical & Manufacturing",
       "Mathematics",
-      "Physics & Astronomy",
-      "Architecture"
+      "Physics & Astronomy"
     ],
     "region": "Zurich",
     "tuition_eu": 1800,
@@ -19186,12 +20278,12 @@
     ],
     "selectivity": "Very selective",
     "programs": [
-      "Medicine",
-      "Law",
       "Biological Sciences",
       "Chemistry",
-      "Psychology",
-      "Computer Science & IT"
+      "Computer Science & IT",
+      "Law",
+      "Medicine",
+      "Psychology"
     ],
     "region": "Zurich",
     "tuition_eu": 1800,
@@ -19213,12 +20305,12 @@
     ],
     "selectivity": "Very selective",
     "programs": [
-      "Physics & Astronomy",
-      "Chemistry",
       "Biological Sciences",
+      "Chemistry",
+      "Economics & Econometrics",
       "Law",
-      "Politics & International Studies",
-      "Economics & Econometrics"
+      "Physics & Astronomy",
+      "Politics & International Studies"
     ],
     "region": "Geneva",
     "tuition_eu": 1800,
@@ -19241,12 +20333,12 @@
     ],
     "selectivity": "Selective",
     "programs": [
-      "Medicine",
-      "Law",
       "Biological Sciences",
-      "Psychology",
       "Chemistry",
-      "Physics & Astronomy"
+      "Law",
+      "Medicine",
+      "Physics & Astronomy",
+      "Psychology"
     ],
     "region": "Bern",
     "tuition_eu": 1800,
