@@ -683,57 +683,6 @@
         "costEU_min": 8000,
         "costEU_max": 8000
       },
-      "Entrepreneurship": {
-        "growth": {
-          "direction": "positive",
-          "magnitude": "high",
-          "pct": 11
-        },
-        "education": {
-          "degrees": [
-            {
-              "level": "undergraduate",
-              "names": [
-                "Bachelor"
-              ],
-              "us_years": 4,
-              "eu_years": 3,
-              "norm": "required"
-            }
-          ],
-          "requirement_summary": "Bachelor required"
-        },
-        "portability": {
-          "level": "HIGH",
-          "qualifier": null
-        },
-        "licensing": {
-          "status": "not_available",
-          "type": null,
-          "scope": "us",
-          "qualifier": null
-        },
-        "resources": [
-          {
-            "title": "YC Library",
-            "url": "https://www.ycombinator.com/library"
-          }
-        ],
-        "demand": {
-          "label": "Moderate",
-          "pct": 4,
-          "src": "https://www.bls.gov/bdm/entrepreneurship/bdm_chart3.htm"
-        },
-        "salaryUS_min": null,
-        "salaryUS_max": null,
-        "salaryEU_min": null,
-        "salaryEU_max": null,
-        "costUS_min": 150000,
-        "costUS_max": 150000,
-        "costEU_min": 8000,
-        "costEU_max": 8000,
-        "salaryNote": "Variable, tied to business success"
-      },
       "Human Resources": {
         "growth": {
           "direction": "positive",
