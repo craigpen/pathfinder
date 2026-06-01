@@ -1131,9 +1131,17 @@ function aggregateCategoryData(catKey, fieldName) {
     const hasProfessional = degreeTypes.professional > 0;
     const hasDoctorat = degreeTypes.doctorate > 0;
     const hasMaster = degreeTypes.master > 0;
-    if (hasResidency) return 'Bachelor, Professional, Residency typical';
-    if (hasProfessional || hasDoctorat) return 'Bachelor + (Professional/Doctorate typical)';
-    if (hasMaster) return 'Bachelor, Masters typical';
+
+    if (hasResidency) {
+      const advDegree = hasProfessional && hasDoctorat ? 'Professional or Doctorate' : hasProfessional ? 'Professional' : 'Doctorate';
+      return 'Bachelor and ' + advDegree + ' typical, Residency typical';
+    }
+    if (hasProfessional || hasDoctorat) {
+      if (hasProfessional && hasDoctorat) return 'Bachelor and Professional or Doctorate typical';
+      if (hasProfessional) return 'Bachelor and Professional typical';
+      return 'Bachelor and Doctorate typical';
+    }
+    if (hasMaster) return 'Bachelor and Masters typical';
     return 'Bachelor typical';
   }
 
