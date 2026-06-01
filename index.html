@@ -1134,15 +1134,15 @@ function aggregateCategoryData(catKey, fieldName) {
 
     if (hasResidency) {
       const advDegree = hasProfessional && hasDoctorat ? 'Professional or Doctorate' : hasProfessional ? 'Professional' : 'Doctorate';
-      return 'Bachelor and ' + advDegree + ' typical, Residency typical';
+      return { display: 'Bachelor and ' + advDegree + ' typical, Residency typical' };
     }
     if (hasProfessional || hasDoctorat) {
-      if (hasProfessional && hasDoctorat) return 'Bachelor and Professional or Doctorate typical';
-      if (hasProfessional) return 'Bachelor and Professional typical';
-      return 'Bachelor and Doctorate typical';
+      if (hasProfessional && hasDoctorat) return { display: 'Bachelor and Professional or Doctorate typical' };
+      if (hasProfessional) return { display: 'Bachelor and Professional typical' };
+      return { display: 'Bachelor and Doctorate typical' };
     }
-    if (hasMaster) return 'Bachelor and Masters typical';
-    return 'Bachelor typical';
+    if (hasMaster) return { display: 'Bachelor and Masters typical' };
+    return { display: 'Bachelor typical' };
   }
 
   if (fieldName === 'costUS_min' || fieldName === 'costUS_max') {
@@ -1196,7 +1196,7 @@ function aggregateCategoryData(catKey, fieldName) {
     });
     const mostCommon = Object.keys(mags).reduce((a, b) => mags[a] > mags[b] ? a : b);
     const avgPct = Math.round(growths.reduce((sum, g) => sum + (g.pct || 0), 0) / growths.length);
-    return formatGrowth({ magnitude: mostCommon, pct: avgPct });
+    return { display: formatGrowth({ magnitude: mostCommon, pct: avgPct }) };
   }
 
   if (fieldName === 'portability') {
@@ -1209,7 +1209,7 @@ function aggregateCategoryData(catKey, fieldName) {
       levels[level] = (levels[level] || 0) + 1;
     });
     const mostCommon = Object.keys(levels).reduce((a, b) => levels[a] > levels[b] ? a : b);
-    return formatPortability({ level: mostCommon });
+    return { display: formatPortability({ level: mostCommon }) };
   }
 
   if (fieldName === 'licensing') {
@@ -1222,7 +1222,7 @@ function aggregateCategoryData(catKey, fieldName) {
       statuses[status] = (statuses[status] || 0) + 1;
     });
     const mostCommon = Object.keys(statuses).reduce((a, b) => statuses[a] > statuses[b] ? a : b);
-    return formatLicensing({ status: mostCommon });
+    return { display: formatLicensing({ status: mostCommon }) };
   }
 
   return null;
