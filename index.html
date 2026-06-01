@@ -3923,16 +3923,17 @@ function renderInsights(){
         const yearlyTotal = costResults.yearAfterSupport;
 
         // Tuition - aligned tiers: Free, Inexpensive (<5k), Affordable (5-15k), Moderate (15-35k), Expensive to Very Expensive (35k+)
+        const yearlyTuition = Math.round(tuition / progDuration);
         if(tuition === 0){
           pros.push('Tuition-free — eliminates largest cost barrier');
-        } else if(tuition < 5000){
-          pros.push('Inexpensive tuition ($' + tuition.toLocaleString() + '/yr) — similar to public universities in US');
-        } else if(tuition < 15000){
-          pros.push('Affordable tuition ($' + tuition.toLocaleString() + '/yr) — moderate compared to US private schools ($35-50K/yr)');
-        } else if(tuition < 35000){
-          pros.push('Moderate tuition ($' + tuition.toLocaleString() + '/yr) — similar to US private universities');
+        } else if(yearlyTuition < 5000){
+          pros.push('Inexpensive tuition ($' + yearlyTuition.toLocaleString() + '/yr) — similar to public universities in US');
+        } else if(yearlyTuition < 15000){
+          pros.push('Affordable tuition ($' + yearlyTuition.toLocaleString() + '/yr) — moderate compared to US private schools ($35-50K/yr)');
+        } else if(yearlyTuition < 35000){
+          pros.push('Moderate tuition ($' + yearlyTuition.toLocaleString() + '/yr) — similar to US private universities');
         } else {
-          cons.push('Expensive tuition ($' + tuition.toLocaleString() + '/yr) — significantly higher than most global alternatives');
+          cons.push('Expensive tuition ($' + yearlyTuition.toLocaleString() + '/yr) — significantly higher than most global alternatives');
         }
 
         // Total cost - expanded tiers: inexpensive (<50k), affordable (50-100k), moderate (100-150k), expensive (150-250k), very expensive (>250k)
