@@ -284,12 +284,12 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 <div class="bg"><span class="pos-left"></span><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('careers')">Next</button></div>
 </div>
 <div class="pan" id="careers">
-<div class="qb"><div class="ql">Select One or More</div><div class="qt">What career categories interest you?</div><div class="qs">Pick any categories that seem interesting to you and compare below. This information is only a rough guide to help inform your choices; the details may vary.</div></div>
+<div class="qb"><div class="ql">Select One or More</div><div class="qt">What career categories interest you?</div><div class="qs">Pick any categories that seem interesting to you and compare below. </div></div>
 <div class="pills" id="fcat-chips"></div>
 <div id="careers-insights"></div>
 <div id="cat-table"></div>
 <hr class="divider"/>
-<div class="qb"><div class="ql">Select One or More</div><div class="qt">What careers would you like to compare?</div><div class="qs">Pick any specialties that seem interesting to you. Actual jobs you apply for will be more varied still. This information is only a rough guide to help inform your choices; the details may vary.</div></div>
+<div class="qb"><div class="ql">Select One or More</div><div class="qt">What careers would you like to compare?</div><div class="qs">Pick any specialties that seem interesting to you. Actual jobs you apply for will be more varied still. </div></div>
 <div class="pills" id="sub-pills"></div>
 <div id="career-table"></div>
 
@@ -310,7 +310,7 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 <div class="bg"><button class="btn bs pos-left" onclick="go('careers')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('countries')">Next</button></div>
 </div>
 <div class="pan" id="countries">
-<div class="qb"><div class="ql">Select One or More</div><div class="qt">Which countries are you considering?</div><div class="qs">Pick countries that interest you and compare. Add or remove anytime. This information is only a rough guide to help inform your choices; the details may vary. All costs in USD.</div></div>
+<div class="qb"><div class="ql">Select One or More</div><div class="qt">Which countries are you considering?</div><div class="qs">Pick countries that interest you and compare. Add or remove anytime.  All costs in USD.</div></div>
 <div class="pills" id="cc-chips"></div>
 <div id="cc-table"></div>
 
@@ -318,14 +318,14 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 <div class="bg"><button class="btn bs pos-left" onclick="go('careers')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('scholarships')">Next</button></div>
 </div>
 <div class="pan" id="scholarships">
-<div class="qb"><div class="ql">Select One or More</div><div class="qt">What funding is available?</div><div class="qs">Compare below how scholarships, grants, and other "free" contributions to help fund your education typically work in each country. This information is only a rough guide to help inform your choices; the details may vary.</div></div>
+<div class="qb"><div class="ql">Select One or More</div><div class="qt">What funding is available?</div><div class="qs">Compare below how scholarships, grants, and other "free" contributions to help fund your education typically work in each country. </div></div>
 <div class="pills" id="scholar-cc-pills"></div>
 <div id="scholar-table"></div>
 
 <div class="bg"><button class="btn bs pos-left" onclick="go('countries')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('universities')">Next</button></div>
 </div>
 <div class="pan" id="universities">
-<div class="qb"><div class="ql">Select One or More</div><div class="qt">Which universities match your choices?</div><div class="qs">Universities that align with your country and career choices will be shown below. Find details about each university's location, admission rate, cost, student population, and applicable degree programs. This information is only a rough guide to help inform your choices; the details may vary.</div></div>
+<div class="qb"><div class="ql">Select One or More</div><div class="qt">Which universities match your choices?</div><div class="qs">Universities that align with your country and career choices will be shown below. Find details about each university's location, admission rate, cost, student population, and applicable degree programs. </div></div>
 
 <div class="pills" id="uni-country-pills"></div>
 
@@ -356,7 +356,7 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 <div class="bg"><button class="btn bs pos-left" onclick="go('scholarships')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('costs')">Next</button></div>
 </div>
 <div class="pan" id="costs">
-<div class="qb"><div class="ql">Select One or More</div><div class="qt">What will your education cost, and how will I pay for it?</div><div class="qs">University education can be expensive, and you will probably use several sources to pay for it. Adjust the sliders to estimate scholarships, college savings, tuition payments from part time work, possible family support, and loan terms. You would typically take loans for whatever is left. This information is only a rough guide to help inform your choices; the details may vary.</div></div>
+<div class="qb"><div class="ql">Select One or More</div><div class="qt">What will your education cost, and how will I pay for it?</div><div class="qs">University education can be expensive, and you will probably use several sources to pay for it. Adjust the sliders to estimate scholarships, college savings, tuition payments from part time work, possible family support, and loan terms. You would typically take loans for whatever is left. </div></div>
 <div class="pills" id="cost-chips"></div>
 <div id="cost-sliders" style="display:none;margin:12px 0;padding:12px;background:var(--lt);border-radius:6px">
 <div class="slider-row"><label><b>Scholarship/Aid:</b></label><input id="sl-schol" max="100000" min="0" oninput="S.scholarshipAmount=document.getElementById('sl-schol').value;S.collegeSavings=document.getElementById('sl-savings').value;S.partTimeWork=document.getElementById('sl-work').value;S.familySupport=document.getElementById('sl-parent').value;S.loanRate=document.getElementById('sl-rate').value;S.loanRepaymentYears=document.getElementById('sl-yrs').value;saveState();renderCostTable();renderInsights()" step="5000" type="range" value="0"/><span class="sv" id="sl-schol-v">$0</span></div>
@@ -408,7 +408,7 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 <div class="bg"><button class="btn bs pos-left" onclick="go('transition')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('deepDive')">Next</button></div>
 </div>
 <div class="pan" id="deepDive">
-<div class="qb"><div class="ql">Select one</div><div class="qt">What's the full story for this country?</div><div class="qs">Review basic facts about a country, education roadmap and next steps, key decision points, and resources for further research. This information is only a rough guide to help inform your choices; the details may vary. Click any country to switch.</div></div>
+<div class="qb"><div class="ql">Select one</div><div class="qt">What's the full story for this country?</div><div class="qs">Review basic facts about a country, education roadmap and next steps, key decision points, and resources for further research.  Click any country to switch.</div></div>
 <div class="pills" id="ex-chips"></div>
 <div id="path-content"></div>
 <div class="bg"><button class="btn bs pos-left" onclick="go('insights')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('resources')">Next</button></div>
