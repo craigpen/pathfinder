@@ -1538,22 +1538,21 @@ function buildTransitionCarousel(scenarios, workTarget) {
   // Build metric calculation functions
   const metrics = [
     {label: 'Annual salary', fn: (scenario) => {
-      const sub = getSub(scenario.career);
-      const salaryKey = isUS ? 'salaryUS' : 'salaryEU';
-      return sub ? sub[salaryKey] : '—';
+      const salRange = isUS ? getCareerSalaryUS(scenario.career) : getCareerSalaryEU(scenario.career);
+      return salRange ? formatMoneyRange(salRange.min, salRange.max) : '—';
     }},
     {label: 'Taxes (~20-22%)', fn: (scenario) => {
-      const sub = getSub(scenario.career);
-      const salaryKey = isUS ? 'salaryUS' : 'salaryEU';
-      const salary = parseSalary(sub ? sub[salaryKey] : null);
+      const salRange = isUS ? getCareerSalaryUS(scenario.career) : getCareerSalaryEU(scenario.career);
+      if(!salRange) return '—';
+      const salary = getAvgSalary(salRange.min, salRange.max);
       if(!salary) return '—';
       const taxRate = isUS ? 0.20 : 0.22;
       return `$${Math.round(salary * taxRate).toLocaleString()}`;
     }},
     {label: 'After-tax monthly', fn: (scenario) => {
-      const sub = getSub(scenario.career);
-      const salaryKey = isUS ? 'salaryUS' : 'salaryEU';
-      const salary = parseSalary(sub ? sub[salaryKey] : null);
+      const salRange = isUS ? getCareerSalaryUS(scenario.career) : getCareerSalaryEU(scenario.career);
+      if(!salRange) return '—';
+      const salary = getAvgSalary(salRange.min, salRange.max);
       if(!salary) return '—';
       const taxRate = isUS ? 0.20 : 0.22;
       const monthly = Math.round(salary * (1 - taxRate) / 12);
@@ -1567,18 +1566,18 @@ function buildTransitionCarousel(scenarios, workTarget) {
     }},
     {label: 'Monthly loan payment', fn: (scenario) => `$${Math.round(scenario.monthlyDebt).toLocaleString()}`},
     {label: 'Debt-to-Income', fn: (scenario) => {
-      const sub = getSub(scenario.career);
-      const salaryKey = isUS ? 'salaryUS' : 'salaryEU';
-      const salary = parseSalary(sub ? sub[salaryKey] : null);
+      const salRange = isUS ? getCareerSalaryUS(scenario.career) : getCareerSalaryEU(scenario.career);
+      if(!salRange) return '—';
+      const salary = getAvgSalary(salRange.min, salRange.max);
       if(!salary) return '—';
       const taxRate = isUS ? 0.20 : 0.22;
       const monthly = salary * (1 - taxRate) / 12;
       return `${(scenario.monthlyDebt / monthly * 100).toFixed(1)}%`;
     }},
     {label: 'Surplus/Deficit/mo', fn: (scenario) => {
-      const sub = getSub(scenario.career);
-      const salaryKey = isUS ? 'salaryUS' : 'salaryEU';
-      const salary = parseSalary(sub ? sub[salaryKey] : null);
+      const salRange = isUS ? getCareerSalaryUS(scenario.career) : getCareerSalaryEU(scenario.career);
+      if(!salRange) return '—';
+      const salary = getAvgSalary(salRange.min, salRange.max);
       if(!salary) return '—';
       const taxRate = isUS ? 0.20 : 0.22;
       const monthlyIncome = salary * (1 - taxRate) / 12;
@@ -1643,16 +1642,15 @@ function buildTransitionTable(scenarios, workTarget) {
       const scenario = scenarios[key];
       if(!scenario) return '—';
       const sub = getSub(scenario.career);
-      const salaryKey = isUS ? 'salaryUS' : 'salaryEU';
-      const salaryStr = sub ? sub[salaryKey] : null;
-      return salaryStr || '—';
+      const salRange = isUS ? getCareerSalaryUS(scenario.career) : getCareerSalaryEU(scenario.career);
+      return salRange ? formatMoneyRange(salRange.min, salRange.max) : '—';
     }],
     ['Taxes (~20-22%)', (key) => {
       const scenario = scenarios[key];
       if(!scenario) return '—';
-      const sub = getSub(scenario.career);
-      const salaryKey = isUS ? 'salaryUS' : 'salaryEU';
-      const salary = parseSalary(sub ? sub[salaryKey] : null);
+      const salRange = isUS ? getCareerSalaryUS(scenario.career) : getCareerSalaryEU(scenario.career);
+      if(!salRange) return '—';
+      const salary = getAvgSalary(salRange.min, salRange.max);
       if(!salary) return '—';
       const taxRate = isUS ? 0.20 : 0.22;
       const taxes = Math.round(salary * taxRate);
@@ -1661,9 +1659,9 @@ function buildTransitionTable(scenarios, workTarget) {
     ['After-tax monthly income', (key) => {
       const scenario = scenarios[key];
       if(!scenario) return '—';
-      const sub = getSub(scenario.career);
-      const salaryKey = isUS ? 'salaryUS' : 'salaryEU';
-      const salary = parseSalary(sub ? sub[salaryKey] : null);
+      const salRange = isUS ? getCareerSalaryUS(scenario.career) : getCareerSalaryEU(scenario.career);
+      if(!salRange) return '—';
+      const salary = getAvgSalary(salRange.min, salRange.max);
       if(!salary) return '—';
       const taxRate = isUS ? 0.20 : 0.22;
       const afterTax = salary * (1 - taxRate);
@@ -1689,9 +1687,9 @@ function buildTransitionTable(scenarios, workTarget) {
     ['Debt-to-Income Ratio', (key) => {
       const scenario = scenarios[key];
       if(!scenario) return '—';
-      const sub = getSub(scenario.career);
-      const salaryKey = isUS ? 'salaryUS' : 'salaryEU';
-      const salary = parseSalary(sub ? sub[salaryKey] : null);
+      const salRange = isUS ? getCareerSalaryUS(scenario.career) : getCareerSalaryEU(scenario.career);
+      if(!salRange) return '—';
+      const salary = getAvgSalary(salRange.min, salRange.max);
       if(!salary) return '—';
       const taxRate = isUS ? 0.20 : 0.22;
       const afterTax = salary * (1 - taxRate);
@@ -1702,9 +1700,9 @@ function buildTransitionTable(scenarios, workTarget) {
     ['Surplus/Deficit/month', (key) => {
       const scenario = scenarios[key];
       if(!scenario) return '—';
-      const sub = getSub(scenario.career);
-      const salaryKey = isUS ? 'salaryUS' : 'salaryEU';
-      const salary = parseSalary(sub ? sub[salaryKey] : null);
+      const salRange = isUS ? getCareerSalaryUS(scenario.career) : getCareerSalaryEU(scenario.career);
+      if(!salRange) return '—';
+      const salary = getAvgSalary(salRange.min, salRange.max);
       if(!salary) return '—';
       const taxRate = isUS ? 0.20 : 0.22;
       const afterTax = salary * (1 - taxRate);
