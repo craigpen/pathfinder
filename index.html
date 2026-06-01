@@ -1039,22 +1039,30 @@ function getCareerEducation(name) {
 
 function getCareerCostUS(name) {
   const career = getCareerByName(name);
-  return career ? career.data.costUS : null;
+  if (!career) return null;
+  const data = career.data;
+  return { min: data.costUS_min, max: data.costUS_max };
 }
 
 function getCareerCostEU(name) {
   const career = getCareerByName(name);
-  return career ? career.data.costEU : null;
+  if (!career) return null;
+  const data = career.data;
+  return { min: data.costEU_min, max: data.costEU_max };
 }
 
 function getCareerSalaryUS(name) {
   const career = getCareerByName(name);
-  return career ? career.data.salaryUS : null;
+  if (!career) return null;
+  const data = career.data;
+  return { min: data.salaryUS_min, max: data.salaryUS_max };
 }
 
 function getCareerSalaryEU(name) {
   const career = getCareerByName(name);
-  return career ? career.data.salaryEU : null;
+  if (!career) return null;
+  const data = career.data;
+  return { min: data.salaryEU_min, max: data.salaryEU_max };
 }
 
 function getCareerGrowth(name) {
@@ -1095,6 +1103,59 @@ function getCategoryField(catKey, fieldName) {
   return careers[catKey][fieldName] ?? null;
 }
 
+// Display formatters for normalized schema
+function formatMoneyRange(min, max) {
+  if (min === null || max === null) return '—';
+  const fmt = (n) => (n >= 1000 ? (n / 1000).toFixed(0) + 'k' : n.toString());
+  return '$' + fmt(min) + '–$' + fmt(max);
+}
+
+function formatEducationSummary(eduObj) {
+  if (!eduObj || !eduObj.degrees) return '—';
+  const degreesByNorm = {};
+  for (const deg of eduObj.degrees) {
+    const norm = deg.norm || 'required';
+    if (!degreesByNorm[norm]) degreesByNorm[norm] = [];
+    degreesByNorm[norm].push(deg.names[0]);
+  }
+  const parts = [];
+  for (const norm of ['required', 'typical', 'optional']) {
+    if (degreesByNorm[norm]) {
+      const degrees = degreesByNorm[norm].join(' and ');
+      parts.push(degrees + ' ' + norm);
+    }
+  }
+  return parts.length > 0 ? parts.join(', ') : '—';
+}
+
+function formatGrowth(growthObj) {
+  if (!growthObj || growthObj.pct === null) return '—';
+  const mag = (growthObj.magnitude || 'moderate').charAt(0).toUpperCase() + (growthObj.magnitude || 'moderate').slice(1);
+  return mag + ' (' + (growthObj.pct > 0 ? '+' : '') + growthObj.pct + '%)';
+}
+
+function formatPortability(portObj) {
+  if (!portObj) return '—';
+  const level = portObj.level ? portObj.level.charAt(0).toUpperCase() + portObj.level.slice(1).toLowerCase() : '—';
+  if (portObj.qualifier) return level + ' (' + portObj.qualifier + ')';
+  return level;
+}
+
+function formatLicensing(licObj) {
+  if (!licObj) return '—';
+  const status = licObj.status ? licObj.status.charAt(0).toUpperCase() + licObj.status.slice(1) : '—';
+  const parts = [status];
+  if (licObj.type && licObj.type.length > 0) {
+    parts.push('(' + (Array.isArray(licObj.type) ? licObj.type.join(', ') : licObj.type) + ')');
+  }
+  return parts.join(' ');
+}
+
+function formatDemand(demandObj) {
+  if (!demandObj || demandObj.pct === null) return '—';
+  return (demandObj.pct > 0 ? '+' : '') + demandObj.pct + '%';
+}
+
 function getCareersSchemaTemplate() {
   return {
     name: 'Career Name',
@@ -1132,14 +1193,14 @@ function debugCareer(name) {
   }
   console.group(`Career: ${name}`);
   console.log(`Category: ${career.category}`);
-  console.log(`Education: ${career.data.education}`);
-  console.log(`Cost (US): $${career.data.costUS}`);
-  console.log(`Cost (EU): €${career.data.costEU}`);
-  console.log(`Salary (US): ${career.data.salaryUS}`);
-  console.log(`Salary (EU): ${career.data.salaryEU}`);
-  console.log(`Growth: ${career.data.growth}`);
-  console.log(`Portability: ${career.data.portability}`);
-  console.log(`Licensing: ${career.data.licensing}`);
+  console.log(`Education: ${formatEducationSummary(career.data.education)}`);
+  console.log(`Cost (US): ${formatMoneyRange(career.data.costUS_min, career.data.costUS_max)}`);
+  console.log(`Cost (EU): ${formatMoneyRange(career.data.costEU_min, career.data.costEU_max)}`);
+  console.log(`Salary (US): ${formatMoneyRange(career.data.salaryUS_min, career.data.salaryUS_max)}`);
+  console.log(`Salary (EU): ${formatMoneyRange(career.data.salaryEU_min, career.data.salaryEU_max)}`);
+  console.log(`Growth: ${formatGrowth(career.data.growth)}`);
+  console.log(`Portability: ${formatPortability(career.data.portability)}`);
+  console.log(`Licensing: ${formatLicensing(career.data.licensing)}`);
   console.groupEnd();
   return career.data;
 }
@@ -1454,6 +1515,11 @@ function parseSalary(salaryStr) {
   if(!matches || matches.length === 0) return null;
   const nums = matches.map(m => parseInt(m.replace(/\D/g, '')) * 1000);
   return Math.round(nums.reduce((a,b) => a + b) / nums.length);
+}
+
+function getAvgSalary(min, max) {
+  if(min === null || max === null) return null;
+  return Math.round((min + max) / 2);
 }
 
 function buildTransitionCarousel(scenarios, workTarget) {
@@ -2820,8 +2886,10 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
   const euColMonthly = euCountries.length > 0 ? Math.round(euColTotal / euCountries.length) : 0;
 
   // Calculate table values once (source of truth for both table and bar chart)
-  const usAfterTax = parseSalary(sub.salaryUS) ? Math.round(parseSalary(sub.salaryUS) * (1 - 0.20) / 12) : 0;
-  const euAfterTax = parseSalary(sub.salaryEU) ? Math.round(parseSalary(sub.salaryEU) * (1 - 0.22) / 12) : 0;
+  const usAvgSalary = getAvgSalary(sub.salaryUS_min, sub.salaryUS_max);
+  const euAvgSalary = getAvgSalary(sub.salaryEU_min, sub.salaryEU_max);
+  const usAfterTax = usAvgSalary ? Math.round(usAvgSalary * (1 - 0.20) / 12) : 0;
+  const euAfterTax = euAvgSalary ? Math.round(euAvgSalary * (1 - 0.22) / 12) : 0;
   const usSurplus = usAfterTax - usColMonthly - monthlyDebt;
   const euSurplus = euAfterTax - euColMonthly - monthlyDebt;
 
@@ -2833,7 +2901,7 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
   };
 
   const metrics = [
-    {label: 'Annual salary', sublabel: 'Estimated starting salary range.  An average is used for calculations', us: sub.salaryUS, eu: sub.salaryEU, color: 'var(--ok)'},
+    {label: 'Annual salary', sublabel: 'Estimated starting salary range.  An average is used for calculations', us: formatMoneyRange(sub.salaryUS_min, sub.salaryUS_max), eu: formatMoneyRange(sub.salaryEU_min, sub.salaryEU_max), color: 'var(--ok)'},
     {label: 'Taxes (20% US, 22% EU)', sublabel: 'Estimated income taxes', us: null, eu: null, color: 'var(--bad)', fn: (salary, isUS) => {
       if(!salary) return '—';
       const s = parseSalary(salary);
