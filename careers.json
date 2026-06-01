@@ -2596,6 +2596,17 @@
               "norm": "required"
             },
             {
+              "level": "professional",
+              "names": [
+                "MD",
+                "DO"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 4,
+              "eu_years": 4,
+              "norm": "required"
+            },
+            {
               "level": "postdegree",
               "names": [
                 "Residency"
@@ -2606,7 +2617,7 @@
               "norm": "required"
             }
           ],
-          "requirement_summary": "Bachelor required, Residency required"
+          "requirement_summary": "Bachelor and MD required, Residency required"
         },
         "portability": {
           "level": "LOW",
