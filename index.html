@@ -2338,20 +2338,9 @@ function renderUniversities(){
       return hasProgram;
     });
     
-    if(S.uniSelectivity){
-      const selectivityMap = {
-        'Very selective': 'Very selective',
-        'Selective': 'Selective',
-        'Less selective': 'Less selective'
-      };
-      const targetSelectivity = selectivityMap[S.uniSelectivity];
-      if(targetSelectivity === 'Selective'){
-        filteredUnis = filteredUnis.filter(u => u.selectivity === 'Selective');
-      } else if(targetSelectivity === 'Less selective'){
-        filteredUnis = filteredUnis.filter(u => u.selectivity === 'Less selective');
-      } else if(targetSelectivity === 'Very selective'){
-        filteredUnis = filteredUnis.filter(u => u.selectivity === 'Very selective');
-      }
+    // Apply selectivity filter (multi-select)
+    if(S.uniSelectivity && S.uniSelectivity.length > 0){
+      filteredUnis = filteredUnis.filter(u => S.uniSelectivity.includes(u.selectivity));
     }
 
     if(countryCode === 'us' && S.inStateTuitionPref){
@@ -3230,12 +3219,13 @@ function generateNarrativeParagraph(monthlyPaymentMin = null, monthlyPaymentMax 
     discoveryParts.push('For US university selections, you favor ' + makePill(prefText) + ' universities.');
   }
   // Cost & Selectivity
-  if(S.cost || S.uniSelectivity || S.cc.length > 0) {
+  if(S.cost || (S.uniSelectivity && S.uniSelectivity.length > 0) || S.cc.length > 0) {
     let costParts = [];
     if(S.cost) costParts.push('Your view of total education cost suggests it is ' + makePill(S.cost.toLowerCase()));
     const countryList = S.cc.length > 0 && COUNTRIES_LOADED ? Object.entries(COUNTRIES).filter(([k,v]) => S.cc.includes(k)).map(([k,v]) => v.name).join(', ') : '';
-    if(S.uniSelectivity && countryList) costParts.push('and you\'re considering universities in ' + makePill(countryList) + ' that are ' + makePill(S.uniSelectivity.toLowerCase()) + ' in their admission process');
-    else if(S.uniSelectivity) costParts.push('and you\'re considering universities that are ' + makePill(S.uniSelectivity.toLowerCase()) + ' in their admission process');
+    const selectivityText = S.uniSelectivity && S.uniSelectivity.length > 0 ? S.uniSelectivity.map(s => s.toLowerCase()).join(' and ') : '';
+    if(selectivityText && countryList) costParts.push('and you\'re considering universities in ' + makePill(countryList) + ' that are ' + makePill(selectivityText) + ' in their admission process');
+    else if(selectivityText) costParts.push('and you\'re considering universities that are ' + makePill(selectivityText) + ' in their admission process');
     if(costParts.length > 0) discoveryParts.push(costParts.join(', ') + '.');
   }
   // Vision
