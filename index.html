@@ -1884,13 +1884,12 @@ function getDemandForCat(key){
 function fmt(n){return'$'+Math.round(n).toLocaleString()}
 
 // Helper function to compute cost results for a country given current financing choices
-function computeCountryCostResults(countryKey, scholPercent, savingsTotal, workAnnual, familyAnnual, loanRate, loanYears){
+function computeCountryCostResults(countryKey, scholDollars, savingsTotal, workAnnual, familyAnnual, loanRate, loanYears){
   const costBreakdown = getCountryCostBreakdown(countryKey);
   const tuitionVal = getCountryCostTuition(countryKey);
   if(!costBreakdown || tuitionVal === null) return null;
 
-  const schol = scholPercent / 100;
-  let tui = Math.round(tuitionVal * (1 - schol));
+  let tui = Math.round(Math.max(0, tuitionVal - scholDollars));
   const room = getCountryCostRoom(countryKey) || 0;
   const books = getCountryCostBooks(countryKey) || 0;
   const personal = getCountryCostPersonal(countryKey) || 0;
