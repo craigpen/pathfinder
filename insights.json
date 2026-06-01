@@ -24,6 +24,10 @@
       "Education": {
         "align": true,
         "msg": "Your creative motivation is a natural fit for Education careers."
+      },
+      "Agriculture": {
+        "align": false,
+        "msg": "Agriculture careers are more technical; creative expression isn't the primary driver."
       }
     },
     "Financial security": {
@@ -46,6 +50,10 @@
       "Education": {
         "align": false,
         "msg": "Education is rewarding but typically offers modest salaries compared to your financial priorities."
+      },
+      "Agriculture": {
+        "align": true,
+        "msg": "Agricultural careers can offer stable income with growing demand."
       }
     },
     "Making real impact": {
