@@ -484,7 +484,7 @@
               ],
               "us_years": 4,
               "eu_years": 3,
-              "norm": "optional"
+              "norm": "required"
             }
           ],
           "requirement_summary": "Bachelor optional"
