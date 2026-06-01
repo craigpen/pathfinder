@@ -1,14 +1,6 @@
 {
   "tech": {
     "name": "Tech / Engineering",
-    "edu": "Bachelor's (4 yr) or Master's",
-    "costUS": "$80k–$200k",
-    "costEU": "$0–$15k",
-    "salUS": "$75k–$150k",
-    "salEU": "$40k–$70k",
-    "growth": "Very high",
-    "portability": "HIGH – skills transfer globally",
-    "licensing": "Rarely licensed",
     "subjects": {
       "Software Engineering": {
         "growth": {
@@ -476,14 +468,6 @@
   },
   "business": {
     "name": "Business / Finance",
-    "edu": "Bachelor's (4 yr); MBA optional",
-    "costUS": "$80k–$250k",
-    "costEU": "$0–$20k",
-    "salUS": "$55k–$120k",
-    "salEU": "$35k–$64k",
-    "growth": "High",
-    "portability": "HIGH – global career",
-    "licensing": "CPA/CFA optional",
     "subjects": {
       "Finance / Banking": {
         "growth": {
@@ -1065,14 +1049,6 @@
   },
   "science": {
     "name": "Science / Research",
-    "edu": "Bachelor's + Master's/PhD typical",
-    "costUS": "$100k–$200k (PhD funded)",
-    "costEU": "$0–$15k (PhD funded)",
-    "salUS": "$45k–$100k",
-    "salEU": "$35k–$64k",
-    "growth": "Moderate–High",
-    "portability": "HIGH – research is international",
-    "licensing": "Rarely",
     "subjects": {
       "Biology / Biotech": {
         "growth": {
@@ -1968,14 +1944,6 @@
   },
   "creative": {
     "name": "Creative / Arts",
-    "edu": "Bachelor's (3–4 yr)",
-    "costUS": "$60k–$200k",
-    "costEU": "$0–$15k",
-    "salUS": "$35k–$90k",
-    "salEU": "$29k–$52k",
-    "growth": "Moderate",
-    "portability": "HIGH – portfolio matters",
-    "licensing": "Not licensed",
     "subjects": {
       "Graphic / UX Design": {
         "growth": {
@@ -2609,14 +2577,6 @@
   },
   "health": {
     "name": "Health / Medicine",
-    "edu": "Bachelor's + professional (6–15 yr)",
-    "costUS": "$150k–$400k+",
-    "costEU": "$0–$50k",
-    "salUS": "$60k–$400k+",
-    "salEU": "$29k–$139k",
-    "growth": "Very high",
-    "portability": "LOW – country-specific",
-    "licensing": "Required everywhere",
     "subjects": {
       "Medicine (MD/DO)": {
         "growth": {
@@ -3451,14 +3411,6 @@
   },
   "law": {
     "name": "Law / Policy",
-    "edu": "Bachelor's + JD/Law (6–7 yr)",
-    "costUS": "$200k–$350k",
-    "costEU": "$0–$15k",
-    "salUS": "$60k–$215k",
-    "salEU": "$35k–$81k",
-    "growth": "Moderate",
-    "portability": "LOW – systems differ",
-    "licensing": "Bar exam required",
     "subjects": {
       "US Law (JD)": {
         "growth": {
@@ -3692,14 +3644,6 @@
   },
   "education": {
     "name": "Education",
-    "edu": "Bachelor's to Master's degree",
-    "costUS": 140000,
-    "costEU": 18000,
-    "salUS": "$46k-$105k",
-    "salEU": "38k-85k EUR",
-    "growth": "Moderate (1-2% change)",
-    "portability": "MEDIUM",
-    "licensing": "Required - varies by country",
     "subjects": {
       "Teaching (K-12)": {
         "growth": {
@@ -3885,14 +3829,6 @@
   },
   "agriculture": {
     "name": "Agriculture",
-    "edu": "Bachelor's degree",
-    "costUS": 145000,
-    "costEU": 21000,
-    "salUS": "$47k-$140k",
-    "salEU": "38k-110k EUR",
-    "growth": "Positive 6% (2024-2034)",
-    "portability": "MEDIUM",
-    "licensing": "Varies by role",
     "subjects": {
       "Agronomy / Crop Science": {
         "growth": {

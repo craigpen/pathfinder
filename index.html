@@ -1097,10 +1097,96 @@ function getCategoryName(catKey) {
   return careers[catKey].name || '—';
 }
 
-function getCategoryField(catKey, fieldName) {
+// Aggregate career data by category and format for display
+function aggregateCategoryData(catKey, fieldName) {
   const careers = window.CAREERS;
   if (!careers || !careers[catKey]) return null;
-  return careers[catKey][fieldName] ?? null;
+
+  const subjects = careers[catKey].subjects || {};
+  const careerList = Object.values(subjects);
+
+  if (careerList.length === 0) return null;
+
+  if (fieldName === 'education') {
+    const educations = careerList.map(c => c.education).filter(e => e);
+    if (educations.length === 0) return null;
+    // Return first education as representative (or could merge all)
+    return formatEducationSummary(educations[0]);
+  }
+
+  if (fieldName === 'costUS_min' || fieldName === 'costUS_max') {
+    const costs = careerList.map(c => c.costUS_min).filter(v => v !== null && v !== undefined);
+    if (costs.length === 0) return null;
+    const min = Math.min(...careerList.map(c => c.costUS_min).filter(v => v !== null));
+    const max = Math.max(...careerList.map(c => c.costUS_max).filter(v => v !== null));
+    return { min, max, display: formatMoneyRange(min, max) };
+  }
+
+  if (fieldName === 'costEU_min' || fieldName === 'costEU_max') {
+    const costs = careerList.map(c => c.costEU_min).filter(v => v !== null && v !== undefined);
+    if (costs.length === 0) return null;
+    const min = Math.min(...careerList.map(c => c.costEU_min).filter(v => v !== null));
+    const max = Math.max(...careerList.map(c => c.costEU_max).filter(v => v !== null));
+    return { min, max, display: formatMoneyRange(min, max) };
+  }
+
+  if (fieldName === 'salaryUS_min' || fieldName === 'salaryUS_max') {
+    const salaries = careerList.map(c => c.salaryUS_min).filter(v => v !== null && v !== undefined);
+    if (salaries.length === 0) return null;
+    const min = Math.min(...careerList.map(c => c.salaryUS_min).filter(v => v !== null));
+    const max = Math.max(...careerList.map(c => c.salaryUS_max).filter(v => v !== null));
+    return { min, max, display: formatMoneyRange(min, max) };
+  }
+
+  if (fieldName === 'salaryEU_min' || fieldName === 'salaryEU_max') {
+    const salaries = careerList.map(c => c.salaryEU_min).filter(v => v !== null && v !== undefined);
+    if (salaries.length === 0) return null;
+    const min = Math.min(...careerList.map(c => c.salaryEU_min).filter(v => v !== null));
+    const max = Math.max(...careerList.map(c => c.salaryEU_max).filter(v => v !== null));
+    return { min, max, display: formatMoneyRange(min, max) };
+  }
+
+  if (fieldName === 'growth') {
+    const growths = careerList.map(c => c.growth).filter(g => g);
+    if (growths.length === 0) return null;
+    // Aggregate by finding most common magnitude
+    const mags = {};
+    growths.forEach(g => {
+      const mag = g.magnitude || 'moderate';
+      mags[mag] = (mags[mag] || 0) + 1;
+    });
+    const mostCommon = Object.keys(mags).reduce((a, b) => mags[a] > mags[b] ? a : b);
+    const avgPct = Math.round(growths.reduce((sum, g) => sum + (g.pct || 0), 0) / growths.length);
+    return formatGrowth({ magnitude: mostCommon, pct: avgPct });
+  }
+
+  if (fieldName === 'portability') {
+    const portabilities = careerList.map(c => c.portability).filter(p => p);
+    if (portabilities.length === 0) return null;
+    // Count levels and return most common
+    const levels = {};
+    portabilities.forEach(p => {
+      const level = p.level || 'MEDIUM';
+      levels[level] = (levels[level] || 0) + 1;
+    });
+    const mostCommon = Object.keys(levels).reduce((a, b) => levels[a] > levels[b] ? a : b);
+    return formatPortability({ level: mostCommon });
+  }
+
+  if (fieldName === 'licensing') {
+    const licensings = careerList.map(c => c.licensing).filter(l => l);
+    if (licensings.length === 0) return null;
+    // Count statuses and return most common
+    const statuses = {};
+    licensings.forEach(l => {
+      const status = l.status || 'not_available';
+      statuses[status] = (statuses[status] || 0) + 1;
+    });
+    const mostCommon = Object.keys(statuses).reduce((a, b) => statuses[a] > statuses[b] ? a : b);
+    return formatLicensing({ status: mostCommon });
+  }
+
+  return null;
 }
 
 // Display formatters for normalized schema
@@ -1814,12 +1900,12 @@ function renderCatTable(){
     Object.keys(subs).forEach(f=>{const d=getDemandForCareer(f); if(d&&typeof d.pct==='number') vals.push(d.pct)});
     if(!vals.length) return null;
     const avg=vals.reduce((a,b)=>a+b,0)/vals.length;
-    return {pct:avg};
+    return {pct:Math.round(avg)};
   }
-  const attrs=[['Education','edu'],['Market Demand','demand'],['Cost (US)','costUS'],['Cost (EU)','costEU'],['Salary (US)','salUS'],['Salary (EU)','salEU'],['Growth','growth'],['Portability','portability'],['Licensing','licensing']];
-  const rows=attrs.map(([l,a])=>[l,(k)=>{let v='—';if(a==='demand'){let d=getDemandForCat(k);if(!d)d=derive(k);v=demandCell(d);}else{v=getCategoryField(k, a)??'—';}if(a==='portable'&&typeof v==='string'&&v.startsWith('HIGH')){return {content:v,className:'win'}}return v;}]);
+  const attrs=[['Education','education'],['Market Demand','demand'],['Cost (US)','costUS_min'],['Cost (EU)','costEU_min'],['Salary (US)','salaryUS_min'],['Salary (EU)','salaryEU_min'],['Growth','growth'],['Portability','portability'],['Licensing','licensing']];
+  const rows=attrs.map(([l,a])=>[l,(k)=>{let v='—';if(a==='demand'){let d=getDemandForCat(k);if(!d)d=derive(k);v=demandCell(d);}else{const agg=aggregateCategoryData(k, a);v=agg&&agg.display?agg.display:agg??'—';}if(a==='portability'&&typeof v==='string'&&v.toUpperCase().startsWith('HIGH')){return {content:v,className:'win'}}return v;}]);
   const t=buildTableHTML(rows,sel,(k)=>getCategoryName(k),'cat-table');
-  const carouselRows=attrs.map(([l,a])=>[l,(k)=>{let v='—';if(a==='demand'){let d=getDemandForCat(k);if(!d)d=derive(k);v=demandCell(d);}else{v=getCategoryField(k, a)??'—';}const cls=a==='portable'&&typeof v==='string'&&v.startsWith('HIGH')?' style="background:rgba(22,163,74,.08);font-weight:600"':'';return `<div${cls}>${v}</div>`;}]);
+  const carouselRows=attrs.map(([l,a])=>[l,(k)=>{let v='—';if(a==='demand'){let d=getDemandForCat(k);if(!d)d=derive(k);v=demandCell(d);}else{const agg=aggregateCategoryData(k, a);v=agg&&agg.display?agg.display:agg??'—';}const cls=a==='portability'&&typeof v==='string'&&v.toUpperCase().startsWith('HIGH')?' style="background:rgba(22,163,74,.08);font-weight:600"':'';return `<div${cls}>${v}</div>`;}]);
   const carousel=buildCarouselHTML(carouselRows,sel,(k)=>getCategoryName(k),'cat-carousel');
   el.innerHTML=t+carousel;
   setTimeout(()=>initCarousel('cat-carousel'),50);
