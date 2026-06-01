@@ -2,23 +2,44 @@
   "tech": {
     "name": "Tech / Engineering",
     "edu": "Bachelor's (4 yr) or Master's",
-    "costUS": "$80k\u2013$200k",
-    "costEU": "$0\u2013$15k",
-    "salUS": "$75k\u2013$150k",
-    "salEU": "$40k\u2013$70k",
+    "costUS": "$80k–$200k",
+    "costEU": "$0–$15k",
+    "salUS": "$75k–$150k",
+    "salEU": "$40k–$70k",
     "growth": "Very high",
-    "portability": "HIGH \u2013 skills transfer globally",
+    "portability": "HIGH – skills transfer globally",
     "licensing": "Rarely licensed",
     "subjects": {
       "Software Engineering": {
-        "growth": "Very high",
-        "education": "Bachelor's (4 yr)",
-        "costUS": 150000,
-        "costEU": 8000,
-        "salaryUS": "$85k\u2013$140k",
-        "salaryEU": "$40k\u2013$70k",
-        "portability": "HIGH",
-        "licensing": "No",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "very_high",
+          "pct": 18
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "IEEE",
@@ -34,19 +55,47 @@
         "demand": {
           "label": "Very high",
           "pct": 15.8,
-          "period": "2023\u20132033",
           "src": "https://wagedex.com/outlook/software-developers"
-        }
+        },
+        "salaryUS_min": 85000,
+        "salaryUS_max": 140000,
+        "salaryEU_min": 40000,
+        "salaryEU_max": 70000,
+        "costUS_min": 150000,
+        "costUS_max": 150000,
+        "costEU_min": 8000,
+        "costEU_max": 8000
       },
       "Computer Science": {
-        "growth": "Very high",
-        "education": "Bachelor's (4 yr)",
-        "costUS": 150000,
-        "costEU": 8000,
-        "salaryUS": "$80k\u2013$130k",
-        "salaryEU": "$37k\u2013$64k",
-        "portability": "HIGH",
-        "licensing": "No",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "very_high",
+          "pct": 18
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "ACM",
@@ -58,19 +107,59 @@
         "demand": {
           "label": "Very high",
           "pct": 15.8,
-          "period": "2023\u20132033",
           "src": "https://wagedex.com/outlook/software-developers"
-        }
+        },
+        "salaryUS_min": 80000,
+        "salaryUS_max": 130000,
+        "salaryEU_min": 37000,
+        "salaryEU_max": 64000,
+        "costUS_min": 150000,
+        "costUS_max": 150000,
+        "costEU_min": 8000,
+        "costEU_max": 8000
       },
       "Electrical Engineering": {
-        "growth": "High",
-        "education": "Bachelor's or Master's",
-        "costUS": 160000,
-        "costEU": 10000,
-        "salaryUS": "$75k\u2013$115k",
-        "salaryEU": "$40k\u2013$64k",
-        "portability": "HIGH",
-        "licensing": "PE optional, transfers w/ exam",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "high",
+          "pct": 11
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "graduate",
+              "names": [
+                "Master"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 2,
+              "eu_years": 2,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, Master required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "optional",
+          "type": [
+            "PE"
+          ],
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "IEEE",
@@ -80,19 +169,59 @@
         "demand": {
           "label": "High",
           "pct": 7,
-          "period": "2024\u201334",
           "src": "https://www.bls.gov/ooh/architecture-and-engineering/electrical-and-electronics-engineers.htm"
-        }
+        },
+        "salaryUS_min": 75000,
+        "salaryUS_max": 115000,
+        "salaryEU_min": 40000,
+        "salaryEU_max": 64000,
+        "costUS_min": 160000,
+        "costUS_max": 160000,
+        "costEU_min": 10000,
+        "costEU_max": 10000
       },
       "Mechanical Engineering": {
-        "growth": "Moderate",
-        "education": "Bachelor's or Master's",
-        "costUS": 160000,
-        "costEU": 10000,
-        "salaryUS": "$70k\u2013$110k",
-        "salaryEU": "$38k\u2013$60k",
-        "portability": "HIGH",
-        "licensing": "PE optional",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 6
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "graduate",
+              "names": [
+                "Master"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 2,
+              "eu_years": 2,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, Master required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "optional",
+          "type": [
+            "PE"
+          ],
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "ASME",
@@ -102,19 +231,57 @@
         "demand": {
           "label": "High",
           "pct": 9,
-          "period": "2024\u201334",
           "src": "https://www.bls.gov/ooh/architecture-and-engineering/mechanical-engineers.htm"
-        }
+        },
+        "salaryUS_min": 70000,
+        "salaryUS_max": 110000,
+        "salaryEU_min": 38000,
+        "salaryEU_max": 60000,
+        "costUS_min": 160000,
+        "costUS_max": 160000,
+        "costEU_min": 10000,
+        "costEU_max": 10000
       },
       "Data Science / AI": {
-        "growth": "Very high",
-        "education": "Bachelor's + Master's typical",
-        "costUS": 190000,
-        "costEU": 12000,
-        "salaryUS": "$95k\u2013$160k",
-        "salaryEU": "$46k\u2013$81k",
-        "portability": "HIGH",
-        "licensing": "No",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "very_high",
+          "pct": 18
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "graduate",
+              "names": [
+                "Master"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 2,
+              "eu_years": 2,
+              "norm": "typical"
+            }
+          ],
+          "requirement_summary": "Bachelor required, Master typical"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "Kaggle",
@@ -126,57 +293,159 @@
         "demand": {
           "label": "Very high",
           "pct": 33.5,
-          "period": "2023\u20132033",
           "src": "https://wagedex.com/outlook/data-scientists"
-        }
+        },
+        "salaryUS_min": 95000,
+        "salaryUS_max": 160000,
+        "salaryEU_min": 46000,
+        "salaryEU_max": 81000,
+        "costUS_min": 190000,
+        "costUS_max": 190000,
+        "costEU_min": 12000,
+        "costEU_max": 12000
       },
       "Cybersecurity": {
-        "growth": "Very high",
-        "education": "Bachelor's (4 yr)",
-        "costUS": 150000,
-        "costEU": 8000,
-        "salaryUS": "$80k\u2013$130k",
-        "salaryEU": "$40k\u2013$70k",
-        "portability": "HIGH \u2013 certs are global",
-        "licensing": "Certs (CISCP etc) global",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "very_high",
+          "pct": 18
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": "certs are global"
+        },
+        "licensing": {
+          "status": "required",
+          "type": null,
+          "scope": "global",
+          "qualifier": "CISCP etc"
+        },
         "resources": [
           {
-            "title": "(ISC)\u00c2\u00b2",
+            "title": "(ISC)Â²",
             "url": "https://www.isc2.org/"
           }
         ],
         "demand": {
           "label": "Very high",
           "pct": 28.5,
-          "period": "2023\u20132033",
           "src": "https://wagedex.com/outlook/information-security-analysts"
-        }
+        },
+        "salaryUS_min": 80000,
+        "salaryUS_max": 130000,
+        "salaryEU_min": 40000,
+        "salaryEU_max": 70000,
+        "costUS_min": 150000,
+        "costUS_max": 150000,
+        "costEU_min": 8000,
+        "costEU_max": 8000
       },
       "Engineering": {
-        "growth": "High",
-        "education": "Bachelor's or Master's",
-        "costUS": 160000,
-        "costEU": 10000,
-        "salaryUS": "$70k\u2013$120k",
-        "salaryEU": "$40k\u2013$65k",
-        "portability": "HIGH",
-        "licensing": "PE optional, varies by specialty",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "high",
+          "pct": 11
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "graduate",
+              "names": [
+                "Master"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 2,
+              "eu_years": 2,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, Master required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "optional",
+          "type": [
+            "PE"
+          ],
+          "scope": "country_specific",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "IEEE",
             "url": "https://www.ieee.org/"
           }
-        ]
+        ],
+        "demand": {
+          "label": "High",
+          "pct": 8,
+          "src": "https://www.bls.gov/ooh/architecture-and-engineering/"
+        },
+        "salaryUS_min": 70000,
+        "salaryUS_max": 120000,
+        "salaryEU_min": 40000,
+        "salaryEU_max": 65000,
+        "costUS_min": 160000,
+        "costUS_max": 160000,
+        "costEU_min": 10000,
+        "costEU_max": 10000
       },
       "Game Development": {
-        "growth": "Strong 15% (2024-2034)",
-        "education": "Bachelor's CS/Game Dev",
-        "costUS": 160000,
-        "costEU": 24000,
-        "salaryUS": "$80k-$211k",
-        "salaryEU": "$72k-$198k",
-        "portability": "HIGH",
-        "licensing": "Not required",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "very_high",
+          "pct": 15
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "BLS",
@@ -192,32 +461,62 @@
         "demand": {
           "label": "129,200/year",
           "pct": 15,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/"
-        }
+        },
+        "salaryUS_min": 80000,
+        "salaryUS_max": 211000,
+        "salaryEU_min": 72000,
+        "salaryEU_max": 198000,
+        "costUS_min": 160000,
+        "costUS_max": 160000,
+        "costEU_min": 24000,
+        "costEU_max": 24000
       }
     }
   },
   "business": {
     "name": "Business / Finance",
     "edu": "Bachelor's (4 yr); MBA optional",
-    "costUS": "$80k\u2013$250k",
-    "costEU": "$0\u2013$20k",
-    "salUS": "$55k\u2013$120k",
-    "salEU": "$35k\u2013$64k",
+    "costUS": "$80k–$250k",
+    "costEU": "$0–$20k",
+    "salUS": "$55k–$120k",
+    "salEU": "$35k–$64k",
     "growth": "High",
-    "portability": "HIGH \u2013 global career",
+    "portability": "HIGH – global career",
     "licensing": "CPA/CFA optional",
     "subjects": {
       "Finance / Banking": {
-        "growth": "High",
-        "education": "Bachelor's; MBA optional",
-        "costUS": 180000,
-        "costEU": 12000,
-        "salaryUS": "$70k\u2013$120k",
-        "salaryEU": "$35k\u2013$64k",
-        "portability": "HIGH \u2013 CFA global",
-        "licensing": "CFA optional, global",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "high",
+          "pct": 11
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "optional"
+            }
+          ],
+          "requirement_summary": "Bachelor optional"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": "CFA global"
+        },
+        "licensing": {
+          "status": "optional",
+          "type": [
+            "CFA"
+          ],
+          "scope": "global",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "CFA Institute",
@@ -227,19 +526,49 @@
         "demand": {
           "label": "Moderate",
           "pct": 6,
-          "period": "2024\u201334",
           "src": "https://www.bls.gov/ooh/business-and-financial/financial-analysts.htm"
-        }
+        },
+        "salaryUS_min": 70000,
+        "salaryUS_max": 120000,
+        "salaryEU_min": 35000,
+        "salaryEU_max": 64000,
+        "costUS_min": 180000,
+        "costUS_max": 180000,
+        "costEU_min": 12000,
+        "costEU_max": 12000
       },
       "Accounting": {
-        "growth": "Moderate",
-        "education": "Bachelor's + CPA",
-        "costUS": 150000,
-        "costEU": 8000,
-        "salaryUS": "$55k\u2013$85k",
-        "salaryEU": "$32k\u2013$52k",
-        "portability": "MEDIUM \u2013 CPA US-specific",
-        "licensing": "CPA (US), ACCA (intl)",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 6
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "MEDIUM",
+          "qualifier": "CPA US-specific"
+        },
+        "licensing": {
+          "status": "required",
+          "type": [
+            "CPA"
+          ],
+          "scope": "us",
+          "qualifier": "US"
+        },
         "resources": [
           {
             "title": "AICPA",
@@ -249,19 +578,47 @@
         "demand": {
           "label": "Moderate",
           "pct": 4.6,
-          "period": "2023\u20132033",
           "src": "https://wagedex.com/outlook/accountants-and-auditors"
-        }
+        },
+        "salaryUS_min": 55000,
+        "salaryUS_max": 85000,
+        "salaryEU_min": 32000,
+        "salaryEU_max": 52000,
+        "costUS_min": 150000,
+        "costUS_max": 150000,
+        "costEU_min": 8000,
+        "costEU_max": 8000
       },
       "Marketing / Management": {
-        "growth": "Moderate",
-        "education": "Bachelor's (4 yr)",
-        "costUS": 140000,
-        "costEU": 8000,
-        "salaryUS": "$50k\u2013$80k",
-        "salaryEU": "$32k\u2013$52k",
-        "portability": "HIGH",
-        "licensing": "No",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 6
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "AMA",
@@ -271,19 +628,57 @@
         "demand": {
           "label": "High",
           "pct": 7,
-          "period": "2024\u201334",
           "src": "https://www.bls.gov/ooh/business-and-financial/market-research-analysts.htm"
-        }
+        },
+        "salaryUS_min": 50000,
+        "salaryUS_max": 80000,
+        "salaryEU_min": 32000,
+        "salaryEU_max": 52000,
+        "costUS_min": 140000,
+        "costUS_max": 140000,
+        "costEU_min": 8000,
+        "costEU_max": 8000
       },
       "Economics": {
-        "growth": "Moderate",
-        "education": "Bachelor's; PhD for research",
-        "costUS": 150000,
-        "costEU": 8000,
-        "salaryUS": "$60k\u2013$100k",
-        "salaryEU": "$35k\u2013$58k",
-        "portability": "HIGH",
-        "licensing": "No",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 6
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "doctoral",
+              "names": [
+                "PhD"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 5,
+              "eu_years": 4,
+              "norm": "optional"
+            }
+          ],
+          "requirement_summary": "Bachelor required, PhD optional"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "AEA",
@@ -293,35 +688,97 @@
         "demand": {
           "label": "Low",
           "pct": 1,
-          "period": "2024\u201334",
           "src": "https://www.bls.gov/ooh/life-physical-and-social-science/economists.htm"
-        }
+        },
+        "salaryUS_min": 60000,
+        "salaryUS_max": 100000,
+        "salaryEU_min": 35000,
+        "salaryEU_max": 58000,
+        "costUS_min": 150000,
+        "costUS_max": 150000,
+        "costEU_min": 8000,
+        "costEU_max": 8000
       },
       "Entrepreneurship": {
-        "growth": "High",
-        "education": "Bachelor's; experience > degree",
-        "costUS": 150000,
-        "costEU": 8000,
-        "salaryUS": "Variable",
-        "salaryEU": "Variable",
-        "portability": "HIGH",
-        "licensing": "No",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "high",
+          "pct": 11
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "YC Library",
             "url": "https://www.ycombinator.com/library"
           }
-        ]
+        ],
+        "demand": {
+          "label": "Moderate",
+          "pct": 4,
+          "src": "https://www.bls.gov/bdm/entrepreneurship/bdm_chart3.htm"
+        },
+        "salaryUS_min": null,
+        "salaryUS_max": null,
+        "salaryEU_min": null,
+        "salaryEU_max": null,
+        "costUS_min": 150000,
+        "costUS_max": 150000,
+        "costEU_min": 8000,
+        "costEU_max": 8000
       },
       "Human Resources": {
-        "growth": "Positive 5%",
-        "education": "Bachelor's",
-        "costUS": 140000,
-        "costEU": 20000,
-        "salaryUS": "$84k-$239k",
-        "salaryEU": "$75k-$220k",
-        "portability": "HIGH",
-        "licensing": "Not required",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 5
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "BLS",
@@ -333,19 +790,47 @@
         "demand": {
           "label": "17,900/year",
           "pct": 5,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/"
-        }
+        },
+        "salaryUS_min": 84000,
+        "salaryUS_max": 239000,
+        "salaryEU_min": 75000,
+        "salaryEU_max": 220000,
+        "costUS_min": 140000,
+        "costUS_max": 140000,
+        "costEU_min": 20000,
+        "costEU_max": 20000
       },
       "Operations / Supply Chain": {
-        "growth": "Positive 5%",
-        "education": "Bachelor's",
-        "costUS": 135000,
-        "costEU": 19000,
-        "salaryUS": "$65k-$140k",
-        "salaryEU": "$58k-$127k",
-        "portability": "MEDIUM",
-        "licensing": "Not required",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 5
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "MEDIUM",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "ASCM",
@@ -357,19 +842,47 @@
         "demand": {
           "label": "35,000/year",
           "pct": 5,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/"
-        }
+        },
+        "salaryUS_min": 65000,
+        "salaryUS_max": 140000,
+        "salaryEU_min": 58000,
+        "salaryEU_max": 127000,
+        "costUS_min": 135000,
+        "costUS_max": 135000,
+        "costEU_min": 19000,
+        "costEU_max": 19000
       },
       "Management Consulting": {
-        "growth": "Strong 9%",
-        "education": "Bachelor's; MBA typical",
-        "costUS": 160000,
-        "costEU": 25000,
-        "salaryUS": "$60k-$174k",
-        "salaryEU": "$54k-$160k",
-        "portability": "HIGH",
-        "licensing": "Not required",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "high",
+          "pct": 9
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "BLS",
@@ -381,19 +894,47 @@
         "demand": {
           "label": "98,100/year",
           "pct": 9,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/"
-        }
+        },
+        "salaryUS_min": 60000,
+        "salaryUS_max": 174000,
+        "salaryEU_min": 54000,
+        "salaryEU_max": 160000,
+        "costUS_min": 160000,
+        "costUS_max": 160000,
+        "costEU_min": 25000,
+        "costEU_max": 25000
       },
       "Real Estate / Property Management": {
-        "growth": "Modest 2%",
-        "education": "Bachelor's; License required",
-        "costUS": 130000,
-        "costEU": 18000,
-        "salaryUS": "$50k-$120k",
-        "salaryEU": "$44k-$110k",
-        "portability": "LOW",
-        "licensing": "Required",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "low",
+          "pct": 2
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "LOW",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "required",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "NAR",
@@ -405,19 +946,47 @@
         "demand": {
           "label": "20,000/year",
           "pct": 2,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/"
-        }
+        },
+        "salaryUS_min": 50000,
+        "salaryUS_max": 120000,
+        "salaryEU_min": 44000,
+        "salaryEU_max": 110000,
+        "costUS_min": 130000,
+        "costUS_max": 130000,
+        "costEU_min": 18000,
+        "costEU_max": 18000
       },
       "Hospitality / Hotel Management": {
-        "growth": "Strong 8%",
-        "education": "Bachelor's",
-        "costUS": 130000,
-        "costEU": 18000,
-        "salaryUS": "$46k-$100k",
-        "salaryEU": "$41k-$90k",
-        "portability": "HIGH",
-        "licensing": "Not required",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "high",
+          "pct": 8
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "AHLA",
@@ -429,19 +998,47 @@
         "demand": {
           "label": "75,000/year",
           "pct": 8,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/"
-        }
+        },
+        "salaryUS_min": 46000,
+        "salaryUS_max": 100000,
+        "salaryEU_min": 41000,
+        "salaryEU_max": 90000,
+        "costUS_min": 130000,
+        "costUS_max": 130000,
+        "costEU_min": 18000,
+        "costEU_max": 18000
       },
       "Actuarial Science": {
-        "growth": "Strong 9%",
-        "education": "Bachelor's Math/Stats",
-        "costUS": 150000,
-        "costEU": 22000,
-        "salaryUS": "$80k-$190k",
-        "salaryEU": "$72k-$176k",
-        "portability": "HIGH",
-        "licensing": "Required (exams)",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "high",
+          "pct": 9
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "required",
+          "type": null,
+          "scope": "us",
+          "qualifier": "exams"
+        },
         "resources": [
           {
             "title": "SOA",
@@ -453,32 +1050,70 @@
         "demand": {
           "label": "3,500/year",
           "pct": 9,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/"
-        }
+        },
+        "salaryUS_min": 80000,
+        "salaryUS_max": 190000,
+        "salaryEU_min": 72000,
+        "salaryEU_max": 176000,
+        "costUS_min": 150000,
+        "costUS_max": 150000,
+        "costEU_min": 22000,
+        "costEU_max": 22000
       }
     }
   },
   "science": {
     "name": "Science / Research",
     "edu": "Bachelor's + Master's/PhD typical",
-    "costUS": "$100k\u2013$200k (PhD funded)",
-    "costEU": "$0\u2013$15k (PhD funded)",
-    "salUS": "$45k\u2013$100k",
-    "salEU": "$35k\u2013$64k",
-    "growth": "Moderate\u2013High",
-    "portability": "HIGH \u2013 research is international",
+    "costUS": "$100k–$200k (PhD funded)",
+    "costEU": "$0–$15k (PhD funded)",
+    "salUS": "$45k–$100k",
+    "salEU": "$35k–$64k",
+    "growth": "Moderate–High",
+    "portability": "HIGH – research is international",
     "licensing": "Rarely",
     "subjects": {
       "Biology / Biotech": {
-        "growth": "High",
-        "education": "Bachelor's + PhD",
-        "costUS": 150000,
-        "costEU": 8000,
-        "salaryUS": "$45k\u2013$90k",
-        "salaryEU": "$35k\u2013$58k",
-        "portability": "HIGH",
-        "licensing": "Rarely",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "high",
+          "pct": 11
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "doctoral",
+              "names": [
+                "PhD"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 5,
+              "eu_years": 4,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, PhD required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "optional",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "Nature Careers",
@@ -490,19 +1125,57 @@
         "demand": {
           "label": "Moderate",
           "pct": 6,
-          "period": "2024\u201334",
           "src": "https://www.bls.gov/ooh/life-physical-and-social-science/biochemists-and-biophysicists.htm"
-        }
+        },
+        "salaryUS_min": 45000,
+        "salaryUS_max": 90000,
+        "salaryEU_min": 35000,
+        "salaryEU_max": 58000,
+        "costUS_min": 150000,
+        "costUS_max": 150000,
+        "costEU_min": 8000,
+        "costEU_max": 8000
       },
       "Chemistry": {
-        "growth": "Moderate",
-        "education": "Bachelor's + PhD",
-        "costUS": 150000,
-        "costEU": 8000,
-        "salaryUS": "$50k\u2013$95k",
-        "salaryEU": "$35k\u2013$58k",
-        "portability": "HIGH",
-        "licensing": "Rarely",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 6
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "doctoral",
+              "names": [
+                "PhD"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 5,
+              "eu_years": 4,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, PhD required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "optional",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "ACS",
@@ -514,19 +1187,57 @@
         "demand": {
           "label": "Moderate",
           "pct": 5,
-          "period": "2024\u201334",
           "src": "https://www.bls.gov/ooh/life-physical-and-social-science/chemists-and-materials-scientists.htm"
-        }
+        },
+        "salaryUS_min": 50000,
+        "salaryUS_max": 95000,
+        "salaryEU_min": 35000,
+        "salaryEU_max": 58000,
+        "costUS_min": 150000,
+        "costUS_max": 150000,
+        "costEU_min": 8000,
+        "costEU_max": 8000
       },
       "Physics": {
-        "growth": "Moderate",
-        "education": "Bachelor's + PhD",
-        "costUS": 150000,
-        "costEU": 8000,
-        "salaryUS": "$55k\u2013$100k",
-        "salaryEU": "$37k\u2013$64k",
-        "portability": "HIGH",
-        "licensing": "No",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 6
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "doctoral",
+              "names": [
+                "PhD"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 5,
+              "eu_years": 4,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, PhD required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "APS",
@@ -538,19 +1249,57 @@
         "demand": {
           "label": "Moderate",
           "pct": 4,
-          "period": "2024\u201334",
           "src": "https://www.bls.gov/ooh/life-physical-and-social-science/physicists-and-astronomers.htm"
-        }
+        },
+        "salaryUS_min": 55000,
+        "salaryUS_max": 100000,
+        "salaryEU_min": 37000,
+        "salaryEU_max": 64000,
+        "costUS_min": 150000,
+        "costUS_max": 150000,
+        "costEU_min": 8000,
+        "costEU_max": 8000
       },
       "Environmental / Climate": {
-        "growth": "Very high",
-        "education": "Bachelor's or Master's",
-        "costUS": 150000,
-        "costEU": 8000,
-        "salaryUS": "$50k\u2013$85k",
-        "salaryEU": "$32k\u2013$56k",
-        "portability": "HIGH",
-        "licensing": "Rarely",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "very_high",
+          "pct": 18
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "graduate",
+              "names": [
+                "Master"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 2,
+              "eu_years": 2,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, Master required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "optional",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "EPA Careers",
@@ -560,19 +1309,57 @@
         "demand": {
           "label": "Moderate",
           "pct": 4,
-          "period": "2024\u201334",
           "src": "https://www.bls.gov/ooh/life-physical-and-social-science/environmental-scientists-and-specialists.htm"
-        }
+        },
+        "salaryUS_min": 50000,
+        "salaryUS_max": 85000,
+        "salaryEU_min": 32000,
+        "salaryEU_max": 56000,
+        "costUS_min": 150000,
+        "costUS_max": 150000,
+        "costEU_min": 8000,
+        "costEU_max": 8000
       },
       "Math / Statistics": {
-        "growth": "High",
-        "education": "Bachelor's; PhD for research",
-        "costUS": 150000,
-        "costEU": 8000,
-        "salaryUS": "$65k\u2013$110k",
-        "salaryEU": "$35k\u2013$64k",
-        "portability": "HIGH",
-        "licensing": "No",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "high",
+          "pct": 11
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "doctoral",
+              "names": [
+                "PhD"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 5,
+              "eu_years": 4,
+              "norm": "optional"
+            }
+          ],
+          "requirement_summary": "Bachelor required, PhD optional"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "AMS",
@@ -584,19 +1371,57 @@
         "demand": {
           "label": "High",
           "pct": 8,
-          "period": "2024\u201334",
           "src": "https://www.bls.gov/ooh/math/mathematicians-and-statisticians.htm"
-        }
+        },
+        "salaryUS_min": 65000,
+        "salaryUS_max": 110000,
+        "salaryEU_min": 35000,
+        "salaryEU_max": 64000,
+        "costUS_min": 150000,
+        "costUS_max": 150000,
+        "costEU_min": 8000,
+        "costEU_max": 8000
       },
       "Zoology": {
-        "growth": "Moderate",
-        "education": "Bachelor's + PhD typical",
-        "costUS": 150000,
-        "costEU": 8000,
-        "salaryUS": "$45k\u2013$85k",
-        "salaryEU": "$32k\u2013$58k",
-        "portability": "HIGH",
-        "licensing": "Rarely",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 6
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "doctoral",
+              "names": [
+                "PhD"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 5,
+              "eu_years": 4,
+              "norm": "typical"
+            }
+          ],
+          "requirement_summary": "Bachelor required, PhD typical"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "optional",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "Wildlife Society",
@@ -608,17 +1433,61 @@
           }
         ],
         "postGraduateFunded": true,
-        "typicalPostGraduateYears": 4
+        "typicalPostGraduateYears": 4,
+        "demand": {
+          "label": "Modest",
+          "pct": 2,
+          "src": "https://www.bls.gov/ooh/life-physical-and-social-science/zoologists-and-wildlife-biologists.htm"
+        },
+        "salaryUS_min": 45000,
+        "salaryUS_max": 85000,
+        "salaryEU_min": 32000,
+        "salaryEU_max": 58000,
+        "costUS_min": 150000,
+        "costUS_max": 150000,
+        "costEU_min": 8000,
+        "costEU_max": 8000
       },
       "Astronomy": {
-        "growth": "Moderate 4% (2024-2034)",
-        "education": "PhD required",
-        "costUS": 200000,
-        "costEU": 30000,
-        "salaryUS": "$71k-$192k",
-        "salaryEU": "$64k-$176k",
-        "portability": "HIGH",
-        "licensing": "Not required",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 4
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "doctoral",
+              "names": [
+                "PhD"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 5,
+              "eu_years": 4,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, PhD required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "BLS",
@@ -630,19 +1499,57 @@
         "demand": {
           "label": "1,800/year",
           "pct": 4,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/"
-        }
+        },
+        "salaryUS_min": 71000,
+        "salaryUS_max": 192000,
+        "salaryEU_min": 64000,
+        "salaryEU_max": 176000,
+        "costUS_min": 200000,
+        "costUS_max": 200000,
+        "costEU_min": 30000,
+        "costEU_max": 30000
       },
       "Microbiology": {
-        "growth": "Moderate 6%",
-        "education": "Bachelor's or Master's",
-        "costUS": 140000,
-        "costEU": 20000,
-        "salaryUS": "$47k-$140k",
-        "salaryEU": "$44k-$121k",
-        "portability": "HIGH",
-        "licensing": "Not required",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 6
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "graduate",
+              "names": [
+                "Master"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 2,
+              "eu_years": 2,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, Master required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "BLS",
@@ -654,19 +1561,57 @@
         "demand": {
           "label": "8,900/year",
           "pct": 6,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/"
-        }
+        },
+        "salaryUS_min": 47000,
+        "salaryUS_max": 140000,
+        "salaryEU_min": 44000,
+        "salaryEU_max": 121000,
+        "costUS_min": 140000,
+        "costUS_max": 140000,
+        "costEU_min": 20000,
+        "costEU_max": 20000
       },
       "Genetics / Genomics": {
-        "growth": "Strong 6%",
-        "education": "Bachelor's or Master's",
-        "costUS": 150000,
-        "costEU": 25000,
-        "salaryUS": "$55k-$150k",
-        "salaryEU": "$50k-$138k",
-        "portability": "HIGH",
-        "licensing": "Not required",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 6
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "graduate",
+              "names": [
+                "Master"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 2,
+              "eu_years": 2,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, Master required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "BLS",
@@ -678,19 +1623,57 @@
         "demand": {
           "label": "8,900/year",
           "pct": 6,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/"
-        }
+        },
+        "salaryUS_min": 55000,
+        "salaryUS_max": 150000,
+        "salaryEU_min": 50000,
+        "salaryEU_max": 138000,
+        "costUS_min": 150000,
+        "costUS_max": 150000,
+        "costEU_min": 25000,
+        "costEU_max": 25000
       },
       "Marine Biology": {
-        "growth": "Moderate 6%",
-        "education": "Bachelor's or Master's",
-        "costUS": 145000,
-        "costEU": 22000,
-        "salaryUS": "$48k-$140k",
-        "salaryEU": "$44k-$121k",
-        "portability": "HIGH",
-        "licensing": "Not required",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 6
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "graduate",
+              "names": [
+                "Master"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 2,
+              "eu_years": 2,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, Master required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "BLS",
@@ -702,19 +1685,57 @@
         "demand": {
           "label": "8,900/year",
           "pct": 6,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/"
-        }
+        },
+        "salaryUS_min": 48000,
+        "salaryUS_max": 140000,
+        "salaryEU_min": 44000,
+        "salaryEU_max": 121000,
+        "costUS_min": 145000,
+        "costUS_max": 145000,
+        "costEU_min": 22000,
+        "costEU_max": 22000
       },
       "Geology / Earth Sciences": {
-        "growth": "Moderate 4%",
-        "education": "Bachelor's or Master's",
-        "costUS": 130000,
-        "costEU": 20000,
-        "salaryUS": "$47k-$140k",
-        "salaryEU": "$42k-$121k",
-        "portability": "MEDIUM",
-        "licensing": "Not required",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 4
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "graduate",
+              "names": [
+                "Master"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 2,
+              "eu_years": 2,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, Master required"
+        },
+        "portability": {
+          "level": "MEDIUM",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "BLS",
@@ -726,19 +1747,67 @@
         "demand": {
           "label": "2,100/year",
           "pct": 4,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/"
-        }
+        },
+        "salaryUS_min": 47000,
+        "salaryUS_max": 140000,
+        "salaryEU_min": 42000,
+        "salaryEU_max": 121000,
+        "costUS_min": 130000,
+        "costUS_max": 130000,
+        "costEU_min": 20000,
+        "costEU_max": 20000
       },
       "Anthropology": {
-        "growth": "Modest 3%",
-        "education": "Master's or PhD",
-        "costUS": 160000,
-        "costEU": 25000,
-        "salaryUS": "$45k-$85k",
-        "salaryEU": "$41k-$77k",
-        "portability": "HIGH",
-        "licensing": "Not required",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "low",
+          "pct": 3
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "graduate",
+              "names": [
+                "Master"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 2,
+              "eu_years": 2,
+              "norm": "required"
+            },
+            {
+              "level": "doctoral",
+              "names": [
+                "PhD"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 5,
+              "eu_years": 4,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, Master required, PhD required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "BLS",
@@ -750,19 +1819,67 @@
         "demand": {
           "label": "500/year",
           "pct": 3,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/"
-        }
+        },
+        "salaryUS_min": 45000,
+        "salaryUS_max": 85000,
+        "salaryEU_min": 41000,
+        "salaryEU_max": 77000,
+        "costUS_min": 160000,
+        "costUS_max": 160000,
+        "costEU_min": 25000,
+        "costEU_max": 25000
       },
       "Archaeology": {
-        "growth": "Modest 3%",
-        "education": "Master's or PhD",
-        "costUS": 170000,
-        "costEU": 28000,
-        "salaryUS": "$45k-$85k",
-        "salaryEU": "$41k-$77k",
-        "portability": "HIGH",
-        "licensing": "Not required",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "low",
+          "pct": 3
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "graduate",
+              "names": [
+                "Master"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 2,
+              "eu_years": 2,
+              "norm": "required"
+            },
+            {
+              "level": "doctoral",
+              "names": [
+                "PhD"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 5,
+              "eu_years": 4,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, Master required, PhD required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "AIA",
@@ -774,19 +1891,57 @@
         "demand": {
           "label": "500/year",
           "pct": 3,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/"
-        }
+        },
+        "salaryUS_min": 45000,
+        "salaryUS_max": 85000,
+        "salaryEU_min": 41000,
+        "salaryEU_max": 77000,
+        "costUS_min": 170000,
+        "costUS_max": 170000,
+        "costEU_min": 28000,
+        "costEU_max": 28000
       },
       "Linguistics": {
-        "growth": "Modest 3%",
-        "education": "Bachelor's or Master's",
-        "costUS": 130000,
-        "costEU": 20000,
-        "salaryUS": "$45k-$90k",
-        "salaryEU": "$41k-$82k",
-        "portability": "HIGH",
-        "licensing": "Not required",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "low",
+          "pct": 3
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "graduate",
+              "names": [
+                "Master"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 2,
+              "eu_years": 2,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, Master required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "LSA",
@@ -798,32 +1953,60 @@
         "demand": {
           "label": "500/year",
           "pct": 3,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/"
-        }
+        },
+        "salaryUS_min": 45000,
+        "salaryUS_max": 90000,
+        "salaryEU_min": 41000,
+        "salaryEU_max": 82000,
+        "costUS_min": 130000,
+        "costUS_max": 130000,
+        "costEU_min": 20000,
+        "costEU_max": 20000
       }
     }
   },
   "creative": {
     "name": "Creative / Arts",
-    "edu": "Bachelor's (3\u20134 yr)",
-    "costUS": "$60k\u2013$200k",
-    "costEU": "$0\u2013$15k",
-    "salUS": "$35k\u2013$90k",
-    "salEU": "$29k\u2013$52k",
+    "edu": "Bachelor's (3–4 yr)",
+    "costUS": "$60k–$200k",
+    "costEU": "$0–$15k",
+    "salUS": "$35k–$90k",
+    "salEU": "$29k–$52k",
     "growth": "Moderate",
-    "portability": "HIGH \u2013 portfolio matters",
+    "portability": "HIGH – portfolio matters",
     "licensing": "Not licensed",
     "subjects": {
       "Graphic / UX Design": {
-        "growth": "High",
-        "education": "Bachelor's (3\u20134 yr)",
-        "costUS": 150000,
-        "costEU": 8000,
-        "salaryUS": "$50k\u2013$90k",
-        "salaryEU": "$29k\u2013$52k",
-        "portability": "HIGH \u2013 portfolio",
-        "licensing": "No",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "high",
+          "pct": 11
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": "portfolio"
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "AIGA",
@@ -833,19 +2016,47 @@
         "demand": {
           "label": "Low",
           "pct": 2,
-          "period": "2024\u201334",
           "src": "https://www.bls.gov/ooh/arts-and-design/graphic-designers.htm"
-        }
+        },
+        "salaryUS_min": 50000,
+        "salaryUS_max": 90000,
+        "salaryEU_min": 29000,
+        "salaryEU_max": 52000,
+        "costUS_min": 150000,
+        "costUS_max": 150000,
+        "costEU_min": 8000,
+        "costEU_max": 8000
       },
       "Film / Media Production": {
-        "growth": "Moderate",
-        "education": "Bachelor's (3\u20134 yr)",
-        "costUS": 180000,
-        "costEU": 12000,
-        "salaryUS": "$40k\u2013$80k",
-        "salaryEU": "$26k\u2013$46k",
-        "portability": "HIGH",
-        "licensing": "No",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 6
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "Sundance",
@@ -855,19 +2066,47 @@
         "demand": {
           "label": "Moderate",
           "pct": 5,
-          "period": "2024\u201334",
           "src": "https://www.bls.gov/ooh/entertainment-and-sports/producers-and-directors.htm"
-        }
+        },
+        "salaryUS_min": 40000,
+        "salaryUS_max": 80000,
+        "salaryEU_min": 26000,
+        "salaryEU_max": 46000,
+        "costUS_min": 180000,
+        "costUS_max": 180000,
+        "costEU_min": 12000,
+        "costEU_max": 12000
       },
       "Theater & Performing Arts": {
-        "growth": "Moderate",
-        "education": "Bachelor's (3\u20134 yr)",
-        "costUS": 150000,
-        "costEU": 8000,
-        "salaryUS": "$35k\u2013$75k",
-        "salaryEU": "$26k\u2013$50k",
-        "portability": "HIGH",
-        "licensing": "No",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 6
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "TCG",
@@ -877,19 +2116,47 @@
         "demand": {
           "label": "Flat",
           "pct": 0,
-          "period": "2024\u201334",
           "src": "https://www.bls.gov/ooh/entertainment-and-sports/actors.htm"
-        }
+        },
+        "salaryUS_min": 35000,
+        "salaryUS_max": 75000,
+        "salaryEU_min": 26000,
+        "salaryEU_max": 50000,
+        "costUS_min": 150000,
+        "costUS_max": 150000,
+        "costEU_min": 8000,
+        "costEU_max": 8000
       },
       "Technical Theater / Live Events": {
-        "growth": "Moderate",
-        "education": "Bachelor's (3\u20134 yr)",
-        "costUS": 140000,
-        "costEU": 7000,
-        "salaryUS": "$40k\u2013$70k",
-        "salaryEU": "$26k\u2013$48k",
-        "portability": "HIGH",
-        "licensing": "No",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 6
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "USITT",
@@ -899,19 +2166,57 @@
         "demand": {
           "label": "Moderate",
           "pct": 3,
-          "period": "2024\u201334",
           "src": "https://www.onetonline.org/link/localtrends/27-4011.00"
-        }
+        },
+        "salaryUS_min": 40000,
+        "salaryUS_max": 70000,
+        "salaryEU_min": 26000,
+        "salaryEU_max": 48000,
+        "costUS_min": 140000,
+        "costUS_max": 140000,
+        "costEU_min": 7000,
+        "costEU_max": 7000
       },
       "Architecture": {
-        "growth": "Moderate",
-        "education": "Bachelor's + Master's (5\u20136 yr)",
-        "costUS": 250000,
-        "costEU": 15000,
-        "salaryUS": "$55k\u2013$85k",
-        "salaryEU": "$32k\u2013$52k",
-        "portability": "MEDIUM \u2013 licensing varies",
-        "licensing": "Licensed (varies by country)",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 6
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "graduate",
+              "names": [
+                "Master"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 2,
+              "eu_years": 2,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, Master required"
+        },
+        "portability": {
+          "level": "MEDIUM",
+          "qualifier": "licensing varies"
+        },
+        "licensing": {
+          "status": "required",
+          "type": null,
+          "scope": "country_specific",
+          "qualifier": "varies by country"
+        },
         "resources": [
           {
             "title": "NCARB",
@@ -923,19 +2228,47 @@
         "demand": {
           "label": "Moderate",
           "pct": 3.9,
-          "period": "2023\u20132033",
           "src": "https://wagedex.com/outlook/architects-except-landscape-and-naval"
-        }
+        },
+        "salaryUS_min": 55000,
+        "salaryUS_max": 85000,
+        "salaryEU_min": 32000,
+        "salaryEU_max": 52000,
+        "costUS_min": 250000,
+        "costUS_max": 250000,
+        "costEU_min": 15000,
+        "costEU_max": 15000
       },
       "Writing / Communications": {
-        "growth": "Moderate",
-        "education": "Bachelor's (3\u20134 yr)",
-        "costUS": 140000,
-        "costEU": 7000,
-        "salaryUS": "$40k\u2013$70k",
-        "salaryEU": "$26k\u2013$44k",
-        "portability": "HIGH (in English)",
-        "licensing": "No",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 6
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": "in English"
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "AWP",
@@ -945,19 +2278,47 @@
         "demand": {
           "label": "Moderate",
           "pct": 4,
-          "period": "2024\u201334",
           "src": "https://www.bls.gov/ooh/media-and-communication/writers-and-authors.htm"
-        }
+        },
+        "salaryUS_min": 40000,
+        "salaryUS_max": 70000,
+        "salaryEU_min": 26000,
+        "salaryEU_max": 44000,
+        "costUS_min": 140000,
+        "costUS_max": 140000,
+        "costEU_min": 7000,
+        "costEU_max": 7000
       },
       "Music (Performance/Production)": {
-        "growth": "Slow 1%",
-        "education": "Bachelor's Music",
-        "costUS": 145000,
-        "costEU": 22000,
-        "salaryUS": "$30k-$80k",
-        "salaryEU": "$28k-$72k",
-        "portability": "HIGH",
-        "licensing": "Not required",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "low",
+          "pct": 1
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "BLS",
@@ -969,19 +2330,47 @@
         "demand": {
           "label": "19,400/year",
           "pct": 1,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/"
-        }
+        },
+        "salaryUS_min": 30000,
+        "salaryUS_max": 80000,
+        "salaryEU_min": 28000,
+        "salaryEU_max": 72000,
+        "costUS_min": 145000,
+        "costUS_max": 145000,
+        "costEU_min": 22000,
+        "costEU_max": 22000
       },
       "Photography": {
-        "growth": "Slow 3%",
-        "education": "Bachelor's Photography",
-        "costUS": 130000,
-        "costEU": 20000,
-        "salaryUS": "$35k-$80k",
-        "salaryEU": "$31k-$72k",
-        "portability": "HIGH",
-        "licensing": "Not required",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "low",
+          "pct": 3
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "PPA",
@@ -993,19 +2382,47 @@
         "demand": {
           "label": "5,000/year",
           "pct": 3,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/"
-        }
+        },
+        "salaryUS_min": 35000,
+        "salaryUS_max": 80000,
+        "salaryEU_min": 31000,
+        "salaryEU_max": 72000,
+        "costUS_min": 130000,
+        "costUS_max": 130000,
+        "costEU_min": 20000,
+        "costEU_max": 20000
       },
       "Interior Design": {
-        "growth": "Slow 2%",
-        "education": "Bachelor's Design",
-        "costUS": 135000,
-        "costEU": 21000,
-        "salaryUS": "$40k-$90k",
-        "salaryEU": "$36k-$82k",
-        "portability": "MEDIUM",
-        "licensing": "Required (some areas)",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "low",
+          "pct": 2
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "MEDIUM",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "required",
+          "type": null,
+          "scope": "us",
+          "qualifier": "some areas"
+        },
         "resources": [
           {
             "title": "IIDA",
@@ -1017,19 +2434,47 @@
         "demand": {
           "label": "5,000/year",
           "pct": 2,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/"
-        }
+        },
+        "salaryUS_min": 40000,
+        "salaryUS_max": 90000,
+        "salaryEU_min": 36000,
+        "salaryEU_max": 82000,
+        "costUS_min": 135000,
+        "costUS_max": 135000,
+        "costEU_min": 21000,
+        "costEU_max": 21000
       },
       "Fashion Design": {
-        "growth": "Slow 2%",
-        "education": "Bachelor's Fashion",
-        "costUS": 140000,
-        "costEU": 22000,
-        "salaryUS": "$40k-$100k",
-        "salaryEU": "$36k-$90k",
-        "portability": "HIGH",
-        "licensing": "Not required",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "low",
+          "pct": 2
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "FIT",
@@ -1041,19 +2486,47 @@
         "demand": {
           "label": "8,000/year",
           "pct": 2,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/"
-        }
+        },
+        "salaryUS_min": 40000,
+        "salaryUS_max": 100000,
+        "salaryEU_min": 36000,
+        "salaryEU_max": 90000,
+        "costUS_min": 140000,
+        "costUS_max": 140000,
+        "costEU_min": 22000,
+        "costEU_max": 22000
       },
       "Animation": {
-        "growth": "Moderate 5%",
-        "education": "Bachelor's Animation",
-        "costUS": 160000,
-        "costEU": 25000,
-        "salaryUS": "$50k-$120k",
-        "salaryEU": "$44k-$110k",
-        "portability": "HIGH",
-        "licensing": "Not required",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 5
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "Pixar",
@@ -1069,19 +2542,47 @@
         "demand": {
           "label": "12,000/year",
           "pct": 5,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/"
-        }
+        },
+        "salaryUS_min": 50000,
+        "salaryUS_max": 120000,
+        "salaryEU_min": 44000,
+        "salaryEU_max": 110000,
+        "costUS_min": 160000,
+        "costUS_max": 160000,
+        "costEU_min": 25000,
+        "costEU_max": 25000
       },
       "Landscape Architecture": {
-        "growth": "Moderate 5%",
-        "education": "Bachelor's LA",
-        "costUS": 150000,
-        "costEU": 23000,
-        "salaryUS": "$55k-$120k",
-        "salaryEU": "$50k-$110k",
-        "portability": "MEDIUM",
-        "licensing": "Required",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 5
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "MEDIUM",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "required",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "ASLA",
@@ -1093,32 +2594,73 @@
         "demand": {
           "label": "4,000/year",
           "pct": 5,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/"
-        }
+        },
+        "salaryUS_min": 55000,
+        "salaryUS_max": 120000,
+        "salaryEU_min": 50000,
+        "salaryEU_max": 110000,
+        "costUS_min": 150000,
+        "costUS_max": 150000,
+        "costEU_min": 23000,
+        "costEU_max": 23000
       }
     }
   },
   "health": {
     "name": "Health / Medicine",
-    "edu": "Bachelor's + professional (6\u201315 yr)",
-    "costUS": "$150k\u2013$400k+",
-    "costEU": "$0\u2013$50k",
-    "salUS": "$60k\u2013$400k+",
-    "salEU": "$29k\u2013$139k",
+    "edu": "Bachelor's + professional (6–15 yr)",
+    "costUS": "$150k–$400k+",
+    "costEU": "$0–$50k",
+    "salUS": "$60k–$400k+",
+    "salEU": "$29k–$139k",
     "growth": "Very high",
-    "portability": "LOW \u2013 country-specific",
+    "portability": "LOW – country-specific",
     "licensing": "Required everywhere",
     "subjects": {
       "Medicine (MD/DO)": {
-        "growth": "Very high",
-        "education": "Bachelor's + Med + Residency (11\u201315 yr)",
-        "costUS": 350000,
-        "costEU": 30000,
-        "salaryUS": "$200k\u2013$400k+",
-        "salaryEU": "$58k\u2013$139k",
-        "portability": "LOW",
-        "licensing": "USMLE (US), country-specific",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "very_high",
+          "pct": 18
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "postdegree",
+              "names": [
+                "Residency"
+              ],
+              "prerequisite": "MD",
+              "us_years": "3-7",
+              "eu_years": "3-7",
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, Residency required"
+        },
+        "portability": {
+          "level": "LOW",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "required",
+          "type": [
+            "PE",
+            "USMLE"
+          ],
+          "scope": "country_specific",
+          "qualifier": "US"
+        },
         "resources": [
           {
             "title": "AAMC",
@@ -1130,19 +2672,50 @@
         "demand": {
           "label": "Moderate",
           "pct": 3,
-          "period": "2024\u201334",
           "src": "https://www.bls.gov/ooh/healthcare/physicians-and-surgeons.htm"
-        }
+        },
+        "salaryUS_min": 200000,
+        "salaryUS_max": 400000,
+        "salaryEU_min": 58000,
+        "salaryEU_max": 139000,
+        "costUS_min": 350000,
+        "costUS_max": 350000,
+        "costEU_min": 30000,
+        "costEU_max": 30000
       },
       "Nursing": {
-        "growth": "Very high",
-        "education": "Bachelor's BSN (4 yr)",
-        "costUS": 120000,
-        "costEU": 7000,
-        "salaryUS": "$60k\u2013$95k",
-        "salaryEU": "$29k\u2013$52k",
-        "portability": "LOW",
-        "licensing": "NCLEX (US), country-specific",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "very_high",
+          "pct": 18
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "LOW",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "required",
+          "type": [
+            "PE",
+            "NCLEX"
+          ],
+          "scope": "country_specific",
+          "qualifier": "US"
+        },
         "resources": [
           {
             "title": "AANP",
@@ -1152,19 +2725,59 @@
         "demand": {
           "label": "Moderate",
           "pct": 5,
-          "period": "2024\u201334",
           "src": "https://www.bls.gov/ooh/healthcare/registered-nurses.htm"
-        }
+        },
+        "salaryUS_min": 60000,
+        "salaryUS_max": 95000,
+        "salaryEU_min": 29000,
+        "salaryEU_max": 52000,
+        "costUS_min": 120000,
+        "costUS_max": 120000,
+        "costEU_min": 7000,
+        "costEU_max": 7000
       },
       "Pharmacy": {
-        "growth": "Moderate",
-        "education": "Bachelor's + PharmD (6\u20138 yr)",
-        "costUS": 250000,
-        "costEU": 12000,
-        "salaryUS": "$120k\u2013$150k",
-        "salaryEU": "$41k\u2013$70k",
-        "portability": "LOW",
-        "licensing": "Country-specific",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 6
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "professional",
+              "names": [
+                "MD"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 4,
+              "eu_years": 4,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, MD required"
+        },
+        "portability": {
+          "level": "LOW",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "required",
+          "type": [
+            "PE"
+          ],
+          "scope": "country_specific",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "AACP",
@@ -1176,19 +2789,49 @@
         "demand": {
           "label": "Moderate",
           "pct": 5,
-          "period": "2024\u201334",
           "src": "https://www.bls.gov/ooh/healthcare/pharmacists.htm"
-        }
+        },
+        "salaryUS_min": 120000,
+        "salaryUS_max": 150000,
+        "salaryEU_min": 41000,
+        "salaryEU_max": 70000,
+        "costUS_min": 250000,
+        "costUS_max": 250000,
+        "costEU_min": 12000,
+        "costEU_max": 12000
       },
       "Physical Therapy": {
-        "growth": "High",
-        "education": "Bachelor's + DPT (6\u20137 yr)",
-        "costUS": 200000,
-        "costEU": 8000,
-        "salaryUS": "$70k\u2013$95k",
-        "salaryEU": "$32k\u2013$52k",
-        "portability": "LOW",
-        "licensing": "Country-specific",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "high",
+          "pct": 11
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "LOW",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "required",
+          "type": [
+            "PE"
+          ],
+          "scope": "country_specific",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "APTA",
@@ -1200,19 +2843,59 @@
         "demand": {
           "label": "High",
           "pct": 10.9,
-          "period": "2023\u20132033",
           "src": "https://wagedex.com/outlook/physical-therapists"
-        }
+        },
+        "salaryUS_min": 70000,
+        "salaryUS_max": 95000,
+        "salaryEU_min": 32000,
+        "salaryEU_max": 52000,
+        "costUS_min": 200000,
+        "costUS_max": 200000,
+        "costEU_min": 8000,
+        "costEU_max": 8000
       },
       "Psychology (Clinical)": {
-        "growth": "High",
-        "education": "Bachelor's + PhD/PsyD (8\u201312 yr)",
-        "costUS": 250000,
-        "costEU": 15000,
-        "salaryUS": "$60k\u2013$100k",
-        "salaryEU": "$35k\u2013$58k",
-        "portability": "LOW",
-        "licensing": "Country-specific",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "high",
+          "pct": 11
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "doctoral",
+              "names": [
+                "PhD"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 5,
+              "eu_years": 4,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, PhD required"
+        },
+        "portability": {
+          "level": "LOW",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "required",
+          "type": [
+            "PE"
+          ],
+          "scope": "country_specific",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "APA",
@@ -1224,19 +2907,57 @@
         "demand": {
           "label": "Moderate",
           "pct": 6,
-          "period": "2024\u201334",
           "src": "https://www.bls.gov/ooh/life-physical-and-social-science/psychologists.htm"
-        }
+        },
+        "salaryUS_min": 60000,
+        "salaryUS_max": 100000,
+        "salaryEU_min": 35000,
+        "salaryEU_max": 58000,
+        "costUS_min": 250000,
+        "costUS_max": 250000,
+        "costEU_min": 15000,
+        "costEU_max": 15000
       },
       "Veterinary Medicine": {
-        "growth": "Strong 10% growth (2024-2034)",
-        "education": "DVM degree required (4 years)",
-        "costUS": 280000,
-        "costEU": 50000,
-        "salaryUS": "$70k-$213k",
-        "salaryEU": "$66k-$198k",
-        "portability": "MEDIUM",
-        "licensing": "Required by all jurisdictions",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "high",
+          "pct": 10
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "professional",
+              "names": [
+                "DVM"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 4,
+              "eu_years": 4,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, DVM required"
+        },
+        "portability": {
+          "level": "MEDIUM",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "required",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "BLS Veterinarians",
@@ -1252,19 +2973,57 @@
         "demand": {
           "label": "3,000 openings/year",
           "pct": 10,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/healthcare/veterinarians.htm"
-        }
+        },
+        "salaryUS_min": 70000,
+        "salaryUS_max": 213000,
+        "salaryEU_min": 66000,
+        "salaryEU_max": 198000,
+        "costUS_min": 280000,
+        "costUS_max": 280000,
+        "costEU_min": 50000,
+        "costEU_max": 50000
       },
       "Dentistry": {
-        "growth": "Moderate 4% growth (2024-2034)",
-        "education": "DDS/DMD degree required (4 years)",
-        "costUS": 250000,
-        "costEU": 45000,
-        "salaryUS": "$85k-$239k",
-        "salaryEU": "$77k-$220k",
-        "portability": "MEDIUM",
-        "licensing": "Required by all jurisdictions",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 4
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "professional",
+              "names": [
+                "MD"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 4,
+              "eu_years": 4,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, MD required"
+        },
+        "portability": {
+          "level": "MEDIUM",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "required",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "BLS Dentists",
@@ -1280,19 +3039,57 @@
         "demand": {
           "label": "4,500 openings/year",
           "pct": 4,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/healthcare/dentists.htm"
-        }
+        },
+        "salaryUS_min": 85000,
+        "salaryUS_max": 239000,
+        "salaryEU_min": 77000,
+        "salaryEU_max": 220000,
+        "costUS_min": 250000,
+        "costUS_max": 250000,
+        "costEU_min": 45000,
+        "costEU_max": 45000
       },
       "Public Health": {
-        "growth": "Moderate 4% growth (2024-2034)",
-        "education": "Master's degree typical (MPH)",
-        "costUS": 90000,
-        "costEU": 18000,
-        "salaryUS": "$42k-$113k",
-        "salaryEU": "$38k-$105k",
-        "portability": "HIGH",
-        "licensing": "Not required",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 4
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "graduate",
+              "names": [
+                "Master"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 2,
+              "eu_years": 2,
+              "norm": "typical"
+            }
+          ],
+          "requirement_summary": "Bachelor required, Master typical"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "BLS Health Educators",
@@ -1308,19 +3105,59 @@
         "demand": {
           "label": "7,900 openings/year",
           "pct": 4,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/community-and-social-service/health-educators.htm"
-        }
+        },
+        "salaryUS_min": 42000,
+        "salaryUS_max": 113000,
+        "salaryEU_min": 38000,
+        "salaryEU_max": 105000,
+        "costUS_min": 90000,
+        "costUS_max": 90000,
+        "costEU_min": 18000,
+        "costEU_max": 18000
       },
       "Physician Assistant / Nurse Practitioner": {
-        "growth": "Very strong 20-35% growth (2024-2034)",
-        "education": "Master's degree required",
-        "costUS": 150000,
-        "costEU": 25000,
-        "salaryUS": "$130k-$210k",
-        "salaryEU": "$121k-$198k",
-        "portability": "MEDIUM",
-        "licensing": "Required - State-specific",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "very_high",
+          "pct": 28
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "graduate",
+              "names": [
+                "Master"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 2,
+              "eu_years": 2,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, Master required"
+        },
+        "portability": {
+          "level": "MEDIUM",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "required",
+          "type": [
+            "PE"
+          ],
+          "scope": "state",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "BLS Physician Assistants",
@@ -1336,19 +3173,59 @@
         "demand": {
           "label": "12k-32.7k openings/year",
           "pct": 27,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/healthcare/physician-assistants.htm"
-        }
+        },
+        "salaryUS_min": 130000,
+        "salaryUS_max": 210000,
+        "salaryEU_min": 121000,
+        "salaryEU_max": 198000,
+        "costUS_min": 150000,
+        "costUS_max": 150000,
+        "costEU_min": 25000,
+        "costEU_max": 25000
       },
       "Social Work": {
-        "growth": "Positive 6% growth (2024-2034)",
-        "education": "Bachelor's or Master's degree",
-        "costUS": 140000,
-        "costEU": 20000,
-        "salaryUS": "$51k-$94k",
-        "salaryEU": "$46k-$86k",
-        "portability": "MEDIUM",
-        "licensing": "Required for clinical roles (LCSW)",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 6
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "graduate",
+              "names": [
+                "Master"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 2,
+              "eu_years": 2,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, Master required"
+        },
+        "portability": {
+          "level": "MEDIUM",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "required",
+          "type": [
+            "LCSW"
+          ],
+          "scope": "us",
+          "qualifier": "LCSW"
+        },
         "resources": [
           {
             "title": "BLS Social Workers",
@@ -1364,19 +3241,59 @@
         "demand": {
           "label": "74,000 openings/year",
           "pct": 6,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/community-and-social-service/social-workers.htm"
-        }
+        },
+        "salaryUS_min": 51000,
+        "salaryUS_max": 94000,
+        "salaryEU_min": 46000,
+        "salaryEU_max": 86000,
+        "costUS_min": 140000,
+        "costUS_max": 140000,
+        "costEU_min": 20000,
+        "costEU_max": 20000
       },
       "Occupational Therapy": {
-        "growth": "Strong 14% growth (2024-2034)",
-        "education": "Master's degree required (OTD)",
-        "costUS": 180000,
-        "costEU": 30000,
-        "salaryUS": "$91k-$175k",
-        "salaryEU": "$82k-$160k",
-        "portability": "MEDIUM",
-        "licensing": "Required (OTR/L credential)",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "high",
+          "pct": 14
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "graduate",
+              "names": [
+                "Master"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 2,
+              "eu_years": 2,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, Master required"
+        },
+        "portability": {
+          "level": "MEDIUM",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "required",
+          "type": [
+            "OTR"
+          ],
+          "scope": "us",
+          "qualifier": "OTR/L credential"
+        },
         "resources": [
           {
             "title": "BLS Occupational Therapists",
@@ -1392,19 +3309,59 @@
         "demand": {
           "label": "10,200 openings/year",
           "pct": 14,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/healthcare/occupational-therapists.htm"
-        }
+        },
+        "salaryUS_min": 91000,
+        "salaryUS_max": 175000,
+        "salaryEU_min": 82000,
+        "salaryEU_max": 160000,
+        "costUS_min": 180000,
+        "costUS_max": 180000,
+        "costEU_min": 30000,
+        "costEU_max": 30000
       },
       "Optometry": {
-        "growth": "Positive 8% growth (2024-2034)",
-        "education": "Doctor of Optometry (O.D.) required",
-        "costUS": 200000,
-        "costEU": 35000,
-        "salaryUS": "$103k-$164k",
-        "salaryEU": "$94k-$154k",
-        "portability": "MEDIUM",
-        "licensing": "Required - State-specific",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "high",
+          "pct": 8
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "professional",
+              "names": [
+                "DO"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 4,
+              "eu_years": 4,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, DO required"
+        },
+        "portability": {
+          "level": "MEDIUM",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "required",
+          "type": [
+            "PE"
+          ],
+          "scope": "state",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "BLS Optometrists",
@@ -1420,19 +3377,50 @@
         "demand": {
           "label": "2,400 openings/year",
           "pct": 8,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/healthcare/optometrists.htm"
-        }
+        },
+        "salaryUS_min": 103000,
+        "salaryUS_max": 164000,
+        "salaryEU_min": 94000,
+        "salaryEU_max": 154000,
+        "costUS_min": 200000,
+        "costUS_max": 200000,
+        "costEU_min": 35000,
+        "costEU_max": 35000
       },
       "Dietetics / Nutrition": {
-        "growth": "Positive 6% growth (2024-2034)",
-        "education": "Bachelor's degree + RD/RDN credential",
-        "costUS": 120000,
-        "costEU": 18000,
-        "salaryUS": "$49k-$102k",
-        "salaryEU": "$44k-$94k",
-        "portability": "MEDIUM",
-        "licensing": "Required (RD/RDN varies by region)",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 6
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "MEDIUM",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "required",
+          "type": [
+            "RD",
+            "RDN"
+          ],
+          "scope": "country_specific",
+          "qualifier": "RD/RDN varies by region"
+        },
         "resources": [
           {
             "title": "BLS Dietitians and Nutritionists",
@@ -1448,32 +3436,72 @@
         "demand": {
           "label": "6,200 openings/year",
           "pct": 6,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/healthcare/dietitians-and-nutritionists.htm"
-        }
+        },
+        "salaryUS_min": 49000,
+        "salaryUS_max": 102000,
+        "salaryEU_min": 44000,
+        "salaryEU_max": 94000,
+        "costUS_min": 120000,
+        "costUS_max": 120000,
+        "costEU_min": 18000,
+        "costEU_max": 18000
       }
     }
   },
   "law": {
     "name": "Law / Policy",
-    "edu": "Bachelor's + JD/Law (6\u20137 yr)",
-    "costUS": "$200k\u2013$350k",
-    "costEU": "$0\u2013$15k",
-    "salUS": "$60k\u2013$215k",
-    "salEU": "$35k\u2013$81k",
+    "edu": "Bachelor's + JD/Law (6–7 yr)",
+    "costUS": "$200k–$350k",
+    "costEU": "$0–$15k",
+    "salUS": "$60k–$215k",
+    "salEU": "$35k–$81k",
     "growth": "Moderate",
-    "portability": "LOW \u2013 systems differ",
+    "portability": "LOW – systems differ",
     "licensing": "Bar exam required",
     "subjects": {
       "US Law (JD)": {
-        "growth": "Moderate",
-        "education": "Bachelor's + JD (7 yr)",
-        "costUS": 300000,
-        "costEU": null,
-        "salaryUS": "$60k\u2013$215k",
-        "salaryEU": "N/A",
-        "portability": "LOW \u2013 US bar only",
-        "licensing": "State bar exam",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 6
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "professional",
+              "names": [
+                "JD"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 4,
+              "eu_years": 4,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, JD required"
+        },
+        "portability": {
+          "level": "LOW",
+          "qualifier": "US bar only"
+        },
+        "licensing": {
+          "status": "required",
+          "type": [
+            "BAR"
+          ],
+          "scope": "state",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "ABA",
@@ -1485,19 +3513,49 @@
         "demand": {
           "label": "Moderate",
           "pct": 4,
-          "period": "2024\u201334",
           "src": "https://www.bls.gov/ooh/legal/lawyers.htm"
-        }
+        },
+        "salaryUS_min": 60000,
+        "salaryUS_max": 215000,
+        "salaryEU_min": null,
+        "salaryEU_max": null,
+        "costUS_min": 300000,
+        "costUS_max": 300000,
+        "costEU_min": 11000,
+        "costEU_max": 11000
       },
       "European Law": {
-        "growth": "Moderate",
-        "education": "Law bachelor's (3\u20135 yr)",
-        "costUS": null,
-        "costEU": 8000,
-        "salaryUS": "N/A",
-        "salaryEU": "$35k\u2013$81k",
-        "portability": "LOW \u2013 country-specific",
-        "licensing": "Country bar",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 6
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "LOW",
+          "qualifier": "country-specific"
+        },
+        "licensing": {
+          "status": "required",
+          "type": [
+            "BAR"
+          ],
+          "scope": "country_specific",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "CCBE",
@@ -1509,19 +3567,57 @@
         "demand": {
           "label": "Moderate",
           "pct": 4,
-          "period": "2024\u201334",
           "src": "https://www.bls.gov/ooh/legal/lawyers.htm"
-        }
+        },
+        "salaryUS_min": null,
+        "salaryUS_max": null,
+        "salaryEU_min": 35000,
+        "salaryEU_max": 81000,
+        "costUS_min": 150000,
+        "costUS_max": 150000,
+        "costEU_min": 8000,
+        "costEU_max": 8000
       },
       "International Relations": {
-        "growth": "Moderate",
-        "education": "Bachelor's (4 yr); Master's helpful",
-        "costUS": 150000,
-        "costEU": 8000,
-        "salaryUS": "$45k\u2013$80k",
-        "salaryEU": "$32k\u2013$58k",
-        "portability": "HIGH",
-        "licensing": "No",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 6
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "graduate",
+              "names": [
+                "Master"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 2,
+              "eu_years": 2,
+              "norm": "typical"
+            }
+          ],
+          "requirement_summary": "Bachelor required, Master typical"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "ISA",
@@ -1531,19 +3627,47 @@
         "demand": {
           "label": "Low",
           "pct": -3,
-          "period": "2024\u201334",
           "src": "https://www.bls.gov/ooh/life-physical-and-social-science/political-scientists.htm"
-        }
+        },
+        "salaryUS_min": 45000,
+        "salaryUS_max": 80000,
+        "salaryEU_min": 32000,
+        "salaryEU_max": 58000,
+        "costUS_min": 150000,
+        "costUS_max": 150000,
+        "costEU_min": 8000,
+        "costEU_max": 8000
       },
       "Public Policy": {
-        "growth": "Moderate",
-        "education": "Bachelor's; MPP helpful",
-        "costUS": 150000,
-        "costEU": 8000,
-        "salaryUS": "$50k\u2013$85k",
-        "salaryEU": "$32k\u2013$56k",
-        "portability": "MEDIUM",
-        "licensing": "No",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 6
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "MEDIUM",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "APPAM",
@@ -1553,9 +3677,16 @@
         "demand": {
           "label": "Low",
           "pct": -3,
-          "period": "2024\u201334",
           "src": "https://www.bls.gov/ooh/life-physical-and-social-science/political-scientists.htm"
-        }
+        },
+        "salaryUS_min": 50000,
+        "salaryUS_max": 85000,
+        "salaryEU_min": 32000,
+        "salaryEU_max": 56000,
+        "costUS_min": 150000,
+        "costUS_max": 150000,
+        "costEU_min": 8000,
+        "costEU_max": 8000
       }
     }
   },
@@ -1571,14 +3702,35 @@
     "licensing": "Required - varies by country",
     "subjects": {
       "Teaching (K-12)": {
-        "growth": "Declining 2% (2024-2034)",
-        "education": "Bachelor's degree required",
-        "costUS": 140000,
-        "costEU": 15000,
-        "salaryUS": "$47k-$105k",
-        "salaryEU": "$42k-$94k",
-        "portability": "MEDIUM",
-        "licensing": "Required",
+        "growth": {
+          "direction": "negative",
+          "magnitude": "low",
+          "pct": 2
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "MEDIUM",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "required",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "BLS High School Teachers",
@@ -1594,19 +3746,57 @@
         "demand": {
           "label": "66,200 openings/year",
           "pct": -2,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/education-training-and-library/"
-        }
+        },
+        "salaryUS_min": 47000,
+        "salaryUS_max": 105000,
+        "salaryEU_min": 42000,
+        "salaryEU_max": 94000,
+        "costUS_min": 140000,
+        "costUS_max": 140000,
+        "costEU_min": 15000,
+        "costEU_max": 15000
       },
       "Higher Education Administration": {
-        "growth": "Slow growth 2% (2024-2034)",
-        "education": "Master's degree typical",
-        "costUS": 180000,
-        "costEU": 25000,
-        "salaryUS": "$64k-$212k",
-        "salaryEU": "$57k-$198k",
-        "portability": "HIGH",
-        "licensing": "Not required",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "low",
+          "pct": 2
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "graduate",
+              "names": [
+                "Master"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 2,
+              "eu_years": 2,
+              "norm": "typical"
+            }
+          ],
+          "requirement_summary": "Bachelor required, Master typical"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "BLS Postsecondary Education Administrators",
@@ -1618,19 +3808,57 @@
         "demand": {
           "label": "15,100 openings/year",
           "pct": 2,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/management/postsecondary-education-administrators.htm"
-        }
+        },
+        "salaryUS_min": 64000,
+        "salaryUS_max": 212000,
+        "salaryEU_min": 57000,
+        "salaryEU_max": 198000,
+        "costUS_min": 180000,
+        "costUS_max": 180000,
+        "costEU_min": 25000,
+        "costEU_max": 25000
       },
       "Curriculum & Instructional Design": {
-        "growth": "Slow growth 1% (2024-2034)",
-        "education": "Bachelor's or Master's degree",
-        "costUS": 130000,
-        "costEU": 20000,
-        "salaryUS": "$46k-$115k",
-        "salaryEU": "$42k-$105k",
-        "portability": "HIGH",
-        "licensing": "Not required",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "low",
+          "pct": 1
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "graduate",
+              "names": [
+                "Master"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 2,
+              "eu_years": 2,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, Master required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "BLS Instructional Coordinators",
@@ -1642,9 +3870,16 @@
         "demand": {
           "label": "21,900 openings/year",
           "pct": 1,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/education-training-and-library/instructional-coordinators.htm"
-        }
+        },
+        "salaryUS_min": 46000,
+        "salaryUS_max": 115000,
+        "salaryEU_min": 42000,
+        "salaryEU_max": 105000,
+        "costUS_min": 130000,
+        "costUS_max": 130000,
+        "costEU_min": 20000,
+        "costEU_max": 20000
       }
     }
   },
@@ -1660,14 +3895,45 @@
     "licensing": "Varies by role",
     "subjects": {
       "Agronomy / Crop Science": {
-        "growth": "Strong 6% growth (2024-2034)",
-        "education": "Bachelor's or Master's degree",
-        "costUS": 140000,
-        "costEU": 20000,
-        "salaryUS": "$47k-$140k",
-        "salaryEU": "$42k-$121k",
-        "portability": "MEDIUM",
-        "licensing": "Not required",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 6
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            },
+            {
+              "level": "graduate",
+              "names": [
+                "Master"
+              ],
+              "prerequisite": "Bachelor",
+              "us_years": 2,
+              "eu_years": 2,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required, Master required"
+        },
+        "portability": {
+          "level": "MEDIUM",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "not_available",
+          "type": null,
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "BLS Agricultural and Food Scientists",
@@ -1679,19 +3945,49 @@
         "demand": {
           "label": "3,100 openings/year",
           "pct": 6,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/life-physical-and-social-science/agricultural-and-food-scientists.htm"
-        }
+        },
+        "salaryUS_min": 47000,
+        "salaryUS_max": 140000,
+        "salaryEU_min": 42000,
+        "salaryEU_max": 121000,
+        "costUS_min": 140000,
+        "costUS_max": 140000,
+        "costEU_min": 20000,
+        "costEU_max": 20000
       },
       "Agricultural Engineering": {
-        "growth": "Strong 6% growth (2024-2034)",
-        "education": "Bachelor's degree required",
-        "costUS": 150000,
-        "costEU": 22000,
-        "salaryUS": "$63k-$140k",
-        "salaryEU": "$55k-$121k",
-        "portability": "HIGH",
-        "licensing": "PE license optional",
+        "growth": {
+          "direction": "positive",
+          "magnitude": "moderate",
+          "pct": 6
+        },
+        "education": {
+          "degrees": [
+            {
+              "level": "undergraduate",
+              "names": [
+                "Bachelor"
+              ],
+              "us_years": 4,
+              "eu_years": 3,
+              "norm": "required"
+            }
+          ],
+          "requirement_summary": "Bachelor required"
+        },
+        "portability": {
+          "level": "HIGH",
+          "qualifier": null
+        },
+        "licensing": {
+          "status": "optional",
+          "type": [
+            "PE"
+          ],
+          "scope": "us",
+          "qualifier": null
+        },
         "resources": [
           {
             "title": "BLS Agricultural Engineers",
@@ -1703,9 +3999,16 @@
         "demand": {
           "label": "100 openings/year",
           "pct": 6,
-          "period": "2024-2034",
           "src": "https://www.bls.gov/ooh/architecture-and-engineering/agricultural-engineers.htm"
-        }
+        },
+        "salaryUS_min": 63000,
+        "salaryUS_max": 140000,
+        "salaryEU_min": 55000,
+        "salaryEU_max": 121000,
+        "costUS_min": 150000,
+        "costUS_max": 150000,
+        "costEU_min": 22000,
+        "costEU_max": 22000
       }
     }
   }
