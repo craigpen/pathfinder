@@ -277,7 +277,7 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 <div class="qb"><div class="ql">Select one</div><div class="qt">Do you favor public or private universities?</div><div class="qs">Private universities cost the same regardless of where you live. Public universities can cost $15k–$35k/year less on tuition alone, compared to private.</div><div class="pills" data-q="inStateTuitionPref"><div class="pill" data-val="in-state-public" onclick="setInStatePref('in-state-public')">In-state Public</div><div class="pill" data-val="out-of-state-public" onclick="setInStatePref('out-of-state-public')">Out-of-state Public</div><div class="pill" data-val="private" onclick="setInStatePref('private')">Private</div></div></div>
 
 <div class="qb"><div class="ql">Select any</div><div class="qt">What university admissions rates interest you?</div><div class="qs">Very selective schools (1-15% acceptance) are highly competitive but offer strong academics and resources. Selective schools (16-40% acceptance) balance competition with accessibility. Less selective schools (41%+ acceptance) maximize accessibility and often offer lower costs.</div><div class="pills" data-q="uniSelectivity"><div class="pill" onclick="pickN('uniSelectivity',this)">Very selective</div><div class="pill" onclick="pickN('uniSelectivity',this)">Selective</div><div class="pill" onclick="pickN('uniSelectivity',this)">Less selective</div></div></div>
-<div class="qb"><div class="ql">Select one</div><div class="qt">Are you willing to pursue a Masters or PhD where typical for your chosen careers?</div><div class="qs">PhD programs are often funded via assistantships, but this will vary by your chosen field and school.</div><div class="pills" data-q="postGrad"><div class="pill" onclick="pick1('postGrad',this)">Willing to pursue post-grad</div><div class="pill" onclick="pick1('postGrad',this)">Only willing to pursue bachelor</div><div class="pill" onclick="pick1('postGrad',this)">Undecided</div></div></div>
+<div class="qb"><div class="ql">Select one</div><div class="qt">Are you willing to pursue a Masters or PhD where typical for your chosen careers?</div><div class="qs">PhD programs are often funded via assistantships, but this will vary by your chosen field and school.</div><div class="pills" data-q="postGrad"><div class="pill" onclick="pick1('postGrad',this)">Willing to pursue advanced degrees</div><div class="pill" onclick="pick1('postGrad',this)">Only willing to pursue bachelor</div><div class="pill" onclick="pick1('postGrad',this)">Undecided</div></div></div>
 
 <div class="qb"><div class="ql">Select one</div><div class="qt">How important is total education cost?</div><div class="qs">Borrowing money will feel easy, but it will reduce your take-home pay for years after graduation. Keep this in mind on the following pages.</div><div class="pills" data-q="cost"><div class="pill" onclick="pick1('cost',this)">Not critical</div><div class="pill" onclick="pick1('cost',this)">Balanced with other factors</div><div class="pill" onclick="pick1('cost',this)">Critical</div></div></div>
 <div class="qb"><div class="ql">Select one</div><div class="qt">How long are you willing to make student loan payments?</div><div class="qs">Shorter terms mean higher monthly payments but you're debt-free sooner. Longer terms mean lower monthly payments but you'll be paying for longer, which could affect your ability to travel, move, buy a home, or save for other goals.</div><div class="pills" data-q="debtYrs"><div class="pill" onclick="pick1('debtYrs',this)">5 years</div><div class="pill" onclick="pick1('debtYrs',this)">10 years</div><div class="pill" onclick="pick1('debtYrs',this)">15 years</div><div class="pill" onclick="pick1('debtYrs',this)">20 years</div></div></div>
@@ -2867,12 +2867,13 @@ function renderCostTable(){
   const mx=Math.max(1,...sel.map(k=>costDataMap[k].totalCost));
   
   // Total cost after support
+  const totalSupport = scholarshipAmount + savingsTotal + (work * (sel[0] ? costDataMap[sel[0]].years : 4)) + (parent * (sel[0] ? costDataMap[sel[0]].years : 4));
   t+='<tr style="font-weight:700"><td class="al">Total cost after support</td>';
   sel.forEach(k=>{
     const data=costDataMap[k];
     const pct=Math.round(data.totalCost/mx*100);
     const col=pct<35?'var(--ok)':pct<65?'var(--warn)':'var(--bad)';
-    t+=`<td>${fmt(data.totalCost)} <span style="font-weight:400;font-size:12px">(${data.years} yr)</span><br><div class="cost-bar" style="width:${Math.max(pct,10)}%;background:${col}">${fmt(data.totalCost)}</div></td>`;
+    t+=`<td>${fmt(data.totalCost)} ${totalSupport>0?'<span style="color:var(--ok);font-size:12px">(−'+fmt(totalSupport)+')</span>':''}  <span style="font-weight:400;font-size:12px">(${data.years} yr)</span><br><div class="cost-bar" style="width:${Math.max(pct,10)}%;background:${col}">${fmt(data.totalCost)}</div></td>`;
   });
   t+='</tr>';
   
@@ -2911,7 +2912,7 @@ function renderCostTable(){
     ['Books & Supplies',k=>`${fmt(costDataMap[k].books)}/yr`],
     ['Personal / Living',k=>`${fmt(costDataMap[k].personal)}/yr`],
     ['Travel',k=>`${fmt(costDataMap[k].travel)}/yr`],
-    ['Total cost after support',k=>`${fmt(costDataMap[k].totalCost)}`],
+    ['Total cost after support',k=>`${fmt(costDataMap[k].totalCost)} ${totalSupport>0?'<span style="color:var(--ok);font-size:12px">(−'+fmt(totalSupport)+')</span>':''}`],
     ['Monthly loan payment',k=>`${fmt(costDataMap[k].monthlyPayment)}/mo for ${yrs} years`],
     ['Total repaid',k=>`${fmt(costDataMap[k].totalRepaid)}`],
     ['Interest beyond borrowed',k=>`${fmt(costDataMap[k].interest)}`]
