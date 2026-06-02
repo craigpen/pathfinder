@@ -87,6 +87,8 @@ const universityPathfinderConfig = {
 
   // Initialization hook - called by framework.js on DOMContentLoaded
   onInit: async function() {
+    console.log('[config.onInit] Starting...');
+
     // Load saved state from localStorage
     if (window.loadState) {
       window.loadState();
