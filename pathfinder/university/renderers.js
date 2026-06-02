@@ -307,7 +307,7 @@ function renderDiscoverySelectorOptions() {
       if (qKey === 'stateOfResidency') {
         onclick += `;if(document.getElementById('uni-content'))renderUniversities()`;
       }
-      html += `<button class="pill" onclick="${onclick}">${value}</button>`;
+      html += `<div class="pill" onclick="${onclick}">${value}</div>`;
     });
 
     container.innerHTML = html;
