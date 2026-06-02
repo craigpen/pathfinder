@@ -16,6 +16,20 @@ const universityPathfinderConfig = {
     enableMusic: true
   },
 
+  // Discovery selectors configuration
+  selectors: [
+    { id: 'motivations', label: 'Select One or More', title: 'What are your motivations?', description: 'Use this thought exercise to help you choose possible careers and surface insights.' },
+    { id: 'citizen', label: 'Select One or More', title: 'Which citizenships do you hold?', description: 'Citizenship affects scholarship or grant eligibility, tuition rates, visa sponsorship, healthcare coverage, job market access, among other things.' },
+    { id: 'vision', label: 'Select one', title: 'In 5 years, where do you see yourself?', description: 'This helps identify countries where you might want to live and work after graduation, and surfaces insights.' },
+    { id: 'stateOfResidency', label: 'Select one', title: 'What state do you live in?', description: 'This helps identify universities in your state, and in-state tuition rates.' },
+    { id: 'languages', label: 'Select One or More', title: 'What languages are you fluent or conversational in?', description: 'This helps identify countries where you can thrive academically and socially, and surfaces insights.' },
+    { id: 'lang', label: 'Select one', title: 'What is your language learning aptitude?', description: 'Your language aptitude will help guide you on planning for language learning before studying in another country. Native language skills are more important in some countries than others. Some careers will benefit from language skills.' },
+    { id: 'flex', label: 'Select One or More', title: 'Are you open to different university locations?', description: 'This should help inform your choices on the following pages, and surface insights.' },
+    { id: 'postGrad', label: 'Select one', title: 'Are you willing to pursue a Masters or PhD where typical for your chosen careers?', description: 'PhD programs are often funded via assistantships, but this will vary by your chosen field and school.' },
+    { id: 'cost', label: 'Select one', title: 'How important is total education cost?', description: 'Borrowing money will feel easy, but it will reduce your take-home pay for years after graduation. Keep this in mind on the following pages.' },
+    { id: 'debtYrs', label: 'Select one', title: 'How long are you willing to make student loan payments?', description: 'Shorter terms mean higher monthly payments but you\'re debt-free sooner. Longer terms mean lower monthly payments but you\'ll be paying for longer, which could affect your ability to travel, move, buy a home, or save for other goals.' }
+  ],
+
   // Tab definitions (order matters for rendering)
   tabs: [
     { id: 'discover', label: 'Discover' },

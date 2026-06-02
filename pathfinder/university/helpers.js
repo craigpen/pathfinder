@@ -449,6 +449,11 @@ Promise.all([
     await window.buildHeader(window.PATHFINDER_CONFIG.header);
   }
 
+  // Build discovery selectors from config
+  if (window.buildSelectors && window.PATHFINDER_CONFIG && window.PATHFINDER_CONFIG.selectors) {
+    await window.buildSelectors(window.PATHFINDER_CONFIG.selectors, 'discover');
+  }
+
   renderPathfinderTab('discover');
   loadState();
   console.log('✅ State restoration complete');

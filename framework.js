@@ -226,6 +226,37 @@ function startHdrCarousel() {
   });
 }
 
+async function buildSelectors(selectorsConfig, containerId = 'discover') {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  try {
+    let html = '';
+    selectorsConfig.forEach(selector => {
+      html += `
+        <div class="qb">
+          <div class="ql">${selector.label}</div>
+          <div class="qt">${selector.title}</div>
+          <div class="qs">${selector.description}</div>
+          <div class="pills" data-q="${selector.id}"></div>
+        </div>
+      `;
+    });
+
+    // Insert selectors into discover tab (after any header content)
+    const existingSelectors = container.querySelector('.qb');
+    if (existingSelectors) {
+      existingSelectors.parentElement.innerHTML = html;
+    } else {
+      container.innerHTML = html;
+    }
+
+    console.log(`✓ Built ${selectorsConfig.length} discovery selectors`);
+  } catch (error) {
+    console.error('✗ Failed to build selectors:', error.message);
+  }
+}
+
 async function buildHeader(config) {
   const container = document.getElementById('header-container');
   if (!container) return;
@@ -490,6 +521,7 @@ window.frameworkLoadState = frameworkLoadState;
 window.buildTableHTML = buildTableHTML;
 window.buildCarouselHTML = buildCarouselHTML;
 window.initCarousel = initCarousel;
+window.buildSelectors = buildSelectors;
 window.buildHeader = buildHeader;
 window.initHdrCarousel = initHdrCarousel;
 window.updateHdrCarousel = updateHdrCarousel;
