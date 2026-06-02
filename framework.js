@@ -343,9 +343,9 @@ function selPlaylist(playlist, el) {
   document.querySelectorAll('.pp').forEach(b => b.classList.remove('active'));
   el.classList.add('active');
   const sw = document.getElementById('spotify-wrap');
-  sw.classList.add('show');
+  if (sw) sw.classList.add('show');
   const frame = document.getElementById('spotify-frame');
-  frame.src = PLAYLISTS[playlist];
+  if (frame) frame.src = PLAYLISTS[playlist];
 }
 
 // ============================================================================
