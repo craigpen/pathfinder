@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>University Pathfinder</title>
-<script src="../../framework.js"></script>
+<script src="../../pathfinder/framework.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--pri:#2563eb;--sec:#0891b2;--ok:#16a34a;--warn:#ea580c;--bad:#dc2626;--dk:#1e293b;--lt:#f1f5f9;--bdr:#e2e8f0;--tx:#334155;--tx2:#64748b;--tx0:#1e293b;--tx1:#334155}
@@ -574,5 +574,9 @@ function exportCareersSchemaAsCode() {
 <script src="config.js"></script>
 <script src="helpers.js"></script>
 <script src="renderers.js"></script>
+<script>
+// Initialize after all scripts have loaded to avoid race conditions
+window.initializeApp();
+</script>
 </body>
 </html>

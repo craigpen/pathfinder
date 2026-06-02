@@ -359,41 +359,67 @@ let COUNTRIES = {}; // Initialize empty, will be populated by loadCountriesData(
 let COUNTRIES_LOADED = false;
 
 async function loadCountriesData() {
-  return loadDataFile({
-    name: 'countries',
-    path: './data/countries.json',
-    onSuccess: (data) => {
-      Object.assign(COUNTRIES, data);
-      const validation = validateAllCountries();
-      console.log(`✓ Loaded countries.json: ${validation.total} countries`);
-      if (validation.invalid > 0) {
-        console.error(`⚠ ${validation.invalid} countries failed validation:`, validation.details);
-      } else {
-        console.log('✓ All countries passed validation');
-      }
-      // Clean up state with invalid country codes
-      const validCodes = Object.keys(data);
-      if (S.cc) S.cc = S.cc.filter(k => validCodes.includes(k));
-      if (S.costCC) S.costCC = S.costCC.filter(k => validCodes.includes(k));
-      if (S.expl && !validCodes.includes(S.expl)) S.expl = null;
-      saveState();
+  try {
+    const response = await fetch('./data/countries.json');
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    const data = await response.json();
+    // Initialize COUNTRIES from consolidated data from countries.json
+    Object.assign(COUNTRIES, data);
+    window.COUNTRIES = COUNTRIES;  // Also set on window for helpers to access
+    COUNTRIES_LOADED = true;
+
+    const validation = validateAllCountries();
+    console.log(`✓ Loaded countries.json: ${validation.total} countries`);
+
+    if (validation.invalid > 0) {
+      console.error(`⚠ ${validation.invalid} countries failed validation:`, validation.details);
+    } else {
+      console.log('✓ All countries passed validation');
     }
-  });
+
+    // Clean up state with invalid country codes
+    const validCodes = Object.keys(data);
+    if (S.cc) S.cc = S.cc.filter(k => validCodes.includes(k));
+    if (S.costCC) S.costCC = S.costCC.filter(k => validCodes.includes(k));
+    if (S.expl && !validCodes.includes(S.expl)) S.expl = null;
+    saveState();
+
+    return true;
+  } catch (error) {
+    console.error('✗ Failed to load countries.json:', error.message);
+    return false;
+  }
 }
+
+// Load countries data on page start
+loadCountriesData();
 
 let CAREERS_LOADED = false;
 
 async function loadCareersData() {
-  return loadDataFile({
-    name: 'careers',
-    path: './data/careers.json',
-    onSuccess: (data) => {
-      const total = Object.keys(data).length;
-      const totalCareers = Object.values(data).reduce((sum, cat) => sum + Object.keys(cat.subjects || {}).length, 0);
-      console.log(`✓ Loaded careers.json: ${total} categories, ${totalCareers} careers`);
-    }
-  });
+  try {
+    const response = await fetch('./data/careers.json');
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    const data = await response.json();
+    window.CAREERS = data;
+    window.CAREERS_LOADED = true;
+    CAREERS_LOADED = true;
+
+    const total = Object.keys(data).length;
+    const totalCareers = Object.values(data).reduce((sum, cat) => sum + Object.keys(cat.subjects || {}).length, 0);
+    console.log(`✓ Loaded careers.json: ${total} categories, ${totalCareers} careers`);
+
+    return true;
+  } catch (error) {
+    console.error('✗ Failed to load careers.json:', error.message);
+    return false;
+  }
 }
+
+// Load careers data on page start
+loadCareersData();
 
 // ============================================================================
 // LOAD SHARED AND PATHFINDER-SPECIFIC DATA
@@ -409,60 +435,70 @@ let STATE_NAMES_LOADED = false;
 let SELECTOR_OPTIONS_LOADED = false;
 
 async function loadStateNamesData() {
-  return loadDataFile({
-    name: 'state-names',
-    path: '../../state-names.json',
-    onSuccess: (data) => {
-      Object.assign(STATE_NAMES, data);
-      console.log(`✓ Loaded state-names.json: ${Object.keys(data).length} states`);
-    }
-  });
+  try {
+    const response = await fetch('../../state-names.json');
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    const data = await response.json();
+    Object.assign(STATE_NAMES, data);
+    window.STATE_NAMES = STATE_NAMES;
+    STATE_NAMES_LOADED = true;
+
+    console.log(`✓ Loaded state-names.json: ${Object.keys(data).length} states`);
+    return true;
+  } catch (error) {
+    console.error('✗ Failed to load state-names.json:', error.message);
+    return false;
+  }
 }
 
 async function loadSelectorOptionsData() {
-  return loadDataFile({
-    name: 'selector-options',
-    path: './data/selector-options.json',
-    onSuccess: (data) => {
-      Object.assign(SELECTOR_OPTIONS, data);
-      console.log(`✓ Loaded selector-options.json with ${Object.keys(data).length} selectors`);
-    }
-  });
+  try {
+    const response = await fetch('./data/selector-options.json');
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    const data = await response.json();
+    Object.assign(SELECTOR_OPTIONS, data);
+    window.SELECTOR_OPTIONS = SELECTOR_OPTIONS;
+    window.SELECTOR_OPTIONS_LOADED = true;
+    SELECTOR_OPTIONS_LOADED = true;
+
+    console.log(`✓ Loaded selector-options.json with ${Object.keys(SELECTOR_OPTIONS).length} selectors`);
+    return true;
+  } catch (error) {
+    console.error('✗ Failed to load selector-options.json:', error.message);
+    return false;
+  }
 }
+loadSelectorOptionsData();
+
+let PATHFINDER_DATA_LOADED = false;
 
 async function loadPathfinderData() {
-  const configs = [
-    {
-      name: 'career-to-qs-subject',
-      path: './data/career-to-qs-subject.json',
-      onSuccess: (data) => {
-        Object.assign(CAREER_TO_QS_SUBJECT, data);
-      }
-    },
-    {
-      name: 'selectivity-display',
-      path: './data/selectivity-display.json',
-      onSuccess: (data) => {
-        Object.assign(SELECTIVITY_DISPLAY, data);
-      }
-    },
-    {
-      name: 'tuition-averages',
-      path: './data/tuition-averages.json',
-      onSuccess: (data) => {
-        Object.assign(TUITION_AVERAGES, data);
-      }
-    }
-  ];
-
   try {
-    const results = await Promise.all(
-      configs.map(config => loadDataFile(config))
-    );
-    const careersCount = Object.keys(CAREER_TO_QS_SUBJECT).length;
-    const selectivityCount = Object.keys(SELECTIVITY_DISPLAY).length;
-    const stateCount = Object.keys(TUITION_AVERAGES.instate || {}).length;
-    console.log(`✓ Loaded pathfinder data: ${careersCount} career-to-QS mappings, ${selectivityCount} selectivity levels, tuition data for ${stateCount} states`);
+    // Load career-to-qs-subject mapping
+    const careersRes = await fetch('./data/career-to-qs-subject.json');
+    if (!careersRes.ok) throw new Error(`HTTP ${careersRes.status} loading career-to-qs-subject.json`);
+    const careersData = await careersRes.json();
+    Object.assign(CAREER_TO_QS_SUBJECT, careersData);
+    window.CAREER_TO_QS_SUBJECT = CAREER_TO_QS_SUBJECT;
+
+    // Load selectivity display mapping
+    const selectivityRes = await fetch('./data/selectivity-display.json');
+    if (!selectivityRes.ok) throw new Error(`HTTP ${selectivityRes.status} loading selectivity-display.json`);
+    const selectivityData = await selectivityRes.json();
+    Object.assign(SELECTIVITY_DISPLAY, selectivityData);
+    window.SELECTIVITY_DISPLAY = SELECTIVITY_DISPLAY;
+
+    // Load tuition averages
+    const tuitionRes = await fetch('./data/tuition-averages.json');
+    if (!tuitionRes.ok) throw new Error(`HTTP ${tuitionRes.status} loading tuition-averages.json`);
+    const tuitionData = await tuitionRes.json();
+    Object.assign(TUITION_AVERAGES, tuitionData);
+    window.TUITION_AVERAGES = TUITION_AVERAGES;
+
+    PATHFINDER_DATA_LOADED = true;
+    console.log(`✓ Loaded pathfinder data: ${Object.keys(careersData).length} career-to-QS mappings, ${Object.keys(selectivityData).length} selectivity levels, tuition data for ${Object.keys(tuitionData.instate).length} states`);
     return true;
   } catch (error) {
     console.error('✗ Failed to load pathfinder data:', error.message);
@@ -470,49 +506,11 @@ async function loadPathfinderData() {
   }
 }
 
-async function loadUniversitiesData() {
-  return loadDataFile({
-    name: 'universities',
-    path: './data/universities.json',
-    onSuccess: (data) => {
-      window.UNIVERSITIES = data;
-      const total = data.length;
-      console.log(`✓ Loaded universities.json: ${total} universities`);
-    }
-  });
-}
-
-async function loadInsightsData() {
-  return loadDataFile({
-    name: 'insights',
-    path: './data/insights.json',
-    onSuccess: (data) => {
-      window.INSIGHTS = data;
-      console.log('✓ Loaded insights.json');
-    }
-  });
-}
-
-// ============================================================================
-// Coordinate startup: load all data before rendering
-// ============================================================================
-document.addEventListener('DOMContentLoaded', () => {
-  Promise.all([
-    loadCountriesData(),
-    loadCareersData(),
-    loadStateNamesData(),
-    loadSelectorOptionsData(),
-    loadPathfinderData(),
-    loadUniversitiesData(),
-    loadInsightsData()
-  ]).then(() => {
-    console.log('✓ All data loaded successfully');
-    loadState();
-    renderPathfinderTab('discover');
-  }).catch(err => {
-    console.error('Failed to load initial data:', err);
-  });
-});
+// Load shared and pathfinder data on page start
+loadStateNamesData();
+loadPathfinderData();
+loadUniversitiesData();
+loadInsightsData();
 
 // ============================================================================
 
@@ -746,7 +744,45 @@ function guidanceMsg(text){return `<div style="padding:12px 16px;background:rgba
 function pick1(q,el){document.querySelectorAll(`[data-q="${q}"] .pill`).forEach(o=>o.classList.remove('on'));el.classList.add('on');if(q==='citizen')S.citizen=[el.textContent];else if(q==='flex')S.flex=el.textContent;else if(q==='cost')S.cost=el.textContent;else if(q==='vision')S.vision=el.textContent;else if(q==='lang')S.lang=el.textContent;else if(q==='debtYrs')S.debtYrs=el.textContent;else if(q==='postGrad')S.postGrad=el.textContent;else if(q==='inStateTuitionPref'){S.inStateTuitionPref=el.textContent;if(document.getElementById('cost-table'))renderCostChips()}else if(q==='stateOfResidency'){S.stateOfResidency=el.textContent;S.inStateTuitionPref='in-state-public';if(document.getElementById('uni-content'))renderUniversities();if(document.getElementById('cost-table'))renderCostChips()};saveState();renderInsights()}
 function pickN(q,el){el.classList.toggle('on');if(q==='motivations'){S.motivations=[];document.querySelectorAll(`[data-q="${q}"] .pill.on`).forEach(p=>S.motivations.push(p.textContent))}else if(q==='citizen'){S.citizen=[];document.querySelectorAll(`[data-q="${q}"] .pill.on`).forEach(p=>S.citizen.push(p.textContent))}else if(q==='flex'){S.flex=[];document.querySelectorAll(`[data-q="${q}"] .pill.on`).forEach(p=>S.flex.push(p.textContent))}else if(q==='languages'){S.languages=[];document.querySelectorAll(`[data-q="${q}"] .pill.on`).forEach(p=>S.languages.push(p.textContent))}else if(q==='uniSelectivity'){S.uniSelectivity=[];document.querySelectorAll(`[data-q="${q}"] .pill.on`).forEach(p=>S.uniSelectivity.push(p.textContent));document.querySelectorAll(`[data-q="${q}"] .pill`).forEach(p=>{S.uniSelectivity.includes(p.textContent)?p.classList.add('on'):p.classList.remove('on')});if(document.getElementById('uni-content'))renderUniversities()};saveState();renderInsights()}
 function initRes(){document.getElementById('res-content').innerHTML=`<div class="qb"><h3 style="font-weight:700;margin-bottom:8px">📚 Career Exploration</h3><ul class="rl"><li><a href="https://www.bls.gov/ooh/" target="_blank">Bureau of Labor Statistics</a> – Careers, outlook, licensing</li><li><a href="https://www.onetonline.org/" target="_blank">O*NET OnLine</a> – Detailed occupation data</li><li><a href="https://www.16personalities.com/" target="_blank">16Personalities</a> – Free assessment</li><li><a href="https://www.linkedin.com/" target="_blank">LinkedIn</a> – Professional network to explore careers and connect with professionals</li></ul></div><div class="qb"><h3 style="font-weight:700;margin-bottom:8px"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3NDEwIDM5MDAiPjxyZWN0IHdpZHRoPSI3NDEwIiBoZWlnaHQ9IjM5MDAiIGZpbGw9IiNiMjIyMzQiLz48cGF0aCBkPSJNMCAzMDBoNzQxMG0wIDYwMEgwbTAgNjAwaDc0MTBtMCA2MDBIMG0wIDYwMGg3NDEwbTAgNjAwSDBtMCA2MDBoNzQxMCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjMwMCIvPjxyZWN0IHdpZHRoPSIyOTY0IiBoZWlnaHQ9IjIxMDAiIGZpbGw9IiMzYzNiNmIiLz48L3N2Zz4=" style="height:0.6em;vertical-align:middle;margin-right:6px"/> US Universities & Aid</h3><ul class="rl"><li><a href="https://www.commonapp.org/" target="_blank">Common App</a> – Central application portal</li><li><a href="https://www.niche.com/" target="_blank">Niche</a> – University profiles & rankings</li><li><a href="https://nces.ed.gov/collegenavigator/" target="_blank">College Navigator</a> – Official data on all US colleges</li><li><a href="https://bigfuture.collegeboard.org/" target="_blank">Big Future</a> – College planning guide</li><li><a href="https://studentaid.gov/" target="_blank">FAFSA</a> – US need-based grants eligibility</li><li><a href="https://studentaid.gov/complete-aid-process/how-calculated" target="_blank">How Aid is Calculated (COA/SAI)</a> – Understand financial aid packages</li><li><a href="https://www.fastweb.com/" target="_blank">Fastweb</a> – Large database of external scholarships</li><li><a href="https://www.scholarships.com/" target="_blank">Scholarships.com</a> – Search & matching engine for awards</li></ul></div><div class="qb"><h3 style="font-weight:700;margin-bottom:8px">📈 Market Demand Data</h3><ul class="rl"><li><a href="https://www.bls.gov/ooh/" target="_blank">BLS Occupational Outlook Handbook</a> – US job outlook and projections</li><li><a href="https://wagedex.com/outlook/" target="_blank">BLS 2023–2033 Projections Index</a> – Occupation growth through 2033</li></ul></div><div class="qb"><h3 style="font-weight:700;margin-bottom:8px"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCAzMCI+PHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjMwIiBmaWxsPSIjMDEyMTY5Ii8+PHBhdGggZD0iTTAgMEw2MCAzME02MCAwTDAgMzAiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSI2Ii8+PHBhdGggZD0iTTMwIDB2MzBNMCAxNWg2MCIgc3Ryb2tlPSIjYzgxMDJlIiBzdHJva2Utd2lkdGg9IjQiLz48L3N2Zz4=" style="height:0.6em;vertical-align:middle;margin-right:6px"/> United Kingdom</h3><ul class="rl"><li><a href="https://www.ucas.com/" target="_blank">UCAS</a> – Central application portal for UK universities</li><li><a href="https://www.ucas.com/money-and-student-life/money/scholarships-grants-and-bursaries/eu-and-international-students" target="_blank">UCAS – Scholarships & Bursaries</a> – Guide to funding options for international students</li><li><a href="https://www.chevening.org/" target="_blank">Chevening Scholarships</a> – UK Government scholarship for international students (competitive, merit-based)</li><li><a href="https://study-uk.britishcouncil.org/scholarships-funding" target="_blank">UK Scholarships Finder (British Council)</a> – Database of available funding opportunities</li><li><a href="https://www.ukcisa.org.uk/student-advice/finances/funding-your-studies/" target="_blank">UKCISA – Funding Guide</a> – Comprehensive guide to financing studies in the UK</li><li><a href="https://discoveruni.gov.uk/" target="_blank">Discover Uni</a> – Official university data and comparison tool</li></ul></div><div class="qb"><h3 style="font-weight:700;margin-bottom:8px"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAyMiI+PHJlY3Qgd2lkdGg9IjM2IiBoZWlnaHQ9IjIyIiBmaWxsPSIjMDA2QUE3Ii8+PHJlY3Qgd2lkdGg9IjYiIGhlaWdodD0iMjIiIHg9IjgiIGZpbGw9IiNGRkNEMDAiLz48cmVjdCB3aWR0aD0iMzYiIGhlaWdodD0iNiIgeT0iOCIgZmlsbD0iI0ZGQ0QwMCIvPjwvc3ZnPg==" style="height:0.6em;vertical-align:middle;margin-right:6px"/> Sweden</h3><ul class="rl"><li><a href="https://www.universityadmissions.se/" target="_blank">University Admissions</a> – Central application portal</li><li><a href="https://studyinsweden.se/" target="_blank">Study in Sweden</a> – Official guide for international students</li><li><a href="https://www.csn.se/languages/english/" target="_blank">CSN</a> – Student grants & loans information</li><li><a href="https://si.se/en/apply/scholarships/" target="_blank">Swedish Institute Scholarships</a> – Merit-based funding</li></ul></div><div class="qb"><h3 style="font-weight:700;margin-bottom:8px"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1IDMiPjxyZWN0IHdpZHRoPSI1IiBoZWlnaHQ9IjEiIGZpbGw9IiMwMDAiLz48cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSIxIiB5PSIxIiBmaWxsPSIjZDAwIi8+PHJlY3Qgd2lkdGg9IjUiIGhlaWdodD0iMSIgeT0iMiIgZmlsbD0iI2ZmY2UwMCIvPjwvc3ZnPg==" style="height:0.6em;vertical-align:middle;margin-right:6px"/> Germany</h3><ul class="rl"><li><a href="https://www.daad.de/en/" target="_blank">DAAD</a> – Central portal for German universities & scholarships</li><li><a href="https://www.study-in-germany.de/en/" target="_blank">Study in Germany</a> – Official guide & program search</li><li><a href="https://uni-assist.de/" target="_blank">Uni-Assist</a> – Credential evaluation and application processing</li></ul></div><div class="qb"><h3 style="font-weight:700;margin-bottom:8px"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5IDYiPjxyZWN0IHdpZHRoPSI5IiBoZWlnaHQ9IjIiIGZpbGw9IiNBRTFDMjgiLz48cmVjdCB3aWR0aD0iOSIgaGVpZ2h0PSIyIiB5PSIyIiBmaWxsPSJ3aGl0ZSIvPjxyZWN0IHdpZHRoPSI5IiBoZWlnaHQ9IjIiIHk9IjQiIGZpbGw9IiMyMTQ2OEIiLz48L3N2Zz4=" style="height:0.6em;vertical-align:middle;margin-right:6px"/> Netherlands</h3><ul class="rl"><li><a href="https://www.studyinholland.nl/" target="_blank">Study in Holland</a> – Program search & application info</li><li><a href="https://www.studielink.nl/" target="_blank">Studielink</a> – Central application portal</li><li><a href="https://www.studyinnl.org/finances/nl-scholarship" target="_blank">NL Scholarship</a> – Funding for non-EEA students</li></ul></div><div class="qb"><h3 style="font-weight:700;margin-bottom:8px"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzIDIiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDIzOTUiLz48cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIyIiB4PSIxIiBmaWxsPSIjZmZmIi8+PHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMiIgeD0iMiIgZmlsbD0iI2VjMTQxZSIvPjwvc3ZnPg==" style="height:0.6em;vertical-align:middle;margin-right:6px"/> France</h3><ul class="rl"><li><a href="https://www.campusfrance.org/en" target="_blank">Campus France</a> – Central portal for French universities</li><li><a href="https://www.parcoursup.fr/" target="_blank">Parcoursup</a> – Central application system (public universities)</li><li><a href="https://www.etudiant.gouv.fr/en/financial-support-and-grants-1663" target="_blank">Étudiant.gouv</a> – Financial support & grants information</li></ul></div><div class="qb"><h3 style="font-weight:700;margin-bottom:8px"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzIDIiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjIiIGZpbGw9IiMwMDkyNDYiLz48cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIyIiB4PSIxIiBmaWxsPSIjZmZmIi8+PHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMiIgeD0iMiIgZmlsbD0iI2NlMmIzNyIvPjwvc3ZnPg==" style="height:0.6em;vertical-align:middle;margin-right:6px"/> Italy</h3><ul class="rl"><li><a href="https://www.universitaly.it/" target="_blank">Universitaly</a> – Central portal for Italian universities</li><li><a href="https://www.polimi.it/en/students/tuition-fees-scholarships-and-financial-aid/" target="_blank">Politecnico di Milano – Financial Aid</a> – Example of Italian university funding</li></ul></div><div class="qb"><h3 style="font-weight:700;margin-bottom:8px"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiA4Ij48cmVjdCB3aWR0aD0iMTIiIGhlaWdodD0iMiIgZmlsbD0iI0M2MEIxRSIvPjxyZWN0IHdpZHRoPSIxMiIgaGVpZ2h0PSI0IiB5PSIyIiBmaWxsPSIjRkZDNDAwIi8+PHJlY3Qgd2lkdGg9IjEyIiBoZWlnaHQ9IjIiIHk9IjYiIGZpbGw9IiNDNjBCMUUiLz48L3N2Zz4=" style="height:0.6em;vertical-align:middle;margin-right:6px"/> Spain</h3><ul class="rl"><li><a href="https://www.studyinspain.info/en/" target="_blank">Study in Spain</a> – Official guide & program search</li><li><a href="https://www.becaseducacion.gob.es/" target="_blank">Becas Portal</a> – Scholarships & grants</li><li><a href="https://www.educacionfpydeportes.gob.es/en/servicios-al-ciudadano/catalogo/estudiantes/becas-ayudas/" target="_blank">Ministry of Education – Scholarships & Aid</a></li></ul></div><div class="qb"><h3 style="font-weight:700;margin-bottom:8px"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNyAyMiI+PHJlY3Qgd2lkdGg9IjM3IiBoZWlnaHQ9IjIyIiBmaWxsPSIjYzgxMDJlIi8+PHJlY3Qgd2lkdGg9IjYiIGhlaWdodD0iMjIiIHg9IjEyIiBmaWxsPSIjZmZmIi8+PHJlY3Qgd2lkdGg9IjM3IiBoZWlnaHQ9IjYiIHk9IjgiIGZpbGw9IiNmZmYiLz48L3N2Zz4=" style="height:0.6em;vertical-align:middle;margin-right:6px"/> Denmark</h3><ul class="rl"><li><a href="https://studyindenmark.dk/" target="_blank">Study in Denmark</a> – Official guide & program search</li><li><a href="https://optagelse.dk/" target="_blank">Optagelse.dk</a> – Central application system</li><li><a href="https://www.su.dk/english/" target="_blank">SU – State Educational Grant</a> – Grants & loans for students</li></ul></div><div class="qb"><h3 style="font-weight:700;margin-bottom:8px"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzIDIiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjIiIGZpbGw9IiMxNjliNjIiLz48cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIyIiB4PSIxIiBmaWxsPSIjZmZmIi8+PHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMiIgeD0iMiIgZmlsbD0iI2ZmODgwMCIvPjwvc3ZnPg==" style="height:0.6em;vertical-align:middle;margin-right:6px"/> Ireland</h3><ul class="rl"><li><a href="https://www.cao.ie/" target="_blank">CAO</a> – Central application system</li><li><a href="https://www.educationinireland.com/" target="_blank">Education in Ireland</a> – Official guide & program search</li><li><a href="https://www.susi.ie/" target="_blank">SUSI</a> – Student grants for eligible students</li></ul></div><div class="qb"><h3 style="font-weight:700;margin-bottom:8px"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1IDMiPjxyZWN0IHdpZHRoPSI1IiBoZWlnaHQ9IjMiIGZpbGw9IiNmZjAwMDAiLz48cmVjdCB3aWR0aD0iMyIgaGVpZ2h0PSIzIiB4PSIxIiBmaWxsPSIjZmZmIi8+PHBvbHlnb24gcG9pbnRzPSIyLjUsMC43NSAyLjksMS45NSA0LjEsMS45NSAzLjIsMi42NSAzLjYsMy44NSAyLjUsMy4xNSAxLjQsMy44NSAxLjgsMi42NSAwLjksMS45NSAyLjEsMS45NSIgZmlsbD0iI2ZmMDAwMCIvPjwvc3ZnPg==" style="height:0.6em;vertical-align:middle;margin-right:6px"/> Canada</h3><ul class="rl"><li><a href="https://www.universitystudy.ca/" target="_blank">Universities Canada</a> – University information & rankings</li><li><a href="https://www.educanada.ca/" target="_blank">EduCanada</a> – Official guide for international students</li><li><a href="https://www.canada.ca/en/services/finance/educationfunding/scholarships.html" target="_blank">Canada.ca Scholarships</a> – Federal scholarship overview</li></ul></div><div class="qb"><h3 style="font-weight:700;margin-bottom:8px">🎯 Standardized Testing</h3><ul class="rl"><li><a href="https://satsuite.collegeboard.org/" target="_blank">SAT</a> – US university entrance exam</li><li><a href="https://www.act.org/" target="_blank">ACT</a> – Alternative US entrance exam</li><li><a href="https://www.khanacademy.org/" target="_blank">Khan Academy</a> – Free SAT/ACT prep</li></ul></div><div class="qb"><h3 style="font-weight:700;margin-bottom:8px">📋 Credential Evaluation</h3><ul class="rl"><li><a href="https://www.wes.org/" target="_blank">World Education Services (WES)</a> – US credential evaluation</li><li><a href="https://www.enic-naric.net/" target="_blank">ENIC-NARIC</a> – European credential recognition</li></ul></div>`}
-// UNIVERSITIES and INSIGHTS are now loaded via loadDataFile() at startup
+// ===== UNIVERSITIES HELPERS (loaded from universities.json) =====
+let UNIVERSITIES = [];
+let UNIVERSITIES_LOADED = false;
+
+async function loadUniversitiesData() {
+  try {
+    const response = await fetch('./data/universities.json');
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    UNIVERSITIES = data;
+    UNIVERSITIES_LOADED = true;
+    const total = UNIVERSITIES.length;
+    console.log(`✓ Loaded universities.json: ${total} universities`);
+    return true;
+  } catch (error) {
+    console.error('✗ Failed to load universities.json:', error.message);
+    return false;
+  }
+}
+
+// ===== INSIGHTS ENGINE =====
+// INSIGHTS moved to insights.json
+let INSIGHTS = {};
+let INSIGHTS_LOADED = false;
+
+async function loadInsightsData() {
+  try {
+    const response = await fetch('./data/insights.json');
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    INSIGHTS = data;
+    INSIGHTS_LOADED = true;
+    console.log('✓ Loaded insights.json');
+    return true;
+  } catch (error) {
+    console.error('✗ Failed to load insights.json:', error.message);
+    return false;
+  }
+}
 
 function getCareerInsight(career, motivation) {
   if (!motivation || !INSIGHTS.careersDrives[motivation]) {
