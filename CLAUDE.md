@@ -597,6 +597,32 @@ aggregateCategoryData('tech', 'growth')       // → {display: "Very high (+15%)
 
 **Key Principle:** Never embed multiple versions of the same function or data. Always delete the old version after refactoring to prevent confusion and silent bugs where old code is accidentally used.
 
+## Generic Discovery Selectors Pattern
+
+**Discovery selectors are now built dynamically from config, not hardcoded HTML.**
+
+**Structure:**
+1. **framework.js** `buildSelectors(config, containerId)` — Generates selector HTML from config array
+2. **pathfinder/{name}/config.js** `selectors` array — Defines question label, title, description for each
+3. **Initialization flow:**
+   - `buildSelectors()` creates selector containers with `data-q` attributes
+   - `renderDiscoverySelectorOptions()` populates pills from SELECTOR_OPTIONS
+   - `renderDiscoveryPills()` applies saved state "on" class
+   - `loadState()` restores saved selections
+
+**Config format:**
+```javascript
+selectors: [
+  { id: 'motivations', label: 'Select One or More', title: '...', description: '...' },
+  { id: 'cost', label: 'Select one', title: '...', description: '...' },
+  // ... etc
+]
+```
+
+**To customize:** Edit config.js selectors array. HTML structure and state management are shared.
+
+---
+
 ## Generic Header Component Pattern
 
 **Header is now built dynamically from config + data files, not hardcoded HTML.**
