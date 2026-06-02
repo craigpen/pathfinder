@@ -383,7 +383,6 @@ async function loadCountriesData() {
     if (S.cc) S.cc = S.cc.filter(k => validCodes.includes(k));
     if (S.costCC) S.costCC = S.costCC.filter(k => validCodes.includes(k));
     if (S.expl && !validCodes.includes(S.expl)) S.expl = null;
-    saveState();
 
     return true;
   } catch (error) {
