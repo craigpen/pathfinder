@@ -500,7 +500,6 @@ async function loadSelectorOptionsData() {
     return false;
   }
 }
-loadSelectorOptionsData();
 
 let PATHFINDER_DATA_LOADED = false;
 
@@ -535,12 +534,6 @@ async function loadPathfinderData() {
     return false;
   }
 }
-
-// Load shared and pathfinder data on page start
-loadStateNamesData();
-loadPathfinderData();
-loadUniversitiesData();
-loadInsightsData();
 
 // ============================================================================
 
