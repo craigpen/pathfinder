@@ -3500,3 +3500,7 @@ window.renderPath = renderPath;
 window.formatInsightItem = formatInsightItem;
 window.renderInsightsTable = renderInsightsTable;
 window.renderInsights = renderInsights;
+window.initDiscover = initDiscover;
+window.renderDiscoveryPills = renderDiscoveryPills;
+window.initRes = initRes;
+window.startOver = startOver;
