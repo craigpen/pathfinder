@@ -87,14 +87,21 @@ const universityPathfinderConfig = {
 
   // Initialization hook - called by framework.js on DOMContentLoaded
   onInit: async function() {
+    console.log('config.onInit: started');
+
     // Load saved state from localStorage
     if (window.loadState) {
       window.loadState();
     }
 
     // Load selector options and CAREERS data
+    console.log('config.onInit: checking for loadSelectorOptionsData, exists:', !!window.loadSelectorOptionsData);
     if (window.loadSelectorOptionsData) {
+      console.log('config.onInit: calling loadSelectorOptionsData');
       await window.loadSelectorOptionsData();
+      console.log('config.onInit: loadSelectorOptionsData completed');
+    } else {
+      console.error('config.onInit: loadSelectorOptionsData NOT FOUND');
     }
 
     const maxRetries = 100;
