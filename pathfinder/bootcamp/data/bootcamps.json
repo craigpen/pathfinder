@@ -1,0 +1,9 @@
+{
+  "bootcamps": [
+    { "name": "CodePath", "type": "Full-Stack", "pace": "Full-time (12-16 weeks)", "cost": 16500 },
+    { "name": "General Assembly", "type": "Web Development", "pace": "Full-time (12-16 weeks)", "cost": 15950 },
+    { "name": "Springboard", "type": "Data Science", "pace": "Part-time (6-12 months)", "cost": 11000 },
+    { "name": "Flatiron School", "type": "Web Development", "pace": "Full-time (12-16 weeks)", "cost": 15000 },
+    { "name": "Codecademy", "type": "Web Development", "pace": "Part-time (6-12 months)", "cost": 199 }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "bootType": ["Web Development", "Data Science", "Mobile", "Full-Stack"],
+  "pace": ["Full-time (12-16 weeks)", "Part-time (6-12 months)"],
+  "budget": ["Under $10k", "$10k-$15k", "$15k-$20k", "$20k+"]
+}

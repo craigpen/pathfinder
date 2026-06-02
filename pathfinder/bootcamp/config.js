@@ -1,44 +1,51 @@
-// Bootcamp Pathfinder Configuration
+// ============================================================================
+// BOOTCAMP PATHFINDER CONFIG
+// Minimal test case to verify framework is generic and reusable
+// ============================================================================
+
 const bootcampPathfinderConfig = {
   id: 'bootcamp',
   name: 'Bootcamp Pathfinder',
-  version: 'v0.2.0',
+  description: 'Find the right coding bootcamp for you',
 
-  // Tab structure - different from university
-  tabs: [
-    { id: 'find', label: 'Find Bootcamp' },
-    { id: 'programs', label: 'Programs' },
-    { id: 'compare', label: 'Compare' },
-    { id: 'insights', label: 'Insights' }
-  ],
-
-  // State fields for this pathfinder
-  stateFields: [
-    'selectedBootcamps',
-    'focusArea',
-    'budget',
-    'location',
-    'playlist'
-  ],
-
-  // Renderers - will be populated by renderers.js
-  renderersForTab: {
-    'find': () => console.log('Rendering Find Bootcamp tab'),
-    'programs': () => console.log('Rendering Programs tab'),
-    'compare': () => console.log('Rendering Compare tab'),
-    'insights': () => console.log('Rendering Insights tab')
+  // Generic header component
+  header: {
+    title: 'Bootcamp Pathfinder',
+    subtitle: 'Discover coding bootcamps, compare costs, find your fit.',
+    imagesFile: 'header-images.json',
+    enableMusic: true
   },
 
-  // Data sources (none for now - stub)
-  dataSources: {},
+  // Generic discovery selectors
+  selectors: [
+    { id: 'bootType', label: 'Select One or More', title: 'What type of bootcamp interests you?', description: 'Web development, data science, mobile, or full-stack.' },
+    { id: 'pace', label: 'Select one', title: 'How fast can you learn?', description: 'Full-time immersive (12-16 weeks) or part-time (6-12 months).' },
+    { id: 'budget', label: 'Select one', title: 'What is your budget?', description: 'Most bootcamps range from $10k–$25k.' }
+  ],
 
-  // Initialization hook - called by framework.js
-  onInit: async function() {
-    // Initialize header carousel
-    if (window.initHdrCarousel) {
-      window.initHdrCarousel();
-    }
+  // Tab definitions
+  tabs: [
+    { id: 'discover', label: 'Discover' },
+    { id: 'bootcamps', label: 'Bootcamps' }
+  ],
+
+  // State fields to persist
+  stateFields: [
+    'bootType',
+    'pace',
+    'budget'
+  ],
+
+  // Data sources
+  dataSources: {
+    bootcamps: 'bootcamps.json'
+  },
+
+  // Tab renderers
+  renderersForTab: {
+    'bootcamps': () => { if (window.renderBootcamps) window.renderBootcamps(); }
   }
 };
 
 window.bootcampPathfinderConfig = bootcampPathfinderConfig;
+window.PATHFINDER_CONFIG = bootcampPathfinderConfig;

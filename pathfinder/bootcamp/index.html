@@ -1,90 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Bootcamp Pathfinder</title>
-<script src="../../pathfinder/framework.js"></script>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bootcamp Pathfinder</title>
+  <script src="../../framework.js"></script>
+  <style>
+    /* Framework CSS is injected by framework.js */
+  </style>
 </head>
 <body>
-<div class="ctr">
-<div class="hdr">
-<div class="version-badge" id="version-badge"></div>
-<div class="hdr-bg" id="hdr-bg"><img alt="Header image" class="active" src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=800&amp;q=80"/></div>
-<div class="hdr-content">
-<div class="hdr-top"><h1>Bootcamp Pathfinder</h1><p>Find the right coding bootcamp for you.</p></div>
-<div class="hdr-music">
-<button class="music-toggle" id="music-btn" onclick="toggleMusic()">🎵 Tunes</button>
-<div class="playlist-pills" id="playlist-pills">
-<button class="pp" onclick="selPlaylist('lofi', this)">LoFi</button>
-<button class="pp" onclick="selPlaylist('groovy', this)">Groovy</button>
-<button class="pp" onclick="selPlaylist('relax', this)">Relax</button>
-<button class="pp" onclick="selPlaylist('zen', this)">Zen</button>
-</div>
-</div>
-<div class="spotify-wrap" id="spotify-wrap">
-<iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" class="spotify-frame" frameborder="0" id="spotify-frame" loading="lazy" src="about:blank">
-</iframe>
-</div>
-</div>
-</div>
-<div class="tabs">
-<button class="tb on" onclick="go('find')">Find</button>
-<button class="tb" onclick="go('programs')">Programs</button>
-<button class="tb" onclick="go('compare')">Compare</button>
-<button class="tb" onclick="go('insights')">Insights</button>
-</div>
+  <div class="ctr">
+    <!-- Header is built dynamically -->
+    <div id="header-container"></div>
 
-<div class="pan on" id="find"></div>
-<div class="pan" id="programs"></div>
-<div class="pan" id="compare"></div>
-<div class="pan" id="insights"></div>
-</div>
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tb on" onclick="go('discover')">Discover</button>
+      <button class="tb" onclick="go('bootcamps')">Bootcamps</button>
+    </div>
 
-<script>
-// State management (bootcamp-specific)
-window.S = {
-  selectedBootcamps: [],
-  focusArea: null,
-  budget: null,
-  location: null,
-  playlist: null
-};
-const S = window.S;
+    <!-- Discover Tab -->
+    <div class="pan on" id="discover">
+      <!-- Discovery selectors are built dynamically -->
+      <div class="bg">
+        <span class="pos-left"></span>
+        <button class="btn br pos-center" onclick="startOver()">Reset</button>
+        <button class="btn bp pos-right" onclick="go('bootcamps')">Next</button>
+      </div>
+    </div>
 
-const VERSION = 'v0.2.0';
-window.VERSION = VERSION;
+    <!-- Bootcamps Tab -->
+    <div class="pan" id="bootcamps">
+      <div id="bootcamps-content">
+        <div class="qb"><div class="qt">Bootcamps matching your preferences</div></div>
+        <div id="bootcamps-list"></div>
+      </div>
+      <div class="bg">
+        <button class="btn bs pos-left" onclick="go('discover')">Back</button>
+        <button class="btn br pos-center" onclick="startOver()">Reset</button>
+      </div>
+    </div>
+  </div>
 
-function saveState() {
-  const stateToSave = {
-    selectedBootcamps: S.selectedBootcamps,
-    focusArea: S.focusArea,
-    budget: S.budget,
-    location: S.location,
-    playlist: S.playlist
-  };
-  localStorage.setItem('bootcampPathfinderState', JSON.stringify(stateToSave));
-}
-
-function loadState() {
-  const saved = localStorage.getItem('bootcampPathfinderState');
-  if (saved) {
-    const state = JSON.parse(saved);
-    Object.assign(S, state);
-  }
-}
-
-window.saveState = saveState;
-window.loadState = loadState;
-window.PATHFINDER_CONFIG = window.bootcampPathfinderConfig;
-</script>
-
-<!-- Pathfinder-specific configuration, helpers, and renderers -->
-<script src="config.js"></script>
-<script src="renderers.js"></script>
-<script>
-// Initialize after all scripts have loaded to avoid race conditions
-window.initializeApp();
-</script>
+  <script src="config.js"></script>
+  <script src="helpers.js"></script>
 </body>
 </html>
