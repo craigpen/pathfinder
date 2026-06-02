@@ -453,13 +453,10 @@ async function loadStateNamesData() {
 
 async function loadSelectorOptionsData() {
   try {
-    console.log('loadSelectorOptionsData: starting fetch');
     const response = await fetch('./selector-options.json');
-    console.log('loadSelectorOptionsData: fetch response status:', response.status);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
     const data = await response.json();
-    console.log('loadSelectorOptionsData: parsed JSON, keys:', Object.keys(data));
     Object.assign(SELECTOR_OPTIONS, data);
     window.SELECTOR_OPTIONS = SELECTOR_OPTIONS;
     SELECTOR_OPTIONS_LOADED = true;
