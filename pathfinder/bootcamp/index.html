@@ -8,23 +8,37 @@
 </head>
 <body>
 <div class="ctr">
-  <div class="hdr">
-    <h1>Bootcamp Pathfinder</h1>
-    <p>Find the right coding bootcamp for you</p>
-    <div class="version-badge" id="version-badge"></div>
-  </div>
+<div class="hdr">
+<div class="version-badge" id="version-badge"></div>
+<div class="hdr-bg" id="hdr-bg"><img alt="Header image" class="active" src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=800&amp;q=80"/></div>
+<div class="hdr-content">
+<div class="hdr-top"><h1>Bootcamp Pathfinder</h1><p>Find the right coding bootcamp for you.</p></div>
+<div class="hdr-music">
+<button class="music-toggle" id="music-btn" onclick="toggleMusic()">🎵 Tunes</button>
+<div class="playlist-pills" id="playlist-pills">
+<button class="pp" onclick="selPlaylist('lofi', this)">LoFi</button>
+<button class="pp" onclick="selPlaylist('groovy', this)">Groovy</button>
+<button class="pp" onclick="selPlaylist('relax', this)">Relax</button>
+<button class="pp" onclick="selPlaylist('zen', this)">Zen</button>
+</div>
+</div>
+<div class="spotify-wrap" id="spotify-wrap">
+<iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" class="spotify-frame" frameborder="0" id="spotify-frame" loading="lazy" src="about:blank">
+</iframe>
+</div>
+</div>
+</div>
+<div class="tabs">
+<button class="tb on" onclick="go('find')">Find</button>
+<button class="tb" onclick="go('programs')">Programs</button>
+<button class="tb" onclick="go('compare')">Compare</button>
+<button class="tb" onclick="go('insights')">Insights</button>
+</div>
 
-  <div class="tabs">
-    <button class="tb on" onclick="go('find')">🔍 Find</button>
-    <button class="tb" onclick="go('programs')">📚 Programs</button>
-    <button class="tb" onclick="go('compare')">⚖️ Compare</button>
-    <button class="tb" onclick="go('insights')">💡 Insights</button>
-  </div>
-
-  <div id="find" class="pan on"></div>
-  <div id="programs" class="pan"></div>
-  <div id="compare" class="pan"></div>
-  <div id="insights" class="pan"></div>
+<div class="pan on" id="find"></div>
+<div class="pan" id="programs"></div>
+<div class="pan" id="compare"></div>
+<div class="pan" id="insights"></div>
 </div>
 
 <script>
@@ -33,12 +47,35 @@ window.S = {
   selectedBootcamps: [],
   focusArea: null,
   budget: null,
-  location: null
+  location: null,
+  playlist: null
 };
 const S = window.S;
 
-const VERSION = 'v0.1.0';
+const VERSION = 'v0.2.0';
 window.VERSION = VERSION;
+
+function saveState() {
+  const stateToSave = {
+    selectedBootcamps: S.selectedBootcamps,
+    focusArea: S.focusArea,
+    budget: S.budget,
+    location: S.location,
+    playlist: S.playlist
+  };
+  localStorage.setItem('bootcampPathfinderState', JSON.stringify(stateToSave));
+}
+
+function loadState() {
+  const saved = localStorage.getItem('bootcampPathfinderState');
+  if (saved) {
+    const state = JSON.parse(saved);
+    Object.assign(S, state);
+  }
+}
+
+window.saveState = saveState;
+window.loadState = loadState;
 window.PATHFINDER_CONFIG = window.bootcampPathfinderConfig;
 </script>
 

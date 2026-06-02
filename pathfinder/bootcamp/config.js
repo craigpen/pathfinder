@@ -2,14 +2,14 @@
 const bootcampPathfinderConfig = {
   id: 'bootcamp',
   name: 'Bootcamp Pathfinder',
-  version: 'v0.1.0',
+  version: 'v0.2.0',
 
   // Tab structure - different from university
   tabs: [
-    { id: 'find', label: 'Find Bootcamp', icon: '🔍' },
-    { id: 'programs', label: 'Programs', icon: '📚' },
-    { id: 'compare', label: 'Compare', icon: '⚖️' },
-    { id: 'insights', label: 'Insights', icon: '💡' }
+    { id: 'find', label: 'Find Bootcamp' },
+    { id: 'programs', label: 'Programs' },
+    { id: 'compare', label: 'Compare' },
+    { id: 'insights', label: 'Insights' }
   ],
 
   // State fields for this pathfinder
@@ -17,7 +17,8 @@ const bootcampPathfinderConfig = {
     'selectedBootcamps',
     'focusArea',
     'budget',
-    'location'
+    'location',
+    'playlist'
   ],
 
   // Renderers - will be populated by renderers.js
@@ -31,12 +32,13 @@ const bootcampPathfinderConfig = {
   // Data sources (none for now - stub)
   dataSources: {},
 
-  // Header configuration
-  headerTitle: 'Bootcamp Pathfinder',
-  headerSubtitle: 'Find the right coding bootcamp for you',
-
-  // Resources
-  playlistUrls: {}
+  // Initialization hook - called by framework.js
+  onInit: async function() {
+    // Initialize header carousel
+    if (window.initHdrCarousel) {
+      window.initHdrCarousel();
+    }
+  }
 };
 
 window.bootcampPathfinderConfig = bootcampPathfinderConfig;
