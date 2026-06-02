@@ -286,7 +286,9 @@ async function buildHeader(config) {
             <button class="pp" onclick="selPlaylist('zen', this)">Zen</button>
           </div>
         </div>
-        <div class="spotify-wrap" id="spotify-wrap"></div>
+        <div class="spotify-wrap" id="spotify-wrap">
+          <iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" class="spotify-frame" frameborder="0" id="spotify-frame" loading="lazy" src="about:blank"></iframe>
+        </div>
       `;
     }
 
