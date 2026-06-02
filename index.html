@@ -2331,15 +2331,16 @@ function renderUniversities(){
     }
   }
   
-  // Render selectivity pills
+  // Render selectivity pills (in container with data-q to match Discovery page structure)
   const selPills = document.getElementById('uni-selectivity-pills');
   if(selPills){
     const selOptions = ['Very selective', 'Selective', 'Less selective'];
-    let h = '';
+    let h = '<div class="pills" data-q="uniSelectivity">';
     selOptions.forEach(option => {
       const isSelected = S.uniSelectivity && S.uniSelectivity.includes(option);
       h += `<div class="pill${isSelected ? ' on' : ''}" onclick="toggleUniSelectivity(this)">${option}</div>`;
     });
+    h += '</div>';
     selPills.innerHTML = h;
   }
   
