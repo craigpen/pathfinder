@@ -471,6 +471,7 @@ async function loadSelectorOptionsData() {
     return false;
   }
 }
+loadSelectorOptionsData();
 
 let PATHFINDER_DATA_LOADED = false;
 
