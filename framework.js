@@ -226,6 +226,65 @@ function startHdrCarousel() {
   });
 }
 
+async function buildHeader(config) {
+  const container = document.getElementById('header-container');
+  if (!container) return;
+
+  try {
+    // Load header images from JSON
+    const imagesRes = await fetch(`data/${config.imagesFile}`);
+    if (!imagesRes.ok) throw new Error(`HTTP ${imagesRes.status}`);
+    const imagesData = await imagesRes.json();
+    const imageUrls = imagesData.images || [];
+
+    // Build image carousel HTML
+    let imagesHtml = imageUrls
+      .map((url, i) => `<img alt="Header image" class="${i === 0 ? 'active' : ''}" src="${url}"/>`)
+      .join('');
+
+    // Build music controls HTML
+    let musicHtml = '';
+    if (config.enableMusic) {
+      musicHtml = `
+        <div class="hdr-music">
+          <button class="music-toggle" id="music-btn" onclick="toggleMusic()">🎵 Tunes</button>
+          <div class="playlist-pills" id="playlist-pills">
+            <button class="pp" onclick="selPlaylist('lofi', this)">LoFi</button>
+            <button class="pp" onclick="selPlaylist('groovy', this)">Groovy</button>
+            <button class="pp" onclick="selPlaylist('relax', this)">Relax</button>
+            <button class="pp" onclick="selPlaylist('zen', this)">Zen</button>
+          </div>
+        </div>
+        <div class="spotify-wrap" id="spotify-wrap"></div>
+      `;
+    }
+
+    // Build complete header HTML
+    const headerHtml = `
+      <div class="hdr">
+        <div class="version-badge" id="version-badge"></div>
+        <div class="hdr-bg" id="hdr-bg">${imagesHtml}</div>
+        <div class="hdr-content">
+          <div class="hdr-top">
+            <h1>${config.title}</h1>
+            <p>${config.subtitle}</p>
+          </div>
+          ${musicHtml}
+        </div>
+      </div>
+    `;
+
+    container.innerHTML = headerHtml;
+
+    // Initialize carousel
+    setTimeout(() => initHdrCarousel(), 100);
+
+    console.log(`✓ Built header: "${config.title}"`);
+  } catch (error) {
+    console.error('✗ Failed to build header:', error.message);
+  }
+}
+
 function initHdrCarousel() { startHdrCarousel(); }
 function updateHdrCarousel() { startHdrCarousel(); }
 
@@ -431,6 +490,7 @@ window.frameworkLoadState = frameworkLoadState;
 window.buildTableHTML = buildTableHTML;
 window.buildCarouselHTML = buildCarouselHTML;
 window.initCarousel = initCarousel;
+window.buildHeader = buildHeader;
 window.initHdrCarousel = initHdrCarousel;
 window.updateHdrCarousel = updateHdrCarousel;
 window.toggleMusic = toggleMusic;

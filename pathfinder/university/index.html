@@ -230,26 +230,8 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 </head>
 <body>
 <div class="ctr">
-<div class="hdr">
-<div class="version-badge" id="version-badge"></div>
-<div class="hdr-bg" id="hdr-bg"><img alt="Header image" class="active" src="https://images.unsplash.com/photo-1441260038675-7329ab4cc264?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1548625149-fc4a29cf7092?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1509356843151-3e7d96241e11?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1534445867742-43195f401b6c?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=800&amp;q=80"/><img alt="Header image" class="" src="https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=800&amp;q=80"/></div>
-<div class="hdr-content">
-<div class="hdr-top"><h1>University Pathfinder</h1><p>Explore careers, compare countries, understand costs, find your path.</p></div>
-<div class="hdr-music">
-<button class="music-toggle" id="music-btn" onclick="toggleMusic()">🎵 Tunes</button>
-<div class="playlist-pills" id="playlist-pills">
-<button class="pp" onclick="selPlaylist('lofi', this)">LoFi</button>
-<button class="pp" onclick="selPlaylist('groovy', this)">Groovy</button>
-<button class="pp" onclick="selPlaylist('relax', this)">Relax</button>
-<button class="pp" onclick="selPlaylist('zen', this)">Zen</button>
-</div>
-</div>
-<div class="spotify-wrap" id="spotify-wrap">
-<iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" class="spotify-frame" frameborder="0" id="spotify-frame" loading="lazy" src="about:blank">
-</iframe>
-</div>
-</div>
-</div>
+<!-- Header is built dynamically by framework.js/buildHeader() -->
+<div id="header-container"></div>
 <div class="tabs">
 <button class="tb on" onclick="go('discover')">Discovery</button>
 <button class="tb" onclick="go('careers')">Careers</button>

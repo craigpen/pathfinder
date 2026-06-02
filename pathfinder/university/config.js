@@ -8,6 +8,14 @@ const universityPathfinderConfig = {
   name: 'University Pathfinder',
   description: 'Find the right university and career path',
 
+  // Header configuration
+  header: {
+    title: 'University Pathfinder',
+    subtitle: 'Explore careers, compare countries, understand costs, find your path.',
+    imagesFile: 'header-images.json',
+    enableMusic: true
+  },
+
   // Tab definitions (order matters for rendering)
   tabs: [
     { id: 'discover', label: 'Discover' },
@@ -87,6 +95,11 @@ const universityPathfinderConfig = {
 
   // Initialization hook - called by framework.js on DOMContentLoaded
   onInit: async function() {
+    // Build header from config
+    if (window.buildHeader) {
+      await window.buildHeader(universityPathfinderConfig.header);
+    }
+
     // Load saved state from localStorage
     if (window.loadState) {
       window.loadState();
