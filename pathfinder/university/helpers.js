@@ -428,8 +428,10 @@ let STATE_NAMES = {};
 let CAREER_TO_QS_SUBJECT = {};
 let SELECTIVITY_DISPLAY = {};
 let TUITION_AVERAGES = {};
+let SELECTOR_OPTIONS = {};
 
 let STATE_NAMES_LOADED = false;
+let SELECTOR_OPTIONS_LOADED = false;
 
 async function loadStateNamesData() {
   try {
@@ -445,6 +447,24 @@ async function loadStateNamesData() {
     return true;
   } catch (error) {
     console.error('✗ Failed to load state-names.json:', error.message);
+    return false;
+  }
+}
+
+async function loadSelectorOptionsData() {
+  try {
+    const response = await fetch('./selector-options.json');
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    const data = await response.json();
+    Object.assign(SELECTOR_OPTIONS, data);
+    window.SELECTOR_OPTIONS = SELECTOR_OPTIONS;
+    SELECTOR_OPTIONS_LOADED = true;
+
+    console.log(`✓ Loaded selector-options.json`);
+    return true;
+  } catch (error) {
+    console.error('✗ Failed to load selector-options.json:', error.message);
     return false;
   }
 }
@@ -1202,5 +1222,6 @@ window.loadCountriesData = loadCountriesData;
 window.loadCareersData = loadCareersData;
 window.loadPathfinderData = loadPathfinderData;
 window.loadStateNamesData = loadStateNamesData;
+window.loadSelectorOptionsData = loadSelectorOptionsData;
 window.loadUniversitiesData = loadUniversitiesData;
 window.loadInsightsData = loadInsightsData;

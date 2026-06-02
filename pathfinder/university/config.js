@@ -92,7 +92,11 @@ const universityPathfinderConfig = {
       window.loadState();
     }
 
-    // Wait for CAREERS to load before initializing discovery
+    // Load selector options and CAREERS data
+    if (window.loadSelectorOptionsData) {
+      await window.loadSelectorOptionsData();
+    }
+
     const maxRetries = 100;
     let retries = 0;
     while (!window.CAREERS_LOADED && retries < maxRetries) {
