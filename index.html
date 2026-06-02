@@ -917,7 +917,7 @@ let CAREERS_LOADED = false;
 
 async function loadCareersData() {
   try {
-    const response = await fetch('pathfinders/university/careers.json');
+    const response = await fetch('pathfinder/university/careers.json');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
     const data = await response.json();
@@ -1343,7 +1343,7 @@ let UNIVERSITIES_LOADED = false;
 
 async function loadUniversitiesData() {
   try {
-    const response = await fetch('pathfinders/university/universities.json');
+    const response = await fetch('pathfinder/university/universities.json');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
     UNIVERSITIES = data;
@@ -4780,7 +4780,7 @@ let INSIGHTS_LOADED = false;
 
 async function loadInsightsData() {
   try {
-    const response = await fetch('pathfinders/university/insights.json');
+    const response = await fetch('pathfinder/university/insights.json');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
     INSIGHTS = data;
@@ -5220,7 +5220,7 @@ function exportCareersSchemaAsCode() {
 }
 </script>
 <!-- Framework and pathfinder initialization -->
-<script src="pathfinders/university/config.js"></script>
+<script src="pathfinder/university/config.js"></script>
 <script src="framework.js"></script>
 </body>
 </html>

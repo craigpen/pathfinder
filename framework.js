@@ -100,7 +100,7 @@ function getCurrentPathfinderConfig() {
 async function loadPathfinderData(config) {
   if (!config.dataSources) return true;
 
-  const baseDir = `pathfinders/${currentPathfinder}/`;
+  const baseDir = `pathfinder/${currentPathfinder}/`;
   const loadPromises = [];
 
   Object.entries(config.dataSources).forEach(([name, filename]) => {
