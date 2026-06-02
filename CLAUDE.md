@@ -597,6 +597,46 @@ aggregateCategoryData('tech', 'growth')       // → {display: "Very high (+15%)
 
 **Key Principle:** Never embed multiple versions of the same function or data. Always delete the old version after refactoring to prevent confusion and silent bugs where old code is accidentally used.
 
+## Generic Header Component Pattern
+
+**Header is now built dynamically from config + data files, not hardcoded HTML.**
+
+**Structure:**
+1. **framework.js** `buildHeader(config)` — Generic function that:
+   - Takes config object (title, subtitle, imagesFile, enableMusic)
+   - Loads header images from JSON file
+   - Builds and injects header HTML
+   - Initializes carousel
+
+2. **pathfinder/{name}/config.js** — Defines header config:
+   ```javascript
+   header: {
+     title: 'University Pathfinder',
+     subtitle: 'Explore careers, compare countries...',
+     imagesFile: 'header-images.json',
+     enableMusic: true
+   }
+   ```
+
+3. **pathfinder/{name}/data/header-images.json** — Array of image URLs:
+   ```json
+   {
+     "images": [
+       "https://images.unsplash.com/...",
+       "https://images.unsplash.com/..."
+     ]
+   }
+   ```
+
+4. **pathfinder/{name}/index.html** — Replaced hardcoded header with container:
+   ```html
+   <div id="header-container"></div>
+   ```
+
+**To customize header for a pathfinder:** Only edit config.js and header-images.json. HTML markup and carousel logic are shared.
+
+---
+
 ## Framework Async Coordination Pattern
 
 **When using Promise.all() to coordinate loaders + state restoration:**
