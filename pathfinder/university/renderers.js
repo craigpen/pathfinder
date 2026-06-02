@@ -2,12 +2,9 @@
 // All render* and format* functions for the university pathfinder
 
 // ===== MODULE-LEVEL VARIABLES =====
-let UNIVERSITIES = [];
-let UNIVERSITIES_LOADED = false;
-let INSIGHTS = {};
-let INSIGHTS_LOADED = false;
 let hdrIdx = 0, hdrTimer = null, hdrPaused = false, hdrPoolKey = '';
 const BAD_IMG_CACHE = new Set();
+// Note: UNIVERSITIES, INSIGHTS and their _LOADED flags are declared in helpers.js
 
 function formatMoneyRange(min, max) {
   if (min === null || max === null) return '—';
@@ -209,23 +206,6 @@ function debugAllUniversities() {
   console.log('Sample universities:', UNIVERSITIES.slice(0, 3).map(u => u.name));
   console.groupEnd();
   return validation;
-}
-
-// ===== INSIGHTS HELPERS (loaded from insights.json) =====
-
-async function loadInsightsData() {
-  try {
-    const response = await fetch('./insights.json');
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const data = await response.json();
-    INSIGHTS = data;
-    INSIGHTS_LOADED = true;
-    console.log('✓ Loaded insights.json');
-    return true;
-  } catch (error) {
-    console.error('✗ Failed to load insights.json:', error.message);
-    return false;
-  }
 }
 
 // ===== Header image carousel (dynamic by selected country) =====
