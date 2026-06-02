@@ -247,6 +247,27 @@ function headerImagePool(){
  return pool.length ? pool : HEADER_PHOTOS;
 }
 
+function bindHdrHoverPause(){
+  const bg = document.getElementById('hdr-bg');
+  if(!bg) return;
+  bg.addEventListener('mouseenter', ()=>{ hdrPaused = true; });
+  bg.addEventListener('mouseleave', ()=>{ hdrPaused = false; });
+}
+
+function renderHdrImages(pool){
+  const bg = document.getElementById('hdr-bg');
+  if(!bg) return [];
+  bg.innerHTML = '';
+  return pool.map((img, idx)=>{
+    const el = document.createElement('img');
+    el.alt = 'Header image';
+    el.src = img.src;
+    if(idx === 0) el.classList.add('active');
+    bg.appendChild(el);
+    return el;
+  });
+}
+
 // University-specific header carousel (uses country-based photos)
 function startHdrCarousel(){
   if(hdrTimer) clearInterval(hdrTimer);
