@@ -153,3 +153,53 @@ window.renderPathfinderTab = renderPathfinderTab;
 window.pick1 = pick1;
 window.pickN = pickN;
 window.startOver = startOver;
+
+// Render discovery selector pills from SELECTOR_OPTIONS
+function renderDiscoverySelectorOptions() {
+  const opts = window.SELECTOR_OPTIONS || {};
+  const multiSelect = ['bootType'];
+
+  Object.entries(opts).forEach(([qKey, options]) => {
+    const container = document.querySelector(`[data-q="${qKey}"]`);
+    if (!container) return;
+
+    const isMulti = multiSelect.includes(qKey);
+    const pickFunc = isMulti ? 'pickN' : 'pick1';
+
+    let html = '';
+    options.forEach(value => {
+      html += `<div class="pill" onclick="${pickFunc}('${qKey}',this)">${value}</div>`;
+    });
+
+    container.innerHTML = html;
+  });
+}
+
+// Apply saved state to pills
+function renderDiscoveryPills() {
+  document.querySelectorAll('[data-q="bootType"] .pill').forEach(p => {
+    if (S.bootType && S.bootType.includes(p.textContent)) p.classList.add('on');
+    else p.classList.remove('on');
+  });
+  document.querySelectorAll('[data-q="pace"] .pill').forEach(p => {
+    if (S.pace === p.textContent) p.classList.add('on');
+    else p.classList.remove('on');
+  });
+  document.querySelectorAll('[data-q="budget"] .pill').forEach(p => {
+    if (S.budget === p.textContent) p.classList.add('on');
+    else p.classList.remove('on');
+  });
+}
+
+// Proper renderPathfinderTab implementation
+function renderPathfinderTab(id) {
+  if (id === 'discover') {
+    renderDiscoverySelectorOptions();
+    renderDiscoveryPills();
+  } else if (id === 'bootcamps') {
+    renderBootcamps();
+  }
+}
+
+window.renderDiscoverySelectorOptions = renderDiscoverySelectorOptions;
+window.renderDiscoveryPills = renderDiscoveryPills;
