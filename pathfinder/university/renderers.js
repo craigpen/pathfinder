@@ -3590,3 +3590,7 @@ window.renderPath = renderPath;
 window.formatInsightItem = formatInsightItem;
 window.renderInsightsTable = renderInsightsTable;
 window.renderInsights = renderInsights;
+
+// Load data files on page startup
+loadUniversitiesData();
+loadInsightsData();
