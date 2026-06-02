@@ -444,8 +444,9 @@ Promise.all([
   console.log('📊 Data check - SELECTOR_OPTIONS_LOADED:', window.SELECTOR_OPTIONS_LOADED);
   console.log('📊 Data check - COUNTRIES_LOADED:', window.COUNTRIES_LOADED);
   console.log('📊 Data check - CAREERS_LOADED:', window.CAREERS_LOADED);
-  loadState();
   renderPathfinderTab('discover');
+  loadState();
+  console.log('✅ State restoration complete');
 }).catch(err => {
   console.error('Failed to load data:', err);
 });
