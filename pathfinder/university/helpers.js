@@ -1204,4 +1204,3 @@ window.loadPathfinderData = loadPathfinderData;
 window.loadStateNamesData = loadStateNamesData;
 window.loadUniversitiesData = loadUniversitiesData;
 window.loadInsightsData = loadInsightsData;
-window.HEADER_PHOTOS = HEADER_PHOTOS;
