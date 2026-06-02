@@ -93,12 +93,14 @@ const universityPathfinderConfig = {
     }
 
     // Wait for selector options and careers data to load
+    console.log('[config.onInit] Before wait loop - SELECTOR_OPTIONS_LOADED:', window.SELECTOR_OPTIONS_LOADED, 'CAREERS_LOADED:', window.CAREERS_LOADED);
     const maxRetries = 100;
     let retries = 0;
     while ((!window.SELECTOR_OPTIONS_LOADED || !window.CAREERS_LOADED) && retries < maxRetries) {
       await new Promise(r => setTimeout(r, 10));
       retries++;
     }
+    console.log('[config.onInit] After wait loop (retries=' + retries + ') - SELECTOR_OPTIONS_LOADED:', window.SELECTOR_OPTIONS_LOADED, 'CAREERS_LOADED:', window.CAREERS_LOADED);
 
     // Note: renderDiscoveryPills will be called automatically by renderPathfinderTab('discover')
     // when the discover tab is shown, so we don't need to call it here
