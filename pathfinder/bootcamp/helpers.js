@@ -3,8 +3,27 @@
 // ============================================================================
 
 // State object
+let SELECTOR_OPTIONS = {};
+let SELECTOR_OPTIONS_LOADED = false;
 let BOOTCAMPS = [];
 let BOOTCAMPS_LOADED = false;
+
+async function loadSelectorOptionsData() {
+  try {
+    const response = await fetch('./data/selector-options.json');
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    Object.assign(SELECTOR_OPTIONS, data);
+    window.SELECTOR_OPTIONS = SELECTOR_OPTIONS;
+    window.SELECTOR_OPTIONS_LOADED = true;
+    SELECTOR_OPTIONS_LOADED = true;
+    console.log(`✓ Loaded selector-options.json: ${Object.keys(data).length} selectors`);
+    return true;
+  } catch (error) {
+    console.error('✗ Failed to load selector-options.json:', error.message);
+    return false;
+  }
+}
 
 async function loadBootcampsData() {
   try {
@@ -72,9 +91,10 @@ window.S = { bootType: [], pace: null, budget: null };
 const S = window.S;
 
 // Coordinate initialization with framework
+const selectorOptionsPromise = loadSelectorOptionsData();
 const bootcampsPromise = loadBootcampsData();
 
-Promise.all([bootcampsPromise]).then(async () => {
+Promise.all([selectorOptionsPromise, bootcampsPromise]).then(async () => {
   console.log('✓ All bootcamp data loaded successfully');
 
   // Build header and selectors (generic framework functions)
@@ -153,6 +173,8 @@ window.renderPathfinderTab = renderPathfinderTab;
 window.pick1 = pick1;
 window.pickN = pickN;
 window.startOver = startOver;
+window.loadSelectorOptionsData = loadSelectorOptionsData;
+window.loadBootcampsData = loadBootcampsData;
 
 // Render discovery selector pills from SELECTOR_OPTIONS
 function renderDiscoverySelectorOptions() {
