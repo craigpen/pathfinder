@@ -404,6 +404,7 @@ async function loadCareersData() {
 
     const data = await response.json();
     window.CAREERS = data;
+    window.CAREERS_LOADED = true;
     CAREERS_LOADED = true;
 
     const total = Object.keys(data).length;
@@ -459,6 +460,7 @@ async function loadSelectorOptionsData() {
     const data = await response.json();
     Object.assign(SELECTOR_OPTIONS, data);
     window.SELECTOR_OPTIONS = SELECTOR_OPTIONS;
+    window.SELECTOR_OPTIONS_LOADED = true;
     SELECTOR_OPTIONS_LOADED = true;
 
     console.log(`✓ Loaded selector-options.json with ${Object.keys(SELECTOR_OPTIONS).length} selectors`);
