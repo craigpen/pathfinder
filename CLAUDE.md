@@ -281,15 +281,21 @@ When externalizing reference data that's keyed by external data (e.g., DEMAND_MA
 - ❌ Creating separate reference JSON files instead of merging into parent structure — bloats file count and complicates async loading
 
 ## Key Files & Functions
-- `index.html` — Single-page app with embedded CSS/JS (originally 776KB, now **310KB** with all data externalized)
+- `index.html` — Single-page app with embedded CSS/JS (originally 776KB, now **301KB** with all data externalized)
   - This is your main deliverable; treat edits carefully
   - Always test in browser before committing
 - External data files (loaded asynchronously at startup):
-  - `countries.json` (66KB) — Consolidated country data (13 countries with CD/FUNDING merged); loaded by `loadCountriesData()`. Access via helpers: `getCountryName()`, `getCountryTuition()`, etc.
-  - `careers.json` (106KB) — Career categories and subcareers (66 total, normalized schema); loaded by `loadCareersData()`. Access via helpers: `getSub()`, `getCategorySubjects()`, etc. Uses normalized schema with min/max ranges and structured objects for education, growth, licensing, portability, demand
-  - `universities.json` (587 universities) — External university database; loaded by `loadUniversitiesData()`. Schema includes dual tuition rates: `tuition` (international) and `tuition_eu` (EU citizen rate) with `tuition_eu_note` for transparency. Access via helpers: `getUniversity()`, `getUniversitiesByCountry()`, `getUniversitiesByProgram()`, etc.
-  - `insights.json` (5 categories) — Career/country/cost/language/citizenship alignment data; loaded by `loadInsightsData()`. Access only via insight functions `getCareerInsight()`, `getCountryInsight()`, `getCostInsight()`, `getLanguageInsight()`, `getCitizenshipInsight()`.
-  - **Always access via helpers**, never direct property access
+  - **Shared (root level):**
+    - `state-names.json` — US state abbreviations to full names; loaded by `loadStateNamesData()`. Access via `STATE_NAMES[code]`. Shared across all future pathfinders.
+  - **Pathfinder-specific (pathfinder/university/):**
+    - `countries.json` (66KB) — Consolidated country data (13 countries with CD/FUNDING merged); loaded by `loadCountriesData()`. Access via helpers: `getCountryName()`, `getCountryTuition()`, etc.
+    - `careers.json` (106KB) — Career categories and subcareers (66 total, normalized schema); loaded by `loadCareersData()`. Access via helpers: `getSub()`, `getCategorySubjects()`, etc. Uses normalized schema with min/max ranges and structured objects for education, growth, licensing, portability, demand
+    - `universities.json` (587 universities) — External university database; loaded by `loadUniversitiesData()`. Schema includes dual tuition rates: `tuition` (international) and `tuition_eu` (EU citizen rate) with `tuition_eu_note` for transparency. Access via helpers: `getUniversity()`, `getUniversitiesByCountry()`, `getUniversitiesByProgram()`, etc.
+    - `insights.json` (5 categories) — Career/country/cost/language/citizenship alignment data; loaded by `loadInsightsData()`. Access only via insight functions `getCareerInsight()`, `getCountryInsight()`, `getCostInsight()`, `getLanguageInsight()`, `getCitizenshipInsight()`.
+    - `career-to-qs-subject.json` — Maps 66 career names to QS World University Rankings subject categories; loaded by `loadPathfinderData()`. Access via `CAREER_TO_QS_SUBJECT[careerName]`.
+    - `selectivity-display.json` — Maps university selectivity levels to display names; loaded by `loadPathfinderData()`. Access via `SELECTIVITY_DISPLAY[level]`.
+    - `tuition-averages.json` — Average US tuition by state for in-state, out-of-state, and private institutions; loaded by `loadPathfinderData()`. Access via `TUITION_AVERAGES.instate[stateCode]`, `.outofstate`, `.private`.
+  - **Always access via helpers or direct variable access**, never direct property access without null checks
 - Carousel helpers:
   - `buildCarouselHTML()` — Creates carousel container and cards
   - `initCarousel(carouselId)` — Initializes drag/touch/snap behavior for a carousel
@@ -593,4 +599,4 @@ aggregateCategoryData('tech', 'growth')       // → {display: "Very high (+15%)
 
 ---
 
-**Last Updated:** 2026-06-01 (v1.17.12 — comprehensive career schema documentation added, insights logic fixed, 66 careers with normalized schema)
+**Last Updated:** 2026-06-02 (v1.18.0 — externalize state-names, career-to-qs-subject, selectivity-display, tuition-averages to JSON; 776KB → 301KB)
