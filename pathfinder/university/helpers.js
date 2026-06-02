@@ -454,7 +454,6 @@ async function loadStateNamesData() {
 
 async function loadSelectorOptionsData() {
   try {
-    console.log('[loadSelectorOptionsData] Starting...');
     const response = await fetch('./selector-options.json');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
@@ -464,7 +463,7 @@ async function loadSelectorOptionsData() {
     window.SELECTOR_OPTIONS_LOADED = true;
     SELECTOR_OPTIONS_LOADED = true;
 
-    console.log(`✓ Loaded selector-options.json with ${Object.keys(SELECTOR_OPTIONS).length} selectors, window.SELECTOR_OPTIONS_LOADED=${window.SELECTOR_OPTIONS_LOADED}`);
+    console.log(`✓ Loaded selector-options.json with ${Object.keys(SELECTOR_OPTIONS).length} selectors`);
     return true;
   } catch (error) {
     console.error('✗ Failed to load selector-options.json:', error.message);
