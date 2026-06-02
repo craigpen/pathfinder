@@ -92,9 +92,10 @@ const universityPathfinderConfig = {
       window.loadState();
     }
 
+    // Wait for selector options and careers data to load
     const maxRetries = 100;
     let retries = 0;
-    while (!window.CAREERS_LOADED && retries < maxRetries) {
+    while ((!window.SELECTOR_OPTIONS_LOADED || !window.CAREERS_LOADED) && retries < maxRetries) {
       await new Promise(r => setTimeout(r, 10));
       retries++;
     }
