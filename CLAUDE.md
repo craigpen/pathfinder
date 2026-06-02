@@ -597,6 +597,22 @@ aggregateCategoryData('tech', 'growth')       // → {display: "Very high (+15%)
 
 **Key Principle:** Never embed multiple versions of the same function or data. Always delete the old version after refactoring to prevent confusion and silent bugs where old code is accidentally used.
 
+## Framework Async Coordination Pattern
+
+**When using Promise.all() to coordinate loaders + state restoration:**
+
+1. **Render first, then restore state** — In Promise.all().then() block:
+   ```javascript
+   Promise.all([...loaders...]).then(() => {
+     renderPathfinderTab('discover');  // Creates DOM elements first
+     loadState();                       // Then applies saved state to them
+   });
+   ```
+   
+2. **Catch duplicate loader calls** — When refactoring async loaders into Promise.all(), check for and remove redundant calls elsewhere (e.g., lines that call `loaderFunc()` after already adding it to the promise list). Each loader should execute exactly once.
+
+3. **Console logs confirm execution** — Single console line per loader (e.g., "✓ Loaded countries.json") means once. Duplicate lines mean loaders are running twice.
+
 ---
 
-**Last Updated:** 2026-06-02 (v1.18.0 — externalize state-names, career-to-qs-subject, selectivity-display, tuition-averages to JSON; 776KB → 301KB)
+**Last Updated:** 2026-06-02 (v1.19.11 — remove duplicate loader calls; fix state persistence with Promise.all() execution order; 301KB)
