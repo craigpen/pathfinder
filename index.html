@@ -939,64 +939,73 @@ async function loadCareersData() {
 loadCareersData();
 
 // ============================================================================
+// LOAD SHARED AND PATHFINDER-SPECIFIC DATA
+// ============================================================================
 
-const TUITION_AVERAGES = {
-  instate: {
-    "AK": 7132,
-    "AL": 10028,
-    "AR": 7181,
-    "AZ": 11542,
-    "CA": 11231,
-    "CO": 9633,
-    "CT": 12004,
-    "DE": 11825,
-    "FL": 4261,
-    "GA": 7289,
-    "HI": 9324,
-    "ID": 6647,
-    "IL": 10416,
-    "IN": 8172,
-    "KY": 10842,
-    "LA": 5739,
-    "MA": 17006,
-    "MD": 7664,
-    "ME": 9690,
-    "MI": 15770,
-    "MN": 10042,
-    "MO": 11835,
-    "MS": 9147,
-    "MT": 5575,
-    "NC": 6000,
-    "ND": 7720,
-    "NE": 7233,
-    "NH": 13574,
-    "NJ": 14947,
-    "NM": 5756,
-    "NV": 7810,
-    "NY": 7023,
-    "OH": 11458,
-    "OK": 6094,
-    "OR": 11679,
-    "PA": 16507,
-    "RI": 12198,
-    "SC": 11682,
-    "SD": 7679,
-    "TN": 9882,
-    "TX": 7753,
-    "UT": 7324,
-    "VA": 17111,
-    "VT": 13312,
-    "WA": 9959,
-    "WI": 8439,
-    "WV": 8684,
-    "WY": 5190,
-  },
-  outofstate: 23789,
-  private: 36292
-};
-const CAREER_TO_QS_SUBJECT={"Accounting":"Accounting & Finance","Agriculture":"Agriculture","Animation":"Art & Design","Anthropology":"Social Sciences","Archaeology":"Humanities","Architecture":"Architecture","Astronomy":"Physics & Astronomy","Actuarial Science":"Business & Management Studies","Biology / Biotech":"Biological Sciences","Chemistry":"Chemistry","Computer Science":"Computer Science & IT","Curriculum & Instructional Design":"Education","Cybersecurity":"Computer Science & IT","Data Science / AI":"Data Science & Artificial Intelligence","Dentistry":"Dentistry","Dietetics / Nutrition":"Health & Clinical Sciences","Economics":"Economics & Econometrics","Electrical Engineering":"Engineering – Electrical & Electronic","Engineering":"Engineering","Entrepreneurship":"Business & Management Studies","Environmental / Climate":"Environmental Sciences","European Law":"Law","Fashion Design":"Art & Design","Film / Media Production":"Communications & Media Studies","Finance / Banking":"Accounting & Finance","Game Development":"Computer Science & IT","Genetics / Genomics":"Biological Sciences","Geology / Earth Sciences":"Earth Sciences","Graphic / UX Design":"Art & Design","Higher Education Administration":"Education","Hospitality / Hotel Management":"Business & Management Studies","Human Resources":"Business & Management Studies","International Relations":"Politics & International Studies","Interior Design":"Art & Design","Landscape Architecture":"Architecture","Linguistics":"Languages","Management Consulting":"Business & Management Studies","Marine Biology":"Biological Sciences","Marketing / Management":"Business & Management Studies","Math / Statistics":"Mathematics","Mechanical Engineering":"Engineering – Mechanical, Aeronautical & Manufacturing","Medicine (MD/DO)":"Medicine","Microbiology":"Biological Sciences","Music (Performance/Production)":"Music","Nursing":"Nursing","Occupational Therapy":"Health & Clinical Sciences","Operations / Supply Chain":"Business & Management Studies","Optometry":"Health & Clinical Sciences","Pharmacy":"Pharmacy & Pharmacology","Photography":"Art & Design","Physical Therapy":"Health & Clinical Sciences","Physician Assistant / Nurse Practitioner":"Health & Clinical Sciences","Physics":"Physics & Astronomy","Psychology (Clinical)":"Psychology","Public Health":"Health & Clinical Sciences","Public Policy":"Politics & International Studies","Real Estate / Property Management":"Business & Management Studies","Social Work":"Social Sciences","Software Engineering":"Computer Science & IT","Teaching (K-12)":"Education","Technical Theater / Live Events":"Performing Arts","Theater & Performing Arts":"Performing Arts","US Law (JD)":"Law","Veterinary Medicine":"Veterinary Medicine","Writing / Communications":"Communications & Media Studies","Zoology":"Zoology"};
+let STATE_NAMES = {};
+let CAREER_TO_QS_SUBJECT = {};
+let SELECTIVITY_DISPLAY = {};
+let TUITION_AVERAGES = {};
 
-const STATE_NAMES={AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',FL:'Florida',GA:'Georgia',HI:'Hawaii',ID:'Idaho',IL:'Illinois',IN:'Indiana',IA:'Iowa',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',MS:'Mississippi',MO:'Missouri',MT:'Montana',NC:'North Carolina',ND:'North Dakota',NE:'Nebraska',NH:'New Hampshire',NJ:'New Jersey',NM:'New Mexico',NV:'Nevada',NY:'New York',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',SD:'South Dakota',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',VA:'Virginia',WA:'Washington',WV:'West Virginia',WI:'Wisconsin',WY:'Wyoming'};
+let STATE_NAMES_LOADED = false;
+
+async function loadStateNamesData() {
+  try {
+    const response = await fetch('state-names.json');
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    const data = await response.json();
+    Object.assign(STATE_NAMES, data);
+    window.STATE_NAMES = STATE_NAMES;
+    STATE_NAMES_LOADED = true;
+
+    console.log(`✓ Loaded state-names.json: ${Object.keys(data).length} states`);
+    return true;
+  } catch (error) {
+    console.error('✗ Failed to load state-names.json:', error.message);
+    return false;
+  }
+}
+
+let PATHFINDER_DATA_LOADED = false;
+
+async function loadPathfinderData() {
+  try {
+    // Load career-to-qs-subject mapping
+    const careersRes = await fetch('pathfinder/university/career-to-qs-subject.json');
+    if (!careersRes.ok) throw new Error(`HTTP ${careersRes.status} loading career-to-qs-subject.json`);
+    const careersData = await careersRes.json();
+    Object.assign(CAREER_TO_QS_SUBJECT, careersData);
+    window.CAREER_TO_QS_SUBJECT = CAREER_TO_QS_SUBJECT;
+
+    // Load selectivity display mapping
+    const selectivityRes = await fetch('pathfinder/university/selectivity-display.json');
+    if (!selectivityRes.ok) throw new Error(`HTTP ${selectivityRes.status} loading selectivity-display.json`);
+    const selectivityData = await selectivityRes.json();
+    Object.assign(SELECTIVITY_DISPLAY, selectivityData);
+    window.SELECTIVITY_DISPLAY = SELECTIVITY_DISPLAY;
+
+    // Load tuition averages
+    const tuitionRes = await fetch('pathfinder/university/tuition-averages.json');
+    if (!tuitionRes.ok) throw new Error(`HTTP ${tuitionRes.status} loading tuition-averages.json`);
+    const tuitionData = await tuitionRes.json();
+    Object.assign(TUITION_AVERAGES, tuitionData);
+    window.TUITION_AVERAGES = TUITION_AVERAGES;
+
+    PATHFINDER_DATA_LOADED = true;
+    console.log(`✓ Loaded pathfinder data: ${Object.keys(careersData).length} career-to-QS mappings, ${Object.keys(selectivityData).length} selectivity levels, tuition data for ${Object.keys(tuitionData.instate).length} states`);
+    return true;
+  } catch (error) {
+    console.error('✗ Failed to load pathfinder data:', error.message);
+    return false;
+  }
+}
+
+// Load shared and pathfinder data on page start
+loadStateNamesData();
+loadPathfinderData();
+
+// ============================================================================
 
 window.S={cats:[],motivations:[],subCareers:[],prac:[],cc:[],costCC:[],expl:null,playlist:null,flex:[],cost:null,vision:null,lang:null,citizen:[],debtYrs:null,languages:[],postGrad:null,inStateTuitionPref:null,stateOfResidency:null,inStateToggle:false,usUniversityType:null,uniSelectivity:[],scholarshipAmount:null,collegeSavings:null,partTimeWork:null,familySupport:null,loanRate:null,loanRepaymentYears:null};const S=window.S;
 const VERSION='v1.17.12';window.VERSION=VERSION;
@@ -2176,12 +2185,6 @@ function keyLinks(k){
 
 
 // Map internal selectivity values to display names
-const SELECTIVITY_DISPLAY = {
-  'Very selective': 'Very selective',
-  'Selective': 'Selective',
-  'Less selective': 'Less selective'
-};
-
 // ===== CAROUSEL BUILDER FOR UNIVERSITIES BY COUNTRY =====
 function buildUniversitiesCarouselByCountry(data) {
   const { country, countryCode, universities, careerUniMap } = data;

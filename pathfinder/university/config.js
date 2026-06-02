@@ -56,7 +56,10 @@ const universityPathfinderConfig = {
     careers: 'careers.json',
     universities: 'universities.json',
     countries: 'countries.json',
-    insights: 'insights.json'
+    insights: 'insights.json',
+    careerToQsSubject: 'career-to-qs-subject.json',
+    selectivityDisplay: 'selectivity-display.json',
+    tuitionAverages: 'tuition-averages.json'
   },
 
   // UI constants for this pathfinder
