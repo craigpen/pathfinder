@@ -423,10 +423,16 @@ loadCareersData();
 
 // Ensure discovery tab renders on page load (after all data loads)
 window.addEventListener('load', () => {
-  setTimeout(() => {
-    loadState();
-    renderPathfinderTab('discover');
-  }, 100);
+  // Wait for critical data to load before rendering
+  const waitForData = setInterval(() => {
+    if (window.SELECTOR_OPTIONS && window.COUNTRIES && window.CAREERS) {
+      clearInterval(waitForData);
+      loadState();
+      renderPathfinderTab('discover');
+    }
+  }, 50);
+  // Timeout after 5 seconds to avoid infinite waiting
+  setTimeout(() => clearInterval(waitForData), 5000);
 });
 
 // ============================================================================
