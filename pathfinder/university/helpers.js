@@ -496,20 +496,22 @@ async function loadInsightsData() {
 // ============================================================================
 // Coordinate startup: load all data before rendering
 // ============================================================================
-Promise.all([
-  loadCountriesData(),
-  loadCareersData(),
-  loadStateNamesData(),
-  loadSelectorOptionsData(),
-  loadPathfinderData(),
-  loadUniversitiesData(),
-  loadInsightsData()
-]).then(() => {
-  console.log('✓ All data loaded successfully');
-  loadState();
-  renderPathfinderTab('discover');
-}).catch(err => {
-  console.error('Failed to load initial data:', err);
+document.addEventListener('DOMContentLoaded', () => {
+  Promise.all([
+    loadCountriesData(),
+    loadCareersData(),
+    loadStateNamesData(),
+    loadSelectorOptionsData(),
+    loadPathfinderData(),
+    loadUniversitiesData(),
+    loadInsightsData()
+  ]).then(() => {
+    console.log('✓ All data loaded successfully');
+    loadState();
+    renderPathfinderTab('discover');
+  }).catch(err => {
+    console.error('Failed to load initial data:', err);
+  });
 });
 
 // ============================================================================
