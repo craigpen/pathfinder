@@ -3206,24 +3206,27 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
   const carouselRows = [
     [labelWithSub('Annual salary', 'Estimated starting salary range.  An average is used for calculations'),
      (key) => {
-       const range = key === 'us' ? getCareerSalaryUS(sub.name) : getCareerSalaryEU(sub.name);
-       if(!range) return '—';
-       return `<span style="color:var(--ok);font-weight:600">${formatMoneyRange(range.min, range.max)}</span>`;
+       const min = key === 'us' ? sub.salaryUS_min : sub.salaryEU_min;
+       const max = key === 'us' ? sub.salaryUS_max : sub.salaryEU_max;
+       if(!min || !max) return '—';
+       return `<span style="color:var(--ok);font-weight:600">${formatMoneyRange(min, max)}</span>`;
      }],
     [labelWithSub('Taxes (20% US, 22% EU)', 'Estimated income taxes'),
      (key) => {
-       const range = key === 'us' ? getCareerSalaryUS(sub.name) : getCareerSalaryEU(sub.name);
-       if(!range) return '—';
-       const s = getAvgSalary(range.min, range.max);
+       const min = key === 'us' ? sub.salaryUS_min : sub.salaryEU_min;
+       const max = key === 'us' ? sub.salaryUS_max : sub.salaryEU_max;
+       if(!min || !max) return '—';
+       const s = getAvgSalary(min, max);
        if(!s) return '—';
        const taxRate = key === 'us' ? 0.20 : 0.22;
        return `<span style="color:var(--bad);font-weight:600">$${Math.round(s * taxRate).toLocaleString()}</span>`;
      }],
     [labelWithSub('Monthly income after taxes', 'Your estimated monthly take home pay after taxes'),
      (key) => {
-       const range = key === 'us' ? getCareerSalaryUS(sub.name) : getCareerSalaryEU(sub.name);
-       if(!range) return '—';
-       const s = getAvgSalary(range.min, range.max);
+       const min = key === 'us' ? sub.salaryUS_min : sub.salaryEU_min;
+       const max = key === 'us' ? sub.salaryUS_max : sub.salaryEU_max;
+       if(!min || !max) return '—';
+       const s = getAvgSalary(min, max);
        if(!s) return '—';
        const taxRate = key === 'us' ? 0.20 : 0.22;
        const monthly = Math.round(s * (1 - taxRate) / 12);
@@ -3240,9 +3243,10 @@ function buildTransitionCareerTable(career, studyCountry, costData) {
      }],
     [labelWithSub('Debt-to-Income', 'How much of your monthly pay goes to repaying loans?'),
      (key) => {
-       const range = key === 'us' ? getCareerSalaryUS(sub.name) : getCareerSalaryEU(sub.name);
-       if(!range) return '—';
-       const s = getAvgSalary(range.min, range.max);
+       const min = key === 'us' ? sub.salaryUS_min : sub.salaryEU_min;
+       const max = key === 'us' ? sub.salaryUS_max : sub.salaryEU_max;
+       if(!min || !max) return '—';
+       const s = getAvgSalary(min, max);
        if(!s) return '—';
        const taxRate = key === 'us' ? 0.20 : 0.22;
        const monthly = s * (1 - taxRate) / 12;
