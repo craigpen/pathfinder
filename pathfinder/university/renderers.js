@@ -319,45 +319,7 @@ function togCat(k){if(S.cats.includes(k)){S.cats=S.cats.filter(c=>c!==k);S.subCa
 
 // buildCarouselHTML and initCarousel are now in framework.js (shared functions)
 
-function buildTableHTML(rows, columnKeys, columnLabel, tableId) {
-  // rows: array of [label, dataFn] where dataFn(key) returns cell content (string or {content, className})
-  // columnKeys: array of country/category codes
-  // columnLabel: function that returns display name for a key
-  // tableId: HTML id for the table
-
-  let html = `<table class="ct" id="${tableId || 'table-default'}"><thead><tr><th></th>`;
-
-  // Add column headers
-  columnKeys.forEach(key => {
-    html += `<th class="ch">${columnLabel(key)}</th>`;
-  });
-  html += '</tr></thead><tbody>';
-
-  // Add rows
-  rows.forEach(row => {
-    const [label, dataFn] = row;
-    html += '<tr><td class="al">' + label + '</td>';
-
-    columnKeys.forEach(key => {
-      let cellData = dataFn ? dataFn(key) : '—';
-      let cellClass = '';
-
-      // If dataFn returns object with content and className, extract both
-      if (typeof cellData === 'object' && cellData !== null && cellData.content !== undefined) {
-        cellClass = cellData.className ? ` class="${cellData.className}"` : '';
-        cellData = cellData.content;
-      }
-
-      html += `<td${cellClass}>${cellData}</td>`;
-    });
-
-    html += '</tr>';
-  });
-
-  html += '</tbody></table>';
-
-  return html;
-}
+// buildTableHTML moved to framework.js (generic, reusable for all pathfinders)
 
 function parseSalary(salaryStr) {
   if(!salaryStr) return null;
