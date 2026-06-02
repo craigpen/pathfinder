@@ -3466,7 +3466,6 @@ window.formatGrowth = formatGrowth;
 window.formatPortability = formatPortability;
 window.formatLicensing = formatLicensing;
 window.formatDemand = formatDemand;
-window.renderHdrImages = renderHdrImages;
 window.renderPathfinderTab = renderPathfinderTab;
 window.renderCareerView = renderCareerView;
 window.renderCatTable = renderCatTable;
