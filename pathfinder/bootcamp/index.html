@@ -4,47 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Bootcamp Pathfinder</title>
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-:root {
-  --pri: #2563eb;
-  --sec: #0891b2;
-  --ok: #16a34a;
-  --warn: #ea580c;
-  --bad: #dc2626;
-  --dk: #1e293b;
-  --lt: #f1f5f9;
-  --bdr: #e2e8f0;
-  --tx: #334155;
-  --tx2: #64748b;
-  --tx0: #1e293b;
-  --tx1: #334155;
-}
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Segoe UI Emoji', Roboto, sans-serif;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  background-size: 200% 200%;
-  animation: gradientShift 28s ease-in-out infinite;
-  min-height: 100vh;
-  padding: 16px;
-  color: var(--tx);
-}
-@keyframes gradientShift { 0%, 100% { background-position: 0% 0%; } 50% { background-position: 100% 100%; } }
-.ctr { max-width: 1200px; margin: 0 auto; background: #fff; border-radius: 14px; box-shadow: 0 16px 50px rgba(0,0,0,.3); overflow: hidden; }
-.hdr { position: relative; height: 180px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 24px; display: flex; flex-direction: column; justify-content: center; }
-.hdr h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
-.hdr p { font-size: 16px; opacity: 0.9; }
-.version-badge { position: absolute; bottom: 8px; right: 12px; font-size: 10px; color: rgba(255,255,255,0.6); font-weight: 500; }
-.tabs { display: flex; background: var(--lt); border-bottom: 2px solid var(--bdr); width: 100%; overflow-x: auto; }
-.tb { flex: 0 0 auto; padding: 12px 16px; border: none; background: none; cursor: pointer; font-size: 13px; font-weight: 600; color: var(--tx2); transition: .2s; white-space: nowrap; text-align: center; min-width: 100px; }
-.tb:hover { background: rgba(37,99,235,.05); color: var(--tx); }
-.tb.on { color: var(--pri); border-bottom: 3px solid var(--pri); background: #fff; margin-bottom: -2px; }
-.pan { display: none; padding: 24px; }
-.pan.on { display: block; }
-.qb { margin-bottom: 22px; }
-.qb h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: var(--dk); }
-.qb p { font-size: 14px; color: var(--tx2); line-height: 1.5; }
-</style>
+<script src="../../pathfinder/framework.js"></script>
 </head>
 <body>
 <div class="ctr">
@@ -68,9 +28,7 @@ body {
 </div>
 
 <script>
-// ===== BOOTCAMP PATHFINDER INITIALIZATION =====
-
-// State management
+// State management (bootcamp-specific)
 window.S = {
   selectedBootcamps: [],
   focusArea: null,
@@ -81,33 +39,7 @@ const S = window.S;
 
 const VERSION = 'v0.1.0';
 window.VERSION = VERSION;
-
-// Tab navigation
-function go(tabId) {
-  document.querySelectorAll('.pan').forEach(p => p.classList.remove('on'));
-  const tab = document.getElementById(tabId);
-  if (tab) tab.classList.add('on');
-
-  document.querySelectorAll('.tb').forEach(b => b.classList.remove('on'));
-  const btns = document.querySelectorAll('.tb');
-  for (let btn of btns) {
-    if (btn.onclick && btn.onclick.toString().includes(`go('${tabId}')`)) {
-      btn.classList.add('on');
-      break;
-    }
-  }
-
-  // Render tab content
-  if (window.bootcampPathfinderConfig && window.bootcampPathfinderConfig.renderersForTab[tabId]) {
-    window.bootcampPathfinderConfig.renderersForTab[tabId]();
-  }
-}
-
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('version-badge').textContent = VERSION;
-  go('find');
-});
+window.PATHFINDER_CONFIG = window.bootcampPathfinderConfig;
 </script>
 
 <!-- Pathfinder-specific configuration, helpers, and renderers -->
