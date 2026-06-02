@@ -345,7 +345,7 @@ function selPlaylist(playlist, el) {
   const sw = document.getElementById('spotify-wrap');
   if (sw) sw.classList.add('show');
   const frame = document.getElementById('spotify-frame');
-  if (frame) frame.src = PLAYLISTS[playlist];
+  if (frame && window.PLAYLISTS) frame.src = window.PLAYLISTS[playlist];
 }
 
 // ============================================================================
