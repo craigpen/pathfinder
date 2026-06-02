@@ -1,6 +1,14 @@
 // University Pathfinder - Rendering Functions
 // All render* and format* functions for the university pathfinder
 
+// ===== MODULE-LEVEL VARIABLES =====
+let UNIVERSITIES = [];
+let UNIVERSITIES_LOADED = false;
+let INSIGHTS = {};
+let INSIGHTS_LOADED = false;
+let hdrIdx = 0, hdrTimer = null, hdrPaused = false, hdrPoolKey = '';
+const BAD_IMG_CACHE = new Set();
+
 function formatMoneyRange(min, max) {
   if (min === null || max === null) return '—';
   const fmt = (n) => (n >= 1000 ? (n / 1000).toFixed(0) + 'k' : n.toString());
@@ -114,8 +122,6 @@ function debugCareer(name) {
 }
 
 // ===== UNIVERSITIES HELPERS (loaded from universities.json) =====
-let UNIVERSITIES = [];
-let UNIVERSITIES_LOADED = false;
 
 async function loadUniversitiesData() {
   try {
@@ -205,13 +211,25 @@ function debugAllUniversities() {
   return validation;
 }
 
-// Load data files on startup
-loadUniversitiesData();
-loadInsightsData();
+// ===== INSIGHTS HELPERS (loaded from insights.json) =====
+
+async function loadInsightsData() {
+  try {
+    const response = await fetch('./insights.json');
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    INSIGHTS = data;
+    INSIGHTS_LOADED = true;
+    console.log('✓ Loaded insights.json');
+    return true;
+  } catch (error) {
+    console.error('✗ Failed to load insights.json:', error.message);
+    return false;
+  }
+}
 
 // ===== Header image carousel (dynamic by selected country) =====
 // --- Image URL health check (filters 404/broken images) ---
-const BAD_IMG_CACHE = new Set();
 function imgOk(url){
   return new Promise((resolve)=>{
     if(!url) return resolve(false);
@@ -243,7 +261,6 @@ async function filterBroken(pool){
   }
   return out;
 }
-let hdrIdx=0, hdrTimer=null, hdrPaused=false, hdrPoolKey='';
 
 function headerImagePool(){
  // Priority: Deep Dive selection (S.expl) -> single selected country in Countries tab -> all selected -> all countries
