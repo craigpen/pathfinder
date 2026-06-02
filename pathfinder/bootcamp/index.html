@@ -82,5 +82,9 @@ window.PATHFINDER_CONFIG = window.bootcampPathfinderConfig;
 <!-- Pathfinder-specific configuration, helpers, and renderers -->
 <script src="config.js"></script>
 <script src="renderers.js"></script>
+<script>
+// Initialize after all scripts have loaded to avoid race conditions
+window.initializeApp();
+</script>
 </body>
 </html>

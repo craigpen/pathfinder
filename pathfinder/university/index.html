@@ -574,5 +574,9 @@ function exportCareersSchemaAsCode() {
 <script src="config.js"></script>
 <script src="helpers.js"></script>
 <script src="renderers.js"></script>
+<script>
+// Initialize after all scripts have loaded to avoid race conditions
+window.initializeApp();
+</script>
 </body>
 </html>

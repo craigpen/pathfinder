@@ -348,8 +348,8 @@ async function initializeApp() {
   }
 }
 
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', initializeApp);
+// Note: Initialization is called explicitly from pathfinder HTML after all scripts load
+// (not via DOMContentLoaded) to ensure all helpers, renderers, and config are available
 
 // Export to global scope
 window.go = go;
