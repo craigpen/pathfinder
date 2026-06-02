@@ -131,3 +131,4 @@ const universityPathfinderConfig = {
 
 // Export for use in index.html
 window.universityPathfinderConfig = universityPathfinderConfig;
+window.PATHFINDER_CONFIG = universityPathfinderConfig;  // framework.js looks for this
