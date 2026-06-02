@@ -2893,7 +2893,6 @@ function renderCostTable(){
   t+='</tbody></table>';
   
   // Build carousel for mobile
-  let carousel='';
   const carouselRows=[
     ['Tuition Details',k=>costDataMap[k].tuitionDetails],
     ['Tuition',k=>`${fmt(costDataMap[k].tuition)}/yr${scholarshipAmount>0?' <span style="color:var(--ok);font-size:12px">(−'+fmt(scholarshipAmount)+')</span>':''}`],
@@ -2906,30 +2905,9 @@ function renderCostTable(){
     ['Total repaid',k=>`${fmt(costDataMap[k].totalRepaid)}`],
     ['Interest beyond borrowed',k=>`${fmt(costDataMap[k].interest)}`]
   ];
-  
-  carousel+='<div class="carousel-wrap" id="cost-carousel">';
-  carousel+='<div class="carousel-container">';
-  
-  sel.forEach(k=>{
-    carousel+=`<div class="carousel-card">`;
-    carousel+=`<div class="carousel-card-header"><img src="${COUNTRIES[k].flag}" style="height:0.9em;vertical-align:middle"> ${COUNTRIES[k].name}</div>`;
-    carousel+=`<div class="carousel-card-labels">`;
-    carouselRows.forEach(([label])=>{
-      carousel+=`<div class="carousel-card-label">${label}</div>`;
-    });
-    carousel+=`</div>`;
-    carousel+=`<div class="carousel-card-content">`;
-    carouselRows.forEach(([,fn])=>{
-      carousel+=`<div class="carousel-card-row">${fn(k)}</div>`;
-    });
-    carousel+=`</div>`;
-    carousel+=`</div>`;
-  });
-  
-  carousel+='</div>';
-  carousel+=`<div class="carousel-indicator">Card 1 of ${sel.length}</div>`;
-  carousel+='</div>';
-  
+
+  const carousel = buildCarouselHTML(carouselRows, sel, (k) => `<img src="${COUNTRIES[k].flag}" style="height:0.9em;vertical-align:middle"> ${COUNTRIES[k].name}`, 'cost-carousel');
+
   el.innerHTML=t+carousel;
   initCarousel('cost-carousel');
   
