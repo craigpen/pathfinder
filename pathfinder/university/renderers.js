@@ -4,7 +4,7 @@
 // ===== MODULE-LEVEL VARIABLES =====
 let hdrIdx = 0, hdrTimer = null, hdrPaused = false, hdrPoolKey = '';
 const BAD_IMG_CACHE = new Set();
-// Note: UNIVERSITIES, INSIGHTS and their _LOADED flags are declared in helpers.js
+// Note: UNIVERSITIES, UNIVERSITIES_LOADED, INSIGHTS, INSIGHTS_LOADED are declared in helpers.js
 
 function formatMoneyRange(min, max) {
   if (min === null || max === null) return '—';
@@ -118,23 +118,8 @@ function debugCareer(name) {
   return career.data;
 }
 
-// ===== UNIVERSITIES HELPERS (loaded from universities.json) =====
-
-async function loadUniversitiesData() {
-  try {
-    const response = await fetch('./universities.json');
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const data = await response.json();
-    UNIVERSITIES = data;
-    UNIVERSITIES_LOADED = true;
-    const total = UNIVERSITIES.length;
-    console.log(`✓ Loaded universities.json: ${total} universities`);
-    return true;
-  } catch (error) {
-    console.error('✗ Failed to load universities.json:', error.message);
-    return false;
-  }
-}
+// ===== UNIVERSITIES HELPERS =====
+// loadUniversitiesData is defined in helpers.js
 
 function getUniversity(name) {
   if (!name) return null;
@@ -3570,7 +3555,3 @@ window.renderPath = renderPath;
 window.formatInsightItem = formatInsightItem;
 window.renderInsightsTable = renderInsightsTable;
 window.renderInsights = renderInsights;
-
-// Load data files on page startup
-loadUniversitiesData();
-loadInsightsData();
