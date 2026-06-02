@@ -548,33 +548,6 @@ function go(tabId) {
   sessionStorage.setItem('currentTab', tabId);
 }
 
-async function initializeApp() {
-  loadState();
-  document.getElementById('version-badge').textContent = VERSION;
-
-  // Wait for CAREERS to load before initializing discovery
-  const maxRetries = 100;
-  let retries = 0;
-  while (!CAREERS_LOADED && retries < maxRetries) {
-    await new Promise(r => setTimeout(r, 10));
-    retries++;
-  }
-
-  initDiscover();
-  renderDiscoveryPills();
-  initRes();
-  initHdrCarousel();
-  // Initialize carousels after table render
-  setTimeout(()=>{
-    initCarousel('cc-carousel');
-    initCarousel('cat-carousel');
-    initCarousel('career-carousel');
-    initCarousel('scholar-carousel');
-  }, 100);
-}
-
-document.addEventListener('DOMContentLoaded', initializeApp);
-
 function exportNewCountriesSchemaAsCode() {
   // Export unified COUNTRIES data structure (already consolidated from countries.json)
   const consolidated = {};

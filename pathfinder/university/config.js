@@ -82,14 +82,46 @@ const universityPathfinderConfig = {
 
   // Initialization hook - called by framework.js on DOMContentLoaded
   onInit: async function() {
+    // Load saved state
+    if (window.loadState) {
+      window.loadState();
+    }
+
+    // Wait for CAREERS to load before initializing discovery
+    const maxRetries = 100;
+    let retries = 0;
+    while (!window.CAREERS_LOADED && retries < maxRetries) {
+      await new Promise(r => setTimeout(r, 10));
+      retries++;
+    }
+
+    // Initialize discover tab
+    if (window.initDiscover) {
+      window.initDiscover();
+    }
+    if (window.renderDiscoveryPills) {
+      window.renderDiscoveryPills();
+    }
+
+    // Initialize resources
+    if (window.initRes) {
+      window.initRes();
+    }
+
     // Initialize header carousel
     if (window.initHdrCarousel) {
       window.initHdrCarousel();
     }
-    // Initialize discover tab motivations on first load
-    if (window.initDiscover) {
-      window.initDiscover();
-    }
+
+    // Initialize carousels after render
+    setTimeout(() => {
+      if (window.initCarousel) {
+        window.initCarousel('cc-carousel');
+        window.initCarousel('cat-carousel');
+        window.initCarousel('career-carousel');
+        window.initCarousel('scholar-carousel');
+      }
+    }, 100);
   }
 };
 
