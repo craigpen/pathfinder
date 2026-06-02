@@ -506,7 +506,8 @@ Promise.all([
   loadInsightsData()
 ]).then(() => {
   console.log('✓ All data loaded successfully');
-  // Data is now ready for rendering
+  loadState();
+  renderPathfinderTab('discover');
 }).catch(err => {
   console.error('Failed to load initial data:', err);
 });
