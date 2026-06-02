@@ -601,18 +601,21 @@ aggregateCategoryData('tech', 'growth')       // → {display: "Very high (+15%)
 
 **When using Promise.all() to coordinate loaders + state restoration:**
 
-1. **Render first, then restore state** — In Promise.all().then() block:
+1. **Never call saveState() during loader execution** — Loaders run before loadState() completes. Any saveState() call in a loader overwrites localStorage, erasing previously saved user state. Example culprit: validation code that calls saveState() after filtering invalid entries.
+
+2. **Render first, then restore state** — In Promise.all().then() block:
    ```javascript
    Promise.all([...loaders...]).then(() => {
      renderPathfinderTab('discover');  // Creates DOM elements first
      loadState();                       // Then applies saved state to them
    });
    ```
+   Pills must exist before loadState() tries to apply "on" class.
    
-2. **Catch duplicate loader calls** — When refactoring async loaders into Promise.all(), check for and remove redundant calls elsewhere (e.g., lines that call `loaderFunc()` after already adding it to the promise list). Each loader should execute exactly once.
+3. **Catch duplicate loader calls** — When refactoring async loaders into Promise.all(), check for and remove redundant calls elsewhere (e.g., lines that call `loaderFunc()` after already adding it to the promise list). Each loader should execute exactly once.
 
-3. **Console logs confirm execution** — Single console line per loader (e.g., "✓ Loaded countries.json") means once. Duplicate lines mean loaders are running twice.
+4. **Console logs confirm execution** — Single console line per loader (e.g., "✓ Loaded countries.json") means once. Duplicate lines mean loaders are running twice.
 
 ---
 
-**Last Updated:** 2026-06-02 (v1.19.11 — remove duplicate loader calls; fix state persistence with Promise.all() execution order; 301KB)
+**Last Updated:** 2026-06-02 (v1.19.12 — fix state persistence by removing saveState() from loadCountriesData; users can now save selections and have them persist across page refreshes; 301KB)
