@@ -3501,5 +3501,6 @@ window.formatInsightItem = formatInsightItem;
 window.renderInsightsTable = renderInsightsTable;
 window.renderInsights = renderInsights;
 window.renderDiscoveryPills = renderDiscoveryPills;
+window.renderResources = function() { if (window.initRes) window.initRes(); };
 window.initRes = initRes;
 window.startOver = startOver;

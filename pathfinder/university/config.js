@@ -51,6 +51,11 @@ const universityPathfinderConfig = {
     'usUniversityType'
   ],
 
+  // Tab renderers - optional, for specific tabs that need rendering
+  renderersForTab: {
+    'resources': () => { if (window.renderResources) window.renderResources(); }
+  },
+
   // Data sources to load
   dataSources: {
     careers: 'careers.json',
