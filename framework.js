@@ -332,7 +332,8 @@ function toggleMusic() {
     sw.classList.remove('show');
     document.querySelectorAll('.pp').forEach(b => b.classList.remove('active'));
     if (window.S) window.S.playlist = null;
-    document.getElementById('spotify-frame').src = 'about:blank';
+    const frame = document.getElementById('spotify-frame');
+    if (frame) frame.src = 'about:blank';
   }
 }
 
