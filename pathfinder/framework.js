@@ -98,6 +98,212 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 `;
 document.head.appendChild(styleElement);
 
+// ===== SHARED CONSTANTS & GENERIC FUNCTIONS =====
+
+// Music playlists (same for all pathfinders)
+const PLAYLISTS = {
+  lofi: 'https://w.soundcloud.com/player/?url=https://soundcloud.com/dabootlegboy/sets/study-chill-lofi-hiphop&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&show_artwork=false',
+  groovy: 'https://w.soundcloud.com/player/?url=https://soundcloud.com/wearestereofox/sets/groovy-beats&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&show_artwork=false',
+  relax: 'https://w.soundcloud.com/player/?url=https://soundcloud.com/ambientchill-sc/sets/relaxing-ambient-music-2&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&show_artwork=false',
+  zen: 'https://w.soundcloud.com/player/?url=https://soundcloud.com/binauralbeatsresearch/sets/theta-waves-zen-meditation&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&show_artwork=false'
+};
+
+const FALLBACK_HDR_SVG = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1600' height='420'><rect width='1600' height='420' fill='%23667eea'/><text x='40' y='80' fill='white' font-size='28'>Pathfinder</text></svg>";
+
+// Header carousel state
+let hdrIdx = 0, hdrTimer = null, hdrPaused = false, hdrPoolKey = '';
+
+// ===== IMAGE & CAROUSEL UTILITIES =====
+function wideImg(u) {
+  try {
+    u = (u || '').trim();
+    if (!u) return u;
+    if (u.startsWith('data:')) return u;
+    const base = u.split('?')[0];
+    return base + '?w=1600&h=420&fit=crop&q=80';
+  } catch (e) {
+    return u;
+  }
+}
+
+function poolKeyFor(pool) {
+  return pool.map(p => p.src).join('|');
+}
+
+async function filterBroken(pool) {
+  const tested = await Promise.allSettled(
+    pool.map(p => new Promise((res) => {
+      const img = new Image();
+      img.onload = () => res(p);
+      img.onerror = () => res(null);
+      img.src = wideImg(p.src);
+      setTimeout(() => res(null), 2000);
+    }))
+  );
+  return tested.map(r => r.status === 'fulfilled' ? r.value : null).filter(p => p !== null);
+}
+
+function bindHdrHoverPause() {
+  const hdr = document.querySelector('.hdr');
+  if (!hdr || hdr.dataset.hoverPause === '1') return;
+  hdr.dataset.hoverPause = '1';
+  hdr.addEventListener('mouseenter', () => { hdrPaused = true; });
+  hdr.addEventListener('mouseleave', () => { hdrPaused = false; });
+}
+
+function renderHdrImages(pool) {
+  const bg = document.getElementById('hdr-bg');
+  if (!bg) return [];
+  bg.innerHTML = pool.map((p, i) => `<img src="${wideImg(p.src)}" alt="Header image" class="${i === 0 ? 'active' : ''}">`).join('');
+  const imgs = [...bg.querySelectorAll('img')];
+  imgs.forEach(im => { im.onerror = () => { im.onerror = null; im.src = FALLBACK_HDR_SVG; }; });
+  return imgs;
+}
+
+function startHdrCarousel() {
+  if (hdrTimer) clearInterval(hdrTimer);
+  bindHdrHoverPause();
+  const pool = window.HEADER_PHOTOS || [];
+  Promise.resolve(filterBroken(pool)).then((goodPool) => {
+    const finalPool = (goodPool && goodPool.length) ? goodPool : pool;
+    const key = poolKeyFor(finalPool);
+    let imgs;
+    if (key !== hdrPoolKey) {
+      hdrPoolKey = key;
+      imgs = renderHdrImages(finalPool);
+    } else {
+      const bg = document.getElementById('hdr-bg');
+      imgs = bg ? [...bg.querySelectorAll('img')] : [];
+    }
+    if (!imgs || !imgs.length) return;
+    imgs.forEach((im, i) => im.classList.toggle('active', i === 0));
+    hdrIdx = 0;
+    hdrTimer = setInterval(() => {
+      if (hdrPaused) return;
+      imgs[hdrIdx].classList.remove('active');
+      hdrIdx = (hdrIdx + 1) % imgs.length;
+      imgs[hdrIdx].classList.add('active');
+    }, 10000);
+  }).catch(() => {
+    const bg = document.getElementById('hdr-bg');
+    const imgs = bg ? [...bg.querySelectorAll('img')] : [];
+    if (!imgs || !imgs.length) return;
+    imgs.forEach((im, i) => im.classList.toggle('active', i === 0));
+    hdrIdx = 0;
+    hdrTimer = setInterval(() => {
+      if (hdrPaused) return;
+      imgs[hdrIdx].classList.remove('active');
+      hdrIdx = (hdrIdx + 1) % imgs.length;
+      imgs[hdrIdx].classList.add('active');
+    }, 10000);
+  });
+}
+
+function initHdrCarousel() { startHdrCarousel(); }
+function updateHdrCarousel() { startHdrCarousel(); }
+
+// ===== MUSIC PLAYER FUNCTIONS =====
+function toggleMusic() {
+  const pills = document.getElementById('playlist-pills');
+  const sw = document.getElementById('spotify-wrap');
+  const on = pills.classList.toggle('show');
+  const btn = document.getElementById('music-btn');
+  btn.classList.toggle('active', on);
+  if (!on) {
+    sw.classList.remove('show');
+    document.querySelectorAll('.pp').forEach(b => b.classList.remove('active'));
+    if (window.S) window.S.playlist = null;
+    document.getElementById('spotify-frame').src = 'about:blank';
+  }
+}
+
+function selPlaylist(playlist, el) {
+  if (!document.getElementById('playlist-pills').classList.contains('show')) return;
+  if (window.S) window.S.playlist = playlist;
+  document.querySelectorAll('.pp').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  const sw = document.getElementById('spotify-wrap');
+  sw.classList.add('show');
+  const frame = document.getElementById('spotify-frame');
+  frame.src = PLAYLISTS[playlist];
+}
+
+// ===== CAROUSEL BUILDER & INITIALIZER (for tab content) =====
+function buildCarouselHTML(rows, columnKeys, columnLabel, carouselId) {
+  let html = `<div class="carousel-wrap" id="${carouselId || 'carousel-default'}"><div class="carousel-container">`;
+  columnKeys.forEach((key, idx) => {
+    html += '<div class="carousel-card">';
+    html += `<div class="carousel-card-header">${columnLabel(key)}</div>`;
+    rows.forEach(row => {
+      const [label, dataFn] = row;
+      const cellData = dataFn ? dataFn(key) : '—';
+      html += `<div class="carousel-card-label">${label}</div>`;
+      html += `<div class="carousel-card-row">${cellData}</div>`;
+    });
+    html += '</div>';
+  });
+  html += '</div>';
+  html += '<div class="carousel-indicator">Card 1 of ' + columnKeys.length + '</div>';
+  html += '</div>';
+  return html;
+}
+
+function initCarousel(carouselId, containerSelector) {
+  // containerSelector is optional; defaults to '.carousel-container'
+  const selector = containerSelector || '.carousel-container';
+  const container = document.querySelector(`#${carouselId} ${selector}`);
+  if (!container) return;
+  let isDown = false, startX, scrollLeft, momentum = 0, lastX = 0, lastTime = 0;
+  container.addEventListener('mousedown', (e) => { isDown = true; startX = e.pageX - container.offsetLeft; scrollLeft = container.scrollLeft; lastX = e.pageX; lastTime = Date.now(); momentum = 0; });
+  document.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    const x = e.pageX - container.offsetLeft;
+    const walk = x - startX;
+    container.scrollLeft = scrollLeft - walk;
+    const dt = Date.now() - lastTime;
+    if (dt > 0) momentum = (e.pageX - lastX) / dt;
+    lastX = e.pageX;
+    lastTime = Date.now();
+  });
+  document.addEventListener('mouseup', () => { isDown = false; });
+  container.addEventListener('touchstart', (e) => { startX = e.touches[0].pageX - container.offsetLeft; scrollLeft = container.scrollLeft; lastX = e.touches[0].pageX; lastTime = Date.now(); momentum = 0; });
+  container.addEventListener('touchmove', (e) => {
+    const x = e.touches[0].pageX - container.offsetLeft;
+    const walk = x - startX;
+    container.scrollLeft = scrollLeft - walk;
+    const dt = Date.now() - lastTime;
+    if (dt > 0) momentum = (e.touches[0].pageX - lastX) / dt;
+    lastX = e.touches[0].pageX;
+    lastTime = Date.now();
+  });
+  container.addEventListener('touchend', () => {
+    let frame = momentum > 0 ? 1 : -1;
+    let steps = 0;
+    const ticker = setInterval(() => {
+      if (Math.abs(momentum) < 0.01 || steps > 20) { clearInterval(ticker); return; }
+      container.scrollLeft += momentum * 30;
+      momentum *= 0.9;
+      steps++;
+    }, 16);
+  });
+}
+
+// ===== STANDARDIZED STATE MANAGEMENT =====
+function getStateKey() {
+  const pathfinderId = window.PATHFINDER_CONFIG?.id || 'default';
+  return `pathfinderState_${pathfinderId}`;
+}
+
+// Generic save/load that works for any pathfinder
+function frameworkSaveState(stateObject) {
+  localStorage.setItem(getStateKey(), JSON.stringify(stateObject));
+}
+
+function frameworkLoadState() {
+  const saved = localStorage.getItem(getStateKey());
+  return saved ? JSON.parse(saved) : null;
+}
+
 // ===== GENERIC FRAMEWORK CODE =====
 
 // Generic tab navigation - works for any pathfinder

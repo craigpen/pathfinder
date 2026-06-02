@@ -243,28 +243,7 @@ function headerImagePool(){
  return pool.length ? pool : HEADER_PHOTOS;
 }
 
-function poolKeyFor(pool){
- // stable key so we only rebuild DOM when pool changes
- return pool.map(p=>String(p.src).split('?')[0]).join('|');
-}
-
-function bindHdrHoverPause(){
- const hdr=document.querySelector('.hdr');
- if(!hdr || hdr.dataset.hoverPause==='1') return;
- hdr.dataset.hoverPause='1';
- hdr.addEventListener('mouseenter', ()=>{ hdrPaused=true; });
- hdr.addEventListener('mouseleave', ()=>{ hdrPaused=false; });
-}
-
-function renderHdrImages(pool){
- const bg=document.getElementById('hdr-bg');
- if(!bg) return [];
- bg.innerHTML = pool.map((p,i)=>`<img src="${wideImg(p.src)}" alt="Header image" class="${i===0?'active':''}">`).join('');
- const imgs=[...bg.querySelectorAll('img')];
- imgs.forEach(im=>{ im.onerror=()=>{ im.onerror=null; im.src=FALLBACK_HDR_SVG; }; });
- return imgs;
-}
-
+// University-specific header carousel (uses country-based photos)
 function startHdrCarousel(){
   if(hdrTimer) clearInterval(hdrTimer);
   bindHdrHoverPause();
@@ -282,7 +261,6 @@ function startHdrCarousel(){
       imgs = bg ? [...bg.querySelectorAll('img')] : [];
     }
     if(!imgs || !imgs.length) return;
-    // ensure exactly one active
     imgs.forEach((im,i)=>im.classList.toggle('active', i===0));
     hdrIdx=0;
     hdrTimer=setInterval(()=>{
@@ -292,7 +270,6 @@ function startHdrCarousel(){
       imgs[hdrIdx].classList.add('active');
     }, 10000);
   }).catch(()=>{
-    // If filtering fails for any reason, fall back to existing behavior
     const bg=document.getElementById('hdr-bg');
     const imgs = bg ? [...bg.querySelectorAll('img')] : [];
     if(!imgs || !imgs.length) return;
@@ -306,10 +283,7 @@ function startHdrCarousel(){
     }, 10000);
   });
 }
-function initHdrCarousel(){startHdrCarousel();}
 function updateHdrCarousel(){startHdrCarousel();}
-function toggleMusic(){const pills=document.getElementById('playlist-pills');const sw=document.getElementById('spotify-wrap');const on=pills.classList.toggle('show');const btn=document.getElementById('music-btn');btn.classList.toggle('active',on);if(!on){sw.classList.remove('show');document.querySelectorAll('.pp').forEach(b=>b.classList.remove('active'));S.playlist=null;document.getElementById('spotify-frame').src='about:blank';}}
-function selPlaylist(playlist,el){if(!document.getElementById('playlist-pills').classList.contains('show'))return;S.playlist=playlist;document.querySelectorAll('.pp').forEach(b=>b.classList.remove('active'));el.classList.add('active');const sw=document.getElementById('spotify-wrap');sw.classList.add('show');const frame=document.getElementById('spotify-frame');frame.src=PLAYLISTS[playlist]}
 // go() function now in framework.js; this handles university-specific tab renders
 function renderPathfinderTab(id){if(id==='discover')renderDiscoveryPills();else if(id==='careers'){renderCareerView();renderSubPills();renderFilterAnalysis();renderFilterResult()}else if(id==='countries'){renderCCChips();updateHdrCarousel()}else if(id==='scholarships')renderScholar();else if(id==='universities')renderUniversities();else if(id==='costs'){S.costCC=[...S.cc];renderCostChips()}else if(id==='transition'){renderTransition()}else if(id==='insights'){renderInsights()}else if(id==='deepDive'){if(!S.expl&&S.cc&&S.cc.length)S.expl=S.cc[0];renderExChips();renderPath(S.expl);}}
 function startOver(){S.cats=[];S.motivations=[];S.subCareers=[];S.prac=[];S.cc=[];S.costCC=[];S.expl=null;S.playlist=null;S.flex=null;S.cost=null;S.vision=null;S.lang=null;S.postGrad=null;S.citizen=[];S.debtYrs=null;S.languages=[];S.stateOfResidency=null;S.inStateTuitionPref=null;S.uniSelectivity=null;S.usUniversityType=null;S.inStateToggle=false;S.scholarshipAmount=null;S.collegeSavings=null;S.partTimeWork=null;S.familySupport=null;S.loanRate=null;S.loanRepaymentYears=null;document.getElementById('sl-schol').value=0;document.getElementById('sl-savings').value=0;document.getElementById('sl-work').value=0;document.getElementById('sl-parent').value=0;document.getElementById('sl-rate').value=5.5;document.getElementById('sl-yrs').value=10;localStorage.removeItem('univPathfinderState');document.querySelectorAll('.pill').forEach(o=>o.classList.remove('on'));document.querySelectorAll('.pill').forEach(p=>p.classList.remove('on'));document.getElementById('playlist-pills').classList.remove('show');document.getElementById('spotify-wrap').classList.remove('show');document.getElementById('transition-content').innerHTML='';go('discover')}
@@ -317,36 +291,7 @@ function initDiscover(){const dr=document.getElementById('motivation-opts');['Ma
 function renderCareerView(){const fc=document.getElementById('fcat-chips');if(!CAREERS_LOADED){fc.innerHTML='<p>Loading careers...</p>';setTimeout(renderCareerView,100);return}let h='';const careers=window.CAREERS||{};Object.entries(careers).forEach(([k,v])=>{h+=`<div class="pill${S.cats.includes(k)?' on':''}" onclick="togCat('${k}')">${v.name}</div>`});fc.innerHTML=h;renderCatTable();renderSubPills();renderCareerTable()}
 function togCat(k){if(S.cats.includes(k)){S.cats=S.cats.filter(c=>c!==k);S.subCareers=S.subCareers.filter(f=>!Object.keys(getCategorySubjects(k)).includes(f))}else S.cats.push(k);saveState();renderCareerView();renderInsights()}
 
-// ===== CAROUSEL HTML BUILDER =====
-function buildCarouselHTML(rows, columnKeys, columnLabel, carouselId) {
-  // rows: array of [label, dataExtractor]
-  // columnKeys: array of country/category codes
-  // columnLabel: function that returns display name for a key
-  // carouselId: HTML id for the carousel wrapper
-
-  let html = `<div class="carousel-wrap" id="${carouselId || 'carousel-default'}"><div class="carousel-container">`;
-
-  columnKeys.forEach((key, idx) => {
-    html += '<div class="carousel-card">';
-    html += `<div class="carousel-card-header">${columnLabel(key)}</div>`;
-
-    // Add each label-data pair as a row (aligned in grid)
-    rows.forEach(row => {
-      const [label, dataFn] = row;
-      const cellData = dataFn ? dataFn(key) : '—';
-      html += `<div class="carousel-card-label">${label}</div>`;
-      html += `<div class="carousel-card-row">${cellData}</div>`;
-    });
-
-    html += '</div>'; // carousel-card
-  });
-
-  html += '</div>'; // carousel-container
-  html += '<div class="carousel-indicator">Card 1 of ' + columnKeys.length + '</div>';
-  html += '</div>'; // carousel-wrap
-
-  return html;
-}
+// buildCarouselHTML and initCarousel are now in framework.js (shared functions)
 
 function buildTableHTML(rows, columnKeys, columnLabel, tableId) {
   // rows: array of [label, dataFn] where dataFn(key) returns cell content (string or {content, className})
