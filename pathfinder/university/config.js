@@ -95,10 +95,7 @@ const universityPathfinderConfig = {
       retries++;
     }
 
-    // Initialize discover tab
-    if (window.initDiscover) {
-      window.initDiscover();
-    }
+    // Render discover tab pills (motivations and other selectors)
     if (window.renderDiscoveryPills) {
       window.renderDiscoveryPills();
     }
