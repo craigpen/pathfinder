@@ -421,6 +421,14 @@ async function loadCareersData() {
 // Load careers data on page start
 loadCareersData();
 
+// Ensure discovery tab renders on page load (after all data loads)
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    loadState();
+    renderPathfinderTab('discover');
+  }, 100);
+});
+
 // ============================================================================
 // LOAD SHARED AND PATHFINDER-SPECIFIC DATA
 // ============================================================================
