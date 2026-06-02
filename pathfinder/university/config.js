@@ -78,6 +78,18 @@ const universityPathfinderConfig = {
       relax: 'https://w.soundcloud.com/player/?url=https://soundcloud.com/ambientchill-sc/sets/relaxing-ambient-music-2&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&show_artwork=false',
       zen: 'https://w.soundcloud.com/player/?url=https://soundcloud.com/binauralbeatsresearch/sets/theta-waves-zen-meditation&color=%23ff5500&auto_play=false&hide_related=false&show_teaser=false&show_artwork=false'
     }
+  },
+
+  // Initialization hook - called by framework.js on DOMContentLoaded
+  onInit: async function() {
+    // Initialize header carousel
+    if (window.initHdrCarousel) {
+      window.initHdrCarousel();
+    }
+    // Initialize discover tab motivations on first load
+    if (window.initDiscover) {
+      window.initDiscover();
+    }
   }
 };
 
