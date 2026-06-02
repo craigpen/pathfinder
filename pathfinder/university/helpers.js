@@ -435,7 +435,7 @@ Promise.all([
   stateNamesPromise,
   universitiesPromise,
   insightsPromise
-]).then(() => {
+]).then(async () => {
   console.log('✓ All data loaded successfully');
   console.log('📊 Data check - SELECTOR_OPTIONS:', Object.keys(window.SELECTOR_OPTIONS || {}).length, 'selectors');
   console.log('📊 Data check - COUNTRIES:', Object.keys(window.COUNTRIES || {}).length, 'countries');
@@ -443,6 +443,12 @@ Promise.all([
   console.log('📊 Data check - SELECTOR_OPTIONS_LOADED:', window.SELECTOR_OPTIONS_LOADED);
   console.log('📊 Data check - COUNTRIES_LOADED:', window.COUNTRIES_LOADED);
   console.log('📊 Data check - CAREERS_LOADED:', window.CAREERS_LOADED);
+
+  // Build header from config
+  if (window.buildHeader && window.PATHFINDER_CONFIG && window.PATHFINDER_CONFIG.header) {
+    await window.buildHeader(window.PATHFINDER_CONFIG.header);
+  }
+
   renderPathfinderTab('discover');
   loadState();
   console.log('✅ State restoration complete');
