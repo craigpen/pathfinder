@@ -2338,7 +2338,7 @@ function renderUniversities(){
     let h = '';
     selOptions.forEach(option => {
       const isSelected = S.uniSelectivity && S.uniSelectivity.includes(option);
-      h += `<div class="pill${isSelected ? ' on' : ''}\" data-q="uniSelectivity" onclick="pickN('uniSelectivity',this)">${option}</div>`;
+      h += `<div class="pill${isSelected ? ' on' : ''}" data-q="uniSelectivity" onclick="pickN('uniSelectivity',this)">${option}</div>`;
     });
     selPills.innerHTML = h;
   }
