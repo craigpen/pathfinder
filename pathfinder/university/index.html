@@ -2336,9 +2336,7 @@ function renderUniversities(){
     h += '</div>';
     selPills.innerHTML = h;
   }
-  
-  const host=document.getElementById('uni-content');
-  
+
   if(!S.subCareers.length||!S.cc.length){
     host.innerHTML=guidanceMsg('Select careers and countries to see university recommendations');
     return;
