@@ -392,8 +392,8 @@ async function loadCountriesData() {
   }
 }
 
-// Load countries data on page start
-loadCountriesData();
+// Collect loader promises and coordinate initialization
+let countriesPromise = loadCountriesData();
 
 let CAREERS_LOADED = false;
 
@@ -418,21 +418,30 @@ async function loadCareersData() {
   }
 }
 
-// Load careers data on page start
-loadCareersData();
+let careersPromise = loadCareersData();
 
-// Ensure discovery tab renders on page load (after all data loads)
-window.addEventListener('load', () => {
-  // Wait for critical data to load before rendering
-  const waitForData = setInterval(() => {
-    if (window.SELECTOR_OPTIONS && window.COUNTRIES && window.CAREERS) {
-      clearInterval(waitForData);
-      loadState();
-      renderPathfinderTab('discover');
-    }
-  }, 50);
-  // Timeout after 5 seconds to avoid infinite waiting
-  setTimeout(() => clearInterval(waitForData), 5000);
+// All other loaders...
+let selectorPromise = loadSelectorOptionsData();
+let pathfinderPromise = loadPathfinderData();
+let stateNamesPromise = loadStateNamesData();
+let universitiesPromise = loadUniversitiesData();
+let insightsPromise = loadInsightsData();
+
+// Coordinate: wait for ALL data, THEN render
+Promise.all([
+  countriesPromise,
+  careersPromise,
+  selectorPromise,
+  pathfinderPromise,
+  stateNamesPromise,
+  universitiesPromise,
+  insightsPromise
+]).then(() => {
+  console.log('✓ All data loaded successfully');
+  loadState();
+  renderPathfinderTab('discover');
+}).catch(err => {
+  console.error('Failed to load data:', err);
 });
 
 // ============================================================================
