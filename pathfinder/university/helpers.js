@@ -360,7 +360,7 @@ let COUNTRIES_LOADED = false;
 
 async function loadCountriesData() {
   try {
-    const response = await fetch('./countries.json');
+    const response = await fetch('./data/countries.json');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
     const data = await response.json();
@@ -399,7 +399,7 @@ let CAREERS_LOADED = false;
 
 async function loadCareersData() {
   try {
-    const response = await fetch('./careers.json');
+    const response = await fetch('./data/careers.json');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
     const data = await response.json();
@@ -454,7 +454,7 @@ async function loadStateNamesData() {
 
 async function loadSelectorOptionsData() {
   try {
-    const response = await fetch('./selector-options.json');
+    const response = await fetch('./data/selector-options.json');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
     const data = await response.json();
@@ -477,21 +477,21 @@ let PATHFINDER_DATA_LOADED = false;
 async function loadPathfinderData() {
   try {
     // Load career-to-qs-subject mapping
-    const careersRes = await fetch('./career-to-qs-subject.json');
+    const careersRes = await fetch('./data/career-to-qs-subject.json');
     if (!careersRes.ok) throw new Error(`HTTP ${careersRes.status} loading career-to-qs-subject.json`);
     const careersData = await careersRes.json();
     Object.assign(CAREER_TO_QS_SUBJECT, careersData);
     window.CAREER_TO_QS_SUBJECT = CAREER_TO_QS_SUBJECT;
 
     // Load selectivity display mapping
-    const selectivityRes = await fetch('./selectivity-display.json');
+    const selectivityRes = await fetch('./data/selectivity-display.json');
     if (!selectivityRes.ok) throw new Error(`HTTP ${selectivityRes.status} loading selectivity-display.json`);
     const selectivityData = await selectivityRes.json();
     Object.assign(SELECTIVITY_DISPLAY, selectivityData);
     window.SELECTIVITY_DISPLAY = SELECTIVITY_DISPLAY;
 
     // Load tuition averages
-    const tuitionRes = await fetch('./tuition-averages.json');
+    const tuitionRes = await fetch('./data/tuition-averages.json');
     if (!tuitionRes.ok) throw new Error(`HTTP ${tuitionRes.status} loading tuition-averages.json`);
     const tuitionData = await tuitionRes.json();
     Object.assign(TUITION_AVERAGES, tuitionData);
@@ -750,7 +750,7 @@ let UNIVERSITIES_LOADED = false;
 
 async function loadUniversitiesData() {
   try {
-    const response = await fetch('./universities.json');
+    const response = await fetch('./data/universities.json');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
     UNIVERSITIES = data;
@@ -771,7 +771,7 @@ let INSIGHTS_LOADED = false;
 
 async function loadInsightsData() {
   try {
-    const response = await fetch('./insights.json');
+    const response = await fetch('./data/insights.json');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
     INSIGHTS = data;
