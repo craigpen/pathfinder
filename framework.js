@@ -97,6 +97,33 @@ function getCurrentPathfinderConfig() {
   return null;
 }
 
+async function loadPathfinderData(config) {
+  if (!config.dataSources) return true;
+
+  const baseDir = `pathfinders/${currentPathfinder}/`;
+  const loadPromises = [];
+
+  Object.entries(config.dataSources).forEach(([name, filename]) => {
+    const promise = fetch(baseDir + filename)
+      .then(r => {
+        if (!r.ok) throw new Error(`Failed to load ${filename}`);
+        return r.json();
+      })
+      .then(data => {
+        // Store in window[NAME_UPPERCASE]
+        const varName = name.toUpperCase().replace(/_/g, '_');
+        window[varName] = data;
+        console.log(`✓ Loaded ${name}`);
+      })
+      .catch(e => console.error(`✗ Failed to load ${name}:`, e.message));
+
+    loadPromises.push(promise);
+  });
+
+  await Promise.all(loadPromises);
+  return true;
+}
+
 function initializePathfinder() {
   const config = getCurrentPathfinderConfig();
   if (!config) {
@@ -107,9 +134,17 @@ function initializePathfinder() {
   // S object is already defined in index.html, just load persisted state
   loadState();
 
+  // Ensure all state fields from config are initialized
+  config.stateFields.forEach(field => {
+    if (!(field in window.S)) {
+      window.S[field] = null;
+    }
+  });
+
   // Render initial tab
   renderPathfinderHeader(config);
   renderPathfinderTabs(config);
+  generateTabPanels(config);
   go(config.tabs[0].id);
 
   return true;
@@ -138,6 +173,21 @@ function renderPathfinderTabs(config) {
     btn.textContent = tab.label;
     btn.onclick = () => go(tab.id);
     tabsContainer.appendChild(btn);
+  });
+}
+
+function generateTabPanels(config) {
+  const panelsContainer = document.querySelector('.panels');
+  if (!panelsContainer) return;
+
+  config.tabs.forEach(tab => {
+    // Check if panel already exists
+    if (document.getElementById(tab.id)) return;
+
+    const panel = document.createElement('div');
+    panel.className = 'pan';
+    panel.id = tab.id;
+    panelsContainer.appendChild(panel);
   });
 }
 
