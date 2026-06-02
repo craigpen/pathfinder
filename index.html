@@ -917,7 +917,7 @@ let CAREERS_LOADED = false;
 
 async function loadCareersData() {
   try {
-    const response = await fetch('careers.json');
+    const response = await fetch('pathfinders/university/careers.json');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
     const data = await response.json();
@@ -1343,7 +1343,7 @@ let UNIVERSITIES_LOADED = false;
 
 async function loadUniversitiesData() {
   try {
-    const response = await fetch('universities.json');
+    const response = await fetch('pathfinders/university/universities.json');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
     UNIVERSITIES = data;
@@ -4780,7 +4780,7 @@ let INSIGHTS_LOADED = false;
 
 async function loadInsightsData() {
   try {
-    const response = await fetch('insights.json');
+    const response = await fetch('pathfinders/university/insights.json');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
     INSIGHTS = data;
