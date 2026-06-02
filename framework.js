@@ -177,7 +177,7 @@ function renderPathfinderTabs(config) {
 }
 
 function generateTabPanels(config) {
-  const panelsContainer = document.querySelector('.panels');
+  const panelsContainer = document.querySelector('.ctr');
   if (!panelsContainer) return;
 
   config.tabs.forEach(tab => {
