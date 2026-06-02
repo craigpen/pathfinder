@@ -87,7 +87,7 @@ const universityPathfinderConfig = {
 
   // Initialization hook - called by framework.js on DOMContentLoaded
   onInit: async function() {
-    // Load saved state
+    // Load saved state from localStorage
     if (window.loadState) {
       window.loadState();
     }
@@ -100,10 +100,8 @@ const universityPathfinderConfig = {
       retries++;
     }
 
-    // Render discover tab pills (motivations and other selectors)
-    if (window.renderDiscoveryPills) {
-      window.renderDiscoveryPills();
-    }
+    // Note: renderDiscoveryPills will be called automatically by renderPathfinderTab('discover')
+    // when the discover tab is shown, so we don't need to call it here
 
     // Initialize resources
     if (window.initRes) {
