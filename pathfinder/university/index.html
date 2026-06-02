@@ -5173,6 +5173,24 @@ function initCarousel(wrapperId, containerSelector = '.carousel-container') {
 
 // ===== TABLE RENDERING WITH MOBILE CAROUSEL SUPPORT =====
 
+function go(tabId) {
+  // Hide all tabs
+  document.querySelectorAll('.pan').forEach(p => p.classList.remove('on'));
+  // Show selected tab
+  const tab = document.getElementById(tabId);
+  if (tab) tab.classList.add('on');
+
+  // Update tab button styles
+  document.querySelectorAll('.tb').forEach(b => b.classList.remove('on'));
+  document.querySelector(`[onclick="go('${tabId}')"]`)?.classList.add('on');
+
+  // Render tab content
+  renderPathfinderTab(tabId);
+
+  // Save tab preference
+  sessionStorage.setItem('currentTab', tabId);
+}
+
 async function initializeApp() {
   loadState();
   document.getElementById('version-badge').textContent = VERSION;
