@@ -2,7 +2,11 @@
 // All render* and format* functions for the university pathfinder
 
 // ===== MODULE-LEVEL VARIABLES =====
-// Header carousel state variables (hdrIdx, hdrTimer, hdrPaused, hdrPoolKey) are now in framework.js
+// Header carousel state variables
+let hdrIdx = 0;
+let hdrTimer = null;
+let hdrPaused = false;
+let hdrPoolKey = null;
 const BAD_IMG_CACHE = new Set();
 // Note: UNIVERSITIES, UNIVERSITIES_LOADED, INSIGHTS, INSIGHTS_LOADED are declared in helpers.js
 
@@ -3504,7 +3508,6 @@ window.formatGrowth = formatGrowth;
 window.formatPortability = formatPortability;
 window.formatLicensing = formatLicensing;
 window.formatDemand = formatDemand;
-window.renderHdrImages = renderHdrImages;
 window.renderPathfinderTab = renderPathfinderTab;
 window.renderCareerView = renderCareerView;
 window.renderCatTable = renderCatTable;
