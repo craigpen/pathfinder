@@ -280,6 +280,201 @@ When externalizing reference data that's keyed by external data (e.g., DEMAND_MA
 - ❌ Forgetting `Object.assign(COUNTRIES, data)` in async loader — data loads but isn't accessible
 - ❌ Creating separate reference JSON files instead of merging into parent structure — bloats file count and complicates async loading
 
+## Building a New Pathfinder From Scratch
+
+**Use this checklist to create a new pathfinder (e.g., bootcamp, internship) with minimal boilerplate:**
+
+### Step 1: Create Directory Structure
+```
+pathfinder/{name}/
+├── index.html          (minimal wrapper, loads framework)
+├── config.js           (pathfinder config with header + selectors + tabs)
+├── renderers.js        (tab-specific render functions)
+├── helpers.js          (data query, formatting, validation functions)
+└── data/
+    ├── header-images.json
+    ├── selector-options.json
+    └── {other-data}.json
+```
+
+### Step 2: Create config.js
+```javascript
+const {name}PathfinderConfig = {
+  id: '{name}',
+  name: '{Display Name}',
+  description: '...',
+
+  // Generic header component
+  header: {
+    title: '{title}',
+    subtitle: '{subtitle}',
+    imagesFile: 'header-images.json',
+    enableMusic: true
+  },
+
+  // Generic discovery selectors
+  selectors: [
+    { id: 'selector1', label: 'Select one', title: '...', description: '...' },
+    { id: 'selector2', label: 'Select One or More', title: '...', description: '...' },
+    // ...define all discovery questions
+  ],
+
+  // Tab definitions
+  tabs: [
+    { id: 'discover', label: 'Discover' },
+    { id: 'results', label: 'Results' },
+    // ...define tabs specific to this pathfinder
+  ],
+
+  // State fields to persist
+  stateFields: [
+    'selector1', 'selector2', // discovery selectors
+    'tab1Field', 'tab2Field', // other state
+    // ...all fields that should persist in localStorage
+  ],
+
+  // Data sources (loaded async before rendering)
+  dataSources: {
+    data1: 'data1.json',
+    data2: 'data2.json',
+    // ...all JSON files needed by this pathfinder
+  },
+
+  // Tab renderers (optional, for tabs that render dynamically)
+  renderersForTab: {
+    'results': () => { if (window.renderResults) window.renderResults(); }
+  }
+};
+
+window.{name}PathfinderConfig = {name}PathfinderConfig;
+window.PATHFINDER_CONFIG = {name}PathfinderConfig;
+```
+
+### Step 3: Create index.html
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{Display Name}</title>
+  <script src="../../framework.js"></script>
+  <style>
+    /* Framework CSS is injected by framework.js */
+    /* Add pathfinder-specific styles here */
+  </style>
+</head>
+<body>
+  <div class="ctr">
+    <!-- Header is built dynamically by buildHeader() -->
+    <div id="header-container"></div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tb on" onclick="go('discover')">Discover</button>
+      <button class="tb" onclick="go('results')">Results</button>
+      <!-- ...one button per tab -->
+    </div>
+
+    <!-- Tab panels -->
+    <div class="pan on" id="discover">
+      <!-- Discovery selectors are built dynamically by buildSelectors() -->
+      <div class="bg">
+        <button class="btn br pos-center" onclick="startOver()">Reset</button>
+        <button class="btn bp pos-right" onclick="go('results')">Next</button>
+      </div>
+    </div>
+
+    <div class="pan" id="results">
+      <!-- Results tab content -->
+      <div id="results-content"></div>
+      <div class="bg">
+        <button class="btn bs pos-left" onclick="go('discover')">Back</button>
+        <button class="btn br pos-center" onclick="startOver()">Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="renderers.js"></script>
+  <script src="helpers.js"></script>
+  <script>
+    // Framework.js handles initialization:
+    // 1. Loads all data files (async)
+    // 2. Calls buildHeader(config.header)
+    // 3. Calls buildSelectors(config.selectors)
+    // 4. Calls renderPathfinderTab('discover')
+    // 5. Calls loadState()
+  </script>
+</body>
+</html>
+```
+
+### Step 4: Create data/header-images.json
+```json
+{
+  "images": [
+    "https://images.unsplash.com/...",
+    "https://images.unsplash.com/...",
+    // ...14 image URLs
+  ]
+}
+```
+
+### Step 5: Create data/selector-options.json
+```json
+{
+  "selector1": ["Option A", "Option B", "Option C"],
+  "selector2": ["Choice 1", "Choice 2", "Choice 3"],
+  // ...all selectors and their options
+}
+```
+
+### Step 6: Create renderers.js
+```javascript
+function renderResults() {
+  // Render results based on S (state object)
+  // Called when 'results' tab is shown
+}
+
+// Add renderPathfinderTab override if tabs differ from default
+function renderPathfinderTab(id) {
+  if (id === 'discover') {
+    // Nothing needed—framework handles it
+  } else if (id === 'results') {
+    renderResults();
+  }
+}
+```
+
+### Step 7: Create helpers.js
+```javascript
+// Query helpers
+function getDataById(id) {
+  // Return data from window.DATA_1, window.DATA_2, etc.
+}
+
+// Formatting helpers
+function formatData(value) {
+  // Convert value to display format
+}
+
+// State management (framework provides saveState/loadState)
+```
+
+### Checklist Before Launch
+- ✅ config.js defines header, selectors, tabs, stateFields, dataSources
+- ✅ index.html has `<div id="header-container"></div>` and tab structure
+- ✅ data/header-images.json has 14 images
+- ✅ data/selector-options.json has options for all selectors
+- ✅ renderers.js implements tab-specific rendering
+- ✅ helpers.js provides query/format functions
+- ✅ All data files are listed in config.dataSources
+- ✅ All state fields are listed in config.stateFields
+- ✅ Tested in browser: header renders, selectors render, state persists
+
+---
+
 ## Key Files & Functions
 - `index.html` — Single-page app with embedded CSS/JS (originally 776KB, now **301KB** with all data externalized)
   - This is your main deliverable; treat edits carefully
