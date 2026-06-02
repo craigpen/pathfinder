@@ -2272,6 +2272,9 @@ function buildUniversitiesCarouselByCountry(data) {
 }
 
 function renderUniversities(){
+  const host = document.getElementById('uni-content');
+  if(!host) return;
+  if(!COUNTRIES_LOADED || !UNIVERSITIES_LOADED){host.innerHTML='<p>Loading universities...</p>';setTimeout(renderUniversities,100);return}
   // Render country pills
   const ccPills = document.getElementById('uni-country-pills');
   if(ccPills){
@@ -2613,6 +2616,7 @@ function renderUniversities(){
 function renderScholar(){
   const host=document.getElementById('scholar-table');
   if(!host) return;
+  if(!CAREERS_LOADED){host.innerHTML='<p>Loading careers...</p>';setTimeout(renderScholar,100);return}
 
   // Render country pills
   const pillsHost = document.getElementById('scholar-cc-pills');
@@ -3706,6 +3710,8 @@ function buildInsightCarouselHTML(items, carouselId) {
 
 function renderInsights(){
   const el = document.getElementById('insights-container');
+  if(!el) return;
+  if(!INSIGHTS_LOADED){el.innerHTML='<p>Loading insights...</p>';setTimeout(renderInsights,100);return}
   const narr = document.getElementById('narrative-display');
 
   // Sync costCC with cc if not already set, so cost insights use current country selections
