@@ -243,11 +243,13 @@ async function buildSelectors(selectorsConfig, containerId = 'discover') {
       `;
     });
 
-    // Insert selectors into discover tab (after any header content)
-    const existingSelectors = container.querySelector('.qb');
-    if (existingSelectors) {
-      existingSelectors.parentElement.innerHTML = html;
+    // Insert selectors into discover tab, preserving button bar
+    const buttonBar = container.querySelector('.bg');
+    if (buttonBar) {
+      // Insert selectors before the button bar
+      buttonBar.insertAdjacentHTML('beforebegin', html);
     } else {
+      // No button bar, just add selectors
       container.innerHTML = html;
     }
 
