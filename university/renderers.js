@@ -747,10 +747,168 @@ else{
 }
 el.innerHTML=msg;
 }
-function renderCCChips(){const el=document.getElementById('cc-chips');if(!COUNTRIES_LOADED){el.innerHTML='<p>Loading countries...</p>';setTimeout(renderCCChips,100);return;}let h='';Object.entries(COUNTRIES).forEach(([k,v])=>{h+=`<div class="pill${S.cc.includes(k)?' on':''}" onclick="togCC('${k}')"><img src="${v.flag}" style="height:0.9em;vertical-align:middle"> ${v.name}</div>`});el.innerHTML=h;renderCCTable()}
-function togCC(k){if(S.cc.includes(k))S.cc=S.cc.filter(x=>x!==k);else S.cc.push(k);saveState();renderCCChips();updateHdrCarousel();renderUniversities();renderInsights()}
-function renderCCTable(){const sel=S.cc;const el=document.getElementById('cc-table');if(sel.length<1){el.innerHTML=guidanceMsg('Select a country to view details');return}const attrs=[['Tuition',(k)=>{const val=getCountryTuition(k)||'—';const note=getCountryTuitionNote(k);return `${val}${note?'<div class="note">'+note+'</div>':''}`;},null],['Degree Length',(k)=>(getCountryDuration(k)||'—')+' years'],['Language',(k)=>getCountryLanguage(k)||'—'],['Change Majors?',(k)=>getCountryChangePolicy(k)||'—'],['After Graduation',(k)=>getCountryPostGradOpportunities(k)||'—'],['Financial Aid',(k)=>getCountryFinancialAid(k)||'—'],['Admissions',(k)=>getCountryAdmissions(k)||'—'],['Culture',(k)=>getCountryCulture(k)||'—'],['Apply At',(k)=>getCountryPortal(k)||'—'],['Resources',(k)=>{const resources=getCountryResources(k)||[];return resources.map(r=>`<a href="${r.u}" target="_blank">${r.t}</a>`).join(', ')||'—';}]];const columnLabel=(k)=>`${getCountryFlag(k)} ${getCountryName(k)} <span class="xr" onclick="togCC('${k}')">✕</span>`;const t=buildTableHTML(attrs,sel,columnLabel,'cc-table');el.innerHTML=t;let insights=[];const seenMsgs=new Set();if(S.vision){const eu=['sweden','uk','germany','netherlands','france','italy','spain','denmark','ireland','no','ch'];const hasUS=sel.some(k=>k==='us'||k==='canada'||k==='australia'||k==='singapore');const hasEU=sel.some(k=>eu.includes(k));let visionMsg='';if(hasUS&&hasEU){if(S.vision==='In the US'){visionMsg='You prefer staying in the US long-term, but you\'ve selected EU countries. Consider if EU study aligns with your goals.';}else if(S.vision==='In Europe'){visionMsg='Your vision to work abroad aligns well with EU country choices.';}else if(S.vision==='Anywhere globally'){visionMsg='Your flexible vision works with both US and EU options. Pick based on other factors.';}}else if(hasEU&&!hasUS){if(S.vision==='In the US'){visionMsg='You prefer staying in the US, but selected only EU countries. Reconsider your country choices.';}else if(S.vision==='In Europe'||S.vision==='Anywhere globally'){visionMsg='Studying in an EU country positions you well for European work.';}}else if(hasUS&&!hasEU){if(S.vision==='In the US'||S.vision==='Anywhere globally'){visionMsg='US study aligns with your 5-year vision.';}else if(S.vision==='In Europe'){visionMsg='You want to work abroad, but studying in the US may make it harder to build international connections.';}}if(visionMsg&&!seenMsgs.has(visionMsg)){insights.push({align:!visionMsg.includes('Reconsider'),msg:visionMsg});seenMsgs.add(visionMsg)}}if(S.cost){const costs=sel.map(k=>getCountryCostTuition(k)||0);const hasExpensive=costs.some(c=>c>30000);const hasAffordable=costs.some(c=>c<=30000);let costMsg='';let isAlign=true;if(hasExpensive&&hasAffordable){costMsg='You\'ve selected both expensive and affordable countries. Consider which best matches your '+S.cost.toLowerCase()+' priority.';isAlign=false;}else{const insight=getCostInsight(sel,S.cost);if(insight){costMsg=insight.msg;isAlign=insight.align;}}if(costMsg&&!seenMsgs.has(costMsg)){insights.push({align:isAlign,msg:costMsg});seenMsgs.add(costMsg)}}if(S.lang&&S.cc.length>0){const langInsight=getLanguageInsight(S.cc[0],S.lang);if(langInsight&&!seenMsgs.has(langInsight.msg)){insights.push(langInsight);seenMsgs.add(langInsight.msg)}}if(S.citizen&&S.citizen.length>0){const citizenInsights=[];S.citizen.forEach(cit=>{const insight=getCitizenshipInsight(S.cc[0],cit);if(insight)citizenInsights.push(insight)});if(citizenInsights.length>0){const sample=citizenInsights[0];if(!seenMsgs.has(sample.msg)){insights.push(sample);seenMsgs.add(sample.msg)}}}
-const carouselRows=attrs.map(([l,a])=>[l,(k)=>{const cellData=a(k);let content=cellData;if(typeof cellData==='object'&&cellData.content!==undefined){content=cellData.content}return `<div>${content}</div>`;}]);const carousel=buildCarouselHTML(carouselRows,sel,(k)=>`${getCountryFlag(k)} ${getCountryName(k)}`,'cc-carousel');el.innerHTML=t+carousel;setTimeout(()=>initCarousel('cc-carousel'),50);
+function renderCCChips() {
+  const el = document.getElementById('cc-chips');
+  if (!COUNTRIES_LOADED) {
+    el.innerHTML = '<p>Loading countries...</p>';
+    setTimeout(renderCCChips, 100);
+    return;
+  }
+  let h = '';
+  Object.entries(COUNTRIES).forEach(([k, v]) => {
+    h += `<div class="pill${S.cc.includes(k) ? ' on' : ''}" onclick="togCC('${k}')"><img src="${v.flag}" style="height:0.9em;vertical-align:middle"> ${v.name}</div>`;
+  });
+  el.innerHTML = h;
+  renderCCTable();
+}
+
+function togCC(k) {
+  if (S.cc.includes(k))
+    S.cc = S.cc.filter(x => x !== k);
+  else
+    S.cc.push(k);
+  saveState();
+  renderCCChips();
+  updateHdrCarousel();
+  renderUniversities();
+  renderInsights();
+}
+function renderCCTable() {
+  const sel = S.cc;
+  const el = document.getElementById('cc-table');
+  if (sel.length < 1) {
+    el.innerHTML = guidanceMsg('Select a country to view details');
+    return;
+  }
+
+  // Define table attributes
+  const attrs = [
+    ['Tuition', (k) => {
+      const val = getCountryTuition(k) || '—';
+      const note = getCountryTuitionNote(k);
+      return `${val}${note ? '<div class="note">' + note + '</div>' : ''}`;
+    }, null],
+    ['Degree Length', (k) => (getCountryDuration(k) || '—') + ' years'],
+    ['Language', (k) => getCountryLanguage(k) || '—'],
+    ['Change Majors?', (k) => getCountryChangePolicy(k) || '—'],
+    ['After Graduation', (k) => getCountryPostGradOpportunities(k) || '—'],
+    ['Financial Aid', (k) => getCountryFinancialAid(k) || '—'],
+    ['Admissions', (k) => getCountryAdmissions(k) || '—'],
+    ['Culture', (k) => getCountryCulture(k) || '—'],
+    ['Apply At', (k) => getCountryPortal(k) || '—'],
+    ['Resources', (k) => {
+      const resources = getCountryResources(k) || [];
+      return resources.map(r => `<a href="${r.u}" target="_blank">${r.t}</a>`).join(', ') || '—';
+    }]
+  ];
+
+  const columnLabel = (k) => `${getCountryFlag(k)} ${getCountryName(k)} <span class="xr" onclick="togCC('${k}')">✕</span>`;
+  const t = buildTableHTML(attrs, sel, columnLabel, 'cc-table');
+  el.innerHTML = t;
+
+  // Build insights
+  let insights = [];
+  const seenMsgs = new Set();
+
+  // Vision alignment insights
+  if (S.vision) {
+    const eu = ['sweden', 'uk', 'germany', 'netherlands', 'france', 'italy', 'spain', 'denmark', 'ireland', 'no', 'ch'];
+    const hasUS = sel.some(k => k === 'us' || k === 'canada' || k === 'australia' || k === 'singapore');
+    const hasEU = sel.some(k => eu.includes(k));
+    let visionMsg = '';
+
+    if (hasUS && hasEU) {
+      if (S.vision === 'In the US') {
+        visionMsg = 'You prefer staying in the US long-term, but you\'ve selected EU countries. Consider if EU study aligns with your goals.';
+      } else if (S.vision === 'In Europe') {
+        visionMsg = 'Your vision to work abroad aligns well with EU country choices.';
+      } else if (S.vision === 'Anywhere globally') {
+        visionMsg = 'Your flexible vision works with both US and EU options. Pick based on other factors.';
+      }
+    } else if (hasEU && !hasUS) {
+      if (S.vision === 'In the US') {
+        visionMsg = 'You prefer staying in the US, but selected only EU countries. Reconsider your country choices.';
+      } else if (S.vision === 'In Europe' || S.vision === 'Anywhere globally') {
+        visionMsg = 'Studying in an EU country positions you well for European work.';
+      }
+    } else if (hasUS && !hasEU) {
+      if (S.vision === 'In the US' || S.vision === 'Anywhere globally') {
+        visionMsg = 'US study aligns with your 5-year vision.';
+      } else if (S.vision === 'In Europe') {
+        visionMsg = 'You want to work abroad, but studying in the US may make it harder to build international connections.';
+      }
+    }
+
+    if (visionMsg && !seenMsgs.has(visionMsg)) {
+      insights.push({ align: !visionMsg.includes('Reconsider'), msg: visionMsg });
+      seenMsgs.add(visionMsg);
+    }
+  }
+
+  // Cost alignment insights
+  if (S.cost) {
+    const costs = sel.map(k => getCountryCostTuition(k) || 0);
+    const hasExpensive = costs.some(c => c > 30000);
+    const hasAffordable = costs.some(c => c <= 30000);
+    let costMsg = '';
+    let isAlign = true;
+
+    if (hasExpensive && hasAffordable) {
+      costMsg = 'You\'ve selected both expensive and affordable countries. Consider which best matches your ' + S.cost.toLowerCase() + ' priority.';
+      isAlign = false;
+    } else {
+      const insight = getCostInsight(sel, S.cost);
+      if (insight) {
+        costMsg = insight.msg;
+        isAlign = insight.align;
+      }
+    }
+
+    if (costMsg && !seenMsgs.has(costMsg)) {
+      insights.push({ align: isAlign, msg: costMsg });
+      seenMsgs.add(costMsg);
+    }
+  }
+
+  // Language insights
+  if (S.lang && S.cc.length > 0) {
+    const langInsight = getLanguageInsight(S.cc[0], S.lang);
+    if (langInsight && !seenMsgs.has(langInsight.msg)) {
+      insights.push(langInsight);
+      seenMsgs.add(langInsight.msg);
+    }
+  }
+
+  // Citizenship insights
+  if (S.citizen && S.citizen.length > 0) {
+    const citizenInsights = [];
+    S.citizen.forEach(cit => {
+      const insight = getCitizenshipInsight(S.cc[0], cit);
+      if (insight) citizenInsights.push(insight);
+    });
+    if (citizenInsights.length > 0) {
+      const sample = citizenInsights[0];
+      if (!seenMsgs.has(sample.msg)) {
+        insights.push(sample);
+        seenMsgs.add(sample.msg);
+      }
+    }
+  }
+
+  // Build carousel for mobile
+  const carouselRows = attrs.map(([l, a]) => [l, (k) => {
+    const cellData = a(k);
+    let content = cellData;
+    if (typeof cellData === 'object' && cellData.content !== undefined) {
+      content = cellData.content;
+    }
+    return `<div>${content}</div>`;
+  }]);
+
+  const carousel = buildCarouselHTML(carouselRows, sel, (k) => `${getCountryFlag(k)} ${getCountryName(k)}`, 'cc-carousel');
+  el.innerHTML = t + carousel;
+  setTimeout(() => initCarousel('cc-carousel'), 50);
+}
 }
 
 // DEMAND_MAP merged into careers.json — access via getSub(career)?.demand
