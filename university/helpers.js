@@ -5,7 +5,7 @@ function getCountryName(code) {
   const country = window.COUNTRIES?.[code];
   if (!country) return null;
   const val = country.name;
-  if (typeof val !== 'string') console.warn(`getCountryName(${code}): expected string, got ${typeof val}`);
+  // if (typeof val !== 'string') console.warn(`getCountryName(${code}): expected string, got ${typeof val}`);
   return val;
 }
 
@@ -13,7 +13,7 @@ function getCountryFlag(code) {
   const country = window.COUNTRIES?.[code];
   if (!country) return null;
   const val = country.flag;
-  if (!val?.startsWith?.('data:image')) console.warn(`getCountryFlag(${code}): flag is not a data URI`);
+  // if (!val?.startsWith?.('data:image')) console.warn(`getCountryFlag(${code}): flag is not a data URI`);
   return `<img src="${val}" style="height:0.9em;vertical-align:middle">`;
 }
 
@@ -236,23 +236,23 @@ function updateCountry(code, data) {
 // Debug Helpers: for console testing
 function debugCountry(code) {
   if (!window.COUNTRIES?.[code]) {
-    console.log(`Country ${code} not found`);
+    // console.log(`Country ${code} not found`);
     return;
   }
 
   const data = window.COUNTRIES[code];
   const validation = validateCountrySchema(code, data);
 
-  console.group(`Country: ${code}`);
-  console.log('Name:', data.name);
-  console.log('Flag (first 50 chars):', data.flag?.substring(0, 50) + '...');
-  console.log('Tuition:', data.tuition);
-  console.log('Duration:', data.duration);
-  console.log('Language:', data.language);
-  console.log('Cost Breakdown:', data.costBreakdown);
-  console.log('Scholarships:', { need: !!data.need, merit: !!data.merit, external: !!data.external, free: !!data.free });
-  console.log('Validation:', validation === true ? 'VALID' : validation);
-  console.groupEnd();
+  // console.group(`Country: ${code}`);
+  // console.log('Name:', data.name);
+  // console.log('Flag (first 50 chars):', data.flag?.substring(0, 50) + '...');
+  // console.log('Tuition:', data.tuition);
+  // console.log('Duration:', data.duration);
+  // console.log('Language:', data.language);
+  // console.log('Cost Breakdown:', data.costBreakdown);
+  // console.log('Scholarships:', { need: !!data.need, merit: !!data.merit, external: !!data.external, free: !!data.free });
+  // console.log('Validation:', validation === true ? 'VALID' : validation);
+  // console.groupEnd();
 }
 
 function debugAllCountries() {
@@ -370,12 +370,12 @@ async function loadCountriesData() {
     COUNTRIES_LOADED = true;
 
     const validation = validateAllCountries();
-    console.log(`✓ Loaded countries.json: ${validation.total} countries`);
+    // console.log(`✓ Loaded countries.json: ${validation.total} countries`);
 
     if (validation.invalid > 0) {
       console.error(`⚠ ${validation.invalid} countries failed validation:`, validation.details);
     } else {
-      console.log('✓ All countries passed validation');
+      // console.log('✓ All countries passed validation');
     }
 
     // Clean up state with invalid country codes
@@ -408,7 +408,7 @@ async function loadCareersData() {
 
     const total = Object.keys(data).length;
     const totalCareers = Object.values(data).reduce((sum, cat) => sum + Object.keys(cat.subjects || {}).length, 0);
-    console.log(`✓ Loaded careers.json: ${total} categories, ${totalCareers} careers`);
+    // console.log(`✓ Loaded careers.json: ${total} categories, ${totalCareers} careers`);
 
     return true;
   } catch (error) {
@@ -436,13 +436,13 @@ Promise.all([
   universitiesPromise,
   insightsPromise
 ]).then(async () => {
-  console.log('✓ All data loaded successfully');
-  console.log('📊 Data check - SELECTOR_OPTIONS:', Object.keys(window.SELECTOR_OPTIONS || {}).length, 'selectors');
-  console.log('📊 Data check - COUNTRIES:', Object.keys(window.COUNTRIES || {}).length, 'countries');
-  console.log('📊 Data check - CAREERS:', Object.keys(window.CAREERS || {}).length, 'categories');
-  console.log('📊 Data check - SELECTOR_OPTIONS_LOADED:', window.SELECTOR_OPTIONS_LOADED);
-  console.log('📊 Data check - COUNTRIES_LOADED:', window.COUNTRIES_LOADED);
-  console.log('📊 Data check - CAREERS_LOADED:', window.CAREERS_LOADED);
+  // console.log('✓ All data loaded successfully');
+  // console.log('📊 Data check - SELECTOR_OPTIONS:', Object.keys(window.SELECTOR_OPTIONS || {}).length, 'selectors');
+  // console.log('📊 Data check - COUNTRIES:', Object.keys(window.COUNTRIES || {}).length, 'countries');
+  // console.log('📊 Data check - CAREERS:', Object.keys(window.CAREERS || {}).length, 'categories');
+  // console.log('📊 Data check - SELECTOR_OPTIONS_LOADED:', window.SELECTOR_OPTIONS_LOADED);
+  // console.log('📊 Data check - COUNTRIES_LOADED:', window.COUNTRIES_LOADED);
+  // console.log('📊 Data check - CAREERS_LOADED:', window.CAREERS_LOADED);
 
   // Build header from config
   if (window.buildHeader && window.PATHFINDER_CONFIG && window.PATHFINDER_CONFIG.header) {
@@ -456,7 +456,7 @@ Promise.all([
 
   renderPathfinderTab('discover');
   loadState();
-  console.log('✅ State restoration complete');
+  // console.log('✅ State restoration complete');
 }).catch(err => {
   console.error('Failed to load data:', err);
 });
@@ -484,7 +484,7 @@ async function loadStateNamesData() {
     window.STATE_NAMES = STATE_NAMES;
     STATE_NAMES_LOADED = true;
 
-    console.log(`✓ Loaded state-names.json: ${Object.keys(data).length} states`);
+    // console.log(`✓ Loaded state-names.json: ${Object.keys(data).length} states`);
     return true;
   } catch (error) {
     console.error('✗ Failed to load state-names.json:', error.message);
@@ -503,7 +503,7 @@ async function loadSelectorOptionsData() {
     window.SELECTOR_OPTIONS_LOADED = true;
     SELECTOR_OPTIONS_LOADED = true;
 
-    console.log(`✓ Loaded selector-options.json with ${Object.keys(SELECTOR_OPTIONS).length} selectors`);
+    // console.log(`✓ Loaded selector-options.json with ${Object.keys(SELECTOR_OPTIONS).length} selectors`);
     return true;
   } catch (error) {
     console.error('✗ Failed to load selector-options.json:', error.message);
@@ -537,7 +537,7 @@ async function loadPathfinderData() {
     window.TUITION_AVERAGES = TUITION_AVERAGES;
 
     PATHFINDER_DATA_LOADED = true;
-    console.log(`✓ Loaded pathfinder data: ${Object.keys(careersData).length} career-to-QS mappings, ${Object.keys(selectivityData).length} selectivity levels, tuition data for ${Object.keys(tuitionData.instate).length} states`);
+    // console.log(`✓ Loaded pathfinder data: ${Object.keys(careersData).length} career-to-QS mappings, ${Object.keys(selectivityData).length} selectivity levels, tuition data for ${Object.keys(tuitionData.instate).length} states`);
     return true;
   } catch (error) {
     console.error('✗ Failed to load pathfinder data:', error.message);
@@ -779,7 +779,7 @@ async function loadUniversitiesData() {
     UNIVERSITIES = data;
     UNIVERSITIES_LOADED = true;
     const total = UNIVERSITIES.length;
-    console.log(`✓ Loaded universities.json: ${total} universities`);
+    // console.log(`✓ Loaded universities.json: ${total} universities`);
     return true;
   } catch (error) {
     console.error('✗ Failed to load universities.json:', error.message);
@@ -799,7 +799,7 @@ async function loadInsightsData() {
     const data = await response.json();
     INSIGHTS = data;
     INSIGHTS_LOADED = true;
-    console.log('✓ Loaded insights.json');
+    // console.log('✓ Loaded insights.json');
     return true;
   } catch (error) {
     console.error('✗ Failed to load insights.json:', error.message);

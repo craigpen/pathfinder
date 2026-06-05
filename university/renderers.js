@@ -101,20 +101,20 @@ function validateCareersJSON(jsonContent) {
 function debugCareer(name) {
   const career = getCareerByName(name);
   if (!career) {
-    console.log(`Career not found: ${name}`);
+    // console.log(`Career not found: ${name}`);
     return null;
   }
-  console.group(`Career: ${name}`);
-  console.log(`Category: ${career.category}`);
-  console.log(`Education: ${formatEducationSummary(career.data.education)}`);
-  console.log(`Cost (US): ${formatMoneyRange(career.data.costUS_min, career.data.costUS_max)}`);
-  console.log(`Cost (EU): ${formatMoneyRange(career.data.costEU_min, career.data.costEU_max)}`);
-  console.log(`Salary (US): ${formatMoneyRange(career.data.salaryUS_min, career.data.salaryUS_max)}`);
-  console.log(`Salary (EU): ${formatMoneyRange(career.data.salaryEU_min, career.data.salaryEU_max)}`);
-  console.log(`Growth: ${formatGrowth(career.data.growth)}`);
-  console.log(`Portability: ${formatPortability(career.data.portability)}`);
-  console.log(`Licensing: ${formatLicensing(career.data.licensing)}`);
-  console.groupEnd();
+  // console.group(`Career: ${name}`);
+  // console.log(`Category: ${career.category}`);
+  // console.log(`Education: ${formatEducationSummary(career.data.education)}`);
+  // console.log(`Cost (US): ${formatMoneyRange(career.data.costUS_min, career.data.costUS_max)}`);
+  // console.log(`Cost (EU): ${formatMoneyRange(career.data.costEU_min, career.data.costEU_max)}`);
+  // console.log(`Salary (US): ${formatMoneyRange(career.data.salaryUS_min, career.data.salaryUS_max)}`);
+  // console.log(`Salary (EU): ${formatMoneyRange(career.data.salaryEU_min, career.data.salaryEU_max)}`);
+  // console.log(`Growth: ${formatGrowth(career.data.growth)}`);
+  // console.log(`Portability: ${formatPortability(career.data.portability)}`);
+  // console.log(`Licensing: ${formatLicensing(career.data.licensing)}`);
+  // console.groupEnd();
   return career.data;
 }
 
@@ -162,34 +162,34 @@ function validateAllUniversities() {
 function debugUniversity(name) {
   const uni = getUniversity(name);
   if (!uni) {
-    console.log(`University not found: ${name}`);
+    // console.log(`University not found: ${name}`);
     return null;
   }
-  console.group(`University: ${name}`);
-  console.log(`Country: ${uni.country}`);
-  console.log(`City: ${uni.city}`);
-  console.log(`Type: ${uni.type}`);
-  console.log(`QS Rank: ${uni.qs_rank}`);
-  console.log(`Acceptance Rate: ${uni.acceptance_rate}%`);
-  console.log(`Student Population: ${uni.student_pop}`);
-  console.log(`Annual Tuition: $${uni.tuition}`);
-  console.log(`Language: ${uni.language}`);
-  console.log(`Selectivity: ${uni.selectivity}`);
-  console.log(`Strengths:`, uni.strengths);
-  console.log(`Programs:`, uni.programs);
-  console.groupEnd();
+  // console.group(`University: ${name}`);
+  // console.log(`Country: ${uni.country}`);
+  // console.log(`City: ${uni.city}`);
+  // console.log(`Type: ${uni.type}`);
+  // console.log(`QS Rank: ${uni.qs_rank}`);
+  // console.log(`Acceptance Rate: ${uni.acceptance_rate}%`);
+  // console.log(`Student Population: ${uni.student_pop}`);
+  // console.log(`Annual Tuition: $${uni.tuition}`);
+  // console.log(`Language: ${uni.language}`);
+  // console.log(`Selectivity: ${uni.selectivity}`);
+  // console.log(`Strengths:`, uni.strengths);
+  // console.log(`Programs:`, uni.programs);
+  // console.groupEnd();
   return uni;
 }
 
 function debugAllUniversities() {
   const validation = validateAllUniversities();
-  console.group('All Universities Validation Summary');
-  console.log(`Total: ${validation.total}`);
-  console.log(`Valid: ${validation.valid}`);
-  console.log(`Invalid: ${validation.invalid}`);
-  if (validation.details) console.log('Invalid details:', validation.details);
-  console.log('Sample universities:', UNIVERSITIES.slice(0, 3).map(u => u.name));
-  console.groupEnd();
+  // console.group('All Universities Validation Summary');
+  // console.log(`Total: ${validation.total}`);
+  // console.log(`Valid: ${validation.valid}`);
+  // console.log(`Invalid: ${validation.invalid}`);
+  if (validation.details) {/* console.log('Invalid details:', validation.details); */}
+  // console.log('Sample universities:', UNIVERSITIES.slice(0, 3).map(u => u.name));
+  // console.groupEnd();
   return validation;
 }
 

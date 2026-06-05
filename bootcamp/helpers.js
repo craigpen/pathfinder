@@ -17,7 +17,7 @@ async function loadSelectorOptionsData() {
     window.SELECTOR_OPTIONS = SELECTOR_OPTIONS;
     window.SELECTOR_OPTIONS_LOADED = true;
     SELECTOR_OPTIONS_LOADED = true;
-    console.log(`✓ Loaded selector-options.json: ${Object.keys(data).length} selectors`);
+    // console.log(`✓ Loaded selector-options.json: ${Object.keys(data).length} selectors`);
     return true;
   } catch (error) {
     console.error('✗ Failed to load selector-options.json:', error.message);
@@ -34,7 +34,7 @@ async function loadBootcampsData() {
     BOOTCAMPS_LOADED = true;
     window.BOOTCAMPS = BOOTCAMPS;
     window.BOOTCAMPS_LOADED = true;
-    console.log(`✓ Loaded bootcamps.json: ${BOOTCAMPS.length} bootcamps`);
+    // console.log(`✓ Loaded bootcamps.json: ${BOOTCAMPS.length} bootcamps`);
     return true;
   } catch (error) {
     console.error('✗ Failed to load bootcamps.json:', error.message);
@@ -54,18 +54,18 @@ function saveState() {
     pace: S.pace || null,
     budget: S.budget || null
   };
-  console.log('💾 Saving state:', stateToSave);
+  // console.log('💾 Saving state:', stateToSave);
   localStorage.setItem('bootcampPathfinderState', JSON.stringify(stateToSave));
 }
 
 function loadState() {
   const saved = localStorage.getItem('bootcampPathfinderState');
-  console.log('📂 localStorage entry exists:', !!saved);
+  // console.log('📂 localStorage entry exists:', !!saved);
   if (saved) {
     const state = JSON.parse(saved);
-    console.log('📥 Loaded state from storage:', state);
+    // console.log('📥 Loaded state from storage:', state);
     Object.assign(S, state);
-    console.log('📌 State assigned to S object:', S);
+    // console.log('📌 State assigned to S object:', S);
     
     // Apply saved state to pills
     if (S.bootType && S.bootType.length) {
@@ -95,7 +95,7 @@ const selectorOptionsPromise = loadSelectorOptionsData();
 const bootcampsPromise = loadBootcampsData();
 
 Promise.all([selectorOptionsPromise, bootcampsPromise]).then(async () => {
-  console.log('✓ All bootcamp data loaded successfully');
+  // console.log('✓ All bootcamp data loaded successfully');
 
   // Build header and selectors (generic framework functions)
   if (window.buildHeader && window.PATHFINDER_CONFIG && window.PATHFINDER_CONFIG.header) {
@@ -109,7 +109,7 @@ Promise.all([selectorOptionsPromise, bootcampsPromise]).then(async () => {
   // Render first tab and restore state
   renderPathfinderTab('discover');
   loadState();
-  console.log('✅ Bootcamp initialization complete');
+  // console.log('✅ Bootcamp initialization complete');
 }).catch(err => {
   console.error('Bootcamp initialization failed:', err);
 });
