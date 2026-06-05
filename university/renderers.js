@@ -1039,7 +1039,6 @@ function renderCCTable() {
   el.innerHTML = t + carousel;
   setTimeout(() => initCarousel('cc-carousel'), 50);
 }
-}
 
 // DEMAND_MAP merged into careers.json — access via getSub(career)?.demand
 function demandCell(d){
