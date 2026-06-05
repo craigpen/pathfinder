@@ -7,7 +7,11 @@
 <script>
   // Router: Redirect to pathfinder based on URL hash or default to university
   const pathfinder = window.location.hash.substring(1) || 'university';
-  window.location.href = `${pathfinder}/`;
+  // Use relative redirect to stay on localhost if local
+  const redirectUrl = window.location.protocol === 'https:' && window.location.hostname.includes('github.io')
+    ? `https://craigpen.github.io/pathfinder/${pathfinder}/`
+    : `${pathfinder}/`;
+  window.location.href = redirectUrl;
 </script>
 </head>
 <body>
