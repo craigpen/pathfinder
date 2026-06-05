@@ -257,19 +257,19 @@ function debugCountry(code) {
 
 function debugAllCountries() {
   const validation = validateAllCountries();
-  console.group('All Countries Validation Summary');
-  console.log(`Total: ${validation.total}`);
-  console.log(`Valid: ${validation.valid}`);
-  console.log(`Invalid: ${validation.invalid}`);
+  // console.group('All Countries Validation Summary');
+  // console.log(`Total: ${validation.total}`);
+  // console.log(`Valid: ${validation.valid}`);
+  // console.log(`Invalid: ${validation.invalid}`);
   if (validation.details) {
     console.error('Invalid countries:', validation.details);
   } else {
-    console.log('All countries valid!');
+    // console.log('All countries valid!');
   }
-  console.groupEnd();
+  // console.groupEnd();
 
   // Also list all country codes
-  console.log('Loaded countries:', Object.keys(window.COUNTRIES || {}).sort().join(', '));
+  // console.log('Loaded countries:', Object.keys(window.COUNTRIES || {}).sort().join(', '));
 
   return validation;
 }
