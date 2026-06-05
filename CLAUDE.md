@@ -1,4 +1,28 @@
-# Claude Code Guidelines for University Pathfinder
+# Claude Code Guidelines for Pathfinder Framework
+
+A universal framework for building interactive education pathfinders. Currently includes University and Bootcamp pathfinders.
+
+## Architecture Overview
+
+```
+pathfinder/
+├── index.html              Router (redirects to pathfinder subdirectories)
+├── framework.js            Shared framework (CSS, loaders, state, UI builders)
+├── state-names.json        Shared: US state abbreviations → full names
+├── university/             University Pathfinder (full-featured)
+│   ├── index.html
+│   ├── config.js
+│   ├── helpers.js
+│   ├── renderers.js
+│   └── data/ (careers, countries, universities, insights, etc.)
+└── bootcamp/              Bootcamp Pathfinder (minimal test case)
+    ├── index.html
+    ├── config.js
+    ├── helpers.js
+    └── data/ (bootcamps, selector options, etc.)
+```
+
+**Design Pattern:** Each pathfinder is independent but shares the framework. The root index.html router uses URL hash to navigate between them.
 
 ## Git Workflow (Safety First)
 
@@ -118,27 +142,35 @@ Never use `--force` or `--no-verify` without explicit user approval
 - No need to open in browser unless diagnosing a visual issue
 
 ## Project Workflow
-- **Development**: Edit `index.html`, test locally in browser
-- **Commit**: After testing passes, create a commit with a clear message
-- **Deploy**: Push to GitHub (syncs to your github.io page)
-- **Sharing**: Test on mobile device via github.io before finalizing
+
+**Development Cycle:**
+1. Edit pathfinder files (`config.js`, `helpers.js`, `renderers.js`, `data/*.json`, or framework-shared files)
+2. Test in browser: navigate to `localhost:8000/university/` or `localhost:8000/bootcamp/`
+3. Verify syntax is valid (JSON files parse, no JS errors in console)
+4. Commit with semantic version in message (if version is tracked)
+5. Push to GitHub when ready to deploy
+
+**Adding a New Pathfinder:**
+- Create new directory: `mkdir {name}`
+- Copy structure from bootcamp (minimal) or university (full-featured)
+- Update root `index.html` router to recognize new pathfinder hash
+- Deploy
 
 ## Versioning (Semantic)
 
-**Increment the version in `const VERSION='...'` with every commit using these rules:**
-- **PATCH** (v1.5.0 → v1.5.99) — Bug fixes, text updates, UI tweaks, small improvements, insight refinements
-- **MINOR** (v1.5.99 → v1.6.0) — New features, meaningful functionality additions, significant structural changes, new content sections
-- **MAJOR** (v2.0.0) — Complete redesign, major architecture changes, significant user flow changes
+**Include version number in commit messages using these rules:**
+- **PATCH** (v1.5.0 → v1.5.1) — Bug fixes, text updates, UI tweaks, small improvements
+- **MINOR** (v1.5.x → v1.6.0) — New features, meaningful functionality additions, new content sections
+- **MAJOR** (v1.x.x → v2.0.0) — Complete redesign, major architecture changes
 
-Patch version can increment up to 99 before moving to the next minor version. This keeps version history granular without jumping too quickly.
+The version badge (bottom right of header) is displayed if `window.VERSION` is set by the pathfinder. GitHub Pages can take 30–60 seconds to update.
 
-Check the version badge (bottom right of header) after refresh to confirm the latest version is loaded. GitHub Pages can take 30–60 seconds to update.
-
-## index.html Specific Guidelines
+## Code Quality Guidelines
 
 ### 1. Syntax Correctness (Critical)
-- Before committing, verify the code is syntactically valid (no missing braces, quotes, brackets)
+- Before committing, verify the code is syntactically valid (no missing braces, quotes, brackets, JSON errors)
 - Test thoroughly in browser—don't leave syntax errors for manual fixing
+- Validate JSON files before committing: `cat data/*.json | jq . >/dev/null`
 - When adding JavaScript, validate object literals and function syntax carefully
 - If uncertain, run through a JS linter mentally or test in browser console
 
@@ -148,12 +180,12 @@ Check the version badge (bottom right of header) after refresh to confirm the la
 - Reuse existing data objects instead of creating parallel structures
 - Previous issue: Added countries caused 10x file growth due to unintended duplication
 
-### 3. Content for 17-Year-Olds
-- Target audience: high school students with no career, finance, or university experience
+### 3. Content for Students
+- Target audience: students with no career, finance, or university experience
 - **Avoid jargon**. Explain complex terms simply (e.g., "scholarship = free money" not "grant eligibility matrices")
 - **Be encouraging & realistic**. Don't overwhelm with options; guide with clear comparisons
 - Every heading, explanation, and tooltip should be understood by someone with zero background knowledge
-- Test content clarity: would a 17-year-old understand this without Googling?
+- Test content clarity: would a first-time reader understand this without Googling?
 
 ### 4. Mobile Responsiveness (Non-Negotiable)
 - **Desktop/Landscape** (min-aspect-ratio: 1/1.2): Display tables
@@ -172,7 +204,7 @@ Check the version badge (bottom right of header) after refresh to confirm the la
 - Look for existing helpers before creating new table/carousel code
 - **Don't repeat code patterns**—factor out into helper functions
 - When creating UI for similar data, check what rendering functions already exist
-- Minimize file size: single-page app means every KB counts
+- Minimize file size: every KB counts in the final deliverable
 
 ### 6. Insights System (Emoji, Colors, and Tables)
 
@@ -476,21 +508,58 @@ function formatData(value) {
 ---
 
 ## Key Files & Functions
-- `index.html` — Single-page app with embedded CSS/JS (originally 776KB, now **301KB** with all data externalized)
-  - This is your main deliverable; treat edits carefully
-  - Always test in browser before committing
-- External data files (loaded asynchronously at startup):
-  - **Shared (root level):**
-    - `state-names.json` — US state abbreviations to full names; loaded by `loadStateNamesData()`. Access via `STATE_NAMES[code]`. Shared across all future pathfinders.
-  - **Pathfinder-specific (pathfinder/university/):**
-    - `countries.json` (66KB) — Consolidated country data (13 countries with CD/FUNDING merged); loaded by `loadCountriesData()`. Access via helpers: `getCountryName()`, `getCountryTuition()`, etc.
-    - `careers.json` (106KB) — Career categories and subcareers (66 total, normalized schema); loaded by `loadCareersData()`. Access via helpers: `getSub()`, `getCategorySubjects()`, etc. Uses normalized schema with min/max ranges and structured objects for education, growth, licensing, portability, demand
-    - `universities.json` (587 universities) — External university database; loaded by `loadUniversitiesData()`. Schema includes dual tuition rates: `tuition` (international) and `tuition_eu` (EU citizen rate) with `tuition_eu_note` for transparency. Access via helpers: `getUniversity()`, `getUniversitiesByCountry()`, `getUniversitiesByProgram()`, etc.
-    - `insights.json` (5 categories) — Career/country/cost/language/citizenship alignment data; loaded by `loadInsightsData()`. Access only via insight functions `getCareerInsight()`, `getCountryInsight()`, `getCostInsight()`, `getLanguageInsight()`, `getCitizenshipInsight()`.
-    - `career-to-qs-subject.json` — Maps 66 career names to QS World University Rankings subject categories; loaded by `loadPathfinderData()`. Access via `CAREER_TO_QS_SUBJECT[careerName]`.
-    - `selectivity-display.json` — Maps university selectivity levels to display names; loaded by `loadPathfinderData()`. Access via `SELECTIVITY_DISPLAY[level]`.
-    - `tuition-averages.json` — Average US tuition by state for in-state, out-of-state, and private institutions; loaded by `loadPathfinderData()`. Access via `TUITION_AVERAGES.instate[stateCode]`, `.outofstate`, `.private`.
-  - **Always access via helpers or direct variable access**, never direct property access without null checks
+
+### Framework Files (Shared)
+- `framework.js` — Universal boilerplate: CSS, data loaders, state management, UI builders
+  - Contains: header carousel, tab system, pill selectors, table rendering, carousel initialization, async data coordination
+  - Each pathfinder loads this once via `<script src="../framework.js"></script>`
+  - Provides: `buildHeader()`, `buildSelectors()`, `go()`, `saveState()`, `loadState()`, `initCarousel()`, etc.
+
+- `index.html` (root) — Router that redirects based on URL hash
+  - `localhost` → redirects to `/university/` (default)
+  - `localhost#bootcamp` → redirects to `/bootcamp/`
+  - Simple: just 16 lines of HTML
+
+### Pathfinder Files (Per Pathfinder)
+Each pathfinder (university, bootcamp) contains:
+- `config.js` — Pathfinder configuration: header settings, selectors, tabs, state fields, data sources
+  - Defines: `selectors` array, `tabs` array, `stateFields`, `dataSources` mapping
+  - Framework uses this to build the UI dynamically
+
+- `helpers.js` — Domain-specific functions: data queries, formatting, validation
+  - Query helpers (e.g., `getSub()`, `getCountryName()`)
+  - Formatting helpers (e.g., `formatMoneyRange()`, `formatEducationSummary()`)
+  - Validation & debug helpers
+
+- `renderers.js` (optional) — Tab-specific rendering logic
+  - Only needed for tabs that require custom rendering (not generated by framework)
+  - Provides: `renderResults()`, `renderInsights()`, etc.
+
+- `index.html` — Minimal template that loads framework + config
+  - Contains: tab buttons, tab panels (div containers)
+  - Framework dynamically builds: header, selectors, content
+  - Size: ~40KB (university), ~1.5KB (bootcamp)
+
+- `data/*.json` — Pathfinder-specific data files
+  - **University pathfinder:**
+    - `careers.json` — Career categories and 66 subcareers with normalized schema
+    - `countries.json` — Country data (13 countries)
+    - `universities.json` — 587 universities with dual tuition rates (international + EU)
+    - `insights.json` — Career/country/cost/language/citizenship insights
+    - `career-to-qs-subject.json` — Maps career names to QS rankings subjects
+    - `selectivity-display.json` — University selectivity tier display names
+    - `tuition-averages.json` — US state tuition averages by institution type
+    - `header-images.json` — Image URLs for header carousel
+    - `selector-options.json` — Discovery selector pill options
+  - **Bootcamp pathfinder:**
+    - `bootcamps.json` — Bootcamp data
+    - `header-images.json`, `selector-options.json`
+
+### Data Loading & Access Patterns
+- **Shared data** (`state-names.json`): Loaded at root level via framework
+- **Pathfinder data**: Each pathfinder loads its own data files listed in `config.dataSources`
+- **Access pattern**: Always use helper functions, never direct property access
+- **Async safety**: Framework ensures data loads before rendering; no race conditions
 - Carousel helpers:
   - `buildCarouselHTML()` — Creates carousel container and cards
   - `initCarousel(carouselId)` — Initializes drag/touch/snap behavior for a carousel
@@ -773,88 +842,101 @@ aggregateCategoryData('tech', 'growth')       // → {display: "Very high (+15%)
 
 ---
 
-## 10. Code Cleanup & Deduplication
+## 10. Framework Architecture & Reusability
 
-**Completed as of v1.8.15:** All four major data structures have been successfully externalized and cleaned of duplicate functions:
+**Completed as of v1.20.0:** Framework consolidation achieved—all pathfinders now use shared framework code.
 
-✅ **Externalized Data:**
-- COUNTRIES → countries.json (13 countries, 66KB)
-- CAREERS → careers.json (33 subcareers, 24KB)
-- UNIVERSITIES → universities.json (587 universities)
-- INSIGHTS → insights.json (5 categories: careers, countries, cost, language, citizenship)
+✅ **Shared Framework (framework.js):**
+- CSS (all styling for all pathfinders)
+- Data loaders (async coordination, validation)
+- State management (localStorage, `saveState()`, `loadState()`)
+- UI builders (`buildHeader()`, `buildSelectors()`, etc.)
+- Event dispatchers (`go()`, carousel interactions, pill toggles)
 
-✅ **Removed Duplicate Functions:**
-- Duplicate render functions (renderCCChips, renderFilterSubPills, renderPracPills, renderFilterAnalysis)
-- Old hardcoded insight functions with different signatures (getCareerInsight, getCountryInsight, getCostInsight, getLanguageInsight, getCitizenshipInsight)
-- All remaining insight functions now exclusively use externalized INSIGHTS JSON data
+✅ **Pathfinder-Specific Code:**
+- `config.js` — Pathfinder configuration (no code duplication)
+- `helpers.js` — Domain-specific query/format helpers (unique per pathfinder)
+- `renderers.js` — Custom rendering logic (optional, only if needed)
 
-**File Size Reduction: 776KB → 269KB** (65% reduction achieved through data externalization)
+**File Structure Benefits:**
+- **Bootcamp** (minimal): 1.5KB index + small data files (validates framework is truly generic)
+- **University** (full): 40KB index + large data files (complex, real-world example)
+- Both reuse 100% of framework code and CSS
 
-**Key Principle:** Never embed multiple versions of the same function or data. Always delete the old version after refactoring to prevent confusion and silent bugs where old code is accidentally used.
+**Key Principle:** Never duplicate code. Framework handles all boilerplate; pathfinders only define configuration and domain logic.
 
 ## Generic Discovery Selectors Pattern
 
-**Discovery selectors are now built dynamically from config, not hardcoded HTML.**
+**Discovery selectors are built dynamically from config.js, not hardcoded HTML.**
 
-**Structure:**
-1. **framework.js** `buildSelectors(config, containerId)` — Generates selector HTML from config array
-2. **pathfinder/{name}/config.js** `selectors` array — Defines question label, title, description for each
-3. **Initialization flow:**
-   - `buildSelectors()` creates selector containers with `data-q` attributes
-   - `renderDiscoverySelectorOptions()` populates pills from SELECTOR_OPTIONS
-   - `renderDiscoveryPills()` applies saved state "on" class
-   - `loadState()` restores saved selections
+**Implementation (framework.js):**
+1. `buildSelectors(config, containerId)` — Generates selector HTML from config array
+2. `renderDiscoverySelectorOptions(selectors)` — Populates pill options from `SELECTOR_OPTIONS` (loaded from data)
+3. `renderDiscoveryPills()` — Applies saved state "on" class to pills
+4. State management: Pills call `saveState()` on click; `loadState()` restores them on page load
 
-**Config format:**
+**Config format (in pathfinder/config.js):**
 ```javascript
 selectors: [
-  { id: 'motivations', label: 'Select One or More', title: '...', description: '...' },
-  { id: 'cost', label: 'Select one', title: '...', description: '...' },
-  // ... etc
+  { id: 'motivations', label: 'Select One or More', title: 'What are your motivations?', description: '...' },
+  { id: 'cost', label: 'Select one', title: 'How important is cost?', description: '...' },
+  // ... define all discovery questions
 ]
 ```
 
-**To customize:** Edit config.js selectors array. HTML structure and state management are shared.
+**Data format (in pathfinder/data/selector-options.json):**
+```json
+{
+  "motivations": ["Career growth", "Work-life balance", "Salary"],
+  "cost": ["Very important", "Important", "Not important"]
+}
+```
+
+**To customize selectors:** Edit `config.js` and `data/selector-options.json`. Framework handles rendering and state automatically.
 
 ---
 
 ## Generic Header Component Pattern
 
-**Header is now built dynamically from config + data files, not hardcoded HTML.**
+**Header is built dynamically from config + data files, not hardcoded HTML.**
 
-**Structure:**
-1. **framework.js** `buildHeader(config)` — Generic function that:
-   - Takes config object (title, subtitle, imagesFile, enableMusic)
+**Implementation (framework.js):**
+1. `buildHeader(config)` — Takes config object and:
    - Loads header images from JSON file
-   - Builds and injects header HTML
-   - Initializes carousel
+   - Builds header HTML with carousel
+   - Initializes image rotation (2.2s transitions)
+   - Sets up music toggle and playlist selectors
 
-2. **pathfinder/{name}/config.js** — Defines header config:
-   ```javascript
-   header: {
-     title: 'University Pathfinder',
-     subtitle: 'Explore careers, compare countries...',
-     imagesFile: 'header-images.json',
-     enableMusic: true
-   }
-   ```
+2. `initHeaderCarousel()` — Handles image transitions and carousel behavior
 
-3. **pathfinder/{name}/data/header-images.json** — Array of image URLs:
-   ```json
-   {
-     "images": [
-       "https://images.unsplash.com/...",
-       "https://images.unsplash.com/..."
-     ]
-   }
-   ```
+**Config format (in pathfinder/config.js):**
+```javascript
+header: {
+  title: 'University Pathfinder',
+  subtitle: 'Explore careers, compare countries...',
+  imagesFile: 'header-images.json',
+  enableMusic: true
+}
+```
 
-4. **pathfinder/{name}/index.html** — Replaced hardcoded header with container:
-   ```html
-   <div id="header-container"></div>
-   ```
+**Data format (in pathfinder/data/header-images.json):**
+```json
+{
+  "images": [
+    "https://images.unsplash.com/...",
+    "https://images.unsplash.com/...",
+    // ... image URLs
+  ]
+}
+```
 
-**To customize header for a pathfinder:** Only edit config.js and header-images.json. HTML markup and carousel logic are shared.
+**Template (in pathfinder/index.html):**
+```html
+<div id="header-container"></div>
+<!-- Framework injects header HTML here -->
+```
+
+**To customize header:** Edit `config.js` header section and `data/header-images.json`. Framework handles carousel, music, and rendering.
 
 ---
 
@@ -879,4 +961,4 @@ selectors: [
 
 ---
 
-**Last Updated:** 2026-06-02 (v1.19.12 — fix state persistence by removing saveState() from loadCountriesData; users can now save selections and have them persist across page refreshes; 301KB)
+**Last Updated:** 2026-06-05 (v1.20.0 — Framework consolidation complete; architecture refactored from monolithic app to reusable framework + multiple pathfinders)
