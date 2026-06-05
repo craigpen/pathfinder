@@ -285,7 +285,37 @@ function startHdrCarousel(){
 }
 function updateHdrCarousel(){startHdrCarousel();}
 // go() function now in framework.js; this handles university-specific tab renders
-function renderPathfinderTab(id){if(id==='discover'){renderDiscoverySelectorOptions();renderDiscoveryPills()}else if(id==='careers'){renderCareerView();renderSubPills();renderFilterAnalysis();renderFilterResult()}else if(id==='countries'){renderCCChips();updateHdrCarousel()}else if(id==='scholarships')renderScholar();else if(id==='universities')renderUniversities();else if(id==='costs'){S.costCC=[...S.cc];renderCostChips()}else if(id==='transition'){renderTransition()}else if(id==='insights'){renderInsights()}else if(id==='deepDive'){if(!S.expl&&S.cc&&S.cc.length)S.expl=S.cc[0];renderExChips();renderPath(S.expl);}else if(id==='resources'){if(window.initRes)window.initRes();}}
+function renderPathfinderTab(id) {
+  if (id === 'discover') {
+    renderDiscoverySelectorOptions();
+    renderDiscoveryPills();
+  } else if (id === 'careers') {
+    renderCareerView();
+    renderSubPills();
+    renderFilterAnalysis();
+    renderFilterResult();
+  } else if (id === 'countries') {
+    renderCCChips();
+    updateHdrCarousel();
+  } else if (id === 'scholarships') {
+    renderScholar();
+  } else if (id === 'universities') {
+    renderUniversities();
+  } else if (id === 'costs') {
+    S.costCC = [...S.cc];
+    renderCostChips();
+  } else if (id === 'transition') {
+    renderTransition();
+  } else if (id === 'insights') {
+    renderInsights();
+  } else if (id === 'deepDive') {
+    if (!S.expl && S.cc && S.cc.length) S.expl = S.cc[0];
+    renderExChips();
+    renderPath(S.expl);
+  } else if (id === 'resources') {
+    if (window.initRes) window.initRes();
+  }
+}
 function startOver(){S.cats=[];S.motivations=[];S.subCareers=[];S.prac=[];S.cc=[];S.costCC=[];S.expl=null;S.playlist=null;S.flex=null;S.cost=null;S.vision=null;S.lang=null;S.postGrad=null;S.citizen=[];S.debtYrs=null;S.languages=[];S.stateOfResidency=null;S.inStateTuitionPref=null;S.uniSelectivity=null;S.usUniversityType=null;S.inStateToggle=false;S.scholarshipAmount=null;S.collegeSavings=null;S.partTimeWork=null;S.familySupport=null;S.loanRate=null;S.loanRepaymentYears=null;document.getElementById('sl-schol').value=0;document.getElementById('sl-savings').value=0;document.getElementById('sl-work').value=0;document.getElementById('sl-parent').value=0;document.getElementById('sl-rate').value=5.5;document.getElementById('sl-yrs').value=10;localStorage.removeItem('univPathfinderState');document.querySelectorAll('.pill').forEach(o=>o.classList.remove('on'));document.querySelectorAll('.pill').forEach(p=>p.classList.remove('on'));document.getElementById('playlist-pills').classList.remove('show');document.getElementById('spotify-wrap').classList.remove('show');document.getElementById('transition-content').innerHTML='';go('discover')}
 function renderDiscoverySelectorOptions() {
   const opts = window.SELECTOR_OPTIONS || {};
