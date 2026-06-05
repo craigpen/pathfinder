@@ -75,6 +75,12 @@ const universityPathfinderConfig = {
 
   // Tab renderers - optional, for specific tabs that need rendering
   renderersForTab: {
+    'discover': () => { if (window.renderPathfinderTab) window.renderPathfinderTab('discover'); },
+    'careers': () => { if (window.renderPathfinderTab) window.renderPathfinderTab('careers'); },
+    'countries': () => { if (window.renderPathfinderTab) window.renderPathfinderTab('countries'); },
+    'scholarships': () => { if (window.renderPathfinderTab) window.renderPathfinderTab('scholarships'); },
+    'universities': () => { if (window.renderPathfinderTab) window.renderPathfinderTab('universities'); },
+    'costs': () => { if (window.renderPathfinderTab) window.renderPathfinderTab('costs'); },
     'resources': () => { if (window.renderResources) window.renderResources(); }
   },
 
