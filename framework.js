@@ -253,7 +253,7 @@ async function buildSelectors(selectorsConfig, containerId = 'discover') {
       container.innerHTML = html;
     }
 
-    console.log(`✓ Built ${selectorsConfig.length} discovery selectors`);
+    // console.log(`✓ Built ${selectorsConfig.length} discovery selectors`);
   } catch (error) {
     console.error('✗ Failed to build selectors:', error.message);
   }
@@ -320,7 +320,7 @@ async function buildHeader(config) {
     // Initialize carousel
     setTimeout(() => initHdrCarousel(), 100);
 
-    console.log(`✓ Built header: "${config.title}"`);
+    // console.log(`✓ Built header: "${config.title}"`);
   } catch (error) {
     console.error('✗ Failed to build header:', error.message);
   }
