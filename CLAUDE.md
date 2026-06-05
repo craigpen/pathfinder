@@ -104,6 +104,29 @@ Never use `--force` or `--no-verify` without explicit user approval
 - ✅ Toggle/click handlers call saveState()
 - ✅ Next/Back buttons route to correct tabs via go()
 
+**Critical: Multi-Tab Selector Sync Pattern**
+
+When the same selector appears on multiple tabs (e.g., "motivations" on both Discover and Careers tabs), you **must** call `renderDiscoveryPills()` after any state change to keep visual state synchronized:
+
+```javascript
+function pick1(q, el) {
+  // Update visual state
+  document.querySelectorAll(`[data-q="${q}"] .pill`).forEach(o => o.classList.remove('on'));
+  el.classList.add('on');
+
+  // Update S state based on selector type
+  if (q === 'motivations') S.motivations = el.textContent;
+  else if (q === 'cost') S.cost = el.textContent;
+  // ... etc
+
+  saveState();
+  renderDiscoveryPills();  // ← CRITICAL: sync visual state across all tabs
+  renderInsights();
+}
+```
+
+**Why this matters:** If a selector like "motivations" appears on the Discover tab AND the Careers tab, clicking it on one tab will update S but not automatically update pills on the other tab. Without calling `renderDiscoveryPills()`, users see stale visual state when switching tabs. This pattern fixes that by re-syncing all pill states to match the S object.
+
 ## Documentation as First-Class Work
 
 **Documentation updates are not optional cleanup — they are part of the workflow.** After every significant action or learning, update CLAUDE.md and memory files immediately:
