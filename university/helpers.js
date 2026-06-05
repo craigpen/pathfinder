@@ -476,7 +476,7 @@ let SELECTOR_OPTIONS_LOADED = false;
 
 async function loadStateNamesData() {
   try {
-    const response = await fetch('/state-names.json');
+    const response = await fetch('/pathfinder/state-names.json');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
     const data = await response.json();
