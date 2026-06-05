@@ -311,6 +311,12 @@ async function buildHeader(config) {
 
     container.innerHTML = headerHtml;
 
+    // Set version badge if available
+    if (window.VERSION) {
+      const badge = document.getElementById('version-badge');
+      if (badge) badge.innerText = window.VERSION;
+    }
+
     // Initialize carousel
     setTimeout(() => initHdrCarousel(), 100);
 
