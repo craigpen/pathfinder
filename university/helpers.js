@@ -236,40 +236,40 @@ function updateCountry(code, data) {
 // Debug Helpers: for console testing
 function debugCountry(code) {
   if (!window.COUNTRIES?.[code]) {
-    // console.log(`Country ${code} not found`);
+    console.log(`Country ${code} not found`);
     return;
   }
 
   const data = window.COUNTRIES[code];
   const validation = validateCountrySchema(code, data);
 
-    // console.group(`Country: ${code}`);
-    // console.log('Name:', data.name);
-    // console.log('Flag (first 50 chars):', data.flag?.substring(0, 50) + '...');
-    // console.log('Tuition:', data.tuition);
-    // console.log('Duration:', data.duration);
-    // console.log('Language:', data.language);
-    // console.log('Cost Breakdown:', data.costBreakdown);
-    // console.log('Scholarships:', { need: !!data.need, merit: !!data.merit, external: !!data.external, free: !!data.free });
-    // console.log('Validation:', validation === true ? 'VALID' : validation);
-    // console.groupEnd();
+  console.group(`Country: ${code}`);
+  console.log('Name:', data.name);
+  console.log('Flag (first 50 chars):', data.flag?.substring(0, 50) + '...');
+  console.log('Tuition:', data.tuition);
+  console.log('Duration:', data.duration);
+  console.log('Language:', data.language);
+  console.log('Cost Breakdown:', data.costBreakdown);
+  console.log('Scholarships:', { need: !!data.need, merit: !!data.merit, external: !!data.external, free: !!data.free });
+  console.log('Validation:', validation === true ? 'VALID' : validation);
+  console.groupEnd();
 }
 
 function debugAllCountries() {
   const validation = validateAllCountries();
-    // console.group('All Countries Validation Summary');
-    // console.log(`Total: ${validation.total}`);
-    // console.log(`Valid: ${validation.valid}`);
-    // console.log(`Invalid: ${validation.invalid}`);
+  console.group('All Countries Validation Summary');
+  console.log(`Total: ${validation.total}`);
+  console.log(`Valid: ${validation.valid}`);
+  console.log(`Invalid: ${validation.invalid}`);
   if (validation.details) {
     console.error('Invalid countries:', validation.details);
   } else {
-    // console.log('All countries valid!');
+    console.log('All countries valid!');
   }
-    // console.groupEnd();
+  console.groupEnd();
 
   // Also list all country codes
-    // console.log('Loaded countries:', Object.keys(window.COUNTRIES || {}).sort().join(', '));
+  console.log('Loaded countries:', Object.keys(window.COUNTRIES || {}).sort().join(', '));
 
   return validation;
 }
@@ -370,12 +370,12 @@ async function loadCountriesData() {
     COUNTRIES_LOADED = true;
 
     const validation = validateAllCountries();
-    // console.log(`✓ Loaded countries.json: ${validation.total} countries`);
+    console.log(`✓ Loaded countries.json: ${validation.total} countries`);
 
     if (validation.invalid > 0) {
       console.error(`⚠ ${validation.invalid} countries failed validation:`, validation.details);
     } else {
-    // console.log('✓ All countries passed validation');
+      console.log('✓ All countries passed validation');
     }
 
     // Clean up state with invalid country codes
@@ -408,7 +408,7 @@ async function loadCareersData() {
 
     const total = Object.keys(data).length;
     const totalCareers = Object.values(data).reduce((sum, cat) => sum + Object.keys(cat.subjects || {}).length, 0);
-    // console.log(`✓ Loaded careers.json: ${total} categories, ${totalCareers} careers`);
+    console.log(`✓ Loaded careers.json: ${total} categories, ${totalCareers} careers`);
 
     return true;
   } catch (error) {
@@ -436,13 +436,13 @@ Promise.all([
   universitiesPromise,
   insightsPromise
 ]).then(async () => {
-    // console.log('✓ All data loaded successfully');
-    // console.log('📊 Data check - SELECTOR_OPTIONS:', Object.keys(window.SELECTOR_OPTIONS || {}).length, 'selectors');
-    // console.log('📊 Data check - COUNTRIES:', Object.keys(window.COUNTRIES || {}).length, 'countries');
-    // console.log('📊 Data check - CAREERS:', Object.keys(window.CAREERS || {}).length, 'categories');
-    // console.log('📊 Data check - SELECTOR_OPTIONS_LOADED:', window.SELECTOR_OPTIONS_LOADED);
-    // console.log('📊 Data check - COUNTRIES_LOADED:', window.COUNTRIES_LOADED);
-    // console.log('📊 Data check - CAREERS_LOADED:', window.CAREERS_LOADED);
+  console.log('✓ All data loaded successfully');
+  console.log('📊 Data check - SELECTOR_OPTIONS:', Object.keys(window.SELECTOR_OPTIONS || {}).length, 'selectors');
+  console.log('📊 Data check - COUNTRIES:', Object.keys(window.COUNTRIES || {}).length, 'countries');
+  console.log('📊 Data check - CAREERS:', Object.keys(window.CAREERS || {}).length, 'categories');
+  console.log('📊 Data check - SELECTOR_OPTIONS_LOADED:', window.SELECTOR_OPTIONS_LOADED);
+  console.log('📊 Data check - COUNTRIES_LOADED:', window.COUNTRIES_LOADED);
+  console.log('📊 Data check - CAREERS_LOADED:', window.CAREERS_LOADED);
 
   // Build header from config
   if (window.buildHeader && window.PATHFINDER_CONFIG && window.PATHFINDER_CONFIG.header) {
@@ -456,7 +456,7 @@ Promise.all([
 
   renderPathfinderTab('discover');
   loadState();
-    // console.log('✅ State restoration complete');
+  console.log('✅ State restoration complete');
 }).catch(err => {
   console.error('Failed to load data:', err);
 });
@@ -476,7 +476,7 @@ let SELECTOR_OPTIONS_LOADED = false;
 
 async function loadStateNamesData() {
   try {
-    const response = await fetch('/pathfinder/state-names.json');
+    const response = await fetch('../../state-names.json');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
     const data = await response.json();
@@ -484,7 +484,7 @@ async function loadStateNamesData() {
     window.STATE_NAMES = STATE_NAMES;
     STATE_NAMES_LOADED = true;
 
-    // console.log(`✓ Loaded state-names.json: ${Object.keys(data).length} states`);
+    console.log(`✓ Loaded state-names.json: ${Object.keys(data).length} states`);
     return true;
   } catch (error) {
     console.error('✗ Failed to load state-names.json:', error.message);
@@ -503,7 +503,7 @@ async function loadSelectorOptionsData() {
     window.SELECTOR_OPTIONS_LOADED = true;
     SELECTOR_OPTIONS_LOADED = true;
 
-    // console.log(`✓ Loaded selector-options.json with ${Object.keys(SELECTOR_OPTIONS).length} selectors`);
+    console.log(`✓ Loaded selector-options.json with ${Object.keys(SELECTOR_OPTIONS).length} selectors`);
     return true;
   } catch (error) {
     console.error('✗ Failed to load selector-options.json:', error.message);
@@ -537,7 +537,7 @@ async function loadPathfinderData() {
     window.TUITION_AVERAGES = TUITION_AVERAGES;
 
     PATHFINDER_DATA_LOADED = true;
-    // console.log(`✓ Loaded pathfinder data: ${Object.keys(careersData).length} career-to-QS mappings, ${Object.keys(selectivityData).length} selectivity levels, tuition data for ${Object.keys(tuitionData.instate).length} states`);
+    console.log(`✓ Loaded pathfinder data: ${Object.keys(careersData).length} career-to-QS mappings, ${Object.keys(selectivityData).length} selectivity levels, tuition data for ${Object.keys(tuitionData.instate).length} states`);
     return true;
   } catch (error) {
     console.error('✗ Failed to load pathfinder data:', error.message);
@@ -551,7 +551,7 @@ window.S={cats:[],motivations:[],subCareers:[],prac:[],cc:[],costCC:[],expl:null
 const VERSION='v1.20.0';window.VERSION=VERSION;
 document.addEventListener('DOMContentLoaded',()=>{const b=document.getElementById('version-badge');if(b)b.innerText=VERSION;});
 function saveState(){const stateToSave={cats:S.cats,motivations:S.motivations,subCareers:S.subCareers,flex:S.flex,cost:S.cost,vision:S.vision,lang:S.lang,citizen:S.citizen,debtYrs:S.debtYrs,languages:S.languages,postGrad:S.postGrad,inStateTuitionPref:S.inStateTuitionPref,stateOfResidency:S.stateOfResidency,cc:S.cc,costCC:S.costCC,expl:S.expl,uniSelectivity:S.uniSelectivity,scholarshipAmount:S.scholarshipAmount,collegeSavings:S.collegeSavings,partTimeWork:S.partTimeWork,familySupport:S.familySupport,loanRate:S.loanRate,loanRepaymentYears:S.loanRepaymentYears,inStateToggle:S.inStateToggle,usUniversityType:S.usUniversityType};console.log('💾 Saving state:', stateToSave);localStorage.setItem('univPathfinderState',JSON.stringify(stateToSave));}
-function loadState(){const saved=localStorage.getItem('univPathfinderState');// console.log('📂 localStorage entry exists:', !!saved);if(saved){const state=JSON.parse(saved);// console.log('📥 Loaded state from storage:', state);Object.assign(S,state);// console.log('📌 State assigned to S object:', S);if(state.scholarshipAmount!==undefined)document.getElementById('sl-schol').value=state.scholarshipAmount;if(state.collegeSavings!==undefined)document.getElementById('sl-savings').value=state.collegeSavings;if(state.partTimeWork!==undefined)document.getElementById('sl-work').value=state.partTimeWork;if(state.familySupport!==undefined)document.getElementById('sl-parent').value=state.familySupport;if(state.loanRate!==undefined)document.getElementById('sl-rate').value=state.loanRate;if(state.loanRepaymentYears!==undefined)document.getElementById('sl-yrs').value=state.loanRepaymentYears;if(state.inStateToggle!==undefined){const instateIn=document.getElementById('instate-in');const instateOut=document.getElementById('instate-out');if(state.inStateToggle){instateIn.classList.add('on');instateOut.classList.remove('on')}else{instateOut.classList.add('on');instateIn.classList.remove('on')}};if(S.uniSelectivity&&S.uniSelectivity.length>0)document.querySelectorAll('[data-q="uniSelectivity"] .pill').forEach(p=>{S.uniSelectivity.includes(p.textContent)?p.classList.add('on'):p.classList.remove('on')});if(S.motivations&&S.motivations.length>0)document.querySelectorAll('[data-q="motivations"] .pill').forEach(p=>{S.motivations.includes(p.textContent)?p.classList.add('on'):p.classList.remove('on')});if(S.languages&&S.languages.length>0)document.querySelectorAll('[data-q="languages"] .pill').forEach(p=>{S.languages.includes(p.textContent)?p.classList.add('on'):p.classList.remove('on')});if(S.citizen&&S.citizen.length>0)document.querySelectorAll('[data-q="citizen"] .pill').forEach(p=>{S.citizen.includes(p.textContent)?p.classList.add('on'):p.classList.remove('on')});if(S.flex&&S.flex.length>0)document.querySelectorAll('[data-q="flex"] .pill').forEach(p=>{S.flex.includes(p.textContent)?p.classList.add('on'):p.classList.remove('on')});if(S.vision)document.querySelectorAll('[data-q="vision"] .pill').forEach(p=>{S.vision===p.textContent?p.classList.add('on'):p.classList.remove('on')});if(S.lang)document.querySelectorAll('[data-q="lang"] .pill').forEach(p=>{S.lang===p.textContent?p.classList.add('on'):p.classList.remove('on')});if(S.cost)document.querySelectorAll('[data-q="cost"] .pill').forEach(p=>{S.cost===p.textContent?p.classList.add('on'):p.classList.remove('on')});if(S.debtYrs)document.querySelectorAll('[data-q="debtYrs"] .pill').forEach(p=>{S.debtYrs===p.textContent?p.classList.add('on'):p.classList.remove('on')});if(S.postGrad)document.querySelectorAll('[data-q="postGrad"] .pill').forEach(p=>{S.postGrad===p.textContent?p.classList.add('on'):p.classList.remove('on')});if(S.stateOfResidency)document.querySelectorAll('[data-q="stateOfResidency"] .pill').forEach(p=>{S.stateOfResidency===p.textContent?p.classList.add('on'):p.classList.remove('on')})}}
+function loadState(){const saved=localStorage.getItem('univPathfinderState');console.log('📂 localStorage entry exists:', !!saved);if(saved){const state=JSON.parse(saved);console.log('📥 Loaded state from storage:', state);Object.assign(S,state);console.log('📌 State assigned to S object:', S);if(state.scholarshipAmount!==undefined)document.getElementById('sl-schol').value=state.scholarshipAmount;if(state.collegeSavings!==undefined)document.getElementById('sl-savings').value=state.collegeSavings;if(state.partTimeWork!==undefined)document.getElementById('sl-work').value=state.partTimeWork;if(state.familySupport!==undefined)document.getElementById('sl-parent').value=state.familySupport;if(state.loanRate!==undefined)document.getElementById('sl-rate').value=state.loanRate;if(state.loanRepaymentYears!==undefined)document.getElementById('sl-yrs').value=state.loanRepaymentYears;if(state.inStateToggle!==undefined){const instateIn=document.getElementById('instate-in');const instateOut=document.getElementById('instate-out');if(state.inStateToggle){instateIn.classList.add('on');instateOut.classList.remove('on')}else{instateOut.classList.add('on');instateIn.classList.remove('on')}};if(S.uniSelectivity&&S.uniSelectivity.length>0)document.querySelectorAll('[data-q="uniSelectivity"] .pill').forEach(p=>{S.uniSelectivity.includes(p.textContent)?p.classList.add('on'):p.classList.remove('on')});if(S.motivations&&S.motivations.length>0)document.querySelectorAll('[data-q="motivations"] .pill').forEach(p=>{S.motivations.includes(p.textContent)?p.classList.add('on'):p.classList.remove('on')});if(S.languages&&S.languages.length>0)document.querySelectorAll('[data-q="languages"] .pill').forEach(p=>{S.languages.includes(p.textContent)?p.classList.add('on'):p.classList.remove('on')});if(S.citizen&&S.citizen.length>0)document.querySelectorAll('[data-q="citizen"] .pill').forEach(p=>{S.citizen.includes(p.textContent)?p.classList.add('on'):p.classList.remove('on')});if(S.flex&&S.flex.length>0)document.querySelectorAll('[data-q="flex"] .pill').forEach(p=>{S.flex.includes(p.textContent)?p.classList.add('on'):p.classList.remove('on')});if(S.vision)document.querySelectorAll('[data-q="vision"] .pill').forEach(p=>{S.vision===p.textContent?p.classList.add('on'):p.classList.remove('on')});if(S.lang)document.querySelectorAll('[data-q="lang"] .pill').forEach(p=>{S.lang===p.textContent?p.classList.add('on'):p.classList.remove('on')});if(S.cost)document.querySelectorAll('[data-q="cost"] .pill').forEach(p=>{S.cost===p.textContent?p.classList.add('on'):p.classList.remove('on')});if(S.debtYrs)document.querySelectorAll('[data-q="debtYrs"] .pill').forEach(p=>{S.debtYrs===p.textContent?p.classList.add('on'):p.classList.remove('on')});if(S.postGrad)document.querySelectorAll('[data-q="postGrad"] .pill').forEach(p=>{S.postGrad===p.textContent?p.classList.add('on'):p.classList.remove('on')});if(S.stateOfResidency)document.querySelectorAll('[data-q="stateOfResidency"] .pill').forEach(p=>{S.stateOfResidency===p.textContent?p.classList.add('on'):p.classList.remove('on')})}}
 // All generic helpers (wideImg, PLAYLISTS, etc) now in framework.js
 
 // CATS object removed — careers data now loaded from careers.json via window.CAREERS
@@ -779,7 +779,7 @@ async function loadUniversitiesData() {
     UNIVERSITIES = data;
     UNIVERSITIES_LOADED = true;
     const total = UNIVERSITIES.length;
-    // console.log(`✓ Loaded universities.json: ${total} universities`);
+    console.log(`✓ Loaded universities.json: ${total} universities`);
     return true;
   } catch (error) {
     console.error('✗ Failed to load universities.json:', error.message);
@@ -799,7 +799,7 @@ async function loadInsightsData() {
     const data = await response.json();
     INSIGHTS = data;
     INSIGHTS_LOADED = true;
-    // console.log('✓ Loaded insights.json');
+    console.log('✓ Loaded insights.json');
     return true;
   } catch (error) {
     console.error('✗ Failed to load insights.json:', error.message);
