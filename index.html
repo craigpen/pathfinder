@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>University Pathfinder</title>
+<title>Pathfinder</title>
 <script>
   // Router: Redirect to pathfinder based on URL hash or default to university
   const pathfinder = window.location.hash.substring(1) || 'university';
-  window.location.href = `pathfinder/${pathfinder}/`;
+  window.location.href = `/${pathfinder}/`;
 </script>
 </head>
 <body>
