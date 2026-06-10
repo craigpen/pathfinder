@@ -60,13 +60,18 @@
 
       // Load data files
       const loaders = Object.entries(config.dataSources).map(([key, file]) => {
-        return loadDataFile(config).then(() => {
-          window[key.toUpperCase() + '_LOADED'] = true;
-        }).catch(err => console.error(`Failed to load ${file}:`, err));
+        return loadDataFile({
+          name: key,
+          path: `data/${file}`,
+          onSuccess: null
+        });
       });
 
       // Wait for all data to load
       await Promise.all(loaders);
+
+      // Load selector options data
+      await renderDiscoverySelectorOptions(config.selectors);
 
       // Build header
       if (config.header) {
@@ -76,8 +81,7 @@
 
       // Build initial selectors on discover tab
       if (config.selectors) {
-        buildSelectors(config.selectors);
-        renderDiscoverySelectorOptions(config.selectors);
+        await buildSelectors(config.selectors);
         renderDiscoveryPills();
       }
 
@@ -85,7 +89,9 @@
       loadState();
 
       // Render discover tab
-      renderPathfinderTab('discover');
+      if (window.renderPathfinderTab) {
+        renderPathfinderTab('discover');
+      }
     }
 
     // Start initialization when DOM is ready
