@@ -816,7 +816,8 @@ function renderInsights() {
   let html = '<div style="padding:24px">';
 
   if (selectedHustles.length === 0) {
-    html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Select one or more hustles to view insights and recommendations.</p>';
+    html += '<h2 style="margin:0 0 12px 0;font-size:22px;font-weight:700;color:var(--dk)">Your Insights</h2>';
+    html += '<p style="font-size:13px;color:var(--tx2);margin:0;">Select one or more hustles to view insights and recommendations.</p>';
     html += '</div>';
     container.innerHTML = html;
     const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'earnings\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go(\'deepdive\')">Next</button></div>';
@@ -830,8 +831,10 @@ function renderInsights() {
   // Build insights with pros/cons structure
   const hustleAnalysis = generateHustleInsightsWithProsCons(selectedHustles);
 
-  // Render insights table
+  // Render insights table with proper spacing
+  html += '<div style="margin-top:32px">';
   html += renderInsightsTable('Hustle Analysis', 'How your selections fit your goals and constraints', 'Hustle', hustleAnalysis, 'insights-carousel');
+  html += '</div>';
 
   html += '</div>';
   container.innerHTML = html;
