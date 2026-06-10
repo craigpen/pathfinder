@@ -89,8 +89,8 @@ function renderHustleTableView(containerId, title, subtitle, displayedHustles, s
   const container = document.getElementById(containerId);
   if (!container) return;
 
-  let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">' + title + '</div>';
-  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">' + subtitle + '</p>';
+  let html = '<div style="padding:24px"><h2 style="margin:0 0 12px 0;font-size:22px;font-weight:700;color:var(--dk)">' + title + '</h2>';
+  html += '<p style="font-size:13px;color:var(--tx2);margin:0 0 24px 0;line-height:1.5;">' + subtitle + '</p>';
 
   html += buildHustleFilterSelectors();
 
@@ -376,8 +376,8 @@ function renderDeepDive() {
   const selectedHustles = S.selectedHustleFilterHustles || [];
 
   if (selectedHustles.length === 0) {
-    let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Deep Dive</div>';
-    html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Select hustles from earlier tabs to explore in depth.</p>';
+    let html = '<div style="padding:24px"><h2 style="margin:0 0 12px 0;font-size:22px;font-weight:700;color:var(--dk)">What\'s the full story for this hustle?</h2>';
+    html += '<p style="font-size:13px;color:var(--tx2);margin:0 0 24px 0;line-height:1.5;">Select hustles from earlier tabs to explore in depth.</p>';
     html += '<div style="padding:20px;text-align:center;color:var(--tx2)"><p>Go back and select hustles first.</p></div>';
     html += '</div>';
     container.innerHTML = html;
@@ -440,8 +440,8 @@ function renderResources() {
 
   const selectedHustles = S.selectedHustleFilterHustles || [];
 
-  let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Resources</div>';
-  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Recommended resources for your selected hustles:</p>';
+  let html = '<div style="padding:24px"><h2 style="margin:0 0 12px 0;font-size:22px;font-weight:700;color:var(--dk)">Resources</h2>';
+  html += '<p style="font-size:13px;color:var(--tx2);margin:0 0 24px 0;line-height:1.5;">Recommended resources for your selected hustles:</p>';
 
   if (selectedHustles.length === 0) {
     html += '<div style="padding:20px;text-align:center;color:var(--tx2)"><p>Select one or more hustles to view resources.</p></div>';
@@ -817,7 +817,7 @@ function renderInsights() {
 
   if (selectedHustles.length === 0) {
     html += '<h2 style="margin:0 0 12px 0;font-size:22px;font-weight:700;color:var(--dk)">Your Insights</h2>';
-    html += '<p style="font-size:13px;color:var(--tx2);margin:0;">Select one or more hustles to view insights and recommendations.</p>';
+    html += '<p style="font-size:13px;color:var(--tx2);margin:0;line-height:1.5;">Select one or more hustles to view insights and recommendations.</p>';
     html += '</div>';
     container.innerHTML = html;
     const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'earnings\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go(\'deepdive\')">Next</button></div>';
