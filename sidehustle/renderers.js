@@ -24,9 +24,11 @@ function buildHustleFilterSelectors() {
   // Hustle pills (only if categories selected)
   if (selectedCats.length > 0) {
     const hustlesInSelectedCats = selectedCats.flatMap(cat => getHustlesByCategory(cat));
+    // Deduplicate hustles by name (in case hustle appears in multiple selected categories)
+    const uniqueHustles = [...new Map(hustlesInSelectedCats.map(h => [h.name, h])).values()];
     html += '<div style="margin-bottom:20px;"><div style="font-weight:600;margin-bottom:10px;color:var(--dk);">Hustles</div>';
     html += '<div class="pills" data-q="hustle-specific">';
-    hustlesInSelectedCats.forEach(h => {
+    uniqueHustles.forEach(h => {
       const active = selectedHustles.includes(h.name) ? ' on' : '';
       html += `<div class="pill${active}" onclick="toggleHustleSpecific('${h.name}', this)">${h.name}</div>`;
     });
@@ -326,13 +328,13 @@ function showHustleDetail(hustle) {
 
 function toggleHustleCategory(catKey, el) {
   el.classList.toggle('on');
-  // Update S state from all selected category pills
-  S.selectedHustleFilterCategories = [];
-  document.querySelectorAll('[data-q="hustle-category"] .pill.on').forEach(p => {
-    const catLabel = p.textContent;
-    const cat = getAllCategories().find(c => c.label === catLabel);
-    if (cat) S.selectedHustleFilterCategories.push(cat.key);
-  });
+  // Toggle category directly in state
+  const idx = S.selectedHustleFilterCategories.indexOf(catKey);
+  if (idx > -1) {
+    S.selectedHustleFilterCategories.splice(idx, 1);
+  } else {
+    S.selectedHustleFilterCategories.push(catKey);
+  }
   // Reset hustle selections when categories change
   S.selectedHustleFilterHustles = [];
   saveState();
