@@ -58,7 +58,7 @@
       const config = window.PATHFINDER_CONFIG;
       if (!config) return;
 
-      // Load data files
+      // 1. Load all data files first
       const loaders = Object.entries(config.dataSources).map(([key, file]) => {
         return loadDataFile({
           name: key,
@@ -66,29 +66,31 @@
           onSuccess: null
         });
       });
-
-      // Wait for all data to load
       await Promise.all(loaders);
 
-      // Load selector options data
-      await renderDiscoverySelectorOptions(config.selectors);
-
-      // Build header
+      // 2. Build header
       if (config.header) {
         await buildHeader(config.header);
         initHdrCarousel();
       }
 
-      // Build initial selectors on discover tab
+      // 3. Build selectors FIRST to create containers
       if (config.selectors) {
         await buildSelectors(config.selectors);
+      }
+
+      // 4. Populate selector pills AFTER containers exist
+      if (config.selectors) {
+        renderDiscoverySelectorOptions(config.selectors);
         renderDiscoveryPills();
       }
 
-      // Load and restore state
-      loadState();
+      // 5. Load and restore state
+      if (window.loadState) {
+        loadState();
+      }
 
-      // Render discover tab
+      // 6. Render discover tab
       if (window.renderPathfinderTab) {
         renderPathfinderTab('discover');
       }
