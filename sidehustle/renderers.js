@@ -22,9 +22,9 @@ function renderHustles() {
   let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Your Matches</div>';
   html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Click any hustle to see details:</p>';
 
-  // Build carousel using framework helper
-  const carouselId = 'hustles-carousel';
-  const rows = matches.slice(0, 15).map(m => {
+  // Build table using framework helper (responsive - desktop table, mobile scrolls)
+  const tableId = 'hustles-table';
+  const rows = matches.slice(0, 15).map((m, idx) => {
     const h = m.hustle;
     return [h.name, (key) => {
       if (key === 'startup') return formatMoney(h.financial.startupCost_min, h.financial.startupCost_max);
@@ -45,19 +45,18 @@ function renderHustles() {
     return labels[key] || key;
   };
 
-  html += buildCarouselHTML(rows, ['startup', 'time', 'earning', 'competition'], columnLabel, carouselId);
+  html += buildTableHTML(rows, ['startup', 'time', 'earning', 'competition'], columnLabel, tableId);
   html += '</div>';
 
   container.innerHTML = html;
-  initCarousel(carouselId);
 
-  // Add click handlers to carousel cards
+  // Add click handlers to table rows
   setTimeout(() => {
-    const cards = document.querySelectorAll(`#${carouselId} .carousel-card`);
-    cards.forEach((card, idx) => {
+    const rows = document.querySelectorAll(`#${tableId} tbody tr`);
+    rows.forEach((row, idx) => {
       if (idx < matches.length) {
-        card.style.cursor = 'pointer';
-        card.onclick = () => {
+        row.style.cursor = 'pointer';
+        row.onclick = () => {
           S.selectedHustle = matches[idx].hustle.name;
           saveState();
           showHustleDetail(matches[idx].hustle);
