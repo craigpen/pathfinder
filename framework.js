@@ -555,16 +555,10 @@ function renderInsightsTable(titleText, subtitleText, firstColHeader, items, car
 
   const itemNames = items.map(i => i.name || i.title);
 
-  // Desktop: Table layout
-  html += '<div class="insights-table-display"><div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
-  html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:' + col1Width + ';white-space:nowrap">' + firstColHeader + '</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:' + col2Width + '">Strengths</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:' + col3Width + '">Considerations</th></tr></thead>';
-  html += '<tbody>';
-  items.forEach(item => {
-    const prosHTML = item.pros && item.pros.length > 0 ? item.pros.map(p => p).join('<br>') : '—';
-    const consHTML = item.cons && item.cons.length > 0 ? item.cons.map(c => c).join('<br>') : '—';
-    html += '<tr style="border-bottom:1px solid var(--bdr);background:#fff"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;width:' + col1Width + ';line-height:1.4;background:rgba(241,245,249,.5);white-space:nowrap">' + (item.title || item.name) + '</td><td style="padding:8px 10px;vertical-align:top;width:' + col2Width + ';line-height:1.4">' + prosHTML + '</td><td style="padding:8px 10px;vertical-align:top;width:' + col3Width + ';line-height:1.4">' + consHTML + '</td></tr>';
-  });
-  html += '</tbody></table></div></div>';
+  // Desktop: Table layout using buildTableHTML helper
+  html += '<div class="insights-table-display">';
+  html += buildTableHTML(rows, itemNames, (name) => name, 'insights-table');
+  html += '</div>';
 
   // Mobile: Carousel layout using buildCarouselHTML helper
   html += buildCarouselHTML(rows, itemNames, (name) => name, carouselId);
