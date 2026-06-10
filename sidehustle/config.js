@@ -43,7 +43,11 @@ const sideHustlePathfinderConfig = {
     'strengths',
     'scalability',
     'selectedCategory',
-    'selectedHustle'
+    'selectedHustle',
+    'selectedHustleFilterCategory',
+    'selectedHustleFilterHustle',
+    'selectedEarningsFilterCategory',
+    'selectedEarningsFilterHustle'
   ],
 
   // Data sources

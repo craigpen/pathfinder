@@ -17,7 +17,11 @@ window.S = {
   strengths: [],
   scalability: null,
   selectedCategory: null,
-  selectedHustle: null
+  selectedHustle: null,
+  selectedHustleFilterCategory: null,
+  selectedHustleFilterHustle: null,
+  selectedEarningsFilterCategory: null,
+  selectedEarningsFilterHustle: null
 };
 const S = window.S;
 
@@ -449,7 +453,11 @@ function saveState() {
     strengths: S.strengths || [],
     scalability: S.scalability || null,
     selectedCategory: S.selectedCategory || null,
-    selectedHustle: S.selectedHustle || null
+    selectedHustle: S.selectedHustle || null,
+    selectedHustleFilterCategory: S.selectedHustleFilterCategory || null,
+    selectedHustleFilterHustle: S.selectedHustleFilterHustle || null,
+    selectedEarningsFilterCategory: S.selectedEarningsFilterCategory || null,
+    selectedEarningsFilterHustle: S.selectedEarningsFilterHustle || null
   };
   localStorage.setItem('sideHustlePathfinderState', JSON.stringify(stateToSave));
 }
@@ -472,6 +480,10 @@ function startOver() {
   S.scalability = null;
   S.selectedCategory = null;
   S.selectedHustle = null;
+  S.selectedHustleFilterCategory = null;
+  S.selectedHustleFilterHustle = null;
+  S.selectedEarningsFilterCategory = null;
+  S.selectedEarningsFilterHustle = null;
   localStorage.removeItem('sideHustlePathfinderState');
   document.querySelectorAll('.pill').forEach(p => p.classList.remove('on'));
 }
