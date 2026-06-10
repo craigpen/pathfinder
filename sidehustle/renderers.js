@@ -21,10 +21,10 @@ function buildHustleFilterSelectors() {
   });
   html += '</div></div>';
 
-  // Hustle pills (only if categories selected)
+  // Hustle pills (only if one or more categories selected)
   if (selectedCats.length > 0) {
     const hustlesInSelectedCats = selectedCats.flatMap(cat => getHustlesByCategory(cat));
-    // Deduplicate hustles by name (in case hustle appears in multiple selected categories)
+    // Deduplicate hustles by name
     const uniqueHustles = [...new Map(hustlesInSelectedCats.map(h => [h.name, h])).values()];
     html += '<div style="margin-bottom:20px;"><div style="font-weight:600;margin-bottom:10px;color:var(--dk);">Hustles</div>';
     html += '<div class="pills" data-q="hustle-specific">';
@@ -69,9 +69,18 @@ function renderHustleTableView(containerId, title, subtitle, displayedHustles, s
 
   html += buildHustleFilterSelectors();
 
-  // If no hustles selected, show empty state
-  if (displayedHustles.length === 0) {
-    html += '<div style="padding:20px;text-align:center;color:var(--tx2)"><p>Select categories or specific hustles to view details.</p></div>';
+  const selectedHustles = S.selectedHustleFilterHustles || [];
+
+  // If no hustles selected, show guidance
+  if (selectedHustles.length === 0) {
+    const selectedCats = S.selectedHustleFilterCategories || [];
+    let guidance = '';
+    if (selectedCats.length === 0) {
+      guidance = 'Select one or more categories to get started.';
+    } else {
+      guidance = 'Select one or more hustles to view details.';
+    }
+    html += `<div style="padding:20px;text-align:center;color:var(--tx2)"><p>${guidance}</p></div>`;
     html += '</div>';
     container.innerHTML = html;
 
@@ -84,7 +93,6 @@ function renderHustleTableView(containerId, title, subtitle, displayedHustles, s
   const sorted = sortFn ? [...displayedHustles].sort(sortFn) : displayedHustles;
 
   const tableId = containerId + '-table';
-  const carouselId = containerId + '-carousel';
   const hustleNames = sorted.slice(0, 20).map(h => h.name);
 
   // Build rows/columns structure (used by both table and carousel)
@@ -115,12 +123,11 @@ function renderHustleTableView(containerId, title, subtitle, displayedHustles, s
     }]
   ];
 
-  // Render table (desktop) and carousel (mobile) from same data
+  // Render table only (no carousel on desktop per requirements)
   html += buildTableHTML(rows, hustleNames, (name) => name, tableId);
-  html += buildCarouselHTML(rows, hustleNames, (name) => name, carouselId);
   html += '</div>';
 
-  // Now set the complete HTML (with header + filters + table + carousel)
+  // Now set the complete HTML
   container.innerHTML = html;
 
   // Add click handlers to table rows
@@ -136,22 +143,6 @@ function renderHustleTableView(containerId, title, subtitle, displayedHustles, s
         };
       }
     });
-  }, 50);
-
-  // Add click handlers to carousel cards
-  setTimeout(() => {
-    const cards = document.querySelectorAll(`#${carouselId} .carousel-card`);
-    cards.forEach((card, idx) => {
-      if (idx < sorted.length) {
-        card.style.cursor = 'pointer';
-        card.onclick = () => {
-          S.selectedHustle = sorted[idx].name;
-          saveState();
-          showHustleDetail(sorted[idx]);
-        };
-      }
-    });
-    initCarousel(carouselId);
   }, 50);
 
   // Add navigation buttons
