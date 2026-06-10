@@ -148,14 +148,13 @@ function renderHustleTableView(containerId, title, subtitle, displayedHustles, s
     }]
   ];
 
-  // Build carousel using helper
+  // Build carousel and table using helpers
   const carouselId = containerId + '-carousel';
   html += buildCarouselHTML(rows, hustleNames, (name) => name, carouselId);
 
-  // Desktop table version
-  html += '<div class="insights-table-display">';
-  html += buildTableHTML(rows, hustleNames, (name) => name, tableId);
-  html += '</div></div>';
+  // Desktop table version with responsive class
+  html += '<div class="insights-table-display">' + buildTableHTML(rows, hustleNames, (name) => name, tableId) + '</div>';
+  html += '</div>';
 
   // Now set the complete HTML
   container.innerHTML = html;
