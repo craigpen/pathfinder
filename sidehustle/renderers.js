@@ -261,8 +261,24 @@ function renderHustles() {
   const carouselId = 'hustles-carousel';
   const hustleNames = displayedHustles.slice(0, 20).map(h => h.name);
 
-  // Build both carousel and table from same data
-  html += buildCarouselHTML(rows, hustleNames, (name) => name, carouselId);
+  // Mobile carousel (full-width, using University's proven pattern)
+  html += '<div style="overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:0 12px;scrollbar-width:none;scroll-snap-type:x mandatory;scroll-padding:12px;margin:0 -24px;display:flex;gap:6px" id="' + carouselId + '">';
+  hustleNames.forEach((hustleName, idx) => {
+    html += '<div style="flex:0 0 100vw;display:flex;flex-direction:column;background:#fff;border:1px solid var(--bdr);border-radius:6px;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always;margin:0 -12px">';
+    html += '<div style="background:var(--pri);color:#fff;font-weight:600;padding:10px 12px;text-align:center;font-size:14px">' + hustleName + '</div>';
+    html += '<div style="display:grid;grid-template-columns:auto 1fr;gap:0;padding:12px;font-size:12px">';
+    rows.forEach(row => {
+      const [label, dataFn] = row;
+      const cellData = dataFn ? dataFn(hustleName) : '—';
+      html += '<div style="font-weight:600;color:var(--dk);background:rgba(241,245,249,.5);padding:8px 12px;line-height:1.4">' + label + '</div>';
+      html += '<div style="color:var(--tx);padding:8px 12px;line-height:1.4;text-align:right">' + cellData + '</div>';
+    });
+    html += '</div></div>';
+  });
+  html += '</div>';
+  html += '<div style="text-align:center;padding:8px 0;font-size:12px;color:var(--tx2)">Card 1 of ' + hustleNames.length + '</div>';
+
+  // Desktop table
   html += '<div class="insights-table-display">' + buildTableHTML(rows, hustleNames, (name) => name, tableId) + '</div>';
   html += '</div>';
 
@@ -283,22 +299,20 @@ function renderHustles() {
       }
     });
 
-    // Carousel cards
-    const carouselCards = document.querySelectorAll(`#${carouselId} .carousel-card`);
-    carouselCards.forEach((card, idx) => {
-      if (idx < displayedHustles.length) {
-        card.style.cursor = 'pointer';
-        card.onclick = () => {
-          S.selectedHustle = displayedHustles[idx].name;
-          saveState();
-          showHustleDetail(displayedHustles[idx]);
-        };
-      }
-    });
-
-    // Initialize carousel
-    if(document.getElementById(carouselId)) {
-      initCarousel(carouselId);
+    // Carousel cards (select direct children divs)
+    const carouselContainer = document.getElementById(carouselId);
+    if (carouselContainer) {
+      const carouselCards = carouselContainer.querySelectorAll(':scope > div');
+      carouselCards.forEach((card, idx) => {
+        if (idx < displayedHustles.length) {
+          card.style.cursor = 'pointer';
+          card.onclick = () => {
+            S.selectedHustle = displayedHustles[idx].name;
+            saveState();
+            showHustleDetail(displayedHustles[idx]);
+          };
+        }
+      });
     }
   }, 50);
 
@@ -381,8 +395,24 @@ function renderEarnings() {
   const carouselId = 'earnings-carousel';
   const hustleNames = sorted.slice(0, 20).map(h => h.name);
 
-  // Build both carousel and table from same data
-  html += buildCarouselHTML(rows, hustleNames, (name) => name, carouselId);
+  // Mobile carousel (full-width, using University's proven pattern)
+  html += '<div style="overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:0 12px;scrollbar-width:none;scroll-snap-type:x mandatory;scroll-padding:12px;margin:0 -24px;display:flex;gap:6px" id="' + carouselId + '">';
+  hustleNames.forEach((hustleName, idx) => {
+    html += '<div style="flex:0 0 100vw;display:flex;flex-direction:column;background:#fff;border:1px solid var(--bdr);border-radius:6px;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always;margin:0 -12px">';
+    html += '<div style="background:var(--pri);color:#fff;font-weight:600;padding:10px 12px;text-align:center;font-size:14px">' + hustleName + '</div>';
+    html += '<div style="display:grid;grid-template-columns:auto 1fr;gap:0;padding:12px;font-size:12px">';
+    rows.forEach(row => {
+      const [label, dataFn] = row;
+      const cellData = dataFn ? dataFn(hustleName) : '—';
+      html += '<div style="font-weight:600;color:var(--dk);background:rgba(241,245,249,.5);padding:8px 12px;line-height:1.4">' + label + '</div>';
+      html += '<div style="color:var(--tx);padding:8px 12px;line-height:1.4;text-align:right">' + cellData + '</div>';
+    });
+    html += '</div></div>';
+  });
+  html += '</div>';
+  html += '<div style="text-align:center;padding:8px 0;font-size:12px;color:var(--tx2)">Card 1 of ' + hustleNames.length + '</div>';
+
+  // Desktop table
   html += '<div class="insights-table-display">' + buildTableHTML(rows, hustleNames, (name) => name, tableId) + '</div>';
   html += '</div>';
 
@@ -403,22 +433,20 @@ function renderEarnings() {
       }
     });
 
-    // Carousel cards
-    const carouselCards = document.querySelectorAll(`#${carouselId} .carousel-card`);
-    carouselCards.forEach((card, idx) => {
-      if (idx < sorted.length) {
-        card.style.cursor = 'pointer';
-        card.onclick = () => {
-          S.selectedHustle = sorted[idx].name;
-          saveState();
-          showHustleDetail(sorted[idx]);
-        };
-      }
-    });
-
-    // Initialize carousel
-    if(document.getElementById(carouselId)) {
-      initCarousel(carouselId);
+    // Carousel cards (select direct children divs)
+    const carouselContainer = document.getElementById(carouselId);
+    if (carouselContainer) {
+      const carouselCards = carouselContainer.querySelectorAll(':scope > div');
+      carouselCards.forEach((card, idx) => {
+        if (idx < sorted.length) {
+          card.style.cursor = 'pointer';
+          card.onclick = () => {
+            S.selectedHustle = sorted[idx].name;
+            saveState();
+            showHustleDetail(sorted[idx]);
+          };
+        }
+      });
     }
   }, 50);
 
