@@ -60,6 +60,10 @@ const sideHustlePathfinderConfig = {
 
   // Tab renderers
   renderersForTab: {
+    'discover': () => {
+      if (window.renderDiscoverySelectorOptions) window.renderDiscoverySelectorOptions();
+      if (window.renderDiscoveryPills) window.renderDiscoveryPills();
+    },
     'hustles': () => { if (window.renderHustles) window.renderHustles(); },
     'earnings': () => { if (window.renderEarnings) window.renderEarnings(); },
     'insights': () => { if (window.renderInsights) window.renderInsights(); },

@@ -594,24 +594,6 @@ function renderHustleFilterPills() {
   });
 }
 
-function renderPathfinderTab(id) {
-  if (id === 'discover') {
-    renderDiscoverySelectorOptions();
-    renderDiscoveryPills();
-  } else if (id === 'hustles') {
-    renderHustles();
-    setTimeout(() => renderHustleFilterPills(), 50);
-  } else if (id === 'earnings') {
-    renderEarnings();
-    setTimeout(() => renderHustleFilterPills(), 50);
-  } else if (id === 'insights') {
-    renderInsights();
-  } else if (id === 'getstarted') {
-    renderGetStarted();
-    setTimeout(() => renderHustleFilterPills(), 50);
-  }
-}
-
 // ============================================================================
 // INITIALIZATION
 // ============================================================================
