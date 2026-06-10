@@ -108,7 +108,7 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 .cost-bar{height:16px;border-radius:3px;margin:2px 0;font-size:11px;color:#fff;line-height:16px;padding:0 6px;font-weight:600;display:inline-block;min-width:30px;transition:width .3s}
 .slider-row{display:flex;align-items:center;gap:8px;margin:6px 0;font-size:13px}
 .carousel-container,.uni-inner,.insights-carousel-container{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 0;margin:8px 0}
-.carousel-card,.insights-carousel-card,.uni-country-slide,.uni-card{flex:0 0 calc(100vw - 28px);scroll-snap-align:start;border-radius:6px;border:1px solid var(--bdr);padding:12px;background:var(--lt);cursor:grab;user-select:none}
+.carousel-card,.insights-carousel-card,.uni-country-slide,.uni-card{flex:0 0 100%;scroll-snap-align:start;border-radius:6px;border:1px solid var(--bdr);padding:12px;background:var(--lt);cursor:grab;user-select:none}
 .carousel-card:active,.insights-carousel-card:active,.uni-country-slide:active,.uni-card:active{cursor:grabbing}
 .carousel-wrap,.insights-carousel-wrap{display:block}
 .insights-table-display{display:none}
