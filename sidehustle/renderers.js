@@ -370,21 +370,37 @@ function renderDeepDive() {
   }
 
   const selectedHustles = S.selectedHustleFilterHustles || [];
-  const selectedHustle = S.selectedDeepDiveHustle || selectedHustles[0];
+
+  if (selectedHustles.length === 0) {
+    let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Deep Dive</div>';
+    html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Select hustles from earlier tabs to explore in depth.</p>';
+    html += '<div style="padding:20px;text-align:center;color:var(--tx2)"><p>Go back and select hustles first.</p></div>';
+    html += '</div>';
+    container.innerHTML = html;
+    const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'insights\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go(\'resources\')">Next</button></div>';
+    container.insertAdjacentHTML('beforeend', navHtml);
+    return;
+  }
+
+  // Set default to first hustle on first visit
+  if (!S.selectedDeepDiveHustle) {
+    S.selectedDeepDiveHustle = selectedHustles[0];
+    saveState();
+  }
+
+  const selectedHustle = S.selectedDeepDiveHustle;
 
   let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Deep Dive</div>';
-  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Select one of your chosen hustles to explore in depth:</p>';
+  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Choose one hustle to explore in depth:</p>';
 
   // Single-select pill selector for deep dive
-  if (selectedHustles.length > 0) {
-    html += '<div style="margin-bottom:20px;"><div style="font-weight:600;margin-bottom:10px;color:var(--dk);">Chosen Hustles</div>';
-    html += '<div class="pills" data-q="deepdive-select">';
-    selectedHustles.forEach(name => {
-      const active = (selectedHustle === name) ? ' on' : '';
-      html += `<div class="pill${active}" onclick="toggleDeepDive('${name}', this)">${name}</div>`;
-    });
-    html += '</div></div>';
-  }
+  html += '<div style="margin-bottom:20px;"><div style="font-weight:600;margin-bottom:10px;color:var(--dk);">Your Hustles</div>';
+  html += '<div class="pills" data-q="deepdive-select" style="display:flex;flex-wrap:wrap;gap:8px;">';
+  selectedHustles.forEach(name => {
+    const active = (selectedHustle === name) ? ' on' : '';
+    html += `<div class="pill${active}" onclick="toggleDeepDive('${name}', this)" style="cursor:pointer;">${name}</div>`;
+  });
+  html += '</div></div>';
 
   html += '<div id="deepdive-content" style="background:var(--lt);padding:20px;border-radius:8px;margin-top:20px;"></div>';
 
