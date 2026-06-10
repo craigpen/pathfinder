@@ -48,14 +48,9 @@ function getDisplayedHustles(source = 'discovery') {
   } else if (selectedCats.length > 0) {
     displayedHustles = selectedCats.flatMap(cat => getHustlesByCategory(cat));
   } else {
-    if (source === 'earnings') {
-      // Show all hustles for earnings
-      const data = window.SIDEHUSTLES || {sidehustles: []};
-      displayedHustles = data.sidehustles || [];
-    } else {
-      // Show matched hustles for side hustles
-      displayedHustles = matchHustles(S).map(m => m.hustle);
-    }
+    // No selection: return empty (like university pattern)
+    // User must select categories or hustles to see results
+    displayedHustles = [];
   }
 
   return [...new Map(displayedHustles.map(h => [h.name, h])).values()];
