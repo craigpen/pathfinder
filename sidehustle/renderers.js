@@ -842,48 +842,44 @@ function renderInsights() {
 }
 
 function generateInsightNarrativeParagraph(selectedHustles) {
-  const parts = [];
+  let html = '';
+  const narrativeParts = [];
 
   // Time commitment
   if (S.timeCommitment) {
-    parts.push('You\'re looking for a side hustle that fits <span style="background:rgba(59,130,246,.1);padding:2px 6px;border-radius:3px">' + S.timeCommitment.toLowerCase() + '</span> of your time.');
+    narrativeParts.push('You\'re looking for a side hustle that fits <span style="background:rgba(37,99,235,.1);padding:2px 6px;border-radius:3px;color:var(--pri);font-weight:600">' + S.timeCommitment + '</span> of your time.');
   }
 
   // Startup budget
   if (S.startupBudget) {
-    parts.push('Your startup budget is <span style="background:rgba(59,130,246,.1);padding:2px 6px;border-radius:3px">' + S.startupBudget.toLowerCase() + '</span>.');
+    narrativeParts.push('Your startup budget is <span style="background:rgba(37,99,235,.1);padding:2px 6px;border-radius:3px;color:var(--pri);font-weight:600">' + S.startupBudget + '</span>.');
   }
 
   // Income preferences
   if (S.incomeGoal) {
-    parts.push('You\'re aiming for <span style="background:rgba(59,130,246,.1);padding:2px 6px;border-radius:3px">' + S.incomeGoal.toLowerCase() + '</span>.');
+    narrativeParts.push('You\'re aiming for <span style="background:rgba(37,99,235,.1);padding:2px 6px;border-radius:3px;color:var(--pri);font-weight:600">' + S.incomeGoal + '</span>.');
   }
 
   // Income type (active vs passive)
   if (S.incomeType) {
-    parts.push('You prefer <span style="background:rgba(59,130,246,.1);padding:2px 6px;border-radius:3px">' + S.incomeType.toLowerCase() + '</span>.');
+    narrativeParts.push('You prefer <span style="background:rgba(37,99,235,.1);padding:2px 6px;border-radius:3px;color:var(--pri);font-weight:600">' + S.incomeType + '</span>.');
   }
 
   // Strengths
   if (S.strengths && S.strengths.length > 0) {
-    const strengthList = S.strengths.map(s => s.toLowerCase()).join(', ');
-    parts.push('Your strengths include <span style="background:rgba(59,130,246,.1);padding:2px 6px;border-radius:3px">' + strengthList + '</span>.');
+    const strengthList = S.strengths.map(s => '<span style="background:rgba(37,99,235,.1);padding:2px 6px;border-radius:3px;color:var(--pri);font-weight:600">' + s + '</span>').join(', ');
+    narrativeParts.push('Your strengths include ' + strengthList + '.');
   }
 
   // Scalability goals
   if (S.scalability) {
-    parts.push('You\'re interested in hustles that are <span style="background:rgba(59,130,246,.1);padding:2px 6px;border-radius:3px">' + S.scalability.toLowerCase() + '</span>.');
+    narrativeParts.push('You\'re interested in hustles that are <span style="background:rgba(37,99,235,.1);padding:2px 6px;border-radius:3px;color:var(--pri);font-weight:600">' + S.scalability + '</span>.');
   }
 
-  // Selected hustles
-  if (selectedHustles && selectedHustles.length > 0) {
-    const hustleList = selectedHustles.join(', ');
-    parts.push('You\'ve selected <strong>' + selectedHustles.length + ' hustle' + (selectedHustles.length !== 1 ? 's' : '') + '</strong>: ' + hustleList + '.');
+  if (narrativeParts.length > 0) {
+    html += '<h3 style="margin:24px 0 12px 0;color:var(--dk);font-size:16px;font-weight:700">Your Narrative</h3>';
+    html += '<p style="line-height:1.6;color:var(--tx1);margin:0 0 12px 0;font-size:13px">' + narrativeParts.join(' ') + '</p>';
   }
-
-  const html = parts.length > 0
-    ? '<p style="line-height:1.6;color:var(--tx1);margin:12px 0 24px 0;font-size:13px">' + parts.join(' ') + '</p>'
-    : '';
 
   return html;
 }
