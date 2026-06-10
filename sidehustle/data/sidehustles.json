@@ -5,1298 +5,418 @@
       "category": "content-writing",
       "categoryLabel": "Content & Writing",
       "description": "Write articles, blog posts, web content, or copywriting for clients on platforms or direct clients.",
-      "financial": {
-        "startupCost_min": 0,
-        "startupCost_max": 500,
-        "startupCost_note": "Portfolio website optional but helps land clients",
-        "monthlyEarning_min": 200,
-        "monthlyEarning_max": 5000,
-        "timeToFirstIncome": "1-2 weeks",
-        "typicalMonthlyExpenses_min": 0,
-        "typicalMonthlyExpenses_max": 50,
-        "profitMargin_low": 70,
-        "profitMargin_high": 90,
-        "breakEvenMonths": 0
-      },
-      "effort": {
-        "hoursPerWeekRequired_min": 10,
-        "hoursPerWeekRequired_max": 30,
-        "initialSetupHours": 20,
-        "timeToScaleability": "3-6 months",
-        "scalabilityPotential": "high"
-      },
-      "character": {
-        "passivityScore": 0.15,
-        "competitionLevel": "high",
-        "demandTrend": "growing",
-        "seasonality": "steady",
-        "marketSaturation": "high",
-        "customerAcquisitionDifficulty": "medium"
-      },
-      "growth": {
-        "direction": "positive",
-        "magnitude": "moderate",
-        "pct": 5.2,
-        "src": "https://www.bls.gov/ooh/media-and-communication/"
-      },
-      "practical": {
-        "requiredSkills": ["Writing", "English proficiency"],
-        "recommendedPlatforms": ["Upwork", "Fiverr", "Medium", "Substack", "LinkedIn"],
-        "legalConsiderations": "Treat as self-employment income; track all earnings and expenses for taxes",
-        "pros": ["Flexible hours", "No upfront cost", "Work from anywhere", "Build portfolio while earning"],
-        "cons": ["High competition", "Feast/famine income", "Rate compression", "Takes 2-3 months to build reputation"],
-        "resources": [
-          {"title": "Content Marketing Institute", "url": "https://contentmarketinginstitute.com/"},
-          {"title": "Freelance Writers Association", "url": "https://www.freelancewritersassociation.org/"},
-          {"title": "r/freelancewriters", "url": "https://www.reddit.com/r/freelancewriters/"}
-        ]
-      },
-      "imageUrls": [
-        "https://images.unsplash.com/photo-1455849318169-8381a3a96e36?w=600",
-        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600",
-        "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600",
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
-        "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600"
-      ]
+      "narrative": "Freelance writing is one of the most accessible side hustles—you need nothing but a computer and writing skills. You'll spend your first weeks building a portfolio on platforms like Upwork or Medium, pitching to potential clients, and gradually raising your rates as you gain reviews. The income starts slowly ($200-500/month initially) but can grow to $3,000-5,000/month once you have a reputation. Most writers work 10-20 hours weekly to earn meaningful income.",
+      "whyMightLikeIt": ["Matches writing and communication strengths", "Fits your flexible schedule preference", "Aligns with building a professional portfolio", "No upfront investment needed", "Can be done from anywhere in the world"],
+      "keyDecisionPoints": ["Month 1-2: Choose platforms and build portfolio (uncompensated)—commit 20 hours/week to applications", "Month 2-3: First clients arrive—lower rates ($25-50/hour) to build reviews—don't get stuck here", "Month 4-6: Raise rates to market ($50-100+/hour) as reputation grows—this is the turning point", "Month 6+: Either stick with clients paying well, or transition to your own content (blogging, newsletter)"],
+      "typicalTimeline": "Weeks 1-4: Setup, portfolio, first pitches (unpaid work). Weeks 5-12: First clients (low rates). Months 3-6: Rate increase (higher-quality clients). Month 6+: Profitable, can scale or maintain.",
+      "risks": ["Feast/famine income pattern (uneven client flow)", "Rate compression from low-cost competitors", "Difficult to raise rates once client expectations set", "No benefits, taxes are self-employment (15.3% federal + income tax)", "High burnout risk if taking too many low-paying gigs"],
+      "marketContext": "Writing is in steady demand across content marketing, tech startups, and media companies. However, platforms like Upwork have many writers, so standing out requires strong portfolio. Growth is 5.2% annually, but individual success depends on niche and rates.",
+      "taxConsiderations": "Track all earnings (each platform sends 1099 if >$20k). Deduct: home office, computer, software subscriptions, professional development. Self-employment tax ~15.3%. Quarterly estimated tax payments recommended.",
+      "financial": {"startupCost_min": 0, "startupCost_max": 500, "startupCost_note": "Portfolio website optional but helps land clients", "monthlyEarning_min": 200, "monthlyEarning_max": 5000, "timeToFirstIncome": "1-2 weeks", "typicalMonthlyExpenses_min": 0, "typicalMonthlyExpenses_max": 50, "profitMargin_low": 70, "profitMargin_high": 90, "breakEvenMonths": 0},
+      "effort": {"hoursPerWeekRequired_min": 10, "hoursPerWeekRequired_max": 30, "initialSetupHours": 20, "timeToScaleability": "3-6 months", "scalabilityPotential": "high"},
+      "character": {"passivityScore": 0.15, "competitionLevel": "high", "demandTrend": "growing", "seasonality": "steady", "marketSaturation": "high", "customerAcquisitionDifficulty": "medium"},
+      "growth": {"direction": "positive", "magnitude": "moderate", "pct": 5.2, "src": "https://www.bls.gov/ooh/media-and-communication/"},
+      "practical": {"requiredSkills": ["Writing", "English proficiency"], "recommendedPlatforms": ["Upwork", "Fiverr", "Medium", "Substack", "LinkedIn"], "legalConsiderations": "Treat as self-employment income; track all earnings and expenses for taxes", "pros": ["Flexible hours", "No upfront cost", "Work from anywhere", "Build portfolio while earning"], "cons": ["High competition", "Feast/famine income", "Rate compression", "Takes 2-3 months to build reputation"], "resources": [{"title": "Content Marketing Institute", "url": "https://contentmarketinginstitute.com/"}, {"title": "Freelance Writers Association", "url": "https://www.freelancewritersassociation.org/"}, {"title": "r/freelancewriters", "url": "https://www.reddit.com/r/freelancewriters/"}]},
+      "imageUrls": ["https://images.unsplash.com/photo-1455849318169-8381a3a96e36?w=600", "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600", "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600", "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600", "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600"]
     },
     {
       "name": "Blogging",
       "category": "content-writing",
       "categoryLabel": "Content & Writing",
       "description": "Start a blog and monetize through ads (AdSense), affiliate links, or sponsorships.",
-      "financial": {
-        "startupCost_min": 50,
-        "startupCost_max": 200,
-        "startupCost_note": "Domain + hosting; can use free platforms initially",
-        "monthlyEarning_min": 0,
-        "monthlyEarning_max": 3000,
-        "timeToFirstIncome": "3-6 months",
-        "typicalMonthlyExpenses_min": 5,
-        "typicalMonthlyExpenses_max": 25,
-        "profitMargin_low": 60,
-        "profitMargin_high": 85,
-        "breakEvenMonths": 6
-      },
-      "effort": {
-        "hoursPerWeekRequired_min": 15,
-        "hoursPerWeekRequired_max": 25,
-        "initialSetupHours": 30,
-        "timeToScaleability": "6-12 months",
-        "scalabilityPotential": "medium"
-      },
-      "character": {
-        "passivityScore": 0.6,
-        "competitionLevel": "high",
-        "demandTrend": "stable",
-        "seasonality": "steady",
-        "marketSaturation": "very_high",
-        "customerAcquisitionDifficulty": "high"
-      },
-      "growth": {
-        "direction": "neutral",
-        "magnitude": "low",
-        "pct": 2.1,
-        "src": "https://www.bls.gov/ooh/media-and-communication/"
-      },
-      "practical": {
-        "requiredSkills": ["Writing", "SEO basics", "Patience"],
-        "recommendedPlatforms": ["WordPress", "Medium", "Substack", "Ghost"],
-        "legalConsiderations": "Report ad revenue and affiliate commissions as self-employment income",
-        "pros": ["Passive income potential", "Builds personal brand", "Flexible schedule", "Can earn while sleeping"],
-        "cons": ["Very slow to profitability (6+ months)", "High competition", "Requires consistent publishing", "Algorithm changes can tank traffic"],
-        "resources": [
-          {"title": "Backlinko SEO Blog", "url": "https://backlinko.com/blog"},
-          {"title": "HubSpot Blog Academy", "url": "https://blog.hubspot.com/"},
-          {"title": "Copyblogger", "url": "https://copyblogger.com/"}
-        ]
-      },
-      "imageUrls": [
-        "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb92?w=600",
-        "https://images.unsplash.com/photo-1467232528046-9016cf4edd3e?w=600",
-        "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600",
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
-        "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=600"
-      ]
+      "narrative": "Blogging is the long-term play. You'll spend 6-12 months building an audience and writing 50-100+ posts before seeing meaningful income ($100-300/month). It's highly passive—once posts are written, they generate traffic indefinitely through search engines. But the patience required is intense: many bloggers quit after 6 months when income is still $0. Those who persist to year 2 often see exponential growth (passive income potential). Success requires niche focus and SEO knowledge.",
+      "whyMightLikeIt": ["Highest passive income potential of any side hustle", "Aligns with building personal brand", "Flexible: write on your schedule, not client's", "Can monetize multiple ways: ads, affiliate, sponsorships", "Content compounds—older posts keep earning"],
+      "keyDecisionPoints": ["Month 1: Choose profitable niche (research keyword difficulty)—don't pick oversaturated topics", "Months 1-6: Write 30+ posts (no income yet)—most people quit here", "Month 6-12: SEO traffic starts (first $50-100/month)—prove concept", "Month 12-24: Traffic accelerates (passive income reaches $500-2,000/month)—now decide: scale or maintain"],
+      "typicalTimeline": "Months 1-6: Setup, content creation (no income). Months 6-12: Organic traffic grows slowly ($0-100/mo). Months 12-24: Exponential growth ($500-5,000/mo). Year 2+: Passive income baseline ($1,000-3,000+/mo).",
+      "risks": ["Very long ramp to profitability (6-12+ months)", "Algorithm changes can kill traffic overnight (Google updates)", "Requires SEO knowledge—most blogs fail from poor optimization", "Low per-visitor earnings ($0.25-2.00 per 1,000 views for ads)", "High opportunity cost vs. active hustles (could be earning $ month 1)"],
+      "marketContext": "Blogging demand is stable but saturated in popular niches (finance, tech, health). Underdeveloped niches (niche B2B, specific hobbies) have less competition. Growth is 2.1% annually; success depends on niche selection.",
+      "taxConsiderations": "AdSense reports earnings via Form 1099 if >$20k annually. Report all income. Deduct: domain, hosting, tools (Grammarly, SEO software), home office. Self-employment tax applies.",
+      "financial": {"startupCost_min": 50, "startupCost_max": 200, "startupCost_note": "Domain + hosting; can use free platforms initially", "monthlyEarning_min": 0, "monthlyEarning_max": 3000, "timeToFirstIncome": "3-6 months", "typicalMonthlyExpenses_min": 5, "typicalMonthlyExpenses_max": 25, "profitMargin_low": 60, "profitMargin_high": 85, "breakEvenMonths": 6},
+      "effort": {"hoursPerWeekRequired_min": 15, "hoursPerWeekRequired_max": 25, "initialSetupHours": 30, "timeToScaleability": "6-12 months", "scalabilityPotential": "medium"},
+      "character": {"passivityScore": 0.6, "competitionLevel": "high", "demandTrend": "stable", "seasonality": "steady", "marketSaturation": "very_high", "customerAcquisitionDifficulty": "high"},
+      "growth": {"direction": "neutral", "magnitude": "low", "pct": 2.1, "src": "https://www.bls.gov/ooh/media-and-communication/"},
+      "practical": {"requiredSkills": ["Writing", "SEO basics", "Patience"], "recommendedPlatforms": ["WordPress", "Medium", "Substack", "Ghost"], "legalConsiderations": "Report ad revenue and affiliate commissions as self-employment income", "pros": ["Passive income potential", "Builds personal brand", "Flexible schedule", "Can earn while sleeping"], "cons": ["Very slow to profitability (6+ months)", "High competition", "Requires consistent publishing", "Algorithm changes can tank traffic"], "resources": [{"title": "Backlinko SEO Blog", "url": "https://backlinko.com/blog"}, {"title": "HubSpot Blog Academy", "url": "https://blog.hubspot.com/"}, {"title": "Copyblogger", "url": "https://copyblogger.com/"}]},
+      "imageUrls": ["https://images.unsplash.com/photo-1432888622747-4eb9a8efeb92?w=600", "https://images.unsplash.com/photo-1467232528046-9016cf4edd3e?w=600", "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600", "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600", "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=600"]
     },
     {
       "name": "YouTube Channel",
       "category": "content-writing",
       "categoryLabel": "Content & Writing",
       "description": "Create video content on YouTube and monetize through ads, sponsorships, or affiliate links.",
-      "financial": {
-        "startupCost_min": 100,
-        "startupCost_max": 1000,
-        "startupCost_note": "Camera/microphone; can start with phone",
-        "monthlyEarning_min": 0,
-        "monthlyEarning_max": 10000,
-        "timeToFirstIncome": "6-12 months",
-        "typicalMonthlyExpenses_min": 0,
-        "typicalMonthlyExpenses_max": 50,
-        "profitMargin_low": 65,
-        "profitMargin_high": 88,
-        "breakEvenMonths": 12
-      },
-      "effort": {
-        "hoursPerWeekRequired_min": 20,
-        "hoursPerWeekRequired_max": 40,
-        "initialSetupHours": 40,
-        "timeToScaleability": "12+ months",
-        "scalabilityPotential": "very_high"
-      },
-      "character": {
-        "passivityScore": 0.7,
-        "competitionLevel": "high",
-        "demandTrend": "growing",
-        "seasonality": "steady",
-        "marketSaturation": "very_high",
-        "customerAcquisitionDifficulty": "high"
-      },
-      "growth": {
-        "direction": "positive",
-        "magnitude": "high",
-        "pct": 13.4,
-        "src": "https://www.bls.gov/ooh/media-and-communication/"
-      },
-      "practical": {
-        "requiredSkills": ["Video editing", "Storytelling", "Consistency", "On-camera presence"],
-        "recommendedPlatforms": ["YouTube", "TikTok", "Instagram Reels"],
-        "legalConsiderations": "Report YouTube AdSense, sponsorships, and affiliate income as self-employment; disclose sponsorships per FTC rules",
-        "pros": ["Highest earning potential", "Personal brand building", "Passive income at scale", "Sponsorship opportunities"],
-        "cons": ["Longest ramp to profitability", "Requires equipment", "Takes consistency (1-2 years)", "Algorithm-dependent"],
-        "resources": [
-          {"title": "YouTube Creator Academy", "url": "https://creatoracademy.youtube.com/"},
-          {"title": "Think Media", "url": "https://www.thinkmedia.co/"},
-          {"title": "Video creators subreddit", "url": "https://www.reddit.com/r/videocreators/"}
-        ]
-      },
-      "imageUrls": [
-        "https://images.unsplash.com/photo-1516321318423-f06f70504504?w=600",
-        "https://images.unsplash.com/photo-1551077857-4dd404dec202?w=600",
-        "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=600",
-        "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=600",
-        "https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=600"
-      ]
+      "narrative": "YouTube is the highest-earning passive hustle—but requires 1-2 years before first dollar. You'll upload consistently (1-2 videos weekly) to build to 1,000 subscribers and 4,000 watch hours (YouTube Partner eligibility). Initial growth is glacial: months 1-6 might see 100-500 subscribers. But once you hit critical mass, growth accelerates exponentially. Top creators earn $5,000-10,000+/month, but that takes 2+ years of dedication. Not for quick money.",
+      "whyMightLikeIt": ["Highest ceiling for passive income ($5,000-50,000+/mo at scale)", "Personal brand building (you become the brand)", "Multiple revenue streams: ads, sponsorships, affiliate, own products", "Aligns with public speaking and communication interests", "Compounding returns—older videos keep earning"],
+      "keyDecisionPoints": ["Month 1: Choose niche (must be underserved, not oversaturated)—research competitor channels", "Months 1-6: Upload consistently (1-2 per week, 24+ videos)—growth is slow, 50-500 subs typical", "Months 6-12: Hit YouTube Partner threshold (1K subs, 4K watch hours)—monetization begins (~$100-300/mo)", "Months 12-24: Growth accelerates—5K-50K subs possible—income grows to $1K-5K/mo", "Year 2+: Either scale aggressively or maintain baseline ($3K-10K+/mo passive)"],
+      "typicalTimeline": "Months 1-6: Setup, content, slow growth (0 income). Months 6-12: Build to monetization threshold ($0-300/mo). Months 12-24: Exponential growth ($1K-5K/mo). Year 2+: Passive income baseline ($3K-10K+/mo).",
+      "risks": ["Extremely long ramp to profitability (6-12+ months)", "YouTube algorithm is opaque—video can flop unpredictably", "Requires video editing, production skills (steep learning curve)", "Burnout risk: filming/editing is time-intensive (20-40 hours/week)", "Audience-dependent: video demonetized or channel deleted = income gone"],
+      "marketContext": "Video consumption is growing (13.4% annually), making YouTube attractive. But competition is fierce in popular niches. Underdeveloped niches (micro-communities, B2B education) have better growth potential. CPM varies wildly ($1-15 per 1,000 views depending on audience).",
+      "taxConsiderations": "YouTube sends Form 1099 for earnings >$600. Report all AdSense, sponsorship, affiliate income. Deduct: equipment (camera, microphone, lights), software (editing), internet, home office. Self-employment tax applies.",
+      "financial": {"startupCost_min": 100, "startupCost_max": 1000, "startupCost_note": "Camera/microphone; can start with phone", "monthlyEarning_min": 0, "monthlyEarning_max": 10000, "timeToFirstIncome": "6-12 months", "typicalMonthlyExpenses_min": 0, "typicalMonthlyExpenses_max": 50, "profitMargin_low": 65, "profitMargin_high": 88, "breakEvenMonths": 12},
+      "effort": {"hoursPerWeekRequired_min": 20, "hoursPerWeekRequired_max": 40, "initialSetupHours": 40, "timeToScaleability": "12+ months", "scalabilityPotential": "very_high"},
+      "character": {"passivityScore": 0.7, "competitionLevel": "high", "demandTrend": "growing", "seasonality": "steady", "marketSaturation": "very_high", "customerAcquisitionDifficulty": "high"},
+      "growth": {"direction": "positive", "magnitude": "high", "pct": 13.4, "src": "https://www.bls.gov/ooh/media-and-communication/"},
+      "practical": {"requiredSkills": ["Video editing", "Storytelling", "Consistency", "On-camera presence"], "recommendedPlatforms": ["YouTube", "TikTok", "Instagram Reels"], "legalConsiderations": "Disclose sponsorships (FTC requirement). Copyright notices on music/clips. Respect privacy of people featured.", "pros": ["Highest earning potential", "Personal brand building", "Passive income at scale", "Sponsorship opportunities"], "cons": ["Longest ramp to profitability", "Requires equipment", "Takes consistency (1-2 years)", "Algorithm-dependent"], "resources": [{"title": "YouTube Creator Academy", "url": "https://creatoracademy.youtube.com/"}, {"title": "Think Media", "url": "https://www.thinkmedia.co/"}, {"title": "Video creators subreddit", "url": "https://www.reddit.com/r/videocreators/"}]},
+      "imageUrls": ["https://images.unsplash.com/photo-1516321318423-f06f70504504?w=600", "https://images.unsplash.com/photo-1551077857-4dd404dec202?w=600", "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=600", "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=600", "https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=600"]
     },
     {
       "name": "Social Media Management",
       "category": "service-based",
       "categoryLabel": "Service-Based",
       "description": "Manage social media accounts for small businesses (content creation, scheduling, engagement).",
-      "financial": {
-        "startupCost_min": 0,
-        "startupCost_max": 200,
-        "startupCost_note": "Tools like Buffer, Later are optional",
-        "monthlyEarning_min": 500,
-        "monthlyEarning_max": 3000,
-        "timeToFirstIncome": "2-4 weeks",
-        "typicalMonthlyExpenses_min": 20,
-        "typicalMonthlyExpenses_max": 100,
-        "profitMargin_low": 65,
-        "profitMargin_high": 85,
-        "breakEvenMonths": 1
-      },
-      "effort": {
-        "hoursPerWeekRequired_min": 10,
-        "hoursPerWeekRequired_max": 25,
-        "initialSetupHours": 15,
-        "timeToScaleability": "2-3 months",
-        "scalabilityPotential": "medium"
-      },
-      "character": {
-        "passivityScore": 0.2,
-        "competitionLevel": "medium",
-        "demandTrend": "growing",
-        "seasonality": "steady",
-        "marketSaturation": "medium",
-        "customerAcquisitionDifficulty": "medium"
-      },
-      "growth": {
-        "direction": "positive",
-        "magnitude": "high",
-        "pct": 11.2,
-        "src": "https://www.bls.gov/ooh/business-and-financial/"
-      },
-      "practical": {
-        "requiredSkills": ["Social media knowledge", "Writing", "Creativity", "Communication"],
-        "recommendedPlatforms": ["Upwork", "Fiverr", "LinkedIn"],
-        "legalConsiderations": "Independent contractor; report platform earnings as self-employment income",
-        "pros": ["Fast to first income", "Recurring clients", "No upfront cost", "Skills in demand"],
-        "cons": ["Competitive field", "Can be repetitive", "Client communication time", "Metrics-driven (clients expect results)"],
-        "resources": [
-          {"title": "HubSpot Social Media Guide", "url": "https://blog.hubspot.com/marketing/social-media"},
-          {"title": "Later Academy", "url": "https://later.com/academy/"},
-          {"title": "Social Media Manager subreddit", "url": "https://www.reddit.com/r/socialmediamanagers/"}
-        ]
-      },
-      "imageUrls": [
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
-        "https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=600",
-        "https://images.unsplash.com/photo-1557821552-17105176677c?w=600",
-        "https://images.unsplash.com/photo-1460925895917-afd651c3c2b5?w=600",
-        "https://images.unsplash.com/photo-1533727937480-fbca6f8aab30?w=600"
-      ]
+      "narrative": "Social media management is the \"goldilocks\" hustle—faster than writing, easier than web dev, more accessible than design. You'll work with 3-5 small business clients (restaurants, local services, e-commerce). Each client pays $500-1,000/month, you work 10-20 hours/week total. Growth is quick: month 1-2 you'll land first client (at lower rates), by month 4-6 you'll have 3-5 clients at better rates. The challenge: retaining clients (high churn from unrealistic expectations).",
+      "whyMightLikeIt": ["Fast to first income (2-4 weeks)", "Recurring revenue (monthly retainers vs. one-off gigs)", "Manageable client load (5 clients = full workload)", "Aligns with social media skills/interests", "Easier to raise rates once proven results"],
+      "keyDecisionPoints": ["Week 1-2: Define service package and pricing ($500-1,000/month per client)—underpricing kills profitability", "Week 2-4: Land first client (lower rate to build case study)—nail the onboarding process", "Month 2-3: Deliver results (engagement, followers, DMs)—track metrics obsessively", "Month 4-6: Land 2-3 more clients at better rates—decide on capacity limit (5 clients = 20 hrs/week)"],
+      "typicalTimeline": "Weeks 1-4: Setup, first client (negotiated rate). Months 2-3: Deliver results, prove ROI. Months 4-6: Expand to 3-5 clients. Month 6+: Sustainable $2K-5K/month from retainers.",
+      "risks": ["Client churn if results don't meet expectations (high-touch sales required)", "Clients blame social media for poor business fundamentals (educate upfront)", "Platform algorithm changes kill client results (manage expectations)", "Time-intensive (daily posting, engagement, reporting, meetings)", "Low profit margin if not careful (discounting kills margins fast)"],
+      "marketContext": "Social media demand is high and growing (11.2% annually). Every small business needs it but can't do it themselves. Competition is medium—local competitors but no global platforms dominate yet.",
+      "taxConsiderations": "Report all client payments as self-employment income. Deduct: scheduling tools (Buffer, Later), stock photos, home office, professional development. Quarterly tax payments recommended for steady income.",
+      "financial": {"startupCost_min": 0, "startupCost_max": 200, "startupCost_note": "Tools like Buffer, Later are optional", "monthlyEarning_min": 500, "monthlyEarning_max": 3000, "timeToFirstIncome": "2-4 weeks", "typicalMonthlyExpenses_min": 20, "typicalMonthlyExpenses_max": 100, "profitMargin_low": 65, "profitMargin_high": 85, "breakEvenMonths": 1},
+      "effort": {"hoursPerWeekRequired_min": 10, "hoursPerWeekRequired_max": 25, "initialSetupHours": 15, "timeToScaleability": "2-3 months", "scalabilityPotential": "medium"},
+      "character": {"passivityScore": 0.2, "competitionLevel": "medium", "demandTrend": "growing", "seasonality": "steady", "marketSaturation": "medium", "customerAcquisitionDifficulty": "medium"},
+      "growth": {"direction": "positive", "magnitude": "high", "pct": 11.2, "src": "https://www.bls.gov/ooh/business-and-financial/"},
+      "practical": {"requiredSkills": ["Social media knowledge", "Writing", "Creativity", "Communication"], "recommendedPlatforms": ["Upwork", "Fiverr", "LinkedIn"], "legalConsiderations": "Clients own the accounts—transition protocol when parting. Disclose sponsored posts (FTC compliance).", "pros": ["Fast to first income", "Recurring clients", "No upfront cost", "Skills in demand"], "cons": ["Competitive field", "Can be repetitive", "Client communication time", "Metrics-driven (clients expect results)"], "resources": [{"title": "HubSpot Social Media Guide", "url": "https://blog.hubspot.com/marketing/social-media"}, {"title": "Later Academy", "url": "https://later.com/academy/"}, {"title": "Social Media Manager subreddit", "url": "https://www.reddit.com/r/socialmediamanagers/"}]},
+      "imageUrls": ["https://images.unsplash.com/photo-1552664730-d307ca884978?w=600", "https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=600", "https://images.unsplash.com/photo-1557821552-17105176677c?w=600", "https://images.unsplash.com/photo-1460925895917-afd651c3c2b5?w=600", "https://images.unsplash.com/photo-1533727937480-fbca6f8aab30?w=600"]
     },
     {
       "name": "Virtual Assistant",
       "category": "service-based",
       "categoryLabel": "Service-Based",
-      "description": "Provide administrative support to businesses (scheduling, email, data entry, customer service).",
-      "financial": {
-        "startupCost_min": 0,
-        "startupCost_max": 300,
-        "startupCost_note": "Office tools optional; many provided by employer",
-        "monthlyEarning_min": 800,
-        "monthlyEarning_max": 2500,
-        "timeToFirstIncome": "1-2 weeks",
-        "typicalMonthlyExpenses_min": 10,
-        "typicalMonthlyExpenses_max": 50,
-        "profitMargin_low": 75,
-        "profitMargin_high": 90,
-        "breakEvenMonths": 1
-      },
-      "effort": {
-        "hoursPerWeekRequired_min": 15,
-        "hoursPerWeekRequired_max": 30,
-        "initialSetupHours": 10,
-        "timeToScaleability": "2-4 months",
-        "scalabilityPotential": "medium"
-      },
-      "character": {
-        "passivityScore": 0.1,
-        "competitionLevel": "medium",
-        "demandTrend": "growing",
-        "seasonality": "steady",
-        "marketSaturation": "medium",
-        "customerAcquisitionDifficulty": "medium"
-      },
-      "growth": {
-        "direction": "positive",
-        "magnitude": "moderate",
-        "pct": 6.5,
-        "src": "https://www.bls.gov/ooh/office-and-administrative-support/"
-      },
-      "practical": {
-        "requiredSkills": ["Organization", "Communication", "Time management", "Tech proficiency"],
-        "recommendedPlatforms": ["Upwork", "Belay", "Time Etc", "Zirtual"],
-        "legalConsiderations": "Classified as independent contractor; self-employment tax obligations apply",
-        "pros": ["Steady income", "Low startup cost", "Remote-friendly", "Clear daily tasks"],
-        "cons": ["Can feel like a job", "Fixed hours expected", "Less creative", "Client dependent"],
-        "resources": [
-          {"title": "VA Start Guide", "url": "https://www.thevacollab.com/"},
-          {"title": "Belay Academy", "url": "https://www.belayacademy.com/"},
-          {"title": "Virtual Assistants subreddit", "url": "https://www.reddit.com/r/virtualassistant/"}
-        ]
-      },
-      "imageUrls": [
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600",
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
-        "https://images.unsplash.com/photo-1516534775068-bb577a627ae9?w=600",
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600"
-      ]
+      "description": "Provide administrative support to busy entrepreneurs (email, scheduling, data entry, customer service).",
+      "narrative": "Virtual assistant work is reliable and stable, but low-margin. You'll handle email triage, scheduling, invoicing, and customer service for 2-4 busy entrepreneurs. Rate is $15-25/hour initially, and you'll work 20-30 hours/week to earn $1,200-3,000/month. The skill ceiling is low—almost anyone can do it, which means competition is fierce and rates are compressed. Best for people seeking stability over growth.",
+      "whyMightLikeIt": ["Steady, predictable income (salary-like)", "Work with interesting entrepreneurs", "Low skill barrier—easy to start", "Can build long-term client relationships", "Remote-friendly, no equipment needed"],
+      "keyDecisionPoints": ["Week 1: Set rate ($15-25/hour) and define scope (avoid scope creep)—be explicit on contract", "Week 2-3: Land first client (at lower rate $15/hr)—build experience and testimonials", "Month 2-3: Build systems and processes (templates, checklists)—document everything", "Month 4-6: Raise rates ($20-25/hr) and land additional clients—aim for 3-4 clients to diversify"],
+      "typicalTimeline": "Week 1-2: Setup, first client. Months 2-3: Build processes, prove reliability. Months 4-6: Raise rates, add 1-2 more clients. Month 6+: Stable $2K-3K/month from 3-4 clients.",
+      "risks": ["Very low hourly rates ($15-25/hr even with experience)", "Scope creep (clients ask for more without paying more)", "Burnout from repetitive, administrative work", "Limited scalability (can't charge more for same work)", "Client dependency (losing client = significant income loss)"],
+      "marketContext": "VA demand is stable at $15-25/hr. Few VA agencies charge premium rates because the work is commoditized. Growth is 8.1% annually but individual rates haven't risen in years.",
+      "taxConsiderations": "Report all income as self-employment. Deduct: internet, phone, software (Asana, Slack, etc.), home office, professional development. Self-employment tax applies.",
+      "financial": {"startupCost_min": 0, "startupCost_max": 100, "startupCost_note": "Basic software (Asana, Slack optional)", "monthlyEarning_min": 600, "monthlyEarning_max": 3000, "timeToFirstIncome": "1-2 weeks", "typicalMonthlyExpenses_min": 10, "typicalMonthlyExpenses_max": 50, "profitMargin_low": 75, "profitMargin_high": 90, "breakEvenMonths": 0},
+      "effort": {"hoursPerWeekRequired_min": 20, "hoursPerWeekRequired_max": 30, "initialSetupHours": 10, "timeToScaleability": "4-6 months", "scalabilityPotential": "low"},
+      "character": {"passivityScore": 0.1, "competitionLevel": "very_high", "demandTrend": "stable", "seasonality": "steady", "marketSaturation": "very_high", "customerAcquisitionDifficulty": "low"},
+      "growth": {"direction": "neutral", "magnitude": "low", "pct": 8.1, "src": "https://www.bls.gov/ooh/office-and-administrative-support/"},
+      "practical": {"requiredSkills": ["Organization", "Communication", "Attention to detail", "Time management"], "recommendedPlatforms": ["Upwork", "Belay", "Time Etc", "LinkedIn"], "legalConsiderations": "Clarify contractor status. Set expectations on availability and communication response times in contract.", "pros": ["Steady income", "Low barrier to entry", "Work from anywhere", "Flexible hours"], "cons": ["Very low hourly rates", "Scope creep common", "Limited growth potential", "Repetitive work"], "resources": [{"title": "International Virtual Assistants Association", "url": "https://www.ivaa.org/"}, {"title": "Upwork VA Guides", "url": "https://www.upwork.com/hiring/virtual-assistant/"}, {"title": "VA subreddit", "url": "https://www.reddit.com/r/virtualassistant/"}]},
+      "imageUrls": ["https://images.unsplash.com/photo-1552664730-d307ca884978?w=600", "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600", "https://images.unsplash.com/photo-1516534775068-bb127e9a1158?w=600", "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600", "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600"]
     },
     {
       "name": "Graphic Design",
-      "category": "creative-design",
-      "categoryLabel": "Creative & Design",
-      "description": "Create logos, social media graphics, or marketing materials for clients.",
-      "financial": {
-        "startupCost_min": 50,
-        "startupCost_max": 600,
-        "startupCost_note": "Design software (Canva free, Adobe $55/month, or alternatives)",
-        "monthlyEarning_min": 300,
-        "monthlyEarning_max": 4000,
-        "timeToFirstIncome": "2-3 weeks",
-        "typicalMonthlyExpenses_min": 0,
-        "typicalMonthlyExpenses_max": 60,
-        "profitMargin_low": 65,
-        "profitMargin_high": 85,
-        "breakEvenMonths": 2
-      },
-      "effort": {
-        "hoursPerWeekRequired_min": 12,
-        "hoursPerWeekRequired_max": 30,
-        "initialSetupHours": 20,
-        "timeToScaleability": "3-6 months",
-        "scalabilityPotential": "high"
-      },
-      "character": {
-        "passivityScore": 0.2,
-        "competitionLevel": "high",
-        "demandTrend": "growing",
-        "seasonality": "steady",
-        "marketSaturation": "high",
-        "customerAcquisitionDifficulty": "medium"
-      },
-      "growth": {
-        "direction": "positive",
-        "magnitude": "moderate",
-        "pct": 4.3,
-        "src": "https://www.bls.gov/ooh/arts-and-design/"
-      },
-      "practical": {
-        "requiredSkills": ["Design eye", "Software proficiency", "Creativity", "Client communication"],
-        "recommendedPlatforms": ["Upwork", "Fiverr", "99designs", "Etsy"],
-        "legalConsiderations": "Self-employment income; retain contract agreements for disputes; consider liability insurance",
-        "pros": ["Creative outlet", "Growing demand", "Can build portfolio", "Potential for passive templates"],
-        "cons": ["High competition", "Subjective feedback", "Revisions can be endless", "Portfolio takes time"],
-        "resources": [
-          {"title": "Canva Design School", "url": "https://www.canva.com/design-school/"},
-          {"title": "Adobe Creative Cloud Tutorials", "url": "https://www.adobe.com/creativecloud/tutorials.html"},
-          {"title": "Graphic Design subreddit", "url": "https://www.reddit.com/r/graphic_design/"}
-        ]
-      },
-      "imageUrls": [
-        "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600",
-        "https://images.unsplash.com/photo-1561457843-a188b6cbf3f0?w=600",
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
-        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600",
-        "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600"
-      ]
+      "category": "creative",
+      "categoryLabel": "Creative Services",
+      "description": "Design logos, social media graphics, presentations, and marketing materials for clients.",
+      "narrative": "Graphic design is more lucrative than writing but requires skill and portfolio. You'll start at $500-1,000 per project, working with small businesses and startups. Month 1-2 you'll build a portfolio (3-5 designs), land first client, then scale to 1-2 projects/month (full-time rate). The barrier to entry is medium—you need design software (Adobe $20-50/month) and either natural talent or 3-6 months of skill development. Growth is real: experienced designers charge $2,000-5,000+ per project.",
+      "whyMightLikeIt": ["Higher rates than writing ($50-150/hr effective)", "Creative, visual work (satisfying)", "Portfolio builds quickly (each project is case study)", "Scalable: can raise rates with experience", "Aligns with visual/creative strengths"],
+      "keyDecisionPoints": ["Week 1: Get Adobe Creative Cloud ($20/month) and learn basics or refresh skills (1-3 months)", "Month 1-2: Build 3-5 portfolio pieces (spec work or discounted projects)", "Month 2-3: Land first paid client ($500-800 per project)—use portfolio to land them", "Month 4-6: Raise rates to $1,000-1,500 and aim for 2 projects/month—specialize in niche (SaaS, fashion, etc.)"],
+      "typicalTimeline": "Month 1: Setup, skill refresh. Month 1-2: Portfolio building. Month 2-3: First client ($500-1K). Months 4-6: Sustainable $2K-3K/month (2 projects/month). Year 1+: Raise rates, specialize, earn $4K-8K/month.",
+      "risks": ["Steep learning curve (design is a skill, not just software)", "Portfolio building takes 1-3 months (no pay)", "Client taste vs. good design (managing expectations)", "Revisions can spiral (set limits in contract)", "Market saturation at low end (Fiverr designers undercutting)"],
+      "marketContext": "Design demand is strong (9.4% growth) across web, branding, marketing. Premium designers (with strong portfolios) earn well; commodity designers battle on price. Success depends on specialization and portfolio quality.",
+      "taxConsiderations": "Report project income as self-employment. Deduct: Adobe CC subscription, fonts, stock graphics, tutorials/courses, home office, internet. Self-employment tax applies.",
+      "financial": {"startupCost_min": 20, "startupCost_max": 300, "startupCost_note": "Adobe CC monthly subscription + fonts/stock graphics", "monthlyEarning_min": 500, "monthlyEarning_max": 8000, "timeToFirstIncome": "4-8 weeks", "typicalMonthlyExpenses_min": 30, "typicalMonthlyExpenses_max": 80, "profitMargin_low": 60, "profitMargin_high": 85, "breakEvenMonths": 1},
+      "effort": {"hoursPerWeekRequired_min": 15, "hoursPerWeekRequired_max": 30, "initialSetupHours": 80, "timeToScaleability": "4-6 months", "scalabilityPotential": "high"},
+      "character": {"passivityScore": 0.1, "competitionLevel": "very_high", "demandTrend": "growing", "seasonality": "seasonal", "marketSaturation": "very_high", "customerAcquisitionDifficulty": "medium"},
+      "growth": {"direction": "positive", "magnitude": "high", "pct": 9.4, "src": "https://www.bls.gov/ooh/arts-design-entertainment-sports-and-media/"},
+      "practical": {"requiredSkills": ["Design fundamentals", "Adobe Creative Cloud", "Communication", "Creativity"], "recommendedPlatforms": ["Upwork", "Fiverr", "99designs", "Dribbble"], "legalConsiderations": "Use contracts (specify deliverables, revisions, timeline). Retain copyright until paid. Get client approval on design direction early.", "pros": ["Creative, satisfying work", "Scalable rates", "High ceiling earnings", "Portfolio builds quickly"], "cons": ["Steep learning curve", "Client taste vs. good design", "Competitive field", "Revisions can sprawl"], "resources": [{"title": "Dribbble", "url": "https://dribbble.com/"}, {"title": "Skillshare Design Courses", "url": "https://www.skillshare.com/"}, {"title": "Designer subreddit", "url": "https://www.reddit.com/r/design/"}]},
+      "imageUrls": ["https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600", "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600", "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600", "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600", "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600"]
     },
     {
       "name": "Web Development",
-      "category": "tech-code",
-      "categoryLabel": "Tech & Code",
-      "description": "Build websites or web apps for clients using HTML, CSS, JavaScript, etc.",
-      "financial": {
-        "startupCost_min": 0,
-        "startupCost_max": 300,
-        "startupCost_note": "Dev tools are mostly free; optional hosting/domain",
-        "monthlyEarning_min": 1000,
-        "monthlyEarning_max": 8000,
-        "timeToFirstIncome": "2-3 weeks",
-        "typicalMonthlyExpenses_min": 0,
-        "typicalMonthlyExpenses_max": 50,
-        "profitMargin_low": 70,
-        "profitMargin_high": 90,
-        "breakEvenMonths": 1
-      },
-      "effort": {
-        "hoursPerWeekRequired_min": 15,
-        "hoursPerWeekRequired_max": 40,
-        "initialSetupHours": 15,
-        "timeToScaleability": "4-8 months",
-        "scalabilityPotential": "very_high"
-      },
-      "character": {
-        "passivityScore": 0.15,
-        "competitionLevel": "high",
-        "demandTrend": "growing",
-        "seasonality": "steady",
-        "marketSaturation": "high",
-        "customerAcquisitionDifficulty": "medium"
-      },
-      "growth": {
-        "direction": "positive",
-        "magnitude": "very_high",
-        "pct": 15.6,
-        "src": "https://www.bls.gov/ooh/computer-and-information-technology/"
-      },
-      "practical": {
-        "requiredSkills": ["HTML/CSS/JavaScript", "Problem-solving", "Design sense"],
-        "recommendedPlatforms": ["Upwork", "Toptal", "Gun.io"],
-        "legalConsiderations": "Independent contractor; keep client agreements; consider business liability insurance",
-        "pros": ["High earning potential", "Strong demand", "Recurring clients", "Can build SaaS products"],
-        "cons": ["Competitive field", "Client management", "Browser compatibility issues", "Ongoing maintenance requests"],
-        "resources": [
-          {"title": "freeCodeCamp", "url": "https://www.freecodecamp.org/"},
-          {"title": "Web Developers subreddit", "url": "https://www.reddit.com/r/webdev/"},
-          {"title": "Frontend Masters", "url": "https://frontendmasters.com/"}
-        ]
-      },
-      "imageUrls": [
-        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600",
-        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600",
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600",
-        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600",
-        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600"
-      ]
+      "category": "technical",
+      "categoryLabel": "Technical Skills",
+      "description": "Build websites for small businesses, startups, or agencies (WordPress, custom code, e-commerce).",
+      "narrative": "Web development pays well—$50-150/hour or $2,000-5,000+ per project. The challenge: 3-6 months learning if you're starting from zero. Once skilled, you'll land 1-2 projects/month earning $2,000-4,000 sustainably. Best path: learn React or Vue (modern frameworks), build portfolio with 3-5 sample projects, land first clients on Upwork at $50/hr, then raise rates to $100+/hr as reputation grows. High barrier to entry means less competition at the top.",
+      "whyMightLikeIt": ["Highest hourly rates ($50-150/hr)", "High demand (every business needs a website)", "Long-term client relationships", "Remote-friendly worldwide market", "Scalable: can raise rates or build passive products later"],
+      "keyDecisionPoints": ["Month 1-3: Learn JavaScript/React or WordPress (20-30 hrs/week if new)", "Month 3-4: Build 3-5 portfolio projects (spec work or discounted)", "Month 4-5: Land first client ($2K-3K project, ~$50/hr)", "Month 6+: Raise rates to $75-100+/hr and maintain 1-2 projects/month ($3K-5K/month)"],
+      "typicalTimeline": "Months 1-3: Learning (no income). Month 3-4: Portfolio building. Month 4-5: First client ($2K-3K). Months 6+: Sustainable $3K-5K/month (1-2 projects). Year 1+: Experienced dev $5K-10K/month.",
+      "risks": ["Long learning curve (3-6 months if starting from zero)", "Rapid tech changes (must stay current)", "Client scope creep (detailed contracts essential)", "Maintenance burden (clients expect ongoing support)", "Competitive freelance market at low end"],
+      "marketContext": "Web dev demand is very high (13% growth). Generalist developers are commoditized, but specialists (e-commerce, performance optimization, accessibility) earn premium rates. Remote global market means competition is worldwide.",
+      "taxConsiderations": "Report project income as self-employment. Deduct: software (code editors, hosting), courses/training, home office, equipment (computer), internet. Self-employment tax applies.",
+      "financial": {"startupCost_min": 0, "startupCost_max": 500, "startupCost_note": "Hosting, code editors usually free, courses are optional", "monthlyEarning_min": 1000, "monthlyEarning_max": 10000, "timeToFirstIncome": "4-6 months", "typicalMonthlyExpenses_min": 20, "typicalMonthlyExpenses_max": 100, "profitMargin_low": 70, "profitMargin_high": 88, "breakEvenMonths": 2},
+      "effort": {"hoursPerWeekRequired_min": 20, "hoursPerWeekRequired_max": 40, "initialSetupHours": 120, "timeToScaleability": "6-12 months", "scalabilityPotential": "very_high"},
+      "character": {"passivityScore": 0.05, "competitionLevel": "high", "demandTrend": "growing", "seasonality": "seasonal", "marketSaturation": "high", "customerAcquisitionDifficulty": "medium"},
+      "growth": {"direction": "positive", "magnitude": "very_high", "pct": 13, "src": "https://www.bls.gov/ooh/computer-and-information-technology/"},
+      "practical": {"requiredSkills": ["JavaScript or PHP", "HTML/CSS", "Problem-solving", "Communication"], "recommendedPlatforms": ["Upwork", "Toptal", "Gun.io", "Codementor"], "legalConsiderations": "Use contracts specifying deliverables, timeline, revisions included. Own your code; client gets usage rights only.", "pros": ["Highest hourly rates", "High demand", "Remote global market", "Skill scales over career"], "cons": ["Long learning curve", "Tech changes fast", "Scope creep common", "Maintenance expectations"], "resources": [{"title": "freeCodeCamp", "url": "https://www.freecodecamp.org/"}, {"title": "Frontend Masters", "url": "https://frontendmasters.com/"}, {"title": "Web Dev subreddit", "url": "https://www.reddit.com/r/webdev/"}]},
+      "imageUrls": ["https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600", "https://images.unsplash.com/photo-1484807352052-23338103c627?w=600", "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600", "https://images.unsplash.com/photo-1484807352052-23338103c627?w=600", "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600"]
     },
     {
       "name": "App Development",
-      "category": "tech-code",
-      "categoryLabel": "Tech & Code",
-      "description": "Build iOS, Android, or cross-platform apps for clients or app stores.",
-      "financial": {
-        "startupCost_min": 50,
-        "startupCost_max": 500,
-        "startupCost_note": "App store fees, dev environment tools",
-        "monthlyEarning_min": 500,
-        "monthlyEarning_max": 10000,
-        "timeToFirstIncome": "4-8 weeks",
-        "typicalMonthlyExpenses_min": 5,
-        "typicalMonthlyExpenses_max": 50,
-        "profitMargin_low": 70,
-        "profitMargin_high": 88,
-        "breakEvenMonths": 2
-      },
-      "effort": {
-        "hoursPerWeekRequired_min": 20,
-        "hoursPerWeekRequired_max": 40,
-        "initialSetupHours": 30,
-        "timeToScaleability": "6-12 months",
-        "scalabilityPotential": "very_high"
-      },
-      "character": {
-        "passivityScore": 0.5,
-        "competitionLevel": "high",
-        "demandTrend": "growing",
-        "seasonality": "steady",
-        "marketSaturation": "medium",
-        "customerAcquisitionDifficulty": "high"
-      },
-      "growth": {
-        "direction": "positive",
-        "magnitude": "very_high",
-        "pct": 22.0,
-        "src": "https://www.bls.gov/ooh/computer-and-information-technology/"
-      },
-      "practical": {
-        "requiredSkills": ["Mobile development (Swift, Kotlin, React Native)", "Problem-solving", "User experience"],
-        "recommendedPlatforms": ["Upwork", "App store publishing", "Client contracts"],
-        "legalConsiderations": "App store agreement compliance; intellectual property ownership with clients; consider app liability",
-        "pros": ["High earning potential", "Passive income from published apps", "Scalable", "Growing market"],
-        "cons": ["Long development time", "Steep learning curve", "App store approval process", "Maintenance burden"],
-        "resources": [
-          {"title": "Swift Tutorials", "url": "https://developer.apple.com/swift/"},
-          {"title": "React Native Docs", "url": "https://reactnative.dev/"},
-          {"title": "Mobile Developers subreddit", "url": "https://www.reddit.com/r/androiddev/"}
-        ]
-      },
-      "imageUrls": [
-        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600",
-        "https://images.unsplash.com/photo-1555949519-2f4ef28af159?w=600",
-        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600",
-        "https://images.unsplash.com/photo-1526374965328-7f5ae4e8b08f?w=600",
-        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600"
-      ]
+      "category": "technical",
+      "categoryLabel": "Technical Skills",
+      "description": "Build mobile or web apps for clients or publish your own apps on app stores.",
+      "narrative": "App development is the high-risk, high-reward hustle. Client work pays $50-200+/hour, but building and selling your own app is the dream. Many developers spend 6-12 months building an app only to earn $0 if it doesn't gain traction. The best path: do client work for income ($3,000-5,000/month), then invest nights/weekends in a side app hoping for passive income. Some apps generate $10,000+/month, but 90% earn <$100/month.",
+      "whyMightLikeIt": ["Highest earning potential if your app succeeds ($10K-100K+/month)", "Build once, earn indefinitely (passive income)", "Create products solving real problems", "Remote global market for client work", "Combines technical + product + business skills"],
+      "keyDecisionPoints": ["Month 1-3: Learn app development framework (React Native, Flutter, or native iOS/Android)", "Month 3-5: Land first client ($3K-5K project)—use freelance platforms", "Month 5+: Build sustained client practice ($3K-5K/month) from referrals/portfolio", "Ongoing nights/weekends: Build your own app pursuing product-market fit"],
+      "typicalTimeline": "Months 1-3: Learning. Months 3-5: First client. Month 6+: Sustained client income ($3K-5K/mo). Years 1-2: Own app development (no income until launch). Year 2+: Client work + app income if successful.",
+      "risks": ["Extremely competitive market (every developer builds apps)", "Own apps rarely succeed ($90% earn <$100/month)", "Client work can be lucrative but time-consuming", "Requires continuous learning (frameworks change fast)", "Success metrics are unclear before building (risky investment of time)"],
+      "marketContext": "App market is oversaturated. Client demand for custom apps is strong (13% growth), but freelance rates are competitive. Successful apps (with real users) are exceptions, not the rule.",
+      "taxConsiderations": "Report client income + app revenue as self-employment. Deduct: software, courses, testing devices, home office, internet, equipment. Self-employment tax applies.",
+      "financial": {"startupCost_min": 50, "startupCost_max": 500, "startupCost_note": "Development tools, testing devices optional, courses", "monthlyEarning_min": 1000, "monthlyEarning_max": 50000, "timeToFirstIncome": "4-6 months (client work); 12-24 months (own app)", "typicalMonthlyExpenses_min": 30, "typicalMonthlyExpenses_max": 150, "profitMargin_low": 65, "profitMargin_high": 90, "breakEvenMonths": 2},
+      "effort": {"hoursPerWeekRequired_min": 30, "hoursPerWeekRequired_max": 50, "initialSetupHours": 150, "timeToScaleability": "12+ months", "scalabilityPotential": "very_high"},
+      "character": {"passivityScore": 0.5, "competitionLevel": "very_high", "demandTrend": "growing", "seasonality": "seasonal", "marketSaturation": "very_high", "customerAcquisitionDifficulty": "high"},
+      "growth": {"direction": "positive", "magnitude": "very_high", "pct": 13, "src": "https://www.bls.gov/ooh/computer-and-information-technology/"},
+      "practical": {"requiredSkills": ["App framework (React Native, Flutter, Swift)", "Backend basics", "Problem-solving", "Product thinking"], "recommendedPlatforms": ["Upwork (client work)", "App Store / Google Play (own apps)", "Product Hunt (app launches)"], "legalConsiderations": "Client contracts must specify IP ownership. Own app: research app store review guidelines and platform policies.", "pros": ["Highest earning upside", "Passive income potential", "Build your own product", "High market demand"], "cons": ["Longest learning curve", "High competition", "Own apps rarely succeed", "Burnout risk from long hours"], "resources": [{"title": "App Dev Stack Overflow", "url": "https://stackoverflow.com/"}, {"title": "Mobile App Development subreddit", "url": "https://www.reddit.com/r/Android/"}, {"title": "Product Hunt", "url": "https://www.producthunt.com/"}]},
+      "imageUrls": ["https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600", "https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=600", "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600", "https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=600", "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600"]
     },
     {
       "name": "Tutoring",
       "category": "education",
-      "categoryLabel": "Education & Tutoring",
-      "description": "Teach students online in subjects like math, languages, test prep, or coding.",
-      "financial": {
-        "startupCost_min": 0,
-        "startupCost_max": 100,
-        "startupCost_note": "Video conferencing (Zoom free, Skype free)",
-        "monthlyEarning_min": 400,
-        "monthlyEarning_max": 2500,
-        "timeToFirstIncome": "1-2 weeks",
-        "typicalMonthlyExpenses_min": 0,
-        "typicalMonthlyExpenses_max": 25,
-        "profitMargin_low": 80,
-        "profitMargin_high": 95,
-        "breakEvenMonths": 1
-      },
-      "effort": {
-        "hoursPerWeekRequired_min": 10,
-        "hoursPerWeekRequired_max": 25,
-        "initialSetupHours": 10,
-        "timeToScaleability": "2-3 months",
-        "scalabilityPotential": "medium"
-      },
-      "character": {
-        "passivityScore": 0.05,
-        "competitionLevel": "medium",
-        "demandTrend": "growing",
-        "seasonality": "seasonal",
-        "marketSaturation": "medium",
-        "customerAcquisitionDifficulty": "low"
-      },
-      "growth": {
-        "direction": "positive",
-        "magnitude": "moderate",
-        "pct": 8.3,
-        "src": "https://www.bls.gov/ooh/education-training-and-library/"
-      },
-      "practical": {
-        "requiredSkills": ["Subject expertise", "Teaching ability", "Patience", "Explanation skills"],
-        "recommendedPlatforms": ["Chegg", "Wyzant", "Tutor.com", "Care.com", "Italki"],
-        "legalConsiderations": "Self-employment income; may need background check for certain platforms; report platform earnings",
-        "pros": ["Steady demand", "Flexible scheduling", "Help students", "Build relationships"],
-        "cons": ["Seasonal (peaks during school year)", "One-on-one only", "No leverage", "Requires expertise"],
-        "resources": [
-          {"title": "Chegg Tutor Academy", "url": "https://tutors.chegg.com/"},
-          {"title": "Wyzant Blog", "url": "https://www.wyzant.com/blog/"},
-          {"title": "Tutors subreddit", "url": "https://www.reddit.com/r/tutoring/"}
-        ]
-      },
-      "imageUrls": [
-        "https://images.unsplash.com/photo-1427504494785-cdfd072aaad8?w=600",
-        "https://images.unsplash.com/photo-1516534775068-bb577a627ae9?w=600",
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
-        "https://images.unsplash.com/photo-1522202176988-696cebadf5d2?w=600",
-        "https://images.unsplash.com/photo-1460925895917-afd651c3c2b5?w=600"
-      ]
+      "categoryLabel": "Education & Coaching",
+      "description": "Tutor students online or in-person (math, languages, test prep, academic subjects).",
+      "narrative": "Tutoring is straightforward: charge $20-50/hour depending on subject and your credentials. You'll work 10-20 hours/week earning $800-2,000/month. Income is steady but capped—you can only teach so many hours. Most tutors either stay small (1-3 students, $1K/month) or scale by recruiting other tutors (business model, not hustle). Best for educators or subject-matter experts seeking stable, low-stress income.",
+      "whyMightLikeIt": ["Steady, predictable hourly income", "Help students improve (meaningful work)", "Flexible scheduling (set your hours)", "Build long-term student relationships", "Low overhead (just need you + internet)"],
+      "keyDecisionPoints": ["Week 1: Define subject, target student level, and rate ($20-50/hour)", "Week 1-2: Set up profiles on platforms (Wyzant, Tutor.com, Chegg, Care.com)", "Week 2-4: Land first students—get reviews/testimonials", "Month 2+: Aim for 5-10 regular students = $1K-2K/month recurring"],
+      "typicalTimeline": "Week 1: Setup, profile creation. Week 2-4: First students. Month 2-3: Build to 5-10 regular students. Month 4+: Stable $1K-2K/month from recurring tutoring.",
+      "risks": ["Income capped by hours available (can't scale without hiring)", "Student no-shows and cancellations (common)", "Burnout from one-on-one teaching (emotionally demanding)", "Low rates ($20-50/hour) unless highly specialized", "Summer slump (students take breaks)"],
+      "marketContext": "Tutoring demand is stable but competitive. Specialized subjects (test prep, languages) command higher rates ($40-75/hr). General academic tutoring is commoditized at $20-40/hr.",
+      "taxConsiderations": "Report all income as self-employment. Deduct: internet, home office, materials (books, software), professional development, business expenses. Self-employment tax applies.",
+      "financial": {"startupCost_min": 0, "startupCost_max": 100, "startupCost_note": "Profile setup, optional materials", "monthlyEarning_min": 400, "monthlyEarning_max": 2000, "timeToFirstIncome": "1-2 weeks", "typicalMonthlyExpenses_min": 5, "typicalMonthlyExpenses_max": 30, "profitMargin_low": 80, "profitMargin_high": 95, "breakEvenMonths": 0},
+      "effort": {"hoursPerWeekRequired_min": 10, "hoursPerWeekRequired_max": 20, "initialSetupHours": 5, "timeToScaleability": "Not scalable without hiring", "scalabilityPotential": "low"},
+      "character": {"passivityScore": 0.0, "competitionLevel": "high", "demandTrend": "stable", "seasonality": "seasonal", "marketSaturation": "high", "customerAcquisitionDifficulty": "low"},
+      "growth": {"direction": "neutral", "magnitude": "flat", "pct": 0, "src": "https://www.bls.gov/ooh/education-training-and-library/"},
+      "practical": {"requiredSkills": ["Subject expertise", "Teaching ability", "Patience", "Communication"], "recommendedPlatforms": ["Wyzant", "Tutor.com", "Chegg Tutors", "Care.com", "Varsity Tutors"], "legalConsiderations": "Background check often required. Set cancellation policy. Respect student data privacy.", "pros": ["Steady income", "Flexible hours", "Meaningful work", "Easy to start"], "cons": ["Income capped", "No scalability without hiring", "Student no-shows", "Emotionally demanding"], "resources": [{"title": "Wyzant Platform", "url": "https://www.wyzant.com/"}, {"title": "Tutor.com", "url": "https://www.tutor.com/"}, {"title": "Teaching Jobs subreddit", "url": "https://www.reddit.com/r/TeachingJobs/"}]},
+      "imageUrls": ["https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600", "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600", "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600", "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600", "https://images.unsplash.com/photo-1427504494785-405a60e2e645?w=600"]
     },
     {
       "name": "Online Course",
-      "category": "education",
-      "categoryLabel": "Education & Tutoring",
-      "description": "Create and sell video courses on platforms like Udemy, Teachable, or Kajabi.",
-      "financial": {
-        "startupCost_min": 100,
-        "startupCost_max": 1000,
-        "startupCost_note": "Hosting platform fees, camera/microphone",
-        "monthlyEarning_min": 0,
-        "monthlyEarning_max": 5000,
-        "timeToFirstIncome": "6-12 months",
-        "typicalMonthlyExpenses_min": 10,
-        "typicalMonthlyExpenses_max": 100,
-        "profitMargin_low": 70,
-        "profitMargin_high": 90,
-        "breakEvenMonths": 12
-      },
-      "effort": {
-        "hoursPerWeekRequired_min": 15,
-        "hoursPerWeekRequired_max": 40,
-        "initialSetupHours": 100,
-        "timeToScaleability": "12+ months",
-        "scalabilityPotential": "very_high"
-      },
-      "character": {
-        "passivityScore": 0.85,
-        "competitionLevel": "high",
-        "demandTrend": "growing",
-        "seasonality": "steady",
-        "marketSaturation": "high",
-        "customerAcquisitionDifficulty": "high"
-      },
-      "growth": {
-        "direction": "positive",
-        "magnitude": "high",
-        "pct": 12.8,
-        "src": "https://www.bls.gov/ooh/education-training-and-library/"
-      },
-      "practical": {
-        "requiredSkills": ["Teaching", "Video production", "Marketing", "Expertise in subject"],
-        "recommendedPlatforms": ["Udemy", "Teachable", "Kajabi", "Thinkific"],
-        "legalConsiderations": "Report platform revenue as self-employment; understand platform's intellectual property terms; may need disclaimers",
-        "pros": ["Passive income potential", "Scalable", "Help many students", "Premium platform potential"],
-        "cons": ["Long creation time", "Requires marketing", "High competition", "Udemy's low margins"],
-        "resources": [
-          {"title": "Udemy Instructor Academy", "url": "https://instructor.udemy.com/"},
-          {"title": "Teachable Creator Hub", "url": "https://teachable.com/blog"},
-          {"title": "Online Course Creators subreddit", "url": "https://www.reddit.com/r/Entrepreneur/"}
-        ]
-      },
-      "imageUrls": [
-        "https://images.unsplash.com/photo-1516534775068-bb577a627ae9?w=600",
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
-        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600",
-        "https://images.unsplash.com/photo-1516321318423-f06f70504504?w=600",
-        "https://images.unsplash.com/photo-1522202176988-696cebadf5d2?w=600"
-      ]
+      "category": "content-writing",
+      "categoryLabel": "Content & Writing",
+      "description": "Create and sell online courses on platforms like Udemy, Teachable, or your own site.",
+      "narrative": "Online courses are passive income gold—if they sell. You create course once (20-40 hours work), then collect revenue indefinitely from students. Successful instructors earn $500-2,000/month per course with minimal ongoing effort. But success requires expertise (teaching a skill people want to learn) and marketing (getting students to find your course). Most courses earn $0-100/month.",
+      "whyMightLikeIt": ["True passive income (create once, earn forever)", "Leverage expertise into scalable product", "Help thousands of students", "Build personal brand and authority", "Multiple revenue streams per course"],
+      "keyDecisionPoints": ["Month 1: Choose a skill you can teach (something you're expert in, something in demand)", "Month 1-2: Research existing courses on Udemy/Skillshare—find gaps in market", "Month 2-4: Record and edit course (20-40 hours)—quality matters", "Month 4+: Launch and market—expect $0-100/month initially, scale with marketing"],
+      "typicalTimeline": "Month 1: Planning, market research. Month 2-4: Course creation (no income). Month 4-5: Launch. Month 5+: $0-100/mo (most), or $500-2K/mo (successful).",
+      "risks": ["Very long ramp before income (4+ months)", "Most courses earn <$100/month (success is exception)", "Requires marketing skills (content, social, ads)", "Plateaus quickly (limited by market size)", "Platform takes 30-50% of revenue (Udemy vs. Teachable different models)"],
+      "marketContext": "Online course market is saturated in popular topics (coding, business, marketing). Success requires either unique angle or exceptional teaching. Niche topics (specialized software, certifications) have less competition.",
+      "taxConsiderations": "Report course revenue as self-employment income. Deduct: platform fees, hosting, video equipment, course creation software, marketing, professional development. Self-employment tax applies.",
+      "financial": {"startupCost_min": 0, "startupCost_max": 500, "startupCost_note": "Hosting, video software, marketing optional", "monthlyEarning_min": 0, "monthlyEarning_max": 5000, "timeToFirstIncome": "4-6 months", "typicalMonthlyExpenses_min": 0, "typicalMonthlyExpenses_max": 50, "profitMargin_low": 50, "profitMargin_high": 85, "breakEvenMonths": 4},
+      "effort": {"hoursPerWeekRequired_min": 0, "hoursPerWeekRequired_max": 10, "initialSetupHours": 100, "timeToScaleability": "6-12 months", "scalabilityPotential": "medium"},
+      "character": {"passivityScore": 0.8, "competitionLevel": "very_high", "demandTrend": "growing", "seasonality": "steady", "marketSaturation": "very_high", "customerAcquisitionDifficulty": "high"},
+      "growth": {"direction": "neutral", "magnitude": "moderate", "pct": 6, "src": "https://www.edx.org/course-search"},
+      "practical": {"requiredSkills": ["Teaching ability", "Expertise in subject", "Marketing", "Video/content creation"], "recommendedPlatforms": ["Udemy", "Teachable", "Skillshare", "Coursera"], "legalConsiderations": "Respect intellectual property. Use licensed music/images. Disclose affiliate links if you promote products.", "pros": ["True passive income potential", "Help many students", "Build authority", "Scalable (one course, unlimited students)"], "cons": ["Extremely long ramp to income", "Most courses fail", "Requires marketing", "Platform dependency"], "resources": [{"title": "Teachable", "url": "https://www.teachable.com/"}, {"title": "Online Course Creators subreddit", "url": "https://www.reddit.com/r/OnlineCourses/"}, {"title": "Udemy Teaching", "url": "https://www.udemy.com/teaching/"}]},
+      "imageUrls": ["https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600", "https://images.unsplash.com/photo-1516534775068-bb127e9a1158?w=600", "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600", "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600", "https://images.unsplash.com/photo-1427504494785-405a60e2e645?w=600"]
     },
     {
       "name": "Dropshipping",
-      "category": "selling-ecommerce",
-      "categoryLabel": "Selling & E-commerce",
-      "description": "Set up an online store and sell products without holding inventory.",
-      "financial": {
-        "startupCost_min": 300,
-        "startupCost_max": 1000,
-        "startupCost_note": "Shopify ($29/month), marketing, domain",
-        "monthlyEarning_min": 100,
-        "monthlyEarning_max": 5000,
-        "timeToFirstIncome": "2-4 weeks",
-        "typicalMonthlyExpenses_min": 100,
-        "typicalMonthlyExpenses_max": 500,
-        "profitMargin_low": 20,
-        "profitMargin_high": 40,
-        "breakEvenMonths": 3
-      },
-      "effort": {
-        "hoursPerWeekRequired_min": 15,
-        "hoursPerWeekRequired_max": 35,
-        "initialSetupHours": 25,
-        "timeToScaleability": "3-6 months",
-        "scalabilityPotential": "high"
-      },
-      "character": {
-        "passivityScore": 0.25,
-        "competitionLevel": "very_high",
-        "demandTrend": "stable",
-        "seasonality": "seasonal",
-        "marketSaturation": "very_high",
-        "customerAcquisitionDifficulty": "high"
-      },
-      "growth": {
-        "direction": "neutral",
-        "magnitude": "flat",
-        "pct": 0.5,
-        "src": "https://www.statista.com/outlook/dmo/ecommerce/united-states"
-      },
-      "practical": {
-        "requiredSkills": ["Marketing", "Ads (Facebook, Google)", "Customer service"],
-        "recommendedPlatforms": ["Shopify", "WooCommerce", "Printful", "AliExpress suppliers"],
-        "legalConsiderations": "Register business; collect sales tax; understand supplier terms; liability for product issues",
-        "pros": ["Low risk (no inventory)", "Scalable", "Potential for high margins", "Flexible"],
-        "cons": ["Very competitive", "Requires ad spend", "Shipping issues", "Tight margins with scale"],
-        "resources": [
-          {"title": "Shopify Blog", "url": "https://www.shopify.com/blog"},
-          {"title": "Dropshipping subreddit", "url": "https://www.reddit.com/r/dropshipping/"},
-          {"title": "Oberlo Guides", "url": "https://www.oberlo.com/guides"}
-        ]
-      },
-      "imageUrls": [
-        "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=600",
-        "https://images.unsplash.com/photo-1460925895917-afd651c3c2b5?w=600",
-        "https://images.unsplash.com/photo-1549923746-c533fc8f2c8d?w=600",
-        "https://images.unsplash.com/photo-1522202176988-696cebadf5d2?w=600",
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600"
-      ]
+      "category": "ecommerce",
+      "categoryLabel": "E-Commerce",
+      "description": "Set up an online store selling products from suppliers, shipping directly to customers.",
+      "narrative": "Dropshipping is deceptive marketing—it's presented as easy, but it's actually competitive and thin-margin. You create a store (Shopify ~$30/month), source products from AliExpress or suppliers, mark them up 2-3x cost, and sell online. Initial cost is $500-2,000 (store setup, initial inventory, ads). Most dropshippers earn $0-200/month before quitting. Successful ones ($2,000-5,000/month) have found product-market fit and run paid ads profitably. Requires both product sense and marketing skill.",
+      "whyMightLikeIt": ["No inventory risk (supplier ships directly)", "Scalable: can sell unlimited units", "Low startup cost relative to traditional retail", "Own store + brand (vs. reselling on platforms)", "Potential for rapid scaling if product gains traction"],
+      "keyDecisionPoints": ["Week 1: Choose niche and products (high-demand, low-competition)", "Week 1-2: Set up Shopify store and import products", "Week 2-3: Create product listings, landing pages, ads", "Week 3-4: Launch paid ads (Facebook, TikTok) and optimize conversion rate", "Month 2+: Scale winners, test new products, manage CAC"],
+      "typicalTimeline": "Week 1-2: Setup, product research. Week 2-4: Initial launch, ads. Month 2-3: Optimize or pivot. Month 3+: If working, scale ads and volume. If not, try new product.",
+      "risks": ["Extremely competitive (thousands of dropshippers in each niche)", "Customer acquisition cost often exceeds profit margin", "Returns/chargebacks are common (logistics complex)", "Supplier issues (shipping delays, quality)", "Requires paid ads to scale (expensive if not profitable)"],
+      "marketContext": "Dropshipping is saturated. Retail arbitrage (reselling existing products) has high margins but fierce competition. Success requires finding underserved products or audiences.",
+      "taxConsiderations": "Report all sales as business income. Deduct: COGS (product cost), platform fees (Shopify), shipping, ads, software, refunds. Track inventory carefully.",
+      "financial": {"startupCost_min": 500, "startupCost_max": 2000, "startupCost_note": "Shopify, initial ads, product imports", "monthlyEarning_min": 0, "monthlyEarning_max": 5000, "timeToFirstIncome": "2-4 weeks", "typicalMonthlyExpenses_min": 200, "typicalMonthlyExpenses_max": 1000, "profitMargin_low": 20, "profitMargin_high": 50, "breakEvenMonths": 1},
+      "effort": {"hoursPerWeekRequired_min": 15, "hoursPerWeekRequired_max": 30, "initialSetupHours": 40, "timeToScaleability": "3-6 months", "scalabilityPotential": "high"},
+      "character": {"passivityScore": 0.3, "competitionLevel": "very_high", "demandTrend": "declining", "seasonality": "seasonal", "marketSaturation": "very_high", "customerAcquisitionDifficulty": "very_high"},
+      "growth": {"direction": "negative", "magnitude": "moderate", "pct": -2, "src": "https://www.shopify.com/blog/dropshipping"},
+      "practical": {"requiredSkills": ["Product research", "Marketing", "Paid ads management", "Customer service"], "recommendedPlatforms": ["Shopify", "Printful", "AliExpress", "Facebook Ads"], "legalConsiderations": "Disclose dropshipping model if required. Honor return policies. Ensure supplier uses safe materials.", "pros": ["No inventory risk", "Scalable model", "Own store/brand", "Low upfront cost"], "cons": ["Extremely competitive", "Thin margins", "Requires paid ads", "High churn/returns"], "resources": [{"title": "Shopify Dropshipping Guide", "url": "https://www.shopify.com/dropshipping"}, {"title": "Dropshipping subreddit", "url": "https://www.reddit.com/r/dropshipping/"}, {"title": "Oberlo", "url": "https://www.oberlo.com/"}]},
+      "imageUrls": ["https://images.unsplash.com/photo-1556740754-2471c1d59af0?w=600", "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600", "https://images.unsplash.com/photo-1556740754-2471c1d59af0?w=600", "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600", "https://images.unsplash.com/photo-1556740754-2471c1d59af0?w=600"]
     },
     {
       "name": "Print-on-Demand",
-      "category": "selling-ecommerce",
-      "categoryLabel": "Selling & E-commerce",
-      "description": "Design and sell custom merchandise (t-shirts, mugs, hoodies) without inventory.",
-      "financial": {
-        "startupCost_min": 0,
-        "startupCost_max": 300,
-        "startupCost_note": "Optional Etsy shop fee ($0.20/item), design tools",
-        "monthlyEarning_min": 50,
-        "monthlyEarning_max": 2000,
-        "timeToFirstIncome": "1-2 weeks",
-        "typicalMonthlyExpenses_min": 0,
-        "typicalMonthlyExpenses_max": 30,
-        "profitMargin_low": 30,
-        "profitMargin_high": 60,
-        "breakEvenMonths": 2
-      },
-      "effort": {
-        "hoursPerWeekRequired_min": 5,
-        "hoursPerWeekRequired_max": 20,
-        "initialSetupHours": 15,
-        "timeToScaleability": "2-4 months",
-        "scalabilityPotential": "medium"
-      },
-      "character": {
-        "passivityScore": 0.5,
-        "competitionLevel": "high",
-        "demandTrend": "growing",
-        "seasonality": "seasonal",
-        "marketSaturation": "high",
-        "customerAcquisitionDifficulty": "high"
-      },
-      "growth": {
-        "direction": "positive",
-        "magnitude": "moderate",
-        "pct": 4.9,
-        "src": "https://www.statista.com/outlook/dmo/ecommerce/united-states"
-      },
-      "practical": {
-        "requiredSkills": ["Design", "Marketing", "Creativity"],
-        "recommendedPlatforms": ["Etsy", "Teespring", "Printful", "Merch by Amazon"],
-        "legalConsiderations": "Trademark/copyright compliance for designs; understand platform terms; report sales as self-employment",
-        "pros": ["Low startup cost", "No inventory risk", "Passive after creation", "Creative outlet"],
-        "cons": ["Low margins per item", "High competition", "Slow sales initially", "Requires marketing"],
-        "resources": [
-          {"title": "Etsy Seller Handbook", "url": "https://www.etsy.com/seller-handbook"},
-          {"title": "Merch by Amazon Resources", "url": "https://merchbyamazon.com/"},
-          {"title": "Print-on-Demand subreddit", "url": "https://www.reddit.com/r/printondemand/"}
-        ]
-      },
-      "imageUrls": [
-        "https://images.unsplash.com/photo-1608848541803-ba4f8a3ae0f2?w=600",
-        "https://images.unsplash.com/photo-1522202176988-696cebadf5d2?w=600",
-        "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600",
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
-        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600"
-      ]
+      "category": "ecommerce",
+      "categoryLabel": "E-Commerce",
+      "description": "Design and sell custom merchandise (t-shirts, mugs, hats) with print-on-demand suppliers.",
+      "narrative": "Print-on-demand is lower-risk than dropshipping—you don't buy inventory. You design a t-shirt or mug, upload to Printful or Merch by Amazon, and they handle production/shipping. You earn 30-50% margin per sale. Scale is slow: most POD businesses earn $100-500/month because marketing is expensive and print margins are thin. Niche focus helps (e.g., designs for specific communities). Success requires both design and marketing.",
+      "whyMightLikeIt": ["Zero inventory risk (supplier produces on demand)", "Creative (design actual products)", "Passive income potential (design once, sell forever)", "Low startup cost ($0 if using Merch by Amazon)", "Scalable: can sell unlimited units"],
+      "keyDecisionPoints": ["Week 1: Choose niche and design style (e.g., funny t-shirts for developers)", "Week 1-2: Design 5-10 products (or hire designer)", "Week 2-3: Upload to Merch by Amazon and/or Printful", "Week 3-4: Start marketing (social media, ads, communities)", "Month 2+: Analyze sales, iterate on designs, scale winners"],
+      "typicalTimeline": "Week 1: Niche selection, design. Week 1-2: Setup accounts. Week 2-4: Initial designs uploaded. Month 2-3: First sales ($0-100/mo). Month 3+: Scale with marketing or design more products.",
+      "risks": ["Very low margins per sale ($2-5 profit on $15 shirt)", "Requires constant design iteration (winners are exceptions)", "Marketing costs can exceed margins (ads not profitable)", "Platform dependency (Merch by Amazon can suspend)", "Design is subjective (hard to predict what sells)"],
+      "marketContext": "POD is a race to the bottom on price. Success requires either cult-niche designs (very specific communities) or volume marketing. Premium designs (art, niche humor) have better margins.",
+      "taxConsiderations": "Report all sales revenue. Deduct: COGS, platform fees, design software, ads, equipment. Track inventory/sales carefully for taxes.",
+      "financial": {"startupCost_min": 0, "startupCost_max": 500, "startupCost_note": "Merch by Amazon is free; Printful ~$15/mo", "monthlyEarning_min": 0, "monthlyEarning_max": 2000, "timeToFirstIncome": "2-4 weeks", "typicalMonthlyExpenses_min": 0, "typicalMonthlyExpenses_max": 50, "profitMargin_low": 30, "profitMargin_high": 60, "breakEvenMonths": 0},
+      "effort": {"hoursPerWeekRequired_min": 5, "hoursPerWeekRequired_max": 15, "initialSetupHours": 20, "timeToScaleability": "3-6 months", "scalabilityPotential": "medium"},
+      "character": {"passivityScore": 0.5, "competitionLevel": "very_high", "demandTrend": "growing", "seasonality": "seasonal", "marketSaturation": "very_high", "customerAcquisitionDifficulty": "high"},
+      "growth": {"direction": "neutral", "magnitude": "moderate", "pct": 5, "src": "https://www.shopify.com/blog/print-on-demand"},
+      "practical": {"requiredSkills": ["Design or design hiring", "Marketing", "Social media", "Niche understanding"], "recommendedPlatforms": ["Merch by Amazon", "Printful", "Teespring", "Redbubble"], "legalConsiderations": "Don't copy existing designs. Respect trademarks. Get rights to images/quotes used.", "pros": ["No inventory risk", "Creative outlet", "Low startup cost", "Passive income potential"], "cons": ["Very low margins", "Requires constant design iteration", "Marketing expensive", "Competition fierce"], "resources": [{"title": "Printful", "url": "https://www.printful.com/"}, {"title": "Merch by Amazon", "url": "https://www.merch.amazon.com/"}, {"title": "Print on Demand subreddit", "url": "https://www.reddit.com/r/printondemand/"}]},
+      "imageUrls": ["https://images.unsplash.com/photo-1556821840-b79b85f5aa0a?w=600", "https://images.unsplash.com/photo-1556821840-b79b85f5aa0a?w=600", "https://images.unsplash.com/photo-1556821840-b79b85f5aa0a?w=600", "https://images.unsplash.com/photo-1556821840-b79b85f5aa0a?w=600", "https://images.unsplash.com/photo-1556821840-b79b85f5aa0a?w=600"]
     },
     {
       "name": "Etsy Shop",
-      "category": "selling-ecommerce",
-      "categoryLabel": "Selling & E-commerce",
-      "description": "Sell handmade crafts, vintage items, or digital products on Etsy.",
-      "financial": {
-        "startupCost_min": 50,
-        "startupCost_max": 500,
-        "startupCost_note": "Materials + shop setup; Etsy takes 6.5% commission",
-        "monthlyEarning_min": 100,
-        "monthlyEarning_max": 3000,
-        "timeToFirstIncome": "2-4 weeks",
-        "typicalMonthlyExpenses_min": 30,
-        "typicalMonthlyExpenses_max": 200,
-        "profitMargin_low": 40,
-        "profitMargin_high": 75,
-        "breakEvenMonths": 2
-      },
-      "effort": {
-        "hoursPerWeekRequired_min": 10,
-        "hoursPerWeekRequired_max": 25,
-        "initialSetupHours": 20,
-        "timeToScaleability": "3-6 months",
-        "scalabilityPotential": "medium"
-      },
-      "character": {
-        "passivityScore": 0.4,
-        "competitionLevel": "high",
-        "demandTrend": "stable",
-        "seasonality": "seasonal",
-        "marketSaturation": "high",
-        "customerAcquisitionDifficulty": "medium"
-      },
-      "growth": {
-        "direction": "neutral",
-        "magnitude": "low",
-        "pct": 1.2,
-        "src": "https://www.statista.com/outlook/dmo/ecommerce/united-states"
-      },
-      "practical": {
-        "requiredSkills": ["Crafting or curation", "Photography", "Writing descriptions", "Customer service"],
-        "recommendedPlatforms": ["Etsy"],
-        "legalConsiderations": "Business registration may be needed; report sales and COGS for tax; understand handmade vs resale rules",
-        "pros": ["Passive income potential", "Leverage SEO", "Built-in audience", "Creative outlet"],
-        "cons": ["High competition", "Platform dependent", "Shipping logistics", "Photography important"],
-        "resources": [
-          {"title": "Etsy Seller Handbook", "url": "https://www.etsy.com/seller-handbook"},
-          {"title": "Etsy subreddit", "url": "https://www.reddit.com/r/EtsySellers/"},
-          {"title": "Karol Makes Etsy Guides", "url": "https://www.etsy.com/shop/KarolMakesShop"}
-        ]
-      },
-      "imageUrls": [
-        "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600",
-        "https://images.unsplash.com/photo-1460925895917-afd651c3c2b5?w=600",
-        "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600",
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
-        "https://images.unsplash.com/photo-1493514789a586cb145618e8d53fcc9c9cb837b1?w=600"
-      ]
+      "category": "ecommerce",
+      "categoryLabel": "E-Commerce",
+      "description": "Create and sell handmade or vintage items on Etsy, or digital products (printables, templates).",
+      "narrative": "Etsy is a marketplace for handmade, vintage, and digital goods. You create products (handmade crafts, digital designs, templates), list them on Etsy ($0.20/listing), and earn 100% profit minus Etsy fees (6.5% + payment fees ~3%). Success depends on niche selection and product-market fit. Handmade businesses earn $500-2,000/month with consistent effort. Digital product stores can be more passive: you upload designs once, customers download indefinitely. Most Etsy shops earn <$100/month.",
+      "whyMightLikeIt": ["Easy to start (just list products)", "Etsy handles payments and delivery (for digital)", "Low setup cost ($0.20 per listing)", "Can combine handmade + digital for passive + active income", "Grows if product gains traction (organic discovery)"],
+      "keyDecisionPoints": ["Week 1: Choose product (handmade or digital)", "Week 1-2: Create 10+ initial listings (SEO matters on Etsy)", "Week 2-3: Optimize titles/descriptions for search", "Week 3-4: Drive traffic (Pinterest, Instagram, email)", "Month 2+: Analyze data, double down on winners, iterate"],
+      "typicalTimeline": "Week 1: Setup, product creation. Week 1-2: Initial listings. Week 2-4: First sales ($0-50/mo). Month 2+: Scale if working ($500-2K/mo possible). If not, iterate or try different niche.",
+      "risks": ["Etsy is saturated (massive competition)", "Algorithm favors established shops (slow to grow)", "Etsy fees add up (6.5% + payment processor)", "Handmade requires sourcing + shipping (logistical)", "Returns/disputes common (customer service heavy)"],
+      "marketContext": "Etsy market is mature. Handmade niches (jewelry, art, home décor) are competitive. Digital products (printables, templates, illustrations) have better margins and less competition.",
+      "taxConsiderations": "Report all sales as self-employment income. Deduct: COGS, Etsy fees, shipping supplies, materials, home office, equipment. Track inventory for sales tax.",
+      "financial": {"startupCost_min": 0, "startupCost_max": 500, "startupCost_note": "Materials for handmade or design software for digital", "monthlyEarning_min": 0, "monthlyEarning_max": 3000, "timeToFirstIncome": "1-4 weeks", "typicalMonthlyExpenses_min": 10, "typicalMonthlyExpenses_max": 100, "profitMargin_low": 40, "profitMargin_high": 80, "breakEvenMonths": 0},
+      "effort": {"hoursPerWeekRequired_min": 5, "hoursPerWeekRequired_max": 20, "initialSetupHours": 30, "timeToScaleability": "3-6 months", "scalabilityPotential": "medium"},
+      "character": {"passivityScore": 0.4, "competitionLevel": "very_high", "demandTrend": "growing", "seasonality": "seasonal", "marketSaturation": "very_high", "customerAcquisitionDifficulty": "high"},
+      "growth": {"direction": "neutral", "magnitude": "moderate", "pct": 4, "src": "https://www.etsy.com/shop-managers"},
+      "practical": {"requiredSkills": ["Craftsmanship (handmade) or design (digital)", "SEO basics", "Photography", "Customer service"], "recommendedPlatforms": ["Etsy", "Pinterest (traffic driver)", "Instagram"], "legalConsiderations": "Disclose handmade status. Respect intellectual property. Honor return/refund policy.", "pros": ["Low setup cost", "Easy to start", "Passive potential (digital)", "Built-in audience (Etsy traffic)"], "cons": ["Very competitive", "Etsy fees add up", "Slow growth", "Requires consistent product creation"], "resources": [{"title": "Etsy Seller Handbook", "url": "https://www.etsy.com/seller-resources"}, {"title": "Etsy subreddit", "url": "https://www.reddit.com/r/Etsy/"}, {"title": "Etsy Business Podcast", "url": "https://www.etsy.com/seller-resources/podcasts"}]},
+      "imageUrls": ["https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600", "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600", "https://images.unsplash.com/photo-1556821840-b79b85f5aa0a?w=600", "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600", "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600"]
     },
     {
       "name": "Affiliate Marketing",
-      "category": "selling-ecommerce",
-      "categoryLabel": "Selling & E-commerce",
-      "description": "Promote products and earn commission on sales through affiliate links.",
-      "financial": {
-        "startupCost_min": 50,
-        "startupCost_max": 500,
-        "startupCost_note": "Website/blog, domain optional",
-        "monthlyEarning_min": 0,
-        "monthlyEarning_max": 5000,
-        "timeToFirstIncome": "3-6 months",
-        "typicalMonthlyExpenses_min": 10,
-        "typicalMonthlyExpenses_max": 100,
-        "profitMargin_low": 80,
-        "profitMargin_high": 95,
-        "breakEvenMonths": 6
-      },
-      "effort": {
-        "hoursPerWeekRequired_min": 10,
-        "hoursPerWeekRequired_max": 25,
-        "initialSetupHours": 30,
-        "timeToScaleability": "6-12 months",
-        "scalabilityPotential": "high"
-      },
-      "character": {
-        "passivityScore": 0.7,
-        "competitionLevel": "very_high",
-        "demandTrend": "growing",
-        "seasonality": "seasonal",
-        "marketSaturation": "very_high",
-        "customerAcquisitionDifficulty": "high"
-      },
-      "growth": {
-        "direction": "positive",
-        "magnitude": "high",
-        "pct": 10.2,
-        "src": "https://www.statista.com/outlook/dmo/ecommerce/united-states"
-      },
-      "practical": {
-        "requiredSkills": ["Writing/content", "SEO", "Trust-building", "Audience understanding"],
-        "recommendedPlatforms": ["Amazon Associates", "ShareASale", "CJ Affiliate", "Influencer networks"],
-        "legalConsiderations": "Disclose affiliate relationships (FTC requirement); tax on affiliate commissions; track program terms",
-        "pros": ["Passive income potential", "No inventory", "Scalable", "Flexible"],
-        "cons": ["Slow to profit", "High competition", "SEO dependent", "Low commissions on some products"],
-        "resources": [
-          {"title": "Amazon Associates Central", "url": "https://affiliate-program.amazon.com/"},
-          {"title": "Affiliate Summit Resources", "url": "https://www.affiliatesummit.com/"},
-          {"title": "Affiliate Marketing subreddit", "url": "https://www.reddit.com/r/affiliatemarketing/"}
-        ]
-      },
-      "imageUrls": [
-        "https://images.unsplash.com/photo-1460925895917-afd651c3c2b5?w=600",
-        "https://images.unsplash.com/photo-1554774853-aae0bffe2c10?w=600",
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
-        "https://images.unsplash.com/photo-1460925895917-afd651c3c2b5?w=600",
-        "https://images.unsplash.com/photo-1522202176988-696cebadf5d2?w=600"
-      ]
+      "category": "marketing",
+      "categoryLabel": "Marketing & Monetization",
+      "description": "Earn commissions by promoting products from companies (Amazon, niche brands, SaaS).",
+      "narrative": "Affiliate marketing earns commissions (5-30%) when someone clicks your link and buys. You don't need your own product. The path: build an audience (blog, YouTube, email list) that trusts you, then promote relevant affiliate products. Most affiliates earn $100-500/month; top earners make $5,000+/month. Takes 6-12 months to build an audience. Best angle: deep expertise in niche (e.g., mechanical keyboard enthusiast reviewing keyboards, earning commission per sale).",
+      "whyMightLikeIt": ["No product creation (just promote existing)", "Scalable (one article, many sales)", "Passive once audience exists", "Low startup cost (just time building audience)", "Multiple revenue streams per site"],
+      "keyDecisionPoints": ["Month 1: Choose niche (something you know, something with affiliate programs)", "Month 1-2: Build initial audience base (10K blog traffic or 1K email subscribers)", "Month 2-6: Create 30+ affiliate articles/reviews (SEO optimized)", "Month 6-12: Receive affiliate commission from sales", "Month 12+: Scale promotions, diversify affiliates, build email list"],
+      "typicalTimeline": "Months 1-3: Audience building (no income). Months 3-6: Traffic growth (first commissions $0-100/mo). Months 6-12: Revenue scales ($500-2K/mo possible). Year 1+: Passive if audience maintained.",
+      "risks": ["Slow to profitability (6-12+ months)", "Audience building is hard (most blogs fail)", "Commission rates are low unless niche (Amazon 1-3%, niche 10-30%)", "Disclosure requirements (FTC rules)", "Audience trust crucial (recommending wrong product ruins credibility)"],
+      "marketContext": "Affiliate marketing is saturated. Success requires niche focus + authority building. Generic product categories (Amazon Associates) are competitive; niche communities/expertise are underserved.",
+      "taxConsiderations": "Report all affiliate commissions as self-employment income. Deduct: hosting, domain, tools, content creation, ads, home office. Self-employment tax applies.",
+      "financial": {"startupCost_min": 50, "startupCost_max": 500, "startupCost_note": "Domain, hosting, email platform", "monthlyEarning_min": 0, "monthlyEarning_max": 10000, "timeToFirstIncome": "4-8 months", "typicalMonthlyExpenses_min": 10, "typicalMonthlyExpenses_max": 50, "profitMargin_low": 80, "profitMargin_high": 95, "breakEvenMonths": 3},
+      "effort": {"hoursPerWeekRequired_min": 10, "hoursPerWeekRequired_max": 30, "initialSetupHours": 50, "timeToScaleability": "6-12 months", "scalabilityPotential": "very_high"},
+      "character": {"passivityScore": 0.7, "competitionLevel": "very_high", "demandTrend": "growing", "seasonality": "seasonal", "marketSaturation": "very_high", "customerAcquisitionDifficulty": "very_high"},
+      "growth": {"direction": "positive", "magnitude": "moderate", "pct": 7, "src": "https://www.influencerintelligence.com/affiliate-marketing-statistics"},
+      "practical": {"requiredSkills": ["Content creation", "SEO basics", "Niche expertise", "Audience building"], "recommendedPlatforms": ["Amazon Associates", "ShareASale", "CJ Affiliate", "Refersion"], "legalConsiderations": "Disclose affiliate relationships (#ad, #sponsored). Follow FTC guidelines. Only promote products you believe in.", "pros": ["No product creation", "Scalable", "Passive income potential", "Multiple revenue streams"], "cons": ["Long ramp to income", "Audience building hard", "Low margins (unless niche)", "Credibility crucial"], "resources": [{"title": "Amazon Associates", "url": "https://affiliate-program.amazon.com/"}, {"title": "Affiliate Marketing subreddit", "url": "https://www.reddit.com/r/affiliatemarketing/"}, {"title": "Affiliate Summit", "url": "https://www.affiliatesummit.com/"}]},
+      "imageUrls": ["https://images.unsplash.com/photo-1552664730-d307ca884978?w=600", "https://images.unsplash.com/photo-1460925895917-afd651c3c2b5?w=600", "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600", "https://images.unsplash.com/photo-1460925895917-afd651c3c2b5?w=600", "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600"]
     },
     {
-      "name": "Delivery Driver (DoorDash/Uber Eats)",
-      "category": "gig-work",
-      "categoryLabel": "Gig Work",
-      "description": "Deliver food or groceries for DoorDash, Uber Eats, or similar platforms.",
-      "financial": {
-        "startupCost_min": 0,
-        "startupCost_max": 5000,
-        "startupCost_note": "Car required (can use existing); insurance may increase",
-        "monthlyEarning_min": 500,
-        "monthlyEarning_max": 2500,
-        "timeToFirstIncome": "1 week",
-        "typicalMonthlyExpenses_min": 150,
-        "typicalMonthlyExpenses_max": 400,
-        "profitMargin_low": 40,
-        "profitMargin_high": 65,
-        "breakEvenMonths": 1
-      },
-      "effort": {
-        "hoursPerWeekRequired_min": 10,
-        "hoursPerWeekRequired_max": 40,
-        "initialSetupHours": 5,
-        "timeToScaleability": "immediate",
-        "scalabilityPotential": "low"
-      },
-      "character": {
-        "passivityScore": 0.0,
-        "competitionLevel": "low",
-        "demandTrend": "growing",
-        "seasonality": "seasonal",
-        "marketSaturation": "medium",
-        "customerAcquisitionDifficulty": "low"
-      },
-      "growth": {
-        "direction": "positive",
-        "magnitude": "high",
-        "pct": 14.1,
-        "src": "https://www.bls.gov/ooh/transportation-and-material-moving/"
-      },
-      "practical": {
-        "requiredSkills": ["Driving", "Time management", "Customer service"],
-        "recommendedPlatforms": ["DoorDash", "Uber Eats", "Instacart", "Grubhub"],
-        "legalConsiderations": "Independent contractor; vehicle insurance required; track mileage for taxes; report platform 1099 income",
-        "pros": ["Immediate income", "Flexible hours", "Work as much as you want", "No interview needed"],
-        "cons": ["Car wear and tear", "Gas expensive", "Seasonal demand", "No benefits"],
-        "resources": [
-          {"title": "DoorDash Help Center", "url": "https://help.doordash.com/"},
-          {"title": "Uber Eats Delivery", "url": "https://www.ubereats.com/uber-eats-driver"},
-          {"title": "GigEconomy subreddit", "url": "https://www.reddit.com/r/couriersofreddit/"}
-        ]
-      },
-      "imageUrls": [
-        "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600",
-        "https://images.unsplash.com/photo-1527786356703-4b100091cd2c?w=600",
-        "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600",
-        "https://images.unsplash.com/photo-1527786356703-4b100091cd2c?w=600",
-        "https://images.unsplash.com/photo-1522576285406-f7dcb0b72b54?w=600"
-      ]
+      "name": "Delivery Driver",
+      "category": "gig-economy",
+      "categoryLabel": "Gig Economy",
+      "description": "Deliver food or packages for DoorDash, Uber Eats, Instacart, Amazon Flex, etc.",
+      "narrative": "Delivery is the quickest way to earn: sign up, pass background check, start delivering. Earn $15-25/hour in most markets (before fuel/wear-and-tear). Most drivers work 20-30 hours/week for $800-1,500/month gross. After accounting for gas (~$0.30/mile), maintenance, wear-and-tear, and insurance, net is often $600-1,000/month. It's transactional: you deliver, you earn. No passive income, no scalability. Best for quick cash, worst for career building.",
+      "whyMightLikeIt": ["Immediate income (start earning same day)", "Flexible hours (work when you want)", "No interview/hiring process (quick onboarding)", "Choose your own schedule", "Works with existing job (supplement income)"],
+      "keyDecisionPoints": ["Day 1: Sign up with DoorDash/Uber/Instacart (background check ~1 week)", "Day 7: Pass background, activate account", "Week 1-2: First delivery, learn logistics", "Week 2+: Optimize routes, pick profitable zones, manage time"],
+      "typicalTimeline": "Day 1-7: Signup, background check. Week 1-2: First deliveries. Week 2+: Optimize routes and earnings. Month 3+: Decide if sustainable long-term.",
+      "risks": ["Extreme price competition (rates have declined for years)", "Fuel costs volatile (gas price directly impacts earnings)", "Vehicle wear-and-tear (repairs expensive)", "No benefits (no health insurance, 401k)", "Burnout from continuous driving (stressful, exhausting)", "Algorithm-dependent (apps can deactivate you)"],
+      "marketContext": "Delivery market is mature and saturated. Rates are declining as competition increases. Top earners strategically work surges; average drivers earn less consistently.",
+      "taxConsiderations": "Report all delivery income as self-employment. Deduct: fuel, vehicle maintenance, insurance, phone/internet, home office. Mileage deduction ($0.655/mile in 2023) is usually better than itemizing. Quarterly estimated taxes recommended.",
+      "financial": {"startupCost_min": 0, "startupCost_max": 100, "startupCost_note": "Car maintenance, phone plan", "monthlyEarning_min": 600, "monthlyEarning_max": 2000, "timeToFirstIncome": "1-2 weeks", "typicalMonthlyExpenses_min": 200, "typicalMonthlyExpenses_max": 400, "profitMargin_low": 50, "profitMargin_high": 75, "breakEvenMonths": 0},
+      "effort": {"hoursPerWeekRequired_min": 20, "hoursPerWeekRequired_max": 40, "initialSetupHours": 5, "timeToScaleability": "Not scalable (can only drive so many hours)", "scalabilityPotential": "low"},
+      "character": {"passivityScore": 0.0, "competitionLevel": "very_high", "demandTrend": "stable", "seasonality": "seasonal", "marketSaturation": "very_high", "customerAcquisitionDifficulty": "very_low"},
+      "growth": {"direction": "negative", "magnitude": "moderate", "pct": -3, "src": "https://www.bls.gov/ooh/transportation-and-material-moving/taxi-drivers-and-chauffeurs.htm"},
+      "practical": {"requiredSkills": ["Driving", "Navigation", "Customer service"], "recommendedPlatforms": ["DoorDash", "Uber Eats", "Instacart", "Amazon Flex"], "legalConsiderations": "Maintain valid driver's license, insurance, vehicle registration. Respect customer privacy. Report income accurately.", "pros": ["Immediate income", "Flexible hours", "Quick onboarding", "Work independently"], "cons": ["Declining rates", "Vehicle costs high", "No benefits", "Physically exhausting"], "resources": [{"title": "DoorDash", "url": "https://www.doordash.com/"}, {"title": "Uber Eats", "url": "https://www.ubereats.com/"}, {"title": "Gig Worker subreddit", "url": "https://www.reddit.com/r/Grubhub/"}]},
+      "imageUrls": ["https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600"]
     },
     {
-      "name": "Task Services (TaskRabbit/Handy)",
-      "category": "gig-work",
-      "categoryLabel": "Gig Work",
-      "description": "Complete odd jobs for people (furniture assembly, cleaning, handyman work).",
-      "financial": {
-        "startupCost_min": 0,
-        "startupCost_max": 500,
-        "startupCost_note": "Basic tools may be needed",
-        "monthlyEarning_min": 400,
-        "monthlyEarning_max": 2000,
-        "timeToFirstIncome": "1-2 weeks",
-        "typicalMonthlyExpenses_min": 20,
-        "typicalMonthlyExpenses_max": 100,
-        "profitMargin_low": 75,
-        "profitMargin_high": 90,
-        "breakEvenMonths": 1
-      },
-      "effort": {
-        "hoursPerWeekRequired_min": 10,
-        "hoursPerWeekRequired_max": 30,
-        "initialSetupHours": 5,
-        "timeToScaleability": "immediate",
-        "scalabilityPotential": "medium"
-      },
-      "character": {
-        "passivityScore": 0.0,
-        "competitionLevel": "low",
-        "demandTrend": "growing",
-        "seasonality": "steady",
-        "marketSaturation": "low",
-        "customerAcquisitionDifficulty": "low"
-      },
-      "growth": {
-        "direction": "positive",
-        "magnitude": "high",
-        "pct": 9.8,
-        "src": "https://www.bls.gov/ooh/construction-and-extraction/"
-      },
-      "practical": {
-        "requiredSkills": ["Handy/practical", "Problem-solving", "Customer service", "Time management"],
-        "recommendedPlatforms": ["TaskRabbit", "Handy", "Sittercity"],
-        "legalConsiderations": "Independent contractor; obtain liability insurance; report platform 1099 income; background checks required",
-        "pros": ["Immediate income", "Flexible", "No inventory", "Recurring customers possible"],
-        "cons": ["Physical work", "Travel time", "Liability concerns", "Customer dependent"],
-        "resources": [
-          {"title": "TaskRabbit Tasker Guide", "url": "https://www.taskrabbit.com/taskers"},
-          {"title": "Handy Pro Guide", "url": "https://www.handy.com/professionals"},
-          {"title": "Taskers subreddit", "url": "https://www.reddit.com/r/taskrabbit/"}
-        ]
-      },
-      "imageUrls": [
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600",
-        "https://images.unsplash.com/photo-1545883271-f5ffd55a0b00?w=600",
-        "https://images.unsplash.com/photo-1532996122724-8f3c2cd83c5d?w=600",
-        "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600",
-        "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600"
-      ]
+      "name": "Task Services",
+      "category": "gig-economy",
+      "categoryLabel": "Gig Economy",
+      "description": "Do odd jobs for people (cleaning, moving, furniture assembly, yard work) via TaskRabbit or Facebook.",
+      "narrative": "Task services earn $20-50/hour for hands-on work (cleaning, furniture assembly, moving boxes, yard work, etc.). Less commoditized than delivery, more negotiable rates. Work 20-30 hours/week earning $1,000-2,000/month. Best in dense urban areas where demand is high and people willing to pay premium rates. Requires physical fitness and customer service skills.",
+      "whyMightLikeIt": ["Immediate income (start within days)", "Flexible hours", "Physical work satisfying (see results)", "Negotiable rates (better than delivery)", "Local work (no commute burden)"],
+      "keyDecisionPoints": ["Week 1: Sign up with TaskRabbit or build local Facebook/Nextdoor presence", "Week 1-2: First tasks, build reputation/reviews", "Week 2-4: Increase rates as reviews grow (from $25/hr → $35-50/hr)", "Month 2+: Pick only high-margin tasks, build referral list"],
+      "typicalTimeline": "Week 1: Signup, first task. Week 2-4: Build reputation. Month 2-3: Consistent $1K-2K/month from repeat clients.",
+      "risks": ["Physical wear and tear (aging joints/back)", "Income capped by hours available", "Inconsistent work (no guaranteed tasks)", "Platform dependency (TaskRabbit can deactivate)", "Safety concerns (going into strangers' homes)"],
+      "marketContext": "Task service demand is strong and growing (8.2% annually). Rates vary wildly by geography (SF $50-75/hr vs. rural $20/hr). Urban areas offer best opportunity.",
+      "taxConsiderations": "Report all task income as self-employment. Deduct: tools, supplies, vehicle, insurance, home office. Mileage deduction if driving to tasks.",
+      "financial": {"startupCost_min": 100, "startupCost_max": 500, "startupCost_note": "Basic tools (if not already owned)", "monthlyEarning_min": 800, "monthlyEarning_max": 2000, "timeToFirstIncome": "1-2 weeks", "typicalMonthlyExpenses_min": 20, "typicalMonthlyExpenses_max": 100, "profitMargin_low": 70, "profitMargin_high": 85, "breakEvenMonths": 0},
+      "effort": {"hoursPerWeekRequired_min": 20, "hoursPerWeekRequired_max": 30, "initialSetupHours": 5, "timeToScaleability": "Not scalable without hiring", "scalabilityPotential": "low"},
+      "character": {"passivityScore": 0.0, "competitionLevel": "medium", "demandTrend": "growing", "seasonality": "seasonal", "marketSaturation": "medium", "customerAcquisitionDifficulty": "low"},
+      "growth": {"direction": "positive", "magnitude": "high", "pct": 8.2, "src": "https://www.bls.gov/ooh/personal-care-and-service/"},
+      "practical": {"requiredSkills": ["Physical fitness", "Problem-solving", "Customer service"], "recommendedPlatforms": ["TaskRabbit", "Facebook Marketplace", "Nextdoor"], "legalConsiderations": "Get liability insurance. Set clear task scope. Take safety precautions (security deposit for valuables).", "pros": ["Good hourly rates", "Flexible hours", "Immediate income", "Satisfying work"], "cons": ["Physical toll", "Income capped", "No scalability", "Inconsistent demand"], "resources": [{"title": "TaskRabbit", "url": "https://www.taskrabbit.com/"}, {"title": "Nextdoor", "url": "https://nextdoor.com/"}, {"title": "Gig Worker subreddit", "url": "https://www.reddit.com/r/TaskRabbit/"}]},
+      "imageUrls": ["https://images.unsplash.com/photo-1551159375-e5028c66b20b?w=600", "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600", "https://images.unsplash.com/photo-1551159375-e5028c66b20b?w=600", "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600", "https://images.unsplash.com/photo-1551159375-e5028c66b20b?w=600"]
     },
     {
-      "name": "Pet Sitting (Rover/Care.com)",
-      "category": "gig-work",
-      "categoryLabel": "Gig Work",
-      "description": "Care for pets while owners travel using Rover or Care.com.",
-      "financial": {
-        "startupCost_min": 0,
-        "startupCost_max": 50,
-        "startupCost_note": "Background check fee optional",
-        "monthlyEarning_min": 200,
-        "monthlyEarning_max": 1500,
-        "timeToFirstIncome": "1-2 weeks",
-        "typicalMonthlyExpenses_min": 0,
-        "typicalMonthlyExpenses_max": 20,
-        "profitMargin_low": 85,
-        "profitMargin_high": 95,
-        "breakEvenMonths": 1
-      },
-      "effort": {
-        "hoursPerWeekRequired_min": 5,
-        "hoursPerWeekRequired_max": 20,
-        "initialSetupHours": 5,
-        "timeToScaleability": "immediate",
-        "scalabilityPotential": "medium"
-      },
-      "character": {
-        "passivityScore": 0.05,
-        "competitionLevel": "low",
-        "demandTrend": "growing",
-        "seasonality": "seasonal",
-        "marketSaturation": "low",
-        "customerAcquisitionDifficulty": "low"
-      },
-      "growth": {
-        "direction": "positive",
-        "magnitude": "high",
-        "pct": 8.5,
-        "src": "https://www.bls.gov/ooh/personal-care-and-service/"
-      },
-      "practical": {
-        "requiredSkills": ["Animal care", "Responsibility", "Communication"],
-        "recommendedPlatforms": ["Rover", "Care.com", "Wag"],
-        "legalConsiderations": "Background check often required; liability for pet safety; report platform 1099 income",
-        "pros": ["Love animals", "Flexible", "Low barrier to entry", "Build regulars"],
-        "cons": ["Seasonal (peaks holidays)", "Liability concerns", "Time-sensitive (can't skip)", "Physical work"],
-        "resources": [
-          {"title": "Rover Sitter Guide", "url": "https://www.rover.com/become-a-sitter"},
-          {"title": "Care.com Pet Care", "url": "https://www.care.com/pet-care"},
-          {"title": "Pet Sitters subreddit", "url": "https://www.reddit.com/r/petsitting/"}
-        ]
-      },
-      "imageUrls": [
-        "https://images.unsplash.com/photo-1560807707-38cc528c67f5?w=600",
-        "https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=600",
-        "https://images.unsplash.com/photo-1558788353-f76d92427f16?w=600",
-        "https://images.unsplash.com/photo-1537151608828-8661f6b32421?w=600",
-        "https://images.unsplash.com/photo-1513161455079-7ef1a827e7f7?w=600"
-      ]
+      "name": "Pet Sitting",
+      "category": "service-based",
+      "categoryLabel": "Service-Based",
+      "description": "Care for people's pets while they travel (dogs, cats, birds, etc.) via Rover, Wag, or local referrals.",
+      "narrative": "Pet sitting earns $20-50 per visit (30 mins - 1 hour). A typical schedule: 4-6 pets daily = $80-300/day. Work 5 days/week = $1,600-6,000/month. Best in dense suburban areas with affluent pet owners. Requires animal love, reliability, and customer trust. Unlike delivery, you build long-term relationships with clients (recurring revenue). Low barrier to entry, but highly local and word-of-mouth driven.",
+      "whyMightLikeIt": ["Build long-term client relationships (recurring)", "Immediate income (start within days)", "Work with animals (if you love them)", "Flexible hours", "Higher rates than delivery ($20-50/visit vs. $2-3 per delivery)"],
+      "keyDecisionPoints": ["Week 1: Sign up with Rover/Wag and/or build local presence (Facebook, Nextdoor, Instagram)", "Week 1-2: First pet sits, build reviews/testimonials", "Week 2-4: Build to 4-6 regular clients = $1.5K-3K/month", "Month 3+: Rely on referrals, build waiting list, raise rates"],
+      "typicalTimeline": "Week 1: Setup, first pet sits. Week 2-4: Build to 4-6 regulars. Month 2-3: Sustainable $1.5K-3K/month from recurring clients.",
+      "risks": ["Income highly dependent on client base (losing client = immediate loss)", "Pet health emergencies (liability)", "Limited scalability (can only sit so many pets per day)", "Scheduling inflexibility (must be available when clients travel)", "Rover/Wag commission fees (20%+)"],
+      "marketContext": "Pet sitting demand is high and growing (pet industry is $136B+). Local markets vary widely. Urban, affluent areas pay better ($50/visit) than rural ($20/visit).",
+      "taxConsiderations": "Report all pet sitting income as self-employment. Deduct: gas, vehicle, pet supplies, home office, liability insurance. Track mileage if traveling to clients.",
+      "financial": {"startupCost_min": 0, "startupCost_max": 200, "startupCost_note": "Pet supplies, pet first aid kit, liability insurance", "monthlyEarning_min": 800, "monthlyEarning_max": 3000, "timeToFirstIncome": "1-2 weeks", "typicalMonthlyExpenses_min": 30, "typicalMonthlyExpenses_max": 100, "profitMargin_low": 65, "profitMargin_high": 85, "breakEvenMonths": 0},
+      "effort": {"hoursPerWeekRequired_min": 20, "hoursPerWeekRequired_max": 40, "initialSetupHours": 5, "timeToScaleability": "Not scalable without hiring team", "scalabilityPotential": "low"},
+      "character": {"passivityScore": 0.0, "competitionLevel": "medium", "demandTrend": "growing", "seasonality": "steady", "marketSaturation": "medium", "customerAcquisitionDifficulty": "low"},
+      "growth": {"direction": "positive", "magnitude": "high", "pct": 9, "src": "https://www.petfoodindustry.com/articles/pet-sitting-services-market"},
+      "practical": {"requiredSkills": ["Animal care", "Reliability", "Communication", "Physical fitness"], "recommendedPlatforms": ["Rover", "Wag", "Facebook, Nextdoor", "Instagram"], "legalConsiderations": "Get liability insurance. Maintain health/safety standards. Handle pet medications safely. Get client authorization for vet visits.", "pros": ["Recurring revenue", "High hourly rates", "Build relationships", "Flexible hours"], "cons": ["Client-dependent income", "Not scalable", "Liability risk", "Scheduling inflexible"], "resources": [{"title": "Rover", "url": "https://www.rover.com/"}, {"title": "Wag", "url": "https://www.wagwalking.com/"}, {"title": "Pet Care subreddit", "url": "https://www.reddit.com/r/petsitting/"}]},
+      "imageUrls": ["https://images.unsplash.com/photo-1552053831-71594a27c62d?w=600", "https://images.unsplash.com/photo-1515226311690-f817988f0f7a?w=600", "https://images.unsplash.com/photo-1552053831-71594a27c62d?w=600", "https://images.unsplash.com/photo-1515226311690-f817988f0f7a?w=600", "https://images.unsplash.com/photo-1552053831-71594a27c62d?w=600"]
     },
     {
       "name": "Photography",
-      "category": "creative-design",
-      "categoryLabel": "Creative & Design",
-      "description": "Provide photography services (portraits, events, products, real estate).",
-      "financial": {
-        "startupCost_min": 500,
-        "startupCost_max": 3000,
-        "startupCost_note": "Camera, lens, editing software, lighting",
-        "monthlyEarning_min": 500,
-        "monthlyEarning_max": 4000,
-        "timeToFirstIncome": "2-4 weeks",
-        "typicalMonthlyExpenses_min": 50,
-        "typicalMonthlyExpenses_max": 200,
-        "profitMargin_low": 65,
-        "profitMargin_high": 85,
-        "breakEvenMonths": 2
-      },
-      "effort": {
-        "hoursPerWeekRequired_min": 15,
-        "hoursPerWeekRequired_max": 35,
-        "initialSetupHours": 20,
-        "timeToScaleability": "3-6 months",
-        "scalabilityPotential": "medium"
-      },
-      "character": {
-        "passivityScore": 0.15,
-        "competitionLevel": "high",
-        "demandTrend": "stable",
-        "seasonality": "seasonal",
-        "marketSaturation": "high",
-        "customerAcquisitionDifficulty": "medium"
-      },
-      "growth": {
-        "direction": "neutral",
-        "magnitude": "low",
-        "pct": 0.3,
-        "src": "https://www.bls.gov/ooh/arts-and-design/"
-      },
-      "practical": {
-        "requiredSkills": ["Photography", "Editing (Lightroom, Photoshop)", "Client communication", "Creativity"],
-        "recommendedPlatforms": ["Local marketing", "Instagram", "Facebook", "Wedding/event sites"],
-        "legalConsiderations": "Business license may be required; obtain liability insurance; copyright ownership with clients; report self-employment income",
-        "pros": ["Creative outlet", "High hourly rate", "Portfolio building", "Recurring clients"],
-        "cons": ["High startup cost", "Seasonal (events/weddings)", "Editing time-consuming", "Client expectations"],
-        "resources": [
-          {"title": "Photography Talk", "url": "https://www.fredmiranda.com/"},
-          {"title": "Adobe Creative Cloud Tutorials", "url": "https://www.adobe.com/creativecloud/tutorials.html"},
-          {"title": "Photography subreddit", "url": "https://www.reddit.com/r/photography/"}
-        ]
-      },
-      "imageUrls": [
-        "https://images.unsplash.com/photo-1516035069371-29ad0abb474b?w=600",
-        "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=600",
-        "https://images.unsplash.com/photo-1520128665aa-4ad2b4bdd042?w=600",
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600",
-        "https://images.unsplash.com/photo-1610036782180-9c393c641bbe?w=600"
-      ]
+      "category": "creative",
+      "categoryLabel": "Creative Services",
+      "description": "Take and sell photos (portraits, events, stock photos, real estate, product photography).",
+      "narrative": "Photography is hybrid: service-based work pays immediately, stock photography is passive. Service work (portraits, events, real estate) earns $500-2,000 per gig. You'll do 1-2 gigs/month earning $1,000-4,000. Stock photography is slow: uploading photos to Shutterstock/Getty Images earns $0.25-2 per sale, bulk passive income only if you have 1,000+ photos. Most photographers do both: service work for income stability, stock for passive upside.",
+      "whyMightLikeIt": ["Creative, satisfying work (own the images)", "High rates for service work ($500-2K per gig)", "Stock passive income potential (eventually)", "Build portfolio/brand quickly", "Tangible product (clients receive photos)"],
+      "keyDecisionPoints": ["Week 1: Choose niche (portraits, events, real estate, or stock)", "Week 1-2: Invest in camera if needed ($500-2K entry-level, $2K-5K professional)", "Week 1-2: Build portfolio with 20-30 sample images (practice on friends)", "Week 2-4: Land first paying gig or upload to stock sites", "Month 2+: Build to 1-2 gigs/month ($1K-2K/month service) or accumulate stock photos"],
+      "typicalTimeline": "Week 1-2: Setup, portfolio building. Week 2-4: First gig ($500-1K) or initial stock uploads. Month 2-3: Consistent $1K-2K/month from service work. Ongoing: Build stock portfolio (passive income very slow/gradual).",
+      "risks": ["High equipment cost ($1K-5K camera gear)", "Service work capped by your time (not scalable)", "Stock photography is extremely low-margin ($0.25-2/sale)", "Client expectations can be demanding (editing, revisions)", "Market saturated (everyone has a camera)"],
+      "marketContext": "Photography service demand is strong but local. Premium photographers ($2K+ per gig) command rates based on portfolio/reputation. Stock photography is commoditized; successful stock photographers have 10K+ images.",
+      "taxConsiderations": "Report service income + stock royalties as self-employment. Deduct: camera/lenses, software (Lightroom, Photoshop), computer, website, insurance, props, editing equipment. Depreciate major equipment.",
+      "financial": {"startupCost_min": 500, "startupCost_max": 3000, "startupCost_note": "Entry camera (~$500) to pro gear ($2K-5K+)", "monthlyEarning_min": 500, "monthlyEarning_max": 5000, "timeToFirstIncome": "4-8 weeks", "typicalMonthlyExpenses_min": 50, "typicalMonthlyExpenses_max": 200, "profitMargin_low": 60, "profitMargin_high": 85, "breakEvenMonths": 2},
+      "effort": {"hoursPerWeekRequired_min": 10, "hoursPerWeekRequired_max": 30, "initialSetupHours": 50, "timeToScaleability": "Service is not scalable; stock is passive at scale", "scalabilityPotential": "medium"},
+      "character": {"passivityScore": 0.3, "competitionLevel": "very_high", "demandTrend": "stable", "seasonality": "seasonal", "marketSaturation": "very_high", "customerAcquisitionDifficulty": "medium"},
+      "growth": {"direction": "neutral", "magnitude": "low", "pct": 2.7, "src": "https://www.bls.gov/ooh/arts-design-entertainment-sports-and-media/photographers.htm"},
+      "practical": {"requiredSkills": ["Photography", "Editing (Lightroom)", "Communication", "Business"], "recommendedPlatforms": ["Instagram, Facebook (for clients)", "Shutterstock, Getty Images (stock)", "Zenfolio (portfolio site)"], "legalConsiderations": "Get liability insurance. Use model releases (for people). Respect copyright/music in editing.", "pros": ["Creative outlet", "High service rates", "Stock passive potential", "Portfolio builds quickly"], "cons": ["High equipment cost", "Service work not scalable", "Stock income very slow", "Market oversaturated"], "resources": [{"title": "Shutterstock", "url": "https://www.shutterstock.com/"}, {"title": "Photography Business subreddit", "url": "https://www.reddit.com/r/photography/"}, {"title": "CreativeLive", "url": "https://www.creativelive.com/"}]},
+      "imageUrls": ["https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=600", "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600", "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=600", "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600", "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=600"]
     },
     {
       "name": "Music Lessons",
       "category": "education",
-      "categoryLabel": "Education & Tutoring",
-      "description": "Teach music instruments or voice lessons online or in-person.",
-      "financial": {
-        "startupCost_min": 0,
-        "startupCost_max": 200,
-        "startupCost_note": "Instrument may already own",
-        "monthlyEarning_min": 400,
-        "monthlyEarning_max": 2000,
-        "timeToFirstIncome": "1-2 weeks",
-        "typicalMonthlyExpenses_min": 0,
-        "typicalMonthlyExpenses_max": 25,
-        "profitMargin_low": 80,
-        "profitMargin_high": 95,
-        "breakEvenMonths": 1
-      },
-      "effort": {
-        "hoursPerWeekRequired_min": 10,
-        "hoursPerWeekRequired_max": 25,
-        "initialSetupHours": 10,
-        "timeToScaleability": "2-3 months",
-        "scalabilityPotential": "medium"
-      },
-      "character": {
-        "passivityScore": 0.05,
-        "competitionLevel": "medium",
-        "demandTrend": "stable",
-        "seasonality": "seasonal",
-        "marketSaturation": "medium",
-        "customerAcquisitionDifficulty": "low"
-      },
-      "growth": {
-        "direction": "neutral",
-        "magnitude": "flat",
-        "pct": 0.8,
-        "src": "https://www.bls.gov/ooh/education-training-and-library/"
-      },
-      "practical": {
-        "requiredSkills": ["Musical ability", "Teaching", "Patience"],
-        "recommendedPlatforms": ["Superprof", "Italki", "Lessonface", "Local marketing"],
-        "legalConsiderations": "Report lesson income as self-employment; background checks may be required for student safety",
-        "pros": ["Steady income", "Help students", "Flexible", "Rewarding"],
-        "cons": ["Seasonal", "One-on-one only", "No leverage", "Schedule coordination"],
-        "resources": [
-          {"title": "Superprof Music Lessons", "url": "https://www.superprof.com/"},
-          {"title": "Italki Music Lessons", "url": "https://www.italki.com/"},
-          {"title": "Music Teachers subreddit", "url": "https://www.reddit.com/r/musicteachers/"}
-        ]
-      },
-      "imageUrls": [
-        "https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=600",
-        "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=600",
-        "https://images.unsplash.com/photo-1489749798305-4fea3ba63d60?w=600",
-        "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600",
-        "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=600"
-      ]
+      "categoryLabel": "Education & Coaching",
+      "description": "Teach music (piano, guitar, voice, drums) online or in-person to students.",
+      "narrative": "Music lessons earn $30-100 per hour depending on expertise and location. You'll teach 5-15 students/week earning $800-2,000/month. Income is steady and recurring (regular student schedules). Growth is limited: you can only teach so many hours per week. Scheduling is inflexible (students expect consistent weekly times). Best for musicians with strong instrument skills who enjoy teaching.",
+      "whyMightLikeIt": ["Steady recurring income (regular student schedule)", "High hourly rates ($30-100/hour)", "Meaningful work (help students improve)", "Flexible scheduling (set your hours)", "Build long-term student relationships"],
+      "keyDecisionPoints": ["Week 1: Decide on teaching format (online or in-person, home or studio)", "Week 1-2: Set rates based on experience and location ($30-75/hour typical)", "Week 1-2: Create profiles on platforms (Wyzant, Preply, local referrals)", "Week 2-4: Land first students—aim for 5-10 regular weekly lessons", "Month 2+: Optimize schedule, consider raising rates, take on waiting list"],
+      "typicalTimeline": "Week 1-2: Setup, rate setting. Week 2-4: First students. Month 2: 5-10 regular students = $800-2K/month. Month 3+: Full schedule (income plateaus at ~20 hours/week = $2K-3K/mo).",
+      "risks": ["Income capped by available hours", "Student cancellations/no-shows common", "Scheduling inflexibility (students expect consistency)", "Burnout from one-on-one teaching (emotionally demanding)", "Limited scalability (can't hire substitutes without losing income)"],
+      "marketContext": "Music lesson demand is stable. Online platforms (Preply, Wyzant) standardize rates ($30-50/hr). In-person private teachers in affluent areas earn higher ($75-100+/hr).",
+      "taxConsiderations": "Report all lesson income as self-employment. Deduct: home office, teaching materials, equipment, internet, travel (if in-person), professional development. Self-employment tax applies.",
+      "financial": {"startupCost_min": 0, "startupCost_max": 200, "startupCost_note": "Teaching materials, possibly home office setup", "monthlyEarning_min": 600, "monthlyEarning_max": 3000, "timeToFirstIncome": "1-2 weeks", "typicalMonthlyExpenses_min": 10, "typicalMonthlyExpenses_max": 50, "profitMargin_low": 80, "profitMargin_high": 95, "breakEvenMonths": 0},
+      "effort": {"hoursPerWeekRequired_min": 10, "hoursPerWeekRequired_max": 30, "initialSetupHours": 5, "timeToScaleability": "Not scalable without hiring", "scalabilityPotential": "low"},
+      "character": {"passivityScore": 0.0, "competitionLevel": "high", "demandTrend": "stable", "seasonality": "seasonal", "marketSaturation": "high", "customerAcquisitionDifficulty": "low"},
+      "growth": {"direction": "neutral", "magnitude": "flat", "pct": 0, "src": "https://www.bls.gov/ooh/education-training-and-library/music-teachers-and-singers.htm"},
+      "practical": {"requiredSkills": ["Music proficiency", "Teaching ability", "Patience", "Communication"], "recommendedPlatforms": ["Preply", "Wyzant", "Care.com", "Local referrals"], "legalConsiderations": "Set cancellation policy. Get liability insurance (for in-person). Respect intellectual property in teaching materials.", "pros": ["Steady income", "High hourly rates", "Meaningful work", "Flexible scheduling"], "cons": ["Income capped", "Student cancellations", "Not scalable", "Scheduling inflexible"], "resources": [{"title": "Preply Music Lessons", "url": "https://preply.com/"}, {"title": "Music Teachers subreddit", "url": "https://www.reddit.com/r/musicteachers/"}, {"title": "Wyzant", "url": "https://www.wyzant.com/"}]},
+      "imageUrls": ["https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=600", "https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=600", "https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=600", "https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=600", "https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=600"]
     },
     {
       "name": "Stock Photography",
       "category": "content-writing",
       "categoryLabel": "Content & Writing",
-      "description": "Upload photos to stock sites and earn per download (Shutterstock, Getty, Adobe Stock).",
-      "financial": {
-        "startupCost_min": 100,
-        "startupCost_max": 500,
-        "startupCost_note": "Camera, editing software optional",
-        "monthlyEarning_min": 10,
-        "monthlyEarning_max": 1000,
-        "timeToFirstIncome": "4-8 weeks",
-        "typicalMonthlyExpenses_min": 0,
-        "typicalMonthlyExpenses_max": 30,
-        "profitMargin_low": 85,
-        "profitMargin_high": 95,
-        "breakEvenMonths": 4
-      },
-      "effort": {
-        "hoursPerWeekRequired_min": 5,
-        "hoursPerWeekRequired_max": 15,
-        "initialSetupHours": 20,
-        "timeToScaleability": "6-12 months",
-        "scalabilityPotential": "high"
-      },
-      "character": {
-        "passivityScore": 0.8,
-        "competitionLevel": "very_high",
-        "demandTrend": "stable",
-        "seasonality": "steady",
-        "marketSaturation": "very_high",
-        "customerAcquisitionDifficulty": "low"
-      },
-      "growth": {
-        "direction": "neutral",
-        "magnitude": "flat",
-        "pct": 0.1,
-        "src": "https://www.statista.com/outlook/dmo/ecommerce/united-states"
-      },
-      "practical": {
-        "requiredSkills": ["Photography", "Understanding trends", "Consistency"],
-        "recommendedPlatforms": ["Shutterstock", "Getty Images", "Adobe Stock", "Alamy"],
-        "legalConsiderations": "License rights management; model releases for people; copyright/trademark considerations; report royalty income",
-        "pros": ["Truly passive", "Upload once, earn forever", "Low effort after setup", "Scalable"],
-        "cons": ["Very slow to profit", "Fierce competition", "Low per-download earnings", "Needs volume"],
-        "resources": [
-          {"title": "Shutterstock Contributor", "url": "https://www.shutterstock.com/contribute/"},
-          {"title": "Getty Images Contributor", "url": "https://www.gettyimages.com/"},
-          {"title": "Stock Photography subreddit", "url": "https://www.reddit.com/r/forhire/"}
-        ]
-      },
-      "imageUrls": [
-        "https://images.unsplash.com/photo-1516035069371-29ad0abb474b?w=600",
-        "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=600",
-        "https://images.unsplash.com/photo-1551077857-4dd404dec202?w=600",
-        "https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=600",
-        "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600"
-      ]
+      "description": "Upload photos or graphics to stock sites (Shutterstock, Adobe Stock, iStock) and earn per download.",
+      "narrative": "Stock photography is extreme passive income—upload once, earn forever. But earnings per image are tiny ($0.25-2 per download). You need 1,000+ images to earn meaningful passive income ($500+/month). Takes 3-6 months to build portfolio. Best approach: take photos/create graphics, upload to 5-10 stock sites simultaneously for diversification. Some lucky photographers earn $5,000+/month, but most earn <$50/month.",
+      "whyMightLikeIt": ["True passive income (upload once, earn forever)", "No client management (fully passive)", "Leverage creativity into scalable product", "Can upload unlimited images (no ceiling)", "Diversify across multiple platforms"],
+      "keyDecisionPoints": ["Month 1: Choose niche (lifestyle, food, nature, abstract, business) and start shooting or creating graphics", "Month 1-2: Build initial batch (50-100 images)", "Month 2-3: Upload to Shutterstock, Adobe Stock, iStock, Getty Images simultaneously", "Month 3-6: Continue uploading (aim for 500-1000+ images total)", "Month 6+: Monitor downloads, optimize keyword strategy, focus on best-sellers"],
+      "typicalTimeline": "Months 1-2: Portfolio building (no income). Months 2-6: First uploads, minimal earnings ($0-10/mo). Months 6-12: Passive trickle ($50-200/mo if 500+ images). Year 1+: Meaningful income ($500-2K/mo if 1000+ images and popular niche).",
+      "risks": ["Extremely slow to profitability (6+ months)", "Earnings per image are minuscule ($0.25-2)", "Oversaturation in popular categories (landscape, business clichés)", "Trend shifts make old images obsolete", "Platform dependency (sites can change policies, payout rates)"],
+      "marketContext": "Stock photography market is oversaturated. Successful photographers focus on underserved niches (unique perspectives, underrepresented communities, niche industries). Popular generic content earns pennies.",
+      "taxConsiderations": "Report all stock earnings as self-employment. Deduct: camera, computer, software, stock site fees, professional development. Depreciate major equipment over useful life.",
+      "financial": {"startupCost_min": 100, "startupCost_max": 1000, "startupCost_note": "Camera (if not already owned), editing software", "monthlyEarning_min": 0, "monthlyEarning_max": 5000, "timeToFirstIncome": "3-6 months", "typicalMonthlyExpenses_min": 0, "typicalMonthlyExpenses_max": 50, "profitMargin_low": 75, "profitMargin_high": 95, "breakEvenMonths": 3},
+      "effort": {"hoursPerWeekRequired_min": 0, "hoursPerWeekRequired_max": 20, "initialSetupHours": 100, "timeToScaleability": "6-12 months", "scalabilityPotential": "very_high"},
+      "character": {"passivityScore": 0.9, "competitionLevel": "very_high", "demandTrend": "stable", "seasonality": "steady", "marketSaturation": "very_high", "customerAcquisitionDifficulty": "very_high"},
+      "growth": {"direction": "neutral", "magnitude": "flat", "pct": 0, "src": "https://www.shutterstock.com/"},
+      "practical": {"requiredSkills": ["Photography or graphic design", "Keyword research (SEO)", "Niche understanding"], "recommendedPlatforms": ["Shutterstock", "Adobe Stock", "iStock", "Getty Images", "Alamy"], "legalConsiderations": "Use model releases (for people). Don't upload copyrighted material. Read platform guidelines carefully.", "pros": ["True passive income", "No client management", "Upload unlimited", "Compound over time"], "cons": ["Extremely slow to income", "Minuscule earnings per image", "Oversaturated market", "Success rare"], "resources": [{"title": "Shutterstock", "url": "https://www.shutterstock.com/"}, {"title": "Stock Photography subreddit", "url": "https://www.reddit.com/r/Stockphotography/"}, {"title": "Alamy", "url": "https://www.alamy.com/"}]},
+      "imageUrls": ["https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=600", "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600", "https://images.unsplash.com/photo-1602143407151-7111c4b6e4b0?w=600", "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=600", "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600"]
     },
     {
       "name": "Consulting",
       "category": "service-based",
       "categoryLabel": "Service-Based",
-      "description": "Offer expert advice to businesses in your field (business, marketing, tech, HR).",
-      "financial": {
-        "startupCost_min": 0,
-        "startupCost_max": 500,
-        "startupCost_note": "Website optional",
-        "monthlyEarning_min": 1000,
-        "monthlyEarning_max": 10000,
-        "timeToFirstIncome": "2-4 weeks",
-        "typicalMonthlyExpenses_min": 0,
-        "typicalMonthlyExpenses_max": 100,
-        "profitMargin_low": 75,
-        "profitMargin_high": 90,
-        "breakEvenMonths": 1
-      },
-      "effort": {
-        "hoursPerWeekRequired_min": 10,
-        "hoursPerWeekRequired_max": 30,
-        "initialSetupHours": 15,
-        "timeToScaleability": "2-3 months",
-        "scalabilityPotential": "high"
-      },
-      "character": {
-        "passivityScore": 0.15,
-        "competitionLevel": "high",
-        "demandTrend": "growing",
-        "seasonality": "steady",
-        "marketSaturation": "high",
-        "customerAcquisitionDifficulty": "medium"
-      },
-      "growth": {
-        "direction": "positive",
-        "magnitude": "moderate",
-        "pct": 5.8,
-        "src": "https://www.bls.gov/ooh/business-and-financial/"
-      },
-      "practical": {
-        "requiredSkills": ["Industry expertise", "Communication", "Problem-solving"],
-        "recommendedPlatforms": ["Upwork", "GLG", "Guidepoint", "LinkedIn"],
-        "legalConsiderations": "Report consulting fees as self-employment; obtain professional liability insurance; maintain client confidentiality",
-        "pros": ["High hourly rate", "Leverage expertise", "Flexible", "Build relationships"],
-        "cons": ["Need credibility first", "Competitive", "Client acquisition", "Time-bound income"],
-        "resources": [
-          {"title": "Toby Tate Consulting", "url": "https://www.tobytate.com/"},
-          {"title": "Consultant subreddit", "url": "https://www.reddit.com/r/consulting/"},
-          {"title": "GLG Expert Network", "url": "https://www.glg.it/en/"}
-        ]
-      },
-      "imageUrls": [
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600",
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
-        "https://images.unsplash.com/photo-1560264357-8d9766ba0e4d?w=600",
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600"
-      ]
+      "description": "Provide expert advice in your field (business, marketing, tech, HR) to companies and entrepreneurs.",
+      "narrative": "Consulting is lucrative if you have deep expertise and a network. Rates are $150-500+/hour. You'll work 10-20 billable hours/week earning $1,500-5,000/month. Growth comes from referrals and reputation. Initial challenge: getting first clients (need proof of expertise via case studies, credentials, or network). Best for experienced professionals with specific expertise (not beginners). High barrier to entry but high ceiling.",
+      "whyMightLikeIt": ["High hourly rates ($150-500+/hour)", "Leverage expertise and experience", "Build on existing network (referrals)", "Flexible schedule (set your hours)", "Strategic, high-impact work (not transactional)"],
+      "keyDecisionPoints": ["Month 1: Define your expertise and ideal client (be specific: 'B2B SaaS growth for $5M-50M companies')", "Month 1-2: Create case studies from past wins (if employed) or spec work", "Month 2-3: Reach out to network, offer initial engagements at $150-200/hr to build portfolio", "Month 3+: Raise rates to $300-500/hr as reputation/referrals grow", "Month 6+: Transition to 100% referral-based, fill calendar with high-value clients"],
+      "typicalTimeline": "Month 1-2: Positioning, case studies. Month 2-3: First clients ($150-200/hr). Months 3-6: Raise rates, build reputation. Month 6+: Sustainable $2K-5K/month from referrals.",
+      "risks": ["Requires existing expertise/credibility (hard to fake)", "Sales effort high (need strong pitch for each client)", "Income variable (project-based, not guaranteed)", "Feast/famine cycles common (busy then dry spells)", "Long-term contracts rare (most projects are 3-6 months)"],
+      "marketContext": "Consulting demand is high for specific expertise (B2B SaaS growth, data science, operations). Generalist consultants are commoditized ($150-200/hr). Specialists command premiums ($300-1K+/hr).",
+      "taxConsiderations": "Report all consulting income as self-employment. Deduct: home office, professional development, travel, software, professional memberships. Self-employment tax applies.",
+      "financial": {"startupCost_min": 0, "startupCost_max": 500, "startupCost_note": "Website, business cards, professional memberships", "monthlyEarning_min": 1000, "monthlyEarning_max": 10000, "timeToFirstIncome": "4-12 weeks", "typicalMonthlyExpenses_min": 50, "typicalMonthlyExpenses_max": 200, "profitMargin_low": 80, "profitMargin_high": 95, "breakEvenMonths": 1},
+      "effort": {"hoursPerWeekRequired_min": 10, "hoursPerWeekRequired_max": 25, "initialSetupHours": 40, "timeToScaleability": "Not scalable without hiring (capped by your time)", "scalabilityPotential": "medium"},
+      "character": {"passivityScore": 0.1, "competitionLevel": "high", "demandTrend": "growing", "seasonality": "stable", "marketSaturation": "high", "customerAcquisitionDifficulty": "high"},
+      "growth": {"direction": "positive", "magnitude": "high", "pct": 12, "src": "https://www.bls.gov/ooh/business-and-financial/management-consultants.htm"},
+      "practical": {"requiredSkills": ["Deep expertise in niche", "Communication", "Problem-solving", "Sales/pitching"], "recommendedPlatforms": ["LinkedIn", "Direct outreach", "Referrals", "Catalant"], "legalConsiderations": "Use contracts. Define scope clearly. Disclose conflicts of interest. Respect client data/confidentiality.", "pros": ["High hourly rates", "Strategic work", "Leverage expertise", "Flexible scheduling"], "cons": ["Requires existing credibility", "Sales effort high", "Income variable", "Not scalable without hiring"], "resources": [{"title": "MyCGE (Consulting Guild)", "url": "https://www.mycge.com/"}, {"title": "Consulting Industry Trends", "url": "https://www.consultancy.uk/"}, {"title": "Catalant", "url": "https://www.catalant.com/"}]},
+      "imageUrls": ["https://images.unsplash.com/photo-1552664730-d307ca884978?w=600", "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600", "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600", "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600", "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600"]
     },
     {
       "name": "Resume Writing",
       "category": "service-based",
       "categoryLabel": "Service-Based",
-      "description": "Write or edit resumes and cover letters for job seekers.",
-      "financial": {
-        "startupCost_min": 0,
-        "startupCost_max": 100,
-        "startupCost_note": "Portfolio and optional website",
-        "monthlyEarning_min": 400,
-        "monthlyEarning_max": 2000,
-        "timeToFirstIncome": "2-3 weeks",
-        "typicalMonthlyExpenses_min": 0,
-        "typicalMonthlyExpenses_max": 20,
-        "profitMargin_low": 80,
-        "profitMargin_high": 95,
-        "breakEvenMonths": 1
-      },
-      "effort": {
-        "hoursPerWeekRequired_min": 8,
-        "hoursPerWeekRequired_max": 20,
-        "initialSetupHours": 15,
-        "timeToScaleability": "2-3 months",
-        "scalabilityPotential": "medium"
-      },
-      "character": {
-        "passivityScore": 0.1,
-        "competitionLevel": "medium",
-        "demandTrend": "stable",
-        "seasonality": "seasonal",
-        "marketSaturation": "medium",
-        "customerAcquisitionDifficulty": "medium"
-      },
-      "growth": {
-        "direction": "neutral",
-        "magnitude": "flat",
-        "pct": 1.5,
-        "src": "https://www.bls.gov/ooh/education-training-and-library/"
-      },
-      "practical": {
-        "requiredSkills": ["Writing", "Editing", "Career knowledge"],
-        "recommendedPlatforms": ["Upwork", "Fiverr", "LinkedIn"],
-        "legalConsiderations": "Report service income as self-employment; don't provide legal/tax advice; maintain client confidentiality",
-        "pros": ["Fast to first income", "Helping people", "Repeat clients", "Flexible"],
-        "cons": ["Seasonal (job search peaks)", "Picky clients", "Revision requests", "Low margins"],
-        "resources": [
-          {"title": "ResumeGenius", "url": "https://resumegenius.com/"},
-          {"title": "The Muse Resume Tips", "url": "https://www.themuse.com/advice/"},
-          {"title": "Resume Writers subreddit", "url": "https://www.reddit.com/r/resumes/"}
-        ]
-      },
-      "imageUrls": [
-        "https://images.unsplash.com/photo-1452307521033-b9d3ba1b90f8?w=600",
-        "https://images.unsplash.com/photo-1455849318169-8381a3a96e36?w=600",
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
-        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600",
-        "https://images.unsplash.com/photo-1516534775068-bb577a627ae9?w=600"
-      ]
+      "description": "Help job seekers create effective resumes and cover letters for employment applications.",
+      "narrative": "Resume writing earns $50-200 per resume depending on experience level and specialization. You'll take 1-2 hours per resume (interview, research, writing). Work 10-20 hours/week earning $500-2,000/month. Income is steady but requires continuous client acquisition (each resume is one-time, not recurring). Best for people with hiring/HR expertise or strong writing skills. Easy to start, moderate competition.",
+      "whyMightLikeIt": ["Immediate impact (help people get jobs)", "Flexible scheduling", "Low startup cost", "Helps people during career transitions", "Easy to scale (build reputation, word-of-mouth)"],
+      "keyDecisionPoints": ["Week 1: Define target client (recent grads, career changers, executives) and rate ($50-200 per resume)", "Week 1-2: Create portfolio resumes (sample work)", "Week 2-3: List on platforms (Upwork, Fiverr, LinkedIn, Indeed)", "Week 3-4: Land first clients—deliver excellent work for testimonials", "Month 2+: Raise rates as reputation grows, build waiting list"],
+      "typicalTimeline": "Week 1-2: Setup, portfolio. Week 2-3: First clients ($50-100 per resume). Weeks 3-4: Build testimonials. Month 2+: Sustainable $800-1.5K/month (5-10 resumes/month).",
+      "risks": ["One-time transaction per client (no recurring revenue)", "Requires continuous client acquisition", "Results depend on client interview skills (can't control outcome)", "Highly competitive (many resume writers)", "Income capped by number of clients/time"],
+      "marketContext": "Resume writing demand is steady and recession-proof (job seeking is constant). Market is commoditized at $50-100 per resume; specialists (executives, tech) earn $200-500+.",
+      "taxConsiderations": "Report all resume income as self-employment. Deduct: software (Grammarly, design tools), home office, professional development, platform fees (Upwork, Fiverr). Self-employment tax applies.",
+      "financial": {"startupCost_min": 0, "startupCost_max": 200, "startupCost_note": "Software, portfolio website, marketing materials", "monthlyEarning_min": 500, "monthlyEarning_max": 2000, "timeToFirstIncome": "1-2 weeks", "typicalMonthlyExpenses_min": 10, "typicalMonthlyExpenses_max": 50, "profitMargin_low": 80, "profitMargin_high": 95, "breakEvenMonths": 0},
+      "effort": {"hoursPerWeekRequired_min": 10, "hoursPerWeekRequired_max": 20, "initialSetupHours": 10, "timeToScaleability": "Not scalable without hiring", "scalabilityPotential": "low"},
+      "character": {"passivityScore": 0.0, "competitionLevel": "very_high", "demandTrend": "stable", "seasonality": "seasonal", "marketSaturation": "very_high", "customerAcquisitionDifficulty": "low"},
+      "growth": {"direction": "neutral", "magnitude": "flat", "pct": 0, "src": "https://www.bls.gov/ooh/professional-and-business-services/human-resources-specialists.htm"},
+      "practical": {"requiredSkills": ["Writing", "HR/hiring knowledge", "Communication", "Attention to detail"], "recommendedPlatforms": ["Upwork", "Fiverr", "LinkedIn", "Indeed", "ResumeHelp"], "legalConsiderations": "Respect client confidentiality. Don't plagiarize. Make it clear you're advising, not guaranteeing job offers.", "pros": ["Immediate impact", "Low startup cost", "Easy client acquisition", "Flexible hours"], "cons": ["No recurring revenue", "Highly competitive", "Income capped", "Results dependent on client"], "resources": [{"title": "ResumeHelp", "url": "https://www.resumehelp.com/"}, {"title": "Resume Writers subreddit", "url": "https://www.reddit.com/r/resumes/"}, {"title": "Upwork Resume Category", "url": "https://www.upwork.com/o/jobs/browse/"}]},
+      "imageUrls": ["https://images.unsplash.com/photo-1552664730-d307ca884978?w=600", "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600", "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600", "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600", "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600"]
     }
   ]
 }
