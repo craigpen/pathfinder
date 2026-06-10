@@ -984,4 +984,119 @@ header: {
 
 ---
 
-**Last Updated:** 2026-06-05 (v1.20.0 — Framework consolidation complete; architecture refactored from monolithic app to reusable framework + multiple pathfinders)
+## 11. Side Hustle Pathfinder - Data & Helper Patterns
+
+**Normalized schema for side hustles with consistent field access patterns.**
+
+### Side Hustle Data Schema
+
+```json
+{
+  "name": "Freelance Writing",
+  "category": "content-writing",
+  "categoryLabel": "Content & Writing",
+  "description": "...",
+  
+  "financial": {
+    "startupCost_min": 0,
+    "startupCost_max": 500,
+    "startupCost_note": "Portfolio website optional",
+    "monthlyEarning_min": 200,
+    "monthlyEarning_max": 5000,
+    "timeToFirstIncome": "1-2 weeks"
+  },
+  
+  "effort": {
+    "hoursPerWeekRequired_min": 10,
+    "hoursPerWeekRequired_max": 30,
+    "timeToScaleability": "3-6 months",
+    "scalabilityPotential": "high"  // low | medium | high | very_high
+  },
+  
+  "character": {
+    "passivityScore": 0.15,         // 0-1 scale (0=active, 1=passive)
+    "competitionLevel": "high",     // low | medium | high | very_high
+    "demandTrend": "growing",       // growing | stable | declining
+    "seasonality": "steady"         // steady | seasonal | holiday
+  },
+  
+  "practical": {
+    "requiredSkills": ["Writing", "English proficiency"],
+    "recommendedPlatforms": ["Upwork", "Fiverr", "Medium", "Substack"],
+    "pros": ["Flexible hours", "No upfront cost", "Work from anywhere"],
+    "cons": ["High competition", "Feast/famine income"],
+    "resources": [{"title": "...", "url": "..."}]
+  },
+  
+  "imageUrls": [...]  // 5 Unsplash URLs per hustle
+}
+```
+
+### Field-Specific Query Helpers (CLAUDE.md pattern)
+
+Each hustle field has a dedicated getter with null-safe fallbacks:
+
+```javascript
+getHustleStartupCost(name)      // → {min, max, note}
+getHustleEarningPotential(name) // → {min, max}
+getHustleTimeToIncome(name)     // → "1-2 weeks" or null
+getHustleEffort(name)           // → {min, max} hours/week
+getHustleCompetition(name)      // → "high" | "medium" | "low"
+getHustlePassivity(name)        // → 0-1 numeric score
+getHustleScalability(name)      // → "high" | "medium" | "low"
+getHustleSkills(name)           // → array of required skills
+getHustlePlatforms(name)        // → array of platform names
+getHustleResources(name)        // → array of resource objects
+```
+
+All getters include:
+- Null checks: `const hustle = getHustle(name); if (!hustle) return ...;`
+- Fallback defaults: `return hustle.financial.startupCost_min || 0;`
+- Safe property access: Never assumes nested objects exist
+
+### Null-Safe Entry Functions (CLAUDE.md line 311)
+
+All functions that depend on external data use fallback patterns:
+
+```javascript
+// Pattern: const data = window.OBJECTNAME || {fallback};
+function matchHustles(state) {
+  const data = window.SIDEHUSTLES || {sidehustles: []};
+  if (!Array.isArray(data.sidehustles)) return [];
+  // ... rest of logic
+}
+```
+
+This prevents crashes if data loads asynchronously or fails.
+
+### Matching Algorithm Pattern
+
+`matchHustles(state)` scores each hustle against user selections:
+
+```javascript
+const matches = matchHustles(S);
+// Returns: [{hustle: {...}, score: 100, matchReasons: ["...", "..."]}, ...]
+// Sorted by score (best first)
+```
+
+Score factors:
+- **Time commitment**: Does hustle fit available hours?
+- **Startup cost**: Is it within budget?
+- **Income potential**: Can it reach earnings goal?
+- **Income type**: Does passivity match preference?
+- **Skills**: Do user strengths align with requirements?
+- **Scalability**: Does it match growth goals?
+
+### Discovery Selector Pattern (Multi-Select for Strengths)
+
+```javascript
+const multiSelect = ['strengths'];  // Only 'strengths' allows multiple
+const pickFunc = isMulti ? 'pickN' : 'pick1';
+
+// pickN(q, el): Toggle pill on/off, update S.strengths array
+// pick1(q, el): Single-select pill, replace value
+```
+
+---
+
+**Last Updated:** 2026-06-10 (v1.0.0 added; Side Hustle Pathfinder patterns documented — field-specific getters, null-safe fallbacks, matching algorithm)

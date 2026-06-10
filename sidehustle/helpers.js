@@ -22,23 +22,26 @@ window.S = {
 const S = window.S;
 
 // ============================================================================
-// QUERY HELPERS
+// QUERY HELPERS - Safe getters with null checks (CLAUDE.md pattern)
 // ============================================================================
 
 function getHustle(name) {
-  if (!window.SIDEHUSTLES) return null;
-  return window.SIDEHUSTLES.sidehustles.find(h => h.name === name) || null;
+  const data = window.SIDEHUSTLES || {sidehustles: []};
+  if (!name || !Array.isArray(data.sidehustles)) return null;
+  return data.sidehustles.find(h => h.name === name) || null;
 }
 
 function getHustlesByCategory(categoryKey) {
-  if (!window.SIDEHUSTLES) return [];
-  return window.SIDEHUSTLES.sidehustles.filter(h => h.category === categoryKey);
+  const data = window.SIDEHUSTLES || {sidehustles: []};
+  if (!categoryKey || !Array.isArray(data.sidehustles)) return [];
+  return data.sidehustles.filter(h => h.category === categoryKey);
 }
 
 function getAllCategories() {
-  if (!window.SIDEHUSTLES) return [];
+  const data = window.SIDEHUSTLES || {sidehustles: []};
+  if (!Array.isArray(data.sidehustles)) return [];
   const categories = new Map();
-  window.SIDEHUSTLES.sidehustles.forEach(h => {
+  data.sidehustles.forEach(h => {
     if (!categories.has(h.category)) {
       categories.set(h.category, h.categoryLabel);
     }
@@ -46,8 +49,84 @@ function getAllCategories() {
   return Array.from(categories.entries()).map(([key, label]) => ({key, label}));
 }
 
+// ============================================================================
+// FIELD-SPECIFIC QUERY HELPERS (CLAUDE.md pattern - like university)
+// ============================================================================
+
+function getHustleStartupCost(name) {
+  const hustle = getHustle(name);
+  if (!hustle || !hustle.financial) return {min: 0, max: 0};
+  return {
+    min: hustle.financial.startupCost_min || 0,
+    max: hustle.financial.startupCost_max || 0,
+    note: hustle.financial.startupCost_note || null
+  };
+}
+
+function getHustleEarningPotential(name) {
+  const hustle = getHustle(name);
+  if (!hustle || !hustle.financial) return {min: 0, max: 0};
+  return {
+    min: hustle.financial.monthlyEarning_min || 0,
+    max: hustle.financial.monthlyEarning_max || 0
+  };
+}
+
+function getHustleTimeToIncome(name) {
+  const hustle = getHustle(name);
+  if (!hustle || !hustle.financial) return null;
+  return hustle.financial.timeToFirstIncome || null;
+}
+
+function getHustleEffort(name) {
+  const hustle = getHustle(name);
+  if (!hustle || !hustle.effort) return {min: 0, max: 0};
+  return {
+    min: hustle.effort.hoursPerWeekRequired_min || 0,
+    max: hustle.effort.hoursPerWeekRequired_max || 0
+  };
+}
+
+function getHustleCompetition(name) {
+  const hustle = getHustle(name);
+  if (!hustle || !hustle.character) return null;
+  return hustle.character.competitionLevel || null;
+}
+
+function getHustlePassivity(name) {
+  const hustle = getHustle(name);
+  if (!hustle || !hustle.character) return 0;
+  return hustle.character.passivityScore || 0;
+}
+
+function getHustleScalability(name) {
+  const hustle = getHustle(name);
+  if (!hustle || !hustle.effort) return null;
+  return hustle.effort.scalabilityPotential || null;
+}
+
+function getHustleSkills(name) {
+  const hustle = getHustle(name);
+  if (!hustle || !hustle.practical) return [];
+  return hustle.practical.requiredSkills || [];
+}
+
+function getHustlePlatforms(name) {
+  const hustle = getHustle(name);
+  if (!hustle || !hustle.practical) return [];
+  return hustle.practical.recommendedPlatforms || [];
+}
+
+function getHustleResources(name) {
+  const hustle = getHustle(name);
+  if (!hustle || !hustle.practical) return [];
+  return hustle.practical.resources || [];
+}
+
 function matchHustles(state) {
-  if (!window.SIDEHUSTLES) return [];
+  const data = window.SIDEHUSTLES || {sidehustles: []};
+  if (!Array.isArray(data.sidehustles) || data.sidehustles.length === 0) return [];
+  const S = state || {};
 
   const timeHours = {
     '5-10 hrs/week': {min: 5, max: 10},
@@ -70,12 +149,12 @@ function matchHustles(state) {
     '$5,000+/month': {min: 5000, max: 999999}
   };
 
-  const timeRange = timeHours[state.timeCommitment] || {min: 0, max: 999};
-  const budgetRange = budgets[state.startupBudget] || {min: 0, max: 999999};
-  const incomeRange = incomeGoals[state.incomeGoal] || {min: 0, max: 999999};
-  const strengths = Array.isArray(state.strengths) ? state.strengths : [];
+  const timeRange = timeHours[S.timeCommitment] || {min: 0, max: 999};
+  const budgetRange = budgets[S.startupBudget] || {min: 0, max: 999999};
+  const incomeRange = incomeGoals[S.incomeGoal] || {min: 0, max: 999999};
+  const strengths = Array.isArray(S.strengths) ? S.strengths : [];
 
-  const results = window.SIDEHUSTLES.sidehustles.map(hustle => {
+  const results = data.sidehustles.map(hustle => {
     let score = 100;
 
     // Time commitment score
@@ -242,14 +321,15 @@ function validateHustleSchema(hustle) {
 }
 
 function validateAllHustles() {
-  if (!window.SIDEHUSTLES || !window.SIDEHUSTLES.sidehustles) {
+  const data = window.SIDEHUSTLES || {sidehustles: []};
+  if (!Array.isArray(data.sidehustles)) {
     return {total: 0, valid: 0, invalid: 0, errors: ['SIDEHUSTLES data not loaded']};
   }
 
   let valid = 0, invalid = 0;
   const errors = [];
 
-  window.SIDEHUSTLES.sidehustles.forEach((h, i) => {
+  data.sidehustles.forEach((h, i) => {
     const result = validateHustleSchema(h);
     if (result.valid) {
       valid++;
@@ -260,7 +340,7 @@ function validateAllHustles() {
   });
 
   return {
-    total: window.SIDEHUSTLES.sidehustles.length,
+    total: data.sidehustles.length,
     valid,
     invalid,
     errors: errors.slice(0, 5)
@@ -297,11 +377,14 @@ function debugAllHustles() {
   const categories = getAllCategories();
   console.log('Categories:', categories.map(c => `${c.key} (${c.label})`).join(', '));
 
-  const earning = window.SIDEHUSTLES.sidehustles.map(h => ({
-    name: h.name,
-    earning: h.financial.monthlyEarning_max
-  })).sort((a, b) => b.earning - a.earning).slice(0, 5);
-  console.log('Top earning potential:', earning.map(e => `${e.name} ($${e.earning}/mo)`).join(', '));
+  const data = window.SIDEHUSTLES || {sidehustles: []};
+  if (Array.isArray(data.sidehustles)) {
+    const earning = data.sidehustles.map(h => ({
+      name: h.name,
+      earning: (h.financial && h.financial.monthlyEarning_max) || 0
+    })).sort((a, b) => b.earning - a.earning).slice(0, 5);
+    console.log('Top earning potential:', earning.map(e => `${e.name} ($${e.earning}/mo)`).join(', '));
+  }
 }
 
 function debugMatch(state) {
@@ -510,3 +593,37 @@ window.pickN = pickN;
 window.renderPathfinderTab = renderPathfinderTab;
 window.renderDiscoverySelectorOptions = renderDiscoverySelectorOptions;
 window.renderDiscoveryPills = renderDiscoveryPills;
+
+// Export query helpers
+window.getHustle = getHustle;
+window.getHustlesByCategory = getHustlesByCategory;
+window.getAllCategories = getAllCategories;
+window.getHustleStartupCost = getHustleStartupCost;
+window.getHustleEarningPotential = getHustleEarningPotential;
+window.getHustleTimeToIncome = getHustleTimeToIncome;
+window.getHustleEffort = getHustleEffort;
+window.getHustleCompetition = getHustleCompetition;
+window.getHustlePassivity = getHustlePassivity;
+window.getHustleScalability = getHustleScalability;
+window.getHustleSkills = getHustleSkills;
+window.getHustlePlatforms = getHustlePlatforms;
+window.getHustleResources = getHustleResources;
+window.matchHustles = matchHustles;
+
+// Export formatting helpers
+window.formatMoney = formatMoney;
+window.formatMonthlyRange = formatMonthlyRange;
+window.formatHours = formatHours;
+window.formatCompetition = formatCompetition;
+window.formatPassivity = formatPassivity;
+window.formatScalability = formatScalability;
+window.formatDemand = formatDemand;
+window.formatSeasonality = formatSeasonality;
+window.formatTimeToIncome = formatTimeToIncome;
+
+// Export validation and debug helpers
+window.validateHustleSchema = validateHustleSchema;
+window.validateAllHustles = validateAllHustles;
+window.debugHustle = debugHustle;
+window.debugAllHustles = debugAllHustles;
+window.debugMatch = debugMatch;
