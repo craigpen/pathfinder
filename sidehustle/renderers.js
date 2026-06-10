@@ -34,7 +34,9 @@ function buildHustleFilterSelectors() {
   const selectedCats = S.selectedHustleFilterCategories || [];
   const selectedHustles = S.selectedHustleFilterHustles || [];
 
-  let html = '<div style="margin-bottom:20px;"><div style="font-weight:600;margin-bottom:10px;color:var(--dk);">Categories</div>';
+  let html = '<div style="margin-bottom:20px;"><div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Select One or More</div>';
+  html += '<div style="font-size:18px;font-weight:700;margin-bottom:10px;color:var(--dk);">Categories</div>';
+  html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5;">Choose the types of side hustles that interest you:</div>';
   html += '<div class="pills" data-q="hustle-category">';
   categories.forEach(cat => {
     const active = selectedCats.includes(cat.key) ? ' on' : '';
@@ -47,7 +49,9 @@ function buildHustleFilterSelectors() {
     const hustlesInSelectedCats = selectedCats.flatMap(cat => getHustlesByCategory(cat));
     // Deduplicate hustles by name
     const uniqueHustles = [...new Map(hustlesInSelectedCats.map(h => [h.name, h])).values()];
-    html += '<div style="margin-bottom:20px;"><div style="font-weight:600;margin-bottom:10px;color:var(--dk);">Hustles</div>';
+    html += '<div style="margin-bottom:20px;"><div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Select One or More</div>';
+    html += '<div style="font-size:18px;font-weight:700;margin-bottom:10px;color:var(--dk);">Specific Hustles</div>';
+    html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5;">Pick the hustles you want to explore:</div>';
     html += '<div class="pills" data-q="hustle-specific">';
     uniqueHustles.forEach(h => {
       const active = selectedHustles.includes(h.name) ? ' on' : '';
@@ -393,10 +397,11 @@ function renderDeepDive() {
   let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Deep Dive</div>';
   html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Choose one hustle to explore in depth:</p>';
 
-  // Single-select pill selector for deep dive
-  html += '<div style="margin-bottom:20px;"><div style="font-weight:600;margin-bottom:10px;color:var(--dk);">Your Hustles</div>';
+  // Single-select pill selector for deep dive (deduplicated)
+  const uniqueHustles = [...new Set(selectedHustles)];
+  html += '<div style="margin-bottom:20px;"><div style="font-weight:600;margin-bottom:10px;color:var(--pri);text-transform:uppercase;letter-spacing:0.5px;font-size:12px;">Select One</div>';
   html += '<div class="pills" data-q="deepdive-select" style="display:flex;flex-wrap:wrap;gap:8px;">';
-  selectedHustles.forEach(name => {
+  uniqueHustles.forEach(name => {
     const active = (selectedHustle === name) ? ' on' : '';
     html += `<div class="pill${active}" onclick="toggleDeepDive('${name}', this)" style="cursor:pointer;">${name}</div>`;
   });
