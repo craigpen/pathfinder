@@ -499,6 +499,12 @@ function startOver() {
   S.selectedHustleFilterHustles = [];
   localStorage.removeItem('sideHustlePathfinderState');
   document.querySelectorAll('.pill').forEach(p => p.classList.remove('on'));
+
+  // Re-render current tab to reflect reset state
+  const currentTab = sessionStorage.getItem('currentTab') || 'discover';
+  if (window.PATHFINDER_CONFIG && window.PATHFINDER_CONFIG.renderersForTab && window.PATHFINDER_CONFIG.renderersForTab[currentTab]) {
+    window.PATHFINDER_CONFIG.renderersForTab[currentTab]();
+  }
 }
 
 // ============================================================================
