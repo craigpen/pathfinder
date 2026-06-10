@@ -108,8 +108,11 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 .cost-bar{height:16px;border-radius:3px;margin:2px 0;font-size:11px;color:#fff;line-height:16px;padding:0 6px;font-weight:600;display:inline-block;min-width:30px;transition:width .3s}
 .slider-row{display:flex;align-items:center;gap:8px;margin:6px 0;font-size:13px}
 .carousel-container,.uni-inner,.insights-carousel-container{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 0;margin:8px 0}
-.carousel-card,.insights-carousel-card,.uni-country-slide,.uni-card{flex:0 0 100%;scroll-snap-align:start;border-radius:6px;border:1px solid var(--bdr);padding:12px;background:var(--lt);cursor:grab;user-select:none}
+.carousel-card,.insights-carousel-card,.uni-country-slide,.uni-card{flex:0 0 100%;scroll-snap-align:start;border-radius:6px;border:1px solid var(--bdr);padding:0;background:#fff;cursor:grab;user-select:none;overflow:hidden}
 .carousel-card:active,.insights-carousel-card:active,.uni-country-slide:active,.uni-card:active{cursor:grabbing}
+.carousel-card-header{background:var(--pri);color:#fff;font-weight:600;padding:10px 12px;text-align:center;font-size:14px}
+.carousel-card-label{font-weight:600;color:var(--dk);background:rgba(241,245,249,.5);padding:8px 12px;line-height:1.4}
+.carousel-card-row{color:var(--tx);padding:8px 12px;line-height:1.4;text-align:right}
 .carousel-wrap,.insights-carousel-wrap{display:block}
 .insights-table-display{display:none}
 @media (min-aspect-ratio: 1 / 1.2) { .carousel-container,.uni-inner,.insights-carousel-container{flex-wrap:wrap} .carousel-card,.insights-carousel-card,.uni-country-slide,.uni-card{flex:0 1 calc(50% - 6px)} .carousel-wrap,.insights-carousel-wrap{display:none} .insights-table-display{display:block} }
@@ -395,12 +398,14 @@ function buildCarouselHTML(rows, columnKeys, columnLabel, carouselId) {
   columnKeys.forEach((key, idx) => {
     html += '<div class="carousel-card">';
     html += `<div class="carousel-card-header">${columnLabel(key)}</div>`;
+    html += '<div class="carousel-card-content" style="display:grid;grid-template-columns:1fr 1fr;gap:0;font-size:12px">';
     rows.forEach(row => {
       const [label, dataFn] = row;
       const cellData = dataFn ? dataFn(key) : '—';
       html += `<div class="carousel-card-label">${label}</div>`;
       html += `<div class="carousel-card-row">${cellData}</div>`;
     });
+    html += '</div>';
     html += '</div>';
   });
   html += '</div>';
