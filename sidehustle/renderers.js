@@ -191,8 +191,8 @@ function renderHustles() {
   const container = document.getElementById('hustles');
   if (!container) return;
 
-  let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Your Matches</div>';
-  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Qualitative overview—explore the vibe, character, and narrative of each hustle:</p>';
+  let html = '<div style="padding:24px"><h2 style="margin:0 0 12px 0;font-size:22px;font-weight:700;color:var(--dk)">Your Matches</h2>';
+  html += '<p style="font-size:13px;color:var(--tx2);margin:0 0 24px 0;line-height:1.5;">Qualitative overview—explore the vibe, character, and narrative of each hustle:</p>';
 
   html += buildHustleFilterSelectors();
 
@@ -278,8 +278,8 @@ function renderEarnings() {
   const container = document.getElementById('earnings');
   if (!container) return;
 
-  let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Earnings & ROI Comparison</div>';
-  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Quantitative analysis—startup costs, earning potential, and profitability timelines:</p>';
+  let html = '<div style="padding:24px"><h2 style="margin:0 0 12px 0;font-size:22px;font-weight:700;color:var(--dk)">Earnings & ROI Comparison</h2>';
+  html += '<p style="font-size:13px;color:var(--tx2);margin:0 0 24px 0;line-height:1.5;">Quantitative analysis—startup costs, earning potential, and profitability timelines:</p>';
 
   html += buildHustleFilterSelectors();
 
@@ -885,7 +885,7 @@ function generateInsightNarrativeParagraph(selectedHustles) {
   }
 
   if (narrativeParts.length > 0) {
-    html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px;font-weight:700">Your Narrative</h2>';
+    html += '<h2 style="margin:0 0 12px 0;color:var(--dk);font-size:22px;font-weight:700">Your Narrative</h2>';
     html += '<p style="line-height:1.6;color:var(--tx1);margin:0 0 20px 0;font-size:13px">' + narrativeParts.join(' ') + '</p>';
   }
 
