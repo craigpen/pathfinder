@@ -45,9 +45,7 @@ const sideHustlePathfinderConfig = {
     'selectedCategory',
     'selectedHustle',
     'selectedHustleFilterCategories',
-    'selectedHustleFilterHustles',
-    'selectedEarningsFilterCategories',
-    'selectedEarningsFilterHustles'
+    'selectedHustleFilterHustles'
   ],
 
   // Data sources

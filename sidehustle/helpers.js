@@ -19,9 +19,7 @@ window.S = {
   selectedCategory: null,
   selectedHustle: null,
   selectedHustleFilterCategories: [],
-  selectedHustleFilterHustles: [],
-  selectedEarningsFilterCategories: [],
-  selectedEarningsFilterHustles: []
+  selectedHustleFilterHustles: []
 };
 const S = window.S;
 
@@ -455,9 +453,7 @@ function saveState() {
     selectedCategory: S.selectedCategory || null,
     selectedHustle: S.selectedHustle || null,
     selectedHustleFilterCategories: S.selectedHustleFilterCategories || [],
-    selectedHustleFilterHustles: S.selectedHustleFilterHustles || [],
-    selectedEarningsFilterCategories: S.selectedEarningsFilterCategories || [],
-    selectedEarningsFilterHustles: S.selectedEarningsFilterHustles || []
+    selectedHustleFilterHustles: S.selectedHustleFilterHustles || []
   };
   localStorage.setItem('sideHustlePathfinderState', JSON.stringify(stateToSave));
 }
@@ -482,8 +478,6 @@ function startOver() {
   S.selectedHustle = null;
   S.selectedHustleFilterCategories = [];
   S.selectedHustleFilterHustles = [];
-  S.selectedEarningsFilterCategories = [];
-  S.selectedEarningsFilterHustles = [];
   localStorage.removeItem('sideHustlePathfinderState');
   document.querySelectorAll('.pill').forEach(p => p.classList.remove('on'));
 }
@@ -559,16 +553,41 @@ function pickN(q, el) {
   saveState();
 }
 
+function renderHustleFilterPills() {
+  // Sync category pill states across all tabs
+  document.querySelectorAll('[data-q="hustle-category"] .pill').forEach(p => {
+    const catLabel = p.textContent;
+    const catKey = getAllCategories().find(c => c.label === catLabel)?.key;
+    if (catKey && S.selectedHustleFilterCategories.includes(catKey)) {
+      p.classList.add('on');
+    } else {
+      p.classList.remove('on');
+    }
+  });
+
+  // Sync hustle pill states across all tabs
+  document.querySelectorAll('[data-q="hustle-specific"] .pill').forEach(p => {
+    if (S.selectedHustleFilterHustles.includes(p.textContent)) {
+      p.classList.add('on');
+    } else {
+      p.classList.remove('on');
+    }
+  });
+}
+
 function renderPathfinderTab(id) {
   if (id === 'discover') {
     renderDiscoverySelectorOptions();
     renderDiscoveryPills();
   } else if (id === 'hustles') {
     renderHustles();
+    setTimeout(() => renderHustleFilterPills(), 50);
   } else if (id === 'earnings') {
     renderEarnings();
+    setTimeout(() => renderHustleFilterPills(), 50);
   } else if (id === 'getstarted') {
     renderGetStarted();
+    setTimeout(() => renderHustleFilterPills(), 50);
   }
 }
 
@@ -605,6 +624,7 @@ window.pickN = pickN;
 window.renderPathfinderTab = renderPathfinderTab;
 window.renderDiscoverySelectorOptions = renderDiscoverySelectorOptions;
 window.renderDiscoveryPills = renderDiscoveryPills;
+window.renderHustleFilterPills = renderHustleFilterPills;
 
 // Export query helpers
 window.getHustle = getHustle;

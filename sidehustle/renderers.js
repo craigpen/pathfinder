@@ -3,45 +3,17 @@
 // Tab-specific rendering functions using framework helpers
 // ============================================================================
 
-function renderHustles() {
-  const container = document.getElementById('hustles');
-  if (!container) return;
+// ============================================================================
+// SHARED CATEGORY/HUSTLE SELECTOR BUILDER
+// Used by Side Hustles, Earnings, and Getting Started tabs
+// ============================================================================
 
-  if (!window.SIDEHUSTLES || !SIDEHUSTLES_LOADED) {
-    container.innerHTML = '<div style="padding:24px"><p>Loading hustles...</p></div>';
-    return;
-  }
-
+function buildHustleFilterSelectors() {
   const categories = getAllCategories();
   const selectedCats = S.selectedHustleFilterCategories || [];
   const selectedHustles = S.selectedHustleFilterHustles || [];
 
-  // Determine which hustles to display
-  let displayedHustles;
-  if (selectedHustles.length > 0) {
-    // Show selected hustles
-    displayedHustles = selectedHustles.map(name => getHustle(name)).filter(h => h);
-  } else if (selectedCats.length > 0) {
-    // Show all hustles in selected categories
-    displayedHustles = selectedCats.flatMap(cat => getHustlesByCategory(cat));
-  } else {
-    // Show matched hustles from discovery
-    displayedHustles = matchHustles(S).map(m => m.hustle);
-  }
-
-  // Remove duplicates
-  displayedHustles = [...new Map(displayedHustles.map(h => [h.name, h])).values()];
-
-  if (displayedHustles.length === 0) {
-    container.innerHTML = '<div style="padding:24px"><p style="color:var(--tx2)">No hustles to display.</p><div class="bg"><button class="btn bs pos-left" onclick="go(\'discover\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button></div></div>';
-    return;
-  }
-
-  let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Your Matches</div>';
-  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Filter by categories or select specific hustles:</p>';
-
-  // Category selector pills (multi-select)
-  html += '<div style="margin-bottom:20px;"><div style="font-weight:600;margin-bottom:10px;color:var(--dk);">Categories</div>';
+  let html = '<div style="margin-bottom:20px;"><div style="font-weight:600;margin-bottom:10px;color:var(--dk);">Categories</div>';
   html += '<div class="pills" data-q="hustle-category">';
   categories.forEach(cat => {
     const active = selectedCats.includes(cat.key) ? ' on' : '';
@@ -49,7 +21,7 @@ function renderHustles() {
   });
   html += '</div></div>';
 
-  // Hustle selector pills (multi-select, if categories selected)
+  // Hustle pills (only if categories selected)
   if (selectedCats.length > 0) {
     const hustlesInSelectedCats = selectedCats.flatMap(cat => getHustlesByCategory(cat));
     html += '<div style="margin-bottom:20px;"><div style="font-weight:600;margin-bottom:10px;color:var(--dk);">Hustles</div>';
@@ -60,6 +32,57 @@ function renderHustles() {
     });
     html += '</div></div>';
   }
+
+  return html;
+}
+
+function getDisplayedHustles(source = 'discovery') {
+  const selectedCats = S.selectedHustleFilterCategories || [];
+  const selectedHustles = S.selectedHustleFilterHustles || [];
+
+  let displayedHustles;
+  if (selectedHustles.length > 0) {
+    displayedHustles = selectedHustles.map(name => getHustle(name)).filter(h => h);
+  } else if (selectedCats.length > 0) {
+    displayedHustles = selectedCats.flatMap(cat => getHustlesByCategory(cat));
+  } else {
+    if (source === 'earnings') {
+      // Show all hustles for earnings
+      const data = window.SIDEHUSTLES || {sidehustles: []};
+      displayedHustles = data.sidehustles || [];
+    } else {
+      // Show matched hustles for side hustles
+      displayedHustles = matchHustles(S).map(m => m.hustle);
+    }
+  }
+
+  return [...new Map(displayedHustles.map(h => [h.name, h])).values()];
+}
+
+// ============================================================================
+// SIDE HUSTLES TAB
+// ============================================================================
+
+function renderHustles() {
+  const container = document.getElementById('hustles');
+  if (!container) return;
+
+  if (!window.SIDEHUSTLES || !SIDEHUSTLES_LOADED) {
+    container.innerHTML = '<div style="padding:24px"><p>Loading hustles...</p></div>';
+    return;
+  }
+
+  const displayedHustles = getDisplayedHustles('discovery');
+
+  if (displayedHustles.length === 0) {
+    container.innerHTML = '<div style="padding:24px"><p style="color:var(--tx2)">No hustles to display.</p><div class="bg"><button class="btn bs pos-left" onclick="go(\'discover\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button></div></div>';
+    return;
+  }
+
+  let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Your Matches</div>';
+  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Filter by categories or select specific hustles:</p>';
+
+  html += buildHustleFilterSelectors();
 
   // Build table using framework helper
   const tableId = 'hustles-table';
@@ -108,27 +131,9 @@ function renderHustles() {
   container.insertAdjacentHTML('beforeend', navHtml);
 }
 
-function toggleHustleCategory(catKey, el) {
-  el.classList.toggle('on');
-  S.selectedHustleFilterCategories = [];
-  document.querySelectorAll('[data-q="hustle-category"] .pill.on').forEach(p => {
-    S.selectedHustleFilterCategories.push(p.textContent);
-  });
-  // Reset hustle selections when categories change
-  S.selectedHustleFilterHustles = [];
-  saveState();
-  renderHustles();
-}
-
-function toggleHustleSpecific(hustleName, el) {
-  el.classList.toggle('on');
-  S.selectedHustleFilterHustles = [];
-  document.querySelectorAll('[data-q="hustle-specific"] .pill.on').forEach(p => {
-    S.selectedHustleFilterHustles.push(p.textContent);
-  });
-  saveState();
-  renderHustles();
-}
+// ============================================================================
+// EARNINGS TAB
+// ============================================================================
 
 function renderEarnings() {
   const container = document.getElementById('earnings');
@@ -139,29 +144,10 @@ function renderEarnings() {
     return;
   }
 
-  const categories = getAllCategories();
-  const selectedCats = S.selectedEarningsFilterCategories || [];
-  const selectedHustles = S.selectedEarningsFilterHustles || [];
-
-  // Determine which hustles to display and sort
-  let displayedHustles;
-  if (selectedHustles.length > 0) {
-    // Show selected hustles
-    displayedHustles = selectedHustles.map(name => getHustle(name)).filter(h => h);
-  } else if (selectedCats.length > 0) {
-    // Show all hustles in selected categories
-    displayedHustles = selectedCats.flatMap(cat => getHustlesByCategory(cat));
-  } else {
-    // Show all hustles
-    const data = window.SIDEHUSTLES || {sidehustles: []};
-    displayedHustles = data.sidehustles || [];
-  }
-
-  // Remove duplicates
-  displayedHustles = [...new Map(displayedHustles.map(h => [h.name, h])).values()];
+  const displayedHustles = getDisplayedHustles('earnings');
 
   // Sort by earning potential
-  displayedHustles = [...displayedHustles].sort((a, b) => {
+  const sorted = [...displayedHustles].sort((a, b) => {
     return (b.financial.monthlyEarning_max - a.financial.monthlyEarning_max) ||
            (a.financial.startupCost_max - b.financial.startupCost_max);
   });
@@ -169,30 +155,11 @@ function renderEarnings() {
   let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Earnings & ROI Comparison</div>';
   html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Ranked by monthly earning potential. Filter by categories or select specific hustles:</p>';
 
-  // Category selector pills (multi-select)
-  html += '<div style="margin-bottom:20px;"><div style="font-weight:600;margin-bottom:10px;color:var(--dk);">Categories</div>';
-  html += '<div class="pills" data-q="earnings-category">';
-  categories.forEach(cat => {
-    const active = selectedCats.includes(cat.key) ? ' on' : '';
-    html += `<div class="pill${active}" onclick="toggleEarningsCategory('${cat.key}', this)">${cat.label}</div>`;
-  });
-  html += '</div></div>';
-
-  // Hustle selector pills (multi-select, if categories selected)
-  if (selectedCats.length > 0) {
-    const hustlesInSelectedCats = selectedCats.flatMap(cat => getHustlesByCategory(cat));
-    html += '<div style="margin-bottom:20px;"><div style="font-weight:600;margin-bottom:10px;color:var(--dk);">Hustles</div>';
-    html += '<div class="pills" data-q="earnings-specific">';
-    hustlesInSelectedCats.forEach(h => {
-      const active = selectedHustles.includes(h.name) ? ' on' : '';
-      html += `<div class="pill${active}" onclick="toggleEarningsSpecific('${h.name}', this)">${h.name}</div>`;
-    });
-    html += '</div></div>';
-  }
+  html += buildHustleFilterSelectors();
 
   // Build table using framework helper
   const tableId = 'earnings-table';
-  const rows = displayedHustles.slice(0, 50).map(h => {
+  const rows = sorted.slice(0, 50).map(h => {
     return [h.name, (key) => {
       if (key === 'startup') return formatMoney(h.financial.startupCost_min, h.financial.startupCost_max);
       if (key === 'time') return h.financial.timeToFirstIncome;
@@ -221,12 +188,12 @@ function renderEarnings() {
   setTimeout(() => {
     const rows = document.querySelectorAll(`#${tableId} tbody tr`);
     rows.forEach((row, idx) => {
-      if (idx < displayedHustles.length) {
+      if (idx < sorted.length) {
         row.style.cursor = 'pointer';
         row.onclick = () => {
-          S.selectedHustle = displayedHustles[idx].name;
+          S.selectedHustle = sorted[idx].name;
           saveState();
-          showHustleDetail(displayedHustles[idx]);
+          showHustleDetail(sorted[idx]);
         };
       }
     });
@@ -237,27 +204,42 @@ function renderEarnings() {
   container.insertAdjacentHTML('beforeend', navHtml);
 }
 
-function toggleEarningsCategory(catKey, el) {
-  el.classList.toggle('on');
-  S.selectedEarningsFilterCategories = [];
-  document.querySelectorAll('[data-q="earnings-category"] .pill.on').forEach(p => {
-    S.selectedEarningsFilterCategories.push(p.textContent);
-  });
-  // Reset hustle selections when categories change
-  S.selectedEarningsFilterHustles = [];
-  saveState();
-  renderEarnings();
+// ============================================================================
+// GETTING STARTED TAB
+// ============================================================================
+
+function renderGetStarted() {
+  const container = document.getElementById('getstarted');
+  if (!container) return;
+
+  if (!window.SIDEHUSTLES || !SIDEHUSTLES_LOADED) {
+    container.innerHTML = '<div style="padding:24px"><p>Loading guides...</p></div>';
+    return;
+  }
+
+  const selectedHustle = S.selectedHustle || getDisplayedHustles('discovery')[0]?.name;
+
+  let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Getting Started</div>';
+  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Use category and hustle filters to select a side hustle, then follow the step-by-step guide:</p>';
+
+  html += buildHustleFilterSelectors();
+
+  html += '<div id="guide-content" style="background: #f9f9f9; padding: 20px; border-radius: 6px; margin-top: 20px;"></div>';
+
+  container.innerHTML = html;
+
+  setTimeout(() => {
+    updateGuide();
+  }, 100);
+
+  // Add navigation buttons
+  const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'earnings\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button></div>';
+  container.insertAdjacentHTML('beforeend', navHtml);
 }
 
-function toggleEarningsSpecific(hustleName, el) {
-  el.classList.toggle('on');
-  S.selectedEarningsFilterHustles = [];
-  document.querySelectorAll('[data-q="earnings-specific"] .pill.on').forEach(p => {
-    S.selectedEarningsFilterHustles.push(p.textContent);
-  });
-  saveState();
-  renderEarnings();
-}
+// ============================================================================
+// HUSTLE DETAIL MODAL
+// ============================================================================
 
 function showHustleDetail(hustle) {
   const modal = document.createElement('div');
@@ -338,86 +320,66 @@ function showHustleDetail(hustle) {
   document.body.appendChild(modal);
 }
 
-function renderGetStarted() {
-  const container = document.getElementById('getstarted');
-  if (!container) return;
+// ============================================================================
+// UNIFIED CATEGORY/HUSTLE TOGGLE (Multi-select, synced across all tabs)
+// ============================================================================
 
-  if (!window.SIDEHUSTLES || !SIDEHUSTLES_LOADED) {
-    container.innerHTML = '<div style="padding:24px"><p>Loading guides...</p></div>';
-    return;
-  }
-
-  const categories = getAllCategories();
-  const selectedCat = S.selectedCategory || categories[0]?.key;
-  const selectedHustle = S.selectedHustle || getHustlesByCategory(selectedCat)?.[0]?.name;
-
-  let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Getting Started</div>';
-  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Choose a side hustle and get a step-by-step guide to launch it in 2 weeks:</p>';
-
-  // Category selector pills
-  html += '<div style="margin-bottom:20px;"><div style="font-weight:600;margin-bottom:10px;color:var(--dk);">Category</div>';
-  html += '<div class="pills" data-q="gs-category">';
-  categories.forEach(cat => {
-    const active = selectedCat === cat.key ? ' on' : '';
-    html += `<div class="pill${active}" onclick="pickCategory('${cat.key}',this)">${cat.label}</div>`;
+function toggleHustleCategory(catKey, el) {
+  el.classList.toggle('on');
+  // Update S state from all selected category pills
+  S.selectedHustleFilterCategories = [];
+  document.querySelectorAll('[data-q="hustle-category"] .pill.on').forEach(p => {
+    const catLabel = p.textContent;
+    const cat = getAllCategories().find(c => c.label === catLabel);
+    if (cat) S.selectedHustleFilterCategories.push(cat.key);
   });
-  html += '</div></div>';
+  // Reset hustle selections when categories change
+  S.selectedHustleFilterHustles = [];
+  saveState();
+  // Re-render all tabs to show updated filters
+  renderHustles();
+  renderEarnings();
+  renderGetStarted();
+  // Sync pills across all tabs
+  setTimeout(() => renderHustleFilterPills(), 50);
+}
 
-  // Hustle selector pills
-  html += '<div style="margin-bottom:20px;"><div style="font-weight:600;margin-bottom:10px;color:var(--dk);">Hustle</div>';
-  html += '<div class="pills" data-q="gs-hustle">';
-  const hustlesInCat = getHustlesByCategory(selectedCat);
-  hustlesInCat.forEach(h => {
-    const active = selectedHustle === h.name ? ' on' : '';
-    html += `<div class="pill${active}" onclick="pickHustle('${h.name}',this)">${h.name}</div>`;
+function toggleHustleSpecific(hustleName, el) {
+  el.classList.toggle('on');
+  // Update S state from all selected hustle pills
+  S.selectedHustleFilterHustles = [];
+  document.querySelectorAll('[data-q="hustle-specific"] .pill.on').forEach(p => {
+    S.selectedHustleFilterHustles.push(p.textContent);
   });
-  html += '</div></div>';
-
-  html += '<div id="guide-content" style="background: #f9f9f9; padding: 20px; border-radius: 6px; margin-top: 20px;"></div>';
-
-  container.innerHTML = html;
-
-  setTimeout(() => {
-    updateGuide();
-  }, 100);
-
-  // Add navigation buttons
-  const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'earnings\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button></div>';
-  container.insertAdjacentHTML('beforeend', navHtml);
-}
-
-function pickCategory(catKey, el) {
-  document.querySelectorAll('[data-q="gs-category"] .pill').forEach(p => p.classList.remove('on'));
-  el.classList.add('on');
-  S.selectedCategory = catKey;
   saveState();
-
-  // Update hustle pills
-  const hustles = getHustlesByCategory(catKey);
-  const selector = document.querySelector('[data-q="gs-hustle"]');
-  if (selector) {
-    let html = '';
-    hustles.forEach(h => {
-      html += `<div class="pill" onclick="pickHustle('${h.name}',this)">${h.name}</div>`;
-    });
-    selector.innerHTML = html;
-    S.selectedHustle = hustles[0]?.name;
-    saveState();
-    updateGuide();
-  }
+  // Re-render all tabs to show updated filters
+  renderHustles();
+  renderEarnings();
+  renderGetStarted();
+  // Sync pills across all tabs
+  setTimeout(() => renderHustleFilterPills(), 50);
 }
 
-function pickHustle(hustleName, el) {
-  document.querySelectorAll('[data-q="gs-hustle"] .pill').forEach(p => p.classList.remove('on'));
-  el.classList.add('on');
-  S.selectedHustle = hustleName;
-  saveState();
-  updateGuide();
-}
+// ============================================================================
+// GETTING STARTED GUIDE
+// ============================================================================
 
 function updateGuide() {
-  const hustleName = S.selectedHustle;
-  if (!hustleName) return;
+  const selectedHustles = S.selectedHustleFilterHustles;
+  let hustleName;
+
+  if (selectedHustles && selectedHustles.length > 0) {
+    hustleName = selectedHustles[0];
+  } else {
+    const displayed = getDisplayedHustles('discovery');
+    hustleName = displayed[0]?.name;
+  }
+
+  if (!hustleName) {
+    const guideContent = document.getElementById('guide-content');
+    if (guideContent) guideContent.innerHTML = '<p style="color: var(--tx2);">Select a hustle from the categories above to see the getting started guide.</p>';
+    return;
+  }
 
   const hustle = getHustle(hustleName);
   if (!hustle) return;
@@ -475,27 +437,6 @@ function generateGetStartedSteps(hustle) {
       {title: 'Set Competitive Rates', description: 'Research freelance rates ($50-150/hr depending on experience) and set your rate.'},
       {title: 'Join Freelance Platforms', description: 'Post profiles on Upwork, Toptal, or Gun.io with your portfolio.'},
       {title: 'Land Your First Client', description: 'Pitch 10-15 potential clients and close your first project.'}
-    ],
-    'Blogging': [
-      {title: 'Choose Your Topic', description: 'Pick a niche you\'re passionate about with decent search volume.'},
-      {title: 'Set Up a Blog', description: 'Use WordPress, Medium, or Substack depending on your goals.'},
-      {title: 'Write Consistently', description: 'Publish 2-3 high-quality posts per week to build authority.'},
-      {title: 'Optimize for SEO', description: 'Learn SEO basics to rank your posts on Google.'},
-      {title: 'Monetize (6+ months in)', description: 'Add ads, affiliate links, or sell products once you have traffic.'}
-    ],
-    'Dropshipping': [
-      {title: 'Find a Niche', description: 'Research trending products using tools like Google Trends, AliExpress, or Oberlo.'},
-      {title: 'Set Up Your Store', description: 'Create a Shopify store ($29/month) with product listings.'},
-      {title: 'Find Suppliers', description: 'Connect with AliExpress or Printful suppliers for quality products.'},
-      {title: 'Launch Your First Ads', description: 'Run $10-20/day Facebook or Google Ads to test your products.'},
-      {title: 'Scale What Works', description: 'Double ad spend on winning products once you have positive ROI.'}
-    ],
-    'YouTube Channel': [
-      {title: 'Choose Your Niche', description: 'Pick a topic you can consistently create about (tech, education, entertainment, etc).'},
-      {title: 'Get Basic Equipment', description: 'Use your phone camera to start; upgrade to a real camera later ($200-1000).'},
-      {title: 'Publish 10 Videos', description: 'Create your first 10 videos focusing on quality, not perfection.'},
-      {title: 'Optimize for Discovery', description: 'Learn YouTube SEO (titles, tags, thumbnails) to rank videos.'},
-      {title: 'Build Community (6+ months)', description: 'Engage viewers, respond to comments, and collaborate with other creators.'}
     ]
   };
 
@@ -513,10 +454,6 @@ window.renderHustles = renderHustles;
 window.renderEarnings = renderEarnings;
 window.renderGetStarted = renderGetStarted;
 window.showHustleDetail = showHustleDetail;
-window.pickCategory = pickCategory;
-window.pickHustle = pickHustle;
-window.updateGuide = updateGuide;
 window.toggleHustleCategory = toggleHustleCategory;
 window.toggleHustleSpecific = toggleHustleSpecific;
-window.toggleEarningsCategory = toggleEarningsCategory;
-window.toggleEarningsSpecific = toggleEarningsSpecific;
+window.updateGuide = updateGuide;
