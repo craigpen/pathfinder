@@ -4,8 +4,29 @@
 // ============================================================================
 
 // ============================================================================
+// PATHFINDER TAB DISPATCHER
+// Framework calls this when tabs are switched
+// ============================================================================
+
+function renderPathfinderTab(id) {
+  if (id === 'discover') {
+    // Framework handles rendering discovery selectors
+  } else if (id === 'hustles') {
+    renderHustles();
+  } else if (id === 'earnings') {
+    renderEarnings();
+  } else if (id === 'insights') {
+    renderInsights();
+  } else if (id === 'deepdive') {
+    renderDeepDive();
+  } else if (id === 'resources') {
+    renderResources();
+  }
+}
+
+// ============================================================================
 // SHARED CATEGORY/HUSTLE SELECTOR BUILDER
-// Used by Side Hustles, Earnings, and Getting Started tabs
+// Used by Side Hustles, Earnings, Deep Dive, and Resources tabs
 // ============================================================================
 
 function buildHustleFilterSelectors() {
@@ -204,11 +225,11 @@ function renderEarnings() {
 }
 
 // ============================================================================
-// GETTING STARTED TAB
+// DEEP DIVE TAB
 // ============================================================================
 
-function renderGetStarted() {
-  const container = document.getElementById('getstarted');
+function renderDeepDive() {
+  const container = document.getElementById('deepdive');
   if (!container) return;
 
   if (!window.SIDEHUSTLES || !SIDEHUSTLES_LOADED) {
@@ -218,8 +239,8 @@ function renderGetStarted() {
 
   const selectedHustle = S.selectedHustle || getDisplayedHustles('discovery')[0]?.name;
 
-  let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Getting Started</div>';
-  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Use category and hustle filters to select a side hustle, then follow the step-by-step guide:</p>';
+  let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Deep Dive</div>';
+  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Explore one of your selected hustles in depth with timeline, risks, and resources:</p>';
 
   html += buildHustleFilterSelectors();
 
@@ -232,7 +253,59 @@ function renderGetStarted() {
   }, 100);
 
   // Add navigation buttons
-  const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'earnings\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button></div>';
+  const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'insights\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go(\'resources\')">Next</button></div>';
+  container.insertAdjacentHTML('beforeend', navHtml);
+}
+
+// ============================================================================
+// RESOURCES TAB
+// ============================================================================
+
+function renderResources() {
+  const container = document.getElementById('resources');
+  if (!container) return;
+
+  if (!window.SIDEHUSTLES || !SIDEHUSTLES_LOADED) {
+    container.innerHTML = '<div style="padding:24px"><p>Loading resources...</p></div>';
+    return;
+  }
+
+  const selectedHustles = S.selectedHustleFilterHustles || [];
+
+  let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Resources</div>';
+  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Recommended resources for your selected hustles:</p>';
+
+  if (selectedHustles.length === 0) {
+    html += '<div style="padding:20px;text-align:center;color:var(--tx2)"><p>Select one or more hustles to view resources.</p></div>';
+    html += '</div>';
+    container.innerHTML = html;
+    const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'deepdive\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button></div>';
+    container.insertAdjacentHTML('beforeend', navHtml);
+    return;
+  }
+
+  html += '<div style="display:grid;gap:20px">';
+
+  selectedHustles.forEach(hustleName => {
+    const hustle = getHustle(hustleName);
+    if (!hustle) return;
+
+    html += `<div style="border:1px solid var(--bdr);padding:20px;border-radius:8px;background:var(--lt)">`;
+    html += `<h3 style="margin-top:0;color:var(--dk)">${hustle.name}</h3>`;
+    html += '<ul style="margin:10px 0;padding-left:20px;">';
+    if (hustle.practical && hustle.practical.resources) {
+      hustle.practical.resources.forEach(r => {
+        html += `<li style="margin-bottom:8px;"><a href="${r.url}" target="_blank" style="color:#0066cc;text-decoration:none;">${r.title}</a></li>`;
+      });
+    }
+    html += '</ul></div>';
+  });
+
+  html += '</div></div>';
+  container.innerHTML = html;
+
+  // Add navigation buttons
+  const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'deepdive\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button></div>';
   container.insertAdjacentHTML('beforeend', navHtml);
 }
 
@@ -340,7 +413,7 @@ function toggleHustleCategory(catKey, el) {
   // Re-render all tabs to show updated filters
   renderHustles();
   renderEarnings();
-  renderGetStarted();
+  renderDeepDive();
   // Sync pills across all tabs
   setTimeout(() => renderHustleFilterPills(), 50);
 }
@@ -356,7 +429,7 @@ function toggleHustleSpecific(hustleName, el) {
   // Re-render all tabs to show updated filters
   renderHustles();
   renderEarnings();
-  renderGetStarted();
+  renderDeepDive();
   // Sync pills across all tabs
   setTimeout(() => renderHustleFilterPills(), 50);
 }
@@ -498,15 +571,17 @@ function renderInsights() {
   container.innerHTML = html;
 
   // Add navigation buttons
-  const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'earnings\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go(\'getstarted\')">Next</button></div>';
+  const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'earnings\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go(\'deepdive\')">Next</button></div>';
   container.insertAdjacentHTML('beforeend', navHtml);
 }
 
 // Export to window
+window.renderPathfinderTab = renderPathfinderTab;
 window.renderHustles = renderHustles;
 window.renderEarnings = renderEarnings;
 window.renderInsights = renderInsights;
-window.renderGetStarted = renderGetStarted;
+window.renderDeepDive = renderDeepDive;
+window.renderResources = renderResources;
 window.showHustleDetail = showHustleDetail;
 window.toggleHustleCategory = toggleHustleCategory;
 window.toggleHustleSpecific = toggleHustleSpecific;
