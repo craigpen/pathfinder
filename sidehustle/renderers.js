@@ -847,38 +847,38 @@ function generateInsightNarrativeParagraph(selectedHustles) {
 
   // Time commitment
   if (S.timeCommitment) {
-    narrativeParts.push('You\'re looking for a side hustle that fits <span style="background:rgba(37,99,235,.1);padding:2px 6px;border-radius:3px;color:var(--pri);font-weight:600">' + S.timeCommitment + '</span> of your time.');
+    narrativeParts.push('You\'re looking for a side hustle that fits <strong style="color:var(--pri)">' + S.timeCommitment + '</strong> of your time.');
   }
 
   // Startup budget
   if (S.startupBudget) {
-    narrativeParts.push('Your startup budget is <span style="background:rgba(37,99,235,.1);padding:2px 6px;border-radius:3px;color:var(--pri);font-weight:600">' + S.startupBudget + '</span>.');
+    narrativeParts.push('Your startup budget is <strong style="color:var(--pri)">' + S.startupBudget + '</strong>.');
   }
 
   // Income preferences
   if (S.incomeGoal) {
-    narrativeParts.push('You\'re aiming for <span style="background:rgba(37,99,235,.1);padding:2px 6px;border-radius:3px;color:var(--pri);font-weight:600">' + S.incomeGoal + '</span>.');
+    narrativeParts.push('You\'re aiming for <strong style="color:var(--pri)">' + S.incomeGoal + '</strong>.');
   }
 
   // Income type (active vs passive)
   if (S.incomeType) {
-    narrativeParts.push('You prefer <span style="background:rgba(37,99,235,.1);padding:2px 6px;border-radius:3px;color:var(--pri);font-weight:600">' + S.incomeType + '</span>.');
+    narrativeParts.push('You prefer <strong style="color:var(--pri)">' + S.incomeType + '</strong>.');
   }
 
   // Strengths
   if (S.strengths && S.strengths.length > 0) {
-    const strengthList = S.strengths.map(s => '<span style="background:rgba(37,99,235,.1);padding:2px 6px;border-radius:3px;color:var(--pri);font-weight:600">' + s + '</span>').join(', ');
+    const strengthList = S.strengths.map(s => '<strong style="color:var(--pri)">' + s + '</strong>').join(', ');
     narrativeParts.push('Your strengths include ' + strengthList + '.');
   }
 
   // Scalability goals
   if (S.scalability) {
-    narrativeParts.push('You\'re interested in hustles that are <span style="background:rgba(37,99,235,.1);padding:2px 6px;border-radius:3px;color:var(--pri);font-weight:600">' + S.scalability + '</span>.');
+    narrativeParts.push('You\'re interested in hustles that are <strong style="color:var(--pri)">' + S.scalability + '</strong>.');
   }
 
   if (narrativeParts.length > 0) {
-    html += '<h3 style="margin:24px 0 12px 0;color:var(--dk);font-size:16px;font-weight:700">Your Narrative</h3>';
-    html += '<p style="line-height:1.6;color:var(--tx1);margin:0 0 12px 0;font-size:13px">' + narrativeParts.join(' ') + '</p>';
+    html += '<h3 style="margin:12px 0 8px 0;color:var(--dk);font-size:15px;font-weight:700">Your Narrative</h3>';
+    html += '<p style="line-height:1.5;color:var(--tx);margin:0 0 12px 0;font-size:13px">' + narrativeParts.join(' ') + '</p>';
   }
 
   return html;
