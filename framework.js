@@ -317,8 +317,20 @@ async function buildHeader(config) {
       if (badge) badge.innerText = window.VERSION;
     }
 
-    // Initialize carousel
-    setTimeout(() => initHdrCarousel(), 100);
+    // Wait for first image to load before starting carousel
+    const firstImg = container.querySelector('img');
+    if (firstImg) {
+      if (firstImg.complete) {
+        // Image already cached, start carousel immediately
+        initHdrCarousel();
+      } else {
+        // Wait for image to load
+        firstImg.onload = () => initHdrCarousel();
+        firstImg.onerror = () => initHdrCarousel(); // Start carousel even if load fails
+      }
+    } else {
+      setTimeout(() => initHdrCarousel(), 100);
+    }
 
     // console.log(`✓ Built header: "${config.title}"`);
   } catch (error) {
