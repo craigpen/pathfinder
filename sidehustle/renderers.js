@@ -150,13 +150,17 @@ function renderHustleTableView(containerId, title, subtitle, displayedHustles, s
 
   // Build carousel and table using helpers
   const carouselId = containerId + '-carousel';
-  html += buildCarouselHTML(rows, hustleNames, (name) => name, carouselId);
+  const carouselHTML = buildCarouselHTML(rows, hustleNames, (name) => name, carouselId);
+  console.log('DEBUG: carouselHTML length:', carouselHTML.length, 'hustleNames:', hustleNames.length);
+  html += carouselHTML;
 
   // Desktop table version with responsive class
   html += '<div class="insights-table-display">' + buildTableHTML(rows, hustleNames, (name) => name, tableId) + '</div>';
   html += '</div>';
 
   // Now set the complete HTML
+  console.log('DEBUG: final html includes carousel-wrap?', html.includes('carousel-wrap'));
+  console.log('DEBUG: final html includes insights-table-display?', html.includes('insights-table-display'));
   container.innerHTML = html;
 
   // Add click handlers to table rows and carousel cards
