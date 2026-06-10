@@ -61,14 +61,35 @@ const sideHustlePathfinderConfig = {
   // Tab renderers
   renderersForTab: {
     'discover': () => {
+      console.log('Rendering discover tab');
       if (window.renderDiscoverySelectorOptions) window.renderDiscoverySelectorOptions();
       if (window.renderDiscoveryPills) window.renderDiscoveryPills();
     },
-    'hustles': () => { if (window.renderHustles) window.renderHustles(); },
-    'earnings': () => { if (window.renderEarnings) window.renderEarnings(); },
-    'insights': () => { if (window.renderInsights) window.renderInsights(); },
-    'deepdive': () => { if (window.renderDeepDive) window.renderDeepDive(); },
-    'resources': () => { if (window.renderResources) window.renderResources(); }
+    'hustles': () => {
+      console.log('Rendering hustles tab');
+      if (window.renderHustles) window.renderHustles();
+      else console.warn('renderHustles not found');
+    },
+    'earnings': () => {
+      console.log('Rendering earnings tab');
+      if (window.renderEarnings) window.renderEarnings();
+      else console.warn('renderEarnings not found');
+    },
+    'insights': () => {
+      console.log('Rendering insights tab');
+      if (window.renderInsights) window.renderInsights();
+      else console.warn('renderInsights not found');
+    },
+    'deepdive': () => {
+      console.log('Rendering deepdive tab');
+      if (window.renderDeepDive) window.renderDeepDive();
+      else console.warn('renderDeepDive not found');
+    },
+    'resources': () => {
+      console.log('Rendering resources tab');
+      if (window.renderResources) window.renderResources();
+      else console.warn('renderResources not found');
+    }
   }
 };
 
