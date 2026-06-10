@@ -808,11 +808,10 @@ function renderInsights() {
 
   const selectedHustles = S.selectedHustleFilterHustles || [];
 
-  let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Insights & Analysis</div>';
-  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Personalized analysis of your selected hustles:</p>';
+  let html = '<div style="padding:24px">';
 
   if (selectedHustles.length === 0) {
-    html += '<div style="padding:20px;text-align:center;color:var(--tx2)"><p>Select one or more hustles to view insights and recommendations.</p></div>';
+    html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Select one or more hustles to view insights and recommendations.</p>';
     html += '</div>';
     container.innerHTML = html;
     const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'earnings\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go(\'deepdive\')">Next</button></div>';
@@ -820,120 +819,203 @@ function renderInsights() {
     return;
   }
 
-  const personalized = generatePersonalizedInsights(selectedHustles);
+  // Generate narrative paragraph from discovery selections
+  html += generateInsightNarrativeParagraph(selectedHustles);
 
-  const typeIcons = {
-    'pro': '✅',
-    'neutral': 'ℹ️',
-    'con': '⚠️',
-    'conflict': '💥'
-  };
+  // Build insights with pros/cons structure
+  const hustleAnalysis = generateHustleInsightsWithProsCons(selectedHustles);
 
-  const typeColors = {
-    'pro': 'color:var(--ok)',
-    'neutral': 'color:var(--tx2)',
-    'con': 'color:var(--warn)',
-    'conflict': 'color:var(--bad)'
-  };
+  // Render insights table
+  html += renderInsightsTable('Hustle Analysis', 'How your selections fit your goals and constraints', 'Hustle', hustleAnalysis, 'insights-carousel');
 
-  html += '<div style="background:var(--lt);padding:16px;border-radius:8px;margin-bottom:20px;border:1px solid var(--bdr)">';
-  html += '<p style="margin:0;font-size:14px;color:var(--tx)">You\'ve selected <strong>' + selectedHustles.length + ' hustle' + (selectedHustles.length !== 1 ? 's' : '') + '</strong>: ' + selectedHustles.join(', ') + '</p>';
   html += '</div>';
-
-  html += '<div style="display:grid;gap:12px">';
-  personalized.forEach(insight => {
-    const icon = typeIcons[insight.type] || '•';
-    const color = typeColors[insight.type] || '';
-    html += `
-      <div style="border:1px solid var(--bdr);padding:12px;border-radius:6px;background:var(--lt)">
-        <div style="font-weight:600;margin-bottom:4px;${color}">${icon} ${insight.title}</div>
-        <div style="font-size:13px;line-height:1.5;color:var(--tx)">${insight.msg}</div>
-      </div>
-    `;
-  });
-  html += '</div></div>';
-
   container.innerHTML = html;
+
+  // Initialize carousel if it exists
+  if (document.getElementById('insights-carousel')) {
+    setTimeout(() => initCarousel('insights-carousel'), 50);
+  }
 
   // Add navigation buttons
   const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'earnings\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go(\'deepdive\')">Next</button></div>';
   container.insertAdjacentHTML('beforeend', navHtml);
 }
 
-function generatePersonalizedInsights(selectedHustles) {
-  const insights = [];
-  const hustles = selectedHustles.map(name => getHustle(name)).filter(h => h);
-  if (hustles.length === 0) return insights;
+function generateInsightNarrativeParagraph(selectedHustles) {
+  const parts = [];
 
-  const timeNeeds = hustles.map(h => h.effort.hoursPerWeekRequired_max);
-  const avgTimeNeeds = Math.round(timeNeeds.reduce((a, b) => a + b, 0) / timeNeeds.length);
-
+  // Time commitment
   if (S.timeCommitment) {
-    if (S.timeCommitment === '5-10 hours/week' && avgTimeNeeds > 20) {
-      insights.push({
-        type: 'con',
-        title: 'Time Commitment Concern',
-        msg: '⚠️ Your hustles require ~' + avgTimeNeeds + 'hrs/week but you have only 5-10hrs available. Consider dropping time-intensive options.'
-      });
-    } else if (S.timeCommitment === '20+ hours/week' && avgTimeNeeds < 15) {
-      insights.push({
-        type: 'pro',
-        title: 'Time Alignment',
-        msg: '✅ Your time commitment (' + S.timeCommitment + ') exceeds needs (~' + avgTimeNeeds + 'hrs/week). You have capacity to scale.'
-      });
-    }
+    parts.push('You\'re looking for a side hustle that fits <span style="background:rgba(59,130,246,.1);padding:2px 6px;border-radius:3px">' + S.timeCommitment.toLowerCase() + '</span> of your time.');
   }
 
-  const maxMonthly = Math.max(...hustles.map(h => h.financial.monthlyEarning_max || 0));
-  if (S.incomeGoal) {
-    const goalMap = {'Just spending money ($500-1K/month)': 500, 'Meaningful supplement ($1K-2K/month)': 1000, 'Replace part-time job ($2K-4K/month)': 2000, 'Full-time replacement ($4K+/month)': 4000};
-    const goalAmount = goalMap[S.incomeGoal] || 1000;
-    if (maxMonthly >= goalAmount) {
-      insights.push({type: 'pro', title: 'Income Goal Achievable', msg: '✅ Max earning potential: $' + maxMonthly.toLocaleString() + '/month. Meets your goal.'});
-    } else {
-      insights.push({type: 'neutral', title: 'Income Reality Check', msg: 'ℹ️ Max potential: $' + maxMonthly.toLocaleString() + '/month. Your goal: $' + goalAmount + '/month—might need higher rates or more clients.'});
-    }
-  }
-
-  const passivityScores = hustles.map(h => h.character.passivityScore || 0);
-  const avgPassivity = passivityScores.reduce((a, b) => a + b, 0) / passivityScores.length;
-  if (S.incomeType === 'Mostly passive income' && avgPassivity < 0.4) {
-    insights.push({type: 'con', title: 'Passive Income Mismatch', msg: '⚠️ You want passive income, but selected mostly active hustles (' + (avgPassivity * 100).toFixed(0) + '% passive). Try: blogging, YouTube, affiliate marketing.'});
-  }
-
-  const maxStartup = Math.max(...hustles.map(h => h.financial.startupCost_max || 0));
+  // Startup budget
   if (S.startupBudget) {
-    const budgetMap = {'No money ($0)': 0, 'Very low ($0-100)': 100, 'Low ($100-500)': 500, 'Moderate ($500-2K)': 2000, 'High ($2K+)': 5000};
-    const budget = budgetMap[S.startupBudget] || 500;
-    if (maxStartup > budget) {
-      insights.push({type: 'con', title: 'Budget Constraint', msg: '⚠️ Hustles may need up to $' + maxStartup + ', but budget is $' + budget + '. Focus on lower-cost options.'});
-    } else {
-      insights.push({type: 'pro', title: 'Budget Aligned', msg: '✅ Max startup cost ($' + maxStartup + ') fits within budget.'});
+    parts.push('Your startup budget is <span style="background:rgba(59,130,246,.1);padding:2px 6px;border-radius:3px">' + S.startupBudget.toLowerCase() + '</span>.');
+  }
+
+  // Income preferences
+  if (S.incomeGoal) {
+    parts.push('You\'re aiming for <span style="background:rgba(59,130,246,.1);padding:2px 6px;border-radius:3px">' + S.incomeGoal.toLowerCase() + '</span>.');
+  }
+
+  // Income type (active vs passive)
+  if (S.incomeType) {
+    parts.push('You prefer <span style="background:rgba(59,130,246,.1);padding:2px 6px;border-radius:3px">' + S.incomeType.toLowerCase() + '</span>.');
+  }
+
+  // Strengths
+  if (S.strengths && S.strengths.length > 0) {
+    const strengthList = S.strengths.map(s => s.toLowerCase()).join(', ');
+    parts.push('Your strengths include <span style="background:rgba(59,130,246,.1);padding:2px 6px;border-radius:3px">' + strengthList + '</span>.');
+  }
+
+  // Scalability goals
+  if (S.scalability) {
+    parts.push('You\'re interested in hustles that are <span style="background:rgba(59,130,246,.1);padding:2px 6px;border-radius:3px">' + S.scalability.toLowerCase() + '</span>.');
+  }
+
+  // Selected hustles
+  if (selectedHustles && selectedHustles.length > 0) {
+    const hustleList = selectedHustles.join(', ');
+    parts.push('You\'ve selected <strong>' + selectedHustles.length + ' hustle' + (selectedHustles.length !== 1 ? 's' : '') + '</strong>: ' + hustleList + '.');
+  }
+
+  const html = parts.length > 0
+    ? '<p style="line-height:1.6;color:var(--tx1);margin:12px 0 24px 0;font-size:13px">' + parts.join(' ') + '</p>'
+    : '';
+
+  return html;
+}
+
+function generateHustleInsightsWithProsCons(selectedHustles) {
+  const hustles = selectedHustles.map(name => getHustle(name)).filter(h => h);
+  if (hustles.length === 0) return [];
+
+  const insights = [];
+
+  hustles.forEach(hustle => {
+    const pros = [];
+    const cons = [];
+
+    // Time alignment
+    const timeRange = hustle.effort.hoursPerWeekRequired_min + '-' + hustle.effort.hoursPerWeekRequired_max;
+    if (S.timeCommitment) {
+      const timeMap = {
+        '5-10 hours/week': 10,
+        '10-20 hours/week': 20,
+        '20+ hours/week': 40
+      };
+      const availableHours = timeMap[S.timeCommitment] || 20;
+      const requiredMax = hustle.effort.hoursPerWeekRequired_max;
+
+      if (requiredMax <= availableHours * 0.6) {
+        pros.push('✅ Time commitment (' + timeRange + ' hrs/week) fits comfortably within your availability');
+      } else if (requiredMax <= availableHours) {
+        pros.push('✅ Time commitment (' + timeRange + ' hrs/week) aligns with your availability');
+      } else {
+        cons.push('⚠️ Requires ' + timeRange + ' hrs/week, but you have ' + availableHours + ' hours available');
+      }
     }
-  }
 
-  const highCompetition = hustles.filter(h => h.character.competitionLevel === 'very_high').length;
-  if (highCompetition === hustles.length) {
-    insights.push({type: 'neutral', title: 'Saturated Markets', msg: 'ℹ️ All hustles are in saturated markets. Success needs differentiation: niche focus, unique angle, or superior execution.'});
-  }
+    // Startup cost alignment
+    if (S.startupBudget) {
+      const budgetMap = {
+        'No money ($0)': 0,
+        'Very low ($0-100)': 100,
+        'Low ($100-500)': 500,
+        'Moderate ($500-2K)': 2000,
+        'High ($2K+)': 5000
+      };
+      const budget = budgetMap[S.startupBudget] || 500;
+      const costRange = hustle.financial.startupCost_min + '-$' + hustle.financial.startupCost_max;
 
-  const scalable = hustles.filter(h => h.effort.scalabilityPotential === 'high' || h.effort.scalabilityPotential === 'very_high').length;
-  if (scalable === 0) {
-    insights.push({type: 'con', title: 'Limited Scalability', msg: '⚠️ Your hustles are non-scalable (capped by hours). Income ceiling is limited. Consider adding passive options.'});
-  } else if (scalable > hustles.length / 2) {
-    insights.push({type: 'pro', title: 'Scalability Potential', msg: '✅ Most hustles (' + scalable + '/' + hustles.length + ') are scalable—earn more without proportional time increase.'});
-  }
+      if (hustle.financial.startupCost_max <= budget) {
+        pros.push('✅ Startup cost ($' + costRange + ') fits your budget');
+      } else if (hustle.financial.startupCost_min <= budget) {
+        pros.push('ℹ️ Can start low ($' + hustle.financial.startupCost_min + '), but full setup costs up to $' + hustle.financial.startupCost_max);
+      } else {
+        cons.push('⚠️ Startup cost ($' + costRange + ') exceeds your budget of $' + budget);
+      }
+    }
 
-  const categories = {};
-  hustles.forEach(h => { categories[h.category] = (categories[h.category] || 0) + 1; });
-  const uniqueCategories = Object.keys(categories).length;
-  if (uniqueCategories >= 3) {
-    insights.push({type: 'pro', title: 'Diversified Portfolio', msg: '✅ You span ' + uniqueCategories + ' categories, reducing risk if one market softens.'});
-  } else if (uniqueCategories === 1) {
-    insights.push({type: 'neutral', title: 'Niche Focus', msg: 'ℹ️ All hustles in one category. Focused but risky—market challenges affect all income. Consider diversifying.'});
-  }
+    // Income goal alignment
+    if (S.incomeGoal) {
+      const goalMap = {
+        'Just spending money ($500-1K/month)': 500,
+        'Meaningful supplement ($1K-2K/month)': 1000,
+        'Replace part-time job ($2K-4K/month)': 2000,
+        'Full-time replacement ($4K+/month)': 4000
+      };
+      const goalAmount = goalMap[S.incomeGoal] || 1000;
+      const earnRange = '$' + hustle.financial.monthlyEarning_min + '-$' + hustle.financial.monthlyEarning_max + '/month';
 
-  return insights.length > 0 ? insights : [{type: 'neutral', title: 'Ready to Explore', msg: 'ℹ️ Continue to Deep Dive to see detailed startup guides and timelines.'}];
+      if (hustle.financial.monthlyEarning_max >= goalAmount) {
+        pros.push('✅ Earning potential (' + earnRange + ') can meet your income goal');
+      } else if (hustle.financial.monthlyEarning_max >= goalAmount * 0.7) {
+        pros.push('ℹ️ Can earn ' + earnRange + ', getting close to your goal');
+      } else {
+        cons.push('⚠️ Max earnings (' + earnRange + ') fall short of your goal ($' + goalAmount + '/month)');
+      }
+    }
+
+    // Income type alignment (active vs passive)
+    if (S.incomeType === 'Mostly passive income' && hustle.character.passivityScore < 0.4) {
+      cons.push('⚠️ This is mostly active work (' + (hustle.character.passivityScore * 100).toFixed(0) + '% passive)—requires ongoing effort');
+    } else if (S.incomeType === 'Active work, higher income' && hustle.character.passivityScore > 0.6) {
+      cons.push('⚠️ This is mostly passive (' + (hustle.character.passivityScore * 100).toFixed(0) + '% passive)—may require less ongoing attention');
+    }
+
+    // Scalability
+    if (S.scalability === 'Yes, scale it into a business') {
+      if (hustle.effort.scalabilityPotential === 'high' || hustle.effort.scalabilityPotential === 'very_high') {
+        pros.push('✅ High scalability potential—can grow into a full business');
+      } else {
+        cons.push('⚠️ Limited scalability—stays a side hustle due to time constraints');
+      }
+    } else if (S.scalability === 'Keep it small and simple') {
+      if (hustle.effort.scalabilityPotential === 'low' || hustle.effort.scalabilityPotential === 'medium') {
+        pros.push('✅ Low overhead and complexity—easy to keep as a side hustle');
+      }
+    }
+
+    // Strengths alignment
+    if (S.strengths && S.strengths.length > 0 && hustle.practical.requiredSkills) {
+      const requiredSkills = hustle.practical.requiredSkills.map(s => s.toLowerCase());
+      const userStrengths = S.strengths.map(s => s.toLowerCase());
+      const matches = requiredSkills.filter(skill => userStrengths.some(us => us.includes(skill) || skill.includes(us)));
+
+      if (matches.length > 0) {
+        pros.push('✅ Aligns with your strengths: ' + matches.join(', '));
+      } else if (hustle.practical.requiredSkills.length <= 2) {
+        pros.push('ℹ️ Requires skills you can learn: ' + hustle.practical.requiredSkills.join(', '));
+      } else {
+        cons.push('⚠️ Requires skills you may need to develop: ' + hustle.practical.requiredSkills.join(', '));
+      }
+    }
+
+    // Market insights
+    if (hustle.character.demandTrend === 'growing') {
+      pros.push('✅ Growing market demand—good timing to enter');
+    } else if (hustle.character.demandTrend === 'declining') {
+      cons.push('⚠️ Market demand is declining—consider other options');
+    }
+
+    if (hustle.character.competitionLevel === 'very_high') {
+      cons.push('⚠️ Very high competition—success requires differentiation');
+    } else if (hustle.character.competitionLevel === 'low') {
+      pros.push('✅ Low competition—easier to establish yourself');
+    }
+
+    insights.push({
+      title: hustle.name,
+      name: hustle.name,
+      pros: pros.length > 0 ? pros : ['—'],
+      cons: cons.length > 0 ? cons : ['—']
+    });
+  });
+
+  return insights;
 }
 
 // Export to window
