@@ -113,7 +113,7 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 .carousel-card-header{background:var(--pri);color:#fff;font-weight:600;padding:10px 12px;text-align:center;font-size:14px}
 .carousel-card-label{font-weight:600;color:var(--dk);background:rgba(241,245,249,.5);padding:8px 12px;line-height:1.4}
 .carousel-card-row{color:var(--tx);padding:8px 12px;line-height:1.4;text-align:right}
-.carousel-wrap,.insights-carousel-wrap{display:block}
+.carousel-wrap,.insights-carousel-wrap{display:block;margin:0 -24px;padding:0 24px}
 .insights-table-display{display:none}
 @media (min-aspect-ratio: 1 / 1.2) { .carousel-container,.uni-inner,.insights-carousel-container{flex-wrap:wrap} .carousel-card,.insights-carousel-card,.uni-country-slide,.uni-card{flex:0 1 calc(50% - 6px)} .carousel-wrap,.insights-carousel-wrap{display:none} .insights-table-display{display:block} }
 .carousel-indicator,.uni-inner-indicator{font-size:11px;color:var(--tx2);text-align:center;margin-top:4px}
