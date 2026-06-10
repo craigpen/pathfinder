@@ -77,6 +77,8 @@
       // 3. Build selectors FIRST to create containers
       if (config.selectors) {
         await buildSelectors(config.selectors);
+        // Wait for DOM to update
+        await new Promise(resolve => setTimeout(resolve, 50));
       }
 
       // 4. Load and restore state
