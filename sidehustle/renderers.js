@@ -8,57 +8,43 @@ function renderHustles() {
   if (!container) return;
 
   if (!window.SIDEHUSTLES || !SIDEHUSTLES_LOADED) {
-    container.innerHTML = '<div class="pan-content"><p>Loading hustles...</p></div>';
+    container.innerHTML = '<div style="padding:24px"><p>Loading hustles...</p></div>';
     return;
   }
 
   const matches = matchHustles(S);
 
-  let html = '<div class="pan-content"><div class="sec-title">Your Matches</div>';
-  html += '<p class="sec-desc">Based on your time, budget, and income goals, here are the best side hustles for you:</p>';
+  let html = '<div style="padding:0"><div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Your Matches</div>';
+  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Based on your time, budget, and income goals, here are the best side hustles for you:</p>';
 
-  const carouselId = 'hustles-carousel';
-  const rows = matches.slice(0, 15).map(m => m.hustle);
-  const cols = ['name', 'financial.timeToFirstIncome', 'effort.hoursPerWeekRequired_min', 'financial.monthlyEarning_max', 'character.competitionLevel'];
-  const colLabel = 'Side Hustles';
+  if (matches.length === 0) {
+    html += '<p style="font-size:13px;color:var(--tx2);">No hustles match your criteria. Try adjusting your preferences.</p></div></div>';
+    container.innerHTML = html;
+    return;
+  }
 
-  html += buildCarouselHTML(rows, cols, colLabel, carouselId);
-  html += '</div>';
+  // Build carousel of matching hustles
+  html += '<div style="display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 12px 12px;margin-bottom:20px;" id="hustles-carousel">';
+  matches.slice(0, 15).forEach(m => {
+    const h = m.hustle;
+    html += `<div style="flex:0 0 calc(100vw - 48px);border:1px solid var(--bdr);border-radius:6px;padding:16px;background:var(--lt);cursor:pointer;" onclick="S.selectedHustle='${h.name}';saveState();showHustleDetail(window.getHustle('${h.name}'))">
+      <div style="font-weight:700;margin-bottom:8px;color:var(--dk);">${h.name}</div>
+      <div style="font-size:12px;color:var(--tx2);margin-bottom:12px;">${h.description.substring(0, 80)}...</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px;">
+        <div><div style="color:var(--tx2);">Startup</div><div style="font-weight:600;">${formatMoney(h.financial.startupCost_min, h.financial.startupCost_max)}</div></div>
+        <div><div style="color:var(--tx2);">Earning</div><div style="font-weight:600;">${formatMonthlyRange(h.financial.monthlyEarning_min, h.financial.monthlyEarning_max)}</div></div>
+        <div><div style="color:var(--tx2);">Time</div><div style="font-weight:600;">${h.financial.timeToFirstIncome}</div></div>
+        <div><div style="color:var(--tx2);">Competition</div><div style="font-weight:600;">${formatCompetition(h.character.competitionLevel)}</div></div>
+      </div>
+    </div>`;
+  });
+  html += '</div></div>';
+
+  html += '<div style="padding:0 24px 24px"><div style="font-size:13px;color:var(--tx2);">Click a hustle above to see details, or scroll for more options.</div></div>';
 
   container.innerHTML = html;
-  initCarousel(carouselId);
-
-  setTimeout(() => {
-    syncHustleCarouselFormatting();
-  }, 100);
 }
 
-function syncHustleCarouselFormatting() {
-  const carousel = document.getElementById('hustles-carousel');
-  if (!carousel) return;
-
-  const rows = carousel.querySelectorAll('tbody tr');
-  rows.forEach((row, idx) => {
-    const match = matchHustles(S)[idx];
-    if (!match) return;
-
-    const h = match.hustle;
-    const cells = row.querySelectorAll('td');
-
-    if (cells[0]) cells[0].textContent = h.name;
-    if (cells[1]) cells[1].textContent = formatTimeToIncome(h.financial.timeToFirstIncome);
-    if (cells[2]) cells[2].textContent = `${h.effort.hoursPerWeekRequired_min}-${h.effort.hoursPerWeekRequired_max}`;
-    if (cells[3]) cells[3].textContent = formatMoney(h.financial.monthlyEarning_min, h.financial.monthlyEarning_max);
-    if (cells[4]) cells[4].textContent = formatCompetition(h.character.competitionLevel);
-
-    row.onclick = () => {
-      S.selectedHustle = h.name;
-      saveState();
-      showHustleDetail(h);
-    };
-    row.style.cursor = 'pointer';
-  });
-}
 
 function showHustleDetail(hustle) {
   const modal = document.createElement('div');
@@ -144,56 +130,33 @@ function renderEarnings() {
   if (!container) return;
 
   if (!window.SIDEHUSTLES || !SIDEHUSTLES_LOADED) {
-    container.innerHTML = '<div class="pan-content"><p>Loading earnings data...</p></div>';
+    container.innerHTML = '<div style="padding:24px"><p>Loading earnings data...</p></div>';
     return;
   }
 
-  let html = '<div class="pan-content"><div class="sec-title">Earnings & ROI Comparison</div>';
-  html += '<p class="sec-desc">All side hustles ranked by monthly earning potential and time to profitability:</p>';
+  let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Earnings & ROI Comparison</div>';
+  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">All side hustles ranked by monthly earning potential and time to profitability:</p>';
 
   const sorted = window.SIDEHUSTLES.sidehustles.sort((a, b) => {
     return (b.financial.monthlyEarning_max - a.financial.monthlyEarning_max) ||
            (a.financial.startupCost_max - b.financial.startupCost_max);
   });
 
-  const carouselId = 'earnings-carousel';
-  const rows = sorted;
-  const cols = ['name', 'financial.startupCost_min', 'financial.timeToFirstIncome', 'financial.monthlyEarning_max', 'character.competitionLevel'];
-  const colLabel = 'Earnings Analysis';
-
-  html += buildCarouselHTML(rows, cols, colLabel, carouselId);
-  html += '</div>';
+  html += '<table class="ct" style="margin:0"><thead><tr><th>Hustle</th><th>Startup</th><th>Time to Income</th><th>Monthly Earning</th><th>Competition</th></tr></thead><tbody>';
+  sorted.forEach(h => {
+    html += `<tr style="cursor:pointer;" onclick="S.selectedHustle='${h.name}';saveState();showHustleDetail(window.getHustle('${h.name}'))">
+      <td style="font-weight:600;color:var(--dk);">${h.name}</td>
+      <td>${formatMoney(h.financial.startupCost_min, h.financial.startupCost_max)}</td>
+      <td>${h.financial.timeToFirstIncome}</td>
+      <td>${formatMonthlyRange(h.financial.monthlyEarning_min, h.financial.monthlyEarning_max)}</td>
+      <td>${formatCompetition(h.character.competitionLevel)}</td>
+    </tr>`;
+  });
+  html += '</tbody></table></div>';
 
   container.innerHTML = html;
-  initCarousel(carouselId);
-
-  setTimeout(() => {
-    syncEarningsCarouselFormatting();
-  }, 100);
 }
 
-function syncEarningsCarouselFormatting() {
-  const carousel = document.getElementById('earnings-carousel');
-  if (!carousel) return;
-
-  const sorted = window.SIDEHUSTLES.sidehustles.sort((a, b) => {
-    return (b.financial.monthlyEarning_max - a.financial.monthlyEarning_max) ||
-           (a.financial.startupCost_max - b.financial.startupCost_max);
-  });
-
-  const rows = carousel.querySelectorAll('tbody tr');
-  rows.forEach((row, idx) => {
-    if (idx >= sorted.length) return;
-    const h = sorted[idx];
-    const cells = row.querySelectorAll('td');
-
-    if (cells[0]) cells[0].textContent = h.name;
-    if (cells[1]) cells[1].textContent = formatMoney(h.financial.startupCost_min, h.financial.startupCost_max);
-    if (cells[2]) cells[2].textContent = h.financial.timeToFirstIncome;
-    if (cells[3]) cells[3].textContent = formatMonthlyRange(h.financial.monthlyEarning_min, h.financial.monthlyEarning_max);
-    if (cells[4]) cells[4].textContent = formatCompetition(h.character.competitionLevel);
-  });
-}
 
 function renderGetStarted() {
   const container = document.getElementById('getstarted');
@@ -353,14 +316,9 @@ function generateGetStartedSteps(hustle) {
   ];
 }
 
-function renderPathfinderTab(id) {
-  if (id === 'discover') {
-    // Framework handles this automatically
-  } else if (id === 'hustles') {
-    renderHustles();
-  } else if (id === 'earnings') {
-    renderEarnings();
-  } else if (id === 'getstarted') {
-    renderGetStarted();
-  }
-}
+// Export to window
+window.renderHustles = renderHustles;
+window.renderEarnings = renderEarnings;
+window.renderGetStarted = renderGetStarted;
+window.updateHustleSelector = updateHustleSelector;
+window.updateGuide = updateGuide;

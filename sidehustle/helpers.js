@@ -3,7 +3,23 @@
 // Query, format, validate, and debug functions for side hustle data
 // ============================================================================
 
+// State object
+let SELECTOR_OPTIONS = {};
+let SELECTOR_OPTIONS_LOADED = false;
 let SIDEHUSTLES_LOADED = false;
+
+// Initialize state
+window.S = {
+  timeCommitment: null,
+  startupBudget: null,
+  incomeType: null,
+  incomeGoal: null,
+  strengths: [],
+  scalability: null,
+  selectedCategory: null,
+  selectedHustle: null
+};
+const S = window.S;
 
 // ============================================================================
 // QUERY HELPERS
@@ -303,12 +319,31 @@ function debugMatch(state) {
 // DATA LOADING
 // ============================================================================
 
+async function loadSelectorOptionsData() {
+  try {
+    const response = await fetch('./data/selector-options.json');
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    Object.assign(SELECTOR_OPTIONS, data);
+    window.SELECTOR_OPTIONS = SELECTOR_OPTIONS;
+    window.SELECTOR_OPTIONS_LOADED = true;
+    SELECTOR_OPTIONS_LOADED = true;
+    console.log('✓ Loaded selector-options.json');
+    return true;
+  } catch (e) {
+    console.error('Failed to load selector-options.json:', e);
+    return false;
+  }
+}
+
 async function loadSideHustlesData() {
   try {
-    const response = await fetch('data/sidehustles.json');
+    const response = await fetch('./data/sidehustles.json');
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
     window.SIDEHUSTLES = data;
     SIDEHUSTLES_LOADED = true;
+    window.SIDEHUSTLES_LOADED = true;
     console.log('✓ Loaded sidehustles.json');
     return true;
   } catch (e) {
@@ -317,3 +352,161 @@ async function loadSideHustlesData() {
     return false;
   }
 }
+
+// ============================================================================
+// STATE MANAGEMENT
+// ============================================================================
+
+function saveState() {
+  const stateToSave = {
+    timeCommitment: S.timeCommitment || null,
+    startupBudget: S.startupBudget || null,
+    incomeType: S.incomeType || null,
+    incomeGoal: S.incomeGoal || null,
+    strengths: S.strengths || [],
+    scalability: S.scalability || null,
+    selectedCategory: S.selectedCategory || null,
+    selectedHustle: S.selectedHustle || null
+  };
+  localStorage.setItem('sideHustlePathfinderState', JSON.stringify(stateToSave));
+}
+
+function loadState() {
+  const saved = localStorage.getItem('sideHustlePathfinderState');
+  if (saved) {
+    const state = JSON.parse(saved);
+    Object.assign(S, state);
+    renderDiscoveryPills();
+  }
+}
+
+function startOver() {
+  S.timeCommitment = null;
+  S.startupBudget = null;
+  S.incomeType = null;
+  S.incomeGoal = null;
+  S.strengths = [];
+  S.scalability = null;
+  S.selectedCategory = null;
+  S.selectedHustle = null;
+  localStorage.removeItem('sideHustlePathfinderState');
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('on'));
+}
+
+// ============================================================================
+// PILL RENDERING & HANDLERS
+// ============================================================================
+
+function renderDiscoverySelectorOptions() {
+  const opts = window.SELECTOR_OPTIONS || {};
+  const multiSelect = ['strengths'];
+
+  Object.entries(opts).forEach(([qKey, options]) => {
+    const container = document.querySelector(`[data-q="${qKey}"]`);
+    if (!container) return;
+
+    const isMulti = multiSelect.includes(qKey);
+    const pickFunc = isMulti ? 'pickN' : 'pick1';
+
+    let html = '';
+    options.forEach(value => {
+      html += `<div class="pill" onclick="${pickFunc}('${qKey}',this)">${value}</div>`;
+    });
+
+    container.innerHTML = html;
+  });
+}
+
+function renderDiscoveryPills() {
+  document.querySelectorAll('[data-q="timeCommitment"] .pill').forEach(p => {
+    if (S.timeCommitment === p.textContent) p.classList.add('on');
+    else p.classList.remove('on');
+  });
+  document.querySelectorAll('[data-q="startupBudget"] .pill').forEach(p => {
+    if (S.startupBudget === p.textContent) p.classList.add('on');
+    else p.classList.remove('on');
+  });
+  document.querySelectorAll('[data-q="incomeType"] .pill').forEach(p => {
+    if (S.incomeType === p.textContent) p.classList.add('on');
+    else p.classList.remove('on');
+  });
+  document.querySelectorAll('[data-q="incomeGoal"] .pill').forEach(p => {
+    if (S.incomeGoal === p.textContent) p.classList.add('on');
+    else p.classList.remove('on');
+  });
+  document.querySelectorAll('[data-q="strengths"] .pill').forEach(p => {
+    if (S.strengths && S.strengths.includes(p.textContent)) p.classList.add('on');
+    else p.classList.remove('on');
+  });
+  document.querySelectorAll('[data-q="scalability"] .pill').forEach(p => {
+    if (S.scalability === p.textContent) p.classList.add('on');
+    else p.classList.remove('on');
+  });
+}
+
+function pick1(q, el) {
+  document.querySelectorAll(`[data-q="${q}"] .pill`).forEach(o => o.classList.remove('on'));
+  el.classList.add('on');
+  if (q === 'timeCommitment') S.timeCommitment = el.textContent;
+  else if (q === 'startupBudget') S.startupBudget = el.textContent;
+  else if (q === 'incomeType') S.incomeType = el.textContent;
+  else if (q === 'incomeGoal') S.incomeGoal = el.textContent;
+  else if (q === 'scalability') S.scalability = el.textContent;
+  saveState();
+}
+
+function pickN(q, el) {
+  el.classList.toggle('on');
+  if (q === 'strengths') {
+    S.strengths = [];
+    document.querySelectorAll(`[data-q="${q}"] .pill.on`).forEach(p => S.strengths.push(p.textContent));
+  }
+  saveState();
+}
+
+function renderPathfinderTab(id) {
+  if (id === 'discover') {
+    renderDiscoverySelectorOptions();
+    renderDiscoveryPills();
+  } else if (id === 'hustles') {
+    renderHustles();
+  } else if (id === 'earnings') {
+    renderEarnings();
+  } else if (id === 'getstarted') {
+    renderGetStarted();
+  }
+}
+
+// ============================================================================
+// INITIALIZATION
+// ============================================================================
+
+const selectorOptionsPromise = loadSelectorOptionsData();
+const sideHustlesPromise = loadSideHustlesData();
+
+Promise.all([selectorOptionsPromise, sideHustlesPromise]).then(async () => {
+  if (window.buildHeader && window.PATHFINDER_CONFIG && window.PATHFINDER_CONFIG.header) {
+    await window.buildHeader(window.PATHFINDER_CONFIG.header);
+  }
+
+  if (window.buildSelectors && window.PATHFINDER_CONFIG && window.PATHFINDER_CONFIG.selectors) {
+    await window.buildSelectors(window.PATHFINDER_CONFIG.selectors, 'discover');
+  }
+
+  renderPathfinderTab('discover');
+  loadState();
+  console.log('✓ Side Hustle Pathfinder initialized');
+}).catch(err => {
+  console.error('Side Hustle Pathfinder initialization failed:', err);
+});
+
+// Export to window
+window.S = S;
+window.saveState = saveState;
+window.loadState = loadState;
+window.startOver = startOver;
+window.pick1 = pick1;
+window.pickN = pickN;
+window.renderPathfinderTab = renderPathfinderTab;
+window.renderDiscoverySelectorOptions = renderDiscoverySelectorOptions;
+window.renderDiscoveryPills = renderDiscoveryPills;
