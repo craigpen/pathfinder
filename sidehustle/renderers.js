@@ -81,10 +81,11 @@ function renderHustleTableView(containerId, title, subtitle, displayedHustles, s
 
   html += buildHustleFilterSelectors();
 
-  // Build carousel with hustles as columns (cards)
+  const tableId = containerId + '-table';
   const carouselId = containerId + '-carousel';
   const hustleNames = sorted.slice(0, 20).map(h => h.name);
 
+  // Build rows/columns structure (used by both table and carousel)
   const rows = [
     ['Startup Cost', (hustleName) => {
       const h = getHustle(hustleName);
@@ -112,10 +113,27 @@ function renderHustleTableView(containerId, title, subtitle, displayedHustles, s
     }]
   ];
 
+  // Render table (desktop) and carousel (mobile) from same data
+  html += buildTableHTML(rows, hustleNames, (name) => name, tableId);
   html += buildCarouselHTML(rows, hustleNames, (name) => name, carouselId);
   html += '</div>';
 
   container.innerHTML = html;
+
+  // Add click handlers to table rows
+  setTimeout(() => {
+    const tableRows = document.querySelectorAll(`#${tableId} tbody tr`);
+    tableRows.forEach((row, idx) => {
+      if (idx < sorted.length) {
+        row.style.cursor = 'pointer';
+        row.onclick = () => {
+          S.selectedHustle = sorted[idx].name;
+          saveState();
+          showHustleDetail(sorted[idx]);
+        };
+      }
+    });
+  }, 50);
 
   // Add click handlers to carousel cards
   setTimeout(() => {
