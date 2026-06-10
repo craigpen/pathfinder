@@ -407,11 +407,6 @@ function renderDeepDive() {
   });
   html += '</div></div>';
 
-  // Show selected hustle in a prominent button/badge
-  if (selectedHustle) {
-    html += '<div style="margin-bottom:24px;"><button style="background:var(--pri);color:#fff;border:none;padding:10px 16px;border-radius:20px;font-weight:600;font-size:14px;cursor:default;display:inline-block;">✓ ' + selectedHustle + '</button></div>';
-  }
-
   html += '<div id="deepdive-content" style="padding:20px;margin-top:20px;"></div>';
 
   container.innerHTML = html;
