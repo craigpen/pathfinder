@@ -148,17 +148,9 @@ function renderHustleTableView(containerId, title, subtitle, displayedHustles, s
     }]
   ];
 
-  // Mobile carousel version
-  html += '<div class="carousel-wrap" id="' + containerId + '-carousel"><div class="carousel-container">';
-  sorted.forEach((hustle, idx) => {
-    html += '<div class="carousel-card" style="cursor:pointer;"><div style="font-weight:600;margin-bottom:8px;color:var(--dk)">' + hustle.name + '</div>';
-    rows.forEach(row => {
-      const value = row[1](hustle.name);
-      html += '<div style="font-size:12px;margin-bottom:6px;color:var(--tx)"><strong>' + row[0] + ':</strong> ' + value + '</div>';
-    });
-    html += '</div>';
-  });
-  html += '</div><div class="carousel-indicator">Card 1 of ' + sorted.length + '</div></div>';
+  // Build carousel using helper
+  const carouselId = containerId + '-carousel';
+  html += buildCarouselHTML(rows, hustleNames, (name) => name, carouselId);
 
   // Desktop table version
   html += '<div class="insights-table-display">';
@@ -187,6 +179,7 @@ function renderHustleTableView(containerId, title, subtitle, displayedHustles, s
     const carouselCards = document.querySelectorAll(`#${containerId}-carousel .carousel-card`);
     carouselCards.forEach((card, idx) => {
       if (idx < sorted.length) {
+        card.style.cursor = 'pointer';
         card.onclick = () => {
           S.selectedHustle = sorted[idx].name;
           saveState();
@@ -197,7 +190,7 @@ function renderHustleTableView(containerId, title, subtitle, displayedHustles, s
 
     // Initialize carousel
     if(document.getElementById(containerId + '-carousel')) {
-      initCarousel(containerId + '-carousel', '.carousel-container');
+      initCarousel(containerId + '-carousel');
     }
   }, 50);
 
