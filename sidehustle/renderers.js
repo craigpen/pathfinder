@@ -69,17 +69,24 @@ function renderHustleTableView(containerId, title, subtitle, displayedHustles, s
   const container = document.getElementById(containerId);
   if (!container) return;
 
-  if (displayedHustles.length === 0) {
-    container.innerHTML = '<div style="padding:24px"><p style="color:var(--tx2)">No hustles to display.</p><div class="bg"><button class="btn bs pos-left" onclick="go(\'discover\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button></div></div>';
-    return;
-  }
-
-  const sorted = sortFn ? [...displayedHustles].sort(sortFn) : displayedHustles;
-
   let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">' + title + '</div>';
   html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">' + subtitle + '</p>';
 
   html += buildHustleFilterSelectors();
+
+  // If no hustles selected, show empty state
+  if (displayedHustles.length === 0) {
+    html += '<div style="padding:20px;text-align:center;color:var(--tx2)"><p>Select categories or specific hustles to view details.</p></div>';
+    html += '</div>';
+    container.innerHTML = html;
+
+    // Add navigation buttons
+    const navHtml = `<div class="bg"><button class="btn bs pos-left" onclick="go('${backTab}')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('${nextTab}')">Next</button></div>`;
+    container.insertAdjacentHTML('beforeend', navHtml);
+    return;
+  }
+
+  const sorted = sortFn ? [...displayedHustles].sort(sortFn) : displayedHustles;
 
   const tableId = containerId + '-table';
   const carouselId = containerId + '-carousel';
@@ -118,6 +125,7 @@ function renderHustleTableView(containerId, title, subtitle, displayedHustles, s
   html += buildCarouselHTML(rows, hustleNames, (name) => name, carouselId);
   html += '</div>';
 
+  // Now set the complete HTML (with header + filters + table + carousel)
   container.innerHTML = html;
 
   // Add click handlers to table rows
