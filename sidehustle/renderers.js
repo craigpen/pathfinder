@@ -826,19 +826,43 @@ function renderInsights() {
   // Build insights with pros/cons structure
   const hustleAnalysis = generateHustleInsightsWithProsCons(selectedHustles);
 
-  // Render insights table with proper spacing
-  html += '<div style="margin-top:32px">';
-  html += renderInsightsTable('Hustle Analysis', 'How your selections fit your goals and constraints', 'Hustle', hustleAnalysis, 'insights-carousel');
-  html += '</div>';
+  if(hustleAnalysis.length > 0) {
+    html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">Hustle Analysis</h2>';
+    html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5">How your selections fit your goals and constraints</div>';
+
+    // Mobile carousel version
+    html += '<div class="insights-carousel-wrap" id="insights-carousel"><div class="insights-carousel-container">';
+    hustleAnalysis.forEach(hustle => {
+      html += '<div class="insights-carousel-card"><div class="insights-carousel-card-header">' + hustle.name + '</div>';
+      html += '<div class="insights-carousel-card-content">';
+      if(hustle.pros.length > 0) {
+        html += '<div class="insights-carousel-card-row"><strong style="color:var(--ok)">Strengths:</strong><br>' + hustle.pros.map(p => formatInsightItem(p, true)).join('<br>') + '</div>';
+      }
+      if(hustle.cons.length > 0) {
+        html += '<div class="insights-carousel-card-row" style="margin-top:8px"><strong style="color:var(--warn)">Considerations:</strong><br>' + hustle.cons.map(c => formatInsightItem(c, false)).join('<br>') + '</div>';
+      }
+      html += '</div></div>';
+    });
+    html += '</div><div class="carousel-indicator">Card 1 of ' + hustleAnalysis.length + '</div></div>';
+
+    // Desktop table version
+    html += '<div class="insights-table-display"><div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
+    html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:20%;white-space:nowrap">Hustle</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:50%">Strengths</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:30%">Considerations</th></tr></thead>';
+    html += '<tbody>';
+    hustleAnalysis.forEach(hustle => {
+      const prosHTML = hustle.pros.length > 0 ? hustle.pros.map(p => formatInsightItem(p, true)).join('<br>') : '—';
+      const consHTML = hustle.cons.length > 0 ? hustle.cons.map(c => formatInsightItem(c, false)).join('<br>') : '—';
+      html += '<tr style="border-bottom:1px solid var(--bdr);background:#fff"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;width:20%;line-height:1.4;background:rgba(241,245,249,.5);white-space:nowrap">' + hustle.name + '</td><td style="padding:8px 10px;vertical-align:top;width:50%;line-height:1.4">' + prosHTML + '</td><td style="padding:8px 10px;vertical-align:top;width:30%;line-height:1.4">' + consHTML + '</td></tr>';
+    });
+    html += '</tbody></table></div></div>';
+  }
 
   html += '</div>';
   container.innerHTML = html;
 
-  // Initialize carousel for mobile view
+  // Initialize all carousels with JavaScript-based snapping
   setTimeout(() => {
-    if (document.getElementById('insights-carousel')) {
-      initCarousel('insights-carousel', '.insights-carousel-container');
-    }
+    if(document.getElementById('insights-carousel')) initCarousel('insights-carousel', '.insights-carousel-container');
   }, 50);
 
   // Add navigation buttons
