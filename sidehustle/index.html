@@ -79,18 +79,12 @@
         await buildSelectors(config.selectors);
       }
 
-      // 4. Populate selector pills AFTER containers exist
-      if (config.selectors) {
-        renderDiscoverySelectorOptions(config.selectors);
-        renderDiscoveryPills();
-      }
-
-      // 5. Load and restore state
+      // 4. Load and restore state
       if (window.loadState) {
         loadState();
       }
 
-      // 6. Render discover tab
+      // 5. Render discover tab (will call renderDiscoverySelectorOptions and renderDiscoveryPills)
       if (window.renderPathfinderTab) {
         renderPathfinderTab('discover');
       }
