@@ -453,9 +453,62 @@ function generateGetStartedSteps(hustle) {
   ];
 }
 
+// ============================================================================
+// INSIGHTS TAB
+// ============================================================================
+
+function renderInsights() {
+  const container = document.getElementById('insights');
+  if (!container) return;
+
+  if (!window.INSIGHTS || !INSIGHTS_LOADED) {
+    container.innerHTML = '<div style="padding:24px"><p>Loading insights...</p></div>';
+    return;
+  }
+
+  const insights = (window.INSIGHTS && window.INSIGHTS.insights) || [];
+
+  let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Insights & Analysis</div>';
+  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">General patterns from your selections:</p>';
+
+  const typeIcons = {
+    'pro': '✅',
+    'neutral': 'ℹ️',
+    'con': '⚠️',
+    'conflict': '💥'
+  };
+
+  const typeColors = {
+    'pro': 'color:var(--ok)',
+    'neutral': 'color:var(--tx2)',
+    'con': 'color:var(--warn)',
+    'conflict': 'color:var(--bad)'
+  };
+
+  html += '<div style="display:grid;gap:12px">';
+  insights.forEach(insight => {
+    const icon = typeIcons[insight.type] || '•';
+    const color = typeColors[insight.type] || '';
+    html += `
+      <div style="border:1px solid var(--bdr);padding:12px;border-radius:6px;background:var(--lt)">
+        <div style="font-weight:600;margin-bottom:4px;${color}">${icon} ${insight.title}</div>
+        <div style="font-size:13px;line-height:1.5;color:var(--tx)">${insight.msg}</div>
+      </div>
+    `;
+  });
+  html += '</div></div>';
+
+  container.innerHTML = html;
+
+  // Add navigation buttons
+  const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'earnings\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go(\'getstarted\')">Next</button></div>';
+  container.insertAdjacentHTML('beforeend', navHtml);
+}
+
 // Export to window
 window.renderHustles = renderHustles;
 window.renderEarnings = renderEarnings;
+window.renderInsights = renderInsights;
 window.renderGetStarted = renderGetStarted;
 window.showHustleDetail = showHustleDetail;
 window.toggleHustleCategory = toggleHustleCategory;
