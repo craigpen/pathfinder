@@ -331,12 +331,14 @@ function toggleHustleCategory(catKey, el) {
   // Toggle category directly in state
   const idx = S.selectedHustleFilterCategories.indexOf(catKey);
   if (idx > -1) {
+    // Deselecting category: remove selected hustles from this category
     S.selectedHustleFilterCategories.splice(idx, 1);
+    const hustlesInCat = getHustlesByCategory(catKey).map(h => h.name);
+    S.selectedHustleFilterHustles = S.selectedHustleFilterHustles.filter(h => !hustlesInCat.includes(h));
   } else {
+    // Selecting category: keep existing hustle selections
     S.selectedHustleFilterCategories.push(catKey);
   }
-  // Reset hustle selections when categories change
-  S.selectedHustleFilterHustles = [];
   saveState();
   // Re-render all tabs to show updated filters
   renderHustles();
