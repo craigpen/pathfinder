@@ -643,11 +643,9 @@ window.loadState = loadState;
 window.startOver = startOver;
 window.pick1 = pick1;
 window.pickN = pickN;
-window.renderPathfinderTab = renderPathfinderTab;
 window.renderDiscoverySelectorOptions = renderDiscoverySelectorOptions;
 window.renderDiscoveryPills = renderDiscoveryPills;
 window.renderHustleFilterPills = renderHustleFilterPills;
-window.renderInsights = renderInsights;
 window.loadInsightsData = loadInsightsData;
 
 // Export query helpers
