@@ -176,7 +176,7 @@ function renderHustleTableView(containerId, title, subtitle, displayedHustles, s
 // ============================================================================
 
 function renderHustles() {
-  if (!window.SIDEHUSTLES || !SIDEHUSTLES_LOADED) {
+  if (!window.SIDEHUSTLES || !window.SIDEHUSTLES_LOADED) {
     const container = document.getElementById('hustles');
     if (container) container.innerHTML = '<div style="padding:24px"><p>Loading hustles...</p></div>';
     return;
@@ -263,7 +263,7 @@ function renderHustles() {
 // ============================================================================
 
 function renderEarnings() {
-  if (!window.SIDEHUSTLES || !SIDEHUSTLES_LOADED) {
+  if (!window.SIDEHUSTLES || !window.SIDEHUSTLES_LOADED) {
     const container = document.getElementById('earnings');
     if (container) container.innerHTML = '<div style="padding:24px"><p>Loading earnings data...</p></div>';
     return;
@@ -364,7 +364,7 @@ function renderDeepDive() {
   const container = document.getElementById('deepdive');
   if (!container) return;
 
-  if (!window.SIDEHUSTLES || !SIDEHUSTLES_LOADED) {
+  if (!window.SIDEHUSTLES || !window.SIDEHUSTLES_LOADED) {
     container.innerHTML = '<div style="padding:24px"><p>Loading deep dive...</p></div>';
     return;
   }
@@ -423,7 +423,7 @@ function renderResources() {
   const container = document.getElementById('resources');
   if (!container) return;
 
-  if (!window.SIDEHUSTLES || !SIDEHUSTLES_LOADED) {
+  if (!window.SIDEHUSTLES || !window.SIDEHUSTLES_LOADED) {
     container.innerHTML = '<div style="padding:24px"><p>Loading resources...</p></div>';
     return;
   }
@@ -796,7 +796,7 @@ function renderInsights() {
   const container = document.getElementById('insights');
   if (!container) return;
 
-  if (!window.SIDEHUSTLES || !SIDEHUSTLES_LOADED) {
+  if (!window.SIDEHUSTLES || !window.SIDEHUSTLES_LOADED) {
     container.innerHTML = '<div style="padding:24px"><p>Loading insights...</p></div>';
     return;
   }
