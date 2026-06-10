@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Side Hustle Pathfinder</title>
+  <script src="../../framework.js"></script>
+  <style>
+    /* Pathfinder-specific styles (framework CSS already loaded) */
+  </style>
+</head>
+<body>
+  <div class="ctr">
+    <!-- Header built dynamically -->
+    <div id="header-container"></div>
+
+    <!-- Tab navigation -->
+    <div class="tabs">
+      <button class="tb on" onclick="go('discover')">Discover</button>
+      <button class="tb" onclick="go('hustles')">Side Hustles</button>
+      <button class="tb" onclick="go('earnings')">Earnings</button>
+      <button class="tb" onclick="go('getstarted')">Getting Started</button>
+    </div>
+
+    <!-- Discover tab (selectors) -->
+    <div class="pan on" id="discover">
+      <div class="bg">
+        <button class="btn br pos-center" onclick="startOver()">Reset</button>
+        <button class="btn bp pos-right" onclick="go('hustles')">Next</button>
+      </div>
+    </div>
+
+    <!-- Side Hustles tab -->
+    <div class="pan" id="hustles"></div>
+
+    <!-- Earnings Breakdown tab -->
+    <div class="pan" id="earnings"></div>
+
+    <!-- Getting Started tab -->
+    <div class="pan" id="getstarted"></div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="helpers.js"></script>
+  <script src="renderers.js"></script>
+  <script>
+    // Framework initialization happens automatically
+    // Data loads via config.dataSources before rendering
+  </script>
+</body>
+</html>

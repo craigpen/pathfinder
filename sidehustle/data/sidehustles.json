@@ -1,0 +1,972 @@
+{
+  "sidehustles": [
+    {
+      "name": "Freelance Writing",
+      "category": "content-writing",
+      "categoryLabel": "Content & Writing",
+      "description": "Write articles, blog posts, web content, or copywriting for clients on platforms or direct clients.",
+      "financial": {
+        "startupCost_min": 0,
+        "startupCost_max": 500,
+        "startupCost_note": "Portfolio website optional but helps land clients",
+        "monthlyEarning_min": 200,
+        "monthlyEarning_max": 5000,
+        "timeToFirstIncome": "1-2 weeks"
+      },
+      "effort": {
+        "hoursPerWeekRequired_min": 10,
+        "hoursPerWeekRequired_max": 30,
+        "timeToScaleability": "3-6 months",
+        "scalabilityPotential": "high"
+      },
+      "character": {
+        "passivityScore": 0.15,
+        "competitionLevel": "high",
+        "demandTrend": "growing",
+        "seasonality": "steady"
+      },
+      "practical": {
+        "requiredSkills": ["Writing", "English proficiency"],
+        "recommendedPlatforms": ["Upwork", "Fiverr", "Medium", "Substack", "LinkedIn"],
+        "pros": ["Flexible hours", "No upfront cost", "Work from anywhere", "Build portfolio while earning"],
+        "cons": ["High competition", "Feast/famine income", "Rate compression", "Takes 2-3 months to build reputation"],
+        "resources": [
+          {"title": "Content Marketing Institute", "url": "https://contentmarketinginstitute.com/"},
+          {"title": "Freelance Writers Association", "url": "https://www.freelancewritersassociation.org/"},
+          {"title": "r/freelancewriters", "url": "https://www.reddit.com/r/freelancewriters/"}
+        ]
+      },
+      "imageUrls": [
+        "https://images.unsplash.com/photo-1455849318169-8381a3a96e36?w=600",
+        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600",
+        "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600",
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
+        "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600"
+      ]
+    },
+    {
+      "name": "Blogging",
+      "category": "content-writing",
+      "categoryLabel": "Content & Writing",
+      "description": "Start a blog and monetize through ads (AdSense), affiliate links, or sponsorships.",
+      "financial": {
+        "startupCost_min": 50,
+        "startupCost_max": 200,
+        "startupCost_note": "Domain + hosting; can use free platforms initially",
+        "monthlyEarning_min": 0,
+        "monthlyEarning_max": 3000,
+        "timeToFirstIncome": "3-6 months"
+      },
+      "effort": {
+        "hoursPerWeekRequired_min": 15,
+        "hoursPerWeekRequired_max": 25,
+        "timeToScaleability": "6-12 months",
+        "scalabilityPotential": "medium"
+      },
+      "character": {
+        "passivityScore": 0.6,
+        "competitionLevel": "high",
+        "demandTrend": "stable",
+        "seasonality": "steady"
+      },
+      "practical": {
+        "requiredSkills": ["Writing", "SEO basics", "Patience"],
+        "recommendedPlatforms": ["WordPress", "Medium", "Substack", "Ghost"],
+        "pros": ["Passive income potential", "Builds personal brand", "Flexible schedule", "Can earn while sleeping"],
+        "cons": ["Very slow to profitability (6+ months)", "High competition", "Requires consistent publishing", "Algorithm changes can tank traffic"],
+        "resources": [
+          {"title": "Backlinko SEO Blog", "url": "https://backlinko.com/blog"},
+          {"title": "HubSpot Blog Academy", "url": "https://blog.hubspot.com/"},
+          {"title": "Copyblogger", "url": "https://copyblogger.com/"}
+        ]
+      },
+      "imageUrls": [
+        "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb92?w=600",
+        "https://images.unsplash.com/photo-1467232528046-9016cf4edd3e?w=600",
+        "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600",
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
+        "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=600"
+      ]
+    },
+    {
+      "name": "YouTube Channel",
+      "category": "content-writing",
+      "categoryLabel": "Content & Writing",
+      "description": "Create video content on YouTube and monetize through ads, sponsorships, or affiliate links.",
+      "financial": {
+        "startupCost_min": 100,
+        "startupCost_max": 1000,
+        "startupCost_note": "Camera/microphone; can start with phone",
+        "monthlyEarning_min": 0,
+        "monthlyEarning_max": 10000,
+        "timeToFirstIncome": "6-12 months"
+      },
+      "effort": {
+        "hoursPerWeekRequired_min": 20,
+        "hoursPerWeekRequired_max": 40,
+        "timeToScaleability": "12+ months",
+        "scalabilityPotential": "very_high"
+      },
+      "character": {
+        "passivityScore": 0.7,
+        "competitionLevel": "high",
+        "demandTrend": "growing",
+        "seasonality": "steady"
+      },
+      "practical": {
+        "requiredSkills": ["Video editing", "Storytelling", "Consistency", "On-camera presence"],
+        "recommendedPlatforms": ["YouTube", "TikTok", "Instagram Reels"],
+        "pros": ["Highest earning potential", "Personal brand building", "Passive income at scale", "Sponsorship opportunities"],
+        "cons": ["Longest ramp to profitability", "Requires equipment", "Takes consistency (1-2 years)", "Algorithm-dependent"],
+        "resources": [
+          {"title": "YouTube Creator Academy", "url": "https://creatoracademy.youtube.com/"},
+          {"title": "Think Media", "url": "https://www.thinkmedia.co/"},
+          {"title": "Video creators subreddit", "url": "https://www.reddit.com/r/videocreators/"}
+        ]
+      },
+      "imageUrls": [
+        "https://images.unsplash.com/photo-1516321318423-f06f70504504?w=600",
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600",
+        "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=600",
+        "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=600",
+        "https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=600"
+      ]
+    },
+    {
+      "name": "Social Media Management",
+      "category": "service-based",
+      "categoryLabel": "Service-Based",
+      "description": "Manage social media accounts for small businesses (content creation, scheduling, engagement).",
+      "financial": {
+        "startupCost_min": 0,
+        "startupCost_max": 200,
+        "startupCost_note": "Tools like Buffer, Later are optional",
+        "monthlyEarning_min": 500,
+        "monthlyEarning_max": 3000,
+        "timeToFirstIncome": "2-4 weeks"
+      },
+      "effort": {
+        "hoursPerWeekRequired_min": 10,
+        "hoursPerWeekRequired_max": 25,
+        "timeToScaleability": "2-3 months",
+        "scalabilityPotential": "medium"
+      },
+      "character": {
+        "passivityScore": 0.2,
+        "competitionLevel": "medium",
+        "demandTrend": "growing",
+        "seasonality": "steady"
+      },
+      "practical": {
+        "requiredSkills": ["Social media knowledge", "Writing", "Creativity", "Communication"],
+        "recommendedPlatforms": ["Upwork", "Fiverr", "LinkedIn"],
+        "pros": ["Fast to first income", "Recurring clients", "No upfront cost", "Skills in demand"],
+        "cons": ["Competitive field", "Can be repetitive", "Client communication time", "Metrics-driven (clients expect results)"],
+        "resources": [
+          {"title": "HubSpot Social Media Guide", "url": "https://blog.hubspot.com/marketing/social-media"},
+          {"title": "Later Academy", "url": "https://later.com/academy/"},
+          {"title": "Social Media Manager subreddit", "url": "https://www.reddit.com/r/socialmediamanagers/"}
+        ]
+      },
+      "imageUrls": [
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
+        "https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=600",
+        "https://images.unsplash.com/photo-1557821552-17105176677c?w=600",
+        "https://images.unsplash.com/photo-1460925895917-afd651c3c2b5?w=600",
+        "https://images.unsplash.com/photo-1533727937480-fbca6f8aab30?w=600"
+      ]
+    },
+    {
+      "name": "Virtual Assistant",
+      "category": "service-based",
+      "categoryLabel": "Service-Based",
+      "description": "Provide administrative support to businesses (scheduling, email, data entry, customer service).",
+      "financial": {
+        "startupCost_min": 0,
+        "startupCost_max": 300,
+        "startupCost_note": "Office tools optional; many provided by employer",
+        "monthlyEarning_min": 800,
+        "monthlyEarning_max": 2500,
+        "timeToFirstIncome": "1-2 weeks"
+      },
+      "effort": {
+        "hoursPerWeekRequired_min": 15,
+        "hoursPerWeekRequired_max": 30,
+        "timeToScaleability": "2-4 months",
+        "scalabilityPotential": "medium"
+      },
+      "character": {
+        "passivityScore": 0.1,
+        "competitionLevel": "medium",
+        "demandTrend": "growing",
+        "seasonality": "steady"
+      },
+      "practical": {
+        "requiredSkills": ["Organization", "Communication", "Time management", "Tech proficiency"],
+        "recommendedPlatforms": ["Upwork", "Belay", "Time Etc", "Zirtual"],
+        "pros": ["Steady income", "Low startup cost", "Remote-friendly", "Clear daily tasks"],
+        "cons": ["Can feel like a job", "Fixed hours expected", "Less creative", "Client dependent"],
+        "resources": [
+          {"title": "VA Start Guide", "url": "https://www.thevacollab.com/"},
+          {"title": "Belay Academy", "url": "https://www.belayacademy.com/"},
+          {"title": "Virtual Assistants subreddit", "url": "https://www.reddit.com/r/virtualassistant/"}
+        ]
+      },
+      "imageUrls": [
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
+        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600",
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
+        "https://images.unsplash.com/photo-1516534775068-bb577a627ae9?w=600",
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600"
+      ]
+    },
+    {
+      "name": "Graphic Design",
+      "category": "creative-design",
+      "categoryLabel": "Creative & Design",
+      "description": "Create logos, social media graphics, or marketing materials for clients.",
+      "financial": {
+        "startupCost_min": 50,
+        "startupCost_max": 600,
+        "startupCost_note": "Design software (Canva free, Adobe $55/month, or alternatives)",
+        "monthlyEarning_min": 300,
+        "monthlyEarning_max": 4000,
+        "timeToFirstIncome": "2-3 weeks"
+      },
+      "effort": {
+        "hoursPerWeekRequired_min": 12,
+        "hoursPerWeekRequired_max": 30,
+        "timeToScaleability": "3-6 months",
+        "scalabilityPotential": "high"
+      },
+      "character": {
+        "passivityScore": 0.2,
+        "competitionLevel": "high",
+        "demandTrend": "growing",
+        "seasonality": "steady"
+      },
+      "practical": {
+        "requiredSkills": ["Design eye", "Software proficiency", "Creativity", "Client communication"],
+        "recommendedPlatforms": ["Upwork", "Fiverr", "99designs", "Etsy"],
+        "pros": ["Creative outlet", "Growing demand", "Can build portfolio", "Potential for passive templates"],
+        "cons": ["High competition", "Subjective feedback", "Revisions can be endless", "Portfolio takes time"],
+        "resources": [
+          {"title": "Canva Design School", "url": "https://www.canva.com/design-school/"},
+          {"title": "Adobe Creative Cloud Tutorials", "url": "https://www.adobe.com/creativecloud/tutorials.html"},
+          {"title": "Graphic Design subreddit", "url": "https://www.reddit.com/r/graphic_design/"}
+        ]
+      },
+      "imageUrls": [
+        "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600",
+        "https://images.unsplash.com/photo-1561457843-a188b6cbf3f0?w=600",
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
+        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600",
+        "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600"
+      ]
+    },
+    {
+      "name": "Web Development",
+      "category": "tech-code",
+      "categoryLabel": "Tech & Code",
+      "description": "Build websites or web apps for clients using HTML, CSS, JavaScript, etc.",
+      "financial": {
+        "startupCost_min": 0,
+        "startupCost_max": 300,
+        "startupCost_note": "Dev tools are mostly free; optional hosting/domain",
+        "monthlyEarning_min": 1000,
+        "monthlyEarning_max": 8000,
+        "timeToFirstIncome": "2-3 weeks"
+      },
+      "effort": {
+        "hoursPerWeekRequired_min": 15,
+        "hoursPerWeekRequired_max": 40,
+        "timeToScaleability": "4-8 months",
+        "scalabilityPotential": "very_high"
+      },
+      "character": {
+        "passivityScore": 0.15,
+        "competitionLevel": "high",
+        "demandTrend": "growing",
+        "seasonality": "steady"
+      },
+      "practical": {
+        "requiredSkills": ["HTML/CSS/JavaScript", "Problem-solving", "Design sense"],
+        "recommendedPlatforms": ["Upwork", "Toptal", "Gun.io"],
+        "pros": ["High earning potential", "Strong demand", "Recurring clients", "Can build SaaS products"],
+        "cons": ["Competitive field", "Client management", "Browser compatibility issues", "Ongoing maintenance requests"],
+        "resources": [
+          {"title": "freeCodeCamp", "url": "https://www.freecodecamp.org/"},
+          {"title": "Web Developers subreddit", "url": "https://www.reddit.com/r/webdev/"},
+          {"title": "Frontend Masters", "url": "https://frontendmasters.com/"}
+        ]
+      },
+      "imageUrls": [
+        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600",
+        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600",
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600",
+        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600",
+        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600"
+      ]
+    },
+    {
+      "name": "App Development",
+      "category": "tech-code",
+      "categoryLabel": "Tech & Code",
+      "description": "Build iOS, Android, or cross-platform apps for clients or app stores.",
+      "financial": {
+        "startupCost_min": 50,
+        "startupCost_max": 500,
+        "startupCost_note": "App store fees, dev environment tools",
+        "monthlyEarning_min": 500,
+        "monthlyEarning_max": 10000,
+        "timeToFirstIncome": "4-8 weeks"
+      },
+      "effort": {
+        "hoursPerWeekRequired_min": 20,
+        "hoursPerWeekRequired_max": 40,
+        "timeToScaleability": "6-12 months",
+        "scalabilityPotential": "very_high"
+      },
+      "character": {
+        "passivityScore": 0.5,
+        "competitionLevel": "high",
+        "demandTrend": "growing",
+        "seasonality": "steady"
+      },
+      "practical": {
+        "requiredSkills": ["Mobile development (Swift, Kotlin, React Native)", "Problem-solving", "User experience"],
+        "recommendedPlatforms": ["Upwork", "App store publishing", "Client contracts"],
+        "pros": ["High earning potential", "Passive income from published apps", "Scalable", "Growing market"],
+        "cons": ["Long development time", "Steep learning curve", "App store approval process", "Maintenance burden"],
+        "resources": [
+          {"title": "Swift Tutorials", "url": "https://developer.apple.com/swift/"},
+          {"title": "React Native Docs", "url": "https://reactnative.dev/"},
+          {"title": "Mobile Developers subreddit", "url": "https://www.reddit.com/r/androiddev/"}
+        ]
+      },
+      "imageUrls": [
+        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600",
+        "https://images.unsplash.com/photo-1555949519-2f4ef28af159?w=600",
+        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600",
+        "https://images.unsplash.com/photo-1526374965328-7f5ae4e8b08f?w=600",
+        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600"
+      ]
+    },
+    {
+      "name": "Tutoring",
+      "category": "education",
+      "categoryLabel": "Education & Tutoring",
+      "description": "Teach students online in subjects like math, languages, test prep, or coding.",
+      "financial": {
+        "startupCost_min": 0,
+        "startupCost_max": 100,
+        "startupCost_note": "Video conferencing (Zoom free, Skype free)",
+        "monthlyEarning_min": 400,
+        "monthlyEarning_max": 2500,
+        "timeToFirstIncome": "1-2 weeks"
+      },
+      "effort": {
+        "hoursPerWeekRequired_min": 10,
+        "hoursPerWeekRequired_max": 25,
+        "timeToScaleability": "2-3 months",
+        "scalabilityPotential": "medium"
+      },
+      "character": {
+        "passivityScore": 0.05,
+        "competitionLevel": "medium",
+        "demandTrend": "growing",
+        "seasonality": "seasonal"
+      },
+      "practical": {
+        "requiredSkills": ["Subject expertise", "Teaching ability", "Patience", "Explanation skills"],
+        "recommendedPlatforms": ["Chegg", "Wyzant", "Tutor.com", "Care.com", "Italki"],
+        "pros": ["Steady demand", "Flexible scheduling", "Help students", "Build relationships"],
+        "cons": ["Seasonal (peaks during school year)", "One-on-one only", "No leverage", "Requires expertise"],
+        "resources": [
+          {"title": "Chegg Tutor Academy", "url": "https://tutors.chegg.com/"},
+          {"title": "Wyzant Blog", "url": "https://www.wyzant.com/blog/"},
+          {"title": "Tutors subreddit", "url": "https://www.reddit.com/r/tutoring/"}
+        ]
+      },
+      "imageUrls": [
+        "https://images.unsplash.com/photo-1427504494785-cdfd072aaad8?w=600",
+        "https://images.unsplash.com/photo-1516534775068-bb577a627ae9?w=600",
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
+        "https://images.unsplash.com/photo-1522202176988-696cebadf5d2?w=600",
+        "https://images.unsplash.com/photo-1460925895917-afd651c3c2b5?w=600"
+      ]
+    },
+    {
+      "name": "Online Course",
+      "category": "education",
+      "categoryLabel": "Education & Tutoring",
+      "description": "Create and sell video courses on platforms like Udemy, Teachable, or Kajabi.",
+      "financial": {
+        "startupCost_min": 100,
+        "startupCost_max": 1000,
+        "startupCost_note": "Hosting platform fees, camera/microphone",
+        "monthlyEarning_min": 0,
+        "monthlyEarning_max": 5000,
+        "timeToFirstIncome": "6-12 months"
+      },
+      "effort": {
+        "hoursPerWeekRequired_min": 15,
+        "hoursPerWeekRequired_max": 40,
+        "timeToScaleability": "12+ months",
+        "scalabilityPotential": "very_high"
+      },
+      "character": {
+        "passivityScore": 0.85,
+        "competitionLevel": "high",
+        "demandTrend": "growing",
+        "seasonality": "steady"
+      },
+      "practical": {
+        "requiredSkills": ["Teaching", "Video production", "Marketing", "Expertise in subject"],
+        "recommendedPlatforms": ["Udemy", "Teachable", "Kajabi", "Thinkific"],
+        "pros": ["Passive income potential", "Scalable", "Help many students", "Premium platform potential"],
+        "cons": ["Long creation time", "Requires marketing", "High competition", "Udemy's low margins"],
+        "resources": [
+          {"title": "Udemy Instructor Academy", "url": "https://instructor.udemy.com/"},
+          {"title": "Teachable Creator Hub", "url": "https://teachable.com/blog"},
+          {"title": "Online Course Creators subreddit", "url": "https://www.reddit.com/r/Entrepreneur/"}
+        ]
+      },
+      "imageUrls": [
+        "https://images.unsplash.com/photo-1516534775068-bb577a627ae9?w=600",
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
+        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600",
+        "https://images.unsplash.com/photo-1516321318423-f06f70504504?w=600",
+        "https://images.unsplash.com/photo-1522202176988-696cebadf5d2?w=600"
+      ]
+    },
+    {
+      "name": "Dropshipping",
+      "category": "selling-ecommerce",
+      "categoryLabel": "Selling & E-commerce",
+      "description": "Set up an online store and sell products without holding inventory.",
+      "financial": {
+        "startupCost_min": 300,
+        "startupCost_max": 1000,
+        "startupCost_note": "Shopify ($29/month), marketing, domain",
+        "monthlyEarning_min": 100,
+        "monthlyEarning_max": 5000,
+        "timeToFirstIncome": "2-4 weeks"
+      },
+      "effort": {
+        "hoursPerWeekRequired_min": 15,
+        "hoursPerWeekRequired_max": 35,
+        "timeToScaleability": "3-6 months",
+        "scalabilityPotential": "high"
+      },
+      "character": {
+        "passivityScore": 0.25,
+        "competitionLevel": "very_high",
+        "demandTrend": "stable",
+        "seasonality": "seasonal"
+      },
+      "practical": {
+        "requiredSkills": ["Marketing", "Ads (Facebook, Google)", "Customer service"],
+        "recommendedPlatforms": ["Shopify", "WooCommerce", "Printful", "AliExpress suppliers"],
+        "pros": ["Low risk (no inventory)", "Scalable", "Potential for high margins", "Flexible"],
+        "cons": ["Very competitive", "Requires ad spend", "Shipping issues", "Tight margins with scale"],
+        "resources": [
+          {"title": "Shopify Blog", "url": "https://www.shopify.com/blog"},
+          {"title": "Dropshipping subreddit", "url": "https://www.reddit.com/r/dropshipping/"},
+          {"title": "Oberlo Guides", "url": "https://www.oberlo.com/guides"}
+        ]
+      },
+      "imageUrls": [
+        "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=600",
+        "https://images.unsplash.com/photo-1460925895917-afd651c3c2b5?w=600",
+        "https://images.unsplash.com/photo-1549923746-c533fc8f2c8d?w=600",
+        "https://images.unsplash.com/photo-1522202176988-696cebadf5d2?w=600",
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600"
+      ]
+    },
+    {
+      "name": "Print-on-Demand",
+      "category": "selling-ecommerce",
+      "categoryLabel": "Selling & E-commerce",
+      "description": "Design and sell custom merchandise (t-shirts, mugs, hoodies) without inventory.",
+      "financial": {
+        "startupCost_min": 0,
+        "startupCost_max": 300,
+        "startupCost_note": "Optional Etsy shop fee ($0.20/item), design tools",
+        "monthlyEarning_min": 50,
+        "monthlyEarning_max": 2000,
+        "timeToFirstIncome": "1-2 weeks"
+      },
+      "effort": {
+        "hoursPerWeekRequired_min": 5,
+        "hoursPerWeekRequired_max": 20,
+        "timeToScaleability": "2-4 months",
+        "scalabilityPotential": "medium"
+      },
+      "character": {
+        "passivityScore": 0.5,
+        "competitionLevel": "high",
+        "demandTrend": "growing",
+        "seasonality": "seasonal"
+      },
+      "practical": {
+        "requiredSkills": ["Design", "Marketing", "Creativity"],
+        "recommendedPlatforms": ["Etsy", "Teespring", "Printful", "Merch by Amazon"],
+        "pros": ["Low startup cost", "No inventory risk", "Passive after creation", "Creative outlet"],
+        "cons": ["Low margins per item", "High competition", "Slow sales initially", "Requires marketing"],
+        "resources": [
+          {"title": "Etsy Seller Handbook", "url": "https://www.etsy.com/seller-handbook"},
+          {"title": "Merch by Amazon Resources", "url": "https://merchbyamazon.com/"},
+          {"title": "Print-on-Demand subreddit", "url": "https://www.reddit.com/r/printondemand/"}
+        ]
+      },
+      "imageUrls": [
+        "https://images.unsplash.com/photo-1608848541803-ba4f8a3ae0f2?w=600",
+        "https://images.unsplash.com/photo-1522202176988-696cebadf5d2?w=600",
+        "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600",
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600"
+      ]
+    },
+    {
+      "name": "Etsy Shop",
+      "category": "selling-ecommerce",
+      "categoryLabel": "Selling & E-commerce",
+      "description": "Sell handmade crafts, vintage items, or digital products on Etsy.",
+      "financial": {
+        "startupCost_min": 50,
+        "startupCost_max": 500,
+        "startupCost_note": "Materials + shop setup; Etsy takes 6.5% commission",
+        "monthlyEarning_min": 100,
+        "monthlyEarning_max": 3000,
+        "timeToFirstIncome": "2-4 weeks"
+      },
+      "effort": {
+        "hoursPerWeekRequired_min": 10,
+        "hoursPerWeekRequired_max": 25,
+        "timeToScaleability": "3-6 months",
+        "scalabilityPotential": "medium"
+      },
+      "character": {
+        "passivityScore": 0.4,
+        "competitionLevel": "high",
+        "demandTrend": "stable",
+        "seasonality": "seasonal"
+      },
+      "practical": {
+        "requiredSkills": ["Crafting or curation", "Photography", "Writing descriptions", "Customer service"],
+        "recommendedPlatforms": ["Etsy"],
+        "pros": ["Passive income potential", "Leverage SEO", "Built-in audience", "Creative outlet"],
+        "cons": ["High competition", "Platform dependent", "Shipping logistics", "Photography important"],
+        "resources": [
+          {"title": "Etsy Seller Handbook", "url": "https://www.etsy.com/seller-handbook"},
+          {"title": "Etsy subreddit", "url": "https://www.reddit.com/r/EtsySellers/"},
+          {"title": "Karol Makes Etsy Guides", "url": "https://www.etsy.com/shop/KarolMakesShop"}
+        ]
+      },
+      "imageUrls": [
+        "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600",
+        "https://images.unsplash.com/photo-1460925895917-afd651c3c2b5?w=600",
+        "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600",
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
+        "https://images.unsplash.com/photo-1493514789a586cb145618e8d53fcc9c9cb837b1?w=600"
+      ]
+    },
+    {
+      "name": "Affiliate Marketing",
+      "category": "selling-ecommerce",
+      "categoryLabel": "Selling & E-commerce",
+      "description": "Promote products and earn commission on sales through affiliate links.",
+      "financial": {
+        "startupCost_min": 50,
+        "startupCost_max": 500,
+        "startupCost_note": "Website/blog, domain optional",
+        "monthlyEarning_min": 0,
+        "monthlyEarning_max": 5000,
+        "timeToFirstIncome": "3-6 months"
+      },
+      "effort": {
+        "hoursPerWeekRequired_min": 10,
+        "hoursPerWeekRequired_max": 25,
+        "timeToScaleability": "6-12 months",
+        "scalabilityPotential": "high"
+      },
+      "character": {
+        "passivityScore": 0.7,
+        "competitionLevel": "very_high",
+        "demandTrend": "growing",
+        "seasonality": "seasonal"
+      },
+      "practical": {
+        "requiredSkills": ["Writing/content", "SEO", "Trust-building", "Audience understanding"],
+        "recommendedPlatforms": ["Amazon Associates", "ShareASale", "CJ Affiliate", "Influencer networks"],
+        "pros": ["Passive income potential", "No inventory", "Scalable", "Flexible"],
+        "cons": ["Slow to profit", "High competition", "SEO dependent", "Low commissions on some products"],
+        "resources": [
+          {"title": "Amazon Associates Central", "url": "https://affiliate-program.amazon.com/"},
+          {"title": "Affiliate Summit Resources", "url": "https://www.affiliatesummit.com/"},
+          {"title": "Affiliate Marketing subreddit", "url": "https://www.reddit.com/r/affiliatemarketing/"}
+        ]
+      },
+      "imageUrls": [
+        "https://images.unsplash.com/photo-1460925895917-afd651c3c2b5?w=600",
+        "https://images.unsplash.com/photo-1554774853-aae0bffe2c10?w=600",
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
+        "https://images.unsplash.com/photo-1460925895917-afd651c3c2b5?w=600",
+        "https://images.unsplash.com/photo-1522202176988-696cebadf5d2?w=600"
+      ]
+    },
+    {
+      "name": "Delivery Driver (DoorDash/Uber Eats)",
+      "category": "gig-work",
+      "categoryLabel": "Gig Work",
+      "description": "Deliver food or groceries for DoorDash, Uber Eats, or similar platforms.",
+      "financial": {
+        "startupCost_min": 0,
+        "startupCost_max": 5000,
+        "startupCost_note": "Car required (can use existing); insurance may increase",
+        "monthlyEarning_min": 500,
+        "monthlyEarning_max": 2500,
+        "timeToFirstIncome": "1 week"
+      },
+      "effort": {
+        "hoursPerWeekRequired_min": 10,
+        "hoursPerWeekRequired_max": 40,
+        "timeToScaleability": "immediate",
+        "scalabilityPotential": "low"
+      },
+      "character": {
+        "passivityScore": 0.0,
+        "competitionLevel": "low",
+        "demandTrend": "growing",
+        "seasonality": "seasonal"
+      },
+      "practical": {
+        "requiredSkills": ["Driving", "Time management", "Customer service"],
+        "recommendedPlatforms": ["DoorDash", "Uber Eats", "Instacart", "Grubhub"],
+        "pros": ["Immediate income", "Flexible hours", "Work as much as you want", "No interview needed"],
+        "cons": ["Car wear and tear", "Gas expensive", "Seasonal demand", "No benefits"],
+        "resources": [
+          {"title": "DoorDash Help Center", "url": "https://help.doordash.com/"},
+          {"title": "Uber Eats Delivery", "url": "https://www.ubereats.com/uber-eats-driver"},
+          {"title": "GigEconomy subreddit", "url": "https://www.reddit.com/r/couriersofreddit/"}
+        ]
+      },
+      "imageUrls": [
+        "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600",
+        "https://images.unsplash.com/photo-1527786356703-4b100091cd2c?w=600",
+        "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600",
+        "https://images.unsplash.com/photo-1527786356703-4b100091cd2c?w=600",
+        "https://images.unsplash.com/photo-1522576285406-f7dcb0b72b54?w=600"
+      ]
+    },
+    {
+      "name": "Task Services (TaskRabbit/Handy)",
+      "category": "gig-work",
+      "categoryLabel": "Gig Work",
+      "description": "Complete odd jobs for people (furniture assembly, cleaning, handyman work).",
+      "financial": {
+        "startupCost_min": 0,
+        "startupCost_max": 500,
+        "startupCost_note": "Basic tools may be needed",
+        "monthlyEarning_min": 400,
+        "monthlyEarning_max": 2000,
+        "timeToFirstIncome": "1-2 weeks"
+      },
+      "effort": {
+        "hoursPerWeekRequired_min": 10,
+        "hoursPerWeekRequired_max": 30,
+        "timeToScaleability": "immediate",
+        "scalabilityPotential": "medium"
+      },
+      "character": {
+        "passivityScore": 0.0,
+        "competitionLevel": "low",
+        "demandTrend": "growing",
+        "seasonality": "steady"
+      },
+      "practical": {
+        "requiredSkills": ["Handy/practical", "Problem-solving", "Customer service", "Time management"],
+        "recommendedPlatforms": ["TaskRabbit", "Handy", "Sittercity"],
+        "pros": ["Immediate income", "Flexible", "No inventory", "Recurring customers possible"],
+        "cons": ["Physical work", "Travel time", "Liability concerns", "Customer dependent"],
+        "resources": [
+          {"title": "TaskRabbit Tasker Guide", "url": "https://www.taskrabbit.com/taskers"},
+          {"title": "Handy Pro Guide", "url": "https://www.handy.com/professionals"},
+          {"title": "Taskers subreddit", "url": "https://www.reddit.com/r/taskrabbit/"}
+        ]
+      },
+      "imageUrls": [
+        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600",
+        "https://images.unsplash.com/photo-1545883271-f5ffd55a0b00?w=600",
+        "https://images.unsplash.com/photo-1532996122724-8f3c2cd83c5d?w=600",
+        "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600",
+        "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600"
+      ]
+    },
+    {
+      "name": "Pet Sitting (Rover/Care.com)",
+      "category": "gig-work",
+      "categoryLabel": "Gig Work",
+      "description": "Care for pets while owners travel using Rover or Care.com.",
+      "financial": {
+        "startupCost_min": 0,
+        "startupCost_max": 50,
+        "startupCost_note": "Background check fee optional",
+        "monthlyEarning_min": 200,
+        "monthlyEarning_max": 1500,
+        "timeToFirstIncome": "1-2 weeks"
+      },
+      "effort": {
+        "hoursPerWeekRequired_min": 5,
+        "hoursPerWeekRequired_max": 20,
+        "timeToScaleability": "immediate",
+        "scalabilityPotential": "medium"
+      },
+      "character": {
+        "passivityScore": 0.05,
+        "competitionLevel": "low",
+        "demandTrend": "growing",
+        "seasonality": "seasonal"
+      },
+      "practical": {
+        "requiredSkills": ["Animal care", "Responsibility", "Communication"],
+        "recommendedPlatforms": ["Rover", "Care.com", "Wag"],
+        "pros": ["Love animals", "Flexible", "Low barrier to entry", "Build regulars"],
+        "cons": ["Seasonal (peaks holidays)", "Liability concerns", "Time-sensitive (can't skip)", "Physical work"],
+        "resources": [
+          {"title": "Rover Sitter Guide", "url": "https://www.rover.com/become-a-sitter"},
+          {"title": "Care.com Pet Care", "url": "https://www.care.com/pet-care"},
+          {"title": "Pet Sitters subreddit", "url": "https://www.reddit.com/r/petsitting/"}
+        ]
+      },
+      "imageUrls": [
+        "https://images.unsplash.com/photo-1560807707-38cc528c67f5?w=600",
+        "https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=600",
+        "https://images.unsplash.com/photo-1558788353-f76d92427f16?w=600",
+        "https://images.unsplash.com/photo-1537151608828-8661f6b32421?w=600",
+        "https://images.unsplash.com/photo-1513161455079-7ef1a827e7f7?w=600"
+      ]
+    },
+    {
+      "name": "Photography",
+      "category": "creative-design",
+      "categoryLabel": "Creative & Design",
+      "description": "Provide photography services (portraits, events, products, real estate).",
+      "financial": {
+        "startupCost_min": 500,
+        "startupCost_max": 3000,
+        "startupCost_note": "Camera, lens, editing software, lighting",
+        "monthlyEarning_min": 500,
+        "monthlyEarning_max": 4000,
+        "timeToFirstIncome": "2-4 weeks"
+      },
+      "effort": {
+        "hoursPerWeekRequired_min": 15,
+        "hoursPerWeekRequired_max": 35,
+        "timeToScaleability": "3-6 months",
+        "scalabilityPotential": "medium"
+      },
+      "character": {
+        "passivityScore": 0.15,
+        "competitionLevel": "high",
+        "demandTrend": "stable",
+        "seasonality": "seasonal"
+      },
+      "practical": {
+        "requiredSkills": ["Photography", "Editing (Lightroom, Photoshop)", "Client communication", "Creativity"],
+        "recommendedPlatforms": ["Local marketing", "Instagram", "Facebook", "Wedding/event sites"],
+        "pros": ["Creative outlet", "High hourly rate", "Portfolio building", "Recurring clients"],
+        "cons": ["High startup cost", "Seasonal (events/weddings)", "Editing time-consuming", "Client expectations"],
+        "resources": [
+          {"title": "Photography Talk", "url": "https://www.fredmiranda.com/"},
+          {"title": "Adobe Creative Cloud Tutorials", "url": "https://www.adobe.com/creativecloud/tutorials.html"},
+          {"title": "Photography subreddit", "url": "https://www.reddit.com/r/photography/"}
+        ]
+      },
+      "imageUrls": [
+        "https://images.unsplash.com/photo-1516035069371-29ad0abb474b?w=600",
+        "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=600",
+        "https://images.unsplash.com/photo-1520128665aa-4ad2b4bdd042?w=600",
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600",
+        "https://images.unsplash.com/photo-1610036782180-9c393c641bbe?w=600"
+      ]
+    },
+    {
+      "name": "Music Lessons",
+      "category": "education",
+      "categoryLabel": "Education & Tutoring",
+      "description": "Teach music instruments or voice lessons online or in-person.",
+      "financial": {
+        "startupCost_min": 0,
+        "startupCost_max": 200,
+        "startupCost_note": "Instrument may already own",
+        "monthlyEarning_min": 400,
+        "monthlyEarning_max": 2000,
+        "timeToFirstIncome": "1-2 weeks"
+      },
+      "effort": {
+        "hoursPerWeekRequired_min": 10,
+        "hoursPerWeekRequired_max": 25,
+        "timeToScaleability": "2-3 months",
+        "scalabilityPotential": "medium"
+      },
+      "character": {
+        "passivityScore": 0.05,
+        "competitionLevel": "medium",
+        "demandTrend": "stable",
+        "seasonality": "seasonal"
+      },
+      "practical": {
+        "requiredSkills": ["Musical ability", "Teaching", "Patience"],
+        "recommendedPlatforms": ["Superprof", "Italki", "Lessonface", "Local marketing"],
+        "pros": ["Steady income", "Help students", "Flexible", "Rewarding"],
+        "cons": ["Seasonal", "One-on-one only", "No leverage", "Schedule coordination"],
+        "resources": [
+          {"title": "Superprof Music Lessons", "url": "https://www.superprof.com/"},
+          {"title": "Italki Music Lessons", "url": "https://www.italki.com/"},
+          {"title": "Music Teachers subreddit", "url": "https://www.reddit.com/r/musicteachers/"}
+        ]
+      },
+      "imageUrls": [
+        "https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=600",
+        "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=600",
+        "https://images.unsplash.com/photo-1489749798305-4fea3ba63d60?w=600",
+        "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600",
+        "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=600"
+      ]
+    },
+    {
+      "name": "Stock Photography",
+      "category": "content-writing",
+      "categoryLabel": "Content & Writing",
+      "description": "Upload photos to stock sites and earn per download (Shutterstock, Getty, Adobe Stock).",
+      "financial": {
+        "startupCost_min": 100,
+        "startupCost_max": 500,
+        "startupCost_note": "Camera, editing software optional",
+        "monthlyEarning_min": 10,
+        "monthlyEarning_max": 1000,
+        "timeToFirstIncome": "4-8 weeks"
+      },
+      "effort": {
+        "hoursPerWeekRequired_min": 5,
+        "hoursPerWeekRequired_max": 15,
+        "timeToScaleability": "6-12 months",
+        "scalabilityPotential": "high"
+      },
+      "character": {
+        "passivityScore": 0.8,
+        "competitionLevel": "very_high",
+        "demandTrend": "stable",
+        "seasonality": "steady"
+      },
+      "practical": {
+        "requiredSkills": ["Photography", "Understanding trends", "Consistency"],
+        "recommendedPlatforms": ["Shutterstock", "Getty Images", "Adobe Stock", "Alamy"],
+        "pros": ["Truly passive", "Upload once, earn forever", "Low effort after setup", "Scalable"],
+        "cons": ["Very slow to profit", "Fierce competition", "Low per-download earnings", "Needs volume"],
+        "resources": [
+          {"title": "Shutterstock Contributor", "url": "https://www.shutterstock.com/contribute/"},
+          {"title": "Getty Images Contributor", "url": "https://www.gettyimages.com/"},
+          {"title": "Stock Photography subreddit", "url": "https://www.reddit.com/r/forhire/"}
+        ]
+      },
+      "imageUrls": [
+        "https://images.unsplash.com/photo-1516035069371-29ad0abb474b?w=600",
+        "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=600",
+        "https://images.unsplash.com/photo-1551077857-4dd404dec202?w=600",
+        "https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=600",
+        "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600"
+      ]
+    },
+    {
+      "name": "Consulting",
+      "category": "service-based",
+      "categoryLabel": "Service-Based",
+      "description": "Offer expert advice to businesses in your field (business, marketing, tech, HR).",
+      "financial": {
+        "startupCost_min": 0,
+        "startupCost_max": 500,
+        "startupCost_note": "Website optional",
+        "monthlyEarning_min": 1000,
+        "monthlyEarning_max": 10000,
+        "timeToFirstIncome": "2-4 weeks"
+      },
+      "effort": {
+        "hoursPerWeekRequired_min": 10,
+        "hoursPerWeekRequired_max": 30,
+        "timeToScaleability": "2-3 months",
+        "scalabilityPotential": "high"
+      },
+      "character": {
+        "passivityScore": 0.15,
+        "competitionLevel": "high",
+        "demandTrend": "growing",
+        "seasonality": "steady"
+      },
+      "practical": {
+        "requiredSkills": ["Industry expertise", "Communication", "Problem-solving"],
+        "recommendedPlatforms": ["Upwork", "GLG", "Guidepoint", "LinkedIn"],
+        "pros": ["High hourly rate", "Leverage expertise", "Flexible", "Build relationships"],
+        "cons": ["Need credibility first", "Competitive", "Client acquisition", "Time-bound income"],
+        "resources": [
+          {"title": "Toby Tate Consulting", "url": "https://www.tobytate.com/"},
+          {"title": "Consultant subreddit", "url": "https://www.reddit.com/r/consulting/"},
+          {"title": "GLG Expert Network", "url": "https://www.glg.it/en/"}
+        ]
+      },
+      "imageUrls": [
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
+        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600",
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
+        "https://images.unsplash.com/photo-1560264357-8d9766ba0e4d?w=600",
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600"
+      ]
+    },
+    {
+      "name": "Resume Writing",
+      "category": "service-based",
+      "categoryLabel": "Service-Based",
+      "description": "Write or edit resumes and cover letters for job seekers.",
+      "financial": {
+        "startupCost_min": 0,
+        "startupCost_max": 100,
+        "startupCost_note": "Portfolio and optional website",
+        "monthlyEarning_min": 400,
+        "monthlyEarning_max": 2000,
+        "timeToFirstIncome": "2-3 weeks"
+      },
+      "effort": {
+        "hoursPerWeekRequired_min": 8,
+        "hoursPerWeekRequired_max": 20,
+        "timeToScaleability": "2-3 months",
+        "scalabilityPotential": "medium"
+      },
+      "character": {
+        "passivityScore": 0.1,
+        "competitionLevel": "medium",
+        "demandTrend": "stable",
+        "seasonality": "seasonal"
+      },
+      "practical": {
+        "requiredSkills": ["Writing", "Editing", "Career knowledge"],
+        "recommendedPlatforms": ["Upwork", "Fiverr", "LinkedIn"],
+        "pros": ["Fast to first income", "Helping people", "Repeat clients", "Flexible"],
+        "cons": ["Seasonal (job search peaks)", "Picky clients", "Revision requests", "Low margins"],
+        "resources": [
+          {"title": "ResumeGenius", "url": "https://resumegenius.com/"},
+          {"title": "The Muse Resume Tips", "url": "https://www.themuse.com/advice/"},
+          {"title": "Resume Writers subreddit", "url": "https://www.reddit.com/r/resumes/"}
+        ]
+      },
+      "imageUrls": [
+        "https://images.unsplash.com/photo-1452307521033-b9d3ba1b90f8?w=600",
+        "https://images.unsplash.com/photo-1455849318169-8381a3a96e36?w=600",
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600",
+        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600",
+        "https://images.unsplash.com/photo-1516534775068-bb577a627ae9?w=600"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "timeCommitment": [
+    "5-10 hrs/week",
+    "10-20 hrs/week",
+    "20-30 hrs/week",
+    "30+ hrs/week"
+  ],
+  "startupBudget": [
+    "$0-50",
+    "$50-250",
+    "$250-1,000",
+    "$1,000+"
+  ],
+  "incomeType": [
+    "Mostly passive",
+    "Mix of both",
+    "Mostly active"
+  ],
+  "incomeGoal": [
+    "$100-500/month",
+    "$500-2,000/month",
+    "$2,000-5,000/month",
+    "$5,000+/month"
+  ],
+  "strengths": [
+    "Writing",
+    "Design/Creativity",
+    "Teaching",
+    "Sales",
+    "Technical Skills",
+    "People Skills",
+    "Crafts",
+    "Marketing"
+  ],
+  "scalability": [
+    "Side income only",
+    "Could grow bigger",
+    "Aim to scale"
+  ]
+}
