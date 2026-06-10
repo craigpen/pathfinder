@@ -837,7 +837,7 @@ function renderInsights() {
   // Initialize carousel for mobile view
   setTimeout(() => {
     if (document.getElementById('insights-carousel')) {
-      initCarousel('insights-carousel');
+      initCarousel('insights-carousel', '.insights-carousel-container');
     }
   }, 50);
 
