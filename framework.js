@@ -394,7 +394,7 @@ function buildTableHTML(rows, columnKeys, columnLabel, tableId) {
 }
 
 function buildCarouselHTML(rows, columnKeys, columnLabel, carouselId) {
-  let html = `<div class="carousel-wrap" id="${carouselId || 'carousel-default'}" style="margin:0 -24px;overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;scrollbar-width:none"><div class="carousel-container" style="display:flex;gap:0;padding:0 24px">`;
+  let html = `<div class="carousel-wrap" id="${carouselId || 'carousel-default'}" style="margin:0 -48px;padding:0 48px;overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;scrollbar-width:none"><div class="carousel-container" style="display:flex;gap:0">`;
   columnKeys.forEach((key, idx) => {
     html += '<div class="carousel-card" style="flex:0 0 100vw;display:flex;flex-direction:column;scroll-snap-align:start;scroll-snap-stop:always">';
     html += `<div class="carousel-card-header">${columnLabel(key)}</div>`;
