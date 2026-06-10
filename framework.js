@@ -529,6 +529,47 @@ function go(tabId) {
 }
 
 // ============================================================================
+// INSIGHTS HELPERS - Shared by University and Side Hustle pathfinders
+// ============================================================================
+
+function formatInsightItem(text, isProItem) {
+  if(!text) return '';
+  // Check if text already starts with an emoji (ℹ️, ✅, ⚠️, 💥, etc.)
+  if(text.startsWith('ℹ️')) {
+    return '<span style="color:var(--tx2);">' + text + '</span>';
+  } else if(text.startsWith('✅')) {
+    return '<span style="color:var(--ok);">' + text + '</span>';
+  } else if(text.startsWith('⚠️')) {
+    return '<span style="color:var(--warn);">' + text + '</span>';
+  } else if(text.startsWith('💥')) {
+    return '<span style="color:var(--bad);">' + text + '</span>';
+  }
+  // No emoji - add the appropriate one
+  if(isProItem) {
+    return '<span style="color:var(--ok);">✅ ' + text + '</span>';
+  } else {
+    return '<span style="color:var(--warn);">⚠️ ' + text + '</span>';
+  }
+}
+
+function buildInsightCarouselHTML(items, carouselId) {
+  let html = '<div class="insights-carousel-wrap" id="' + carouselId + '"><div class="insights-carousel-container">';
+  items.forEach(item => {
+    let contentHTML = '';
+    if(item.pros || item.msg) {
+      const mainContent = item.msg || item.pros.map(p => formatInsightItem(p, true)).join('<br>');
+      contentHTML = '<div class="insights-carousel-card-row">' + mainContent + '</div>';
+      if(item.cons) {
+        contentHTML += '<div class="insights-carousel-card-row" style="margin-top:8px">' + item.cons.map(c => formatInsightItem(c, false)).join('<br>') + '</div>';
+      }
+    }
+    html += '<div class="insights-carousel-card"><div class="insights-carousel-card-header">' + (item.title || item.name) + '</div><div class="insights-carousel-card-content">' + (contentHTML || '<div class="insights-carousel-card-row">—</div>') + '</div></div>';
+  });
+  html += '</div><div class="carousel-indicator">Card 1 of ' + items.length + '</div></div>';
+  return html;
+}
+
+// ============================================================================
 // INSIGHTS TABLE RENDERER - Shared by University and Side Hustle pathfinders
 // ============================================================================
 function renderInsightsTable(titleText, subtitleText, firstColHeader, items, carouselId) {
@@ -541,7 +582,7 @@ function renderInsightsTable(titleText, subtitleText, firstColHeader, items, car
   html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">' + titleText + '</h2>';
   html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5">' + subtitleText + '</div>';
 
-  // Build rows for both table and carousel
+  // Build rows for table layout
   const rows = [
     ['Strengths', (itemName) => {
       const item = items.find(i => i.name === itemName || i.title === itemName);
@@ -560,8 +601,8 @@ function renderInsightsTable(titleText, subtitleText, firstColHeader, items, car
   html += buildTableHTML(rows, itemNames, (name) => name, 'insights-table');
   html += '</div>';
 
-  // Mobile: Carousel layout using buildCarouselHTML helper
-  html += buildCarouselHTML(rows, itemNames, (name) => name, carouselId);
+  // Mobile: Carousel layout using buildInsightCarouselHTML helper (better formatting for pros/cons)
+  html += buildInsightCarouselHTML(items, carouselId);
 
   return html;
 }
@@ -585,5 +626,7 @@ window.dispatchTogglePill = dispatchTogglePill;
 window.dispatchMultiTogglePill = dispatchMultiTogglePill;
 window.go = go;
 window.renderInsightsTable = renderInsightsTable;
+window.formatInsightItem = formatInsightItem;
+window.buildInsightCarouselHTML = buildInsightCarouselHTML;
 window.PLAYLISTS = PLAYLISTS;
 window.HEADER_PHOTOS = HEADER_PHOTOS;

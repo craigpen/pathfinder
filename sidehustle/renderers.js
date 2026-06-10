@@ -834,10 +834,12 @@ function renderInsights() {
   html += '</div>';
   container.innerHTML = html;
 
-  // Initialize carousel if it exists
-  if (document.getElementById('insights-carousel')) {
-    setTimeout(() => initCarousel('insights-carousel'), 50);
-  }
+  // Initialize carousel for mobile view
+  setTimeout(() => {
+    if (document.getElementById('insights-carousel')) {
+      initCarousel('insights-carousel');
+    }
+  }, 50);
 
   // Add navigation buttons
   const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'earnings\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go(\'deepdive\')">Next</button></div>';
