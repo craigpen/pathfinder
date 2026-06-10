@@ -148,15 +148,29 @@ function renderHustleTableView(containerId, title, subtitle, displayedHustles, s
     }]
   ];
 
-  // Render table only (no carousel on desktop per requirements)
+  // Mobile carousel version
+  html += '<div class="carousel-wrap" id="' + containerId + '-carousel"><div class="carousel-container">';
+  sorted.forEach((hustle, idx) => {
+    html += '<div class="carousel-card" style="cursor:pointer;"><div style="font-weight:600;margin-bottom:8px;color:var(--dk)">' + hustle.name + '</div>';
+    rows.forEach(row => {
+      const value = row[1](hustle.name);
+      html += '<div style="font-size:12px;margin-bottom:6px;color:var(--tx)"><strong>' + row[0] + ':</strong> ' + value + '</div>';
+    });
+    html += '</div>';
+  });
+  html += '</div><div class="carousel-indicator">Card 1 of ' + sorted.length + '</div></div>';
+
+  // Desktop table version
+  html += '<div class="insights-table-display">';
   html += buildTableHTML(rows, hustleNames, (name) => name, tableId);
-  html += '</div>';
+  html += '</div></div>';
 
   // Now set the complete HTML
   container.innerHTML = html;
 
-  // Add click handlers to table rows
+  // Add click handlers to table rows and carousel cards
   setTimeout(() => {
+    // Table rows
     const tableRows = document.querySelectorAll(`#${tableId} tbody tr`);
     tableRows.forEach((row, idx) => {
       if (idx < sorted.length) {
@@ -168,6 +182,23 @@ function renderHustleTableView(containerId, title, subtitle, displayedHustles, s
         };
       }
     });
+
+    // Carousel cards
+    const carouselCards = document.querySelectorAll(`#${containerId}-carousel .carousel-card`);
+    carouselCards.forEach((card, idx) => {
+      if (idx < sorted.length) {
+        card.onclick = () => {
+          S.selectedHustle = sorted[idx].name;
+          saveState();
+          showHustleDetail(sorted[idx]);
+        };
+      }
+    });
+
+    // Initialize carousel
+    if(document.getElementById(containerId + '-carousel')) {
+      initCarousel(containerId + '-carousel', '.carousel-container');
+    }
   }, 50);
 
   // Add navigation buttons
