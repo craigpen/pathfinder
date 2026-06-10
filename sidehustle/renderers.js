@@ -150,17 +150,13 @@ function renderHustleTableView(containerId, title, subtitle, displayedHustles, s
 
   // Build carousel and table using helpers
   const carouselId = containerId + '-carousel';
-  const carouselHTML = buildCarouselHTML(rows, hustleNames, (name) => name, carouselId);
-  console.log('DEBUG: carouselHTML length:', carouselHTML.length, 'hustleNames:', hustleNames.length);
-  html += carouselHTML;
+  html += buildCarouselHTML(rows, hustleNames, (name) => name, carouselId);
 
   // Desktop table version with responsive class
   html += '<div class="insights-table-display">' + buildTableHTML(rows, hustleNames, (name) => name, tableId) + '</div>';
   html += '</div>';
 
   // Now set the complete HTML
-  console.log('DEBUG: final html includes carousel-wrap?', html.includes('carousel-wrap'));
-  console.log('DEBUG: final html includes insights-table-display?', html.includes('insights-table-display'));
   container.innerHTML = html;
 
   // Add click handlers to table rows and carousel cards
@@ -262,15 +258,19 @@ function renderHustles() {
   ];
 
   const tableId = 'hustles-table';
+  const carouselId = 'hustles-carousel';
   const hustleNames = displayedHustles.slice(0, 20).map(h => h.name);
 
-  html += buildTableHTML(rows, hustleNames, (name) => name, tableId);
+  // Build both carousel and table from same data
+  html += buildCarouselHTML(rows, hustleNames, (name) => name, carouselId);
+  html += '<div class="insights-table-display">' + buildTableHTML(rows, hustleNames, (name) => name, tableId) + '</div>';
   html += '</div>';
 
   container.innerHTML = html;
 
-  // Add click handlers to table rows
+  // Add click handlers to table rows and carousel cards
   setTimeout(() => {
+    // Table rows
     const tableRows = document.querySelectorAll(`#${tableId} tbody tr`);
     tableRows.forEach((row, idx) => {
       if (idx < displayedHustles.length) {
@@ -282,6 +282,24 @@ function renderHustles() {
         };
       }
     });
+
+    // Carousel cards
+    const carouselCards = document.querySelectorAll(`#${carouselId} .carousel-card`);
+    carouselCards.forEach((card, idx) => {
+      if (idx < displayedHustles.length) {
+        card.style.cursor = 'pointer';
+        card.onclick = () => {
+          S.selectedHustle = displayedHustles[idx].name;
+          saveState();
+          showHustleDetail(displayedHustles[idx]);
+        };
+      }
+    });
+
+    // Initialize carousel
+    if(document.getElementById(carouselId)) {
+      initCarousel(carouselId);
+    }
   }, 50);
 
   // Add navigation buttons
@@ -360,15 +378,19 @@ function renderEarnings() {
   ];
 
   const tableId = 'earnings-table';
+  const carouselId = 'earnings-carousel';
   const hustleNames = sorted.slice(0, 20).map(h => h.name);
 
-  html += buildTableHTML(rows, hustleNames, (name) => name, tableId);
+  // Build both carousel and table from same data
+  html += buildCarouselHTML(rows, hustleNames, (name) => name, carouselId);
+  html += '<div class="insights-table-display">' + buildTableHTML(rows, hustleNames, (name) => name, tableId) + '</div>';
   html += '</div>';
 
   container.innerHTML = html;
 
-  // Add click handlers to table rows
+  // Add click handlers to table rows and carousel cards
   setTimeout(() => {
+    // Table rows
     const tableRows = document.querySelectorAll(`#${tableId} tbody tr`);
     tableRows.forEach((row, idx) => {
       if (idx < sorted.length) {
@@ -380,6 +402,24 @@ function renderEarnings() {
         };
       }
     });
+
+    // Carousel cards
+    const carouselCards = document.querySelectorAll(`#${carouselId} .carousel-card`);
+    carouselCards.forEach((card, idx) => {
+      if (idx < sorted.length) {
+        card.style.cursor = 'pointer';
+        card.onclick = () => {
+          S.selectedHustle = sorted[idx].name;
+          saveState();
+          showHustleDetail(sorted[idx]);
+        };
+      }
+    });
+
+    // Initialize carousel
+    if(document.getElementById(carouselId)) {
+      initCarousel(carouselId);
+    }
   }, 50);
 
   // Add navigation buttons
