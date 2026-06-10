@@ -394,9 +394,9 @@ function buildTableHTML(rows, columnKeys, columnLabel, tableId) {
 }
 
 function buildCarouselHTML(rows, columnKeys, columnLabel, carouselId) {
-  let html = `<div class="carousel-wrap" id="${carouselId || 'carousel-default'}" style="margin:0 -24px;padding:0 24px;display:flex;overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;gap:12px;scroll-snap-type:x mandatory;scroll-padding:12px;scrollbar-width:none"><div class="carousel-container" style="display:flex;gap:6px;overflow:visible;scroll-snap-type:none">`;
+  let html = `<div class="carousel-wrap" id="${carouselId || 'carousel-default'}" style="margin:0 -24px;overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;scrollbar-width:none"><div class="carousel-container" style="display:flex;gap:0;padding:0 24px">`;
   columnKeys.forEach((key, idx) => {
-    html += '<div class="carousel-card" style="flex:0 0 100vw;margin:0 -24px;display:flex;flex-direction:column">';
+    html += '<div class="carousel-card" style="flex:0 0 100vw;display:flex;flex-direction:column;scroll-snap-align:start;scroll-snap-stop:always">';
     html += `<div class="carousel-card-header">${columnLabel(key)}</div>`;
     html += '<div class="carousel-card-content" style="display:grid;grid-template-columns:auto 1fr;gap:0;font-size:12px;padding:12px">';
     rows.forEach(row => {
