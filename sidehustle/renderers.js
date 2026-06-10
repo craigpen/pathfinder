@@ -62,75 +62,103 @@ function getDisplayedHustles(source = 'discovery') {
 }
 
 // ============================================================================
-// SIDE HUSTLES TAB
+// UNIFIED HUSTLE TABLE RENDERER (used by Side Hustles & Earnings tabs)
 // ============================================================================
 
-function renderHustles() {
-  const container = document.getElementById('hustles');
+function renderHustleTableView(containerId, title, subtitle, displayedHustles, sortFn, backTab, nextTab) {
+  const container = document.getElementById(containerId);
   if (!container) return;
-
-  if (!window.SIDEHUSTLES || !SIDEHUSTLES_LOADED) {
-    container.innerHTML = '<div style="padding:24px"><p>Loading hustles...</p></div>';
-    return;
-  }
-
-  const displayedHustles = getDisplayedHustles('discovery');
 
   if (displayedHustles.length === 0) {
     container.innerHTML = '<div style="padding:24px"><p style="color:var(--tx2)">No hustles to display.</p><div class="bg"><button class="btn bs pos-left" onclick="go(\'discover\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button></div></div>';
     return;
   }
 
-  let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Your Matches</div>';
-  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Filter by categories or select specific hustles:</p>';
+  const sorted = sortFn ? [...displayedHustles].sort(sortFn) : displayedHustles;
+
+  let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">' + title + '</div>';
+  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">' + subtitle + '</p>';
 
   html += buildHustleFilterSelectors();
 
-  // Build table using framework helper
-  const tableId = 'hustles-table';
-  const rows = displayedHustles.slice(0, 50).map((h) => {
-    return [h.name, (key) => {
-      if (key === 'startup') return formatMoney(h.financial.startupCost_min, h.financial.startupCost_max);
-      if (key === 'time') return h.financial.timeToFirstIncome;
-      if (key === 'earning') return formatMonthlyRange(h.financial.monthlyEarning_min, h.financial.monthlyEarning_max);
-      if (key === 'competition') return formatCompetition(h.character.competitionLevel);
-      return h.name;
-    }];
-  });
+  // Build carousel with hustles as columns (cards)
+  const carouselId = containerId + '-carousel';
+  const hustleNames = sorted.slice(0, 20).map(h => h.name);
 
-  const columnLabel = (key) => {
-    const labels = {
-      'startup': 'Startup Cost',
-      'time': 'Time to Income',
-      'earning': 'Monthly Earning',
-      'competition': 'Competition'
-    };
-    return labels[key] || key;
-  };
+  const rows = [
+    ['Startup Cost', (hustleName) => {
+      const h = getHustle(hustleName);
+      return h ? formatMoney(h.financial.startupCost_min, h.financial.startupCost_max) : '—';
+    }],
+    ['Time to Income', (hustleName) => {
+      const h = getHustle(hustleName);
+      return h ? h.financial.timeToFirstIncome : '—';
+    }],
+    ['Monthly Earning', (hustleName) => {
+      const h = getHustle(hustleName);
+      return h ? formatMonthlyRange(h.financial.monthlyEarning_min, h.financial.monthlyEarning_max) : '—';
+    }],
+    ['Competition', (hustleName) => {
+      const h = getHustle(hustleName);
+      return h ? formatCompetition(h.character.competitionLevel) : '—';
+    }],
+    ['Passivity', (hustleName) => {
+      const h = getHustle(hustleName);
+      return h ? formatPassivity(h.character.passivityScore) : '—';
+    }],
+    ['Market Saturation', (hustleName) => {
+      const h = getHustle(hustleName);
+      return h ? h.character.marketSaturation : '—';
+    }]
+  ];
 
-  html += buildTableHTML(rows, ['startup', 'time', 'earning', 'competition'], columnLabel, tableId);
+  html += buildCarouselHTML(rows, hustleNames, (name) => name, carouselId);
   html += '</div>';
 
   container.innerHTML = html;
 
-  // Add click handlers to table rows
+  // Add click handlers to carousel cards
   setTimeout(() => {
-    const rows = document.querySelectorAll(`#${tableId} tbody tr`);
-    rows.forEach((row, idx) => {
-      if (idx < displayedHustles.length) {
-        row.style.cursor = 'pointer';
-        row.onclick = () => {
-          S.selectedHustle = displayedHustles[idx].name;
+    const cards = document.querySelectorAll(`#${carouselId} .carousel-card`);
+    cards.forEach((card, idx) => {
+      if (idx < sorted.length) {
+        card.style.cursor = 'pointer';
+        card.onclick = () => {
+          S.selectedHustle = sorted[idx].name;
           saveState();
-          showHustleDetail(displayedHustles[idx]);
+          showHustleDetail(sorted[idx]);
         };
       }
     });
+    initCarousel(carouselId);
   }, 50);
 
   // Add navigation buttons
-  const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'discover\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go(\'earnings\')">Next</button></div>';
+  const navHtml = `<div class="bg"><button class="btn bs pos-left" onclick="go('${backTab}')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('${nextTab}')">Next</button></div>`;
   container.insertAdjacentHTML('beforeend', navHtml);
+}
+
+// ============================================================================
+// SIDE HUSTLES TAB
+// ============================================================================
+
+function renderHustles() {
+  if (!window.SIDEHUSTLES || !SIDEHUSTLES_LOADED) {
+    const container = document.getElementById('hustles');
+    if (container) container.innerHTML = '<div style="padding:24px"><p>Loading hustles...</p></div>';
+    return;
+  }
+
+  const displayedHustles = getDisplayedHustles('discovery');
+  renderHustleTableView(
+    'hustles',
+    'Your Matches',
+    'Filter by categories or select specific hustles:',
+    displayedHustles,
+    null,  // no sorting
+    'discover',
+    'earnings'
+  );
 }
 
 // ============================================================================
@@ -138,72 +166,29 @@ function renderHustles() {
 // ============================================================================
 
 function renderEarnings() {
-  const container = document.getElementById('earnings');
-  if (!container) return;
-
   if (!window.SIDEHUSTLES || !SIDEHUSTLES_LOADED) {
-    container.innerHTML = '<div style="padding:24px"><p>Loading earnings data...</p></div>';
+    const container = document.getElementById('earnings');
+    if (container) container.innerHTML = '<div style="padding:24px"><p>Loading earnings data...</p></div>';
     return;
   }
 
   const displayedHustles = getDisplayedHustles('earnings');
 
   // Sort by earning potential
-  const sorted = [...displayedHustles].sort((a, b) => {
+  const sortFn = (a, b) => {
     return (b.financial.monthlyEarning_max - a.financial.monthlyEarning_max) ||
            (a.financial.startupCost_max - b.financial.startupCost_max);
-  });
-
-  let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Earnings & ROI Comparison</div>';
-  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Ranked by monthly earning potential. Filter by categories or select specific hustles:</p>';
-
-  html += buildHustleFilterSelectors();
-
-  // Build table using framework helper
-  const tableId = 'earnings-table';
-  const rows = sorted.slice(0, 50).map(h => {
-    return [h.name, (key) => {
-      if (key === 'startup') return formatMoney(h.financial.startupCost_min, h.financial.startupCost_max);
-      if (key === 'time') return h.financial.timeToFirstIncome;
-      if (key === 'earning') return formatMonthlyRange(h.financial.monthlyEarning_min, h.financial.monthlyEarning_max);
-      if (key === 'competition') return formatCompetition(h.character.competitionLevel);
-      return h.name;
-    }];
-  });
-
-  const columnLabel = (key) => {
-    const labels = {
-      'startup': 'Startup',
-      'time': 'Time to Income',
-      'earning': 'Monthly Earning',
-      'competition': 'Competition'
-    };
-    return labels[key] || key;
   };
 
-  html += buildTableHTML(rows, ['startup', 'time', 'earning', 'competition'], columnLabel, tableId);
-  html += '</div>';
-
-  container.innerHTML = html;
-
-  // Add click handlers to table rows
-  setTimeout(() => {
-    const rows = document.querySelectorAll(`#${tableId} tbody tr`);
-    rows.forEach((row, idx) => {
-      if (idx < sorted.length) {
-        row.style.cursor = 'pointer';
-        row.onclick = () => {
-          S.selectedHustle = sorted[idx].name;
-          saveState();
-          showHustleDetail(sorted[idx]);
-        };
-      }
-    });
-  }, 50);
-
-  // Add navigation buttons
-  const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'hustles\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go(\'getstarted\')">Next</button></div>';
-  container.insertAdjacentHTML('beforeend', navHtml);
+  renderHustleTableView(
+    'earnings',
+    'Earnings & ROI Comparison',
+    'Ranked by monthly earning potential. Filter by categories or select specific hustles:',
+    displayedHustles,
+    sortFn,
+    'hustles',
+    'insights'
+  );
 }
 
 // ============================================================================
