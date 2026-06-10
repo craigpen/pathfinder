@@ -264,7 +264,7 @@ function renderHustles() {
   // Mobile carousel (full-width, using University's proven pattern)
   html += '<div style="overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:0 24px;scrollbar-width:none;scroll-snap-type:x mandatory;scroll-padding:24px;margin:0 -24px;display:flex;gap:24px" id="' + carouselId + '">';
   hustleNames.forEach((hustleName, idx) => {
-    html += '<div style="flex:0 0 100vw;display:flex;flex-direction:column;background:#fff;border:1px solid var(--bdr);border-radius:6px;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always;margin:0 -24px">';
+    html += '<div style="flex:0 0 100%;display:flex;flex-direction:column;background:#fff;border:1px solid var(--bdr);border-radius:6px;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always">';
     html += '<div style="background:var(--pri);color:#fff;font-weight:600;padding:10px 12px;text-align:center;font-size:14px">' + hustleName + '</div>';
     html += '<div style="display:grid;grid-template-columns:auto 1fr;gap:0;padding:12px;font-size:12px">';
     rows.forEach(row => {
@@ -398,7 +398,7 @@ function renderEarnings() {
   // Mobile carousel (full-width, using University's proven pattern)
   html += '<div style="overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:0 24px;scrollbar-width:none;scroll-snap-type:x mandatory;scroll-padding:24px;margin:0 -24px;display:flex;gap:24px" id="' + carouselId + '">';
   hustleNames.forEach((hustleName, idx) => {
-    html += '<div style="flex:0 0 100vw;display:flex;flex-direction:column;background:#fff;border:1px solid var(--bdr);border-radius:6px;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always;margin:0 -24px">';
+    html += '<div style="flex:0 0 100%;display:flex;flex-direction:column;background:#fff;border:1px solid var(--bdr);border-radius:6px;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always">';
     html += '<div style="background:var(--pri);color:#fff;font-weight:600;padding:10px 12px;text-align:center;font-size:14px">' + hustleName + '</div>';
     html += '<div style="display:grid;grid-template-columns:auto 1fr;gap:0;padding:12px;font-size:12px">';
     rows.forEach(row => {
