@@ -270,6 +270,9 @@ async function buildHeader(config) {
     const imagesData = await imagesRes.json();
     const imageUrls = imagesData.images || [];
 
+    // Store images in window for carousel to use
+    window.HEADER_PHOTOS = imageUrls.map(url => ({ src: url }));
+
     // Build image carousel HTML
     let imagesHtml = imageUrls
       .map((url, i) => `<img alt="Header image" class="${i === 0 ? 'active' : ''}" src="${url}"/>`)
@@ -317,20 +320,8 @@ async function buildHeader(config) {
       if (badge) badge.innerText = window.VERSION;
     }
 
-    // Wait for first image to load before starting carousel
-    const firstImg = container.querySelector('img');
-    if (firstImg) {
-      if (firstImg.complete) {
-        // Image already cached, start carousel immediately
-        initHdrCarousel();
-      } else {
-        // Wait for image to load
-        firstImg.onload = () => initHdrCarousel();
-        firstImg.onerror = () => initHdrCarousel(); // Start carousel even if load fails
-      }
-    } else {
-      setTimeout(() => initHdrCarousel(), 100);
-    }
+    // Start carousel after rendering HTML
+    initHdrCarousel();
 
     // console.log(`✓ Built header: "${config.title}"`);
   } catch (error) {
