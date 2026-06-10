@@ -1,0 +1,84 @@
+{
+  "insights": [
+    {
+      "type": "pro",
+      "title": "Immediate Income Available",
+      "msg": "✅ Gig work and service-based hustles can generate income in 1-2 weeks. Perfect if you need cash flow quickly."
+    },
+    {
+      "type": "pro",
+      "title": "Low Startup Cost Options",
+      "msg": "✅ Many hustles require zero startup: freelance writing, social media management, tutoring, pet sitting. Start with no risk."
+    },
+    {
+      "type": "pro",
+      "title": "High Earning Potential",
+      "msg": "✅ Tech and consulting roles ($1,000–$10,000/month) offer the highest hourly rates and income ceilings."
+    },
+    {
+      "type": "pro",
+      "title": "Passive Income Path",
+      "msg": "✅ Blogging, online courses, YouTube, stock photography, and affiliate marketing offer true passive income after initial work."
+    },
+    {
+      "type": "pro",
+      "title": "Strong Demand Growing",
+      "msg": "✅ Your selection matches fields with 8–22% job growth (web dev, app dev, social media, delivery)."
+    },
+    {
+      "type": "neutral",
+      "title": "Setup Time Investment",
+      "msg": "ℹ️ Passive income hustles (courses, blogs, YouTube) require 100+ hours upfront and 6–12 months before ROI."
+    },
+    {
+      "type": "neutral",
+      "title": "Ongoing Expenses Vary",
+      "msg": "ℹ️ Active hustles ($0–50/mo), e-commerce ($100–500/mo), and tech ($0–60/mo). Plan your operational costs."
+    },
+    {
+      "type": "neutral",
+      "title": "Market Saturation High",
+      "msg": "ℹ️ Writing, design, YouTube, blogging, and e-commerce are competitive. Differentiation and marketing are critical."
+    },
+    {
+      "type": "neutral",
+      "title": "Seasonal Fluctuations",
+      "msg": "ℹ️ Tutoring, photography, pet sitting, and e-commerce peak seasonally (holidays, back-to-school). Plan cash flow accordingly."
+    },
+    {
+      "type": "con",
+      "title": "High Competition",
+      "msg": "⚠️ Blogging, dropshipping, affiliate marketing, and freelance writing have many competitors. Expect slow initial growth."
+    },
+    {
+      "type": "con",
+      "title": "Significant Learning Curve",
+      "msg": "⚠️ App/web development and video production require months of learning before profitability. Not fast-money options."
+    },
+    {
+      "type": "con",
+      "title": "Time-Intensive Setup",
+      "msg": "⚠️ YouTube (12+ months), blogging (6+ months), and online courses (3–6 months) have long ramps before meaningful income."
+    },
+    {
+      "type": "con",
+      "title": "Active vs Passive Mismatch",
+      "msg": "⚠️ Gig work (delivery, tasking, pet sitting) requires active time every month with no leverage for income scaling."
+    },
+    {
+      "type": "conflict",
+      "title": "Passive Income + High Earning Conflict",
+      "msg": "💥 True passive income (courses, stock photos, affiliate) conflicts with high hourly rates. Most passive options earn slowly."
+    },
+    {
+      "type": "conflict",
+      "title": "Low Startup + No Ongoing Cost Conflict",
+      "msg": "💥 Hustles with zero startup often need ongoing platform fees ($29/mo Shopify, $55/mo Adobe). Review true costs."
+    },
+    {
+      "type": "conflict",
+      "title": "Immediate Income + Scalability Conflict",
+      "msg": "💥 Gig work pays immediately but doesn't scale beyond your time. Online courses scale but take 6+ months to profit."
+    }
+  ]
+}

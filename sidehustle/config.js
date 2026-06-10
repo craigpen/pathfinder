@@ -31,6 +31,7 @@ const sideHustlePathfinderConfig = {
     { id: 'discover', label: 'Discover' },
     { id: 'hustles', label: 'Side Hustles' },
     { id: 'earnings', label: 'Earnings Breakdown' },
+    { id: 'insights', label: 'Insights' },
     { id: 'getstarted', label: 'Getting Started' }
   ],
 
@@ -50,13 +51,15 @@ const sideHustlePathfinderConfig = {
 
   // Data sources
   dataSources: {
-    sidehustles: 'sidehustles.json'
+    sidehustles: 'sidehustles.json',
+    insights: 'insights.json'
   },
 
   // Tab renderers
   renderersForTab: {
     'hustles': () => { if (window.renderHustles) window.renderHustles(); },
     'earnings': () => { if (window.renderEarnings) window.renderEarnings(); },
+    'insights': () => { if (window.renderInsights) window.renderInsights(); },
     'getstarted': () => { if (window.renderGetStarted) window.renderGetStarted(); }
   }
 };

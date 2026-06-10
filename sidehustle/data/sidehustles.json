@@ -11,11 +11,17 @@
         "startupCost_note": "Portfolio website optional but helps land clients",
         "monthlyEarning_min": 200,
         "monthlyEarning_max": 5000,
-        "timeToFirstIncome": "1-2 weeks"
+        "timeToFirstIncome": "1-2 weeks",
+        "typicalMonthlyExpenses_min": 0,
+        "typicalMonthlyExpenses_max": 50,
+        "profitMargin_low": 70,
+        "profitMargin_high": 90,
+        "breakEvenMonths": 0
       },
       "effort": {
         "hoursPerWeekRequired_min": 10,
         "hoursPerWeekRequired_max": 30,
+        "initialSetupHours": 20,
         "timeToScaleability": "3-6 months",
         "scalabilityPotential": "high"
       },
@@ -23,11 +29,20 @@
         "passivityScore": 0.15,
         "competitionLevel": "high",
         "demandTrend": "growing",
-        "seasonality": "steady"
+        "seasonality": "steady",
+        "marketSaturation": "high",
+        "customerAcquisitionDifficulty": "medium"
+      },
+      "growth": {
+        "direction": "positive",
+        "magnitude": "moderate",
+        "pct": 5.2,
+        "src": "https://www.bls.gov/ooh/media-and-communication/"
       },
       "practical": {
         "requiredSkills": ["Writing", "English proficiency"],
         "recommendedPlatforms": ["Upwork", "Fiverr", "Medium", "Substack", "LinkedIn"],
+        "legalConsiderations": "Treat as self-employment income; track all earnings and expenses for taxes",
         "pros": ["Flexible hours", "No upfront cost", "Work from anywhere", "Build portfolio while earning"],
         "cons": ["High competition", "Feast/famine income", "Rate compression", "Takes 2-3 months to build reputation"],
         "resources": [
@@ -55,11 +70,17 @@
         "startupCost_note": "Domain + hosting; can use free platforms initially",
         "monthlyEarning_min": 0,
         "monthlyEarning_max": 3000,
-        "timeToFirstIncome": "3-6 months"
+        "timeToFirstIncome": "3-6 months",
+        "typicalMonthlyExpenses_min": 5,
+        "typicalMonthlyExpenses_max": 25,
+        "profitMargin_low": 60,
+        "profitMargin_high": 85,
+        "breakEvenMonths": 6
       },
       "effort": {
         "hoursPerWeekRequired_min": 15,
         "hoursPerWeekRequired_max": 25,
+        "initialSetupHours": 30,
         "timeToScaleability": "6-12 months",
         "scalabilityPotential": "medium"
       },
@@ -67,11 +88,20 @@
         "passivityScore": 0.6,
         "competitionLevel": "high",
         "demandTrend": "stable",
-        "seasonality": "steady"
+        "seasonality": "steady",
+        "marketSaturation": "very_high",
+        "customerAcquisitionDifficulty": "high"
+      },
+      "growth": {
+        "direction": "neutral",
+        "magnitude": "low",
+        "pct": 2.1,
+        "src": "https://www.bls.gov/ooh/media-and-communication/"
       },
       "practical": {
         "requiredSkills": ["Writing", "SEO basics", "Patience"],
         "recommendedPlatforms": ["WordPress", "Medium", "Substack", "Ghost"],
+        "legalConsiderations": "Report ad revenue and affiliate commissions as self-employment income",
         "pros": ["Passive income potential", "Builds personal brand", "Flexible schedule", "Can earn while sleeping"],
         "cons": ["Very slow to profitability (6+ months)", "High competition", "Requires consistent publishing", "Algorithm changes can tank traffic"],
         "resources": [
@@ -99,11 +129,17 @@
         "startupCost_note": "Camera/microphone; can start with phone",
         "monthlyEarning_min": 0,
         "monthlyEarning_max": 10000,
-        "timeToFirstIncome": "6-12 months"
+        "timeToFirstIncome": "6-12 months",
+        "typicalMonthlyExpenses_min": 0,
+        "typicalMonthlyExpenses_max": 50,
+        "profitMargin_low": 65,
+        "profitMargin_high": 88,
+        "breakEvenMonths": 12
       },
       "effort": {
         "hoursPerWeekRequired_min": 20,
         "hoursPerWeekRequired_max": 40,
+        "initialSetupHours": 40,
         "timeToScaleability": "12+ months",
         "scalabilityPotential": "very_high"
       },
@@ -111,11 +147,20 @@
         "passivityScore": 0.7,
         "competitionLevel": "high",
         "demandTrend": "growing",
-        "seasonality": "steady"
+        "seasonality": "steady",
+        "marketSaturation": "very_high",
+        "customerAcquisitionDifficulty": "high"
+      },
+      "growth": {
+        "direction": "positive",
+        "magnitude": "high",
+        "pct": 13.4,
+        "src": "https://www.bls.gov/ooh/media-and-communication/"
       },
       "practical": {
         "requiredSkills": ["Video editing", "Storytelling", "Consistency", "On-camera presence"],
         "recommendedPlatforms": ["YouTube", "TikTok", "Instagram Reels"],
+        "legalConsiderations": "Report YouTube AdSense, sponsorships, and affiliate income as self-employment; disclose sponsorships per FTC rules",
         "pros": ["Highest earning potential", "Personal brand building", "Passive income at scale", "Sponsorship opportunities"],
         "cons": ["Longest ramp to profitability", "Requires equipment", "Takes consistency (1-2 years)", "Algorithm-dependent"],
         "resources": [
@@ -126,7 +171,7 @@
       },
       "imageUrls": [
         "https://images.unsplash.com/photo-1516321318423-f06f70504504?w=600",
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600",
+        "https://images.unsplash.com/photo-1551077857-4dd404dec202?w=600",
         "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=600",
         "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=600",
         "https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=600"
@@ -143,11 +188,17 @@
         "startupCost_note": "Tools like Buffer, Later are optional",
         "monthlyEarning_min": 500,
         "monthlyEarning_max": 3000,
-        "timeToFirstIncome": "2-4 weeks"
+        "timeToFirstIncome": "2-4 weeks",
+        "typicalMonthlyExpenses_min": 20,
+        "typicalMonthlyExpenses_max": 100,
+        "profitMargin_low": 65,
+        "profitMargin_high": 85,
+        "breakEvenMonths": 1
       },
       "effort": {
         "hoursPerWeekRequired_min": 10,
         "hoursPerWeekRequired_max": 25,
+        "initialSetupHours": 15,
         "timeToScaleability": "2-3 months",
         "scalabilityPotential": "medium"
       },
@@ -155,11 +206,20 @@
         "passivityScore": 0.2,
         "competitionLevel": "medium",
         "demandTrend": "growing",
-        "seasonality": "steady"
+        "seasonality": "steady",
+        "marketSaturation": "medium",
+        "customerAcquisitionDifficulty": "medium"
+      },
+      "growth": {
+        "direction": "positive",
+        "magnitude": "high",
+        "pct": 11.2,
+        "src": "https://www.bls.gov/ooh/business-and-financial/"
       },
       "practical": {
         "requiredSkills": ["Social media knowledge", "Writing", "Creativity", "Communication"],
         "recommendedPlatforms": ["Upwork", "Fiverr", "LinkedIn"],
+        "legalConsiderations": "Independent contractor; report platform earnings as self-employment income",
         "pros": ["Fast to first income", "Recurring clients", "No upfront cost", "Skills in demand"],
         "cons": ["Competitive field", "Can be repetitive", "Client communication time", "Metrics-driven (clients expect results)"],
         "resources": [
@@ -187,11 +247,17 @@
         "startupCost_note": "Office tools optional; many provided by employer",
         "monthlyEarning_min": 800,
         "monthlyEarning_max": 2500,
-        "timeToFirstIncome": "1-2 weeks"
+        "timeToFirstIncome": "1-2 weeks",
+        "typicalMonthlyExpenses_min": 10,
+        "typicalMonthlyExpenses_max": 50,
+        "profitMargin_low": 75,
+        "profitMargin_high": 90,
+        "breakEvenMonths": 1
       },
       "effort": {
         "hoursPerWeekRequired_min": 15,
         "hoursPerWeekRequired_max": 30,
+        "initialSetupHours": 10,
         "timeToScaleability": "2-4 months",
         "scalabilityPotential": "medium"
       },
@@ -199,11 +265,20 @@
         "passivityScore": 0.1,
         "competitionLevel": "medium",
         "demandTrend": "growing",
-        "seasonality": "steady"
+        "seasonality": "steady",
+        "marketSaturation": "medium",
+        "customerAcquisitionDifficulty": "medium"
+      },
+      "growth": {
+        "direction": "positive",
+        "magnitude": "moderate",
+        "pct": 6.5,
+        "src": "https://www.bls.gov/ooh/office-and-administrative-support/"
       },
       "practical": {
         "requiredSkills": ["Organization", "Communication", "Time management", "Tech proficiency"],
         "recommendedPlatforms": ["Upwork", "Belay", "Time Etc", "Zirtual"],
+        "legalConsiderations": "Classified as independent contractor; self-employment tax obligations apply",
         "pros": ["Steady income", "Low startup cost", "Remote-friendly", "Clear daily tasks"],
         "cons": ["Can feel like a job", "Fixed hours expected", "Less creative", "Client dependent"],
         "resources": [
@@ -231,11 +306,17 @@
         "startupCost_note": "Design software (Canva free, Adobe $55/month, or alternatives)",
         "monthlyEarning_min": 300,
         "monthlyEarning_max": 4000,
-        "timeToFirstIncome": "2-3 weeks"
+        "timeToFirstIncome": "2-3 weeks",
+        "typicalMonthlyExpenses_min": 0,
+        "typicalMonthlyExpenses_max": 60,
+        "profitMargin_low": 65,
+        "profitMargin_high": 85,
+        "breakEvenMonths": 2
       },
       "effort": {
         "hoursPerWeekRequired_min": 12,
         "hoursPerWeekRequired_max": 30,
+        "initialSetupHours": 20,
         "timeToScaleability": "3-6 months",
         "scalabilityPotential": "high"
       },
@@ -243,11 +324,20 @@
         "passivityScore": 0.2,
         "competitionLevel": "high",
         "demandTrend": "growing",
-        "seasonality": "steady"
+        "seasonality": "steady",
+        "marketSaturation": "high",
+        "customerAcquisitionDifficulty": "medium"
+      },
+      "growth": {
+        "direction": "positive",
+        "magnitude": "moderate",
+        "pct": 4.3,
+        "src": "https://www.bls.gov/ooh/arts-and-design/"
       },
       "practical": {
         "requiredSkills": ["Design eye", "Software proficiency", "Creativity", "Client communication"],
         "recommendedPlatforms": ["Upwork", "Fiverr", "99designs", "Etsy"],
+        "legalConsiderations": "Self-employment income; retain contract agreements for disputes; consider liability insurance",
         "pros": ["Creative outlet", "Growing demand", "Can build portfolio", "Potential for passive templates"],
         "cons": ["High competition", "Subjective feedback", "Revisions can be endless", "Portfolio takes time"],
         "resources": [
@@ -275,11 +365,17 @@
         "startupCost_note": "Dev tools are mostly free; optional hosting/domain",
         "monthlyEarning_min": 1000,
         "monthlyEarning_max": 8000,
-        "timeToFirstIncome": "2-3 weeks"
+        "timeToFirstIncome": "2-3 weeks",
+        "typicalMonthlyExpenses_min": 0,
+        "typicalMonthlyExpenses_max": 50,
+        "profitMargin_low": 70,
+        "profitMargin_high": 90,
+        "breakEvenMonths": 1
       },
       "effort": {
         "hoursPerWeekRequired_min": 15,
         "hoursPerWeekRequired_max": 40,
+        "initialSetupHours": 15,
         "timeToScaleability": "4-8 months",
         "scalabilityPotential": "very_high"
       },
@@ -287,11 +383,20 @@
         "passivityScore": 0.15,
         "competitionLevel": "high",
         "demandTrend": "growing",
-        "seasonality": "steady"
+        "seasonality": "steady",
+        "marketSaturation": "high",
+        "customerAcquisitionDifficulty": "medium"
+      },
+      "growth": {
+        "direction": "positive",
+        "magnitude": "very_high",
+        "pct": 15.6,
+        "src": "https://www.bls.gov/ooh/computer-and-information-technology/"
       },
       "practical": {
         "requiredSkills": ["HTML/CSS/JavaScript", "Problem-solving", "Design sense"],
         "recommendedPlatforms": ["Upwork", "Toptal", "Gun.io"],
+        "legalConsiderations": "Independent contractor; keep client agreements; consider business liability insurance",
         "pros": ["High earning potential", "Strong demand", "Recurring clients", "Can build SaaS products"],
         "cons": ["Competitive field", "Client management", "Browser compatibility issues", "Ongoing maintenance requests"],
         "resources": [
@@ -319,11 +424,17 @@
         "startupCost_note": "App store fees, dev environment tools",
         "monthlyEarning_min": 500,
         "monthlyEarning_max": 10000,
-        "timeToFirstIncome": "4-8 weeks"
+        "timeToFirstIncome": "4-8 weeks",
+        "typicalMonthlyExpenses_min": 5,
+        "typicalMonthlyExpenses_max": 50,
+        "profitMargin_low": 70,
+        "profitMargin_high": 88,
+        "breakEvenMonths": 2
       },
       "effort": {
         "hoursPerWeekRequired_min": 20,
         "hoursPerWeekRequired_max": 40,
+        "initialSetupHours": 30,
         "timeToScaleability": "6-12 months",
         "scalabilityPotential": "very_high"
       },
@@ -331,11 +442,20 @@
         "passivityScore": 0.5,
         "competitionLevel": "high",
         "demandTrend": "growing",
-        "seasonality": "steady"
+        "seasonality": "steady",
+        "marketSaturation": "medium",
+        "customerAcquisitionDifficulty": "high"
+      },
+      "growth": {
+        "direction": "positive",
+        "magnitude": "very_high",
+        "pct": 22.0,
+        "src": "https://www.bls.gov/ooh/computer-and-information-technology/"
       },
       "practical": {
         "requiredSkills": ["Mobile development (Swift, Kotlin, React Native)", "Problem-solving", "User experience"],
         "recommendedPlatforms": ["Upwork", "App store publishing", "Client contracts"],
+        "legalConsiderations": "App store agreement compliance; intellectual property ownership with clients; consider app liability",
         "pros": ["High earning potential", "Passive income from published apps", "Scalable", "Growing market"],
         "cons": ["Long development time", "Steep learning curve", "App store approval process", "Maintenance burden"],
         "resources": [
@@ -363,11 +483,17 @@
         "startupCost_note": "Video conferencing (Zoom free, Skype free)",
         "monthlyEarning_min": 400,
         "monthlyEarning_max": 2500,
-        "timeToFirstIncome": "1-2 weeks"
+        "timeToFirstIncome": "1-2 weeks",
+        "typicalMonthlyExpenses_min": 0,
+        "typicalMonthlyExpenses_max": 25,
+        "profitMargin_low": 80,
+        "profitMargin_high": 95,
+        "breakEvenMonths": 1
       },
       "effort": {
         "hoursPerWeekRequired_min": 10,
         "hoursPerWeekRequired_max": 25,
+        "initialSetupHours": 10,
         "timeToScaleability": "2-3 months",
         "scalabilityPotential": "medium"
       },
@@ -375,11 +501,20 @@
         "passivityScore": 0.05,
         "competitionLevel": "medium",
         "demandTrend": "growing",
-        "seasonality": "seasonal"
+        "seasonality": "seasonal",
+        "marketSaturation": "medium",
+        "customerAcquisitionDifficulty": "low"
+      },
+      "growth": {
+        "direction": "positive",
+        "magnitude": "moderate",
+        "pct": 8.3,
+        "src": "https://www.bls.gov/ooh/education-training-and-library/"
       },
       "practical": {
         "requiredSkills": ["Subject expertise", "Teaching ability", "Patience", "Explanation skills"],
         "recommendedPlatforms": ["Chegg", "Wyzant", "Tutor.com", "Care.com", "Italki"],
+        "legalConsiderations": "Self-employment income; may need background check for certain platforms; report platform earnings",
         "pros": ["Steady demand", "Flexible scheduling", "Help students", "Build relationships"],
         "cons": ["Seasonal (peaks during school year)", "One-on-one only", "No leverage", "Requires expertise"],
         "resources": [
@@ -407,11 +542,17 @@
         "startupCost_note": "Hosting platform fees, camera/microphone",
         "monthlyEarning_min": 0,
         "monthlyEarning_max": 5000,
-        "timeToFirstIncome": "6-12 months"
+        "timeToFirstIncome": "6-12 months",
+        "typicalMonthlyExpenses_min": 10,
+        "typicalMonthlyExpenses_max": 100,
+        "profitMargin_low": 70,
+        "profitMargin_high": 90,
+        "breakEvenMonths": 12
       },
       "effort": {
         "hoursPerWeekRequired_min": 15,
         "hoursPerWeekRequired_max": 40,
+        "initialSetupHours": 100,
         "timeToScaleability": "12+ months",
         "scalabilityPotential": "very_high"
       },
@@ -419,11 +560,20 @@
         "passivityScore": 0.85,
         "competitionLevel": "high",
         "demandTrend": "growing",
-        "seasonality": "steady"
+        "seasonality": "steady",
+        "marketSaturation": "high",
+        "customerAcquisitionDifficulty": "high"
+      },
+      "growth": {
+        "direction": "positive",
+        "magnitude": "high",
+        "pct": 12.8,
+        "src": "https://www.bls.gov/ooh/education-training-and-library/"
       },
       "practical": {
         "requiredSkills": ["Teaching", "Video production", "Marketing", "Expertise in subject"],
         "recommendedPlatforms": ["Udemy", "Teachable", "Kajabi", "Thinkific"],
+        "legalConsiderations": "Report platform revenue as self-employment; understand platform's intellectual property terms; may need disclaimers",
         "pros": ["Passive income potential", "Scalable", "Help many students", "Premium platform potential"],
         "cons": ["Long creation time", "Requires marketing", "High competition", "Udemy's low margins"],
         "resources": [
@@ -451,11 +601,17 @@
         "startupCost_note": "Shopify ($29/month), marketing, domain",
         "monthlyEarning_min": 100,
         "monthlyEarning_max": 5000,
-        "timeToFirstIncome": "2-4 weeks"
+        "timeToFirstIncome": "2-4 weeks",
+        "typicalMonthlyExpenses_min": 100,
+        "typicalMonthlyExpenses_max": 500,
+        "profitMargin_low": 20,
+        "profitMargin_high": 40,
+        "breakEvenMonths": 3
       },
       "effort": {
         "hoursPerWeekRequired_min": 15,
         "hoursPerWeekRequired_max": 35,
+        "initialSetupHours": 25,
         "timeToScaleability": "3-6 months",
         "scalabilityPotential": "high"
       },
@@ -463,11 +619,20 @@
         "passivityScore": 0.25,
         "competitionLevel": "very_high",
         "demandTrend": "stable",
-        "seasonality": "seasonal"
+        "seasonality": "seasonal",
+        "marketSaturation": "very_high",
+        "customerAcquisitionDifficulty": "high"
+      },
+      "growth": {
+        "direction": "neutral",
+        "magnitude": "flat",
+        "pct": 0.5,
+        "src": "https://www.statista.com/outlook/dmo/ecommerce/united-states"
       },
       "practical": {
         "requiredSkills": ["Marketing", "Ads (Facebook, Google)", "Customer service"],
         "recommendedPlatforms": ["Shopify", "WooCommerce", "Printful", "AliExpress suppliers"],
+        "legalConsiderations": "Register business; collect sales tax; understand supplier terms; liability for product issues",
         "pros": ["Low risk (no inventory)", "Scalable", "Potential for high margins", "Flexible"],
         "cons": ["Very competitive", "Requires ad spend", "Shipping issues", "Tight margins with scale"],
         "resources": [
@@ -495,11 +660,17 @@
         "startupCost_note": "Optional Etsy shop fee ($0.20/item), design tools",
         "monthlyEarning_min": 50,
         "monthlyEarning_max": 2000,
-        "timeToFirstIncome": "1-2 weeks"
+        "timeToFirstIncome": "1-2 weeks",
+        "typicalMonthlyExpenses_min": 0,
+        "typicalMonthlyExpenses_max": 30,
+        "profitMargin_low": 30,
+        "profitMargin_high": 60,
+        "breakEvenMonths": 2
       },
       "effort": {
         "hoursPerWeekRequired_min": 5,
         "hoursPerWeekRequired_max": 20,
+        "initialSetupHours": 15,
         "timeToScaleability": "2-4 months",
         "scalabilityPotential": "medium"
       },
@@ -507,11 +678,20 @@
         "passivityScore": 0.5,
         "competitionLevel": "high",
         "demandTrend": "growing",
-        "seasonality": "seasonal"
+        "seasonality": "seasonal",
+        "marketSaturation": "high",
+        "customerAcquisitionDifficulty": "high"
+      },
+      "growth": {
+        "direction": "positive",
+        "magnitude": "moderate",
+        "pct": 4.9,
+        "src": "https://www.statista.com/outlook/dmo/ecommerce/united-states"
       },
       "practical": {
         "requiredSkills": ["Design", "Marketing", "Creativity"],
         "recommendedPlatforms": ["Etsy", "Teespring", "Printful", "Merch by Amazon"],
+        "legalConsiderations": "Trademark/copyright compliance for designs; understand platform terms; report sales as self-employment",
         "pros": ["Low startup cost", "No inventory risk", "Passive after creation", "Creative outlet"],
         "cons": ["Low margins per item", "High competition", "Slow sales initially", "Requires marketing"],
         "resources": [
@@ -539,11 +719,17 @@
         "startupCost_note": "Materials + shop setup; Etsy takes 6.5% commission",
         "monthlyEarning_min": 100,
         "monthlyEarning_max": 3000,
-        "timeToFirstIncome": "2-4 weeks"
+        "timeToFirstIncome": "2-4 weeks",
+        "typicalMonthlyExpenses_min": 30,
+        "typicalMonthlyExpenses_max": 200,
+        "profitMargin_low": 40,
+        "profitMargin_high": 75,
+        "breakEvenMonths": 2
       },
       "effort": {
         "hoursPerWeekRequired_min": 10,
         "hoursPerWeekRequired_max": 25,
+        "initialSetupHours": 20,
         "timeToScaleability": "3-6 months",
         "scalabilityPotential": "medium"
       },
@@ -551,11 +737,20 @@
         "passivityScore": 0.4,
         "competitionLevel": "high",
         "demandTrend": "stable",
-        "seasonality": "seasonal"
+        "seasonality": "seasonal",
+        "marketSaturation": "high",
+        "customerAcquisitionDifficulty": "medium"
+      },
+      "growth": {
+        "direction": "neutral",
+        "magnitude": "low",
+        "pct": 1.2,
+        "src": "https://www.statista.com/outlook/dmo/ecommerce/united-states"
       },
       "practical": {
         "requiredSkills": ["Crafting or curation", "Photography", "Writing descriptions", "Customer service"],
         "recommendedPlatforms": ["Etsy"],
+        "legalConsiderations": "Business registration may be needed; report sales and COGS for tax; understand handmade vs resale rules",
         "pros": ["Passive income potential", "Leverage SEO", "Built-in audience", "Creative outlet"],
         "cons": ["High competition", "Platform dependent", "Shipping logistics", "Photography important"],
         "resources": [
@@ -583,11 +778,17 @@
         "startupCost_note": "Website/blog, domain optional",
         "monthlyEarning_min": 0,
         "monthlyEarning_max": 5000,
-        "timeToFirstIncome": "3-6 months"
+        "timeToFirstIncome": "3-6 months",
+        "typicalMonthlyExpenses_min": 10,
+        "typicalMonthlyExpenses_max": 100,
+        "profitMargin_low": 80,
+        "profitMargin_high": 95,
+        "breakEvenMonths": 6
       },
       "effort": {
         "hoursPerWeekRequired_min": 10,
         "hoursPerWeekRequired_max": 25,
+        "initialSetupHours": 30,
         "timeToScaleability": "6-12 months",
         "scalabilityPotential": "high"
       },
@@ -595,11 +796,20 @@
         "passivityScore": 0.7,
         "competitionLevel": "very_high",
         "demandTrend": "growing",
-        "seasonality": "seasonal"
+        "seasonality": "seasonal",
+        "marketSaturation": "very_high",
+        "customerAcquisitionDifficulty": "high"
+      },
+      "growth": {
+        "direction": "positive",
+        "magnitude": "high",
+        "pct": 10.2,
+        "src": "https://www.statista.com/outlook/dmo/ecommerce/united-states"
       },
       "practical": {
         "requiredSkills": ["Writing/content", "SEO", "Trust-building", "Audience understanding"],
         "recommendedPlatforms": ["Amazon Associates", "ShareASale", "CJ Affiliate", "Influencer networks"],
+        "legalConsiderations": "Disclose affiliate relationships (FTC requirement); tax on affiliate commissions; track program terms",
         "pros": ["Passive income potential", "No inventory", "Scalable", "Flexible"],
         "cons": ["Slow to profit", "High competition", "SEO dependent", "Low commissions on some products"],
         "resources": [
@@ -627,11 +837,17 @@
         "startupCost_note": "Car required (can use existing); insurance may increase",
         "monthlyEarning_min": 500,
         "monthlyEarning_max": 2500,
-        "timeToFirstIncome": "1 week"
+        "timeToFirstIncome": "1 week",
+        "typicalMonthlyExpenses_min": 150,
+        "typicalMonthlyExpenses_max": 400,
+        "profitMargin_low": 40,
+        "profitMargin_high": 65,
+        "breakEvenMonths": 1
       },
       "effort": {
         "hoursPerWeekRequired_min": 10,
         "hoursPerWeekRequired_max": 40,
+        "initialSetupHours": 5,
         "timeToScaleability": "immediate",
         "scalabilityPotential": "low"
       },
@@ -639,11 +855,20 @@
         "passivityScore": 0.0,
         "competitionLevel": "low",
         "demandTrend": "growing",
-        "seasonality": "seasonal"
+        "seasonality": "seasonal",
+        "marketSaturation": "medium",
+        "customerAcquisitionDifficulty": "low"
+      },
+      "growth": {
+        "direction": "positive",
+        "magnitude": "high",
+        "pct": 14.1,
+        "src": "https://www.bls.gov/ooh/transportation-and-material-moving/"
       },
       "practical": {
         "requiredSkills": ["Driving", "Time management", "Customer service"],
         "recommendedPlatforms": ["DoorDash", "Uber Eats", "Instacart", "Grubhub"],
+        "legalConsiderations": "Independent contractor; vehicle insurance required; track mileage for taxes; report platform 1099 income",
         "pros": ["Immediate income", "Flexible hours", "Work as much as you want", "No interview needed"],
         "cons": ["Car wear and tear", "Gas expensive", "Seasonal demand", "No benefits"],
         "resources": [
@@ -671,11 +896,17 @@
         "startupCost_note": "Basic tools may be needed",
         "monthlyEarning_min": 400,
         "monthlyEarning_max": 2000,
-        "timeToFirstIncome": "1-2 weeks"
+        "timeToFirstIncome": "1-2 weeks",
+        "typicalMonthlyExpenses_min": 20,
+        "typicalMonthlyExpenses_max": 100,
+        "profitMargin_low": 75,
+        "profitMargin_high": 90,
+        "breakEvenMonths": 1
       },
       "effort": {
         "hoursPerWeekRequired_min": 10,
         "hoursPerWeekRequired_max": 30,
+        "initialSetupHours": 5,
         "timeToScaleability": "immediate",
         "scalabilityPotential": "medium"
       },
@@ -683,11 +914,20 @@
         "passivityScore": 0.0,
         "competitionLevel": "low",
         "demandTrend": "growing",
-        "seasonality": "steady"
+        "seasonality": "steady",
+        "marketSaturation": "low",
+        "customerAcquisitionDifficulty": "low"
+      },
+      "growth": {
+        "direction": "positive",
+        "magnitude": "high",
+        "pct": 9.8,
+        "src": "https://www.bls.gov/ooh/construction-and-extraction/"
       },
       "practical": {
         "requiredSkills": ["Handy/practical", "Problem-solving", "Customer service", "Time management"],
         "recommendedPlatforms": ["TaskRabbit", "Handy", "Sittercity"],
+        "legalConsiderations": "Independent contractor; obtain liability insurance; report platform 1099 income; background checks required",
         "pros": ["Immediate income", "Flexible", "No inventory", "Recurring customers possible"],
         "cons": ["Physical work", "Travel time", "Liability concerns", "Customer dependent"],
         "resources": [
@@ -715,11 +955,17 @@
         "startupCost_note": "Background check fee optional",
         "monthlyEarning_min": 200,
         "monthlyEarning_max": 1500,
-        "timeToFirstIncome": "1-2 weeks"
+        "timeToFirstIncome": "1-2 weeks",
+        "typicalMonthlyExpenses_min": 0,
+        "typicalMonthlyExpenses_max": 20,
+        "profitMargin_low": 85,
+        "profitMargin_high": 95,
+        "breakEvenMonths": 1
       },
       "effort": {
         "hoursPerWeekRequired_min": 5,
         "hoursPerWeekRequired_max": 20,
+        "initialSetupHours": 5,
         "timeToScaleability": "immediate",
         "scalabilityPotential": "medium"
       },
@@ -727,11 +973,20 @@
         "passivityScore": 0.05,
         "competitionLevel": "low",
         "demandTrend": "growing",
-        "seasonality": "seasonal"
+        "seasonality": "seasonal",
+        "marketSaturation": "low",
+        "customerAcquisitionDifficulty": "low"
+      },
+      "growth": {
+        "direction": "positive",
+        "magnitude": "high",
+        "pct": 8.5,
+        "src": "https://www.bls.gov/ooh/personal-care-and-service/"
       },
       "practical": {
         "requiredSkills": ["Animal care", "Responsibility", "Communication"],
         "recommendedPlatforms": ["Rover", "Care.com", "Wag"],
+        "legalConsiderations": "Background check often required; liability for pet safety; report platform 1099 income",
         "pros": ["Love animals", "Flexible", "Low barrier to entry", "Build regulars"],
         "cons": ["Seasonal (peaks holidays)", "Liability concerns", "Time-sensitive (can't skip)", "Physical work"],
         "resources": [
@@ -759,11 +1014,17 @@
         "startupCost_note": "Camera, lens, editing software, lighting",
         "monthlyEarning_min": 500,
         "monthlyEarning_max": 4000,
-        "timeToFirstIncome": "2-4 weeks"
+        "timeToFirstIncome": "2-4 weeks",
+        "typicalMonthlyExpenses_min": 50,
+        "typicalMonthlyExpenses_max": 200,
+        "profitMargin_low": 65,
+        "profitMargin_high": 85,
+        "breakEvenMonths": 2
       },
       "effort": {
         "hoursPerWeekRequired_min": 15,
         "hoursPerWeekRequired_max": 35,
+        "initialSetupHours": 20,
         "timeToScaleability": "3-6 months",
         "scalabilityPotential": "medium"
       },
@@ -771,11 +1032,20 @@
         "passivityScore": 0.15,
         "competitionLevel": "high",
         "demandTrend": "stable",
-        "seasonality": "seasonal"
+        "seasonality": "seasonal",
+        "marketSaturation": "high",
+        "customerAcquisitionDifficulty": "medium"
+      },
+      "growth": {
+        "direction": "neutral",
+        "magnitude": "low",
+        "pct": 0.3,
+        "src": "https://www.bls.gov/ooh/arts-and-design/"
       },
       "practical": {
         "requiredSkills": ["Photography", "Editing (Lightroom, Photoshop)", "Client communication", "Creativity"],
         "recommendedPlatforms": ["Local marketing", "Instagram", "Facebook", "Wedding/event sites"],
+        "legalConsiderations": "Business license may be required; obtain liability insurance; copyright ownership with clients; report self-employment income",
         "pros": ["Creative outlet", "High hourly rate", "Portfolio building", "Recurring clients"],
         "cons": ["High startup cost", "Seasonal (events/weddings)", "Editing time-consuming", "Client expectations"],
         "resources": [
@@ -803,11 +1073,17 @@
         "startupCost_note": "Instrument may already own",
         "monthlyEarning_min": 400,
         "monthlyEarning_max": 2000,
-        "timeToFirstIncome": "1-2 weeks"
+        "timeToFirstIncome": "1-2 weeks",
+        "typicalMonthlyExpenses_min": 0,
+        "typicalMonthlyExpenses_max": 25,
+        "profitMargin_low": 80,
+        "profitMargin_high": 95,
+        "breakEvenMonths": 1
       },
       "effort": {
         "hoursPerWeekRequired_min": 10,
         "hoursPerWeekRequired_max": 25,
+        "initialSetupHours": 10,
         "timeToScaleability": "2-3 months",
         "scalabilityPotential": "medium"
       },
@@ -815,11 +1091,20 @@
         "passivityScore": 0.05,
         "competitionLevel": "medium",
         "demandTrend": "stable",
-        "seasonality": "seasonal"
+        "seasonality": "seasonal",
+        "marketSaturation": "medium",
+        "customerAcquisitionDifficulty": "low"
+      },
+      "growth": {
+        "direction": "neutral",
+        "magnitude": "flat",
+        "pct": 0.8,
+        "src": "https://www.bls.gov/ooh/education-training-and-library/"
       },
       "practical": {
         "requiredSkills": ["Musical ability", "Teaching", "Patience"],
         "recommendedPlatforms": ["Superprof", "Italki", "Lessonface", "Local marketing"],
+        "legalConsiderations": "Report lesson income as self-employment; background checks may be required for student safety",
         "pros": ["Steady income", "Help students", "Flexible", "Rewarding"],
         "cons": ["Seasonal", "One-on-one only", "No leverage", "Schedule coordination"],
         "resources": [
@@ -847,11 +1132,17 @@
         "startupCost_note": "Camera, editing software optional",
         "monthlyEarning_min": 10,
         "monthlyEarning_max": 1000,
-        "timeToFirstIncome": "4-8 weeks"
+        "timeToFirstIncome": "4-8 weeks",
+        "typicalMonthlyExpenses_min": 0,
+        "typicalMonthlyExpenses_max": 30,
+        "profitMargin_low": 85,
+        "profitMargin_high": 95,
+        "breakEvenMonths": 4
       },
       "effort": {
         "hoursPerWeekRequired_min": 5,
         "hoursPerWeekRequired_max": 15,
+        "initialSetupHours": 20,
         "timeToScaleability": "6-12 months",
         "scalabilityPotential": "high"
       },
@@ -859,11 +1150,20 @@
         "passivityScore": 0.8,
         "competitionLevel": "very_high",
         "demandTrend": "stable",
-        "seasonality": "steady"
+        "seasonality": "steady",
+        "marketSaturation": "very_high",
+        "customerAcquisitionDifficulty": "low"
+      },
+      "growth": {
+        "direction": "neutral",
+        "magnitude": "flat",
+        "pct": 0.1,
+        "src": "https://www.statista.com/outlook/dmo/ecommerce/united-states"
       },
       "practical": {
         "requiredSkills": ["Photography", "Understanding trends", "Consistency"],
         "recommendedPlatforms": ["Shutterstock", "Getty Images", "Adobe Stock", "Alamy"],
+        "legalConsiderations": "License rights management; model releases for people; copyright/trademark considerations; report royalty income",
         "pros": ["Truly passive", "Upload once, earn forever", "Low effort after setup", "Scalable"],
         "cons": ["Very slow to profit", "Fierce competition", "Low per-download earnings", "Needs volume"],
         "resources": [
@@ -891,11 +1191,17 @@
         "startupCost_note": "Website optional",
         "monthlyEarning_min": 1000,
         "monthlyEarning_max": 10000,
-        "timeToFirstIncome": "2-4 weeks"
+        "timeToFirstIncome": "2-4 weeks",
+        "typicalMonthlyExpenses_min": 0,
+        "typicalMonthlyExpenses_max": 100,
+        "profitMargin_low": 75,
+        "profitMargin_high": 90,
+        "breakEvenMonths": 1
       },
       "effort": {
         "hoursPerWeekRequired_min": 10,
         "hoursPerWeekRequired_max": 30,
+        "initialSetupHours": 15,
         "timeToScaleability": "2-3 months",
         "scalabilityPotential": "high"
       },
@@ -903,11 +1209,20 @@
         "passivityScore": 0.15,
         "competitionLevel": "high",
         "demandTrend": "growing",
-        "seasonality": "steady"
+        "seasonality": "steady",
+        "marketSaturation": "high",
+        "customerAcquisitionDifficulty": "medium"
+      },
+      "growth": {
+        "direction": "positive",
+        "magnitude": "moderate",
+        "pct": 5.8,
+        "src": "https://www.bls.gov/ooh/business-and-financial/"
       },
       "practical": {
         "requiredSkills": ["Industry expertise", "Communication", "Problem-solving"],
         "recommendedPlatforms": ["Upwork", "GLG", "Guidepoint", "LinkedIn"],
+        "legalConsiderations": "Report consulting fees as self-employment; obtain professional liability insurance; maintain client confidentiality",
         "pros": ["High hourly rate", "Leverage expertise", "Flexible", "Build relationships"],
         "cons": ["Need credibility first", "Competitive", "Client acquisition", "Time-bound income"],
         "resources": [
@@ -935,11 +1250,17 @@
         "startupCost_note": "Portfolio and optional website",
         "monthlyEarning_min": 400,
         "monthlyEarning_max": 2000,
-        "timeToFirstIncome": "2-3 weeks"
+        "timeToFirstIncome": "2-3 weeks",
+        "typicalMonthlyExpenses_min": 0,
+        "typicalMonthlyExpenses_max": 20,
+        "profitMargin_low": 80,
+        "profitMargin_high": 95,
+        "breakEvenMonths": 1
       },
       "effort": {
         "hoursPerWeekRequired_min": 8,
         "hoursPerWeekRequired_max": 20,
+        "initialSetupHours": 15,
         "timeToScaleability": "2-3 months",
         "scalabilityPotential": "medium"
       },
@@ -947,11 +1268,20 @@
         "passivityScore": 0.1,
         "competitionLevel": "medium",
         "demandTrend": "stable",
-        "seasonality": "seasonal"
+        "seasonality": "seasonal",
+        "marketSaturation": "medium",
+        "customerAcquisitionDifficulty": "medium"
+      },
+      "growth": {
+        "direction": "neutral",
+        "magnitude": "flat",
+        "pct": 1.5,
+        "src": "https://www.bls.gov/ooh/education-training-and-library/"
       },
       "practical": {
         "requiredSkills": ["Writing", "Editing", "Career knowledge"],
         "recommendedPlatforms": ["Upwork", "Fiverr", "LinkedIn"],
+        "legalConsiderations": "Report service income as self-employment; don't provide legal/tax advice; maintain client confidentiality",
         "pros": ["Fast to first income", "Helping people", "Repeat clients", "Flexible"],
         "cons": ["Seasonal (job search peaks)", "Picky clients", "Revision requests", "Low margins"],
         "resources": [

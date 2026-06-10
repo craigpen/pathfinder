@@ -7,6 +7,7 @@
 let SELECTOR_OPTIONS = {};
 let SELECTOR_OPTIONS_LOADED = false;
 let SIDEHUSTLES_LOADED = false;
+let INSIGHTS_LOADED = false;
 
 // Initialize state
 window.S = {
@@ -438,6 +439,23 @@ async function loadSideHustlesData() {
   }
 }
 
+async function loadInsightsData() {
+  try {
+    const response = await fetch('./data/insights.json');
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    window.INSIGHTS = data;
+    INSIGHTS_LOADED = true;
+    window.INSIGHTS_LOADED = true;
+    console.log('✓ Loaded insights.json');
+    return true;
+  } catch (e) {
+    console.error('Failed to load insights.json:', e);
+    window.INSIGHTS = {insights: []};
+    return false;
+  }
+}
+
 // ============================================================================
 // STATE MANAGEMENT
 // ============================================================================
@@ -585,6 +603,8 @@ function renderPathfinderTab(id) {
   } else if (id === 'earnings') {
     renderEarnings();
     setTimeout(() => renderHustleFilterPills(), 50);
+  } else if (id === 'insights') {
+    renderInsights();
   } else if (id === 'getstarted') {
     renderGetStarted();
     setTimeout(() => renderHustleFilterPills(), 50);
@@ -597,8 +617,9 @@ function renderPathfinderTab(id) {
 
 const selectorOptionsPromise = loadSelectorOptionsData();
 const sideHustlesPromise = loadSideHustlesData();
+const insightsPromise = loadInsightsData();
 
-Promise.all([selectorOptionsPromise, sideHustlesPromise]).then(async () => {
+Promise.all([selectorOptionsPromise, sideHustlesPromise, insightsPromise]).then(async () => {
   if (window.buildHeader && window.PATHFINDER_CONFIG && window.PATHFINDER_CONFIG.header) {
     await window.buildHeader(window.PATHFINDER_CONFIG.header);
   }
@@ -625,6 +646,8 @@ window.renderPathfinderTab = renderPathfinderTab;
 window.renderDiscoverySelectorOptions = renderDiscoverySelectorOptions;
 window.renderDiscoveryPills = renderDiscoveryPills;
 window.renderHustleFilterPills = renderHustleFilterPills;
+window.renderInsights = renderInsights;
+window.loadInsightsData = loadInsightsData;
 
 // Export query helpers
 window.getHustle = getHustle;
