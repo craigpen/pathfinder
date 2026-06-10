@@ -18,10 +18,10 @@ window.S = {
   scalability: null,
   selectedCategory: null,
   selectedHustle: null,
-  selectedHustleFilterCategory: null,
-  selectedHustleFilterHustle: null,
-  selectedEarningsFilterCategory: null,
-  selectedEarningsFilterHustle: null
+  selectedHustleFilterCategories: [],
+  selectedHustleFilterHustles: [],
+  selectedEarningsFilterCategories: [],
+  selectedEarningsFilterHustles: []
 };
 const S = window.S;
 
@@ -454,10 +454,10 @@ function saveState() {
     scalability: S.scalability || null,
     selectedCategory: S.selectedCategory || null,
     selectedHustle: S.selectedHustle || null,
-    selectedHustleFilterCategory: S.selectedHustleFilterCategory || null,
-    selectedHustleFilterHustle: S.selectedHustleFilterHustle || null,
-    selectedEarningsFilterCategory: S.selectedEarningsFilterCategory || null,
-    selectedEarningsFilterHustle: S.selectedEarningsFilterHustle || null
+    selectedHustleFilterCategories: S.selectedHustleFilterCategories || [],
+    selectedHustleFilterHustles: S.selectedHustleFilterHustles || [],
+    selectedEarningsFilterCategories: S.selectedEarningsFilterCategories || [],
+    selectedEarningsFilterHustles: S.selectedEarningsFilterHustles || []
   };
   localStorage.setItem('sideHustlePathfinderState', JSON.stringify(stateToSave));
 }
@@ -480,10 +480,10 @@ function startOver() {
   S.scalability = null;
   S.selectedCategory = null;
   S.selectedHustle = null;
-  S.selectedHustleFilterCategory = null;
-  S.selectedHustleFilterHustle = null;
-  S.selectedEarningsFilterCategory = null;
-  S.selectedEarningsFilterHustle = null;
+  S.selectedHustleFilterCategories = [];
+  S.selectedHustleFilterHustles = [];
+  S.selectedEarningsFilterCategories = [];
+  S.selectedEarningsFilterHustles = [];
   localStorage.removeItem('sideHustlePathfinderState');
   document.querySelectorAll('.pill').forEach(p => p.classList.remove('on'));
 }

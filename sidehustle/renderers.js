@@ -13,22 +13,24 @@ function renderHustles() {
   }
 
   const categories = getAllCategories();
-  const selectedCat = S.selectedHustleFilterCategory || null;
-  const selectedHustle = S.selectedHustleFilterHustle || null;
+  const selectedCats = S.selectedHustleFilterCategories || [];
+  const selectedHustles = S.selectedHustleFilterHustles || [];
 
   // Determine which hustles to display
   let displayedHustles;
-  if (selectedHustle) {
-    // Show specific hustle
-    const h = getHustle(selectedHustle);
-    displayedHustles = h ? [h] : [];
-  } else if (selectedCat) {
-    // Show all hustles in category
-    displayedHustles = getHustlesByCategory(selectedCat);
+  if (selectedHustles.length > 0) {
+    // Show selected hustles
+    displayedHustles = selectedHustles.map(name => getHustle(name)).filter(h => h);
+  } else if (selectedCats.length > 0) {
+    // Show all hustles in selected categories
+    displayedHustles = selectedCats.flatMap(cat => getHustlesByCategory(cat));
   } else {
     // Show matched hustles from discovery
     displayedHustles = matchHustles(S).map(m => m.hustle);
   }
+
+  // Remove duplicates
+  displayedHustles = [...new Map(displayedHustles.map(h => [h.name, h])).values()];
 
   if (displayedHustles.length === 0) {
     container.innerHTML = '<div style="padding:24px"><p style="color:var(--tx2)">No hustles to display.</p><div class="bg"><button class="btn bs pos-left" onclick="go(\'discover\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button></div></div>';
@@ -36,26 +38,25 @@ function renderHustles() {
   }
 
   let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Your Matches</div>';
-  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Filter by category or select a specific hustle:</p>';
+  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Filter by categories or select specific hustles:</p>';
 
-  // Category selector pills
-  html += '<div style="margin-bottom:20px;"><div style="font-weight:600;margin-bottom:10px;color:var(--dk);">Category</div>';
+  // Category selector pills (multi-select)
+  html += '<div style="margin-bottom:20px;"><div style="font-weight:600;margin-bottom:10px;color:var(--dk);">Categories</div>';
   html += '<div class="pills" data-q="hustle-category">';
-  html += `<div class="pill${!selectedCat ? ' on' : ''}" onclick="filterHustlesByCategory(null, this)">All Categories</div>`;
   categories.forEach(cat => {
-    const active = selectedCat === cat.key ? ' on' : '';
-    html += `<div class="pill${active}" onclick="filterHustlesByCategory('${cat.key}', this)">${cat.label}</div>`;
+    const active = selectedCats.includes(cat.key) ? ' on' : '';
+    html += `<div class="pill${active}" onclick="toggleHustleCategory('${cat.key}', this)">${cat.label}</div>`;
   });
   html += '</div></div>';
 
-  // Hustle selector pills (if category selected)
-  if (selectedCat) {
-    html += '<div style="margin-bottom:20px;"><div style="font-weight:600;margin-bottom:10px;color:var(--dk);">Hustle</div>';
+  // Hustle selector pills (multi-select, if categories selected)
+  if (selectedCats.length > 0) {
+    const hustlesInSelectedCats = selectedCats.flatMap(cat => getHustlesByCategory(cat));
+    html += '<div style="margin-bottom:20px;"><div style="font-weight:600;margin-bottom:10px;color:var(--dk);">Hustles</div>';
     html += '<div class="pills" data-q="hustle-specific">';
-    html += `<div class="pill${!selectedHustle ? ' on' : ''}" onclick="filterHustlesByHustle(null, this)">All in ${categories.find(c => c.key === selectedCat)?.label || 'Category'}</div>`;
-    getHustlesByCategory(selectedCat).forEach(h => {
-      const active = selectedHustle === h.name ? ' on' : '';
-      html += `<div class="pill${active}" onclick="filterHustlesByHustle('${h.name}', this)">${h.name}</div>`;
+    hustlesInSelectedCats.forEach(h => {
+      const active = selectedHustles.includes(h.name) ? ' on' : '';
+      html += `<div class="pill${active}" onclick="toggleHustleSpecific('${h.name}', this)">${h.name}</div>`;
     });
     html += '</div></div>';
   }
@@ -107,19 +108,24 @@ function renderHustles() {
   container.insertAdjacentHTML('beforeend', navHtml);
 }
 
-function filterHustlesByCategory(catKey, el) {
-  document.querySelectorAll('[data-q="hustle-category"] .pill').forEach(p => p.classList.remove('on'));
-  el.classList.add('on');
-  S.selectedHustleFilterCategory = catKey;
-  S.selectedHustleFilterHustle = null;
+function toggleHustleCategory(catKey, el) {
+  el.classList.toggle('on');
+  S.selectedHustleFilterCategories = [];
+  document.querySelectorAll('[data-q="hustle-category"] .pill.on').forEach(p => {
+    S.selectedHustleFilterCategories.push(p.textContent);
+  });
+  // Reset hustle selections when categories change
+  S.selectedHustleFilterHustles = [];
   saveState();
   renderHustles();
 }
 
-function filterHustlesByHustle(hustleName, el) {
-  document.querySelectorAll('[data-q="hustle-specific"] .pill').forEach(p => p.classList.remove('on'));
-  el.classList.add('on');
-  S.selectedHustleFilterHustle = hustleName;
+function toggleHustleSpecific(hustleName, el) {
+  el.classList.toggle('on');
+  S.selectedHustleFilterHustles = [];
+  document.querySelectorAll('[data-q="hustle-specific"] .pill.on').forEach(p => {
+    S.selectedHustleFilterHustles.push(p.textContent);
+  });
   saveState();
   renderHustles();
 }
@@ -134,20 +140,25 @@ function renderEarnings() {
   }
 
   const categories = getAllCategories();
-  const selectedCat = S.selectedEarningsFilterCategory || null;
-  const selectedHustle = S.selectedEarningsFilterHustle || null;
+  const selectedCats = S.selectedEarningsFilterCategories || [];
+  const selectedHustles = S.selectedEarningsFilterHustles || [];
 
   // Determine which hustles to display and sort
   let displayedHustles;
-  if (selectedHustle) {
-    const h = getHustle(selectedHustle);
-    displayedHustles = h ? [h] : [];
-  } else if (selectedCat) {
-    displayedHustles = getHustlesByCategory(selectedCat);
+  if (selectedHustles.length > 0) {
+    // Show selected hustles
+    displayedHustles = selectedHustles.map(name => getHustle(name)).filter(h => h);
+  } else if (selectedCats.length > 0) {
+    // Show all hustles in selected categories
+    displayedHustles = selectedCats.flatMap(cat => getHustlesByCategory(cat));
   } else {
+    // Show all hustles
     const data = window.SIDEHUSTLES || {sidehustles: []};
     displayedHustles = data.sidehustles || [];
   }
+
+  // Remove duplicates
+  displayedHustles = [...new Map(displayedHustles.map(h => [h.name, h])).values()];
 
   // Sort by earning potential
   displayedHustles = [...displayedHustles].sort((a, b) => {
@@ -156,26 +167,25 @@ function renderEarnings() {
   });
 
   let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Earnings & ROI Comparison</div>';
-  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Ranked by monthly earning potential. Filter by category or select a specific hustle:</p>';
+  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Ranked by monthly earning potential. Filter by categories or select specific hustles:</p>';
 
-  // Category selector pills
-  html += '<div style="margin-bottom:20px;"><div style="font-weight:600;margin-bottom:10px;color:var(--dk);">Category</div>';
+  // Category selector pills (multi-select)
+  html += '<div style="margin-bottom:20px;"><div style="font-weight:600;margin-bottom:10px;color:var(--dk);">Categories</div>';
   html += '<div class="pills" data-q="earnings-category">';
-  html += `<div class="pill${!selectedCat ? ' on' : ''}" onclick="filterEarningsByCategory(null, this)">All Categories</div>`;
   categories.forEach(cat => {
-    const active = selectedCat === cat.key ? ' on' : '';
-    html += `<div class="pill${active}" onclick="filterEarningsByCategory('${cat.key}', this)">${cat.label}</div>`;
+    const active = selectedCats.includes(cat.key) ? ' on' : '';
+    html += `<div class="pill${active}" onclick="toggleEarningsCategory('${cat.key}', this)">${cat.label}</div>`;
   });
   html += '</div></div>';
 
-  // Hustle selector pills (if category selected)
-  if (selectedCat) {
-    html += '<div style="margin-bottom:20px;"><div style="font-weight:600;margin-bottom:10px;color:var(--dk);">Hustle</div>';
+  // Hustle selector pills (multi-select, if categories selected)
+  if (selectedCats.length > 0) {
+    const hustlesInSelectedCats = selectedCats.flatMap(cat => getHustlesByCategory(cat));
+    html += '<div style="margin-bottom:20px;"><div style="font-weight:600;margin-bottom:10px;color:var(--dk);">Hustles</div>';
     html += '<div class="pills" data-q="earnings-specific">';
-    html += `<div class="pill${!selectedHustle ? ' on' : ''}" onclick="filterEarningsByHustle(null, this)">All in ${categories.find(c => c.key === selectedCat)?.label || 'Category'}</div>`;
-    getHustlesByCategory(selectedCat).forEach(h => {
-      const active = selectedHustle === h.name ? ' on' : '';
-      html += `<div class="pill${active}" onclick="filterEarningsByHustle('${h.name}', this)">${h.name}</div>`;
+    hustlesInSelectedCats.forEach(h => {
+      const active = selectedHustles.includes(h.name) ? ' on' : '';
+      html += `<div class="pill${active}" onclick="toggleEarningsSpecific('${h.name}', this)">${h.name}</div>`;
     });
     html += '</div></div>';
   }
@@ -227,19 +237,24 @@ function renderEarnings() {
   container.insertAdjacentHTML('beforeend', navHtml);
 }
 
-function filterEarningsByCategory(catKey, el) {
-  document.querySelectorAll('[data-q="earnings-category"] .pill').forEach(p => p.classList.remove('on'));
-  el.classList.add('on');
-  S.selectedEarningsFilterCategory = catKey;
-  S.selectedEarningsFilterHustle = null;
+function toggleEarningsCategory(catKey, el) {
+  el.classList.toggle('on');
+  S.selectedEarningsFilterCategories = [];
+  document.querySelectorAll('[data-q="earnings-category"] .pill.on').forEach(p => {
+    S.selectedEarningsFilterCategories.push(p.textContent);
+  });
+  // Reset hustle selections when categories change
+  S.selectedEarningsFilterHustles = [];
   saveState();
   renderEarnings();
 }
 
-function filterEarningsByHustle(hustleName, el) {
-  document.querySelectorAll('[data-q="earnings-specific"] .pill').forEach(p => p.classList.remove('on'));
-  el.classList.add('on');
-  S.selectedEarningsFilterHustle = hustleName;
+function toggleEarningsSpecific(hustleName, el) {
+  el.classList.toggle('on');
+  S.selectedEarningsFilterHustles = [];
+  document.querySelectorAll('[data-q="earnings-specific"] .pill.on').forEach(p => {
+    S.selectedEarningsFilterHustles.push(p.textContent);
+  });
   saveState();
   renderEarnings();
 }
@@ -501,7 +516,7 @@ window.showHustleDetail = showHustleDetail;
 window.pickCategory = pickCategory;
 window.pickHustle = pickHustle;
 window.updateGuide = updateGuide;
-window.filterHustlesByCategory = filterHustlesByCategory;
-window.filterHustlesByHustle = filterHustlesByHustle;
-window.filterEarningsByCategory = filterEarningsByCategory;
-window.filterEarningsByHustle = filterEarningsByHustle;
+window.toggleHustleCategory = toggleHustleCategory;
+window.toggleHustleSpecific = toggleHustleSpecific;
+window.toggleEarningsCategory = toggleEarningsCategory;
+window.toggleEarningsSpecific = toggleEarningsSpecific;
