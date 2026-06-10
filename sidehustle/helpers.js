@@ -604,13 +604,24 @@ async function initializePathfinder() {
 
   try {
     // Load data files from config
+    console.log('Loading data files:', Object.keys(config.dataSources));
     for (const [key, file] of Object.entries(config.dataSources)) {
+      console.log(`  Loading ${key} from ${file}...`);
       await loadDataFile({
         name: key,
         path: `data/${file}`,
         onSuccess: null
       });
+      console.log(`  ✓ ${key} loaded, flag:`, window[key.toUpperCase().replace(/-/g, '_') + '_LOADED']);
     }
+
+    console.log('Data check:', {
+      SELECTOR_OPTIONS: !!window.SELECTOR_OPTIONS,
+      SIDEHUSTLES: !!window.SIDEHUSTLES,
+      INSIGHTS: !!window.INSIGHTS,
+      SIDEHUSTLES_LOADED: window.SIDEHUSTLES_LOADED,
+      SELECTOR_OPTIONS_LOADED: window.SELECTOR_OPTIONS_LOADED
+    });
 
     // Build header
     if (config.header && window.buildHeader) {
