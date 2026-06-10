@@ -615,8 +615,62 @@ function renderPathfinderTab(id) {
 // ============================================================================
 // INITIALIZATION
 // ============================================================================
-// Note: Initialization is now handled in index.html to avoid duplication
-// The Promise.all pattern was causing buildSelectors and renderPathfinderTab to be called twice
+
+async function initializePathfinder() {
+  const config = window.PATHFINDER_CONFIG;
+  if (!config) return;
+
+  try {
+    // Load data files from config
+    for (const [key, file] of Object.entries(config.dataSources)) {
+      await loadDataFile({
+        name: key,
+        path: `data/${file}`,
+        onSuccess: null
+      });
+    }
+
+    // Build header
+    if (config.header && window.buildHeader) {
+      await buildHeader(config.header);
+      if (window.initHdrCarousel) {
+        initHdrCarousel();
+      }
+    }
+
+    // Build selectors
+    if (config.selectors && window.buildSelectors) {
+      await buildSelectors(config.selectors, 'discover');
+      await new Promise(r => setTimeout(r, 50));
+    }
+
+    // Populate selector pills
+    if (window.renderDiscoverySelectorOptions) {
+      renderDiscoverySelectorOptions();
+    }
+    if (window.renderDiscoveryPills) {
+      renderDiscoveryPills();
+    }
+
+    // Restore saved state
+    if (window.loadState) {
+      loadState();
+    }
+
+    console.log('✓ Side Hustle Pathfinder initialized');
+  } catch (error) {
+    console.error('Side Hustle Pathfinder initialization failed:', error);
+  }
+}
+
+// Auto-initialize when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializePathfinder);
+} else {
+  initializePathfinder();
+}
+
+window.initializePathfinder = initializePathfinder;
 
 // Export to window
 window.S = S;
