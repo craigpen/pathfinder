@@ -107,10 +107,12 @@ table.ct{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;m
 .xr{cursor:pointer;font-size:11px;color:var(--bad);margin-left:5px;opacity:.7}.xr:hover{opacity:1}
 .cost-bar{height:16px;border-radius:3px;margin:2px 0;font-size:11px;color:#fff;line-height:16px;padding:0 6px;font-weight:600;display:inline-block;min-width:30px;transition:width .3s}
 .slider-row{display:flex;align-items:center;gap:8px;margin:6px 0;font-size:13px}
-.carousel-container,.uni-inner{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 0;margin:8px 0}
+.carousel-container,.uni-inner,.insights-carousel-container{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 0;margin:8px 0}
 .carousel-card,.insights-carousel-card,.uni-country-slide,.uni-card{flex:0 0 calc(100vw - 28px);scroll-snap-align:start;border-radius:6px;border:1px solid var(--bdr);padding:12px;background:var(--lt);cursor:grab;user-select:none}
 .carousel-card:active,.insights-carousel-card:active,.uni-country-slide:active,.uni-card:active{cursor:grabbing}
-@media (min-aspect-ratio: 1 / 1.2) { .carousel-container,.uni-inner{flex-wrap:wrap} .carousel-card,.insights-carousel-card,.uni-country-slide,.uni-card{flex:0 1 calc(50% - 6px)} }
+.insights-carousel-wrap{display:block}
+.insights-table-display{display:none}
+@media (min-aspect-ratio: 1 / 1.2) { .carousel-container,.uni-inner,.insights-carousel-container{flex-wrap:wrap} .carousel-card,.insights-carousel-card,.uni-country-slide,.uni-card{flex:0 1 calc(50% - 6px)} .insights-carousel-wrap{display:none} .insights-table-display{display:block} }
 .carousel-indicator,.uni-inner-indicator{font-size:11px;color:var(--tx2);text-align:center;margin-top:4px}
 `;
 document.head.appendChild(styleElement);
@@ -539,6 +541,20 @@ function renderInsightsTable(titleText, subtitleText, firstColHeader, items, car
   html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px">' + titleText + '</h2>';
   html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5">' + subtitleText + '</div>';
 
+  // Build rows for both table and carousel
+  const rows = [
+    ['Strengths', (itemName) => {
+      const item = items.find(i => i.name === itemName || i.title === itemName);
+      return item && item.pros && item.pros.length > 0 ? item.pros.join('<br>') : '—';
+    }],
+    ['Considerations', (itemName) => {
+      const item = items.find(i => i.name === itemName || i.title === itemName);
+      return item && item.cons && item.cons.length > 0 ? item.cons.join('<br>') : '—';
+    }]
+  ];
+
+  const itemNames = items.map(i => i.name || i.title);
+
   // Desktop: Table layout
   html += '<div class="insights-table-display"><div style="overflow-x:auto;margin-bottom:24px"><table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">';
   html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:' + col1Width + ';white-space:nowrap">' + firstColHeader + '</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:' + col2Width + '">Strengths</th><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700;width:' + col3Width + '">Considerations</th></tr></thead>';
@@ -549,6 +565,9 @@ function renderInsightsTable(titleText, subtitleText, firstColHeader, items, car
     html += '<tr style="border-bottom:1px solid var(--bdr);background:#fff"><td style="padding:8px 10px;color:var(--tx0);font-weight:600;vertical-align:top;width:' + col1Width + ';line-height:1.4;background:rgba(241,245,249,.5);white-space:nowrap">' + (item.title || item.name) + '</td><td style="padding:8px 10px;vertical-align:top;width:' + col2Width + ';line-height:1.4">' + prosHTML + '</td><td style="padding:8px 10px;vertical-align:top;width:' + col3Width + ';line-height:1.4">' + consHTML + '</td></tr>';
   });
   html += '</tbody></table></div></div>';
+
+  // Mobile: Carousel layout using buildCarouselHTML helper
+  html += buildCarouselHTML(rows, itemNames, (name) => name, carouselId);
 
   return html;
 }
