@@ -615,26 +615,8 @@ function renderPathfinderTab(id) {
 // ============================================================================
 // INITIALIZATION
 // ============================================================================
-
-const selectorOptionsPromise = loadSelectorOptionsData();
-const sideHustlesPromise = loadSideHustlesData();
-const insightsPromise = loadInsightsData();
-
-Promise.all([selectorOptionsPromise, sideHustlesPromise, insightsPromise]).then(async () => {
-  if (window.buildHeader && window.PATHFINDER_CONFIG && window.PATHFINDER_CONFIG.header) {
-    await window.buildHeader(window.PATHFINDER_CONFIG.header);
-  }
-
-  if (window.buildSelectors && window.PATHFINDER_CONFIG && window.PATHFINDER_CONFIG.selectors) {
-    await window.buildSelectors(window.PATHFINDER_CONFIG.selectors, 'discover');
-  }
-
-  renderPathfinderTab('discover');
-  loadState();
-  console.log('✓ Side Hustle Pathfinder initialized');
-}).catch(err => {
-  console.error('Side Hustle Pathfinder initialization failed:', err);
-});
+// Note: Initialization is now handled in index.html to avoid duplication
+// The Promise.all pattern was causing buildSelectors and renderPathfinderTab to be called twice
 
 // Export to window
 window.S = S;
