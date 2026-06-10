@@ -53,6 +53,7 @@ const sideHustlePathfinderConfig = {
 
   // Data sources
   dataSources: {
+    'selector-options': 'selector-options.json',
     sidehustles: 'sidehustles.json',
     insights: 'insights.json'
   },
