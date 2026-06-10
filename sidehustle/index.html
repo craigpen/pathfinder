@@ -58,41 +58,57 @@
       const config = window.PATHFINDER_CONFIG;
       if (!config) return;
 
-      // 1. Load all data files first
-      const loaders = Object.entries(config.dataSources).map(([key, file]) => {
-        return loadDataFile({
-          name: key,
-          path: `data/${file}`,
-          onSuccess: null
-        });
-      });
-      await Promise.all(loaders);
+      try {
+        // 1. Load all data files
+        for (const [key, file] of Object.entries(config.dataSources)) {
+          await loadDataFile({
+            name: key,
+            path: `data/${file}`,
+            onSuccess: null
+          });
+        }
+        console.log('✓ Data loaded:', { SELECTOR_OPTIONS: window.SELECTOR_OPTIONS, SIDEHUSTLES: !!window.SIDEHUSTLES, INSIGHTS: !!window.INSIGHTS });
 
-      // 2. Build header
-      if (config.header) {
-        await buildHeader(config.header);
-        initHdrCarousel();
-      }
+        // 2. Build header
+        if (config.header) {
+          await buildHeader(config.header);
+          initHdrCarousel();
+          console.log('✓ Header built');
+        }
 
-      // 3. Build selectors FIRST to create containers
-      if (config.selectors) {
-        await buildSelectors(config.selectors);
-        // Wait for DOM to update
-        await new Promise(resolve => setTimeout(resolve, 50));
-      }
+        // 3. Build discover selectors (creates containers with data-q attributes)
+        if (config.selectors && window.buildSelectors) {
+          await buildSelectors(config.selectors);
+          console.log('✓ Selectors built');
 
-      // 4. Load and restore state
-      if (window.loadState) {
-        loadState();
-      }
+          // Small delay to let DOM settle
+          await new Promise(r => setTimeout(r, 100));
 
-      // 5. Render discover tab (will call renderDiscoverySelectorOptions and renderDiscoveryPills)
-      if (window.renderPathfinderTab) {
-        renderPathfinderTab('discover');
+          // 4. Now populate selector pills
+          if (window.renderDiscoverySelectorOptions) {
+            renderDiscoverySelectorOptions();
+            console.log('✓ Selector options rendered');
+          }
+
+          // 5. Style pills based on state
+          if (window.renderDiscoveryPills) {
+            renderDiscoveryPills();
+            console.log('✓ Discovery pills styled');
+          }
+        }
+
+        // 6. Load saved state
+        if (window.loadState) {
+          loadState();
+          console.log('✓ State loaded');
+        }
+
+      } catch (error) {
+        console.error('Initialization failed:', error);
       }
     }
 
-    // Start initialization when DOM is ready
+    // Start when DOM is ready
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', initPathfinder);
     } else {
