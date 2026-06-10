@@ -1097,6 +1097,224 @@ const pickFunc = isMulti ? 'pickN' : 'pick1';
 // pick1(q, el): Single-select pill, replace value
 ```
 
+## 12. Responsive Table/Carousel Dual-Render Pattern
+
+**Problem:** Desktop needs table rows for easy scanning; mobile needs carousel cards for touch-friendly navigation.
+
+**Solution:** Render BOTH from same data, use CSS media queries (`min-aspect-ratio: 1/1.2`) to show/hide.
+
+```javascript
+// Build rows/columns from same data structure
+const rows = [
+  ['Startup Cost', (itemKey) => getItem(itemKey).cost],
+  ['Monthly Income', (itemKey) => formatMoney(getItem(itemKey).income_min, getItem(itemKey).income_max)],
+  // ... more rows
+];
+
+const itemNames = displayedItems.map(i => i.name);
+
+// Render BOTH
+html += buildTableHTML(rows, itemNames, (name) => name, 'table-id');
+html += buildCarouselHTML(rows, itemNames, (name) => name, 'carousel-id');
+
+// Add click handlers to BOTH
+setTimeout(() => {
+  // Table rows
+  document.querySelectorAll('#table-id tbody tr').forEach((row, idx) => {
+    row.onclick = () => handleItemClick(displayedItems[idx]);
+  });
+  // Carousel cards
+  document.querySelectorAll('#carousel-id .carousel-card').forEach((card, idx) => {
+    card.onclick = () => handleItemClick(displayedItems[idx]);
+  });
+  initCarousel('carousel-id');
+}, 50);
+```
+
+**CSS Media Queries (in framework.js):**
+- Mobile (max-aspect-ratio < 1/1.2): Carousel displays as `overflow-x:auto` scrollable flex
+- Desktop (min-aspect-ratio ≥ 1/1.2): Carousel converts to `flex-wrap:wrap` grid (2 columns)
+
+**Benefits:**
+- Single data structure, two layouts
+- No duplicate logic
+- Automatic responsive behavior via CSS
+- Users see optimal UX for their device
+
+## 13. Unified Tab Renderer Pattern
+
+**Problem:** Multiple tabs show similar data (table view with filters, sorting, navigation). Lots of code duplication.
+
+**Solution:** Create a generic renderer function parameterized by title, sort function, navigation tabs.
+
+```javascript
+function renderDataTableView(
+  containerId,
+  title,
+  subtitle,
+  displayedItems,
+  sortFn,      // (a, b) => number or null for no sort
+  backTab,
+  nextTab
+) {
+  // 1. Check container & data exist
+  // 2. Apply sort if provided
+  // 3. Build header + filter selectors
+  // 4. Render table + carousel from same rows/cols
+  // 5. Add click handlers to both
+  // 6. Add navigation buttons with backTab/nextTab
+}
+
+// Usage (Side Hustles tab):
+function renderHustles() {
+  const displayed = getDisplayedHustles('discovery');
+  renderDataTableView('hustles', 'Your Matches', 'Filter...', displayed, null, 'discover', 'earnings');
+}
+
+// Usage (Earnings tab - with sorting):
+function renderEarnings() {
+  const displayed = getDisplayedHustles('earnings');
+  const sortFn = (a, b) => b.income_max - a.income_max;  // high to low
+  renderDataTableView('earnings', 'Earnings Comparison', '...', displayed, sortFn, 'hustles', 'insights');
+}
+```
+
+**Benefit:** 80% less code duplication between similar tab renderers.
+
+## 14. Insights System Pattern
+
+**Structure (insights.json):**
+```json
+{
+  "insights": [
+    {
+      "type": "pro",
+      "title": "Clear title (no emoji)",
+      "msg": "✅ Message text starting with emoji"
+    },
+    {
+      "type": "con",
+      "title": "Warning insight",
+      "msg": "⚠️ Specific caution about a choice"
+    }
+  ]
+}
+```
+
+**Types & Display:**
+- `type: 'pro'` → ✅ green (`var(--ok)`)
+- `type: 'neutral'` → ℹ️ gray (`var(--tx2)`)
+- `type: 'con'` → ⚠️ orange (`var(--warn)`)
+- `type: 'conflict'` → 💥 red (`var(--bad)`)
+
+**Rendering (simple card layout):**
+```javascript
+function renderInsights() {
+  const insights = (window.INSIGHTS && window.INSIGHTS.insights) || [];
+  const typeColors = { pro: 'var(--ok)', neutral: 'var(--tx2)', con: 'var(--warn)', conflict: 'var(--bad)' };
+  
+  let html = '<div style="display:grid;gap:12px">';
+  insights.forEach(insight => {
+    html += `
+      <div style="border:1px solid var(--bdr);padding:12px;border-radius:6px;background:var(--lt)">
+        <div style="font-weight:600;color:${typeColors[insight.type]}">${insight.title}</div>
+        <div style="font-size:13px;color:var(--tx)">${insight.msg}</div>
+      </div>
+    `;
+  });
+  html += '</div>';
+  container.innerHTML = html;
+}
+```
+
+**Key Rules:**
+- ✅ Title has NO emoji (for semantic clarity)
+- ✅ Message text STARTS with emoji (for visual scannability)
+- ✅ Emoji determines color via type field
+- ✅ Load from insights.json async, add to config.dataSources
+
+## 15. Category/Hustle Filter Pattern (Multi-Tier)
+
+**Problem:** Need to filter complex data by category AND specific items, with state sync across tabs.
+
+**Solution:**
+1. Two separate state arrays: `selectedCategories[]` and `selectedItems[]`
+2. Category pills control visibility of item pills
+3. State syncs across tabs via renderDiscoveryPills()-style function
+
+```javascript
+function toggleCategory(catKey, el) {
+  el.classList.toggle('on');
+  
+  // Toggle category in state
+  const idx = S.selectedCategories.indexOf(catKey);
+  if (idx > -1) {
+    S.selectedCategories.splice(idx, 1);
+    // When deselecting category, remove items from that category
+    const itemsInCat = getItemsByCategory(catKey).map(i => i.name);
+    S.selectedItems = S.selectedItems.filter(i => !itemsInCat.includes(i));
+  } else {
+    S.selectedCategories.push(catKey);
+    // Keep existing item selections when adding category
+  }
+  
+  saveState();
+  renderAllAffectedTabs();  // Render ALL tabs that show filters
+  setTimeout(() => syncFilterPillsAcrossTabs(), 50);
+}
+
+function syncFilterPillsAcrossTabs() {
+  // Update category pills on ALL tabs to match S.selectedCategories
+  document.querySelectorAll('[data-q="category"] .pill').forEach(p => {
+    const catKey = getCategoryKey(p.textContent);
+    if (S.selectedCategories.includes(catKey)) {
+      p.classList.add('on');
+    } else {
+      p.classList.remove('on');
+    }
+  });
+  
+  // Update item pills on ALL tabs
+  document.querySelectorAll('[data-q="item"] .pill').forEach(p => {
+    if (S.selectedItems.includes(p.textContent)) {
+      p.classList.add('on');
+    } else {
+      p.classList.remove('on');
+    }
+  });
+}
+```
+
+**Key Principles:**
+- Deselecting category removes selected items from that category
+- Selecting category keeps existing item selections
+- All pill updates happen in one sync function (called after any toggle)
+- Each tab renderer calls syncFilterPillsAcrossTabs() after building filter HTML
+
+## 16. Framework Helper Function Reference
+
+**UI Builders (in framework.js):**
+- `buildTableHTML(rows, columnKeys, columnLabel, tableId)` → HTML string for desktop table
+- `buildCarouselHTML(rows, columnKeys, columnLabel, carouselId)` → HTML string for mobile carousel  
+- `buildSelectors(selectorsConfig, containerId)` → Builds discovery selector pills from config
+- `buildHeader(config)` → Builds header with carousel images + music player
+
+**Carousel & Interaction:**
+- `initCarousel(carouselId, containerSelector)` → Enables drag/touch/snap behavior
+- `go(tabId)` → Navigate between tabs (handles show/hide, calls renderPathfinderTab)
+- `dispatchTogglePill(containerSelector, value, stateField, onToggle)` → Single-select pill toggle
+- `dispatchMultiTogglePill(containerSelector, value, stateArray, onToggle)` → Multi-select pill toggle
+
+**State Management:**
+- `saveState()` → User-defined per pathfinder, saves to localStorage
+- `loadState()` → User-defined per pathfinder, restores from localStorage
+- Each pathfinder defines: `pick1(q, el)`, `pickN(q, el)` for pill clicks
+
+**When to use buildTableHTML vs buildCarouselHTML:**
+- Always use BOTH for responsive dual-render pattern
+- buildTableHTML: rows as table rows, columns as table columns
+- buildCarouselHTML: rows become cards, columns become card columns (flipped orientation)
+
 ---
 
-**Last Updated:** 2026-06-10 (v1.0.0 added; Side Hustle Pathfinder patterns documented — field-specific getters, null-safe fallbacks, matching algorithm)
+**Last Updated:** 2026-06-10 (Section 12-16 added; Responsive dual-render, unified renderers, insights, filters, framework helpers)
