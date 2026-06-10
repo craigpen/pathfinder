@@ -53,8 +53,47 @@
   <script src="helpers.js"></script>
   <script src="renderers.js"></script>
   <script>
-    // Framework initialization happens automatically
-    // Data loads via config.dataSources before rendering
+    // Initialize pathfinder once all scripts are loaded
+    async function initPathfinder() {
+      const config = window.PATHFINDER_CONFIG;
+      if (!config) return;
+
+      // Load data files
+      const loaders = Object.entries(config.dataSources).map(([key, file]) => {
+        return loadDataFile(config).then(() => {
+          window[key.toUpperCase() + '_LOADED'] = true;
+        }).catch(err => console.error(`Failed to load ${file}:`, err));
+      });
+
+      // Wait for all data to load
+      await Promise.all(loaders);
+
+      // Build header
+      if (config.header) {
+        await buildHeader(config.header);
+        initHdrCarousel();
+      }
+
+      // Build initial selectors on discover tab
+      if (config.selectors) {
+        buildSelectors(config.selectors);
+        renderDiscoverySelectorOptions(config.selectors);
+        renderDiscoveryPills();
+      }
+
+      // Load and restore state
+      loadState();
+
+      // Render discover tab
+      renderPathfinderTab('discover');
+    }
+
+    // Start initialization when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initPathfinder);
+    } else {
+      initPathfinder();
+    }
   </script>
 </body>
 </html>
