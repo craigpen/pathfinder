@@ -20,7 +20,8 @@ window.S = {
   selectedCategory: null,
   selectedHustle: null,
   selectedHustleFilterCategories: [],
-  selectedHustleFilterHustles: []
+  selectedHustleFilterHustles: [],
+  selectedDeepDiveHustle: null
 };
 const S = window.S;
 

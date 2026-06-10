@@ -233,23 +233,33 @@ function renderDeepDive() {
   if (!container) return;
 
   if (!window.SIDEHUSTLES || !SIDEHUSTLES_LOADED) {
-    container.innerHTML = '<div style="padding:24px"><p>Loading guides...</p></div>';
+    container.innerHTML = '<div style="padding:24px"><p>Loading deep dive...</p></div>';
     return;
   }
 
-  const selectedHustle = S.selectedHustle || getDisplayedHustles('discovery')[0]?.name;
+  const selectedHustles = S.selectedHustleFilterHustles || [];
+  const selectedHustle = S.selectedDeepDiveHustle || selectedHustles[0];
 
   let html = '<div style="padding:24px"><div style="font-size:18px;font-weight:700;margin-bottom:8px;color:var(--dk)">Deep Dive</div>';
-  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Explore one of your selected hustles in depth with timeline, risks, and resources:</p>';
+  html += '<p style="font-size:13px;color:var(--tx2);margin-bottom:20px;">Select one of your chosen hustles to explore in depth:</p>';
 
-  html += buildHustleFilterSelectors();
+  // Single-select pill selector for deep dive
+  if (selectedHustles.length > 0) {
+    html += '<div style="margin-bottom:20px;"><div style="font-weight:600;margin-bottom:10px;color:var(--dk);">Chosen Hustles</div>';
+    html += '<div class="pills" data-q="deepdive-select">';
+    selectedHustles.forEach(name => {
+      const active = (selectedHustle === name) ? ' on' : '';
+      html += `<div class="pill${active}" onclick="toggleDeepDive('${name}', this)">${name}</div>`;
+    });
+    html += '</div></div>';
+  }
 
-  html += '<div id="guide-content" style="background: #f9f9f9; padding: 20px; border-radius: 6px; margin-top: 20px;"></div>';
+  html += '<div id="deepdive-content" style="background:var(--lt);padding:20px;border-radius:8px;margin-top:20px;"></div>';
 
   container.innerHTML = html;
 
   setTimeout(() => {
-    updateGuide();
+    updateDeepDiveContent();
   }, 100);
 
   // Add navigation buttons
@@ -524,6 +534,113 @@ function generateGetStartedSteps(hustle) {
 }
 
 // ============================================================================
+// DEEP DIVE HELPERS
+// ============================================================================
+
+function toggleDeepDive(hustleName, el) {
+  // Single-select: remove 'on' from all pills, add to clicked
+  document.querySelectorAll('[data-q="deepdive-select"] .pill').forEach(p => p.classList.remove('on'));
+  el.classList.add('on');
+  S.selectedDeepDiveHustle = hustleName;
+  saveState();
+  updateDeepDiveContent();
+}
+
+function updateDeepDiveContent() {
+  const container = document.getElementById('deepdive-content');
+  if (!container) return;
+
+  const hustleName = S.selectedDeepDiveHustle || (S.selectedHustleFilterHustles && S.selectedHustleFilterHustles[0]);
+  if (!hustleName) {
+    container.innerHTML = '<p style="color:var(--tx2);">Select a hustle to view details.</p>';
+    return;
+  }
+
+  const hustle = getHustle(hustleName);
+  if (!hustle) return;
+
+  let html = '<div>';
+  html += '<h3 style="margin-top:0;color:var(--dk)">' + hustle.name + '</h3>';
+
+  // Narrative
+  html += '<div style="margin-bottom:20px;">';
+  html += '<h4 style="margin-top:0;margin-bottom:8px;color:var(--dk)">Overview</h4>';
+  html += '<p style="margin:0;font-size:14px;color:var(--tx);line-height:1.6;">' + hustle.narrative + '</p>';
+  html += '</div>';
+
+  // Why might you like it
+  if (hustle.whyMightLikeIt && hustle.whyMightLikeIt.length > 0) {
+    html += '<div style="margin-bottom:20px;">';
+    html += '<h4 style="margin-top:0;margin-bottom:8px;color:var(--dk)">Why It Might Appeal to You</h4>';
+    html += '<ul style="margin:0;padding-left:20px;font-size:14px;">';
+    hustle.whyMightLikeIt.forEach(item => {
+      html += '<li style="margin-bottom:6px;color:var(--tx)">' + item + '</li>';
+    });
+    html += '</ul></div>';
+  }
+
+  // Typical Timeline
+  if (hustle.typicalTimeline) {
+    html += '<div style="margin-bottom:20px;">';
+    html += '<h4 style="margin-top:0;margin-bottom:8px;color:var(--dk)">Typical Timeline to Profitability</h4>';
+    html += '<p style="margin:0;font-size:14px;color:var(--tx);line-height:1.6;">' + hustle.typicalTimeline + '</p>';
+    html += '</div>';
+  }
+
+  // Key Decision Points
+  if (hustle.keyDecisionPoints && hustle.keyDecisionPoints.length > 0) {
+    html += '<div style="margin-bottom:20px;">';
+    html += '<h4 style="margin-top:0;margin-bottom:8px;color:var(--dk)">Critical Decision Points</h4>';
+    html += '<ol style="margin:0;padding-left:20px;font-size:14px;">';
+    hustle.keyDecisionPoints.forEach(point => {
+      html += '<li style="margin-bottom:8px;color:var(--tx)">' + point + '</li>';
+    });
+    html += '</ol></div>';
+  }
+
+  // Risks
+  if (hustle.risks && hustle.risks.length > 0) {
+    html += '<div style="margin-bottom:20px;">';
+    html += '<h4 style="margin-top:0;margin-bottom:8px;color:var(--warn)">Risks & Challenges</h4>';
+    html += '<ul style="margin:0;padding-left:20px;font-size:14px;">';
+    hustle.risks.forEach(risk => {
+      html += '<li style="margin-bottom:6px;color:var(--tx)">' + risk + '</li>';
+    });
+    html += '</ul></div>';
+  }
+
+  // Market Context
+  if (hustle.marketContext) {
+    html += '<div style="margin-bottom:20px;">';
+    html += '<h4 style="margin-top:0;margin-bottom:8px;color:var(--dk)">Market Context</h4>';
+    html += '<p style="margin:0;font-size:14px;color:var(--tx);line-height:1.6;">' + hustle.marketContext + '</p>';
+    html += '</div>';
+  }
+
+  // Tax Considerations
+  if (hustle.taxConsiderations) {
+    html += '<div style="margin-bottom:20px;">';
+    html += '<h4 style="margin-top:0;margin-bottom:8px;color:var(--dk)">Tax Considerations</h4>';
+    html += '<p style="margin:0;font-size:14px;color:var(--tx);line-height:1.6;">' + hustle.taxConsiderations + '</p>';
+    html += '</div>';
+  }
+
+  // Resources
+  if (hustle.practical && hustle.practical.resources && hustle.practical.resources.length > 0) {
+    html += '<div style="margin-bottom:20px;">';
+    html += '<h4 style="margin-top:0;margin-bottom:8px;color:var(--dk)">Resources to Get Started</h4>';
+    html += '<ul style="margin:0;padding-left:20px;font-size:14px;">';
+    hustle.practical.resources.forEach(r => {
+      html += '<li style="margin-bottom:6px;"><a href="' + r.url + '" target="_blank" style="color:#0066cc;text-decoration:none;">' + r.title + '</a></li>';
+    });
+    html += '</ul></div>';
+  }
+
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+// ============================================================================
 // INSIGHTS TAB
 // ============================================================================
 
@@ -676,4 +793,6 @@ window.renderResources = renderResources;
 window.showHustleDetail = showHustleDetail;
 window.toggleHustleCategory = toggleHustleCategory;
 window.toggleHustleSpecific = toggleHustleSpecific;
+window.toggleDeepDive = toggleDeepDive;
+window.updateDeepDiveContent = updateDeepDiveContent;
 window.updateGuide = updateGuide;
