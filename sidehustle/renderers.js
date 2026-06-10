@@ -877,8 +877,8 @@ function generateInsightNarrativeParagraph(selectedHustles) {
   }
 
   if (narrativeParts.length > 0) {
-    html += '<h3 style="margin:12px 0 8px 0;color:var(--dk);font-size:15px;font-weight:700">Your Narrative</h3>';
-    html += '<p style="line-height:1.5;color:var(--tx);margin:0 0 12px 0;font-size:13px">' + narrativeParts.join(' ') + '</p>';
+    html += '<h2 style="margin:24px 0 12px 0;color:var(--dk);font-size:20px;font-weight:700">Your Narrative</h2>';
+    html += '<p style="line-height:1.6;color:var(--tx1);margin:0 0 20px 0;font-size:13px">' + narrativeParts.join(' ') + '</p>';
   }
 
   return html;
