@@ -1315,6 +1315,83 @@ function syncFilterPillsAcrossTabs() {
 - buildTableHTML: rows as table rows, columns as table columns
 - buildCarouselHTML: rows become cards, columns become card columns (flipped orientation)
 
+**Insights Table Rendering:**
+- `renderInsightsTable(title, subtitle, firstColHeader, items, carouselId)` → Shared helper for insights display
+- Renders 3-column table: Item Name | Strengths (pros) | Considerations (cons)
+- Items must be objects with: `{title: string, name: string, pros: [string], cons: [string]}`
+- Used by both University and Side Hustle pathfinders
+
+---
+
+## 17. Insights Tab Pattern - Narrative + Dynamic Analysis
+
+**Structure (shared across University and Side Hustle):**
+
+1. **Narrative Paragraph** — Generated from discovery selections, highlights user's constraints/goals:
+   ```javascript
+   function generateNarrativeParagraph(selectedItems) {
+     const parts = [];
+     if (S.timeCommitment) parts.push('You prefer ' + S.timeCommitment + '.');
+     if (S.budget) parts.push('Budget is ' + S.budget + '.');
+     if (S.goals && S.goals.length > 0) parts.push('Your goals: ' + S.goals.join(', '));
+     if (selectedItems && selectedItems.length > 0) parts.push('Selected: ' + selectedItems.join(', '));
+     return '<p>' + parts.join(' ') + '</p>';
+   }
+   ```
+
+2. **Dynamic Insights with Pros/Cons** — Compare each item against user selections:
+   ```javascript
+   function generateInsightsWithProsCons(items) {
+     return items.map(item => {
+       const pros = [];
+       const cons = [];
+       
+       // Analyze alignment with each user selection
+       if (S.timeCommitment && itemRequiresTime(item) > availableTime(S.timeCommitment)) {
+         cons.push('⚠️ Time requirement exceeds your availability');
+       } else {
+         pros.push('✅ Time commitment aligns with your goal');
+       }
+       
+       // ... continue analysis for other constraints
+       
+       return {
+         title: item.name,
+         pros: pros.length > 0 ? pros : ['—'],
+         cons: cons.length > 0 ? cons : ['—']
+       };
+     });
+   }
+   ```
+
+3. **Table Display** — Use `renderInsightsTable()` helper:
+   ```javascript
+   const analysis = generateInsightsWithProsCons(selectedItems);
+   html += renderInsightsTable(
+     'Item Analysis',              // title
+     'How items fit your goals',   // subtitle
+     'Item Name',                  // firstColHeader
+     analysis,                     // items with pros/cons
+     'insights-carousel'           // carouselId for mobile
+   );
+   ```
+
+**Key Principles:**
+- Narrative should be generated, not static — reflect actual user selections
+- Pros/cons should compare items against discovery selections, not generic insights
+- Use emoji in the text itself (✅, ⚠️, ℹ️) for visual scannability
+- Empty pros/cons default to '—' rather than hiding the row
+- Call renderInsightsTable once per data category; don't create custom tables for insights
+
+**Example Flow:**
+1. User selects: 10-20 hrs/week, $500 budget, wants $2K/month income
+2. Narrative paragraph: "You're looking for side hustles that fit 10-20 hours/week. Your startup budget is $500. You want to earn $2K/month."
+3. For each selected hustle, analyze alignment:
+   - Time: 15-25 hrs/week required? Exceeds 20-hour limit → add ⚠️ con
+   - Cost: $300-500 startup? Fits budget → add ✅ pro
+   - Income: Can earn $2K+/month? Yes → add ✅ pro
+4. Table shows: Hustle Name | [✅, ✅, ...] | [⚠️, ...]
+
 ---
 
 **Last Updated:** 2026-06-10 (Section 12-16 added; Responsive dual-render, unified renderers, insights, filters, framework helpers)
