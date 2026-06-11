@@ -1200,10 +1200,6 @@ function renderKnowledge() {
         ['Market Demand', (domainName) => {
           const domain = selectedDomainObjs.find(k => k.name === domainName);
           return domain ? domain.marketDemand_label : '—';
-        }],
-        ['Delivery Models', (domainName) => {
-          const domain = selectedDomainObjs.find(k => k.name === domainName);
-          return domain ? domain.compatibleDeliveryModels.join(', ') : '—';
         }]
       ];
 
