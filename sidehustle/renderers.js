@@ -1378,4 +1378,3 @@ window.renderKnowledge = renderKnowledge;
 window.renderPathways = renderPathways;
 window.togglePathwayCategory = togglePathwayCategory;
 window.togglePathway = togglePathway;
-window.filterKnowledgeByCategory = filterKnowledgeByCategory;
