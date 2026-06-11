@@ -1371,8 +1371,8 @@ function renderSynthesis() {
       html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5;">To change knowledge categories, go back to the Knowledge tab.</div>';
       html += '<div class="pills" data-q="synthesis-knowledge">';
       uniqueKnowledge.forEach(k => {
-        const active = S.selectedKnowledgeDomains.includes(k.id) ? ' on' : '';
-        html += `<div class="pill${active}" onclick="toggleSynthesisKnowledge('${k.id}', this)">${k.name}</div>`;
+        const active = S.selectedKnowledgeDomains.includes(k.name) ? ' on' : '';
+        html += `<div class="pill${active}" onclick="toggleSynthesisKnowledge('${k.name}', this)">${k.name}</div>`;
       });
       html += '</div></div>';
     }
@@ -1448,13 +1448,13 @@ function toggleSynthesisPathwayCategory(catName, el) {
   renderSynthesis();
 }
 
-function toggleSynthesisKnowledge(knowledgeId, el) {
+function toggleSynthesisKnowledge(domainName, el) {
   el.classList.toggle('on');
-  const idx = S.selectedKnowledgeDomains.indexOf(knowledgeId);
+  const idx = S.selectedKnowledgeDomains.indexOf(domainName);
   if (idx > -1) {
     S.selectedKnowledgeDomains.splice(idx, 1);
   } else {
-    S.selectedKnowledgeDomains.push(knowledgeId);
+    S.selectedKnowledgeDomains.push(domainName);
   }
   saveState();
   renderSynthesis();
