@@ -745,8 +745,9 @@ function calculateCompatibility(knowledge, pathway) {
     reasoning.push('Craft skill + ideal pathway');
   }
 
-  // Boost: marketplace/creator pathways work well with diverse knowledge
-  if (pathway.name.includes('Marketplace') || pathway.name.includes('Creator') || pathway.name.includes('Download')) {
+  // Boost: flexible pathways that work well with diverse knowledge
+  const flexiblePathways = ['Marketplace', 'Creator', 'Download', 'Video', 'Communities', 'Blogging', 'Podcast', 'Newsletter', 'Affiliate'];
+  if (flexiblePathways.some(p => pathway.name.includes(p))) {
     score += 10;
     reasoning.push('Flexible pathway');
   }
