@@ -15,11 +15,17 @@ pathfinder/
 │   ├── helpers.js
 │   ├── renderers.js
 │   └── data/ (careers, countries, universities, insights, etc.)
-└── bootcamp/              Bootcamp Pathfinder (minimal test case)
+├── bootcamp/              Bootcamp Pathfinder (minimal test case)
+│   ├── index.html
+│   ├── config.js
+│   ├── helpers.js
+│   └── data/ (bootcamps, selector options, etc.)
+└── sidehustle/            Side Hustle Pathfinder (Knowledge × Pathways synthesis)
     ├── index.html
     ├── config.js
     ├── helpers.js
-    └── data/ (bootcamps, selector options, etc.)
+    ├── renderers.js
+    └── data/ (knowledge domains, pathways, insights, etc.)
 ```
 
 **Design Pattern:** Each pathfinder is independent but shares the framework. The root index.html router uses URL hash to navigate between them.
@@ -984,118 +990,87 @@ header: {
 
 ---
 
-## 11. Side Hustle Pathfinder - Data & Helper Patterns
+## 11. Side Hustle Pathfinder: Pathways & Semantic Synthesis
 
-**Normalized schema for side hustles with consistent field access patterns.**
+**Side Hustles are synthesized dynamically from Knowledge × Pathways intersection using semantic rules (no pre-authored list).**
 
-### Side Hustle Data Schema
+### Data Model: Pathways (64 monetization methods)
 
-```json
+Each pathway has normalized semantic metadata:
+
+```javascript
 {
-  "name": "Freelance Writing",
-  "category": "content-writing",
-  "categoryLabel": "Content & Writing",
-  "description": "...",
-  
-  "financial": {
-    "startupCost_min": 0,
-    "startupCost_max": 500,
-    "startupCost_note": "Portfolio website optional",
-    "monthlyEarning_min": 200,
-    "monthlyEarning_max": 5000,
-    "timeToFirstIncome": "1-2 weeks"
-  },
-  
-  "effort": {
-    "hoursPerWeekRequired_min": 10,
-    "hoursPerWeekRequired_max": 30,
-    "timeToScaleability": "3-6 months",
-    "scalabilityPotential": "high"  // low | medium | high | very_high
-  },
-  
-  "character": {
-    "passivityScore": 0.15,         // 0-1 scale (0=active, 1=passive)
-    "competitionLevel": "high",     // low | medium | high | very_high
-    "demandTrend": "growing",       // growing | stable | declining
-    "seasonality": "steady"         // steady | seasonal | holiday
-  },
-  
-  "practical": {
-    "requiredSkills": ["Writing", "English proficiency"],
-    "recommendedPlatforms": ["Upwork", "Fiverr", "Medium", "Substack"],
-    "pros": ["Flexible hours", "No upfront cost", "Work from anywhere"],
-    "cons": ["High competition", "Feast/famine income"],
-    "resources": [{"title": "...", "url": "..."}]
-  },
-  
-  "imageUrls": [...]  // 5 Unsplash URLs per hustle
+  id: "consulting",
+  name: "Consulting",
+  strength: "business",  // technical | creative | business | interpersonal | passive | experiential
+  roles: ["Advisor", "Strategist", "Expert"],
+  adjectives: ["Strategic", "High-touch", "Premium"],
+  daily_activity: "Advise clients, analyze problems, present recommendations",
+  value_delivery: "Direct from clients (premium rates)",
+  effort_type: "active",  // active | passive | hybrid
+  requires_presence: true
 }
 ```
 
-### Field-Specific Query Helpers (CLAUDE.md pattern)
-
-Each hustle field has a dedicated getter with null-safe fallbacks:
-
+**Helper functions:**
 ```javascript
-getHustleStartupCost(name)      // → {min, max, note}
-getHustleEarningPotential(name) // → {min, max}
-getHustleTimeToIncome(name)     // → "1-2 weeks" or null
-getHustleEffort(name)           // → {min, max} hours/week
-getHustleCompetition(name)      // → "high" | "medium" | "low"
-getHustlePassivity(name)        // → 0-1 numeric score
-getHustleScalability(name)      // → "high" | "medium" | "low"
-getHustleSkills(name)           // → array of required skills
-getHustlePlatforms(name)        // → array of platform names
-getHustleResources(name)        // → array of resource objects
+getPathway(id)                    // → pathway object
+getPathwaysByCategory(categoryName) // → array of pathways
+getAllPathwayCategories()         // → array of category names
 ```
 
-All getters include:
-- Null checks: `const hustle = getHustle(name); if (!hustle) return ...;`
-- Fallback defaults: `return hustle.financial.startupCost_min || 0;`
-- Safe property access: Never assumes nested objects exist
+### Data Model: Knowledge Domains (51 skill areas)
 
-### Null-Safe Entry Functions (CLAUDE.md line 311)
-
-All functions that depend on external data use fallback patterns:
+Each domain has semantic characteristics for matching:
 
 ```javascript
-// Pattern: const data = window.OBJECTNAME || {fallback};
-function matchHustles(state) {
-  const data = window.SIDEHUSTLES || {sidehustles: []};
-  if (!Array.isArray(data.sidehustles)) return [];
-  // ... rest of logic
+{
+  id: "data_analysis",
+  name: "Data Analysis",
+  strength: "analytical",  // technical | creative | analytical | business | interpersonal
+  roles: ["Analyst", "Advisor", "Strategist"],
+  adjectives: ["Insight-driven", "Data-backed"],
+  daily_activity: "Measure, analyze, present findings",
+  marketDemand_score: 5  // 1-5
 }
 ```
 
-This prevents crashes if data loads asynchronously or fails.
+### Side Hustle Synthesis: Knowledge × Pathways
 
-### Matching Algorithm Pattern
-
-`matchHustles(state)` scores each hustle against user selections:
+**Rule-based combination (no AI):**
 
 ```javascript
-const matches = matchHustles(S);
-// Returns: [{hustle: {...}, score: 100, matchReasons: ["...", "..."]}, ...]
-// Sorted by score (best first)
+function synthesizeSideHustle(knowledgeDomain, pathway) {
+  return {
+    name: generateName(knowledge, pathway),
+    // Name via rules: [Role] + [Strength combo]
+    // E.g., "Data Analysis" + "Consulting" → "Data Strategy Advisor"
+    
+    description: generateScaffold(knowledge, pathway),
+    // Scaffold via string templates + semantic fields
+    
+    effort_type: blendEffortTypes(knowledge, pathway),
+    scalability: assessScalability(knowledge, pathway)
+  };
+}
 ```
 
-Score factors:
-- **Time commitment**: Does hustle fit available hours?
-- **Startup cost**: Is it within budget?
-- **Income potential**: Can it reach earnings goal?
-- **Income type**: Does passivity match preference?
-- **Skills**: Do user strengths align with requirements?
-- **Scalability**: Does it match growth goals?
+**Naming rules (deterministic):**
+- If `knowledge.strength == "analytical"` AND `pathway.strength == "business"` → "Strategy Advisor"
+- If `knowledge.strength == "creative"` AND `pathway.strength == "passive"` → "Content Creator"
+- Fallback: "[Role] via [Pathway]"
 
-### Discovery Selector Pattern (Multi-Select for Strengths)
-
-```javascript
-const multiSelect = ['strengths'];  // Only 'strengths' allows multiple
-const pickFunc = isMulti ? 'pickN' : 'pick1';
-
-// pickN(q, el): Toggle pill on/off, update S.strengths array
-// pick1(q, el): Single-select pill, replace value
+**Scaffold display (Option 1: Structured Components):**
 ```
+Data Strategy Advisor (Data Analysis + Consulting)
+
+WHAT: Your analytical expertise applied through strategic advisory work
+HOW YOU'D WORK: Analyze client data, present recommendations, guide decisions
+WHY THIS WORKS: Analytical thinking + high-touch advisory positioning
+FOR YOU IF: You love solving data puzzles + enjoy client relationships
+```
+
+No prose writing—only templated components assembled from semantic rules.
 
 ## 12. Responsive Table/Carousel Dual-Render Pattern
 
@@ -1165,17 +1140,16 @@ function renderDataTableView(
   // 6. Add navigation buttons with backTab/nextTab
 }
 
-// Usage (Side Hustles tab):
-function renderHustles() {
-  const displayed = getDisplayedHustles('discovery');
-  renderDataTableView('hustles', 'Your Matches', 'Filter...', displayed, null, 'discover', 'earnings');
+// Usage (Pathways tab):
+function renderPathways() {
+  const categories = getAllPathwayCategories();
+  // Render category selector + pathway selector + comparison table/carousel
 }
 
-// Usage (Earnings tab - with sorting):
-function renderEarnings() {
-  const displayed = getDisplayedHustles('earnings');
-  const sortFn = (a, b) => b.income_max - a.income_max;  // high to low
-  renderDataTableView('earnings', 'Earnings Comparison', '...', displayed, sortFn, 'hustles', 'insights');
+// Usage (Side Hustles tab - synthesized matches):
+function renderSideHustles() {
+  const matches = matchSideHustles(S.selectedKnowledgeDomains, S.selectedPathways);
+  // Render synthesized combinations as scaffold cards
 }
 ```
 
