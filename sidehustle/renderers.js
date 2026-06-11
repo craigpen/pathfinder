@@ -236,7 +236,7 @@ function renderHustles() {
     html += `<div style="padding:20px;text-align:center;color:var(--tx2)"><p>${guidance}</p></div>`;
     html += '</div>';
     container.innerHTML = html;
-    const navHtml = `<div class="bg"><button class="btn bs pos-left" onclick="go('discover')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('earnings')">Next</button></div>`;
+    const navHtml = `<div class="bg"><button class="btn bs pos-left" onclick="go('synthesis')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go('earnings')">Next</button></div>`;
     container.insertAdjacentHTML('beforeend', navHtml);
     return;
   }
@@ -1224,7 +1224,7 @@ function renderKnowledge() {
   container.innerHTML = html;
 
   // Add navigation buttons
-  const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'discover\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go(\'delivery\')">Next</button></div>';
+  const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'discover\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go(\'pathways\')">Next</button></div>';
   container.insertAdjacentHTML('beforeend', navHtml);
 }
 
@@ -1336,7 +1336,7 @@ function renderPathways() {
   container.innerHTML = html;
 
   // Add navigation buttons
-  const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'knowledge\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go(\'hustles\')">Next</button></div>';
+  const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'knowledge\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go(\'synthesis\')">Next</button></div>';
   container.insertAdjacentHTML('beforeend', navHtml);
 
   // Initialize carousel if visible
@@ -1493,11 +1493,27 @@ function toggleSynthesisPathway(pathwayId, el) {
 function renderSynthesisResults(results) {
   if (results.length === 0) return '';
 
+  // Map results by name for lookup in data functions
+  const resultMap = {};
+  results.forEach(r => resultMap[r.name] = r);
+
   const rows = [
-    ['What', (result) => result.scaffold.what],
-    ['How', (result) => result.scaffold.how],
-    ['Why', (result) => result.scaffold.why],
-    ['For You If', (result) => result.scaffold.forYouIf]
+    ['What', (resultName) => {
+      const result = resultMap[resultName];
+      return result && result.scaffold ? result.scaffold.what : '—';
+    }],
+    ['How', (resultName) => {
+      const result = resultMap[resultName];
+      return result && result.scaffold ? result.scaffold.how : '—';
+    }],
+    ['Why', (resultName) => {
+      const result = resultMap[resultName];
+      return result && result.scaffold ? result.scaffold.why : '—';
+    }],
+    ['For You If', (resultName) => {
+      const result = resultMap[resultName];
+      return result && result.scaffold ? result.scaffold.forYouIf : '—';
+    }]
   ];
 
   const resultNames = results.map(r => r.name);
