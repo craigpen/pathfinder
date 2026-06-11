@@ -1350,26 +1350,50 @@ function renderPathways() {
 }
 
 function renderPathwayComparison(pathways) {
+  // Create a map of pathway names to pathway objects for quick lookup
+  const pathwayMap = {};
+  pathways.forEach(p => {
+    pathwayMap[p.name] = p;
+  });
+
   const rows = [
-    ['Startup Cost', (p) => formatMoney(p.financial.startupCost_min, p.financial.startupCost_max)],
-    ['Monthly Earning', (p) => formatMoney(p.financial.monthlyEarning_min, p.financial.monthlyEarning_max)],
-    ['Hours/Week', (p) => formatHours(p.effort.hoursPerWeek_min, p.effort.hoursPerWeek_max)],
-    ['Demand Level', (p) => p.market.demandLevel],
-    ['Competition', (p) => p.market.competitionLevel],
-    ['Scalability', (p) => p.effort.scalabilityPotential]
+    ['Startup Cost', (name) => {
+      const p = pathwayMap[name];
+      return p ? formatMoney(p.financial.startupCost_min, p.financial.startupCost_max) : '—';
+    }],
+    ['Monthly Earning', (name) => {
+      const p = pathwayMap[name];
+      return p ? formatMoney(p.financial.monthlyEarning_min, p.financial.monthlyEarning_max) : '—';
+    }],
+    ['Hours/Week', (name) => {
+      const p = pathwayMap[name];
+      return p ? formatHours(p.effort.hoursPerWeek_min, p.effort.hoursPerWeek_max) : '—';
+    }],
+    ['Demand Level', (name) => {
+      const p = pathwayMap[name];
+      return p ? p.market.demandLevel : '—';
+    }],
+    ['Competition', (name) => {
+      const p = pathwayMap[name];
+      return p ? p.market.competitionLevel : '—';
+    }],
+    ['Scalability', (name) => {
+      const p = pathwayMap[name];
+      return p ? p.effort.scalabilityPotential : '—';
+    }]
   ];
 
   const pathwayNames = pathways.map(p => p.name);
-  const firstCol = (p) => p;
+  const nameLabel = (name) => name;
 
   let html = '<div style="margin:24px 0 12px 0;"><div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Comparison</div>';
   html += '<div style="font-size:18px;font-weight:700;margin-bottom:10px;color:var(--dk);">Pathway Comparison</div></div>';
 
   // Build table for desktop
-  html += buildTableHTML(rows, pathwayNames, firstCol, 'pathway-table');
+  html += buildTableHTML(rows, pathwayNames, nameLabel, 'pathway-table');
 
   // Build carousel for mobile
-  html += buildCarouselHTML(rows, pathwayNames, firstCol, 'pathway-carousel');
+  html += buildCarouselHTML(rows, pathwayNames, nameLabel, 'pathway-carousel');
 
   return html;
 }
