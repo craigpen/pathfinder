@@ -25,26 +25,6 @@
         "Full-stack Dev",
         "UI/UX Design"
       ],
-      "compatibleDeliveryModels": [
-        "Freelance",
-        "Course Creation",
-        "Video Content",
-        "Consulting"
-      ],
-      "earningPotentialByDelivery": {
-        "Freelance": {
-          "min": 50,
-          "max": 150,
-          "unit": "hour",
-          "source": "Upwork 2024 Freelancer Report, Glassdoor"
-        },
-        "Course Creation": {
-          "min": 2000,
-          "max": 15000,
-          "unit": "course",
-          "source": "Udemy instructor earnings, Teachable case studies"
-        }
-      },
       "learningResources": [
         {
           "title": "freeCodeCamp Frontend Development Course",
@@ -110,25 +90,6 @@
         "Data Analysis",
         "Cloud Computing"
       ],
-      "compatibleDeliveryModels": [
-        "Freelance",
-        "Consulting",
-        "Course Creation"
-      ],
-      "earningPotentialByDelivery": {
-        "Freelance": {
-          "min": 60,
-          "max": 200,
-          "unit": "hour",
-          "source": "Upwork, Toptal rates"
-        },
-        "Consulting": {
-          "min": 150,
-          "max": 500,
-          "unit": "hour",
-          "source": "Becker's IT Consulting rates"
-        }
-      },
       "learningResources": [
         {
           "title": "freeCodeCamp Backend Development",
@@ -188,32 +149,6 @@
         "Web Dev (Backend)",
         "Mobile App Dev"
       ],
-      "compatibleDeliveryModels": [
-        "Freelance",
-        "Consulting",
-        "Course Creation",
-        "App Creation"
-      ],
-      "earningPotentialByDelivery": {
-        "Freelance": {
-          "min": 75,
-          "max": 200,
-          "unit": "hour",
-          "source": "Upwork full-stack rates"
-        },
-        "Consulting": {
-          "min": 200,
-          "max": 500,
-          "unit": "hour",
-          "source": "Toptal, Gun.io"
-        },
-        "Course Creation": {
-          "min": 3000,
-          "max": 25000,
-          "unit": "course",
-          "source": "Udemy full-stack courses"
-        }
-      },
       "learningResources": [
         {
           "title": "The Odin Project Full Stack",
@@ -273,26 +208,6 @@
         "Full-stack Dev",
         "UI/UX Design"
       ],
-      "compatibleDeliveryModels": [
-        "Freelance",
-        "Consulting",
-        "Course Creation",
-        "App Creation"
-      ],
-      "earningPotentialByDelivery": {
-        "Freelance": {
-          "min": 70,
-          "max": 180,
-          "unit": "hour",
-          "source": "Upwork mobile development rates"
-        },
-        "App Monetization": {
-          "min": 100,
-          "max": 10000,
-          "unit": "month",
-          "source": "App Store revenue data (highly variable)"
-        }
-      },
       "learningResources": [
         {
           "title": "Google Android Development Docs",
@@ -356,25 +271,6 @@
         "Web Dev (Backend)",
         "Machine Learning"
       ],
-      "compatibleDeliveryModels": [
-        "Freelance",
-        "Consulting",
-        "Course Creation"
-      ],
-      "earningPotentialByDelivery": {
-        "Freelance": {
-          "min": 45,
-          "max": 120,
-          "unit": "hour",
-          "source": "Upwork data analysis rates"
-        },
-        "Consulting": {
-          "min": 100,
-          "max": 250,
-          "unit": "hour",
-          "source": "Becker's consulting rates"
-        }
-      },
       "learningResources": [
         {
           "title": "Google Data Analytics Certificate",
@@ -434,25 +330,6 @@
         "Web Dev (Backend)",
         "Data Analysis"
       ],
-      "compatibleDeliveryModels": [
-        "Freelance",
-        "Consulting",
-        "Course Creation"
-      ],
-      "earningPotentialByDelivery": {
-        "Freelance": {
-          "min": 60,
-          "max": 150,
-          "unit": "hour",
-          "source": "Upwork cloud engineering rates"
-        },
-        "Consulting": {
-          "min": 150,
-          "max": 400,
-          "unit": "hour",
-          "source": "AWS consulting partner rates"
-        }
-      },
       "learningResources": [
         {
           "title": "AWS Certified Cloud Practitioner",
@@ -512,32 +389,6 @@
         "Digital Illustration",
         "Video Production"
       ],
-      "compatibleDeliveryModels": [
-        "Freelance",
-        "E-commerce",
-        "Stock Content",
-        "Course Creation"
-      ],
-      "earningPotentialByDelivery": {
-        "Freelance": {
-          "min": 25,
-          "max": 100,
-          "unit": "hour",
-          "source": "Upwork, 99designs rates"
-        },
-        "E-commerce": {
-          "min": 500,
-          "max": 5000,
-          "unit": "month",
-          "source": "Creative Fabrica, Design Bundles seller data"
-        },
-        "Stock Content": {
-          "min": 100,
-          "max": 2000,
-          "unit": "month",
-          "source": "Shutterstock, Getty Images designer earnings"
-        }
-      },
       "learningResources": [
         {
           "title": "Adobe Creative Cloud Tutorials",
@@ -597,25 +448,6 @@
         "Web Dev (Frontend)",
         "Mobile App Dev"
       ],
-      "compatibleDeliveryModels": [
-        "Freelance",
-        "Consulting",
-        "Course Creation"
-      ],
-      "earningPotentialByDelivery": {
-        "Freelance": {
-          "min": 50,
-          "max": 150,
-          "unit": "hour",
-          "source": "Upwork, ADPList mentorship platform"
-        },
-        "Consulting": {
-          "min": 100,
-          "max": 250,
-          "unit": "hour",
-          "source": "Nielsen Norman Group consulting rates"
-        }
-      },
       "learningResources": [
         {
           "title": "Google UX Design Certificate",
@@ -675,26 +507,6 @@
         "Creative Writing",
         "Digital Illustration"
       ],
-      "compatibleDeliveryModels": [
-        "Freelance",
-        "YouTube Channel",
-        "Course Creation",
-        "Video Content"
-      ],
-      "earningPotentialByDelivery": {
-        "Freelance": {
-          "min": 30,
-          "max": 100,
-          "unit": "hour",
-          "source": "Upwork, Fiverr video editing rates"
-        },
-        "YouTube": {
-          "min": 100,
-          "max": 10000,
-          "unit": "month",
-          "source": "YouTube Partner Program - highly variable"
-        }
-      },
       "learningResources": [
         {
           "title": "Adobe Premiere Pro Tutorials",
@@ -754,32 +566,6 @@
         "Graphic Design",
         "Digital Illustration"
       ],
-      "compatibleDeliveryModels": [
-        "Freelance",
-        "Stock Content",
-        "E-commerce",
-        "Local Services"
-      ],
-      "earningPotentialByDelivery": {
-        "Freelance": {
-          "min": 40,
-          "max": 150,
-          "unit": "hour",
-          "source": "Upwork, local photography rates"
-        },
-        "Stock Content": {
-          "min": 50,
-          "max": 2000,
-          "unit": "month",
-          "source": "Shutterstock, Getty Images photographer earnings"
-        },
-        "Local Services": {
-          "min": 500,
-          "max": 5000,
-          "unit": "event",
-          "source": "Photography pricing guides"
-        }
-      },
       "learningResources": [
         {
           "title": "Udemy Photography Fundamentals",
@@ -839,26 +625,6 @@
         "Animation",
         "UI/UX Design"
       ],
-      "compatibleDeliveryModels": [
-        "Freelance",
-        "E-commerce",
-        "Stock Content",
-        "Course Creation"
-      ],
-      "earningPotentialByDelivery": {
-        "Freelance": {
-          "min": 30,
-          "max": 120,
-          "unit": "hour",
-          "source": "ArtStation, Upwork rates"
-        },
-        "E-commerce": {
-          "min": 500,
-          "max": 3000,
-          "unit": "month",
-          "source": "Gumroad, Patreon creator earnings"
-        }
-      },
       "learningResources": [
         {
           "title": "Proko Figure Drawing and Digital Illustration",
@@ -917,26 +683,6 @@
         "Music Performance",
         "Video Production"
       ],
-      "compatibleDeliveryModels": [
-        "Freelance",
-        "Stock Content",
-        "Course Creation",
-        "E-commerce"
-      ],
-      "earningPotentialByDelivery": {
-        "Freelance": {
-          "min": 50,
-          "max": 200,
-          "unit": "hour",
-          "source": "Upwork, Soundbetter rates"
-        },
-        "Stock Content": {
-          "min": 100,
-          "max": 1000,
-          "unit": "month",
-          "source": "AudioJungle, Pond5 composer earnings"
-        }
-      },
       "learningResources": [
         {
           "title": "Berklee Online Music Production",
@@ -995,32 +741,6 @@
         "Music Composition & Production",
         "Tutoring"
       ],
-      "compatibleDeliveryModels": [
-        "Tutoring",
-        "YouTube Channel",
-        "Local Services",
-        "Course Creation"
-      ],
-      "earningPotentialByDelivery": {
-        "Tutoring": {
-          "min": 30,
-          "max": 100,
-          "unit": "hour",
-          "source": "Care.com, local music lesson rates"
-        },
-        "YouTube": {
-          "min": 100,
-          "max": 5000,
-          "unit": "month",
-          "source": "YouTube Partner Program (highly variable)"
-        },
-        "Local Performance": {
-          "min": 100,
-          "max": 500,
-          "unit": "gig",
-          "source": "GigSalad, local performance rates"
-        }
-      },
       "learningResources": [
         {
           "title": "Local music instructors",
@@ -1080,33 +800,6 @@
         "Technical Writing",
         "Copywriting"
       ],
-      "compatibleDeliveryModels": [
-        "Freelance",
-        "Blogging",
-        "Course Creation",
-        "E-commerce",
-        "Newsletters"
-      ],
-      "earningPotentialByDelivery": {
-        "Freelance": {
-          "min": 20,
-          "max": 80,
-          "unit": "hour",
-          "source": "Upwork, Contently rates"
-        },
-        "Self-Publishing": {
-          "min": 0,
-          "max": 5000,
-          "unit": "month",
-          "source": "Amazon KDP author reports"
-        },
-        "Newsletters": {
-          "min": 0,
-          "max": 3000,
-          "unit": "month",
-          "source": "Substack author earnings"
-        }
-      },
       "learningResources": [
         {
           "title": "MasterClass: Writing with Margaret Atwood",
@@ -1166,31 +859,6 @@
         "Copywriting",
         "Data Analysis"
       ],
-      "compatibleDeliveryModels": [
-        "Freelance",
-        "Consulting",
-        "Course Creation"
-      ],
-      "earningPotentialByDelivery": {
-        "Freelance": {
-          "min": 40,
-          "max": 120,
-          "unit": "hour",
-          "source": "Upwork, Toptal rates"
-        },
-        "Consulting": {
-          "min": 100,
-          "max": 300,
-          "unit": "hour",
-          "source": "McKinsey, Deloitte consulting rates"
-        },
-        "Course Creation": {
-          "min": 1000,
-          "max": 20000,
-          "unit": "course",
-          "source": "Udemy digital marketing courses"
-        }
-      },
       "learningResources": [
         {
           "title": "Google Digital Garage (Free)",
@@ -1250,25 +918,6 @@
         "Copywriting",
         "Analytics"
       ],
-      "compatibleDeliveryModels": [
-        "Freelance",
-        "Consulting",
-        "Course Creation"
-      ],
-      "earningPotentialByDelivery": {
-        "Freelance": {
-          "min": 35,
-          "max": 100,
-          "unit": "hour",
-          "source": "Upwork SEO rates"
-        },
-        "Consulting": {
-          "min": 75,
-          "max": 250,
-          "unit": "hour",
-          "source": "SEO agency rates"
-        }
-      },
       "learningResources": [
         {
           "title": "Moz SEO Guide",
@@ -1328,25 +977,6 @@
         "Email Marketing",
         "Content Marketing"
       ],
-      "compatibleDeliveryModels": [
-        "Freelance",
-        "Course Creation",
-        "Consulting"
-      ],
-      "earningPotentialByDelivery": {
-        "Freelance": {
-          "min": 50,
-          "max": 150,
-          "unit": "hour",
-          "source": "Upwork, Contently copywriting rates"
-        },
-        "Project": {
-          "min": 1000,
-          "max": 5000,
-          "unit": "project",
-          "source": "Freelance copywriting project rates"
-        }
-      },
       "learningResources": [
         {
           "title": "The Copywriter's Handbook - Bob Bly",
@@ -1405,25 +1035,6 @@
         "Digital Marketing",
         "Copywriting"
       ],
-      "compatibleDeliveryModels": [
-        "Freelance",
-        "Consulting",
-        "Course Creation"
-      ],
-      "earningPotentialByDelivery": {
-        "Freelance": {
-          "min": 35,
-          "max": 100,
-          "unit": "hour",
-          "source": "Upwork email marketing rates"
-        },
-        "Course Creation": {
-          "min": 500,
-          "max": 5000,
-          "unit": "course",
-          "source": "Udemy email marketing courses"
-        }
-      },
       "learningResources": [
         {
           "title": "HubSpot Email Marketing Certification",
@@ -1483,24 +1094,6 @@
         "Copywriting",
         "Business Consulting"
       ],
-      "compatibleDeliveryModels": [
-        "Consulting",
-        "Freelance"
-      ],
-      "earningPotentialByDelivery": {
-        "Freelance/Consulting": {
-          "min": 75,
-          "max": 200,
-          "unit": "hour",
-          "source": "Sales consulting rates"
-        },
-        "Commission": {
-          "min": 5,
-          "max": 50,
-          "unit": "percent",
-          "source": "Typical sales commission structures"
-        }
-      },
       "learningResources": [
         {
           "title": "HubSpot Sales Training",
@@ -1559,25 +1152,6 @@
         "Data Analysis",
         "Project Management"
       ],
-      "compatibleDeliveryModels": [
-        "Freelance",
-        "Consulting",
-        "Local Services"
-      ],
-      "earningPotentialByDelivery": {
-        "Freelance": {
-          "min": 30,
-          "max": 80,
-          "unit": "hour",
-          "source": "Upwork bookkeeping rates"
-        },
-        "Local Services": {
-          "min": 1000,
-          "max": 5000,
-          "unit": "month",
-          "source": "Small business bookkeeping rates"
-        }
-      },
       "learningResources": [
         {
           "title": "AccountingCoach Free Lessons",
@@ -1636,24 +1210,6 @@
         "Digital Marketing",
         "Consulting"
       ],
-      "compatibleDeliveryModels": [
-        "Consulting",
-        "Freelance"
-      ],
-      "earningPotentialByDelivery": {
-        "Consulting": {
-          "min": 100,
-          "max": 250,
-          "unit": "hour",
-          "source": "Becker's PM consulting rates"
-        },
-        "Freelance": {
-          "min": 50,
-          "max": 150,
-          "unit": "hour",
-          "source": "Upwork PM rates"
-        }
-      },
       "learningResources": [
         {
           "title": "Google Project Management Certificate",
@@ -1712,25 +1268,6 @@
         "Science",
         "Test Preparation"
       ],
-      "compatibleDeliveryModels": [
-        "Tutoring",
-        "Course Creation",
-        "YouTube Channel"
-      ],
-      "earningPotentialByDelivery": {
-        "Tutoring": {
-          "min": 30,
-          "max": 100,
-          "unit": "hour",
-          "source": "Care.com, Wyzant tutor rates"
-        },
-        "Course Creation": {
-          "min": 1000,
-          "max": 10000,
-          "unit": "course",
-          "source": "Udemy math courses"
-        }
-      },
       "learningResources": [
         {
           "title": "Khan Academy",
@@ -1789,19 +1326,6 @@
         "Mathematics",
         "Test Preparation"
       ],
-      "compatibleDeliveryModels": [
-        "Tutoring",
-        "Course Creation",
-        "YouTube Channel"
-      ],
-      "earningPotentialByDelivery": {
-        "Tutoring": {
-          "min": 30,
-          "max": 90,
-          "unit": "hour",
-          "source": "Wyzant, Tutor.com rates"
-        }
-      },
       "learningResources": [
         {
           "title": "Khan Academy Science",
@@ -1855,26 +1379,6 @@
         "Test Preparation",
         "Academic Writing"
       ],
-      "compatibleDeliveryModels": [
-        "Tutoring",
-        "Course Creation",
-        "YouTube Channel",
-        "Coaching"
-      ],
-      "earningPotentialByDelivery": {
-        "Tutoring": {
-          "min": 25,
-          "max": 100,
-          "unit": "hour",
-          "source": "Preply, iTalki, VIPKid rates"
-        },
-        "Online Teaching": {
-          "min": 14,
-          "max": 22,
-          "unit": "hour",
-          "source": "VIPKid, Cambly English teaching jobs"
-        }
-      },
       "learningResources": [
         {
           "title": "Preply",
@@ -1934,25 +1438,6 @@
         "Languages",
         "Academic Writing"
       ],
-      "compatibleDeliveryModels": [
-        "Tutoring",
-        "Course Creation",
-        "YouTube Channel"
-      ],
-      "earningPotentialByDelivery": {
-        "Tutoring": {
-          "min": 40,
-          "max": 150,
-          "unit": "hour",
-          "source": "Wyzant, Princeton Review tutor rates"
-        },
-        "Course Creation": {
-          "min": 2000,
-          "max": 15000,
-          "unit": "course",
-          "source": "Udemy test prep courses"
-        }
-      },
       "learningResources": [
         {
           "title": "Official Test Prep (College Board, GMAC, etc)",
@@ -2012,18 +1497,6 @@
         "Technical Writing",
         "Research"
       ],
-      "compatibleDeliveryModels": [
-        "Freelance",
-        "Course Creation"
-      ],
-      "earningPotentialByDelivery": {
-        "Freelance": {
-          "min": 30,
-          "max": 80,
-          "unit": "hour",
-          "source": "Upwork academic writing rates"
-        }
-      },
       "learningResources": [
         {
           "title": "Purdue OWL",
@@ -2083,25 +1556,6 @@
         "Software Development",
         "Academic Writing"
       ],
-      "compatibleDeliveryModels": [
-        "Freelance",
-        "Consulting",
-        "Course Creation"
-      ],
-      "earningPotentialByDelivery": {
-        "Freelance": {
-          "min": 40,
-          "max": 100,
-          "unit": "hour",
-          "source": "Upwork technical writing rates"
-        },
-        "Consulting": {
-          "min": 75,
-          "max": 200,
-          "unit": "hour",
-          "source": "Technical writing consultant rates"
-        }
-      },
       "learningResources": [
         {
           "title": "Write the Docs Community",
@@ -2161,26 +1615,6 @@
         "Psychology",
         "Wellness Coaching"
       ],
-      "compatibleDeliveryModels": [
-        "Coaching",
-        "Course Creation",
-        "YouTube Channel",
-        "Local Services"
-      ],
-      "earningPotentialByDelivery": {
-        "Coaching": {
-          "min": 30,
-          "max": 100,
-          "unit": "hour",
-          "source": "Upwork fitness coaching, local PT rates"
-        },
-        "Online Programs": {
-          "min": 500,
-          "max": 3000,
-          "unit": "program",
-          "source": "Fitness program sales"
-        }
-      },
       "learningResources": [
         {
           "title": "ACE Personal Trainer Certification",
@@ -2239,19 +1673,6 @@
         "Fitness",
         "Health Coaching"
       ],
-      "compatibleDeliveryModels": [
-        "Coaching",
-        "Course Creation",
-        "Consulting"
-      ],
-      "earningPotentialByDelivery": {
-        "Coaching": {
-          "min": 40,
-          "max": 120,
-          "unit": "hour",
-          "source": "Upwork nutrition coaching"
-        }
-      },
       "learningResources": [
         {
           "title": "ISSN Sports Nutrition Certification",
@@ -2311,26 +1732,6 @@
         "Mental Health",
         "Life Coaching"
       ],
-      "compatibleDeliveryModels": [
-        "Coaching",
-        "Course Creation",
-        "YouTube Channel",
-        "Local Services"
-      ],
-      "earningPotentialByDelivery": {
-        "Coaching": {
-          "min": 25,
-          "max": 75,
-          "unit": "hour",
-          "source": "Local yoga studio rates, Upwork"
-        },
-        "Online Classes": {
-          "min": 200,
-          "max": 1000,
-          "unit": "month",
-          "source": "Yoga with Adriene subscriber model"
-        }
-      },
       "learningResources": [
         {
           "title": "Yoga Alliance RYT-200 Certification",
@@ -2390,24 +1791,6 @@
         "Nutrition",
         "Fitness"
       ],
-      "compatibleDeliveryModels": [
-        "Coaching",
-        "Course Creation"
-      ],
-      "earningPotentialByDelivery": {
-        "Therapy/Counseling": {
-          "min": 80,
-          "max": 200,
-          "unit": "hour",
-          "source": "Therapist rates vary by licensing"
-        },
-        "Life Coaching": {
-          "min": 50,
-          "max": 150,
-          "unit": "hour",
-          "source": "Life coach rates"
-        }
-      },
       "learningResources": [
         {
           "title": "Psychology degree (Masters/PhD required for therapy)",
@@ -2467,18 +1850,6 @@
         "Mental Health",
         "Psychology"
       ],
-      "compatibleDeliveryModels": [
-        "Coaching",
-        "Course Creation"
-      ],
-      "earningPotentialByDelivery": {
-        "Coaching": {
-          "min": 40,
-          "max": 150,
-          "unit": "hour",
-          "source": "ICF coach rates, Upwork"
-        }
-      },
       "learningResources": [
         {
           "title": "International Coach Federation Certification",
@@ -2537,19 +1908,6 @@
         "Life Coaching",
         "Business Consulting"
       ],
-      "compatibleDeliveryModels": [
-        "Coaching",
-        "Course Creation",
-        "Consulting"
-      ],
-      "earningPotentialByDelivery": {
-        "Coaching": {
-          "min": 50,
-          "max": 200,
-          "unit": "hour",
-          "source": "Career coach rates"
-        }
-      },
       "learningResources": [
         {
           "title": "International Coach Federation Career Specialization",
@@ -2603,32 +1961,6 @@
         "Nutrition",
         "Photography"
       ],
-      "compatibleDeliveryModels": [
-        "Course Creation",
-        "YouTube Channel",
-        "Local Services",
-        "E-commerce"
-      ],
-      "earningPotentialByDelivery": {
-        "Course Creation": {
-          "min": 500,
-          "max": 5000,
-          "unit": "course",
-          "source": "Udemy cooking courses"
-        },
-        "YouTube": {
-          "min": 100,
-          "max": 10000,
-          "unit": "month",
-          "source": "YouTube cooking channel earnings"
-        },
-        "Local Services": {
-          "min": 50,
-          "max": 200,
-          "unit": "hour",
-          "source": "Meal prep, cooking class rates"
-        }
-      },
       "learningResources": [
         {
           "title": "MasterClass Cooking",
@@ -2686,25 +2018,6 @@
       "relatedDomains": [
         "Interior Design"
       ],
-      "compatibleDeliveryModels": [
-        "Local Services",
-        "Course Creation",
-        "YouTube Channel"
-      ],
-      "earningPotentialByDelivery": {
-        "Local Services": {
-          "min": 40,
-          "max": 150,
-          "unit": "hour",
-          "source": "Thumbtack organizer rates"
-        },
-        "Course Creation": {
-          "min": 500,
-          "max": 2000,
-          "unit": "course",
-          "source": "Udemy organizing courses"
-        }
-      },
       "learningResources": [
         {
           "title": "Professional Organizers International (POI)",
@@ -2763,25 +2076,6 @@
         "Graphic Design",
         "Home Organization"
       ],
-      "compatibleDeliveryModels": [
-        "Freelance",
-        "Consulting",
-        "Course Creation"
-      ],
-      "earningPotentialByDelivery": {
-        "Freelance": {
-          "min": 50,
-          "max": 150,
-          "unit": "hour",
-          "source": "Upwork interior design rates"
-        },
-        "Consulting": {
-          "min": 75,
-          "max": 250,
-          "unit": "hour",
-          "source": "Professional interior designer rates"
-        }
-      },
       "learningResources": [
         {
           "title": "NCIDQ Certification (Interior Design)",
@@ -2840,26 +2134,6 @@
         "DIY & Home Improvement",
         "Craft"
       ],
-      "compatibleDeliveryModels": [
-        "E-commerce",
-        "Local Services",
-        "YouTube Channel",
-        "Course Creation"
-      ],
-      "earningPotentialByDelivery": {
-        "E-commerce": {
-          "min": 500,
-          "max": 5000,
-          "unit": "month",
-          "source": "Etsy woodworking sellers"
-        },
-        "Local Services": {
-          "min": 50,
-          "max": 200,
-          "unit": "hour",
-          "source": "Local carpentry rates"
-        }
-      },
       "learningResources": [
         {
           "title": "Local woodworking classes",
@@ -2918,25 +2192,6 @@
         "Graphic Design",
         "Photography"
       ],
-      "compatibleDeliveryModels": [
-        "E-commerce",
-        "Etsy Shop",
-        "YouTube Channel"
-      ],
-      "earningPotentialByDelivery": {
-        "E-commerce": {
-          "min": 1000,
-          "max": 10000,
-          "unit": "month",
-          "source": "Etsy jewelry sellers"
-        },
-        "Custom Orders": {
-          "min": 25,
-          "max": 500,
-          "unit": "piece",
-          "source": "Custom jewelry pricing"
-        }
-      },
       "learningResources": [
         {
           "title": "Skillshare Jewelry Making",
@@ -2995,25 +2250,6 @@
         "Fashion & Styling",
         "DIY"
       ],
-      "compatibleDeliveryModels": [
-        "E-commerce",
-        "Local Services",
-        "YouTube Channel"
-      ],
-      "earningPotentialByDelivery": {
-        "E-commerce": {
-          "min": 500,
-          "max": 3000,
-          "unit": "month",
-          "source": "Etsy clothing sellers"
-        },
-        "Alterations": {
-          "min": 25,
-          "max": 100,
-          "unit": "hour",
-          "source": "Local alterations pricing"
-        }
-      },
       "learningResources": [
         {
           "title": "Skillshare Sewing & Fashion",
@@ -3071,25 +2307,6 @@
       "relatedDomains": [
         "Art & Drawing"
       ],
-      "compatibleDeliveryModels": [
-        "E-commerce",
-        "Local Services",
-        "Craft Fairs"
-      ],
-      "earningPotentialByDelivery": {
-        "E-commerce": {
-          "min": 500,
-          "max": 3000,
-          "unit": "month",
-          "source": "Etsy pottery sellers"
-        },
-        "Craft Fairs": {
-          "min": 200,
-          "max": 2000,
-          "unit": "fair",
-          "source": "Craft fair sales"
-        }
-      },
       "learningResources": [
         {
           "title": "Local pottery studios/classes",
@@ -3147,25 +2364,6 @@
       "relatedDomains": [
         "DIY & Home Improvement"
       ],
-      "compatibleDeliveryModels": [
-        "Local Services",
-        "Course Creation",
-        "YouTube Channel"
-      ],
-      "earningPotentialByDelivery": {
-        "Local Services": {
-          "min": 35,
-          "max": 100,
-          "unit": "hour",
-          "source": "Local landscaping rates"
-        },
-        "Course Creation": {
-          "min": 500,
-          "max": 2000,
-          "unit": "course",
-          "source": "Udemy gardening courses"
-        }
-      },
       "learningResources": [
         {
           "title": "Local nurseries & garden classes",
@@ -3225,25 +2423,6 @@
         "Gardening",
         "Construction"
       ],
-      "compatibleDeliveryModels": [
-        "Local Services",
-        "YouTube Channel",
-        "Course Creation"
-      ],
-      "earningPotentialByDelivery": {
-        "Local Services": {
-          "min": 40,
-          "max": 150,
-          "unit": "hour",
-          "source": "Handyman rates"
-        },
-        "YouTube": {
-          "min": 100,
-          "max": 5000,
-          "unit": "month",
-          "source": "DIY YouTube channels"
-        }
-      },
       "learningResources": [
         {
           "title": "YouTube DIY Channels",
@@ -3302,25 +2481,6 @@
         "Video Production",
         "YouTube"
       ],
-      "compatibleDeliveryModels": [
-        "YouTube Channel",
-        "Streaming",
-        "Coaching"
-      ],
-      "earningPotentialByDelivery": {
-        "Twitch Streaming": {
-          "min": 0,
-          "max": 10000,
-          "unit": "month",
-          "source": "Top streamers earn 6-7 figures; averages much lower"
-        },
-        "Coaching": {
-          "min": 25,
-          "max": 100,
-          "unit": "hour",
-          "source": "Esports coaching rates"
-        }
-      },
       "learningResources": [
         {
           "title": "Twitch Creator Program",
@@ -3379,25 +2539,6 @@
         "Digital Illustration",
         "Photography"
       ],
-      "compatibleDeliveryModels": [
-        "E-commerce",
-        "YouTube Channel",
-        "Patreon"
-      ],
-      "earningPotentialByDelivery": {
-        "E-commerce": {
-          "min": 500,
-          "max": 3000,
-          "unit": "month",
-          "source": "Etsy art sellers"
-        },
-        "Patreon/Subscriptions": {
-          "min": 100,
-          "max": 3000,
-          "unit": "month",
-          "source": "Artist patreon earnings"
-        }
-      },
       "learningResources": [
         {
           "title": "Proko Figure Drawing & Painting",
@@ -3455,25 +2596,6 @@
       "relatedDomains": [
         "Animal Care"
       ],
-      "compatibleDeliveryModels": [
-        "Local Services",
-        "Coaching",
-        "YouTube Channel"
-      ],
-      "earningPotentialByDelivery": {
-        "Local Services": {
-          "min": 40,
-          "max": 150,
-          "unit": "hour",
-          "source": "Local dog trainer rates"
-        },
-        "Group Classes": {
-          "min": 200,
-          "max": 500,
-          "unit": "class",
-          "source": "Dog training class fees"
-        }
-      },
       "learningResources": [
         {
           "title": "CCPDT Certification",
@@ -3532,26 +2654,6 @@
         "Life Coaching",
         "Psychology"
       ],
-      "compatibleDeliveryModels": [
-        "Course Creation",
-        "Coaching",
-        "YouTube Channel",
-        "Newsletters"
-      ],
-      "earningPotentialByDelivery": {
-        "Coaching": {
-          "min": 40,
-          "max": 120,
-          "unit": "hour",
-          "source": "Parent coach rates"
-        },
-        "Course Creation": {
-          "min": 500,
-          "max": 3000,
-          "unit": "course",
-          "source": "Udemy parenting courses"
-        }
-      },
       "learningResources": [
         {
           "title": "Parent Coach Academy",
@@ -3610,25 +2712,6 @@
         "Photography",
         "YouTube"
       ],
-      "compatibleDeliveryModels": [
-        "Coaching",
-        "YouTube Channel",
-        "Course Creation"
-      ],
-      "earningPotentialByDelivery": {
-        "Coaching": {
-          "min": 40,
-          "max": 120,
-          "unit": "hour",
-          "source": "Personal stylist rates"
-        },
-        "Course Creation": {
-          "min": 500,
-          "max": 2000,
-          "unit": "course",
-          "source": "Fashion/styling courses"
-        }
-      },
       "learningResources": [
         {
           "title": "Fashion Institute certifications",
@@ -3687,26 +2770,6 @@
         "Photography",
         "YouTube Channel"
       ],
-      "compatibleDeliveryModels": [
-        "YouTube Channel",
-        "Blogging",
-        "Consulting",
-        "Coaching"
-      ],
-      "earningPotentialByDelivery": {
-        "YouTube": {
-          "min": 100,
-          "max": 10000,
-          "unit": "month",
-          "source": "Travel YouTube channels"
-        },
-        "Blogging": {
-          "min": 0,
-          "max": 3000,
-          "unit": "month",
-          "source": "Travel blog sponsorships/ads"
-        }
-      },
       "learningResources": [
         {
           "title": "Travel blogger communities",
@@ -3765,25 +2828,6 @@
         "Cooking & Baking",
         "Nutrition"
       ],
-      "compatibleDeliveryModels": [
-        "Coaching",
-        "Course Creation",
-        "YouTube Channel"
-      ],
-      "earningPotentialByDelivery": {
-        "Coaching": {
-          "min": 50,
-          "max": 150,
-          "unit": "hour",
-          "source": "Wine consultant rates"
-        },
-        "Tastings": {
-          "min": 100,
-          "max": 500,
-          "unit": "event",
-          "source": "Wine tasting event fees"
-        }
-      },
       "learningResources": [
         {
           "title": "Court of Master Sommeliers",
@@ -3842,32 +2886,6 @@
         "Photography",
         "YouTube Channel"
       ],
-      "compatibleDeliveryModels": [
-        "YouTube Channel",
-        "TikTok",
-        "Coaching",
-        "E-commerce"
-      ],
-      "earningPotentialByDelivery": {
-        "YouTube": {
-          "min": 100,
-          "max": 10000,
-          "unit": "month",
-          "source": "Beauty YouTube channels"
-        },
-        "Makeup Services": {
-          "min": 50,
-          "max": 200,
-          "unit": "hour",
-          "source": "Professional makeup artist rates"
-        },
-        "E-commerce": {
-          "min": 500,
-          "max": 5000,
-          "unit": "month",
-          "source": "Beauty affiliate/drops"
-        }
-      },
       "learningResources": [
         {
           "title": "Makeup Forever Academy",
@@ -3925,25 +2943,6 @@
       "relatedDomains": [
         "Makeup & Beauty"
       ],
-      "compatibleDeliveryModels": [
-        "Local Services",
-        "YouTube Channel",
-        "Course Creation"
-      ],
-      "earningPotentialByDelivery": {
-        "Local Services": {
-          "min": 30,
-          "max": 100,
-          "unit": "hour",
-          "source": "Salon stylist rates"
-        },
-        "Independent Chair Rental": {
-          "min": 40,
-          "max": 150,
-          "unit": "hour",
-          "source": "Independent stylist rates"
-        }
-      },
       "learningResources": [
         {
           "title": "Cosmetology License (formal requirement)",

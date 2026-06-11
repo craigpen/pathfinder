@@ -86,7 +86,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Ongoing client management"
-      }
+      },
+      "strength": "business",
+      "roles": [
+        "Freelancer",
+        "Entrepreneur",
+        "Expert"
+      ],
+      "adjectives": [
+        "Independent",
+        "Direct",
+        "High-margin"
+      ],
+      "daily_activity": "Find clients, deliver projects, manage relationships, invoice",
+      "value_delivery": "Direct from clients per project",
+      "effort_type": "active",
+      "requires_presence": false
     },
     {
       "id": "platform_freelancing",
@@ -174,7 +189,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Ongoing bidding"
-      }
+      },
+      "strength": "business",
+      "roles": [
+        "Freelancer",
+        "Service provider",
+        "Specialist"
+      ],
+      "adjectives": [
+        "Accessible",
+        "Quick-start",
+        "Efficient"
+      ],
+      "daily_activity": "Bid on projects, deliver work, manage platform metrics",
+      "value_delivery": "Direct from platform (minus commission)",
+      "effort_type": "active",
+      "requires_presence": false
     },
     {
       "id": "consulting",
@@ -265,7 +295,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "Medium",
         "regularityNeeded": "Client relationship management"
-      }
+      },
+      "strength": "business",
+      "roles": [
+        "Advisor",
+        "Strategist",
+        "Expert"
+      ],
+      "adjectives": [
+        "Strategic",
+        "High-touch",
+        "Premium"
+      ],
+      "daily_activity": "Advise clients, analyze problems, present recommendations",
+      "value_delivery": "Direct from clients (premium rates)",
+      "effort_type": "active",
+      "requires_presence": true
     },
     {
       "id": "coaching",
@@ -354,7 +399,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Ongoing client relationships"
-      }
+      },
+      "strength": "interpersonal",
+      "roles": [
+        "Coach",
+        "Mentor",
+        "Guide"
+      ],
+      "adjectives": [
+        "Supportive",
+        "Transformative",
+        "Direct"
+      ],
+      "daily_activity": "1-on-1 sessions, listen, guide, follow-up",
+      "value_delivery": "Direct from clients per session",
+      "effort_type": "active",
+      "requires_presence": true
     },
     {
       "id": "productized_services",
@@ -440,7 +500,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "Medium",
         "regularityNeeded": "Client delivery and process management"
-      }
+      },
+      "strength": "business",
+      "roles": [
+        "Service provider",
+        "Systematizer",
+        "Expert"
+      ],
+      "adjectives": [
+        "Efficient",
+        "Predictable",
+        "Scalable"
+      ],
+      "daily_activity": "Deliver fixed-scope services, manage delivery process",
+      "value_delivery": "Direct from clients per package",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "fractional_roles",
@@ -527,7 +602,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Strategic oversight and meetings"
-      }
+      },
+      "strength": "business",
+      "roles": [
+        "Executive",
+        "Specialist",
+        "Strategic advisor"
+      ],
+      "adjectives": [
+        "Flexible",
+        "Strategic",
+        "Executive-level"
+      ],
+      "daily_activity": "Provide strategic oversight, meetings, guidance",
+      "value_delivery": "Direct from companies (retainer/equity)",
+      "effort_type": "hybrid",
+      "requires_presence": true
     },
     {
       "id": "expert_networks",
@@ -615,7 +705,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Occasional expert calls"
-      }
+      },
+      "strength": "passive",
+      "roles": [
+        "Expert",
+        "Advisor",
+        "Consultant"
+      ],
+      "adjectives": [
+        "Passive",
+        "Flexible",
+        "On-demand"
+      ],
+      "daily_activity": "Take expert calls, share insights",
+      "value_delivery": "Per-call payments from networks",
+      "effort_type": "passive",
+      "requires_presence": true
     },
     {
       "id": "pet_care_services",
@@ -702,7 +807,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Daily client management"
-      }
+      },
+      "strength": "interpersonal",
+      "roles": [
+        "Caregiver",
+        "Service provider",
+        "Specialist"
+      ],
+      "adjectives": [
+        "Caring",
+        "Reliable",
+        "Local"
+      ],
+      "daily_activity": "Care for animals, manage schedules, build clientele",
+      "value_delivery": "Direct from clients per service",
+      "effort_type": "active",
+      "requires_presence": true
     },
     {
       "id": "maintenance_services",
@@ -789,7 +909,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "Medium",
         "regularityNeeded": "Client scheduling and delivery"
-      }
+      },
+      "strength": "technical",
+      "roles": [
+        "Technician",
+        "Service provider",
+        "Specialist"
+      ],
+      "adjectives": [
+        "Practical",
+        "Skilled",
+        "Reliable"
+      ],
+      "daily_activity": "Repair, maintain, troubleshoot, manage jobs",
+      "value_delivery": "Direct from clients per service",
+      "effort_type": "active",
+      "requires_presence": true
     },
     {
       "id": "virtual_assistance",
@@ -876,7 +1011,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Daily admin task management"
-      }
+      },
+      "strength": "business",
+      "roles": [
+        "Assistant",
+        "Support specialist",
+        "Coordinator"
+      ],
+      "adjectives": [
+        "Organized",
+        "Efficient",
+        "Dependable"
+      ],
+      "daily_activity": "Admin tasks, scheduling, email, research",
+      "value_delivery": "Direct from clients (hourly or retainer)",
+      "effort_type": "active",
+      "requires_presence": false
     },
     {
       "id": "enterprise_scaling",
@@ -964,7 +1114,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "Low",
         "regularityNeeded": "Strategic engagements and planning"
-      }
+      },
+      "strength": "business",
+      "roles": [
+        "Strategist",
+        "Consultant",
+        "Architect"
+      ],
+      "adjectives": [
+        "Strategic",
+        "Enterprise-scale",
+        "High-impact"
+      ],
+      "daily_activity": "Strategy, process design, implementation guidance",
+      "value_delivery": "Direct from enterprises (premium)",
+      "effort_type": "hybrid",
+      "requires_presence": true
     },
     {
       "id": "corporate_workshops",
@@ -1052,7 +1217,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "Medium",
         "regularityNeeded": "Workshop delivery and sales"
-      }
+      },
+      "strength": "experiential",
+      "roles": [
+        "Trainer",
+        "Facilitator",
+        "Speaker"
+      ],
+      "adjectives": [
+        "Educational",
+        "Interactive",
+        "Corporate"
+      ],
+      "daily_activity": "Design workshops, deliver training, engage participants",
+      "value_delivery": "Direct from corporations per workshop",
+      "effort_type": "active",
+      "requires_presence": true
     },
     {
       "id": "adjunct_teaching",
@@ -1138,7 +1318,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "Medium",
         "regularityNeeded": "Course teaching and grading"
-      }
+      },
+      "strength": "experiential",
+      "roles": [
+        "Instructor",
+        "Educator",
+        "Academic"
+      ],
+      "adjectives": [
+        "Educational",
+        "Structured",
+        "Credible"
+      ],
+      "daily_activity": "Teach classes, grade assignments, office hours",
+      "value_delivery": "Direct from institutions (per course)",
+      "effort_type": "active",
+      "requires_presence": true
     },
     {
       "id": "online_courses",
@@ -1227,7 +1422,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Course updates and marketing"
-      }
+      },
+      "strength": "creative",
+      "roles": [
+        "Instructor",
+        "Creator",
+        "Expert"
+      ],
+      "adjectives": [
+        "Scalable",
+        "Passive",
+        "Self-paced"
+      ],
+      "daily_activity": "Create content, manage community, iterate courses",
+      "value_delivery": "Passive from student enrollments",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "live_cohorts",
@@ -1315,7 +1525,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "Medium",
         "regularityNeeded": "Cohort facilitation and management"
-      }
+      },
+      "strength": "experiential",
+      "roles": [
+        "Instructor",
+        "Facilitator",
+        "Community builder"
+      ],
+      "adjectives": [
+        "Engaging",
+        "Community-driven",
+        "Interactive"
+      ],
+      "daily_activity": "Facilitate cohort sessions, manage community, support students",
+      "value_delivery": "Direct per cohort",
+      "effort_type": "active",
+      "requires_presence": true
     },
     {
       "id": "digital_downloads",
@@ -1403,7 +1628,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Marketing and updates"
-      }
+      },
+      "strength": "creative",
+      "roles": [
+        "Creator",
+        "Designer",
+        "Entrepreneur"
+      ],
+      "adjectives": [
+        "Passive",
+        "Simple",
+        "Scalable"
+      ],
+      "daily_activity": "Create templates, market, handle distribution",
+      "value_delivery": "Passive from downloads",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "digital_templates",
@@ -1490,7 +1730,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Marketing and template updates"
-      }
+      },
+      "strength": "creative",
+      "roles": [
+        "Designer",
+        "Creator",
+        "Systematizer"
+      ],
+      "adjectives": [
+        "Passive",
+        "Reusable",
+        "Scalable"
+      ],
+      "daily_activity": "Design templates, market, update",
+      "value_delivery": "Passive from sales",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "blogging",
@@ -1578,7 +1833,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Regular content creation"
-      }
+      },
+      "strength": "creative",
+      "roles": [
+        "Writer",
+        "Creator",
+        "Voice"
+      ],
+      "adjectives": [
+        "Passive",
+        "Narrative-driven",
+        "Authority-building"
+      ],
+      "daily_activity": "Write posts, optimize for SEO, engage audience",
+      "value_delivery": "Passive from ads/sponsorships/affiliate",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "long_video",
@@ -1666,7 +1936,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Regular video creation"
-      }
+      },
+      "strength": "creative",
+      "roles": [
+        "Creator",
+        "Storyteller",
+        "Producer"
+      ],
+      "adjectives": [
+        "Scalable",
+        "Engaging",
+        "Algorithm-driven"
+      ],
+      "daily_activity": "Create content, edit, publish, engage community",
+      "value_delivery": "Passive from platform monetization",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "short_video",
@@ -1754,7 +2039,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Daily/weekly content creation"
-      }
+      },
+      "strength": "creative",
+      "roles": [
+        "Creator",
+        "Content creator",
+        "Trend-aware"
+      ],
+      "adjectives": [
+        "Viral",
+        "Trend-friendly",
+        "Authentic"
+      ],
+      "daily_activity": "Create short videos, post frequently, engage trends",
+      "value_delivery": "Passive from platform (emerging)",
+      "effort_type": "active",
+      "requires_presence": false
     },
     {
       "id": "podcasting",
@@ -1842,7 +2142,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "Medium",
         "regularityNeeded": "Regular episode production"
-      }
+      },
+      "strength": "creative",
+      "roles": [
+        "Host",
+        "Creator",
+        "Voice"
+      ],
+      "adjectives": [
+        "Narrative",
+        "Intimate",
+        "Subscription-friendly"
+      ],
+      "daily_activity": "Record episodes, edit, publish, engage audience",
+      "value_delivery": "Passive from sponsorships/premium",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "paid_newsletters",
@@ -1930,7 +2245,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Regular newsletter writing"
-      }
+      },
+      "strength": "creative",
+      "roles": [
+        "Writer",
+        "Creator",
+        "Thought leader"
+      ],
+      "adjectives": [
+        "Direct relationship",
+        "Premium",
+        "Subscriber-driven"
+      ],
+      "daily_activity": "Write newsletters, manage subscribers, iterate",
+      "value_delivery": "Direct from subscribers",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "affiliate_marketing",
@@ -2018,7 +2348,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Content creation and optimization"
-      }
+      },
+      "strength": "passive",
+      "roles": [
+        "Marketer",
+        "Curator",
+        "Recommender"
+      ],
+      "adjectives": [
+        "Passive",
+        "Relationship-based",
+        "Low-friction"
+      ],
+      "daily_activity": "Create content, recommend products, optimize links",
+      "value_delivery": "Passive from commissions",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "paid_communities",
@@ -2106,7 +2451,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "Medium",
         "regularityNeeded": "Community moderation and engagement"
-      }
+      },
+      "strength": "experiential",
+      "roles": [
+        "Facilitator",
+        "Community builder",
+        "Host"
+      ],
+      "adjectives": [
+        "Community-driven",
+        "Interactive",
+        "Recurring"
+      ],
+      "daily_activity": "Moderate, create content, facilitate connections",
+      "value_delivery": "Direct from member subscriptions",
+      "effort_type": "active",
+      "requires_presence": false
     },
     {
       "id": "premium_tiers",
@@ -2194,7 +2554,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Exclusive content creation"
-      }
+      },
+      "strength": "creative",
+      "roles": [
+        "Creator",
+        "Curator",
+        "Community builder"
+      ],
+      "adjectives": [
+        "Passive",
+        "Leverage-existing",
+        "Relationship-deepening"
+      ],
+      "daily_activity": "Create exclusive content, manage tiers",
+      "value_delivery": "Direct from paid tier subscribers",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "private_forums",
@@ -2281,7 +2656,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "Medium",
         "regularityNeeded": "Community moderation and engagement"
-      }
+      },
+      "strength": "experiential",
+      "roles": [
+        "Moderator",
+        "Community leader",
+        "Facilitator"
+      ],
+      "adjectives": [
+        "Niche",
+        "Community-owned",
+        "Knowledge-repository"
+      ],
+      "daily_activity": "Moderate discussions, manage community, support",
+      "value_delivery": "Direct from member fees",
+      "effort_type": "active",
+      "requires_presence": false
     },
     {
       "id": "rideshare_driving",
@@ -2368,7 +2758,22 @@
         "sustainability": "Short-term viable",
         "flexibility": "High",
         "regularityNeeded": "Driving and customer service"
-      }
+      },
+      "strength": "technical",
+      "roles": [
+        "Driver",
+        "Service provider",
+        "Logistics"
+      ],
+      "adjectives": [
+        "Immediate income",
+        "Flexible",
+        "Active"
+      ],
+      "daily_activity": "Drive, manage ratings, optimize routes",
+      "value_delivery": "Direct from rides (minus platform)",
+      "effort_type": "active",
+      "requires_presence": true
     },
     {
       "id": "food_delivery",
@@ -2455,7 +2860,22 @@
         "sustainability": "Short-term viable",
         "flexibility": "High",
         "regularityNeeded": "Delivery operations"
-      }
+      },
+      "strength": "technical",
+      "roles": [
+        "Delivery person",
+        "Logistics",
+        "Service provider"
+      ],
+      "adjectives": [
+        "Quick income",
+        "Flexible",
+        "Active"
+      ],
+      "daily_activity": "Deliver food, manage app, optimize efficiency",
+      "value_delivery": "Direct from deliveries (minus platform)",
+      "effort_type": "active",
+      "requires_presence": true
     },
     {
       "id": "grocery_shopping",
@@ -2541,7 +2961,22 @@
         "sustainability": "Short-term viable",
         "flexibility": "High",
         "regularityNeeded": "Shopping and delivery operations"
-      }
+      },
+      "strength": "technical",
+      "roles": [
+        "Shopper",
+        "Logistics",
+        "Service provider"
+      ],
+      "adjectives": [
+        "Reliable",
+        "Detail-oriented",
+        "Active"
+      ],
+      "daily_activity": "Shop for customers, deliver, manage substitutions",
+      "value_delivery": "Direct from shopping (minus platform)",
+      "effort_type": "active",
+      "requires_presence": true
     },
     {
       "id": "parcel_courier",
@@ -2628,7 +3063,22 @@
         "sustainability": "Short-term viable",
         "flexibility": "Medium",
         "regularityNeeded": "Delivery operations and logistics"
-      }
+      },
+      "strength": "technical",
+      "roles": [
+        "Courier",
+        "Logistics",
+        "Driver"
+      ],
+      "adjectives": [
+        "Organized",
+        "Reliable",
+        "Active"
+      ],
+      "daily_activity": "Pick up, deliver, manage routes, track",
+      "value_delivery": "Direct from deliveries",
+      "effort_type": "active",
+      "requires_presence": true
     },
     {
       "id": "cargo_hauling",
@@ -2714,7 +3164,22 @@
         "sustainability": "Medium-term viable",
         "flexibility": "Medium",
         "regularityNeeded": "Logistics and scheduling"
-      }
+      },
+      "strength": "technical",
+      "roles": [
+        "Hauler",
+        "Logistics operator",
+        "Specialist"
+      ],
+      "adjectives": [
+        "Skilled",
+        "Reliable",
+        "Scalable"
+      ],
+      "daily_activity": "Transport cargo, manage routes, negotiate rates",
+      "value_delivery": "Direct from cargo jobs",
+      "effort_type": "active",
+      "requires_presence": true
     },
     {
       "id": "errand_running",
@@ -2801,7 +3266,22 @@
         "sustainability": "Short-term viable",
         "flexibility": "High",
         "regularityNeeded": "Errand coordination and completion"
-      }
+      },
+      "strength": "interpersonal",
+      "roles": [
+        "Service provider",
+        "Organizer",
+        "Helper"
+      ],
+      "adjectives": [
+        "Reliable",
+        "Flexible",
+        "Service-oriented"
+      ],
+      "daily_activity": "Run errands, manage time, build clientele",
+      "value_delivery": "Direct from clients",
+      "effort_type": "active",
+      "requires_presence": true
     },
     {
       "id": "handmade_crafts",
@@ -2889,7 +3369,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Craft creation and shop management"
-      }
+      },
+      "strength": "creative",
+      "roles": [
+        "Craftsperson",
+        "Artist",
+        "Maker"
+      ],
+      "adjectives": [
+        "Handmade",
+        "Unique",
+        "Artisan"
+      ],
+      "daily_activity": "Create products, manage inventory, sell",
+      "value_delivery": "Direct from sales",
+      "effort_type": "active",
+      "requires_presence": false
     },
     {
       "id": "print_on_demand",
@@ -2977,7 +3472,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Design creation and marketing"
-      }
+      },
+      "strength": "creative",
+      "roles": [
+        "Designer",
+        "Entrepreneur",
+        "Creator"
+      ],
+      "adjectives": [
+        "Passive",
+        "No inventory",
+        "Scalable"
+      ],
+      "daily_activity": "Design products, upload, market, iterate",
+      "value_delivery": "Passive from product sales",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "book_publishing",
@@ -3065,7 +3575,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Writing, editing, and marketing"
-      }
+      },
+      "strength": "creative",
+      "roles": [
+        "Author",
+        "Writer",
+        "Creator"
+      ],
+      "adjectives": [
+        "Passive",
+        "Authority-building",
+        "Evergreen"
+      ],
+      "daily_activity": "Write, edit, publish, market books",
+      "value_delivery": "Passive from book sales",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "drop_shipping",
@@ -3152,7 +3677,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "E-commerce operations and marketing"
-      }
+      },
+      "strength": "business",
+      "roles": [
+        "E-commerce operator",
+        "Entrepreneur",
+        "Marketer"
+      ],
+      "adjectives": [
+        "Scalable",
+        "No inventory",
+        "Lean"
+      ],
+      "daily_activity": "Manage store, market products, handle customer service",
+      "value_delivery": "Direct from customer sales",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "mobile_apps",
@@ -3241,7 +3781,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "App development and updates"
-      }
+      },
+      "strength": "technical",
+      "roles": [
+        "Developer",
+        "Creator",
+        "Entrepreneur"
+      ],
+      "adjectives": [
+        "Scalable",
+        "Technical",
+        "Innovative"
+      ],
+      "daily_activity": "Develop app, manage users, iterate",
+      "value_delivery": "Passive from app sales/subscriptions",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "web_applications",
@@ -3329,7 +3884,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Product development and customer support"
-      }
+      },
+      "strength": "technical",
+      "roles": [
+        "Developer",
+        "Entrepreneur",
+        "Product owner"
+      ],
+      "adjectives": [
+        "Scalable",
+        "Sophisticated",
+        "Recurring revenue"
+      ],
+      "daily_activity": "Build SaaS, manage users, provide support",
+      "value_delivery": "Passive from subscriptions at scale",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "browser_extensions",
@@ -3415,7 +3985,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Extension development and updates"
-      }
+      },
+      "strength": "technical",
+      "roles": [
+        "Developer",
+        "Builder",
+        "Innovator"
+      ],
+      "adjectives": [
+        "Quick",
+        "Scalable",
+        "Direct audience"
+      ],
+      "daily_activity": "Build extension, manage distribution, iterate",
+      "value_delivery": "Passive from sales/subscriptions",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "wordpress_plugins",
@@ -3501,7 +4086,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Plugin development and maintenance"
-      }
+      },
+      "strength": "technical",
+      "roles": [
+        "Developer",
+        "Creator",
+        "Builder"
+      ],
+      "adjectives": [
+        "Scalable",
+        "Built-in audience",
+        "Passive"
+      ],
+      "daily_activity": "Build plugins, manage marketplace, support",
+      "value_delivery": "Passive from plugin sales",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "ai_automation_tools",
@@ -3588,7 +4188,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Tool development and updates"
-      }
+      },
+      "strength": "technical",
+      "roles": [
+        "Builder",
+        "Innovator",
+        "Entrepreneur"
+      ],
+      "adjectives": [
+        "Innovative",
+        "Scalable",
+        "Trending"
+      ],
+      "daily_activity": "Build tools using AI, manage users, iterate",
+      "value_delivery": "Passive from subscriptions",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "code_libraries",
@@ -3674,7 +4289,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Library maintenance and updates"
-      }
+      },
+      "strength": "technical",
+      "roles": [
+        "Engineer",
+        "Open source contributor",
+        "Creator"
+      ],
+      "adjectives": [
+        "Community-driven",
+        "Passive",
+        "Sponsorship"
+      ],
+      "daily_activity": "Develop library, manage community, maintain",
+      "value_delivery": "Passive from sponsorships/tips",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "live_events",
@@ -3762,7 +4392,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "Medium",
         "regularityNeeded": "Event planning and execution"
-      }
+      },
+      "strength": "experiential",
+      "roles": [
+        "Host",
+        "Organizer",
+        "Facilitator"
+      ],
+      "adjectives": [
+        "Interactive",
+        "Memorable",
+        "Community-building"
+      ],
+      "daily_activity": "Design events, coordinate logistics, host",
+      "value_delivery": "Direct from ticket sales + sponsorships",
+      "effort_type": "active",
+      "requires_presence": true
     },
     {
       "id": "local_workshops",
@@ -3849,7 +4494,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Workshop delivery and promotion"
-      }
+      },
+      "strength": "experiential",
+      "roles": [
+        "Instructor",
+        "Facilitator",
+        "Organizer"
+      ],
+      "adjectives": [
+        "Local",
+        "Direct",
+        "Recurring"
+      ],
+      "daily_activity": "Design workshops, market locally, host",
+      "value_delivery": "Direct from attendee fees",
+      "effort_type": "active",
+      "requires_presence": true
     },
     {
       "id": "pop_up_shops",
@@ -3936,7 +4596,22 @@
         "sustainability": "Short-term viable",
         "flexibility": "High",
         "regularityNeeded": "Shop setup and sales"
-      }
+      },
+      "strength": "business",
+      "roles": [
+        "Retailer",
+        "Entrepreneur",
+        "Curator"
+      ],
+      "adjectives": [
+        "Temporary",
+        "High foot traffic",
+        "Experiential"
+      ],
+      "daily_activity": "Secure location, set up, manage sales, pack up",
+      "value_delivery": "Direct from retail sales",
+      "effort_type": "active",
+      "requires_presence": true
     },
     {
       "id": "immersive_retreats",
@@ -4022,7 +4697,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "Medium",
         "regularityNeeded": "Retreat coordination and facilitation"
-      }
+      },
+      "strength": "experiential",
+      "roles": [
+        "Facilitator",
+        "Host",
+        "Organizer"
+      ],
+      "adjectives": [
+        "Premium",
+        "Immersive",
+        "Community-building"
+      ],
+      "daily_activity": "Design retreat, coordinate logistics, facilitate",
+      "value_delivery": "Direct from retreat fees",
+      "effort_type": "active",
+      "requires_presence": true
     },
     {
       "id": "hackathon_hosting",
@@ -4107,7 +4797,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "Medium",
         "regularityNeeded": "Hackathon organization and execution"
-      }
+      },
+      "strength": "experiential",
+      "roles": [
+        "Organizer",
+        "Host",
+        "Community builder"
+      ],
+      "adjectives": [
+        "Tech-focused",
+        "Competitive",
+        "Community"
+      ],
+      "daily_activity": "Plan event, recruit sponsors, host, coordinate",
+      "value_delivery": "Direct from sponsorships + fees",
+      "effort_type": "active",
+      "requires_presence": true
     },
     {
       "id": "space_rental",
@@ -4191,7 +4896,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Property management and guest coordination"
-      }
+      },
+      "strength": "passive",
+      "roles": [
+        "Landlord",
+        "Property manager",
+        "Host"
+      ],
+      "adjectives": [
+        "Passive",
+        "Recurring",
+        "Leverage asset"
+      ],
+      "daily_activity": "List space, manage bookings, host guests",
+      "value_delivery": "Passive from rental fees",
+      "effort_type": "passive",
+      "requires_presence": false
     },
     {
       "id": "gear_rental",
@@ -4276,7 +4996,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Equipment maintenance and rental coordination"
-      }
+      },
+      "strength": "passive",
+      "roles": [
+        "Asset owner",
+        "Curator",
+        "Lessor"
+      ],
+      "adjectives": [
+        "Passive",
+        "Leverage equipment",
+        "Low friction"
+      ],
+      "daily_activity": "List items, manage rentals, maintain gear",
+      "value_delivery": "Passive from rental fees",
+      "effort_type": "passive",
+      "requires_presence": false
     },
     {
       "id": "vehicle_rental",
@@ -4361,7 +5096,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Vehicle maintenance and rental coordination"
-      }
+      },
+      "strength": "passive",
+      "roles": [
+        "Asset owner",
+        "Lessor",
+        "Entrepreneur"
+      ],
+      "adjectives": [
+        "Passive",
+        "Recurring",
+        "Asset leverage"
+      ],
+      "daily_activity": "List vehicle, manage bookings, maintenance",
+      "value_delivery": "Passive from rental fees",
+      "effort_type": "passive",
+      "requires_presence": false
     },
     {
       "id": "asset_licensing",
@@ -4448,7 +5198,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Asset creation and optimization"
-      }
+      },
+      "strength": "passive",
+      "roles": [
+        "Creator",
+        "Artist",
+        "Licensor"
+      ],
+      "adjectives": [
+        "Passive",
+        "Scalable",
+        "Recurring"
+      ],
+      "daily_activity": "Create assets, list on platforms, manage licensing",
+      "value_delivery": "Passive from licensing fees",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "white_labeling",
@@ -4533,7 +5298,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "Medium",
         "regularityNeeded": "Partner support and product customization"
-      }
+      },
+      "strength": "business",
+      "roles": [
+        "Partner",
+        "Producer",
+        "Supplier"
+      ],
+      "adjectives": [
+        "Behind-scenes",
+        "Partnership-driven",
+        "Scalable"
+      ],
+      "daily_activity": "Produce product/service, maintain quality, manage partner",
+      "value_delivery": "Direct bulk payments from partner",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "franchise_models",
@@ -4617,7 +5397,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "Low",
         "regularityNeeded": "Franchisee support and system management"
-      }
+      },
+      "strength": "business",
+      "roles": [
+        "Franchiser",
+        "Business owner",
+        "Systemizer"
+      ],
+      "adjectives": [
+        "Scalable",
+        "Recurring",
+        "Business model"
+      ],
+      "daily_activity": "Support franchisees, manage systems, collect royalties",
+      "value_delivery": "Recurring from franchisee fees/royalties",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "certification_programs",
@@ -4703,7 +5498,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Certification delivery and student support"
-      }
+      },
+      "strength": "experiential",
+      "roles": [
+        "Educator",
+        "Certifier",
+        "Authority"
+      ],
+      "adjectives": [
+        "Credible",
+        "Premium",
+        "Recurring"
+      ],
+      "daily_activity": "Design curriculum, deliver training, manage certifications",
+      "value_delivery": "Direct from certification fees",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "tutoring",
@@ -4789,7 +5599,22 @@
         "sustainability": "Short-term viable",
         "flexibility": "High",
         "regularityNeeded": "One-on-one instruction and scheduling"
-      }
+      },
+      "strength": "interpersonal",
+      "roles": [
+        "Tutor",
+        "Educator",
+        "Coach"
+      ],
+      "adjectives": [
+        "Direct",
+        "Supportive",
+        "High-touch"
+      ],
+      "daily_activity": "1-on-1 sessions, explain concepts, track progress",
+      "value_delivery": "Direct from student fees",
+      "effort_type": "active",
+      "requires_presence": true
     },
     {
       "id": "music_lessons",
@@ -4875,7 +5700,22 @@
         "sustainability": "Short-term viable",
         "flexibility": "High",
         "regularityNeeded": "Lesson delivery and student management"
-      }
+      },
+      "strength": "interpersonal",
+      "roles": [
+        "Instructor",
+        "Musician",
+        "Coach"
+      ],
+      "adjectives": [
+        "Direct",
+        "Hands-on",
+        "Personalized"
+      ],
+      "daily_activity": "1-on-1 lessons, demonstrate, provide feedback",
+      "value_delivery": "Direct from student fees",
+      "effort_type": "active",
+      "requires_presence": true
     },
     {
       "id": "resume_services",
@@ -4961,7 +5801,22 @@
         "sustainability": "Short-term viable",
         "flexibility": "High",
         "regularityNeeded": "Resume review and client delivery"
-      }
+      },
+      "strength": "business",
+      "roles": [
+        "Writer",
+        "Career specialist",
+        "Advisor"
+      ],
+      "adjectives": [
+        "Quick turnaround",
+        "Direct",
+        "Practical"
+      ],
+      "daily_activity": "Review resumes, provide feedback, deliver final product",
+      "value_delivery": "Direct per resume",
+      "effort_type": "active",
+      "requires_presence": false
     },
     {
       "id": "writing_services",
@@ -5047,7 +5902,22 @@
         "sustainability": "Short-term viable",
         "flexibility": "High",
         "regularityNeeded": "Client project delivery and revisions"
-      }
+      },
+      "strength": "creative",
+      "roles": [
+        "Writer",
+        "Creator",
+        "Specialist"
+      ],
+      "adjectives": [
+        "Flexible",
+        "Direct",
+        "Quality-focused"
+      ],
+      "daily_activity": "Write content, revise, deliver to clients",
+      "value_delivery": "Direct per project",
+      "effort_type": "active",
+      "requires_presence": false
     },
     {
       "id": "translation_transcription",
@@ -5133,7 +6003,22 @@
         "sustainability": "Short-term viable",
         "flexibility": "High",
         "regularityNeeded": "Transcription/translation delivery"
-      }
+      },
+      "strength": "technical",
+      "roles": [
+        "Translator",
+        "Transcriber",
+        "Specialist"
+      ],
+      "adjectives": [
+        "Accurate",
+        "Quick",
+        "Detail-oriented"
+      ],
+      "daily_activity": "Translate/transcribe, proofread, deliver",
+      "value_delivery": "Direct per minute/word",
+      "effort_type": "active",
+      "requires_presence": false
     },
     {
       "id": "retail_flipping",
@@ -5219,7 +6104,22 @@
         "sustainability": "Short-term viable",
         "flexibility": "High",
         "regularityNeeded": "Sourcing and listing management"
-      }
+      },
+      "strength": "business",
+      "roles": [
+        "Reseller",
+        "Scout",
+        "Entrepreneur"
+      ],
+      "adjectives": [
+        "Quick income",
+        "Sourcing skills",
+        "Inventory"
+      ],
+      "daily_activity": "Source items, list, manage inventory, ship",
+      "value_delivery": "Direct from resale",
+      "effort_type": "active",
+      "requires_presence": false
     },
     {
       "id": "digital_flipping",
@@ -5305,7 +6205,22 @@
         "sustainability": "Medium-term viable",
         "flexibility": "High",
         "regularityNeeded": "Asset sourcing and optimization"
-      }
+      },
+      "strength": "business",
+      "roles": [
+        "Investor",
+        "Strategist",
+        "Entrepreneur"
+      ],
+      "adjectives": [
+        "Scalable",
+        "Low inventory",
+        "Growth hacking"
+      ],
+      "daily_activity": "Source digital assets, optimize, sell, manage deals",
+      "value_delivery": "Direct from asset sales",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "creator_marketplace",
@@ -5391,7 +6306,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Content curation and marketing"
-      }
+      },
+      "strength": "creative",
+      "roles": [
+        "Curator",
+        "Reseller",
+        "Aggregator"
+      ],
+      "adjectives": [
+        "Passive",
+        "Low effort",
+        "Curation"
+      ],
+      "daily_activity": "Curate content, list, market, handle transactions",
+      "value_delivery": "Passive from marketplace sales",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "productized_bundles",
@@ -5477,7 +6407,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "High",
         "regularityNeeded": "Bundle marketing and customer support"
-      }
+      },
+      "strength": "business",
+      "roles": [
+        "Bundler",
+        "Curator",
+        "Marketer"
+      ],
+      "adjectives": [
+        "Simple",
+        "Clear value",
+        "Direct"
+      ],
+      "daily_activity": "Create bundles, market, manage fulfillment",
+      "value_delivery": "Direct from bundle sales",
+      "effort_type": "hybrid",
+      "requires_presence": false
     },
     {
       "id": "bulk_sourcing",
@@ -5563,7 +6508,22 @@
         "sustainability": "Long-term viable",
         "flexibility": "Medium",
         "regularityNeeded": "Sourcing and sales operations"
-      }
+      },
+      "strength": "business",
+      "roles": [
+        "Wholesaler",
+        "Supplier",
+        "Entrepreneur"
+      ],
+      "adjectives": [
+        "Scalable",
+        "High volume",
+        "Logistics"
+      ],
+      "daily_activity": "Source bulk products, manage supplier relationships, sell",
+      "value_delivery": "Direct from wholesale/retail margins",
+      "effort_type": "hybrid",
+      "requires_presence": false
     }
   ]
 }
