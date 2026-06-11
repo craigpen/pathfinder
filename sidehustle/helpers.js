@@ -723,15 +723,26 @@ function calculateCompatibility(knowledge, pathway) {
     reasoning.push('Complementary strengths');
   }
 
-  // Penalty: physical knowledge + purely digital pathway
-  const isPhysicalKnowledge = ['craft', 'manual', 'hands-on'].some(term =>
-    knowledge.name.toLowerCase().includes(term) ||
-    knowledge.adjectives?.some(adj => adj.toLowerCase().includes(term))
-  );
+  // Penalty: physical/craft knowledge + unsuitable delivery pathways
+  const craftKeywords = ['ceramics', 'pottery', 'woodworking', 'carpentry', 'craft', 'handmade', 'jewelry', 'sculpture'];
+  const isPhysicalCraft = craftKeywords.some(term => knowledge.name.toLowerCase().includes(term));
 
-  if (isPhysicalKnowledge && pStrength === 'passive' && !pathway.name.toLowerCase().includes('marketplace') && !pathway.name.toLowerCase().includes('download')) {
-    score -= 20;
-    reasoning.push('Physical skill + unsuitable pathway');
+  // These pathways don't work well with physical crafts
+  const unsuitableForCrafts = ['AI Automation', 'WordPress Plugins', 'Food Delivery', 'Virtual Assistance', 'Coaching'];
+  const isUnsuitablePathway = unsuitableForCrafts.some(p => pathway.name.includes(p));
+
+  if (isPhysicalCraft && isUnsuitablePathway) {
+    score -= 30;
+    reasoning.push('Craft skill + incompatible pathway');
+  }
+
+  // Bonus: pathways that naturally work with crafts
+  const suitableForCrafts = ['Marketplace Creator', 'Digital Downloads', 'Etsy', 'Productized Bundles', 'Online Courses'];
+  const isSuitablePathway = suitableForCrafts.some(p => pathway.name.includes(p));
+
+  if (isPhysicalCraft && isSuitablePathway) {
+    score += 25;
+    reasoning.push('Craft skill + ideal pathway');
   }
 
   // Boost: marketplace/creator pathways work well with diverse knowledge
