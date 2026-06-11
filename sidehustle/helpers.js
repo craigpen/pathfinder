@@ -7,6 +7,7 @@
 let SELECTOR_OPTIONS = {};
 let SELECTOR_OPTIONS_LOADED = false;
 let SIDEHUSTLES_LOADED = false;
+let PATHWAYS_LOADED = false;
 let INSIGHTS_LOADED = false;
 let KNOWLEDGE_LOADED = false;
 
@@ -20,8 +21,8 @@ window.S = {
   scalability: null,
   selectedCategory: null,
   selectedHustle: null,
-  selectedHustleFilterCategories: [],
-  selectedHustleFilterHustles: [],
+  selectedPathwayCategories: [],
+  selectedPathways: [],
   selectedDeepDiveHustle: null,
   selectedKnowledgeCategories: [],
   selectedKnowledgeDomains: []
@@ -519,6 +520,91 @@ async function loadSideHustlesData() {
   }
 }
 
+// ============================================================================
+// PATHWAYS QUERY HELPERS (CLAUDE.md pattern)
+// ============================================================================
+
+function getPathway(id) {
+  const data = window.PATHWAYS || {pathways: []};
+  if (!id || !Array.isArray(data.pathways)) return null;
+  return data.pathways.find(p => p.id === id || p.name === id) || null;
+}
+
+function getPathwaysByCategory(categoryName) {
+  const data = window.PATHWAYS || {pathways: []};
+  if (!categoryName || !Array.isArray(data.pathways)) return [];
+  return data.pathways.filter(p => p.category === categoryName);
+}
+
+function getAllPathwayCategories() {
+  const data = window.PATHWAYS || {pathways: []};
+  if (!Array.isArray(data.pathways)) return [];
+  const categories = new Map();
+  data.pathways.forEach(p => {
+    if (!categories.has(p.category)) {
+      categories.set(p.category, true);
+    }
+  });
+  return Array.from(categories.keys()).sort();
+}
+
+function getPathwayStartupCost(id) {
+  const pathway = getPathway(id);
+  if (!pathway || !pathway.financial) return {min: 0, max: 0, note: null};
+  return {
+    min: pathway.financial.startupCost_min || 0,
+    max: pathway.financial.startupCost_max || 0,
+    note: pathway.financial.startupCost_note || null
+  };
+}
+
+function getPathwayEarningPotential(id) {
+  const pathway = getPathway(id);
+  if (!pathway || !pathway.financial) return {min: 0, max: 0};
+  return {
+    min: pathway.financial.monthlyEarning_min || 0,
+    max: pathway.financial.monthlyEarning_max || 0
+  };
+}
+
+function getPathwayEffort(id) {
+  const pathway = getPathway(id);
+  if (!pathway || !pathway.effort) return {min: 0, max: 0};
+  return {
+    min: pathway.effort.hoursPerWeek_min || 0,
+    max: pathway.effort.hoursPerWeek_max || 0
+  };
+}
+
+function getPathwayScalability(id) {
+  const pathway = getPathway(id);
+  if (!pathway || !pathway.effort) return null;
+  return pathway.effort.scalabilityPotential || null;
+}
+
+function getPathwayPassivity(id) {
+  const pathway = getPathway(id);
+  if (!pathway || !pathway.operational) return 0;
+  return pathway.operational.passivityScore || 0;
+}
+
+async function loadPathwaysData() {
+  try {
+    const response = await fetch('./data/pathways.json');
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    window.PATHWAYS = data;
+    PATHWAYS_LOADED = true;
+    window.PATHWAYS_LOADED = true;
+    console.log('✓ Loaded pathways.json');
+    return true;
+  } catch (e) {
+    console.error('Failed to load pathways.json:', e);
+    window.PATHWAYS = {pathways: []};
+    return false;
+  }
+}
+
 async function loadInsightsData() {
   try {
     const response = await fetch('./data/insights.json');
@@ -550,8 +636,10 @@ function saveState() {
     scalability: S.scalability || null,
     selectedCategory: S.selectedCategory || null,
     selectedHustle: S.selectedHustle || null,
-    selectedHustleFilterCategories: S.selectedHustleFilterCategories || [],
-    selectedHustleFilterHustles: S.selectedHustleFilterHustles || []
+    selectedPathwayCategories: S.selectedPathwayCategories || [],
+    selectedPathways: S.selectedPathways || [],
+    selectedKnowledgeCategories: S.selectedKnowledgeCategories || [],
+    selectedKnowledgeDomains: S.selectedKnowledgeDomains || []
   };
   localStorage.setItem('sideHustlePathfinderState', JSON.stringify(stateToSave));
 }
@@ -574,8 +662,10 @@ function startOver() {
   S.scalability = null;
   S.selectedCategory = null;
   S.selectedHustle = null;
-  S.selectedHustleFilterCategories = [];
-  S.selectedHustleFilterHustles = [];
+  S.selectedPathwayCategories = [];
+  S.selectedPathways = [];
+  S.selectedKnowledgeCategories = [];
+  S.selectedKnowledgeDomains = [];
   localStorage.removeItem('sideHustlePathfinderState');
   document.querySelectorAll('.pill').forEach(p => p.classList.remove('on'));
 
@@ -787,6 +877,17 @@ window.getAllKnowledgeCategories = getAllKnowledgeCategories;
 window.getAllKnowledgeDomains = getAllKnowledgeDomains;
 window.validateKnowledgeSchema = validateKnowledgeSchema;
 window.validateAllKnowledgeDomains = validateAllKnowledgeDomains;
+
+// Export pathway helpers
+window.getPathway = getPathway;
+window.getPathwaysByCategory = getPathwaysByCategory;
+window.getAllPathwayCategories = getAllPathwayCategories;
+window.getPathwayStartupCost = getPathwayStartupCost;
+window.getPathwayEarningPotential = getPathwayEarningPotential;
+window.getPathwayEffort = getPathwayEffort;
+window.getPathwayScalability = getPathwayScalability;
+window.getPathwayPassivity = getPathwayPassivity;
+window.loadPathwaysData = loadPathwaysData;
 
 // Export formatting helpers
 window.formatMoney = formatMoney;

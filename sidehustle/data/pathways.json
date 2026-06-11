@@ -1,0 +1,5569 @@
+{
+  "pathways": [
+    {
+      "id": "traditional_freelancing",
+      "name": "Traditional Freelancing",
+      "category": "Direct Services",
+      "description": "Building direct relationships with clients for project-based or ongoing work through networking, referrals, and your own website.",
+      "bestFor": [
+        "Self-starters",
+        "Networkers",
+        "Those wanting higher margins"
+      ],
+      "synergiesWith": [
+        "Platform Freelancing",
+        "Consulting",
+        "Productized Services"
+      ],
+      "financial": {
+        "startupCost_min": 500,
+        "startupCost_max": 3000,
+        "startupCost_note": "Website, portfolio, business setup",
+        "timeToFirstIncome_weeks": 4,
+        "monthlyEarning_min": 2000,
+        "monthlyEarning_max": 15000,
+        "earningNote": "Highly variable based on niche and reputation",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Upwork Freelancer Report 2024",
+          "BLS Self Employment Data"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 15,
+        "hoursPerWeek_max": 50,
+        "learningCurve": "Easy",
+        "timeToProficiency_months": 3,
+        "timeToScale_months": 6,
+        "scalabilityPotential": "High"
+      },
+      "market": {
+        "demandLevel": "Very High",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Stable",
+        "sources": [
+          "Upwork Freelancer Report 2024",
+          "BLS Self Employment Data"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Communication",
+          "Project Management",
+          "Domain Expertise"
+        ],
+        "recommendedTools": [
+          "Portfolio Website",
+          "Email",
+          "Contract Templates"
+        ],
+        "barrierToEntry": "Low",
+        "locationDependent": false,
+        "pros": [
+          "Higher rates than platforms",
+          "Direct client relationships",
+          "Build reputation",
+          "Flexibility"
+        ],
+        "cons": [
+          "Responsible for finding clients",
+          "Inconsistent income",
+          "Handle admin/billing",
+          "Time to build credibility"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.2,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Ongoing client management"
+      }
+    },
+    {
+      "id": "platform_freelancing",
+      "name": "Platform Freelancing",
+      "category": "Direct Services",
+      "description": "Using marketplaces like Upwork, Fiverr, Toptal to find clients and deliver services. Platforms handle payment and dispute resolution.",
+      "bestFor": [
+        "Beginners",
+        "Those wanting quick start",
+        "Portfolio builders"
+      ],
+      "synergiesWith": [
+        "Traditional Freelancing",
+        "Productized Services"
+      ],
+      "financial": {
+        "startupCost_min": 0,
+        "startupCost_max": 500,
+        "startupCost_note": "Optional: profile photos, certifications",
+        "timeToFirstIncome_weeks": 1,
+        "monthlyEarning_min": 500,
+        "monthlyEarning_max": 8000,
+        "earningNote": "Platforms take 5-20% commission",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Upwork Market Data 2024",
+          "Fiverr Business Report"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 10,
+        "hoursPerWeek_max": 40,
+        "learningCurve": "Very Easy",
+        "timeToProficiency_months": 2,
+        "timeToScale_months": 3,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "Very High",
+        "demandTrend": "Growing",
+        "competitionLevel": "Very High",
+        "seasonality": "Stable",
+        "sources": [
+          "Upwork Market Data 2024",
+          "Fiverr Business Report"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Communication",
+          "Platform navigation",
+          "Domain Expertise"
+        ],
+        "recommendedTools": [
+          "Upwork",
+          "Fiverr",
+          "Toptal",
+          "Guru"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": false,
+        "pros": [
+          "Zero startup cost",
+          "Immediate client access",
+          "Platform handles payments",
+          "Easy to start"
+        ],
+        "cons": [
+          "High commission fees",
+          "Intense competition",
+          "Platform dependence",
+          "Lower rates"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.15,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Ongoing bidding"
+      }
+    },
+    {
+      "id": "consulting",
+      "name": "Consulting",
+      "category": "Direct Services",
+      "description": "Providing expert advice and strategic guidance to businesses. Typically higher rates than freelancing, project-based or retainer.",
+      "bestFor": [
+        "Domain experts",
+        "Strategic thinkers",
+        "Business experience"
+      ],
+      "synergiesWith": [
+        "Coaching",
+        "Corporate Workshops",
+        "Fractional Roles"
+      ],
+      "financial": {
+        "startupCost_min": 1000,
+        "startupCost_max": 5000,
+        "startupCost_note": "Website, business registration, insurance",
+        "timeToFirstIncome_weeks": 8,
+        "monthlyEarning_min": 5000,
+        "monthlyEarning_max": 30000,
+        "earningNote": "Premium for niche expertise",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "McKinsey Reports",
+          "Becker Consulting Rates",
+          "Toptal Data"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 20,
+        "hoursPerWeek_max": 50,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 12,
+        "timeToScale_months": 12,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "Medium",
+        "seasonality": "Stable",
+        "sources": [
+          "McKinsey Reports",
+          "Becker Consulting Rates",
+          "Toptal Data"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Deep domain expertise",
+          "Strategic thinking",
+          "Business acumen",
+          "Communication"
+        ],
+        "recommendedTools": [
+          "CRM",
+          "Project Management",
+          "Data Analysis"
+        ],
+        "barrierToEntry": "High",
+        "locationDependent": false,
+        "pros": [
+          "Highest hourly rates",
+          "Intellectually stimulating",
+          "Flexible projects",
+          "Industry reputation"
+        ],
+        "cons": [
+          "Requires years of experience",
+          "Slow to start",
+          "High expectations",
+          "Travel may be required"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.25,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Long-term viable",
+        "flexibility": "Medium",
+        "regularityNeeded": "Client relationship management"
+      }
+    },
+    {
+      "id": "coaching",
+      "name": "Coaching",
+      "category": "Direct Services",
+      "description": "One-on-one or group coaching in your area of expertise. Could be life, career, fitness, business, or specialized coaching.",
+      "bestFor": [
+        "Empathetic professionals",
+        "Those with people skills",
+        "Subject matter experts"
+      ],
+      "synergiesWith": [
+        "Consulting",
+        "Online Courses",
+        "Paid Communities"
+      ],
+      "financial": {
+        "startupCost_min": 500,
+        "startupCost_max": 2000,
+        "startupCost_note": "Certification optional, coaching training",
+        "timeToFirstIncome_weeks": 6,
+        "monthlyEarning_min": 1500,
+        "monthlyEarning_max": 8000,
+        "earningNote": "Highly depends on niche and experience",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "International Coach Federation",
+          "Care.com Coaching Data"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 15,
+        "hoursPerWeek_max": 40,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 4,
+        "timeToScale_months": 6,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Stable",
+        "sources": [
+          "International Coach Federation",
+          "Care.com Coaching Data"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Empathy",
+          "Active listening",
+          "Domain expertise",
+          "Communication"
+        ],
+        "recommendedTools": [
+          "Zoom",
+          "Calendly",
+          "Payment processor"
+        ],
+        "barrierToEntry": "Medium",
+        "locationDependent": false,
+        "pros": [
+          "High client satisfaction",
+          "Flexible schedule",
+          "Build loyal client base",
+          "Meaningful work"
+        ],
+        "cons": [
+          "Time-intensive",
+          "Difficult to scale",
+          "Requires certification often",
+          "Pricing pressure"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.3,
+        "passivityLabel": "Somewhat Active",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Ongoing client relationships"
+      }
+    },
+    {
+      "id": "productized_services",
+      "name": "Productized Services",
+      "category": "Direct Services",
+      "description": "Package your expertise into fixed-scope, fixed-price service offerings. Hybrid between freelancing and products.",
+      "bestFor": [
+        "Service providers wanting more efficiency",
+        "Those with repeatable processes"
+      ],
+      "synergiesWith": [
+        "Platform Freelancing",
+        "Online Courses"
+      ],
+      "financial": {
+        "startupCost_min": 2000,
+        "startupCost_max": 5000,
+        "startupCost_note": "Service delivery infrastructure, website",
+        "timeToFirstIncome_weeks": 3,
+        "monthlyEarning_min": 3000,
+        "monthlyEarning_max": 15000,
+        "earningNote": "More stable than traditional freelancing",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Basecamp Case Studies",
+          "Freelance Industry Reports"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 20,
+        "hoursPerWeek_max": 45,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 4,
+        "timeToScale_months": 8,
+        "scalabilityPotential": "High"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "Medium",
+        "seasonality": "Stable",
+        "sources": [
+          "Basecamp Case Studies",
+          "Freelance Industry Reports"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Process design",
+          "Domain expertise",
+          "Client management"
+        ],
+        "recommendedTools": [
+          "Project management tools",
+          "Automation",
+          "Website"
+        ],
+        "barrierToEntry": "Medium",
+        "locationDependent": false,
+        "pros": [
+          "More predictable income",
+          "Higher margins",
+          "Easier to scale",
+          "Clear deliverables"
+        ],
+        "cons": [
+          "Requires process standardization",
+          "Less flexible",
+          "Client fit matters",
+          "Upfront work"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.4,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Long-term viable",
+        "flexibility": "Medium",
+        "regularityNeeded": "Client delivery and process management"
+      }
+    },
+    {
+      "id": "fractional_roles",
+      "name": "Fractional Roles",
+      "category": "Direct Services",
+      "description": "Work part-time for companies as a fractional executive or specialist. Could be fractional CMO, CFO, CTO, etc.",
+      "bestFor": [
+        "C-level professionals",
+        "Those with executive experience",
+        "Seeking flexibility"
+      ],
+      "synergiesWith": [
+        "Consulting",
+        "Enterprise Scaling"
+      ],
+      "financial": {
+        "startupCost_min": 1000,
+        "startupCost_max": 3000,
+        "startupCost_note": "Professional presence, network",
+        "timeToFirstIncome_weeks": 6,
+        "monthlyEarning_min": 4000,
+        "monthlyEarning_max": 20000,
+        "earningNote": "Varies by role and industry",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Fractional.work",
+          "LinkedIn Executive Reports"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 20,
+        "hoursPerWeek_max": 35,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 6,
+        "timeToScale_months": 9,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing Rapidly",
+        "competitionLevel": "Medium",
+        "seasonality": "Stable",
+        "sources": [
+          "Fractional.work",
+          "LinkedIn Executive Reports"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Executive experience",
+          "Strategic thinking",
+          "Industry knowledge"
+        ],
+        "recommendedTools": [
+          "CRM",
+          "Communication tools",
+          "Project management"
+        ],
+        "barrierToEntry": "High",
+        "locationDependent": false,
+        "pros": [
+          "Higher rates than full-time",
+          "Flexibility",
+          "Multiple clients",
+          "Stay engaged"
+        ],
+        "cons": [
+          "Needs executive experience",
+          "Slow to find roles",
+          "Contract negotiation",
+          "Context switching"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.35,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Strategic oversight and meetings"
+      }
+    },
+    {
+      "id": "expert_networks",
+      "name": "Expert Networks",
+      "category": "Direct Services",
+      "description": "Join expert networks (GLG, Manpower, AlphaSights) and get paid for your insights and expertise through short calls.",
+      "bestFor": [
+        "Subject matter experts",
+        "Industry specialists",
+        "Those with deep knowledge"
+      ],
+      "synergiesWith": [
+        "Consulting",
+        "Coaching"
+      ],
+      "financial": {
+        "startupCost_min": 0,
+        "startupCost_max": 500,
+        "startupCost_note": "Optional: credentials verification",
+        "timeToFirstIncome_weeks": 1,
+        "monthlyEarning_min": 500,
+        "monthlyEarning_max": 3000,
+        "earningNote": "Per-call payments, typically $200-500/call",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "GLG Expert Network",
+          "Guidepoint",
+          "AlphaSights"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 5,
+        "hoursPerWeek_max": 20,
+        "learningCurve": "Very Easy",
+        "timeToProficiency_months": 1,
+        "timeToScale_months": 2,
+        "scalabilityPotential": "Low"
+      },
+      "market": {
+        "demandLevel": "Moderate",
+        "demandTrend": "Stable",
+        "competitionLevel": "Medium",
+        "seasonality": "Stable",
+        "sources": [
+          "GLG Expert Network",
+          "Guidepoint",
+          "AlphaSights"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Deep industry knowledge",
+          "Communication",
+          "Availability"
+        ],
+        "recommendedTools": [
+          "Phone",
+          "Calendar"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": false,
+        "pros": [
+          "Passive income",
+          "No startup cost",
+          "Flexible scheduling",
+          "Immediate access"
+        ],
+        "cons": [
+          "Low earning potential",
+          "Limited time availability",
+          "Requires expertise",
+          "Competitive selection"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.5,
+        "passivityLabel": "Somewhat Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Occasional expert calls"
+      }
+    },
+    {
+      "id": "pet_care_services",
+      "name": "Pet Care Services",
+      "category": "Direct Services",
+      "description": "Dog walking, pet sitting, grooming, or other pet-related services. High demand and low barrier to entry.",
+      "bestFor": [
+        "Animal lovers",
+        "Reliable professionals",
+        "Those wanting local work"
+      ],
+      "synergiesWith": [
+        "Maintenance Services",
+        "Virtual Assistance"
+      ],
+      "financial": {
+        "startupCost_min": 500,
+        "startupCost_max": 2000,
+        "startupCost_note": "Insurance, transportation, supplies",
+        "timeToFirstIncome_weeks": 1,
+        "monthlyEarning_min": 1500,
+        "monthlyEarning_max": 6000,
+        "earningNote": "Highly location dependent",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Care.com Pet Services Data",
+          "Rover Market Report 2024"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 10,
+        "hoursPerWeek_max": 40,
+        "learningCurve": "Very Easy",
+        "timeToProficiency_months": 1,
+        "timeToScale_months": 3,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Seasonal",
+        "sources": [
+          "Care.com Pet Services Data",
+          "Rover Market Report 2024"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Animal care",
+          "Reliability",
+          "Communication"
+        ],
+        "recommendedTools": [
+          "Rover",
+          "Care.com",
+          "Transportation"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": true,
+        "pros": [
+          "High demand",
+          "Immediate start",
+          "Flexible schedule",
+          "Build regular clientele"
+        ],
+        "cons": [
+          "Location dependent",
+          "Physical demands",
+          "Liability concerns",
+          "Weather dependent"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.2,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Daily client management"
+      }
+    },
+    {
+      "id": "maintenance_services",
+      "name": "Maintenance Services",
+      "category": "Direct Services",
+      "description": "Home repair, appliance repair, lawn care, cleaning, or other maintenance services.",
+      "bestFor": [
+        "Handy professionals",
+        "Those with specific skills",
+        "Seeking local work"
+      ],
+      "synergiesWith": [
+        "Pet Care Services",
+        "Errand Running"
+      ],
+      "financial": {
+        "startupCost_min": 1000,
+        "startupCost_max": 5000,
+        "startupCost_note": "Tools, vehicle, insurance, licensing",
+        "timeToFirstIncome_weeks": 2,
+        "monthlyEarning_min": 2000,
+        "monthlyEarning_max": 8000,
+        "earningNote": "Highly location and seasonality dependent",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Thumbtack Home Services Report",
+          "BLS Repair Worker Data"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 15,
+        "hoursPerWeek_max": 50,
+        "learningCurve": "Easy",
+        "timeToProficiency_months": 2,
+        "timeToScale_months": 6,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Stable",
+        "competitionLevel": "High",
+        "seasonality": "Seasonal",
+        "sources": [
+          "Thumbtack Home Services Report",
+          "BLS Repair Worker Data"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Technical skills",
+          "Problem solving",
+          "Customer service"
+        ],
+        "recommendedTools": [
+          "Marketing",
+          "Scheduling tools",
+          "Payment processing"
+        ],
+        "barrierToEntry": "Low",
+        "locationDependent": true,
+        "pros": [
+          "High demand",
+          "Build repeating clients",
+          "Premium pricing possible",
+          "Flexible scheduling"
+        ],
+        "cons": [
+          "Weather dependent",
+          "Physical demands",
+          "Licensing requirements",
+          "Geographic limits"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.25,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Long-term viable",
+        "flexibility": "Medium",
+        "regularityNeeded": "Client scheduling and delivery"
+      }
+    },
+    {
+      "id": "virtual_assistance",
+      "name": "Virtual Assistance",
+      "category": "Direct Services",
+      "description": "Provide administrative support to busy professionals or small businesses remotely. Email, scheduling, data entry, research, etc.",
+      "bestFor": [
+        "Organized professionals",
+        "Administrative background",
+        "Those detail-oriented"
+      ],
+      "synergiesWith": [
+        "Platform Freelancing",
+        "Productized Services"
+      ],
+      "financial": {
+        "startupCost_min": 300,
+        "startupCost_max": 1500,
+        "startupCost_note": "Minimal: reliable internet, basic software",
+        "timeToFirstIncome_weeks": 2,
+        "monthlyEarning_min": 1000,
+        "monthlyEarning_max": 5000,
+        "earningNote": "Growing market with increasing demand",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Belay Solutions Data",
+          "Time Etc Market Report"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 15,
+        "hoursPerWeek_max": 35,
+        "learningCurve": "Very Easy",
+        "timeToProficiency_months": 2,
+        "timeToScale_months": 4,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Stable",
+        "sources": [
+          "Belay Solutions Data",
+          "Time Etc Market Report"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Organization",
+          "Communication",
+          "Admin skills"
+        ],
+        "recommendedTools": [
+          "Slack",
+          "Asana",
+          "Google Workspace"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": false,
+        "pros": [
+          "Low barrier to entry",
+          "Flexible hours",
+          "Remote work",
+          "Scalable to multiple clients"
+        ],
+        "cons": [
+          "Limited earning potential initially",
+          "Requires reliability",
+          "Lots of small tasks",
+          "Client management"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.4,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Daily admin task management"
+      }
+    },
+    {
+      "id": "enterprise_scaling",
+      "name": "Enterprise Scaling",
+      "category": "Enterprise Operations",
+      "description": "Help mid-market or enterprise companies scale operations, systems, and processes. Executive-level advisory.",
+      "bestFor": [
+        "Enterprise experience",
+        "Operations experts",
+        "Systems thinkers"
+      ],
+      "synergiesWith": [
+        "Consulting",
+        "Fractional Roles",
+        "Corporate Workshops"
+      ],
+      "financial": {
+        "startupCost_min": 2000,
+        "startupCost_max": 8000,
+        "startupCost_note": "Business registration, professional presence",
+        "timeToFirstIncome_weeks": 12,
+        "monthlyEarning_min": 8000,
+        "monthlyEarning_max": 50000,
+        "earningNote": "Premium rates for enterprise work",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "McKinsey Operations Reports",
+          "Boston Consulting Group Data"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 25,
+        "hoursPerWeek_max": 50,
+        "learningCurve": "Hard",
+        "timeToProficiency_months": 18,
+        "timeToScale_months": 24,
+        "scalabilityPotential": "Low"
+      },
+      "market": {
+        "demandLevel": "Moderate",
+        "demandTrend": "Growing",
+        "competitionLevel": "Low",
+        "seasonality": "Stable",
+        "sources": [
+          "McKinsey Operations Reports",
+          "Boston Consulting Group Data"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Enterprise operations",
+          "Strategic planning",
+          "Change management"
+        ],
+        "recommendedTools": [
+          "ERP systems",
+          "Project management",
+          "Data analytics"
+        ],
+        "barrierToEntry": "Very High",
+        "locationDependent": false,
+        "pros": [
+          "Highest earnings potential",
+          "Strategic impact",
+          "Multiple revenue streams",
+          "Long-term contracts"
+        ],
+        "cons": [
+          "Requires deep experience",
+          "High stakes",
+          "Extended sales cycle",
+          "Complex projects"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.3,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Long-term viable",
+        "flexibility": "Low",
+        "regularityNeeded": "Strategic engagements and planning"
+      }
+    },
+    {
+      "id": "corporate_workshops",
+      "name": "Corporate Workshops",
+      "category": "Enterprise Operations",
+      "description": "Design and deliver training workshops for corporate clients on your area of expertise. One-off or recurring.",
+      "bestFor": [
+        "Subject matter experts",
+        "Teachers",
+        "Those with presentation skills"
+      ],
+      "synergiesWith": [
+        "Coaching",
+        "Online Courses",
+        "Consulting"
+      ],
+      "financial": {
+        "startupCost_min": 2000,
+        "startupCost_max": 5000,
+        "startupCost_note": "Materials, presentation design, travel",
+        "timeToFirstIncome_weeks": 8,
+        "monthlyEarning_min": 2000,
+        "monthlyEarning_max": 10000,
+        "earningNote": "Per-workshop or retainer basis",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "LinkedIn Learning Corporate Data",
+          "Training Industry Reports"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 20,
+        "hoursPerWeek_max": 40,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 6,
+        "timeToScale_months": 8,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "Medium",
+        "seasonality": "Seasonal",
+        "sources": [
+          "LinkedIn Learning Corporate Data",
+          "Training Industry Reports"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Training design",
+          "Presentation skills",
+          "Subject expertise"
+        ],
+        "recommendedTools": [
+          "Learning platform",
+          "Materials",
+          "Video"
+        ],
+        "barrierToEntry": "Medium",
+        "locationDependent": false,
+        "pros": [
+          "Good earnings potential",
+          "Builds authority",
+          "Multiple delivery options",
+          "Scalable content"
+        ],
+        "cons": [
+          "Sales cycle lengthy",
+          "Delivery intensive",
+          "Travel required",
+          "Content development time"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.35,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Long-term viable",
+        "flexibility": "Medium",
+        "regularityNeeded": "Workshop delivery and sales"
+      }
+    },
+    {
+      "id": "adjunct_teaching",
+      "name": "Adjunct Teaching",
+      "category": "Enterprise Operations",
+      "description": "Teach part-time at universities or colleges. Flexible and builds credibility, though lower pay than private consulting.",
+      "bestFor": [
+        "Subject matter experts",
+        "Those with credentials",
+        "Educators"
+      ],
+      "synergiesWith": [
+        "Corporate Workshops",
+        "Online Courses"
+      ],
+      "financial": {
+        "startupCost_min": 0,
+        "startupCost_max": 500,
+        "startupCost_note": "Minimal costs, degree usually required",
+        "timeToFirstIncome_weeks": 12,
+        "monthlyEarning_min": 1500,
+        "monthlyEarning_max": 4000,
+        "earningNote": "Per-course, typically 1-2 courses/semester",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Chronicle of Higher Education",
+          "TIAA Faculty Surveys"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 10,
+        "hoursPerWeek_max": 25,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 6,
+        "timeToScale_months": 12,
+        "scalabilityPotential": "Low"
+      },
+      "market": {
+        "demandLevel": "Moderate",
+        "demandTrend": "Stable",
+        "competitionLevel": "Low",
+        "seasonality": "Seasonal",
+        "sources": [
+          "Chronicle of Higher Education",
+          "TIAA Faculty Surveys"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Academic credentials",
+          "Teaching ability",
+          "Subject expertise"
+        ],
+        "recommendedTools": [
+          "LMS platform",
+          "Office hours setup"
+        ],
+        "barrierToEntry": "Medium",
+        "locationDependent": false,
+        "pros": [
+          "Schedule flexibility",
+          "Build credibility",
+          "Network opportunities",
+          "Intellectual stimulation"
+        ],
+        "cons": [
+          "Lower pay than consulting",
+          "Limited scalability",
+          "Grading and office hours",
+          "Semester-based"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.4,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Long-term viable",
+        "flexibility": "Medium",
+        "regularityNeeded": "Course teaching and grading"
+      }
+    },
+    {
+      "id": "online_courses",
+      "name": "Online Courses",
+      "category": "Digital Assets",
+      "description": "Create comprehensive courses and sell them on platforms like Udemy, Teachable, or Skillshare. Passive income after creation.",
+      "bestFor": [
+        "Subject matter experts",
+        "Teachers",
+        "Those wanting passive income"
+      ],
+      "synergiesWith": [
+        "Live Cohorts",
+        "Coaching",
+        "Digital Downloads"
+      ],
+      "financial": {
+        "startupCost_min": 500,
+        "startupCost_max": 3000,
+        "startupCost_note": "Course platform, recording equipment, design",
+        "timeToFirstIncome_weeks": 12,
+        "monthlyEarning_min": 500,
+        "monthlyEarning_max": 8000,
+        "earningNote": "Highly variable based on pricing and enrollment",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Udemy 2024 Creator Report",
+          "Skillshare Analytics"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 20,
+        "hoursPerWeek_max": 50,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 6,
+        "timeToScale_months": 12,
+        "scalabilityPotential": "High"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Stable",
+        "sources": [
+          "Udemy 2024 Creator Report",
+          "Skillshare Analytics"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Course design",
+          "Communication",
+          "Subject expertise"
+        ],
+        "recommendedTools": [
+          "Udemy",
+          "Teachable",
+          "Thinkific",
+          "Video recording"
+        ],
+        "barrierToEntry": "Low",
+        "locationDependent": false,
+        "pros": [
+          "Passive income potential",
+          "Scalable",
+          "Build authority",
+          "One-time creation effort"
+        ],
+        "cons": [
+          "Difficult to create quality courses",
+          "Platform competition",
+          "Marketing needed",
+          "Updates required"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.65,
+        "passivityLabel": "Somewhat Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Course updates and marketing"
+      }
+    },
+    {
+      "id": "live_cohorts",
+      "name": "Live Cohorts",
+      "category": "Digital Assets",
+      "description": "Run cohort-based courses with fixed cohorts and live instruction. Higher touch than recorded courses, better engagement.",
+      "bestFor": [
+        "Educators",
+        "Community builders",
+        "Those wanting interaction"
+      ],
+      "synergiesWith": [
+        "Online Courses",
+        "Coaching",
+        "Paid Communities"
+      ],
+      "financial": {
+        "startupCost_min": 1000,
+        "startupCost_max": 3000,
+        "startupCost_note": "Platform, marketing, instructor time",
+        "timeToFirstIncome_weeks": 6,
+        "monthlyEarning_min": 2000,
+        "monthlyEarning_max": 10000,
+        "earningNote": "Per-cohort revenue, typically $500-$5000/person",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Mighty Networks Case Studies",
+          "Circle Community Report"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 20,
+        "hoursPerWeek_max": 40,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 4,
+        "timeToScale_months": 8,
+        "scalabilityPotential": "High"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing Rapidly",
+        "competitionLevel": "Medium",
+        "seasonality": "Stable",
+        "sources": [
+          "Mighty Networks Case Studies",
+          "Circle Community Report"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Course design",
+          "Community management",
+          "Teaching"
+        ],
+        "recommendedTools": [
+          "Mighty Networks",
+          "Circle",
+          "Zoom"
+        ],
+        "barrierToEntry": "Medium",
+        "locationDependent": false,
+        "pros": [
+          "Higher student engagement",
+          "Community building",
+          "Better outcomes",
+          "Premium pricing"
+        ],
+        "cons": [
+          "Instructor time intensive",
+          "Cohort dependent",
+          "Marketing required",
+          "Scheduling complexity"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.35,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Long-term viable",
+        "flexibility": "Medium",
+        "regularityNeeded": "Cohort facilitation and management"
+      }
+    },
+    {
+      "id": "digital_downloads",
+      "name": "Digital Downloads",
+      "category": "Digital Assets",
+      "description": "Create and sell digital products: templates, guides, checklists, spreadsheets, Notion templates, Figma components, etc.",
+      "bestFor": [
+        "Creators",
+        "Those systematic",
+        "Template designers"
+      ],
+      "synergiesWith": [
+        "Digital Templates",
+        "Creator Marketplace",
+        "Online Courses"
+      ],
+      "financial": {
+        "startupCost_min": 200,
+        "startupCost_max": 1000,
+        "startupCost_note": "Design tools, platform setup",
+        "timeToFirstIncome_weeks": 2,
+        "monthlyEarning_min": 300,
+        "monthlyEarning_max": 3000,
+        "earningNote": "Low conversion but passive once live",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Gumroad Creator Data",
+          "Etsy Digital Products Report"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 10,
+        "hoursPerWeek_max": 30,
+        "learningCurve": "Easy",
+        "timeToProficiency_months": 2,
+        "timeToScale_months": 4,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "Moderate",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Stable",
+        "sources": [
+          "Gumroad Creator Data",
+          "Etsy Digital Products Report"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Design",
+          "Problem solving",
+          "Attention to detail"
+        ],
+        "recommendedTools": [
+          "Gumroad",
+          "Etsy",
+          "SendOwl"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": false,
+        "pros": [
+          "Low creation cost",
+          "Passive income",
+          "Minimal support",
+          "Scalable distribution"
+        ],
+        "cons": [
+          "Low individual sale value",
+          "High competition",
+          "Marketing needed",
+          "Requires continuous updates"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.7,
+        "passivityLabel": "Highly Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Marketing and updates"
+      }
+    },
+    {
+      "id": "digital_templates",
+      "name": "Digital Templates",
+      "category": "Digital Assets",
+      "description": "Create reusable templates: business templates, design templates, project templates, document templates, etc.",
+      "bestFor": [
+        "Designers",
+        "Business consultants",
+        "Process experts"
+      ],
+      "synergiesWith": [
+        "Digital Downloads",
+        "Productized Services"
+      ],
+      "financial": {
+        "startupCost_min": 300,
+        "startupCost_max": 1500,
+        "startupCost_note": "Design software, template tools",
+        "timeToFirstIncome_weeks": 3,
+        "monthlyEarning_min": 400,
+        "monthlyEarning_max": 4000,
+        "earningNote": "Passive income from template sales",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Creative Market Data",
+          "Template Ecosystem Reports"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 15,
+        "hoursPerWeek_max": 35,
+        "learningCurve": "Easy",
+        "timeToProficiency_months": 3,
+        "timeToScale_months": 6,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "Moderate",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Stable",
+        "sources": [
+          "Creative Market Data",
+          "Template Ecosystem Reports"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Design",
+          "Business process knowledge",
+          "Attention to detail"
+        ],
+        "recommendedTools": [
+          "Canva",
+          "Adobe Express",
+          "Figma"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": false,
+        "pros": [
+          "Multiple income streams",
+          "Passive income",
+          "Portfolio building",
+          "Customizable"
+        ],
+        "cons": [
+          "Needs marketing",
+          "Design competition",
+          "Update requirements",
+          "Customer support"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.65,
+        "passivityLabel": "Highly Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Marketing and template updates"
+      }
+    },
+    {
+      "id": "blogging",
+      "name": "Blogging",
+      "category": "Media & Audience",
+      "description": "Build an audience through regular blog posts and monetize via ads, sponsorships, affiliate marketing, or paid content.",
+      "bestFor": [
+        "Writers",
+        "Subject matter experts",
+        "Content creators"
+      ],
+      "synergiesWith": [
+        "Long Video",
+        "Paid Newsletters",
+        "Affiliate Marketing"
+      ],
+      "financial": {
+        "startupCost_min": 200,
+        "startupCost_max": 1000,
+        "startupCost_note": "Domain, hosting, CMS",
+        "timeToFirstIncome_weeks": 24,
+        "monthlyEarning_min": 500,
+        "monthlyEarning_max": 5000,
+        "earningNote": "Takes 6-12 months to monetize",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Mediavine Revenue Data",
+          "HubSpot Blogging Report"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 15,
+        "hoursPerWeek_max": 30,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 6,
+        "timeToScale_months": 12,
+        "scalabilityPotential": "High"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Stable",
+        "sources": [
+          "Mediavine Revenue Data",
+          "HubSpot Blogging Report"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Writing",
+          "SEO knowledge",
+          "Consistency"
+        ],
+        "recommendedTools": [
+          "WordPress",
+          "Medium",
+          "Substack"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": false,
+        "pros": [
+          "Builds authority",
+          "SEO benefits",
+          "Multiple monetization",
+          "Scalable content"
+        ],
+        "cons": [
+          "Long time to monetize",
+          "Requires consistency",
+          "Competitive field",
+          "Algorithm dependence"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.6,
+        "passivityLabel": "Somewhat Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Regular content creation"
+      }
+    },
+    {
+      "id": "long_video",
+      "name": "Long Video (YouTube)",
+      "category": "Media & Audience",
+      "description": "Create long-form video content on YouTube. Monetize via YouTube Partner Program, sponsorships, and affiliate marketing.",
+      "bestFor": [
+        "Video creators",
+        "Subject matter experts",
+        "Storytellers"
+      ],
+      "synergiesWith": [
+        "Short Video",
+        "Blogging",
+        "Online Courses"
+      ],
+      "financial": {
+        "startupCost_min": 500,
+        "startupCost_max": 3000,
+        "startupCost_note": "Camera, editing software, lighting",
+        "timeToFirstIncome_weeks": 24,
+        "monthlyEarning_min": 500,
+        "monthlyEarning_max": 10000,
+        "earningNote": "Growth-dependent, variable earnings",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "YouTube Creator Report 2024",
+          "Statista Video Consumption"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 20,
+        "hoursPerWeek_max": 50,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 6,
+        "timeToScale_months": 12,
+        "scalabilityPotential": "High"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "Very High",
+        "seasonality": "Stable",
+        "sources": [
+          "YouTube Creator Report 2024",
+          "Statista Video Consumption"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Video production",
+          "Editing",
+          "Storytelling"
+        ],
+        "recommendedTools": [
+          "YouTube",
+          "Adobe Premiere",
+          "OBS"
+        ],
+        "barrierToEntry": "Low",
+        "locationDependent": false,
+        "pros": [
+          "Huge potential audience",
+          "Multiple monetization",
+          "Algorithm rewards",
+          "Authority building"
+        ],
+        "cons": [
+          "Long ramp to monetization",
+          "Requires consistency",
+          "Algorithm changes",
+          "High production effort"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.45,
+        "passivityLabel": "Somewhat Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Regular video creation"
+      }
+    },
+    {
+      "id": "short_video",
+      "name": "Short Video (TikTok/Reels)",
+      "category": "Media & Audience",
+      "description": "Create short-form video content on TikTok, Instagram Reels, YouTube Shorts. Fastest growth, monetization emerging.",
+      "bestFor": [
+        "Video creators",
+        "Trend-aware creators",
+        "Niche experts"
+      ],
+      "synergiesWith": [
+        "Long Video",
+        "Blogging",
+        "Online Courses"
+      ],
+      "financial": {
+        "startupCost_min": 0,
+        "startupCost_max": 500,
+        "startupCost_note": "Optional: lighting, equipment",
+        "timeToFirstIncome_weeks": 12,
+        "monthlyEarning_min": 200,
+        "monthlyEarning_max": 3000,
+        "earningNote": "Monetization emerging, very variable",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "TikTok Creator Fund Report",
+          "Meta Reels Analytics"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 10,
+        "hoursPerWeek_max": 30,
+        "learningCurve": "Easy",
+        "timeToProficiency_months": 3,
+        "timeToScale_months": 6,
+        "scalabilityPotential": "High"
+      },
+      "market": {
+        "demandLevel": "Very High",
+        "demandTrend": "Growing Rapidly",
+        "competitionLevel": "Very High",
+        "seasonality": "Stable",
+        "sources": [
+          "TikTok Creator Fund Report",
+          "Meta Reels Analytics"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Trend awareness",
+          "Video creation",
+          "Authenticity"
+        ],
+        "recommendedTools": [
+          "TikTok",
+          "Reels",
+          "CapCut"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": false,
+        "pros": [
+          "Fastest growth potential",
+          "Low barrier to entry",
+          "Trend-friendly",
+          "Huge audiences"
+        ],
+        "cons": [
+          "Algorithm volatile",
+          "Trend-dependent",
+          "Creator fund payments low",
+          "Burnout risk"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.35,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Daily/weekly content creation"
+      }
+    },
+    {
+      "id": "podcasting",
+      "name": "Podcasting",
+      "category": "Media & Audience",
+      "description": "Create a podcast on your topic of expertise. Monetize via sponsorships, premium episodes, or as a marketing tool.",
+      "bestFor": [
+        "Communicators",
+        "Subject experts",
+        "Interview hosts"
+      ],
+      "synergiesWith": [
+        "Blogging",
+        "Long Video",
+        "Online Courses"
+      ],
+      "financial": {
+        "startupCost_min": 300,
+        "startupCost_max": 2000,
+        "startupCost_note": "Microphone, hosting, editing software",
+        "timeToFirstIncome_weeks": 12,
+        "monthlyEarning_min": 500,
+        "monthlyEarning_max": 8000,
+        "earningNote": "Sponsorship dependent, variable earnings",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Podtrac 2024 Report",
+          "Spotify Podcast Insights"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 15,
+        "hoursPerWeek_max": 30,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 4,
+        "timeToScale_months": 8,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Stable",
+        "sources": [
+          "Podtrac 2024 Report",
+          "Spotify Podcast Insights"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Communication",
+          "Audio production",
+          "Consistency"
+        ],
+        "recommendedTools": [
+          "Anchor",
+          "Riverside",
+          "Adobe Audition"
+        ],
+        "barrierToEntry": "Low",
+        "locationDependent": false,
+        "pros": [
+          "Builds loyal audience",
+          "Sponsorship potential",
+          "Deeper engagement",
+          "Can grow while doing other work"
+        ],
+        "cons": [
+          "Long ramp to audience",
+          "Consistency required",
+          "Sponsorship hard to secure",
+          "Algorithm less favorable"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.5,
+        "passivityLabel": "Somewhat Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "Medium",
+        "regularityNeeded": "Regular episode production"
+      }
+    },
+    {
+      "id": "paid_newsletters",
+      "name": "Paid Newsletters",
+      "category": "Media & Audience",
+      "description": "Build an email audience and charge for premium newsletter content. Substack, Beehiiv, or email service platforms.",
+      "bestFor": [
+        "Writers",
+        "Niche experts",
+        "Community builders"
+      ],
+      "synergiesWith": [
+        "Blogging",
+        "Online Courses",
+        "Paid Communities"
+      ],
+      "financial": {
+        "startupCost_min": 200,
+        "startupCost_max": 800,
+        "startupCost_note": "Email platform, domain",
+        "timeToFirstIncome_weeks": 12,
+        "monthlyEarning_min": 500,
+        "monthlyEarning_max": 10000,
+        "earningNote": "Depends on subscriber count and price",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Substack Creator Report",
+          "Email Marketing Analytics"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 15,
+        "hoursPerWeek_max": 25,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 6,
+        "timeToScale_months": 9,
+        "scalabilityPotential": "High"
+      },
+      "market": {
+        "demandLevel": "Moderate",
+        "demandTrend": "Growing",
+        "competitionLevel": "Medium",
+        "seasonality": "Stable",
+        "sources": [
+          "Substack Creator Report",
+          "Email Marketing Analytics"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Writing",
+          "Email marketing",
+          "Consistency"
+        ],
+        "recommendedTools": [
+          "Substack",
+          "Beehiiv",
+          "ConvertKit"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": false,
+        "pros": [
+          "Direct relationship with audience",
+          "Premium pricing possible",
+          "Low overhead",
+          "Scalable"
+        ],
+        "cons": [
+          "Requires subscriber base",
+          "List building slow",
+          "Content heavy",
+          "Competition increasing"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.55,
+        "passivityLabel": "Somewhat Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Regular newsletter writing"
+      }
+    },
+    {
+      "id": "affiliate_marketing",
+      "name": "Affiliate Marketing",
+      "category": "Media & Audience",
+      "description": "Recommend products/services you genuinely use and earn commission. Works across blog, video, email, or social.",
+      "bestFor": [
+        "Content creators",
+        "Trusted voices",
+        "Reviewers"
+      ],
+      "synergiesWith": [
+        "Blogging",
+        "Long Video",
+        "Paid Newsletters"
+      ],
+      "financial": {
+        "startupCost_min": 200,
+        "startupCost_max": 1000,
+        "startupCost_note": "Website or platform, affiliate account setup",
+        "timeToFirstIncome_weeks": 6,
+        "monthlyEarning_min": 300,
+        "monthlyEarning_max": 5000,
+        "earningNote": "Highly dependent on traffic and conversions",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Amazon Associates Program",
+          "ShareASale Network Data"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 10,
+        "hoursPerWeek_max": 30,
+        "learningCurve": "Easy",
+        "timeToProficiency_months": 3,
+        "timeToScale_months": 6,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Stable",
+        "competitionLevel": "High",
+        "seasonality": "Stable",
+        "sources": [
+          "Amazon Associates Program",
+          "ShareASale Network Data"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Marketing",
+          "Product knowledge",
+          "Audience trust"
+        ],
+        "recommendedTools": [
+          "Amazon Associates",
+          "ShareASale",
+          "Affiliate networks"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": false,
+        "pros": [
+          "Passive income",
+          "No product creation",
+          "Easy to start",
+          "Aligns with existing content"
+        ],
+        "cons": [
+          "Requires audience first",
+          "Commission rates low",
+          "Brand trust critical",
+          "Limited control"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.6,
+        "passivityLabel": "Highly Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Content creation and optimization"
+      }
+    },
+    {
+      "id": "paid_communities",
+      "name": "Paid Communities",
+      "category": "Recurring Access",
+      "description": "Build a membership community where members pay monthly/yearly for access, content, and networking.",
+      "bestFor": [
+        "Community builders",
+        "Subject experts",
+        "Connectors"
+      ],
+      "synergiesWith": [
+        "Coaching",
+        "Online Courses",
+        "Premium Tiers"
+      ],
+      "financial": {
+        "startupCost_min": 1000,
+        "startupCost_max": 3000,
+        "startupCost_note": "Community platform, content creation",
+        "timeToFirstIncome_weeks": 12,
+        "monthlyEarning_min": 1000,
+        "monthlyEarning_max": 15000,
+        "earningNote": "Highly dependent on member retention",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Circle Community Report",
+          "Mighty Networks Case Studies"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 20,
+        "hoursPerWeek_max": 40,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 6,
+        "timeToScale_months": 12,
+        "scalabilityPotential": "High"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "Medium",
+        "seasonality": "Stable",
+        "sources": [
+          "Circle Community Report",
+          "Mighty Networks Case Studies"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Community management",
+          "Content creation",
+          "Engagement"
+        ],
+        "recommendedTools": [
+          "Circle",
+          "Mighty Networks",
+          "Memberful"
+        ],
+        "barrierToEntry": "Medium",
+        "locationDependent": false,
+        "pros": [
+          "Recurring revenue",
+          "Loyal members",
+          "Network effects",
+          "Scalable"
+        ],
+        "cons": [
+          "Community building hard",
+          "Churn risk",
+          "Content demands",
+          "Platform switching risk"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.4,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Long-term viable",
+        "flexibility": "Medium",
+        "regularityNeeded": "Community moderation and engagement"
+      }
+    },
+    {
+      "id": "premium_tiers",
+      "name": "Premium Tiers",
+      "category": "Recurring Access",
+      "description": "Offer tiered membership (free + paid tiers) on existing content platform. Access to exclusive content or features.",
+      "bestFor": [
+        "Content creators",
+        "Subject experts",
+        "Community builders"
+      ],
+      "synergiesWith": [
+        "Online Courses",
+        "Blogging",
+        "Podcasting"
+      ],
+      "financial": {
+        "startupCost_min": 500,
+        "startupCost_max": 2000,
+        "startupCost_note": "Platform setup, content creation",
+        "timeToFirstIncome_weeks": 6,
+        "monthlyEarning_min": 500,
+        "monthlyEarning_max": 8000,
+        "earningNote": "Depends on tier adoption and pricing",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Patreon Creator Report",
+          "Substack Premium Analytics"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 15,
+        "hoursPerWeek_max": 30,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 4,
+        "timeToScale_months": 8,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Stable",
+        "sources": [
+          "Patreon Creator Report",
+          "Substack Premium Analytics"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Content creation",
+          "Community management",
+          "Pricing strategy"
+        ],
+        "recommendedTools": [
+          "Patreon",
+          "Substack",
+          "YouTube Members"
+        ],
+        "barrierToEntry": "Low",
+        "locationDependent": false,
+        "pros": [
+          "Leverages existing audience",
+          "Passive income",
+          "Direct support model",
+          "Fan engagement"
+        ],
+        "cons": [
+          "Cannibalization risk",
+          "Content pressure",
+          "Support requirements",
+          "Churn management"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.55,
+        "passivityLabel": "Somewhat Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Exclusive content creation"
+      }
+    },
+    {
+      "id": "private_forums",
+      "name": "Private Forums",
+      "category": "Recurring Access",
+      "description": "Create a private membership forum for discussion, resources, and networking. Members pay for access.",
+      "bestFor": [
+        "Community experts",
+        "Niche builders",
+        "Connectors"
+      ],
+      "synergiesWith": [
+        "Paid Communities",
+        "Online Courses"
+      ],
+      "financial": {
+        "startupCost_min": 800,
+        "startupCost_max": 2500,
+        "startupCost_note": "Forum software, moderation, content",
+        "timeToFirstIncome_weeks": 12,
+        "monthlyEarning_min": 800,
+        "monthlyEarning_max": 12000,
+        "earningNote": "Member retention critical",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Community Forum Benchmarks",
+          "SaaS Community Trends"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 15,
+        "hoursPerWeek_max": 35,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 6,
+        "timeToScale_months": 12,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "Moderate",
+        "demandTrend": "Stable",
+        "competitionLevel": "Medium",
+        "seasonality": "Stable",
+        "sources": [
+          "Community Forum Benchmarks",
+          "SaaS Community Trends"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Community moderation",
+          "Forum management",
+          "Niche expertise"
+        ],
+        "recommendedTools": [
+          "Mighty Networks",
+          "Mighty Networks",
+          "Discord"
+        ],
+        "barrierToEntry": "Medium",
+        "locationDependent": false,
+        "pros": [
+          "Niche community building",
+          "Recurring revenue",
+          "Direct member relationships",
+          "Knowledge repository"
+        ],
+        "cons": [
+          "Moderation time-intensive",
+          "Slow growth",
+          "Feature limitations",
+          "Requires active moderators"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.35,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Long-term viable",
+        "flexibility": "Medium",
+        "regularityNeeded": "Community moderation and engagement"
+      }
+    },
+    {
+      "id": "rideshare_driving",
+      "name": "Rideshare Driving",
+      "category": "Physical Logistics",
+      "description": "Drive for Uber, Lyft, or other rideshare platforms. Flexible hours, minimal training, but low margins after costs.",
+      "bestFor": [
+        "Those with reliable cars",
+        "Flexible schedules",
+        "Customer service oriented"
+      ],
+      "synergiesWith": [
+        "Food Delivery",
+        "Errand Running"
+      ],
+      "financial": {
+        "startupCost_min": 2000,
+        "startupCost_max": 8000,
+        "startupCost_note": "Vehicle with insurance, phone",
+        "timeToFirstIncome_weeks": 1,
+        "monthlyEarning_min": 1500,
+        "monthlyEarning_max": 5000,
+        "earningNote": "Highly variable by location and hours",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Uber Driver Report 2024",
+          "Lyft Economic Impact Study"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 15,
+        "hoursPerWeek_max": 50,
+        "learningCurve": "Very Easy",
+        "timeToProficiency_months": 1,
+        "timeToScale_months": 3,
+        "scalabilityPotential": "Low"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Stable",
+        "competitionLevel": "Very High",
+        "seasonality": "Stable",
+        "sources": [
+          "Uber Driver Report 2024",
+          "Lyft Economic Impact Study"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Driving",
+          "Customer service",
+          "Navigation"
+        ],
+        "recommendedTools": [
+          "Uber",
+          "Lyft",
+          "Maps"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": true,
+        "pros": [
+          "Immediate income",
+          "Flexible hours",
+          "No special skills",
+          "Bonus opportunities"
+        ],
+        "cons": [
+          "Low margins after costs",
+          "Vehicle wear/tear",
+          "Variable demand",
+          "Ratings critical"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.25,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Short-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Driving and customer service"
+      }
+    },
+    {
+      "id": "food_delivery",
+      "name": "Food Delivery",
+      "category": "Physical Logistics",
+      "description": "Deliver food for DoorDash, Uber Eats, Grubhub, etc. Flexible, but even lower margins than rideshare.",
+      "bestFor": [
+        "Those with reliable transport",
+        "Flexible schedules",
+        "Efficient workers"
+      ],
+      "synergiesWith": [
+        "Rideshare Driving",
+        "Errand Running"
+      ],
+      "financial": {
+        "startupCost_min": 500,
+        "startupCost_max": 3000,
+        "startupCost_note": "Vehicle/bike, phone, bag",
+        "timeToFirstIncome_weeks": 1,
+        "monthlyEarning_min": 1000,
+        "monthlyEarning_max": 4000,
+        "earningNote": "Highly dependent on location and hours",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "DoorDash Driver Report",
+          "Grubhub Analytics"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 15,
+        "hoursPerWeek_max": 50,
+        "learningCurve": "Very Easy",
+        "timeToProficiency_months": 1,
+        "timeToScale_months": 2,
+        "scalabilityPotential": "Low"
+      },
+      "market": {
+        "demandLevel": "Very High",
+        "demandTrend": "Stable",
+        "competitionLevel": "Very High",
+        "seasonality": "Stable",
+        "sources": [
+          "DoorDash Driver Report",
+          "Grubhub Analytics"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Navigation",
+          "Efficiency",
+          "Customer service"
+        ],
+        "recommendedTools": [
+          "DoorDash",
+          "Uber Eats",
+          "Grubhub"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": true,
+        "pros": [
+          "Immediate income",
+          "Very flexible",
+          "Easy entry",
+          "Peak hour opportunities"
+        ],
+        "cons": [
+          "Extremely low margins",
+          "Vehicle costs",
+          "Weather dependent",
+          "Algorithm-dependent pay"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.2,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Short-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Delivery operations"
+      }
+    },
+    {
+      "id": "grocery_shopping",
+      "name": "Grocery Shopping (Instacart/Amazon Fresh)",
+      "category": "Physical Logistics",
+      "description": "Shop for and deliver groceries for Instacart, Amazon Fresh, or local grocery services. Higher pay than food delivery.",
+      "bestFor": [
+        "Detail-oriented individuals",
+        "Those with reliable transport"
+      ],
+      "synergiesWith": [
+        "Food Delivery",
+        "Errand Running"
+      ],
+      "financial": {
+        "startupCost_min": 500,
+        "startupCost_max": 2000,
+        "startupCost_note": "Vehicle, phone, good rating",
+        "timeToFirstIncome_weeks": 1,
+        "monthlyEarning_min": 1200,
+        "monthlyEarning_max": 4500,
+        "earningNote": "Decent per-delivery pay but variable demand",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Instacart Shopper Report",
+          "Amazon Fresh Analytics"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 15,
+        "hoursPerWeek_max": 40,
+        "learningCurve": "Very Easy",
+        "timeToProficiency_months": 1,
+        "timeToScale_months": 2,
+        "scalabilityPotential": "Low"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Seasonal",
+        "sources": [
+          "Instacart Shopper Report",
+          "Amazon Fresh Analytics"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Attention to detail",
+          "Organization",
+          "Navigation"
+        ],
+        "recommendedTools": [
+          "Instacart",
+          "Amazon Fresh",
+          "Shipt"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": true,
+        "pros": [
+          "Better pay than delivery",
+          "Good reviews lead to bonuses",
+          "Flexible hours",
+          "Seasonal peaks"
+        ],
+        "cons": [
+          "Requires detail orientation",
+          "Weather dependent",
+          "Batch ordering complexity",
+          "Substitution challenges"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.25,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Short-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Shopping and delivery operations"
+      }
+    },
+    {
+      "id": "parcel_courier",
+      "name": "Parcel Courier (Amazon Flex, DPD)",
+      "category": "Physical Logistics",
+      "description": "Deliver parcels for Amazon Flex, UPS, DPD, or DHL. Better pay than food delivery, but high vehicle wear.",
+      "bestFor": [
+        "Those with reliable transport",
+        "Efficient workers",
+        "Detail-oriented"
+      ],
+      "synergiesWith": [
+        "Rideshare Driving",
+        "Food Delivery"
+      ],
+      "financial": {
+        "startupCost_min": 2000,
+        "startupCost_max": 6000,
+        "startupCost_note": "Vehicle with insurance, phone",
+        "timeToFirstIncome_weeks": 1,
+        "monthlyEarning_min": 1500,
+        "monthlyEarning_max": 5500,
+        "earningNote": "Varies by platform and location",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Amazon Flex Earnings Report",
+          "DPD Courier Analytics"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 20,
+        "hoursPerWeek_max": 50,
+        "learningCurve": "Very Easy",
+        "timeToProficiency_months": 1,
+        "timeToScale_months": 2,
+        "scalabilityPotential": "Low"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Stable",
+        "competitionLevel": "Very High",
+        "seasonality": "Stable",
+        "sources": [
+          "Amazon Flex Earnings Report",
+          "DPD Courier Analytics"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Navigation",
+          "Organization",
+          "Customer service"
+        ],
+        "recommendedTools": [
+          "Amazon Flex",
+          "DPD",
+          "UPS"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": true,
+        "pros": [
+          "Better hourly rates",
+          "Predictable blocks",
+          "Bonuses available",
+          "Flexible scheduling"
+        ],
+        "cons": [
+          "Vehicle wear and tear",
+          "Weather dependent",
+          "Physical demands",
+          "Strict delivery windows"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.2,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Short-term viable",
+        "flexibility": "Medium",
+        "regularityNeeded": "Delivery operations and logistics"
+      }
+    },
+    {
+      "id": "cargo_hauling",
+      "name": "Cargo Hauling (Uship, Shiply)",
+      "category": "Physical Logistics",
+      "description": "Transport cargo, freight, or specialty items using your vehicle or truck. Project-based, better rates than standard delivery.",
+      "bestFor": [
+        "Those with trucks or large vehicles",
+        "Experienced drivers"
+      ],
+      "synergiesWith": [
+        "Parcel Courier",
+        "Errand Running"
+      ],
+      "financial": {
+        "startupCost_min": 1000,
+        "startupCost_max": 5000,
+        "startupCost_note": "Truck/vehicle, insurance, fuel",
+        "timeToFirstIncome_weeks": 2,
+        "monthlyEarning_min": 2000,
+        "monthlyEarning_max": 8000,
+        "earningNote": "Highly variable by cargo type and distance",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Uship Carrier Report",
+          "Logistics Marketplace Data"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 20,
+        "hoursPerWeek_max": 50,
+        "learningCurve": "Easy",
+        "timeToProficiency_months": 2,
+        "timeToScale_months": 4,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "Moderate",
+        "demandTrend": "Stable",
+        "competitionLevel": "Medium",
+        "seasonality": "Stable",
+        "sources": [
+          "Uship Carrier Report",
+          "Logistics Marketplace Data"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Driving",
+          "Organization",
+          "Negotiation"
+        ],
+        "recommendedTools": [
+          "Uship",
+          "Shiply",
+          "LoadUp"
+        ],
+        "barrierToEntry": "Medium",
+        "locationDependent": true,
+        "pros": [
+          "Higher rates than standard delivery",
+          "Flexible scheduling",
+          "Project-based work",
+          "Build regular routes"
+        ],
+        "cons": [
+          "Requires large vehicle",
+          "Higher fuel costs",
+          "Longer delivery times",
+          "Liability concerns"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.3,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Medium-term viable",
+        "flexibility": "Medium",
+        "regularityNeeded": "Logistics and scheduling"
+      }
+    },
+    {
+      "id": "errand_running",
+      "name": "Errand Running (TaskRabbit, Care.com)",
+      "category": "Physical Logistics",
+      "description": "Run errands for busy professionals: shopping, deliveries, appointments, returns, etc.",
+      "bestFor": [
+        "Organized individuals",
+        "Good with details",
+        "Customer service oriented"
+      ],
+      "synergiesWith": [
+        "Grocery Shopping",
+        "Food Delivery"
+      ],
+      "financial": {
+        "startupCost_min": 300,
+        "startupCost_max": 1500,
+        "startupCost_note": "Reliable transportation, phone",
+        "timeToFirstIncome_weeks": 1,
+        "monthlyEarning_min": 1000,
+        "monthlyEarning_max": 4000,
+        "earningNote": "Highly location and demand dependent",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "TaskRabbit Market Report",
+          "Care.com Errand Services"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 10,
+        "hoursPerWeek_max": 40,
+        "learningCurve": "Very Easy",
+        "timeToProficiency_months": 1,
+        "timeToScale_months": 2,
+        "scalabilityPotential": "Low"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Stable",
+        "sources": [
+          "TaskRabbit Market Report",
+          "Care.com Errand Services"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Organization",
+          "Customer service",
+          "Efficiency"
+        ],
+        "recommendedTools": [
+          "TaskRabbit",
+          "Care.com",
+          "Local networks"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": true,
+        "pros": [
+          "Flexible scheduling",
+          "Varied work",
+          "Easy to start",
+          "Build regular clients"
+        ],
+        "cons": [
+          "Location dependent",
+          "Lower rates than skilled tasks",
+          "Inconsistent demand",
+          "Competition increasing"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.3,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Short-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Errand coordination and completion"
+      }
+    },
+    {
+      "id": "handmade_crafts",
+      "name": "Handmade Crafts (Etsy, local)",
+      "category": "Tangible Goods",
+      "description": "Create handmade items (jewelry, art, furniture, pottery) and sell on Etsy, local markets, or direct.",
+      "bestFor": [
+        "Craftspeople",
+        "Artisans",
+        "Creative types"
+      ],
+      "synergiesWith": [
+        "Print-on-Demand",
+        "Etsy Shop",
+        "Creator Marketplace"
+      ],
+      "financial": {
+        "startupCost_min": 500,
+        "startupCost_max": 5000,
+        "startupCost_note": "Materials, tools, storage, Etsy shop",
+        "timeToFirstIncome_weeks": 8,
+        "monthlyEarning_min": 500,
+        "monthlyEarning_max": 5000,
+        "earningNote": "Highly dependent on product and visibility",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Etsy Shop Report 2024",
+          "Craft Industry Analytics"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 20,
+        "hoursPerWeek_max": 50,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 6,
+        "timeToScale_months": 12,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "Moderate",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Seasonal",
+        "sources": [
+          "Etsy Shop Report 2024",
+          "Craft Industry Analytics"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Craftsmanship",
+          "Design sense",
+          "Marketing"
+        ],
+        "recommendedTools": [
+          "Etsy",
+          "Instagram",
+          "Email"
+        ],
+        "barrierToEntry": "Medium",
+        "locationDependent": false,
+        "pros": [
+          "Creative fulfillment",
+          "Portfolio building",
+          "Potential for scaling",
+          "Niche communities"
+        ],
+        "cons": [
+          "Time intensive",
+          "Material costs",
+          "Inventory management",
+          "Shipping logistics"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.35,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Craft creation and shop management"
+      }
+    },
+    {
+      "id": "print_on_demand",
+      "name": "Print-on-Demand",
+      "category": "Tangible Goods",
+      "description": "Design products (t-shirts, mugs, hoodies) and sell via print-on-demand services like Printful, Merch by Amazon.",
+      "bestFor": [
+        "Designers",
+        "Those with design skills",
+        "Brand builders"
+      ],
+      "synergiesWith": [
+        "Handmade Crafts",
+        "Digital Downloads",
+        "Creator Marketplace"
+      ],
+      "financial": {
+        "startupCost_min": 200,
+        "startupCost_max": 800,
+        "startupCost_note": "Design software, Merch account setup",
+        "timeToFirstIncome_weeks": 2,
+        "monthlyEarning_min": 300,
+        "monthlyEarning_max": 3000,
+        "earningNote": "Passive income potential, low conversion",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Merch by Amazon Report",
+          "Printful Case Studies"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 15,
+        "hoursPerWeek_max": 30,
+        "learningCurve": "Easy",
+        "timeToProficiency_months": 3,
+        "timeToScale_months": 6,
+        "scalabilityPotential": "High"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "Very High",
+        "seasonality": "Stable",
+        "sources": [
+          "Merch by Amazon Report",
+          "Printful Case Studies"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Design",
+          "Marketing",
+          "Brand awareness"
+        ],
+        "recommendedTools": [
+          "Merch by Amazon",
+          "Printful",
+          "Redbubble"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": false,
+        "pros": [
+          "No inventory required",
+          "Passive income",
+          "Design freedom",
+          "Multiple platforms"
+        ],
+        "cons": [
+          "Low profit margins",
+          "High competition",
+          "Requires audience",
+          "Marketing intensive"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.65,
+        "passivityLabel": "Highly Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Design creation and marketing"
+      }
+    },
+    {
+      "id": "book_publishing",
+      "name": "Self-Published Books",
+      "category": "Tangible Goods",
+      "description": "Write and self-publish books on Amazon KDP, IngramSpark, or other platforms. Low upfront cost, passive income.",
+      "bestFor": [
+        "Writers",
+        "Subject experts",
+        "Storytellers"
+      ],
+      "synergiesWith": [
+        "Online Courses",
+        "Blogging",
+        "Creative Writing"
+      ],
+      "financial": {
+        "startupCost_min": 100,
+        "startupCost_max": 1000,
+        "startupCost_note": "ISBN optional, cover design, editing",
+        "timeToFirstIncome_weeks": 12,
+        "monthlyEarning_min": 200,
+        "monthlyEarning_max": 5000,
+        "earningNote": "Highly dependent on book quality and marketing",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Amazon KDP Report 2024",
+          "Self-Publishing Industry Data"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 20,
+        "hoursPerWeek_max": 50,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 6,
+        "timeToScale_months": 24,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "Moderate",
+        "demandTrend": "Growing",
+        "competitionLevel": "Very High",
+        "seasonality": "Stable",
+        "sources": [
+          "Amazon KDP Report 2024",
+          "Self-Publishing Industry Data"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Writing",
+          "Editing",
+          "Cover design"
+        ],
+        "recommendedTools": [
+          "Amazon KDP",
+          "IngramSpark",
+          "Draft2Digital"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": false,
+        "pros": [
+          "Passive income potential",
+          "Build authority",
+          "Portfolio piece",
+          "Multiple formats (ebook, print)"
+        ],
+        "cons": [
+          "Long writing process",
+          "Intense marketing needed",
+          "Oversaturated market",
+          "Low average earnings"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.7,
+        "passivityLabel": "Highly Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Writing, editing, and marketing"
+      }
+    },
+    {
+      "id": "drop_shipping",
+      "name": "Drop Shipping",
+      "category": "Tangible Goods",
+      "description": "Build an online store that sells products manufactured and shipped by suppliers. No inventory management.",
+      "bestFor": [
+        "Entrepreneurs",
+        "E-commerce operators",
+        "Marketing focused"
+      ],
+      "synergiesWith": [
+        "Print-on-Demand",
+        "Etsy Shop"
+      ],
+      "financial": {
+        "startupCost_min": 1000,
+        "startupCost_max": 5000,
+        "startupCost_note": "Shopify store, supplier setup, marketing",
+        "timeToFirstIncome_weeks": 4,
+        "monthlyEarning_min": 1000,
+        "monthlyEarning_max": 10000,
+        "earningNote": "Highly variable, requires marketing skill",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Shopify Dropshipping Report",
+          "E-Commerce Benchmarks"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 20,
+        "hoursPerWeek_max": 50,
+        "learningCurve": "Hard",
+        "timeToProficiency_months": 3,
+        "timeToScale_months": 6,
+        "scalabilityPotential": "High"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Stable",
+        "competitionLevel": "Very High",
+        "seasonality": "Stable",
+        "sources": [
+          "Shopify Dropshipping Report",
+          "E-Commerce Benchmarks"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "E-commerce",
+          "Marketing",
+          "Customer service"
+        ],
+        "recommendedTools": [
+          "Shopify",
+          "Oberlo",
+          "Printful"
+        ],
+        "barrierToEntry": "Medium",
+        "locationDependent": false,
+        "pros": [
+          "Scalable without inventory",
+          "Passive income potential",
+          "Low barrier to entry",
+          "Global market access"
+        ],
+        "cons": [
+          "Intense competition",
+          "Marketing critical",
+          "Supplier quality varies",
+          "Tight margins"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.4,
+        "passivityLabel": "Somewhat Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "E-commerce operations and marketing"
+      }
+    },
+    {
+      "id": "mobile_apps",
+      "name": "Mobile Apps",
+      "category": "Digital Tools & Applications",
+      "description": "Create and publish iOS/Android apps on App Store and Google Play. Can monetize via downloads, IAP, or ads.",
+      "bestFor": [
+        "Mobile developers",
+        "Product thinkers",
+        "Those with coding skills"
+      ],
+      "synergiesWith": [
+        "Web Applications",
+        "Browser Extensions",
+        "AI Automations"
+      ],
+      "financial": {
+        "startupCost_min": 2000,
+        "startupCost_max": 10000,
+        "startupCost_note": "Development tools, SDK licenses, marketing",
+        "timeToFirstIncome_weeks": 12,
+        "monthlyEarning_min": 500,
+        "monthlyEarning_max": 50000,
+        "earningNote": "Highly variable by app category and marketing",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "App Annie Report",
+          "Sensor Tower Analytics"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 30,
+        "hoursPerWeek_max": 60,
+        "learningCurve": "Hard",
+        "timeToProficiency_months": 12,
+        "timeToScale_months": 24,
+        "scalabilityPotential": "High"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Stable",
+        "competitionLevel": "Very High",
+        "seasonality": "Stable",
+        "sources": [
+          "App Annie Report",
+          "Sensor Tower Analytics"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "iOS/Android development",
+          "UI/UX design",
+          "Product management"
+        ],
+        "recommendedTools": [
+          "Xcode",
+          "Android Studio",
+          "Swift",
+          "Kotlin"
+        ],
+        "barrierToEntry": "High",
+        "locationDependent": false,
+        "pros": [
+          "Large potential market",
+          "App store authority",
+          "Recurring monetization",
+          "Passive income"
+        ],
+        "cons": [
+          "Slow to get traction",
+          "High competition",
+          "Platform dependency",
+          "Update maintenance"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.5,
+        "passivityLabel": "Somewhat Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "App development and updates"
+      }
+    },
+    {
+      "id": "web_applications",
+      "name": "Web Applications (SaaS)",
+      "category": "Digital Tools & Applications",
+      "description": "Build web-based SaaS products that solve specific problems. Charge subscription fee or one-time purchase.",
+      "bestFor": [
+        "Full-stack developers",
+        "Product builders",
+        "Problem solvers"
+      ],
+      "synergiesWith": [
+        "Mobile Apps",
+        "Browser Extensions"
+      ],
+      "financial": {
+        "startupCost_min": 2000,
+        "startupCost_max": 15000,
+        "startupCost_note": "Development, hosting, monitoring",
+        "timeToFirstIncome_weeks": 16,
+        "monthlyEarning_min": 500,
+        "monthlyEarning_max": 100000,
+        "earningNote": "Highly variable by product-market fit",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "G2 SaaS Report",
+          "Stripe Report"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 40,
+        "hoursPerWeek_max": 70,
+        "learningCurve": "Hard",
+        "timeToProficiency_months": 12,
+        "timeToScale_months": 24,
+        "scalabilityPotential": "High"
+      },
+      "market": {
+        "demandLevel": "Very High",
+        "demandTrend": "Growing",
+        "competitionLevel": "Very High",
+        "seasonality": "Stable",
+        "sources": [
+          "G2 SaaS Report",
+          "Stripe Report"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Full-stack development",
+          "Product management",
+          "Customer support"
+        ],
+        "recommendedTools": [
+          "React/Vue/Angular",
+          "Node.js",
+          "AWS",
+          "Stripe"
+        ],
+        "barrierToEntry": "High",
+        "locationDependent": false,
+        "pros": [
+          "Scalable revenue",
+          "Recurring customers",
+          "High margins",
+          "Business building"
+        ],
+        "cons": [
+          "Long development time",
+          "Requires sales skills",
+          "Customer support intensive",
+          "Competitive landscape"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.6,
+        "passivityLabel": "Somewhat Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Product development and customer support"
+      }
+    },
+    {
+      "id": "browser_extensions",
+      "name": "Browser Extensions",
+      "category": "Digital Tools & Applications",
+      "description": "Create browser extensions (Chrome, Firefox, Safari) that solve specific problems or enhance browsing.",
+      "bestFor": [
+        "Web developers",
+        "Problem solvers"
+      ],
+      "synergiesWith": [
+        "Web Applications",
+        "AI Automations"
+      ],
+      "financial": {
+        "startupCost_min": 500,
+        "startupCost_max": 2000,
+        "startupCost_note": "Development environment, distribution",
+        "timeToFirstIncome_weeks": 4,
+        "monthlyEarning_min": 200,
+        "monthlyEarning_max": 5000,
+        "earningNote": "Monetization through Chrome Web Store or ads",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Chrome Web Store Trends",
+          "Extension Developer Report"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 20,
+        "hoursPerWeek_max": 40,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 3,
+        "timeToScale_months": 6,
+        "scalabilityPotential": "High"
+      },
+      "market": {
+        "demandLevel": "Moderate",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Stable",
+        "sources": [
+          "Chrome Web Store Trends",
+          "Extension Developer Report"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Web development",
+          "Browser APIs",
+          "UX design"
+        ],
+        "recommendedTools": [
+          "Chrome Web Store",
+          "Firefox Add-ons",
+          "JavaScript"
+        ],
+        "barrierToEntry": "Low",
+        "locationDependent": false,
+        "pros": [
+          "Quick to develop",
+          "Large Chrome audience",
+          "Passive income",
+          "Problem solving"
+        ],
+        "cons": [
+          "Discovery challenging",
+          "Low average monetization",
+          "Maintenance burden",
+          "Browser updates"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.55,
+        "passivityLabel": "Somewhat Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Extension development and updates"
+      }
+    },
+    {
+      "id": "wordpress_plugins",
+      "name": "WordPress Plugins",
+      "category": "Digital Tools & Applications",
+      "description": "Create WordPress plugins that extend functionality. Sell on WordPress.org (free + premium) or own site.",
+      "bestFor": [
+        "WordPress developers",
+        "Site builders"
+      ],
+      "synergiesWith": [
+        "Browser Extensions",
+        "Web Applications"
+      ],
+      "financial": {
+        "startupCost_min": 300,
+        "startupCost_max": 2000,
+        "startupCost_note": "Development environment, distribution",
+        "timeToFirstIncome_weeks": 4,
+        "monthlyEarning_min": 300,
+        "monthlyEarning_max": 10000,
+        "earningNote": "WordPress ecosystem provides built-in audience",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "WordPress Plugin Report",
+          "Kinsta Plugin Development"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 20,
+        "hoursPerWeek_max": 40,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 4,
+        "timeToScale_months": 8,
+        "scalabilityPotential": "High"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Stable",
+        "competitionLevel": "High",
+        "seasonality": "Stable",
+        "sources": [
+          "WordPress Plugin Report",
+          "Kinsta Plugin Development"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "WordPress development",
+          "PHP/JavaScript",
+          "Plugin architecture"
+        ],
+        "recommendedTools": [
+          "WordPress.org",
+          "Gumroad",
+          "Easy Digital Downloads"
+        ],
+        "barrierToEntry": "Low",
+        "locationDependent": false,
+        "pros": [
+          "Built-in audience",
+          "WordPress ecosystem",
+          "Recurring revenue",
+          "Passive income"
+        ],
+        "cons": [
+          "Discovery competitive",
+          "Browser plugin compatibility",
+          "Support requirements",
+          "Updates needed"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.6,
+        "passivityLabel": "Somewhat Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Plugin development and maintenance"
+      }
+    },
+    {
+      "id": "ai_automation_tools",
+      "name": "AI Automation Tools",
+      "category": "Digital Tools & Applications",
+      "description": "Build automation tools using AI APIs (OpenAI, Claude, Midjourney). Can be standalone or integrate with existing platforms.",
+      "bestFor": [
+        "AI-savvy developers",
+        "Problem solvers"
+      ],
+      "synergiesWith": [
+        "Web Applications",
+        "Browser Extensions"
+      ],
+      "financial": {
+        "startupCost_min": 500,
+        "startupCost_max": 3000,
+        "startupCost_note": "API keys, hosting, development",
+        "timeToFirstIncome_weeks": 4,
+        "monthlyEarning_min": 500,
+        "monthlyEarning_max": 20000,
+        "earningNote": "Emerging market with rapid growth",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "OpenAI API Economics",
+          "AI Tools Report 2024"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 20,
+        "hoursPerWeek_max": 50,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 2,
+        "timeToScale_months": 4,
+        "scalabilityPotential": "Very High"
+      },
+      "market": {
+        "demandLevel": "Very High",
+        "demandTrend": "Growing Rapidly",
+        "competitionLevel": "Medium",
+        "seasonality": "Stable",
+        "sources": [
+          "OpenAI API Economics",
+          "AI Tools Report 2024"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Python/JavaScript",
+          "AI API knowledge",
+          "Problem solving"
+        ],
+        "recommendedTools": [
+          "OpenAI",
+          "Claude API",
+          "Zapier",
+          "Make"
+        ],
+        "barrierToEntry": "Medium",
+        "locationDependent": false,
+        "pros": [
+          "Hot market trend",
+          "Growing demand",
+          "Moderate development effort",
+          "Viral potential"
+        ],
+        "cons": [
+          "Requires API knowledge",
+          "API costs variable",
+          "Rapid market evolution",
+          "Potential regulation"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.45,
+        "passivityLabel": "Somewhat Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Tool development and updates"
+      }
+    },
+    {
+      "id": "code_libraries",
+      "name": "Code Libraries/Packages",
+      "category": "Digital Tools & Applications",
+      "description": "Create and publish open-source or paid code libraries (npm, PyPI, rubygems). Monetize via sponsorships or premium features.",
+      "bestFor": [
+        "Software engineers",
+        "Open source contributors"
+      ],
+      "synergiesWith": [
+        "Web Applications",
+        "Browser Extensions"
+      ],
+      "financial": {
+        "startupCost_min": 0,
+        "startupCost_max": 1000,
+        "startupCost_note": "Optional: development tools, CI/CD",
+        "timeToFirstIncome_weeks": 4,
+        "monthlyEarning_min": 100,
+        "monthlyEarning_max": 5000,
+        "earningNote": "Monetization varies (sponsorships, premium tiers)",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "npm Trends",
+          "Open Source Economics Report"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 20,
+        "hoursPerWeek_max": 40,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 3,
+        "timeToScale_months": 6,
+        "scalabilityPotential": "High"
+      },
+      "market": {
+        "demandLevel": "Moderate",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Stable",
+        "sources": [
+          "npm Trends",
+          "Open Source Economics Report"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Software engineering",
+          "API design",
+          "Documentation"
+        ],
+        "recommendedTools": [
+          "npm",
+          "GitHub",
+          "Open Source Community"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": false,
+        "pros": [
+          "Community contribution",
+          "Sponsorship potential",
+          "Passive downloads",
+          "Career advancement"
+        ],
+        "cons": [
+          "Maintenance burden",
+          "Low direct monetization",
+          "Competition",
+          "Support intensive"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.65,
+        "passivityLabel": "Somewhat Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Library maintenance and updates"
+      }
+    },
+    {
+      "id": "live_events",
+      "name": "Live Events (Conferences, Summits)",
+      "category": "Event Operations",
+      "description": "Organize and host live in-person events. Charge admission or sponsorships. Build community and authority.",
+      "bestFor": [
+        "Event organizers",
+        "Community builders",
+        "Subject experts"
+      ],
+      "synergiesWith": [
+        "Corporate Workshops",
+        "Live Cohorts",
+        "Local Workshops"
+      ],
+      "financial": {
+        "startupCost_min": 5000,
+        "startupCost_max": 50000,
+        "startupCost_note": "Venue, marketing, logistics, speaker fees",
+        "timeToFirstIncome_weeks": 12,
+        "monthlyEarning_min": 5000,
+        "monthlyEarning_max": 100000,
+        "earningNote": "Highly variable by event size and quality",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "EventBrite Report",
+          "Event Industry Data"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 40,
+        "hoursPerWeek_max": 70,
+        "learningCurve": "Hard",
+        "timeToProficiency_months": 8,
+        "timeToScale_months": 12,
+        "scalabilityPotential": "High"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "Medium",
+        "seasonality": "Seasonal",
+        "sources": [
+          "EventBrite Report",
+          "Event Industry Data"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Event management",
+          "Marketing",
+          "Negotiation"
+        ],
+        "recommendedTools": [
+          "Eventbrite",
+          "Ticketmaster",
+          "Loom"
+        ],
+        "barrierToEntry": "Very High",
+        "locationDependent": true,
+        "pros": [
+          "Large audience potential",
+          "Sponsorship revenue",
+          "Authority building",
+          "Network effects"
+        ],
+        "cons": [
+          "High upfront cost",
+          "Attendance risk",
+          "Logistics complexity",
+          "Weather dependent"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.3,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Long-term viable",
+        "flexibility": "Medium",
+        "regularityNeeded": "Event planning and execution"
+      }
+    },
+    {
+      "id": "local_workshops",
+      "name": "Local Workshops",
+      "category": "Event Operations",
+      "description": "Host workshops in your local area (yoga, cooking, business, fitness). Charge per attendee, recurring.",
+      "bestFor": [
+        "Educators",
+        "Fitness instructors",
+        "Skill teachers"
+      ],
+      "synergiesWith": [
+        "Corporate Workshops",
+        "Live Events"
+      ],
+      "financial": {
+        "startupCost_min": 500,
+        "startupCost_max": 2000,
+        "startupCost_note": "Venue rental, marketing, supplies",
+        "timeToFirstIncome_weeks": 4,
+        "monthlyEarning_min": 1000,
+        "monthlyEarning_max": 5000,
+        "earningNote": "Limited by venue capacity and local demand",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Workshop Revenue Report",
+          "Local Event Data"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 15,
+        "hoursPerWeek_max": 40,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 2,
+        "timeToScale_months": 4,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Seasonal",
+        "sources": [
+          "Workshop Revenue Report",
+          "Local Event Data"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Teaching",
+          "Marketing",
+          "Customer service"
+        ],
+        "recommendedTools": [
+          "Eventbrite",
+          "Facebook",
+          "Local networks"
+        ],
+        "barrierToEntry": "Low",
+        "locationDependent": true,
+        "pros": [
+          "Direct revenue",
+          "Build local reputation",
+          "Recurring attendance",
+          "Low overhead"
+        ],
+        "cons": [
+          "Location dependent",
+          "Venue constraints",
+          "Marketing to locals",
+          "Seasonality"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.35,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Workshop delivery and promotion"
+      }
+    },
+    {
+      "id": "pop_up_shops",
+      "name": "Pop-up Shops",
+      "category": "Event Operations",
+      "description": "Run temporary retail spaces to sell products. Can be physical products, services, or experiences.",
+      "bestFor": [
+        "Entrepreneurs",
+        "Retailers",
+        "Brand builders"
+      ],
+      "synergiesWith": [
+        "Handmade Crafts",
+        "Live Events"
+      ],
+      "financial": {
+        "startupCost_min": 2000,
+        "startupCost_max": 10000,
+        "startupCost_note": "Venue rental, setup, marketing, inventory",
+        "timeToFirstIncome_weeks": 6,
+        "monthlyEarning_min": 2000,
+        "monthlyEarning_max": 20000,
+        "earningNote": "Location and foot traffic dependent",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Pop-up Shop Report",
+          "Retail Trends"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 30,
+        "hoursPerWeek_max": 50,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 3,
+        "timeToScale_months": 6,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "Moderate",
+        "demandTrend": "Growing",
+        "competitionLevel": "Medium",
+        "seasonality": "Seasonal",
+        "sources": [
+          "Pop-up Shop Report",
+          "Retail Trends"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Retail operations",
+          "Marketing",
+          "Sales"
+        ],
+        "recommendedTools": [
+          "Poptm",
+          "Facebook",
+          "Instagram"
+        ],
+        "barrierToEntry": "Medium",
+        "locationDependent": true,
+        "pros": [
+          "High foot traffic potential",
+          "Brand visibility",
+          "Inventory movement",
+          "Seasonal peaks"
+        ],
+        "cons": [
+          "Requires inventory",
+          "Location scouting",
+          "Foot traffic uncertain",
+          "Short-term revenue"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.3,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Short-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Shop setup and sales"
+      }
+    },
+    {
+      "id": "immersive_retreats",
+      "name": "Immersive Retreats",
+      "category": "Event Operations",
+      "description": "Host multi-day retreats (wellness, business, creative). Premium pricing, high engagement.",
+      "bestFor": [
+        "Facilitators",
+        "Experienced leaders",
+        "Community builders"
+      ],
+      "synergiesWith": [
+        "Live Events",
+        "Coaching"
+      ],
+      "financial": {
+        "startupCost_min": 10000,
+        "startupCost_max": 50000,
+        "startupCost_note": "Venue, accommodation, food, marketing",
+        "timeToFirstIncome_weeks": 16,
+        "monthlyEarning_min": 5000,
+        "monthlyEarning_max": 100000,
+        "earningNote": "Highly variable by retreat type",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Retreat Industry Report",
+          "Experience Economy Trends"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 50,
+        "hoursPerWeek_max": 80,
+        "learningCurve": "Hard",
+        "timeToProficiency_months": 12,
+        "timeToScale_months": 24,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "Moderate",
+        "demandTrend": "Growing",
+        "competitionLevel": "Medium",
+        "seasonality": "Seasonal",
+        "sources": [
+          "Retreat Industry Report",
+          "Experience Economy Trends"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Facilitation",
+          "Event management",
+          "Marketing"
+        ],
+        "recommendedTools": [
+          "Airbnb Experiences",
+          "EventBrite"
+        ],
+        "barrierToEntry": "High",
+        "locationDependent": true,
+        "pros": [
+          "Premium pricing",
+          "Deep engagement",
+          "Community building",
+          "High margins"
+        ],
+        "cons": [
+          "High coordination",
+          "Liability concerns",
+          "Marketing challenge",
+          "Seasonal patterns"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.25,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Long-term viable",
+        "flexibility": "Medium",
+        "regularityNeeded": "Retreat coordination and facilitation"
+      }
+    },
+    {
+      "id": "hackathon_hosting",
+      "name": "Hackathon Hosting",
+      "category": "Event Operations",
+      "description": "Organize hackathons for developers, designers, or entrepreneurs. Attract sponsorships and participants.",
+      "bestFor": [
+        "Tech event organizers",
+        "Community leaders"
+      ],
+      "synergiesWith": [
+        "Live Events",
+        "Corporate Workshops"
+      ],
+      "financial": {
+        "startupCost_min": 3000,
+        "startupCost_max": 15000,
+        "startupCost_note": "Venue, platform, marketing, prizes",
+        "timeToFirstIncome_weeks": 8,
+        "monthlyEarning_min": 2000,
+        "monthlyEarning_max": 30000,
+        "earningNote": "Sponsorship dependent",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Hackathon Report",
+          "Developer Event Trends"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 40,
+        "hoursPerWeek_max": 60,
+        "learningCurve": "Hard",
+        "timeToProficiency_months": 6,
+        "timeToScale_months": 12,
+        "scalabilityPotential": "High"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "Medium",
+        "seasonality": "Stable",
+        "sources": [
+          "Hackathon Report",
+          "Developer Event Trends"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Event management",
+          "Community building",
+          "Sponsorship sales"
+        ],
+        "recommendedTools": [
+          "Devpost",
+          "HackerEarth"
+        ],
+        "barrierToEntry": "High",
+        "locationDependent": true,
+        "pros": [
+          "Tech community engagement",
+          "Sponsorship revenue",
+          "Talent spotting",
+          "Innovation focus"
+        ],
+        "cons": [
+          "Requires tech credibility",
+          "Sponsorship selling",
+          "Logistics complex",
+          "Continuous planning"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.3,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Long-term viable",
+        "flexibility": "Medium",
+        "regularityNeeded": "Hackathon organization and execution"
+      }
+    },
+    {
+      "id": "space_rental",
+      "name": "Space Rental",
+      "category": "Asset Rentals",
+      "description": "Rent out office space, studios, parking, storage, or other underutilized space you own.",
+      "bestFor": [
+        "Property owners",
+        "Space optimizers"
+      ],
+      "synergiesWith": [
+        "Asset Rentals - Vehicle Rental"
+      ],
+      "financial": {
+        "startupCost_min": 500,
+        "startupCost_max": 5000,
+        "startupCost_note": "Listing, insurance, maintenance",
+        "timeToFirstIncome_weeks": 2,
+        "monthlyEarning_min": 500,
+        "monthlyEarning_max": 5000,
+        "earningNote": "Highly location and demand dependent",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Airbnb Host Report",
+          "Commercial Property Report"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 5,
+        "hoursPerWeek_max": 20,
+        "learningCurve": "Very Easy",
+        "timeToProficiency_months": 1,
+        "timeToScale_months": 3,
+        "scalabilityPotential": "Low"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Stable",
+        "competitionLevel": "High",
+        "seasonality": "Stable",
+        "sources": [
+          "Airbnb Host Report",
+          "Commercial Property Report"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Property management",
+          "Marketing"
+        ],
+        "recommendedTools": [
+          "Airbnb",
+          "Peerspace",
+          "Facebook"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": true,
+        "pros": [
+          "Passive income",
+          "Asset leverage",
+          "Flexible renting",
+          "Multiple tenants"
+        ],
+        "cons": [
+          "Tenant management",
+          "Liability",
+          "Maintenance costs",
+          "Local regulations"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.75,
+        "passivityLabel": "Highly Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Property management and guest coordination"
+      }
+    },
+    {
+      "id": "gear_rental",
+      "name": "Gear Rental",
+      "category": "Asset Rentals",
+      "description": "Rent out camera equipment, camping gear, sports equipment, or other items you own.",
+      "bestFor": [
+        "Equipment owners",
+        "Hobbyists"
+      ],
+      "synergiesWith": [
+        "Space Rental",
+        "Vehicle Rental"
+      ],
+      "financial": {
+        "startupCost_min": 500,
+        "startupCost_max": 5000,
+        "startupCost_note": "Equipment, insurance, platform listing",
+        "timeToFirstIncome_weeks": 2,
+        "monthlyEarning_min": 300,
+        "monthlyEarning_max": 3000,
+        "earningNote": "Category and condition dependent",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Fat Llama Report",
+          "Peer-to-Peer Rental Trends"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 5,
+        "hoursPerWeek_max": 15,
+        "learningCurve": "Very Easy",
+        "timeToProficiency_months": 1,
+        "timeToScale_months": 2,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "Moderate",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Seasonal",
+        "sources": [
+          "Fat Llama Report",
+          "Peer-to-Peer Rental Trends"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Equipment maintenance",
+          "Customer service"
+        ],
+        "recommendedTools": [
+          "Fat Llama",
+          "ShareGrid",
+          "Facebook"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": true,
+        "pros": [
+          "Passive income",
+          "Equipment monetization",
+          "Minimal liability",
+          "Recurring rentals"
+        ],
+        "cons": [
+          "Equipment damage risk",
+          "Insurance needs",
+          "Scheduling management",
+          "Seasonal demand"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.7,
+        "passivityLabel": "Highly Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Equipment maintenance and rental coordination"
+      }
+    },
+    {
+      "id": "vehicle_rental",
+      "name": "Vehicle Rental (Turo, Car2Go)",
+      "category": "Asset Rentals",
+      "description": "Rent out your vehicle through Turo or similar platforms. Passive income from idle assets.",
+      "bestFor": [
+        "Vehicle owners",
+        "Those with extra cars"
+      ],
+      "synergiesWith": [
+        "Space Rental",
+        "Gear Rental"
+      ],
+      "financial": {
+        "startupCost_min": 1000,
+        "startupCost_max": 5000,
+        "startupCost_note": "Vehicle insurance, maintenance, listing",
+        "timeToFirstIncome_weeks": 2,
+        "monthlyEarning_min": 500,
+        "monthlyEarning_max": 3000,
+        "earningNote": "Highly dependent on vehicle and location",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Turo 2024 Report",
+          "Vehicle Sharing Trends"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 2,
+        "hoursPerWeek_max": 10,
+        "learningCurve": "Very Easy",
+        "timeToProficiency_months": 1,
+        "timeToScale_months": 2,
+        "scalabilityPotential": "Low"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Stable",
+        "sources": [
+          "Turo 2024 Report",
+          "Vehicle Sharing Trends"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Vehicle maintenance",
+          "Customer service"
+        ],
+        "recommendedTools": [
+          "Turo",
+          "Airbnb",
+          "Zipcar"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": true,
+        "pros": [
+          "Passive income",
+          "Asset monetization",
+          "Vehicle maintenance covered",
+          "Insurance provided"
+        ],
+        "cons": [
+          "Vehicle wear/tear",
+          "Potential damage",
+          "Insurance limits",
+          "Location dependent"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.75,
+        "passivityLabel": "Highly Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Vehicle maintenance and rental coordination"
+      }
+    },
+    {
+      "id": "asset_licensing",
+      "name": "Asset Licensing",
+      "category": "IP & Licensing",
+      "description": "License photos, illustrations, fonts, or templates to creators and businesses.",
+      "bestFor": [
+        "Designers",
+        "Content creators"
+      ],
+      "synergiesWith": [
+        "Digital Downloads",
+        "Stock Photography",
+        "Creator Marketplace"
+      ],
+      "financial": {
+        "startupCost_min": 200,
+        "startupCost_max": 1000,
+        "startupCost_note": "Portfolio, asset storage, distribution",
+        "timeToFirstIncome_weeks": 3,
+        "monthlyEarning_min": 300,
+        "monthlyEarning_max": 5000,
+        "earningNote": "Depends on asset popularity and uniqueness",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Creative Market Report",
+          "Asset Licensing Trends"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 15,
+        "hoursPerWeek_max": 30,
+        "learningCurve": "Easy",
+        "timeToProficiency_months": 2,
+        "timeToScale_months": 4,
+        "scalabilityPotential": "High"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Stable",
+        "sources": [
+          "Creative Market Report",
+          "Asset Licensing Trends"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Design",
+          "Asset creation",
+          "Marketing"
+        ],
+        "recommendedTools": [
+          "Creative Market",
+          "Etsy",
+          "Gumroad"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": false,
+        "pros": [
+          "Passive income",
+          "Asset reuse",
+          "Multiple revenue streams",
+          "Global audience"
+        ],
+        "cons": [
+          "Asset commoditization",
+          "Requires portfolio",
+          "Competition intense",
+          "Discovery challenging"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.7,
+        "passivityLabel": "Highly Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Asset creation and optimization"
+      }
+    },
+    {
+      "id": "white_labeling",
+      "name": "White Labeling",
+      "category": "IP & Licensing",
+      "description": "Sell your product or service under another company's brand. Recurring revenue from partners.",
+      "bestFor": [
+        "Product builders",
+        "Service providers"
+      ],
+      "synergiesWith": [
+        "Web Applications",
+        "Digital Downloads"
+      ],
+      "financial": {
+        "startupCost_min": 1000,
+        "startupCost_max": 5000,
+        "startupCost_note": "Product development, customization",
+        "timeToFirstIncome_weeks": 6,
+        "monthlyEarning_min": 1000,
+        "monthlyEarning_max": 20000,
+        "earningNote": "Highly dependent on partner quality",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "White Label Report",
+          "SaaS Partnership Models"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 15,
+        "hoursPerWeek_max": 40,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 6,
+        "timeToScale_months": 12,
+        "scalabilityPotential": "High"
+      },
+      "market": {
+        "demandLevel": "Moderate",
+        "demandTrend": "Stable",
+        "competitionLevel": "Medium",
+        "seasonality": "Stable",
+        "sources": [
+          "White Label Report",
+          "SaaS Partnership Models"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Product management",
+          "Sales",
+          "Support"
+        ],
+        "recommendedTools": [
+          "Custom platform",
+          "API integrations"
+        ],
+        "barrierToEntry": "Medium",
+        "locationDependent": false,
+        "pros": [
+          "Recurring revenue",
+          "Brand partnerships",
+          "Scalable",
+          "Multiple customer access"
+        ],
+        "cons": [
+          "Partner dependence",
+          "Customization demands",
+          "Support requirements",
+          "Pricing pressure"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.5,
+        "passivityLabel": "Somewhat Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "Medium",
+        "regularityNeeded": "Partner support and product customization"
+      }
+    },
+    {
+      "id": "franchise_models",
+      "name": "Franchise Models",
+      "category": "IP & Licensing",
+      "description": "License your business model and brand to franchisees. High upfront work, significant ongoing revenue.",
+      "bestFor": [
+        "Established business owners"
+      ],
+      "synergiesWith": [
+        "White Labeling",
+        "Consulting"
+      ],
+      "financial": {
+        "startupCost_min": 10000,
+        "startupCost_max": 50000,
+        "startupCost_note": "Legal, training, support systems",
+        "timeToFirstIncome_weeks": 24,
+        "monthlyEarning_min": 5000,
+        "monthlyEarning_max": 50000,
+        "earningNote": "Franchisee dependent, varies widely",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Franchise Report 2024",
+          "IFA Industry Data"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 20,
+        "hoursPerWeek_max": 50,
+        "learningCurve": "Hard",
+        "timeToProficiency_months": 12,
+        "timeToScale_months": 24,
+        "scalabilityPotential": "Low"
+      },
+      "market": {
+        "demandLevel": "Moderate",
+        "demandTrend": "Stable",
+        "competitionLevel": "Low",
+        "seasonality": "Stable",
+        "sources": [
+          "Franchise Report 2024",
+          "IFA Industry Data"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Business systems",
+          "Legal knowledge",
+          "Training"
+        ],
+        "recommendedTools": [
+          "Custom systems",
+          "Legal counsel"
+        ],
+        "barrierToEntry": "Very High",
+        "locationDependent": false,
+        "pros": [
+          "Significant recurring revenue",
+          "Business scaling",
+          "Brand expansion",
+          "Passive-ish income"
+        ],
+        "cons": [
+          "Legal complexity",
+          "High startup costs",
+          "Franchisee success dependent",
+          "Regulatory burden"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.4,
+        "passivityLabel": "Somewhat Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "Low",
+        "regularityNeeded": "Franchisee support and system management"
+      }
+    },
+    {
+      "id": "certification_programs",
+      "name": "Certification Programs",
+      "category": "IP & Licensing",
+      "description": "Create and certify people in your expertise area. Revenue from certifications and ongoing updates.",
+      "bestFor": [
+        "Subject matter experts",
+        "Educators"
+      ],
+      "synergiesWith": [
+        "Online Courses",
+        "Coaching"
+      ],
+      "financial": {
+        "startupCost_min": 2000,
+        "startupCost_max": 8000,
+        "startupCost_note": "Curriculum, certification platform, marketing",
+        "timeToFirstIncome_weeks": 12,
+        "monthlyEarning_min": 1000,
+        "monthlyEarning_max": 20000,
+        "earningNote": "Student volume dependent",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Certification Program Report",
+          "Credential Trends"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 20,
+        "hoursPerWeek_max": 40,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 6,
+        "timeToScale_months": 12,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "Medium",
+        "seasonality": "Stable",
+        "sources": [
+          "Certification Program Report",
+          "Credential Trends"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Curriculum design",
+          "Assessment design",
+          "Marketing"
+        ],
+        "recommendedTools": [
+          "Teachable",
+          "Kajabi",
+          "Custom platform"
+        ],
+        "barrierToEntry": "Medium",
+        "locationDependent": false,
+        "pros": [
+          "Recurring students",
+          "High credibility",
+          "Premium pricing",
+          "Brand authority"
+        ],
+        "cons": [
+          "Curriculum maintenance",
+          "Exam security",
+          "Student support",
+          "Accreditation complexity"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.55,
+        "passivityLabel": "Somewhat Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Certification delivery and student support"
+      }
+    },
+    {
+      "id": "tutoring",
+      "name": "Tutoring",
+      "category": "Education & Instruction",
+      "description": "Provide one-on-one tutoring in academic subjects, music, language, coding, or professional skills.",
+      "bestFor": [
+        "Subject matter experts",
+        "Patient teachers"
+      ],
+      "synergiesWith": [
+        "Coaching",
+        "Online Courses"
+      ],
+      "financial": {
+        "startupCost_min": 200,
+        "startupCost_max": 1000,
+        "startupCost_note": "Optional: tutoring platform, materials",
+        "timeToFirstIncome_weeks": 2,
+        "monthlyEarning_min": 1500,
+        "monthlyEarning_max": 8000,
+        "earningNote": "Time limited, depends on hourly rate",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Care.com Tutor Report",
+          "BLS Tutoring Data"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 15,
+        "hoursPerWeek_max": 40,
+        "learningCurve": "Easy",
+        "timeToProficiency_months": 2,
+        "timeToScale_months": 4,
+        "scalabilityPotential": "Low"
+      },
+      "market": {
+        "demandLevel": "Very High",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Stable",
+        "sources": [
+          "Care.com Tutor Report",
+          "BLS Tutoring Data"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Teaching ability",
+          "Subject expertise",
+          "Patience"
+        ],
+        "recommendedTools": [
+          "Care.com",
+          "Wyzant",
+          "Tutor.com"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": true,
+        "pros": [
+          "High hourly rates",
+          "Direct relationship",
+          "Flexible scheduling",
+          "Immediate income"
+        ],
+        "cons": [
+          "Time limited",
+          "Difficult to scale",
+          "Platform commission",
+          "Scheduling logistics"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.15,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Short-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "One-on-one instruction and scheduling"
+      }
+    },
+    {
+      "id": "music_lessons",
+      "name": "Music Lessons",
+      "category": "Education & Instruction",
+      "description": "Teach music instruments or voice to students. Individual or group lessons.",
+      "bestFor": [
+        "Musicians",
+        "Music teachers"
+      ],
+      "synergiesWith": [
+        "Tutoring",
+        "Online Courses"
+      ],
+      "financial": {
+        "startupCost_min": 300,
+        "startupCost_max": 1500,
+        "startupCost_note": "Optional: instruments, recording equipment",
+        "timeToFirstIncome_weeks": 2,
+        "monthlyEarning_min": 1500,
+        "monthlyEarning_max": 7000,
+        "earningNote": "Depends on hourly rate and students",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Music Teacher Report",
+          "Care.com Lessons Data"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 15,
+        "hoursPerWeek_max": 40,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 3,
+        "timeToScale_months": 6,
+        "scalabilityPotential": "Low"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Stable",
+        "competitionLevel": "High",
+        "seasonality": "Stable",
+        "sources": [
+          "Music Teacher Report",
+          "Care.com Lessons Data"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Music teaching",
+          "Instrument proficiency",
+          "Patience"
+        ],
+        "recommendedTools": [
+          "Care.com",
+          "Wyzant",
+          "Local networks"
+        ],
+        "barrierToEntry": "Low",
+        "locationDependent": true,
+        "pros": [
+          "Premium hourly rates",
+          "Recurring students",
+          "Work from anywhere",
+          "Portfolio building"
+        ],
+        "cons": [
+          "Time-intensive",
+          "Limited scalability",
+          "Scheduling complexity",
+          "Requires space"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.2,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Short-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Lesson delivery and student management"
+      }
+    },
+    {
+      "id": "resume_services",
+      "name": "Resume Services",
+      "category": "Education & Instruction",
+      "description": "Help people write and optimize resumes and cover letters. Can be done 1-on-1 or as templates.",
+      "bestFor": [
+        "Writers",
+        "Career coaches"
+      ],
+      "synergiesWith": [
+        "Writing Services",
+        "Productized Services"
+      ],
+      "financial": {
+        "startupCost_min": 200,
+        "startupCost_max": 800,
+        "startupCost_note": "Portfolio, templates, optional platform",
+        "timeToFirstIncome_weeks": 3,
+        "monthlyEarning_min": 500,
+        "monthlyEarning_max": 3000,
+        "earningNote": "Per-client revenue, depends on pricing",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Resume Service Report",
+          "Career Services Trends"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 15,
+        "hoursPerWeek_max": 35,
+        "learningCurve": "Easy",
+        "timeToProficiency_months": 2,
+        "timeToScale_months": 4,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Stable",
+        "competitionLevel": "Medium",
+        "seasonality": "Stable",
+        "sources": [
+          "Resume Service Report",
+          "Career Services Trends"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Writing",
+          "Career knowledge",
+          "Attention to detail"
+        ],
+        "recommendedTools": [
+          "Fiverr",
+          "Upwork",
+          "Local networks"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": false,
+        "pros": [
+          "Quick turnaround",
+          "Recurring revenue from referrals",
+          "Low overhead",
+          "Flexibility"
+        ],
+        "cons": [
+          "Competitive market",
+          "Seasonal patterns",
+          "Price pressure",
+          "Limited income per client"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.35,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Short-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Resume review and client delivery"
+      }
+    },
+    {
+      "id": "writing_services",
+      "name": "Writing Services (Copy, Tech Writing)",
+      "category": "Education & Instruction",
+      "description": "Offer writing services: copywriting, blog writing, technical writing, editing, proofreading.",
+      "bestFor": [
+        "Writers",
+        "Subject matter experts"
+      ],
+      "synergiesWith": [
+        "Resume Services",
+        "Blogging"
+      ],
+      "financial": {
+        "startupCost_min": 200,
+        "startupCost_max": 800,
+        "startupCost_note": "Portfolio, minimal overhead",
+        "timeToFirstIncome_weeks": 2,
+        "monthlyEarning_min": 1000,
+        "monthlyEarning_max": 6000,
+        "earningNote": "Per-project or hourly rates",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Content Writer Report",
+          "Writing Services Market"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 15,
+        "hoursPerWeek_max": 40,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 2,
+        "timeToScale_months": 4,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Stable",
+        "sources": [
+          "Content Writer Report",
+          "Writing Services Market"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Writing ability",
+          "Subject expertise",
+          "Attention to detail"
+        ],
+        "recommendedTools": [
+          "Upwork",
+          "Fiverr",
+          "Contently"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": false,
+        "pros": [
+          "Flexible scheduling",
+          "Recurring clients",
+          "Remote work",
+          "Varied projects"
+        ],
+        "cons": [
+          "Competitive market",
+          "Client management",
+          "Revision cycles",
+          "Pricing pressure"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.3,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Short-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Client project delivery and revisions"
+      }
+    },
+    {
+      "id": "translation_transcription",
+      "name": "Translation / Transcription",
+      "category": "Education & Instruction",
+      "description": "Offer translation (languages) or transcription (audio to text) services.",
+      "bestFor": [
+        "Multilingual professionals",
+        "Detail-oriented workers"
+      ],
+      "synergiesWith": [
+        "Writing Services",
+        "Content Services"
+      ],
+      "financial": {
+        "startupCost_min": 200,
+        "startupCost_max": 1000,
+        "startupCost_note": "Optional: transcription software, translation tools",
+        "timeToFirstIncome_weeks": 2,
+        "monthlyEarning_min": 1000,
+        "monthlyEarning_max": 6000,
+        "earningNote": "Per-word or per-minute rates",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Rev Transcription Report",
+          "Translation Market Trends"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 20,
+        "hoursPerWeek_max": 40,
+        "learningCurve": "Easy",
+        "timeToProficiency_months": 2,
+        "timeToScale_months": 4,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Stable",
+        "sources": [
+          "Rev Transcription Report",
+          "Translation Market Trends"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Language proficiency",
+          "Listening skills",
+          "Accuracy"
+        ],
+        "recommendedTools": [
+          "Rev",
+          "Upwork",
+          "Fiverr"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": false,
+        "pros": [
+          "High demand",
+          "Flexible scheduling",
+          "Recurring clients",
+          "Remote work"
+        ],
+        "cons": [
+          "Requires fluency",
+          "Time-intensive",
+          "Accuracy critical",
+          "Platform commission"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.25,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Short-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Transcription/translation delivery"
+      }
+    },
+    {
+      "id": "retail_flipping",
+      "name": "Retail Flipping",
+      "category": "Arbitrage & Hybrid",
+      "description": "Buy items at retail/thrift and resell for profit on eBay, Amazon, or specialty sites.",
+      "bestFor": [
+        "Detail-oriented entrepreneurs",
+        "Those with keen eye"
+      ],
+      "synergiesWith": [
+        "Digital Flipping",
+        "Etsy Shop"
+      ],
+      "financial": {
+        "startupCost_min": 500,
+        "startupCost_max": 3000,
+        "startupCost_note": "Initial inventory, listing fees, shipping",
+        "timeToFirstIncome_weeks": 2,
+        "monthlyEarning_min": 500,
+        "monthlyEarning_max": 3000,
+        "earningNote": "Depends on inventory turnover",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Retail Arbitrage Report",
+          "Reseller Trends"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 15,
+        "hoursPerWeek_max": 40,
+        "learningCurve": "Easy",
+        "timeToProficiency_months": 1,
+        "timeToScale_months": 3,
+        "scalabilityPotential": "Low"
+      },
+      "market": {
+        "demandLevel": "Moderate",
+        "demandTrend": "Stable",
+        "competitionLevel": "Very High",
+        "seasonality": "Stable",
+        "sources": [
+          "Retail Arbitrage Report",
+          "Reseller Trends"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Sourcing",
+          "Pricing",
+          "Shipping"
+        ],
+        "recommendedTools": [
+          "eBay",
+          "Amazon",
+          "Mercari"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": true,
+        "pros": [
+          "Immediate income",
+          "Leverage thrift/garage sales",
+          "Skill-based pricing",
+          "Scalable"
+        ],
+        "cons": [
+          "Time-intensive sourcing",
+          "Storage needs",
+          "Competition",
+          "Inconsistent inventory"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.3,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Short-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Sourcing and listing management"
+      }
+    },
+    {
+      "id": "digital_flipping",
+      "name": "Digital Flipping",
+      "category": "Arbitrage & Hybrid",
+      "description": "Buy undervalued digital assets (domains, apps, content sites) and resell for profit.",
+      "bestFor": [
+        "Entrepreneurs",
+        "Digital investors"
+      ],
+      "synergiesWith": [
+        "Retail Flipping",
+        "Web Applications"
+      ],
+      "financial": {
+        "startupCost_min": 500,
+        "startupCost_max": 5000,
+        "startupCost_note": "Asset purchase, platform fees, optimization",
+        "timeToFirstIncome_weeks": 4,
+        "monthlyEarning_min": 500,
+        "monthlyEarning_max": 10000,
+        "earningNote": "Highly variable by asset type",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Flippa 2024 Report",
+          "Domain Flipping Trends"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 10,
+        "hoursPerWeek_max": 30,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 2,
+        "timeToScale_months": 6,
+        "scalabilityPotential": "High"
+      },
+      "market": {
+        "demandLevel": "Moderate",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Stable",
+        "sources": [
+          "Flippa 2024 Report",
+          "Domain Flipping Trends"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Asset valuation",
+          "Optimization",
+          "Sales"
+        ],
+        "recommendedTools": [
+          "Flippa",
+          "Sedo",
+          "Namecheap"
+        ],
+        "barrierToEntry": "Low",
+        "locationDependent": false,
+        "pros": [
+          "Scalable without inventory",
+          "Leverage SEO/growth",
+          "Multiple exit strategies",
+          "Capital efficient"
+        ],
+        "cons": [
+          "Asset sourcing difficult",
+          "Value prediction uncertain",
+          "Due diligence required",
+          "Competitive market"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.4,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Medium-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Asset sourcing and optimization"
+      }
+    },
+    {
+      "id": "creator_marketplace",
+      "name": "Creator Marketplace",
+      "category": "Arbitrage & Hybrid",
+      "description": "Aggregate and resell creator work: sell PLR (Private Label Rights) content, templates, courses.",
+      "bestFor": [
+        "Entrepreneurs",
+        "Content curators"
+      ],
+      "synergiesWith": [
+        "Digital Downloads",
+        "Affiliate Marketing"
+      ],
+      "financial": {
+        "startupCost_min": 300,
+        "startupCost_max": 2000,
+        "startupCost_note": "Platform, content curation, marketing",
+        "timeToFirstIncome_weeks": 4,
+        "monthlyEarning_min": 500,
+        "monthlyEarning_max": 5000,
+        "earningNote": "Depends on product selection",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Creator Economy Report",
+          "PLR Market Data"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 15,
+        "hoursPerWeek_max": 35,
+        "learningCurve": "Easy",
+        "timeToProficiency_months": 2,
+        "timeToScale_months": 4,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Stable",
+        "sources": [
+          "Creator Economy Report",
+          "PLR Market Data"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Curation",
+          "Sales",
+          "Marketing"
+        ],
+        "recommendedTools": [
+          "Gumroad",
+          "Sellfy",
+          "SendOwl"
+        ],
+        "barrierToEntry": "Very Low",
+        "locationDependent": false,
+        "pros": [
+          "Low creation effort",
+          "Multiple income streams",
+          "Passive income",
+          "Portfolio building"
+        ],
+        "cons": [
+          "Requires good curation",
+          "Reseller saturation",
+          "Customer support",
+          "License management"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.6,
+        "passivityLabel": "Somewhat Passive",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Content curation and marketing"
+      }
+    },
+    {
+      "id": "productized_bundles",
+      "name": "Productized Bundles",
+      "category": "Arbitrage & Hybrid",
+      "description": "Bundle existing products/services into a fixed package for a specific niche or use case.",
+      "bestFor": [
+        "Consultants",
+        "Service providers"
+      ],
+      "synergiesWith": [
+        "Productized Services",
+        "White Labeling"
+      ],
+      "financial": {
+        "startupCost_min": 500,
+        "startupCost_max": 2000,
+        "startupCost_note": "Marketing, packaging, distribution",
+        "timeToFirstIncome_weeks": 4,
+        "monthlyEarning_min": 1000,
+        "monthlyEarning_max": 8000,
+        "earningNote": "Depends on bundle appeal and pricing",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Product Bundling Report",
+          "SaaS Bundle Trends"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 15,
+        "hoursPerWeek_max": 40,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 3,
+        "timeToScale_months": 6,
+        "scalabilityPotential": "High"
+      },
+      "market": {
+        "demandLevel": "High",
+        "demandTrend": "Growing",
+        "competitionLevel": "High",
+        "seasonality": "Stable",
+        "sources": [
+          "Product Bundling Report",
+          "SaaS Bundle Trends"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Product curation",
+          "Marketing",
+          "Packaging"
+        ],
+        "recommendedTools": [
+          "Gumroad",
+          "Teachable",
+          "Custom site"
+        ],
+        "barrierToEntry": "Low",
+        "locationDependent": false,
+        "pros": [
+          "Simplified selling",
+          "Higher perceived value",
+          "Recurring revenue",
+          "Clear positioning"
+        ],
+        "cons": [
+          "Niche dependency",
+          "Bundle obsolescence",
+          "Support complexity",
+          "Partner coordination"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.45,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Long-term viable",
+        "flexibility": "High",
+        "regularityNeeded": "Bundle marketing and customer support"
+      }
+    },
+    {
+      "id": "bulk_sourcing",
+      "name": "Bulk Sourcing & Wholesale",
+      "category": "Arbitrage & Hybrid",
+      "description": "Source products in bulk and resell wholesale or retail at margin.",
+      "bestFor": [
+        "Entrepreneurs with capital",
+        "Sales-focused individuals"
+      ],
+      "synergiesWith": [
+        "Retail Flipping",
+        "Drop Shipping"
+      ],
+      "financial": {
+        "startupCost_min": 5000,
+        "startupCost_max": 50000,
+        "startupCost_note": "Initial inventory, storage, logistics",
+        "timeToFirstIncome_weeks": 4,
+        "monthlyEarning_min": 2000,
+        "monthlyEarning_max": 20000,
+        "earningNote": "Highly dependent on product and margins",
+        "incomeConsistency": "Variable",
+        "sources": [
+          "Alibaba Wholesale Report",
+          "Ecommerce Logistics Trends"
+        ]
+      },
+      "effort": {
+        "hoursPerWeek_min": 25,
+        "hoursPerWeek_max": 50,
+        "learningCurve": "Medium",
+        "timeToProficiency_months": 4,
+        "timeToScale_months": 8,
+        "scalabilityPotential": "Medium"
+      },
+      "market": {
+        "demandLevel": "Moderate",
+        "demandTrend": "Stable",
+        "competitionLevel": "Very High",
+        "seasonality": "Stable",
+        "sources": [
+          "Alibaba Wholesale Report",
+          "Ecommerce Logistics Trends"
+        ]
+      },
+      "practical": {
+        "requiredSkills": [
+          "Sourcing",
+          "Logistics",
+          "Sales"
+        ],
+        "recommendedTools": [
+          "Alibaba",
+          "Amazon Business",
+          "B2B platforms"
+        ],
+        "barrierToEntry": "High",
+        "locationDependent": true,
+        "pros": [
+          "High margin potential",
+          "Scalable sales",
+          "Direct manufacturer access",
+          "Volume discounts"
+        ],
+        "cons": [
+          "Large upfront investment",
+          "Storage and logistics",
+          "Inventory management",
+          "Payment terms"
+        ],
+        "resources": [
+          {
+            "title": "Getting Started",
+            "url": "example.com",
+            "type": "guide"
+          }
+        ]
+      },
+      "operational": {
+        "passivityScore": 0.2,
+        "passivityLabel": "Mostly Active",
+        "sustainability": "Long-term viable",
+        "flexibility": "Medium",
+        "regularityNeeded": "Sourcing and sales operations"
+      }
+    }
+  ]
+}

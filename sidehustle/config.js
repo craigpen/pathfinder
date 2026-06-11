@@ -30,7 +30,7 @@ const sideHustlePathfinderConfig = {
   tabs: [
     { id: 'discover', label: 'Discover' },
     { id: 'knowledge', label: 'Knowledge' },
-    { id: 'delivery', label: 'Delivery' },
+    { id: 'pathways', label: 'Pathways' },
     { id: 'hustles', label: 'Side Hustles' },
     { id: 'earnings', label: 'Earnings Breakdown' },
     { id: 'insights', label: 'Insights' },
@@ -48,8 +48,8 @@ const sideHustlePathfinderConfig = {
     'scalability',
     'selectedCategory',
     'selectedHustle',
-    'selectedHustleFilterCategories',
-    'selectedHustleFilterHustles',
+    'selectedPathwayCategories',
+    'selectedPathways',
     'selectedDeepDiveHustle',
     'selectedKnowledgeCategories',
     'selectedKnowledgeDomains'
@@ -59,7 +59,7 @@ const sideHustlePathfinderConfig = {
   dataSources: {
     'selector-options': 'selector-options.json',
     knowledge: 'knowledge.json',
-    sidehustles: 'sidehustles.json',
+    pathways: 'pathways.json',
     insights: 'insights.json'
   },
 
@@ -75,10 +75,10 @@ const sideHustlePathfinderConfig = {
       if (window.renderKnowledge) window.renderKnowledge();
       else console.warn('renderKnowledge not found');
     },
-    'delivery': () => {
-      console.log('Rendering delivery tab');
-      if (window.renderDelivery) window.renderDelivery();
-      else console.warn('renderDelivery not found');
+    'pathways': () => {
+      console.log('Rendering pathways tab');
+      if (window.renderPathways) window.renderPathways();
+      else console.warn('renderPathways not found');
     },
     'hustles': () => {
       console.log('Rendering hustles tab');

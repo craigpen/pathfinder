@@ -13,8 +13,8 @@ function renderPathfinderTab(id) {
     // Framework handles rendering discovery selectors
   } else if (id === 'knowledge') {
     renderKnowledge();
-  } else if (id === 'delivery') {
-    renderDelivery();
+  } else if (id === 'pathways') {
+    renderPathways();
   } else if (id === 'hustles') {
     renderHustles();
   } else if (id === 'earnings') {
@@ -1262,22 +1262,115 @@ function toggleKnowledgeDomain(domainName, el) {
 }
 
 
-function renderDelivery() {
-  const container = document.getElementById('delivery');
+function togglePathwayCategory(categoryName, el) {
+  el.classList.toggle('on');
+  const idx = S.selectedPathwayCategories.indexOf(categoryName);
+  if (idx > -1) {
+    S.selectedPathwayCategories.splice(idx, 1);
+    // When deselecting category, remove pathways from that category
+    const pathwaysInCat = getPathwaysByCategory(categoryName).map(p => p.id);
+    S.selectedPathways = S.selectedPathways.filter(p => !pathwaysInCat.includes(p));
+  } else {
+    S.selectedPathwayCategories.push(categoryName);
+  }
+  saveState();
+  renderPathways();
+}
+
+function togglePathway(pathwayId, el) {
+  el.classList.toggle('on');
+  const idx = S.selectedPathways.indexOf(pathwayId);
+  if (idx > -1) {
+    S.selectedPathways.splice(idx, 1);
+  } else {
+    S.selectedPathways.push(pathwayId);
+  }
+  saveState();
+  renderPathways();
+}
+
+function renderPathways() {
+  const container = document.getElementById('pathways');
   if (!container) return;
 
-  let html = '<div style="padding:24px"><h2 style="margin:0 0 12px 0;font-size:22px;font-weight:700;color:var(--dk)">Delivery Models</h2>';
-  html += '<p style="font-size:13px;color:var(--tx2);margin:0 0 24px 0;line-height:1.5;">Choose how you want to monetize your knowledge. Each model has different earning potential and time requirements.</p>';
-  html += '<div style="background:var(--lt);padding:24px;border-radius:6px;text-align:center;color:var(--tx2);">Delivery models coming soon...</div>';
-  html += '</div>';
+  let html = '<div style="padding:24px"><h2 style="margin:0 0 12px 0;font-size:22px;font-weight:700;color:var(--dk)">Monetization Pathways</h2>';
+  html += '<p style="font-size:13px;color:var(--tx2);margin:0 0 24px 0;line-height:1.5;">Choose the ways you want to monetize your knowledge and skills. Each pathway has different earning potential, time requirements, and scaling possibilities.</p>';
+
+  // Step 1: Category pills (always shown)
+  const categories = getAllPathwayCategories();
+  html += '<div style="margin-bottom:24px;"><div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Select One or More</div>';
+  html += '<div style="font-size:18px;font-weight:700;margin-bottom:10px;color:var(--dk);">Pathway Categories</div>';
+  html += '<div class="pills" data-q="pathway-category">';
+  categories.forEach(cat => {
+    const active = S.selectedPathwayCategories.includes(cat) ? ' on' : '';
+    html += `<div class="pill${active}" onclick="togglePathwayCategory('${cat}', this)">${cat}</div>`;
+  });
+  html += '</div></div>';
+
+  // Step 2: Pathway pills (only if categories selected)
+  if (S.selectedPathwayCategories.length > 0) {
+    const pathwaysInCats = S.selectedPathwayCategories.flatMap(cat => getPathwaysByCategory(cat));
+    const uniquePathways = [...new Map(pathwaysInCats.map(p => [p.id, p])).values()];
+
+    html += '<div style="margin-bottom:24px;"><div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Select One or More</div>';
+    html += '<div style="font-size:18px;font-weight:700;margin-bottom:10px;color:var(--dk);">Specific Pathways</div>';
+    html += '<div class="pills" data-q="pathway-specific">';
+    uniquePathways.forEach(p => {
+      const active = S.selectedPathways.includes(p.id) ? ' on' : '';
+      html += `<div class="pill${active}" onclick="togglePathway('${p.id}', this)">${p.name}</div>`;
+    });
+    html += '</div></div>';
+
+    // Step 3: Display table/carousel for selected pathways
+    if (S.selectedPathways.length > 0) {
+      const displayedPathways = S.selectedPathways.map(id => getPathway(id)).filter(p => p);
+      if (displayedPathways.length > 0) {
+        html += renderPathwayComparison(displayedPathways);
+      }
+    }
+  }
 
   container.innerHTML = html;
 
   // Add navigation buttons
   const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'knowledge\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go(\'hustles\')">Next</button></div>';
   container.insertAdjacentHTML('beforeend', navHtml);
+
+  // Initialize carousel if visible
+  setTimeout(() => {
+    if (window.initCarousel && S.selectedPathways.length > 0) {
+      initCarousel('pathway-carousel');
+    }
+  }, 50);
+}
+
+function renderPathwayComparison(pathways) {
+  const rows = [
+    ['Startup Cost', (p) => formatMoney(p.financial.startupCost_min, p.financial.startupCost_max)],
+    ['Monthly Earning', (p) => formatMoney(p.financial.monthlyEarning_min, p.financial.monthlyEarning_max)],
+    ['Hours/Week', (p) => formatHours(p.effort.hoursPerWeek_min, p.effort.hoursPerWeek_max)],
+    ['Demand Level', (p) => p.market.demandLevel],
+    ['Competition', (p) => p.market.competitionLevel],
+    ['Scalability', (p) => p.effort.scalabilityPotential]
+  ];
+
+  const pathwayNames = pathways.map(p => p.name);
+  const firstCol = (p) => p;
+
+  let html = '<div style="margin:24px 0 12px 0;"><div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Comparison</div>';
+  html += '<div style="font-size:18px;font-weight:700;margin-bottom:10px;color:var(--dk);">Pathway Comparison</div></div>';
+
+  // Build table for desktop
+  html += buildTableHTML(rows, pathwayNames, firstCol, 'pathway-table');
+
+  // Build carousel for mobile
+  html += buildCarouselHTML(rows, pathwayNames, firstCol, 'pathway-carousel');
+
+  return html;
 }
 
 window.renderKnowledge = renderKnowledge;
-window.renderDelivery = renderDelivery;
+window.renderPathways = renderPathways;
+window.togglePathwayCategory = togglePathwayCategory;
+window.togglePathway = togglePathway;
 window.filterKnowledgeByCategory = filterKnowledgeByCategory;
