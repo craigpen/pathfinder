@@ -1401,27 +1401,25 @@ function renderSynthesis() {
     html += '<div style="padding:20px;background:var(--lt);border-radius:6px;margin-bottom:20px;"><div style="font-size:13px;color:var(--tx2);">Select pathway categories on the Pathways tab to begin.</div></div>';
   }
 
-  // Generate and display synthesis results
+  // Shuffle button and cards
   if (S.selectedKnowledgeDomains.length > 0 && S.selectedPathways.length > 0) {
-    const results = matchSideHustles(S.selectedKnowledgeDomains, S.selectedPathways);
-    if (results.length > 0) {
-      html += renderSynthesisResults(results);
-    }
+    html += '<div style="margin-bottom:24px;margin-top:24px;">';
+    html += '<button class="btn bp" onclick="shuffleSynthesisCards()" style="margin-bottom:16px;">🔀 Shuffle Cards</button>';
+    html += '<div id="synthesis-cards-container" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;"></div>';
+    html += '</div>';
   }
 
   html += '</div>';
   container.innerHTML = html;
 
+  // Initialize cards on first load
+  if (S.selectedKnowledgeDomains.length > 0 && S.selectedPathways.length > 0) {
+    shuffleSynthesisCards();
+  }
+
   // Add navigation buttons
   const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'pathways\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go(\'hustles\')">Next</button></div>';
   container.insertAdjacentHTML('beforeend', navHtml);
-
-  // Initialize carousels if visible
-  setTimeout(() => {
-    if (window.initCarousel) {
-      initCarousel('synthesis-carousel');
-    }
-  }, 50);
 }
 
 function toggleSynthesisKnowledgeCategory(catKey, el) {
@@ -1472,34 +1470,110 @@ function toggleSynthesisPathway(pathwayId, el) {
   renderSynthesis();
 }
 
-function renderSynthesisResults(results) {
-  if (results.length === 0) return '';
+function shuffleSynthesisCards() {
+  const allCombos = matchSideHustles(S.selectedKnowledgeDomains, S.selectedPathways);
 
-  // Flip table: combos as rows, scaffold components as columns
-  const rows = results.map(result => [
-    result.name,
-    (colKey) => {
-      if (colKey === 'What') return result.scaffold.what;
-      if (colKey === 'How') return result.scaffold.how;
-      if (colKey === 'Why') return result.scaffold.why;
-      if (colKey === 'For You If') return result.scaffold.forYouIf;
-      return '—';
+  if (allCombos.length === 0) return;
+
+  // Track shown combos to avoid repeats
+  S.shownSynthesisIds = S.shownSynthesisIds || [];
+
+  // Get available combos (not yet shown)
+  let availableCombos = allCombos.filter(c => !S.shownSynthesisIds.includes(c.id));
+
+  // If all have been shown, reset and show all again
+  if (availableCombos.length < 3) {
+    S.shownSynthesisIds = [];
+    availableCombos = allCombos;
+  }
+
+  // Pick 3 random distinct combos
+  const shuffled = availableCombos.sort(() => Math.random() - 0.5);
+  const selected = shuffled.slice(0, Math.min(3, availableCombos.length));
+
+  // Track these as shown
+  selected.forEach(c => {
+    if (!S.shownSynthesisIds.includes(c.id)) {
+      S.shownSynthesisIds.push(c.id);
     }
-  ]);
+  });
+  saveState();
 
-  const columnKeys = ['What', 'How', 'Why', 'For You If'];
-  const columnLabel = (key) => key;
+  // Render cards
+  const container = document.getElementById('synthesis-cards-container');
+  if (!container) return;
 
-  let html = '<div style="margin:24px 0 12px 0;">';
-  html += '<div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Synthesis Results</div>';
-  html += '<div style="font-size:18px;font-weight:700;margin-bottom:10px;color:var(--dk);">Your Opportunities</div>';
-  html += '</div>';
+  let html = '';
+  selected.forEach(combo => {
+    html += renderSynthesisCard(combo);
+  });
 
-  // Build table for desktop (combos as rows, scaffold properties as columns)
-  html += buildTableHTML(rows, columnKeys, columnLabel, 'synthesis-table');
+  container.innerHTML = html;
+}
 
-  // Build carousel for mobile (each combo as a card with scaffold properties)
-  html += buildCarouselHTML(rows, columnKeys, columnLabel, 'synthesis-carousel');
+function renderSynthesisCard(combo) {
+  const knowledge = combo.knowledgeBase;
+  const pathway = combo.pathwayMethod;
+
+  // Get data objects if available
+  const knowledgeObj = window.KNOWLEDGE ? window.KNOWLEDGE.knowledge_domains?.find(k => k.name === knowledge) : null;
+  const pathwayObj = window.PATHWAYS ? window.PATHWAYS.pathways?.find(p => p.name === pathway) : null;
+
+  // Build card HTML
+  let html = `<div style="border:1px solid var(--bdr);border-radius:8px;padding:20px;background:var(--bg);transition:all 0.2s ease;">`;
+
+  // Title
+  html += `<div style="font-size:16px;font-weight:700;color:var(--dk);margin-bottom:16px;">${combo.name}</div>`;
+
+  // Two-column layout: Knowledge | Pathway
+  html += `<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">`;
+
+  // Knowledge column
+  html += `<div>`;
+  html += `<div style="font-size:11px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;">Your Knowledge</div>`;
+  html += `<div style="font-size:13px;color:var(--tx);line-height:1.6;">`;
+  html += `<div>• ${knowledge}</div>`;
+  if (knowledgeObj?.strength) html += `<div>• ${knowledgeObj.strength.charAt(0).toUpperCase() + knowledgeObj.strength.slice(1)} focus</div>`;
+  if (knowledgeObj?.marketDemand_label) html += `<div>• ${knowledgeObj.marketDemand_label} demand</div>`;
+  if (knowledgeObj?.difficulty) html += `<div>• ${knowledgeObj.difficulty} to learn</div>`;
+  html += `</div>`;
+  html += `</div>`;
+
+  // Pathway column
+  html += `<div>`;
+  html += `<div style="font-size:11px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;">The Pathway</div>`;
+  html += `<div style="font-size:13px;color:var(--tx);line-height:1.6;">`;
+  html += `<div>• ${pathway}</div>`;
+  if (pathwayObj?.strength) html += `<div>• ${pathwayObj.strength.charAt(0).toUpperCase() + pathwayObj.strength.slice(1)} model</div>`;
+  if (pathwayObj?.financial) {
+    const fin = pathwayObj.financial;
+    if (fin.monthlyEarning_min && fin.monthlyEarning_max) {
+      const range = fin.monthlyEarning_max > 5000 ? 'High' : fin.monthlyEarning_max > 2000 ? 'Moderate' : 'Low';
+      html += `<div>• ${range} income potential</div>`;
+    }
+  }
+  if (pathwayObj?.effort?.hoursPerWeek_max) {
+    const hrs = pathwayObj.effort.hoursPerWeek_max;
+    const effort = hrs > 30 ? 'High effort' : hrs > 15 ? 'Moderate' : 'Low effort';
+    html += `<div>• ${effort} to maintain</div>`;
+  }
+  html += `</div>`;
+  html += `</div>`;
+
+  html += `</div>`;
+
+  // Opportunity statement
+  html += `<div style="background:var(--lt);border-radius:6px;padding:12px;margin-bottom:16px;">`;
+  html += `<div style="font-size:12px;font-weight:600;color:var(--pri);margin-bottom:4px;">THE OPPORTUNITY</div>`;
+  html += `<div style="font-size:13px;color:var(--tx);line-height:1.5;">${combo.scaffold.what}</div>`;
+  html += `</div>`;
+
+  // Reason
+  html += `<div style="font-size:12px;color:var(--tx2);line-height:1.5;">`;
+  html += `<strong>Why this works:</strong> ${combo.scaffold.why}`;
+  html += `</div>`;
+
+  html += `</div>`;
 
   return html;
 }
