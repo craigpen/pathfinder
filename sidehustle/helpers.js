@@ -358,22 +358,22 @@ function validateAllHustles() {
 // ============================================================================
 
 function getKnowledgeDomain(name) {
-  const data = window.KNOWLEDGE || {domains: []};
-  if (!name || !Array.isArray(data.domains)) return null;
-  return data.domains.find(d => d.name === name) || null;
+  const data = window.KNOWLEDGE || {knowledge_domains: []};
+  if (!name || !Array.isArray(data.knowledge_domains)) return null;
+  return data.knowledge_domains.find(d => d.name === name) || null;
 }
 
 function getKnowledgeByCategory(categoryKey) {
-  const data = window.KNOWLEDGE || {domains: []};
-  if (!categoryKey || !Array.isArray(data.domains)) return [];
-  return data.domains.filter(d => d.category === categoryKey);
+  const data = window.KNOWLEDGE || {knowledge_domains: []};
+  if (!categoryKey || !Array.isArray(data.knowledge_domains)) return [];
+  return data.knowledge_domains.filter(d => d.category === categoryKey);
 }
 
 function getAllKnowledgeCategories() {
-  const data = window.KNOWLEDGE || {domains: []};
-  if (!Array.isArray(data.domains)) return [];
+  const data = window.KNOWLEDGE || {knowledge_domains: []};
+  if (!Array.isArray(data.knowledge_domains)) return [];
   const categories = new Map();
-  data.domains.forEach(d => {
+  data.knowledge_domains.forEach(d => {
     if (!categories.has(d.category)) {
       categories.set(d.category, d.categoryLabel || d.category);
     }
@@ -382,8 +382,8 @@ function getAllKnowledgeCategories() {
 }
 
 function getAllKnowledgeDomains() {
-  const data = window.KNOWLEDGE || {domains: []};
-  return Array.isArray(data.domains) ? data.domains : [];
+  const data = window.KNOWLEDGE || {knowledge_domains: []};
+  return Array.isArray(data.knowledge_domains) ? data.knowledge_domains : [];
 }
 
 function validateKnowledgeSchema(domain) {
@@ -403,15 +403,15 @@ function validateKnowledgeSchema(domain) {
 }
 
 function validateAllKnowledgeDomains() {
-  const data = window.KNOWLEDGE || {domains: []};
-  if (!Array.isArray(data.domains)) {
+  const data = window.KNOWLEDGE || {knowledge_domains: []};
+  if (!Array.isArray(data.knowledge_domains)) {
     return {total: 0, valid: 0, invalid: 0, errors: ['KNOWLEDGE data not loaded']};
   }
 
   let valid = 0, invalid = 0;
   const errors = [];
 
-  data.domains.forEach((d, i) => {
+  data.knowledge_domains.forEach((d, i) => {
     const result = validateKnowledgeSchema(d);
     if (result.valid) {
       valid++;
@@ -422,7 +422,7 @@ function validateAllKnowledgeDomains() {
   });
 
   return {
-    total: data.domains.length,
+    total: data.knowledge_domains.length,
     valid,
     invalid,
     errors: errors.slice(0, 5)
