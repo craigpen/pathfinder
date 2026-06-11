@@ -1554,7 +1554,7 @@
       ],
       "synergiesWith": [
         "Digital Templates",
-        "Creator Marketplace",
+        "Marketplace Creator",
         "Online Courses"
       ],
       "financial": {
@@ -3296,7 +3296,7 @@
       "synergiesWith": [
         "Print-on-Demand",
         "Etsy Shop",
-        "Creator Marketplace"
+        "Marketplace Creator"
       ],
       "financial": {
         "startupCost_min": 500,
@@ -3399,7 +3399,7 @@
       "synergiesWith": [
         "Handmade Crafts",
         "Digital Downloads",
-        "Creator Marketplace"
+        "Marketplace Creator"
       ],
       "financial": {
         "startupCost_min": 200,
@@ -5125,7 +5125,7 @@
       "synergiesWith": [
         "Digital Downloads",
         "Stock Photography",
-        "Creator Marketplace"
+        "Marketplace Creator"
       ],
       "financial": {
         "startupCost_min": 200,
@@ -6224,7 +6224,7 @@
     },
     {
       "id": "creator_marketplace",
-      "name": "Creator Marketplace",
+      "name": "Marketplace Creator",
       "category": "Arbitrage & Hybrid",
       "description": "Aggregate and resell creator work: sell PLR (Private Label Rights) content, templates, courses.",
       "bestFor": [
