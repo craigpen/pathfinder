@@ -1,0 +1,3133 @@
+{
+  "knowledge_domains": [
+    {
+      "id": "web_dev_frontend",
+      "name": "Web Dev (Frontend)",
+      "category": "Technical & Digital",
+      "description": "HTML, CSS, JavaScript, and modern frontend frameworks for building user interfaces",
+      "difficulty": "Medium",
+      "prerequisites": "Basic programming logic, comfort with command line",
+      "timeToLearnBasic_min": 4,
+      "timeToLearnBasic_max": 8,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 6,
+      "timeToLearnProficient_max": 12,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 5,
+      "marketDemand_label": "Very High",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "BLS Occupational Outlook Handbook: Web Developers (2023) - 13% growth projected",
+        "LinkedIn Jobs Report 2024: Frontend Developer - top 5 most in-demand roles"
+      ],
+      "relatedDomains": ["Web Dev (Backend)", "Full-stack Dev", "UI/UX Design"],
+      "compatibleDeliveryModels": ["Freelance", "Course Creation", "Video Content", "Consulting"],
+      "earningPotentialByDelivery": {
+        "Freelance": {
+          "min": 50,
+          "max": 150,
+          "unit": "hour",
+          "source": "Upwork 2024 Freelancer Report, Glassdoor"
+        },
+        "Course Creation": {
+          "min": 2000,
+          "max": 15000,
+          "unit": "course",
+          "source": "Udemy instructor earnings, Teachable case studies"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "freeCodeCamp Frontend Development Course",
+          "type": "free course",
+          "url": "freecodecamp.org"
+        },
+        {
+          "title": "Codecademy Frontend Path",
+          "type": "interactive course",
+          "url": "codecademy.com"
+        },
+        {
+          "title": "MDN Web Docs",
+          "type": "documentation",
+          "url": "developer.mozilla.org"
+        }
+      ],
+      "pros": [
+        "High market demand",
+        "Good earning potential",
+        "Remote-friendly",
+        "Multiple specialization paths (React, Vue, Angular)"
+      ],
+      "cons": [
+        "Rapidly changing technology landscape",
+        "Requires continuous learning",
+        "Steep initial learning curve",
+        "High competition in freelance market"
+      ]
+    },
+    {
+      "id": "web_dev_backend",
+      "name": "Web Dev (Backend)",
+      "category": "Technical & Digital",
+      "description": "Server-side development using languages like Python, Node.js, Java, PHP for building web application logic and databases",
+      "difficulty": "Medium-Hard",
+      "prerequisites": "Programming fundamentals, understanding of databases and APIs",
+      "timeToLearnBasic_min": 6,
+      "timeToLearnBasic_max": 10,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 8,
+      "timeToLearnProficient_max": 15,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 5,
+      "marketDemand_label": "Very High",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "BLS: Software Developers - 13% job growth through 2032",
+        "Stack Overflow Survey 2023: Backend languages in top demand"
+      ],
+      "relatedDomains": ["Web Dev (Frontend)", "Full-stack Dev", "Data Analysis", "Cloud Computing"],
+      "compatibleDeliveryModels": ["Freelance", "Consulting", "Course Creation"],
+      "earningPotentialByDelivery": {
+        "Freelance": {
+          "min": 60,
+          "max": 200,
+          "unit": "hour",
+          "source": "Upwork, Toptal rates"
+        },
+        "Consulting": {
+          "min": 150,
+          "max": 500,
+          "unit": "hour",
+          "source": "Becker's IT Consulting rates"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "freeCodeCamp Backend Development",
+          "type": "free course",
+          "url": "freecodecamp.org"
+        },
+        {
+          "title": "The Odin Project",
+          "type": "free curriculum",
+          "url": "theodinproject.com"
+        }
+      ],
+      "pros": [
+        "Highest earning potential in tech",
+        "Remote opportunities abundant",
+        "Strong job market",
+        "Multiple technology paths available"
+      ],
+      "cons": [
+        "Complex concepts to master",
+        "Requires deep problem-solving skills",
+        "On-call responsibilities common",
+        "Must stay current with evolving tech"
+      ]
+    },
+    {
+      "id": "fullstack_dev",
+      "name": "Full-stack Dev",
+      "category": "Technical & Digital",
+      "description": "Proficiency in both frontend and backend web development, able to build complete applications",
+      "difficulty": "Hard",
+      "prerequisites": "Strong foundation in either frontend or backend first",
+      "timeToLearnBasic_min": 12,
+      "timeToLearnBasic_max": 18,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 12,
+      "timeToLearnProficient_max": 24,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 5,
+      "marketDemand_label": "Very High",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "LinkedIn 2024 Jobs Report: Full-stack developer in top 15 roles",
+        "Indeed: Full-stack positions 30% of all developer roles"
+      ],
+      "relatedDomains": ["Web Dev (Frontend)", "Web Dev (Backend)", "Mobile App Dev"],
+      "compatibleDeliveryModels": ["Freelance", "Consulting", "Course Creation", "App Creation"],
+      "earningPotentialByDelivery": {
+        "Freelance": {
+          "min": 75,
+          "max": 200,
+          "unit": "hour",
+          "source": "Upwork full-stack rates"
+        },
+        "Consulting": {
+          "min": 200,
+          "max": 500,
+          "unit": "hour",
+          "source": "Toptal, Gun.io"
+        },
+        "Course Creation": {
+          "min": 3000,
+          "max": 25000,
+          "unit": "course",
+          "source": "Udemy full-stack courses"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "The Odin Project Full Stack",
+          "type": "free curriculum",
+          "url": "theodinproject.com"
+        },
+        {
+          "title": "Full Stack Open 2024",
+          "type": "free course",
+          "url": "fullstackopen.com"
+        }
+      ],
+      "pros": [
+        "Highest freelance rates",
+        "Can build complete projects independently",
+        "Very marketable skill set",
+        "Strong consulting opportunities"
+      ],
+      "cons": [
+        "Long learning curve (requires mastering two domains)",
+        "Rapidly evolving technology",
+        "Can be overwhelming for beginners",
+        "Requires continuous skill updates"
+      ]
+    },
+    {
+      "id": "mobile_app_dev",
+      "name": "Mobile App Dev",
+      "category": "Technical & Digital",
+      "description": "Development of native or cross-platform mobile applications for iOS and Android",
+      "difficulty": "Hard",
+      "prerequisites": "Object-oriented programming, understanding of mobile UI/UX principles",
+      "timeToLearnBasic_min": 8,
+      "timeToLearnBasic_max": 12,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 12,
+      "timeToLearnProficient_max": 18,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 5,
+      "marketDemand_label": "Very High",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "BLS: Software developers 13% growth through 2032",
+        "Statista 2024: Mobile app market growth 15.4% annually"
+      ],
+      "relatedDomains": ["Web Dev (Frontend)", "Full-stack Dev", "UI/UX Design"],
+      "compatibleDeliveryModels": ["Freelance", "Consulting", "Course Creation", "App Creation"],
+      "earningPotentialByDelivery": {
+        "Freelance": {
+          "min": 70,
+          "max": 180,
+          "unit": "hour",
+          "source": "Upwork mobile development rates"
+        },
+        "App Monetization": {
+          "min": 100,
+          "max": 10000,
+          "unit": "month",
+          "source": "App Store revenue data (highly variable)"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Google Android Development Docs",
+          "type": "official documentation",
+          "url": "developer.android.com"
+        },
+        {
+          "title": "Apple iOS Developer Documentation",
+          "type": "official documentation",
+          "url": "developer.apple.com"
+        },
+        {
+          "title": "Udacity Mobile Developer Nanodegree",
+          "type": "paid course",
+          "url": "udacity.com"
+        }
+      ],
+      "pros": [
+        "Very high earning potential",
+        "Growing app ecosystem",
+        "Can create passive income through app sales",
+        "Strong freelance market"
+      ],
+      "cons": [
+        "Steep learning curve",
+        "Multiple platforms to learn (iOS vs Android)",
+        "App store competition is intense",
+        "Requires UI/UX understanding in addition to code"
+      ]
+    },
+    {
+      "id": "data_analysis",
+      "name": "Data Analysis",
+      "category": "Technical & Digital",
+      "description": "Data visualization, statistical analysis, and insights extraction using Python, SQL, Excel, and tools like Tableau",
+      "difficulty": "Medium",
+      "prerequisites": "Basic statistics knowledge, comfort with numbers and spreadsheets",
+      "timeToLearnBasic_min": 6,
+      "timeToLearnBasic_max": 10,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 4,
+      "timeToLearnProficient_max": 8,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 5,
+      "marketDemand_label": "Very High",
+      "demandTrend": "Growing Rapidly",
+      "demandSources": [
+        "BLS: Data Scientists 36% job growth (2021-2031) - much faster than average",
+        "LinkedIn 2024: Data Analyst in top 5 most in-demand roles"
+      ],
+      "relatedDomains": ["Web Dev (Backend)", "Machine Learning"],
+      "compatibleDeliveryModels": ["Freelance", "Consulting", "Course Creation"],
+      "earningPotentialByDelivery": {
+        "Freelance": {
+          "min": 45,
+          "max": 120,
+          "unit": "hour",
+          "source": "Upwork data analysis rates"
+        },
+        "Consulting": {
+          "min": 100,
+          "max": 250,
+          "unit": "hour",
+          "source": "Becker's consulting rates"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Google Data Analytics Certificate",
+          "type": "professional certificate",
+          "url": "coursera.org"
+        },
+        {
+          "title": "DataCamp",
+          "type": "interactive courses",
+          "url": "datacamp.com"
+        }
+      ],
+      "pros": [
+        "Very strong job market",
+        "Multiple specialization paths",
+        "Good salary even for entry-level",
+        "High consulting rates"
+      ],
+      "cons": [
+        "Competitive job market",
+        "Requires statistics background",
+        "Tools change frequently",
+        "Can be data-cleaning heavy (less glamorous work)"
+      ]
+    },
+    {
+      "id": "cloud_computing",
+      "name": "Cloud Computing (AWS/Azure)",
+      "category": "Technical & Digital",
+      "description": "Infrastructure and platform management using major cloud providers (AWS, Azure, Google Cloud)",
+      "difficulty": "Hard",
+      "prerequisites": "Linux/systems administration basics, networking fundamentals",
+      "timeToLearnBasic_min": 8,
+      "timeToLearnBasic_max": 12,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 6,
+      "timeToLearnProficient_max": 12,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 5,
+      "marketDemand_label": "Very High",
+      "demandTrend": "Growing Rapidly",
+      "demandSources": [
+        "Gartner Cloud Infrastructure Market: 23% annual growth",
+        "LinkedIn 2024: AWS, Azure certifications in top 10 demanded skills"
+      ],
+      "relatedDomains": ["Web Dev (Backend)", "Data Analysis"],
+      "compatibleDeliveryModels": ["Freelance", "Consulting", "Course Creation"],
+      "earningPotentialByDelivery": {
+        "Freelance": {
+          "min": 60,
+          "max": 150,
+          "unit": "hour",
+          "source": "Upwork cloud engineering rates"
+        },
+        "Consulting": {
+          "min": 150,
+          "max": 400,
+          "unit": "hour",
+          "source": "AWS consulting partner rates"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "AWS Certified Cloud Practitioner",
+          "type": "official certification",
+          "url": "aws.amazon.com"
+        },
+        {
+          "title": "A Cloud Guru",
+          "type": "video courses",
+          "url": "acloud.guru"
+        }
+      ],
+      "pros": [
+        "Extremely high demand",
+        "High consulting rates",
+        "Certifications are valuable",
+        "Growth in cloud is accelerating"
+      ],
+      "cons": [
+        "Requires infrastructure knowledge",
+        "Certifications require consistent maintenance",
+        "Steep learning curve",
+        "Multiple competing platforms"
+      ]
+    },
+    {
+      "id": "graphic_design",
+      "name": "Graphic Design",
+      "category": "Creative & Media",
+      "description": "Visual design using Adobe Creative Suite (Photoshop, Illustrator, InDesign) for branding, marketing, and print/digital materials",
+      "difficulty": "Medium",
+      "prerequisites": "Eye for aesthetics, basic computer literacy, creative thinking",
+      "timeToLearnBasic_min": 4,
+      "timeToLearnBasic_max": 8,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 6,
+      "timeToLearnProficient_max": 12,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 4,
+      "marketDemand_label": "High",
+      "demandTrend": "Stable",
+      "demandSources": [
+        "BLS: Graphic Designers 2% growth (slower than average)",
+        "Indeed 2024: Graphic design job postings high but competitive"
+      ],
+      "relatedDomains": ["UI/UX Design", "Digital Illustration", "Video Production"],
+      "compatibleDeliveryModels": ["Freelance", "E-commerce", "Stock Content", "Course Creation"],
+      "earningPotentialByDelivery": {
+        "Freelance": {
+          "min": 25,
+          "max": 100,
+          "unit": "hour",
+          "source": "Upwork, 99designs rates"
+        },
+        "E-commerce": {
+          "min": 500,
+          "max": 5000,
+          "unit": "month",
+          "source": "Creative Fabrica, Design Bundles seller data"
+        },
+        "Stock Content": {
+          "min": 100,
+          "max": 2000,
+          "unit": "month",
+          "source": "Shutterstock, Getty Images designer earnings"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Adobe Creative Cloud Tutorials",
+          "type": "official tutorials",
+          "url": "adobe.com/creativecloud"
+        },
+        {
+          "title": "Skillshare Graphic Design Courses",
+          "type": "video courses",
+          "url": "skillshare.com"
+        }
+      ],
+      "pros": [
+        "Lower barrier to entry than coding",
+        "Multiple income streams (freelance, templates, stock)",
+        "Creative satisfaction",
+        "Can start with free tools (Canva, GIMP)"
+      ],
+      "cons": [
+        "Highly competitive market",
+        "Clients often want cheap design",
+        "Portfolio building takes time",
+        "Trend-driven (styles change)"
+      ]
+    },
+    {
+      "id": "ui_ux_design",
+      "name": "UI/UX Design",
+      "category": "Creative & Media",
+      "description": "User interface and user experience design for digital products, websites, and applications",
+      "difficulty": "Medium-Hard",
+      "prerequisites": "Graphic design basics, understanding of user psychology and usability",
+      "timeToLearnBasic_min": 8,
+      "timeToLearnBasic_max": 12,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 8,
+      "timeToLearnProficient_max": 15,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 5,
+      "marketDemand_label": "Very High",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "BLS: UX Designers included in Web Developers (13% growth)",
+        "Indeed 2024: UX Designer in top 25 jobs with best growth"
+      ],
+      "relatedDomains": ["Graphic Design", "Web Dev (Frontend)", "Mobile App Dev"],
+      "compatibleDeliveryModels": ["Freelance", "Consulting", "Course Creation"],
+      "earningPotentialByDelivery": {
+        "Freelance": {
+          "min": 50,
+          "max": 150,
+          "unit": "hour",
+          "source": "Upwork, ADPList mentorship platform"
+        },
+        "Consulting": {
+          "min": 100,
+          "max": 250,
+          "unit": "hour",
+          "source": "Nielsen Norman Group consulting rates"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Google UX Design Certificate",
+          "type": "professional certificate",
+          "url": "coursera.org"
+        },
+        {
+          "title": "Nielsen Norman Group UX Articles",
+          "type": "industry articles",
+          "url": "nngroup.com"
+        }
+      ],
+      "pros": [
+        "High demand in tech",
+        "Good salary and freelance rates",
+        "Combines creative and analytical skills",
+        "Remote-friendly"
+      ],
+      "cons": [
+        "Requires user research and testing skills",
+        "Competitive in freelance market",
+        "Portfolio building important",
+        "Tools and methodologies evolve"
+      ]
+    },
+    {
+      "id": "video_production",
+      "name": "Video Production & Editing",
+      "category": "Creative & Media",
+      "description": "Recording, editing, color grading, and post-production of video content for YouTube, advertising, or corporate use",
+      "difficulty": "Medium",
+      "prerequisites": "Understanding of composition and storytelling, comfort with editing software",
+      "timeToLearnBasic_min": 4,
+      "timeToLearnBasic_max": 8,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 6,
+      "timeToLearnProficient_max": 12,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 4,
+      "marketDemand_label": "High",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "Statista 2024: Video content consumption growing 25% annually",
+        "LinkedIn: Video editor/producer in top 25 in-demand roles"
+      ],
+      "relatedDomains": ["Photography", "Creative Writing", "Digital Illustration"],
+      "compatibleDeliveryModels": ["Freelance", "YouTube Channel", "Course Creation", "Video Content"],
+      "earningPotentialByDelivery": {
+        "Freelance": {
+          "min": 30,
+          "max": 100,
+          "unit": "hour",
+          "source": "Upwork, Fiverr video editing rates"
+        },
+        "YouTube": {
+          "min": 100,
+          "max": 10000,
+          "unit": "month",
+          "source": "YouTube Partner Program - highly variable"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Adobe Premiere Pro Tutorials",
+          "type": "official tutorials",
+          "url": "adobe.com"
+        },
+        {
+          "title": "DaVinci Resolve (Free)",
+          "type": "free software",
+          "url": "blackmagicdesign.com"
+        }
+      ],
+      "pros": [
+        "High demand for video content",
+        "Can start with free tools",
+        "YouTube monetization potential",
+        "Freelance demand strong"
+      ],
+      "cons": [
+        "Requires good equipment (initially)",
+        "Time-intensive process",
+        "Client communication critical",
+        "Trends change quickly"
+      ]
+    },
+    {
+      "id": "photography",
+      "name": "Photography",
+      "category": "Creative & Media",
+      "description": "Photography skills including composition, lighting, post-processing using Lightroom and Photoshop",
+      "difficulty": "Easy-Medium",
+      "prerequisites": "Eye for composition, understanding of light",
+      "timeToLearnBasic_min": 2,
+      "timeToLearnBasic_max": 4,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 6,
+      "timeToLearnProficient_max": 12,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 3,
+      "marketDemand_label": "Moderate",
+      "demandTrend": "Stable",
+      "demandSources": [
+        "BLS: Photographers 2% growth (slower than average)",
+        "Indeed 2024: Photography job market moderately competitive"
+      ],
+      "relatedDomains": ["Video Production", "Graphic Design", "Digital Illustration"],
+      "compatibleDeliveryModels": ["Freelance", "Stock Content", "E-commerce", "Local Services"],
+      "earningPotentialByDelivery": {
+        "Freelance": {
+          "min": 40,
+          "max": 150,
+          "unit": "hour",
+          "source": "Upwork, local photography rates"
+        },
+        "Stock Content": {
+          "min": 50,
+          "max": 2000,
+          "unit": "month",
+          "source": "Shutterstock, Getty Images photographer earnings"
+        },
+        "Local Services": {
+          "min": 500,
+          "max": 5000,
+          "unit": "event",
+          "source": "Photography pricing guides"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Udemy Photography Fundamentals",
+          "type": "video course",
+          "url": "udemy.com"
+        },
+        {
+          "title": "YouTube Photography Channels",
+          "type": "free videos",
+          "url": "youtube.com"
+        }
+      ],
+      "pros": [
+        "Low startup cost (if using smartphone)",
+        "Multiple income streams (freelance, stock, events)",
+        "Creative fulfillment",
+        "Stock photography generates passive income"
+      ],
+      "cons": [
+        "High competition",
+        "Equipment can be expensive",
+        "Building portfolio takes time",
+        "Clients often expect discounts"
+      ]
+    },
+    {
+      "id": "digital_illustration",
+      "name": "Digital Illustration",
+      "category": "Creative & Media",
+      "description": "Digital art creation using Procreate, Clip Studio Paint, or Adobe Illustrator for character design, concept art, and illustration",
+      "difficulty": "Medium-Hard",
+      "prerequisites": "Drawing fundamentals, understanding of color and composition",
+      "timeToLearnBasic_min": 8,
+      "timeToLearnBasic_max": 12,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 12,
+      "timeToLearnProficient_max": 24,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 4,
+      "marketDemand_label": "High",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "ArtStation: Digital illustrator demand 35% higher than 2020",
+        "LinkedIn: Digital artist in top 30 creative roles"
+      ],
+      "relatedDomains": ["Graphic Design", "Animation", "UI/UX Design"],
+      "compatibleDeliveryModels": ["Freelance", "E-commerce", "Stock Content", "Course Creation"],
+      "earningPotentialByDelivery": {
+        "Freelance": {
+          "min": 30,
+          "max": 120,
+          "unit": "hour",
+          "source": "ArtStation, Upwork rates"
+        },
+        "E-commerce": {
+          "min": 500,
+          "max": 3000,
+          "unit": "month",
+          "source": "Gumroad, Patreon creator earnings"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Proko Figure Drawing and Digital Illustration",
+          "type": "video courses",
+          "url": "proko.com"
+        },
+        {
+          "title": "New Masters Academy",
+          "type": "video courses",
+          "url": "newmastersacademy.org"
+        }
+      ],
+      "pros": [
+        "Growing demand in gaming and publishing",
+        "Multiple income streams",
+        "Can build engaged community",
+        "Patreon/subscription model works well"
+      ],
+      "cons": [
+        "Requires strong drawing fundamentals first",
+        "Long skill development period",
+        "Highly competitive market",
+        "Client expectations can be unrealistic"
+      ]
+    },
+    {
+      "id": "music_composition",
+      "name": "Music Composition & Production",
+      "category": "Creative & Media",
+      "description": "Music composition, arrangement, and production using DAWs like Ableton, Logic Pro, or FL Studio",
+      "difficulty": "Hard",
+      "prerequisites": "Music theory knowledge, ear training, understanding of music production",
+      "timeToLearnBasic_min": 12,
+      "timeToLearnBasic_max": 16,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 12,
+      "timeToLearnProficient_max": 36,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 3,
+      "marketDemand_label": "Moderate",
+      "demandTrend": "Stable-Growing",
+      "demandSources": [
+        "Spotify 2023: 8M+ tracks uploaded annually",
+        "Upwork: Music producer demand steady"
+      ],
+      "relatedDomains": ["Music Performance", "Video Production"],
+      "compatibleDeliveryModels": ["Freelance", "Stock Content", "Course Creation", "E-commerce"],
+      "earningPotentialByDelivery": {
+        "Freelance": {
+          "min": 50,
+          "max": 200,
+          "unit": "hour",
+          "source": "Upwork, Soundbetter rates"
+        },
+        "Stock Content": {
+          "min": 100,
+          "max": 1000,
+          "unit": "month",
+          "source": "AudioJungle, Pond5 composer earnings"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Berklee Online Music Production",
+          "type": "online degree",
+          "url": "berklee.edu"
+        },
+        {
+          "title": "YouTube Production Tutorials",
+          "type": "free videos",
+          "url": "youtube.com"
+        }
+      ],
+      "pros": [
+        "Multiple income streams (sync licensing, stock music)",
+        "Creative expression",
+        "Growing demand for content creation",
+        "Can be entirely remote"
+      ],
+      "cons": [
+        "Requires music theory foundation",
+        "Long learning curve",
+        "Equipment investment needed",
+        "Competitive market"
+      ]
+    },
+    {
+      "id": "music_performance",
+      "name": "Music Performance",
+      "category": "Creative & Media",
+      "description": "Proficiency in playing instruments and singing for performance, teaching, or content creation",
+      "difficulty": "Hard",
+      "prerequisites": "Time for practice, ear for music, dedication to instrument",
+      "timeToLearnBasic_min": 12,
+      "timeToLearnBasic_max": 24,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 24,
+      "timeToLearnProficient_max": 60,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 2,
+      "marketDemand_label": "Low-Moderate",
+      "demandTrend": "Stable",
+      "demandSources": [
+        "BLS: Musicians 6% growth through 2032",
+        "Indeed: Music tutor/performer positions available but competitive"
+      ],
+      "relatedDomains": ["Music Composition & Production", "Tutoring"],
+      "compatibleDeliveryModels": ["Tutoring", "YouTube Channel", "Local Services", "Course Creation"],
+      "earningPotentialByDelivery": {
+        "Tutoring": {
+          "min": 30,
+          "max": 100,
+          "unit": "hour",
+          "source": "Care.com, local music lesson rates"
+        },
+        "YouTube": {
+          "min": 100,
+          "max": 5000,
+          "unit": "month",
+          "source": "YouTube Partner Program (highly variable)"
+        },
+        "Local Performance": {
+          "min": 100,
+          "max": 500,
+          "unit": "gig",
+          "source": "GigSalad, local performance rates"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Local music instructors",
+          "type": "in-person lessons",
+          "url": "local"
+        },
+        {
+          "title": "Coursera Music Theory",
+          "type": "online course",
+          "url": "coursera.org"
+        }
+      ],
+      "pros": [
+        "Flexible income sources",
+        "Creative fulfillment",
+        "Community building potential",
+        "Can start teaching early in learning journey"
+      ],
+      "cons": [
+        "Very long skill development (years)",
+        "Requires consistent practice",
+        "Teaching income modest",
+        "Performance opportunities competitive"
+      ]
+    },
+    {
+      "id": "creative_writing",
+      "name": "Creative Writing",
+      "category": "Creative & Media",
+      "description": "Writing engaging fiction, poetry, narratives, and creative content for publishing or content platforms",
+      "difficulty": "Medium",
+      "prerequisites": "Strong reading habit, understanding of storytelling, passion for writing",
+      "timeToLearnBasic_min": 4,
+      "timeToLearnBasic_max": 8,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 12,
+      "timeToLearnProficient_max": 24,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 3,
+      "marketDemand_label": "Moderate",
+      "demandTrend": "Stable",
+      "demandSources": [
+        "Publishers Weekly: Publishing market stable",
+        "Amazon KDP: 2000+ books published daily"
+      ],
+      "relatedDomains": ["Academic Writing", "Technical Writing", "Copywriting"],
+      "compatibleDeliveryModels": ["Freelance", "Blogging", "Course Creation", "E-commerce", "Newsletters"],
+      "earningPotentialByDelivery": {
+        "Freelance": {
+          "min": 20,
+          "max": 80,
+          "unit": "hour",
+          "source": "Upwork, Contently rates"
+        },
+        "Self-Publishing": {
+          "min": 0,
+          "max": 5000,
+          "unit": "month",
+          "source": "Amazon KDP author reports"
+        },
+        "Newsletters": {
+          "min": 0,
+          "max": 3000,
+          "unit": "month",
+          "source": "Substack author earnings"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "MasterClass: Writing with Margaret Atwood",
+          "type": "video course",
+          "url": "masterclass.com"
+        },
+        {
+          "title": "Writing.com Community",
+          "type": "community & feedback",
+          "url": "writing.com"
+        }
+      ],
+      "pros": [
+        "Low startup cost",
+        "Multiple income streams",
+        "Community engagement potential",
+        "Can build personal brand"
+      ],
+      "cons": [
+        "High competition",
+        "Takes time to build audience",
+        "Earnings take time to materialize",
+        "Requires consistent output"
+      ]
+    },
+    {
+      "id": "digital_marketing",
+      "name": "Digital Marketing",
+      "category": "Business & Marketing",
+      "description": "Marketing strategy across digital channels including SEO, paid ads, email, and social media",
+      "difficulty": "Medium",
+      "prerequisites": "Understanding of consumer psychology, analytical mindset",
+      "timeToLearnBasic_min": 4,
+      "timeToLearnBasic_max": 8,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 6,
+      "timeToLearnProficient_max": 12,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 5,
+      "marketDemand_label": "Very High",
+      "demandTrend": "Growing Rapidly",
+      "demandSources": [
+        "U.S. Bureau of Labor Statistics: Marketing Managers 10% growth",
+        "LinkedIn 2024: Digital Marketing Specialist in top 5 roles"
+      ],
+      "relatedDomains": ["Content Marketing & SEO", "Copywriting", "Data Analysis"],
+      "compatibleDeliveryModels": ["Freelance", "Consulting", "Course Creation"],
+      "earningPotentialByDelivery": {
+        "Freelance": {
+          "min": 40,
+          "max": 120,
+          "unit": "hour",
+          "source": "Upwork, Toptal rates"
+        },
+        "Consulting": {
+          "min": 100,
+          "max": 300,
+          "unit": "hour",
+          "source": "McKinsey, Deloitte consulting rates"
+        },
+        "Course Creation": {
+          "min": 1000,
+          "max": 20000,
+          "unit": "course",
+          "source": "Udemy digital marketing courses"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Google Digital Garage (Free)",
+          "type": "free certification",
+          "url": "digitalgarage.withgoogle.com"
+        },
+        {
+          "title": "HubSpot Academy",
+          "type": "free courses",
+          "url": "hubspot.com/academy"
+        }
+      ],
+      "pros": [
+        "Very high demand",
+        "Multiple specialization paths",
+        "Good consulting rates",
+        "Remote-friendly"
+      ],
+      "cons": [
+        "Rapidly changing algorithms",
+        "Requires staying current",
+        "Results-driven (client expectations)",
+        "Competitive market"
+      ]
+    },
+    {
+      "id": "content_marketing_seo",
+      "name": "Content Marketing & SEO",
+      "category": "Business & Marketing",
+      "description": "Creating optimized content for search engines and strategic content marketing across channels",
+      "difficulty": "Medium",
+      "prerequisites": "Writing skills, understanding of search engines and analytics",
+      "timeToLearnBasic_min": 6,
+      "timeToLearnBasic_max": 10,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 6,
+      "timeToLearnProficient_max": 12,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 5,
+      "marketDemand_label": "Very High",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "BLS: Web Developers 13% growth",
+        "Indeed: SEO Specialist top 25 fastest-growing roles"
+      ],
+      "relatedDomains": ["Digital Marketing", "Copywriting", "Analytics"],
+      "compatibleDeliveryModels": ["Freelance", "Consulting", "Course Creation"],
+      "earningPotentialByDelivery": {
+        "Freelance": {
+          "min": 35,
+          "max": 100,
+          "unit": "hour",
+          "source": "Upwork SEO rates"
+        },
+        "Consulting": {
+          "min": 75,
+          "max": 250,
+          "unit": "hour",
+          "source": "SEO agency rates"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Moz SEO Guide",
+          "type": "free resource",
+          "url": "moz.com/learn/seo"
+        },
+        {
+          "title": "Semrush Academy",
+          "type": "free courses",
+          "url": "semrush.com/academy"
+        }
+      ],
+      "pros": [
+        "Very high demand",
+        "Results-based (easier to show ROI)",
+        "Good rates for freelancers",
+        "Can work with any industry"
+      ],
+      "cons": [
+        "Google algorithm changes frequently",
+        "Results take time to materialize",
+        "Requires continuous learning",
+        "Competitive market"
+      ]
+    },
+    {
+      "id": "copywriting",
+      "name": "Copywriting",
+      "category": "Business & Marketing",
+      "description": "Persuasive writing for sales pages, emails, ads, and marketing materials that drives conversions",
+      "difficulty": "Medium",
+      "prerequisites": "Strong writing skills, understanding of persuasion psychology",
+      "timeToLearnBasic_min": 4,
+      "timeToLearnBasic_max": 8,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 3,
+      "timeToLearnProficient_max": 6,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 4,
+      "marketDemand_label": "High",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "Upwork: Copywriter in top 5 in-demand writing skills",
+        "LinkedIn: Copywriter demand 40% higher than 2020"
+      ],
+      "relatedDomains": ["Creative Writing", "Email Marketing", "Content Marketing"],
+      "compatibleDeliveryModels": ["Freelance", "Course Creation", "Consulting"],
+      "earningPotentialByDelivery": {
+        "Freelance": {
+          "min": 50,
+          "max": 150,
+          "unit": "hour",
+          "source": "Upwork, Contently copywriting rates"
+        },
+        "Project": {
+          "min": 1000,
+          "max": 5000,
+          "unit": "project",
+          "source": "Freelance copywriting project rates"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "The Copywriter's Handbook - Bob Bly",
+          "type": "book",
+          "url": "amazon.com"
+        },
+        {
+          "title": "Copyblogger",
+          "type": "free resources & courses",
+          "url": "copyblogger.com"
+        }
+      ],
+      "pros": [
+        "High hourly rates",
+        "Can work across industries",
+        "Results-driven (easy to prove value)",
+        "Flexibility in delivery models"
+      ],
+      "cons": [
+        "Requires strong writing fundamentals",
+        "Testing and iteration needed",
+        "Client communication critical",
+        "High expectations for ROI"
+      ]
+    },
+    {
+      "id": "email_marketing",
+      "name": "Email Marketing",
+      "category": "Business & Marketing",
+      "description": "Strategy and execution of email campaigns for engagement, conversion, and customer retention",
+      "difficulty": "Easy-Medium",
+      "prerequisites": "Marketing understanding, analytical mindset",
+      "timeToLearnBasic_min": 2,
+      "timeToLearnBasic_max": 4,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 2,
+      "timeToLearnProficient_max": 4,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 4,
+      "marketDemand_label": "High",
+      "demandTrend": "Stable-Growing",
+      "demandSources": [
+        "LinkedIn: Email Marketing Specialist in top roles",
+        "Indeed: Email marketing job postings stable"
+      ],
+      "relatedDomains": ["Digital Marketing", "Copywriting"],
+      "compatibleDeliveryModels": ["Freelance", "Consulting", "Course Creation"],
+      "earningPotentialByDelivery": {
+        "Freelance": {
+          "min": 35,
+          "max": 100,
+          "unit": "hour",
+          "source": "Upwork email marketing rates"
+        },
+        "Course Creation": {
+          "min": 500,
+          "max": 5000,
+          "unit": "course",
+          "source": "Udemy email marketing courses"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "HubSpot Email Marketing Certification",
+          "type": "free certification",
+          "url": "hubspot.com/academy"
+        },
+        {
+          "title": "Klaviyo Academy",
+          "type": "free courses",
+          "url": "klaviyo.com/academy"
+        }
+      ],
+      "pros": [
+        "Relatively easy to learn",
+        "High ROI (email marketing ROI is high)",
+        "Multiple platforms available",
+        "Can start with free tools"
+      ],
+      "cons": [
+        "Deliverability challenges",
+        "Compliance requirements (GDPR, CAN-SPAM)",
+        "Testing needed for optimization",
+        "Competitive platforms"
+      ]
+    },
+    {
+      "id": "sales_negotiation",
+      "name": "Sales & Negotiation",
+      "category": "Business & Marketing",
+      "description": "Ability to sell services or products and negotiate effectively with clients and partners",
+      "difficulty": "Easy-Medium",
+      "prerequisites": "Communication skills, empathy, comfort with rejection",
+      "timeToLearnBasic_min": 2,
+      "timeToLearnBasic_max": 4,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 3,
+      "timeToLearnProficient_max": 6,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 4,
+      "marketDemand_label": "High",
+      "demandTrend": "Stable",
+      "demandSources": [
+        "BLS: Sales Representatives 3% growth",
+        "LinkedIn: Sales professional remain consistently in-demand"
+      ],
+      "relatedDomains": ["Digital Marketing", "Copywriting", "Business Consulting"],
+      "compatibleDeliveryModels": ["Consulting", "Freelance"],
+      "earningPotentialByDelivery": {
+        "Freelance/Consulting": {
+          "min": 75,
+          "max": 200,
+          "unit": "hour",
+          "source": "Sales consulting rates"
+        },
+        "Commission": {
+          "min": 5,
+          "max": 50,
+          "unit": "percent",
+          "source": "Typical sales commission structures"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "HubSpot Sales Training",
+          "type": "free courses",
+          "url": "hubspot.com/sales-training"
+        },
+        {
+          "title": "\"Never Split the Difference\" - Chris Voss",
+          "type": "book",
+          "url": "amazon.com"
+        }
+      ],
+      "pros": [
+        "Always in demand",
+        "High income potential",
+        "Applicable across industries",
+        "Can be self-taught"
+      ],
+      "cons": [
+        "Requires thick skin",
+        "High rejection rate",
+        "Personality-dependent",
+        "Results-driven stress"
+      ]
+    },
+    {
+      "id": "bookkeeping_accounting",
+      "name": "Bookkeeping & Accounting",
+      "category": "Business & Marketing",
+      "description": "Financial record keeping, accounting principles, tax preparation, and financial analysis for businesses",
+      "difficulty": "Medium",
+      "prerequisites": "Math skills, attention to detail, understanding of accounting principles",
+      "timeToLearnBasic_min": 8,
+      "timeToLearnBasic_max": 12,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 6,
+      "timeToLearnProficient_max": 12,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 4,
+      "marketDemand_label": "High",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "BLS: Bookkeepers 6% growth through 2032",
+        "Bureau of Labor Statistics: Accountants and Auditors 4% growth"
+      ],
+      "relatedDomains": ["Data Analysis", "Project Management"],
+      "compatibleDeliveryModels": ["Freelance", "Consulting", "Local Services"],
+      "earningPotentialByDelivery": {
+        "Freelance": {
+          "min": 30,
+          "max": 80,
+          "unit": "hour",
+          "source": "Upwork bookkeeping rates"
+        },
+        "Local Services": {
+          "min": 1000,
+          "max": 5000,
+          "unit": "month",
+          "source": "Small business bookkeeping rates"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "AccountingCoach Free Lessons",
+          "type": "free course",
+          "url": "accountingcoach.com"
+        },
+        {
+          "title": "QuickBooks Certification",
+          "type": "certification",
+          "url": "quickbooks.intuit.com"
+        }
+      ],
+      "pros": [
+        "Stable demand",
+        "Multiple client base options",
+        "Can start part-time",
+        "Good certification opportunities"
+      ],
+      "cons": [
+        "Complex rules and compliance",
+        "Continuous learning required (tax law changes)",
+        "Repetitive work",
+        "Client relationship critical"
+      ]
+    },
+    {
+      "id": "project_management",
+      "name": "Project Management",
+      "category": "Business & Marketing",
+      "description": "Planning, organizing, and overseeing projects to ensure they're completed on time, within budget, and to spec",
+      "difficulty": "Medium",
+      "prerequisites": "Organization skills, leadership, stakeholder communication",
+      "timeToLearnBasic_min": 4,
+      "timeToLearnBasic_max": 8,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 6,
+      "timeToLearnProficient_max": 12,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 5,
+      "marketDemand_label": "Very High",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "Project Management Institute: 12.2 million new PM roles needed by 2030",
+        "LinkedIn: Project Manager in top 5 most in-demand roles"
+      ],
+      "relatedDomains": ["Digital Marketing", "Consulting"],
+      "compatibleDeliveryModels": ["Consulting", "Freelance"],
+      "earningPotentialByDelivery": {
+        "Consulting": {
+          "min": 100,
+          "max": 250,
+          "unit": "hour",
+          "source": "Becker's PM consulting rates"
+        },
+        "Freelance": {
+          "min": 50,
+          "max": 150,
+          "unit": "hour",
+          "source": "Upwork PM rates"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Google Project Management Certificate",
+          "type": "professional certificate",
+          "url": "coursera.org"
+        },
+        {
+          "title": "PMI-PgMP Certification",
+          "type": "professional certification",
+          "url": "pmi.org"
+        }
+      ],
+      "pros": [
+        "Extremely high demand",
+        "Good consulting rates",
+        "Applicable across industries",
+        "Remote-friendly"
+      ],
+      "cons": [
+        "Requires experience to be credible",
+        "Certification helpful but not required",
+        "Stress and accountability high",
+        "Client communication critical"
+      ]
+    },
+    {
+      "id": "mathematics",
+      "name": "Mathematics",
+      "category": "Teaching & Academic",
+      "description": "Deep understanding of mathematical concepts and ability to explain them clearly at various levels",
+      "difficulty": "Hard",
+      "prerequisites": "Advanced math knowledge, passion for teaching",
+      "timeToLearnBasic_min": 0,
+      "timeToLearnBasic_max": 0,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 0,
+      "timeToLearnProficient_max": 0,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 4,
+      "marketDemand_label": "High",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "Bureau of Labor Statistics: High School Teachers 4% growth",
+        "Care.com 2023: Math tutors most requested subject"
+      ],
+      "relatedDomains": ["Science", "Test Preparation"],
+      "compatibleDeliveryModels": ["Tutoring", "Course Creation", "YouTube Channel"],
+      "earningPotentialByDelivery": {
+        "Tutoring": {
+          "min": 30,
+          "max": 100,
+          "unit": "hour",
+          "source": "Care.com, Wyzant tutor rates"
+        },
+        "Course Creation": {
+          "min": 1000,
+          "max": 10000,
+          "unit": "course",
+          "source": "Udemy math courses"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Khan Academy",
+          "type": "free resource",
+          "url": "khanacademy.org"
+        },
+        {
+          "title": "Local tutoring certification programs",
+          "type": "certification",
+          "url": "local"
+        }
+      ],
+      "pros": [
+        "High demand for tutoring",
+        "Good hourly rates",
+        "Multiple delivery models",
+        "Can start immediately if qualified"
+      ],
+      "cons": [
+        "Requires existing expertise",
+        "Student patience important",
+        "Test prep seasonal demand",
+        "Certification not required but helps"
+      ]
+    },
+    {
+      "id": "science",
+      "name": "Science",
+      "category": "Teaching & Academic",
+      "description": "Deep understanding of physics, chemistry, biology, or earth sciences with ability to explain concepts clearly",
+      "difficulty": "Hard",
+      "prerequisites": "Advanced science knowledge, teaching ability",
+      "timeToLearnBasic_min": 0,
+      "timeToLearnBasic_max": 0,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 0,
+      "timeToLearnProficient_max": 0,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 4,
+      "marketDemand_label": "High",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "BLS: Science teachers 3% growth",
+        "Care.com: Science tutors in high demand"
+      ],
+      "relatedDomains": ["Mathematics", "Test Preparation"],
+      "compatibleDeliveryModels": ["Tutoring", "Course Creation", "YouTube Channel"],
+      "earningPotentialByDelivery": {
+        "Tutoring": {
+          "min": 30,
+          "max": 90,
+          "unit": "hour",
+          "source": "Wyzant, Tutor.com rates"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Khan Academy Science",
+          "type": "free resource",
+          "url": "khanacademy.org"
+        }
+      ],
+      "pros": [
+        "Good tutoring demand",
+        "Multiple subject specializations",
+        "Lab skills valuable",
+        "Can build educational content"
+      ],
+      "cons": [
+        "Requires existing expertise",
+        "Student engagement important",
+        "Lab setup for content creation",
+        "Less demand than math/languages"
+      ]
+    },
+    {
+      "id": "languages",
+      "name": "Languages",
+      "category": "Teaching & Academic",
+      "description": "Fluency in second or additional languages with ability to teach effectively",
+      "difficulty": "Hard",
+      "prerequisites": "Fluency in target language, teaching ability",
+      "timeToLearnBasic_min": 0,
+      "timeToLearnBasic_max": 0,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 0,
+      "timeToLearnProficient_max": 0,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 5,
+      "marketDemand_label": "Very High",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "Care.com: Language tutors consistently in top demand",
+        "Preply 2023: Spanish and Chinese tutors most requested"
+      ],
+      "relatedDomains": ["Test Preparation", "Academic Writing"],
+      "compatibleDeliveryModels": ["Tutoring", "Course Creation", "YouTube Channel", "Coaching"],
+      "earningPotentialByDelivery": {
+        "Tutoring": {
+          "min": 25,
+          "max": 100,
+          "unit": "hour",
+          "source": "Preply, iTalki, VIPKid rates"
+        },
+        "Online Teaching": {
+          "min": 14,
+          "max": 22,
+          "unit": "hour",
+          "source": "VIPKid, Cambly English teaching jobs"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Preply",
+          "type": "tutoring marketplace",
+          "url": "preply.com"
+        },
+        {
+          "title": "iTalki",
+          "type": "language tutoring",
+          "url": "italki.com"
+        }
+      ],
+      "pros": [
+        "Very high demand, especially for major languages",
+        "Multiple platforms and rates",
+        "Remote-friendly",
+        "Can teach part-time easily"
+      ],
+      "cons": [
+        "Requires native or near-native fluency",
+        "Student motivation varies",
+        "Hourly rates can be low on some platforms",
+        "Time zone challenges for online"
+      ]
+    },
+    {
+      "id": "test_prep",
+      "name": "Test Preparation",
+      "category": "Teaching & Academic",
+      "description": "Expertise in standardized test preparation (SAT, GRE, GMAT, LSAT, etc.) and test-taking strategies",
+      "difficulty": "Medium-Hard",
+      "prerequisites": "High scores on target tests, understanding of test strategies",
+      "timeToLearnBasic_min": 0,
+      "timeToLearnBasic_max": 0,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 0,
+      "timeToLearnProficient_max": 0,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 4,
+      "marketDemand_label": "High",
+      "demandTrend": "Seasonal (high around test dates)",
+      "demandSources": [
+        "Care.com: Test prep tutors consistently requested",
+        "Wyzant: Test prep tutoring strong seasonal demand"
+      ],
+      "relatedDomains": ["Mathematics", "Languages", "Academic Writing"],
+      "compatibleDeliveryModels": ["Tutoring", "Course Creation", "YouTube Channel"],
+      "earningPotentialByDelivery": {
+        "Tutoring": {
+          "min": 40,
+          "max": 150,
+          "unit": "hour",
+          "source": "Wyzant, Princeton Review tutor rates"
+        },
+        "Course Creation": {
+          "min": 2000,
+          "max": 15000,
+          "unit": "course",
+          "source": "Udemy test prep courses"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Official Test Prep (College Board, GMAC, etc)",
+          "type": "official materials",
+          "url": "collegeboard.org"
+        },
+        {
+          "title": "Princeton Review Online Prep",
+          "type": "online prep",
+          "url": "princetonreview.com"
+        }
+      ],
+      "pros": [
+        "High hourly rates for tutoring",
+        "Seasonal income spikes",
+        "Clear results/outcomes",
+        "Multiple test types to specialize in"
+      ],
+      "cons": [
+        "Requires expert-level knowledge",
+        "Seasonal demand fluctuation",
+        "Student stress/pressure high",
+        "Continuous test updates needed"
+      ]
+    },
+    {
+      "id": "academic_writing",
+      "name": "Academic Writing",
+      "category": "Teaching & Academic",
+      "description": "Writing research papers, theses, dissertations, and academic articles with proper citations and structure",
+      "difficulty": "Medium-Hard",
+      "prerequisites": "Strong writing, research skills, subject matter expertise",
+      "timeToLearnBasic_min": 4,
+      "timeToLearnBasic_max": 8,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 6,
+      "timeToLearnProficient_max": 12,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 3,
+      "marketDemand_label": "Moderate",
+      "demandTrend": "Stable",
+      "demandSources": [
+        "Upwork: Academic writing freelancers in demand",
+        "Scribd, Academia.edu: Academic content consumption growing"
+      ],
+      "relatedDomains": ["Creative Writing", "Technical Writing", "Research"],
+      "compatibleDeliveryModels": ["Freelance", "Course Creation"],
+      "earningPotentialByDelivery": {
+        "Freelance": {
+          "min": 30,
+          "max": 80,
+          "unit": "hour",
+          "source": "Upwork academic writing rates"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Purdue OWL",
+          "type": "free resource",
+          "url": "owl.purdue.edu"
+        },
+        {
+          "title": "\"They Say / I Say\" - Graff & Birkenstein",
+          "type": "book",
+          "url": "amazon.com"
+        }
+      ],
+      "pros": [
+        "Decent hourly rates",
+        "Remote-friendly",
+        "Can work with multiple disciplines",
+        "Clear deliverables"
+      ],
+      "cons": [
+        "Requires strong subject knowledge",
+        "Student writing quality matters for credibility",
+        "Citation formats constantly evolving",
+        "Moderate earning compared to other specialties"
+      ]
+    },
+    {
+      "id": "technical_writing",
+      "name": "Technical Writing",
+      "category": "Teaching & Academic",
+      "description": "Writing documentation, user guides, API docs, and technical manuals for software and products",
+      "difficulty": "Medium",
+      "prerequisites": "Technical understanding, clear writing, ability to translate complex concepts",
+      "timeToLearnBasic_min": 4,
+      "timeToLearnBasic_max": 8,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 6,
+      "timeToLearnProficient_max": 12,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 4,
+      "marketDemand_label": "High",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "Society for Technical Communication: Tech writer jobs growing",
+        "Indeed: Technical Writer in top 25 growing roles"
+      ],
+      "relatedDomains": ["Web Dev (Frontend)", "Software Development", "Academic Writing"],
+      "compatibleDeliveryModels": ["Freelance", "Consulting", "Course Creation"],
+      "earningPotentialByDelivery": {
+        "Freelance": {
+          "min": 40,
+          "max": 100,
+          "unit": "hour",
+          "source": "Upwork technical writing rates"
+        },
+        "Consulting": {
+          "min": 75,
+          "max": 200,
+          "unit": "hour",
+          "source": "Technical writing consultant rates"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Write the Docs Community",
+          "type": "community & resources",
+          "url": "writethedocs.org"
+        },
+        {
+          "title": "Google Technical Writing Course",
+          "type": "free course",
+          "url": "developers.google.com/tech-writing"
+        }
+      ],
+      "pros": [
+        "Growing demand, especially in tech",
+        "Good freelance rates",
+        "Multiple specializations",
+        "Remote-friendly"
+      ],
+      "cons": [
+        "Requires technical background",
+        "Can be dry/repetitive work",
+        "Tools and platforms vary",
+        "Competitive market"
+      ]
+    },
+    {
+      "id": "fitness",
+      "name": "Fitness",
+      "category": "Lifestyle & Wellness",
+      "description": "Knowledge of exercise, training methods, nutrition for fitness goals, and ability to design programs",
+      "difficulty": "Medium",
+      "prerequisites": "Fitness knowledge, certification helpful, passion for health",
+      "timeToLearnBasic_min": 4,
+      "timeToLearnBasic_max": 8,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 4,
+      "timeToLearnProficient_max": 8,
+      "timeToLearnProficient_unit": "weeks",
+      "marketDemand_score": 4,
+      "marketDemand_label": "High",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "Bureau of Labor Statistics: Personal trainers 13% growth",
+        "Zippia: Fitness industry growing faster than average"
+      ],
+      "relatedDomains": ["Nutrition", "Psychology", "Wellness Coaching"],
+      "compatibleDeliveryModels": ["Coaching", "Course Creation", "YouTube Channel", "Local Services"],
+      "earningPotentialByDelivery": {
+        "Coaching": {
+          "min": 30,
+          "max": 100,
+          "unit": "hour",
+          "source": "Upwork fitness coaching, local PT rates"
+        },
+        "Online Programs": {
+          "min": 500,
+          "max": 3000,
+          "unit": "program",
+          "source": "Fitness program sales"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "ACE Personal Trainer Certification",
+          "type": "certification",
+          "url": "acefitness.org"
+        },
+        {
+          "title": "NASM Certification",
+          "type": "certification",
+          "url": "nasm.org"
+        }
+      ],
+      "pros": [
+        "High demand",
+        "Multiple income streams",
+        "Can build community",
+        "Personal fulfillment"
+      ],
+      "cons": [
+        "Client motivation important",
+        "Certification helpful for credibility",
+        "Physical demands on trainer",
+        "Liability/insurance considerations"
+      ]
+    },
+    {
+      "id": "nutrition",
+      "name": "Nutrition",
+      "category": "Lifestyle & Wellness",
+      "description": "Knowledge of nutrition science, meal planning, and ability to provide dietary guidance (note: nutritionist vs. registered dietitian distinction)",
+      "difficulty": "Medium-Hard",
+      "prerequisites": "Nutrition science knowledge, certification varies by location",
+      "timeToLearnBasic_min": 8,
+      "timeToLearnBasic_max": 12,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 6,
+      "timeToLearnProficient_max": 12,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 4,
+      "marketDemand_label": "High",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "BLS: Dietitian/Nutritionist 7% growth",
+        "ACE Fitness: Nutrition coaching demand growing"
+      ],
+      "relatedDomains": ["Fitness", "Health Coaching"],
+      "compatibleDeliveryModels": ["Coaching", "Course Creation", "Consulting"],
+      "earningPotentialByDelivery": {
+        "Coaching": {
+          "min": 40,
+          "max": 120,
+          "unit": "hour",
+          "source": "Upwork nutrition coaching"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "ISSN Sports Nutrition Certification",
+          "type": "certification",
+          "url": "issn.org"
+        },
+        {
+          "title": "Precision Nutrition Level 1",
+          "type": "certification",
+          "url": "precisionnutrition.com"
+        }
+      ],
+      "pros": [
+        "Growing demand",
+        "Good coaching rates",
+        "Can combine with fitness",
+        "Multiple specializations"
+      ],
+      "cons": [
+        "Regulatory complexity (nutritionist vs RD)",
+        "Requires ongoing learning",
+        "Client compliance difficult",
+        "Competition from apps/AI"
+      ]
+    },
+    {
+      "id": "yoga_mindfulness",
+      "name": "Yoga & Mindfulness",
+      "category": "Lifestyle & Wellness",
+      "description": "Yoga instruction, meditation teaching, and mindfulness coaching for stress reduction and wellness",
+      "difficulty": "Medium",
+      "prerequisites": "Yoga practice, meditation experience, teacher training certification helpful",
+      "timeToLearnBasic_min": 4,
+      "timeToLearnBasic_max": 8,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 12,
+      "timeToLearnProficient_max": 52,
+      "timeToLearnProficient_unit": "weeks",
+      "marketDemand_score": 3,
+      "marketDemand_label": "Moderate",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "Yoga Alliance: Yoga instructor jobs growing 15% annually",
+        "Indeed: Yoga instructor positions increasing"
+      ],
+      "relatedDomains": ["Fitness", "Mental Health", "Life Coaching"],
+      "compatibleDeliveryModels": ["Coaching", "Course Creation", "YouTube Channel", "Local Services"],
+      "earningPotentialByDelivery": {
+        "Coaching": {
+          "min": 25,
+          "max": 75,
+          "unit": "hour",
+          "source": "Local yoga studio rates, Upwork"
+        },
+        "Online Classes": {
+          "min": 200,
+          "max": 1000,
+          "unit": "month",
+          "source": "Yoga with Adriene subscriber model"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Yoga Alliance RYT-200 Certification",
+          "type": "certification",
+          "url": "yogaalliance.org"
+        },
+        {
+          "title": "Insight Timer Teacher Training",
+          "type": "online training",
+          "url": "insighttimer.com"
+        }
+      ],
+      "pros": [
+        "Growing wellness market",
+        "Can teach virtually",
+        "Build dedicated community",
+        "Personal fulfillment"
+      ],
+      "cons": [
+        "Requires 200+ hours training typically",
+        "Lower hourly rates than fitness",
+        "Competitive market",
+        "Client consistency matters"
+      ]
+    },
+    {
+      "id": "mental_health",
+      "name": "Mental Health",
+      "category": "Lifestyle & Wellness",
+      "description": "Psychology knowledge, counseling skills (note: licensed vs. non-licensed distinction important). May include life coaching vs. therapy.",
+      "difficulty": "Hard",
+      "prerequisites": "Psychology degree, licensing/certification requirements vary significantly by jurisdiction",
+      "timeToLearnBasic_min": 0,
+      "timeToLearnBasic_max": 0,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 0,
+      "timeToLearnProficient_max": 0,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 5,
+      "marketDemand_label": "Very High",
+      "demandTrend": "Growing Rapidly",
+      "demandSources": [
+        "BLS: Psychologists 4% growth; Mental health counselors 13% growth",
+        "Mental health demand post-COVID very high"
+      ],
+      "relatedDomains": ["Life Coaching", "Nutrition", "Fitness"],
+      "compatibleDeliveryModels": ["Coaching", "Course Creation"],
+      "earningPotentialByDelivery": {
+        "Therapy/Counseling": {
+          "min": 80,
+          "max": 200,
+          "unit": "hour",
+          "source": "Therapist rates vary by licensing"
+        },
+        "Life Coaching": {
+          "min": 50,
+          "max": 150,
+          "unit": "hour",
+          "source": "Life coach rates"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Psychology degree (Masters/PhD required for therapy)",
+          "type": "formal education",
+          "url": "university"
+        },
+        {
+          "title": "Life Coach Certification (less regulated)",
+          "type": "certification",
+          "url": "various providers"
+        }
+      ],
+      "pros": [
+        "Very high demand",
+        "Good income potential",
+        "Meaningful work",
+        "Multiple credential paths"
+      ],
+      "cons": [
+        "Significant education requirement for licensed therapy",
+        "Licensing varies by jurisdiction",
+        "Emotional labor/burnout risk",
+        "Liability and confidentiality critical"
+      ]
+    },
+    {
+      "id": "life_coaching",
+      "name": "Life Coaching",
+      "category": "Lifestyle & Wellness",
+      "description": "Providing guidance and accountability for personal goals, habits, and life direction (note: less regulated than therapy)",
+      "difficulty": "Medium",
+      "prerequisites": "Life experience, coaching training, strong communication skills",
+      "timeToLearnBasic_min": 4,
+      "timeToLearnBasic_max": 8,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 6,
+      "timeToLearnProficient_max": 12,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 3,
+      "marketDemand_label": "Moderate",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "International Coach Federation: Life coaching demand growing",
+        "Upwork: Life coach demand steady"
+      ],
+      "relatedDomains": ["Career Coaching", "Mental Health", "Psychology"],
+      "compatibleDeliveryModels": ["Coaching", "Course Creation"],
+      "earningPotentialByDelivery": {
+        "Coaching": {
+          "min": 40,
+          "max": 150,
+          "unit": "hour",
+          "source": "ICF coach rates, Upwork"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "International Coach Federation Certification",
+          "type": "certification",
+          "url": "coachfederation.org"
+        },
+        {
+          "title": "Life Coach School Podcast",
+          "type": "free resource",
+          "url": "thelifecoachschool.com"
+        }
+      ],
+      "pros": [
+        "Less regulated than therapy (easier entry)",
+        "Good hourly rates",
+        "Flexible delivery models",
+        "Personal reward"
+      ],
+      "cons": [
+        "Highly competitive market",
+        "Client motivation critical",
+        "Certification helps but not required",
+        "Building client base takes time"
+      ]
+    },
+    {
+      "id": "career_coaching",
+      "name": "Career Coaching",
+      "category": "Lifestyle & Wellness",
+      "description": "Coaching around career transitions, job search, professional development, and workplace challenges",
+      "difficulty": "Medium",
+      "prerequisites": "Career experience, coaching training, HR/business knowledge helpful",
+      "timeToLearnBasic_min": 4,
+      "timeToLearnBasic_max": 8,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 6,
+      "timeToLearnProficient_max": 12,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 4,
+      "marketDemand_label": "High",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "Indeed: Career Coach job postings growing",
+        "LinkedIn: Career coaching demand post-COVID high"
+      ],
+      "relatedDomains": ["Life Coaching", "Business Consulting"],
+      "compatibleDeliveryModels": ["Coaching", "Course Creation", "Consulting"],
+      "earningPotentialByDelivery": {
+        "Coaching": {
+          "min": 50,
+          "max": 200,
+          "unit": "hour",
+          "source": "Career coach rates"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "International Coach Federation Career Specialization",
+          "type": "certification",
+          "url": "coachfederation.org"
+        }
+      ],
+      "pros": [
+        "Good hourly rates",
+        "High demand for transitions/layoffs",
+        "Can combine with recruiting",
+        "Corporate clients available"
+      ],
+      "cons": [
+        "Client's job search affects engagement",
+        "Results-dependent (job placements)",
+        "Competitive market",
+        "Building credibility important"
+      ]
+    },
+    {
+      "id": "cooking_baking",
+      "name": "Cooking & Baking",
+      "category": "Home & Craft",
+      "description": "Culinary skills, recipe development, cooking techniques, and food preparation",
+      "difficulty": "Medium",
+      "prerequisites": "Cooking experience, food safety knowledge, passion for food",
+      "timeToLearnBasic_min": 4,
+      "timeToLearnBasic_max": 8,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 6,
+      "timeToLearnProficient_max": 12,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 3,
+      "marketDemand_label": "Moderate",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "BLS: Food prep workers stable, chefs 8% growth",
+        "MasterClass: Cooking courses very popular"
+      ],
+      "relatedDomains": ["Nutrition", "Photography"],
+      "compatibleDeliveryModels": ["Course Creation", "YouTube Channel", "Local Services", "E-commerce"],
+      "earningPotentialByDelivery": {
+        "Course Creation": {
+          "min": 500,
+          "max": 5000,
+          "unit": "course",
+          "source": "Udemy cooking courses"
+        },
+        "YouTube": {
+          "min": 100,
+          "max": 10000,
+          "unit": "month",
+          "source": "YouTube cooking channel earnings"
+        },
+        "Local Services": {
+          "min": 50,
+          "max": 200,
+          "unit": "hour",
+          "source": "Meal prep, cooking class rates"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "MasterClass Cooking",
+          "type": "video course",
+          "url": "masterclass.com"
+        },
+        {
+          "title": "CIA (Culinary Institute) Online",
+          "type": "online courses",
+          "url": "ciachef.edu"
+        }
+      ],
+      "pros": [
+        "Growing interest in home cooking",
+        "Multiple income streams",
+        "Community building potential",
+        "Low startup cost"
+      ],
+      "cons": [
+        "High competition (many food creators)",
+        "YouTube algorithm unpredictable",
+        "Requires consistent content",
+        "Monetization takes time"
+      ]
+    },
+    {
+      "id": "home_organization",
+      "name": "Home Organization",
+      "category": "Home & Craft",
+      "description": "Home organizing, decluttering, space optimization, and organizational systems design",
+      "difficulty": "Easy-Medium",
+      "prerequisites": "Organizing skills, design sense, patience with clients",
+      "timeToLearnBasic_min": 2,
+      "timeToLearnBasic_max": 4,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 2,
+      "timeToLearnProficient_max": 6,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 3,
+      "marketDemand_label": "Moderate",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "Thumbtack: Professional organizers in high demand",
+        "Organizational productivity trend growing"
+      ],
+      "relatedDomains": ["Interior Design"],
+      "compatibleDeliveryModels": ["Local Services", "Course Creation", "YouTube Channel"],
+      "earningPotentialByDelivery": {
+        "Local Services": {
+          "min": 40,
+          "max": 150,
+          "unit": "hour",
+          "source": "Thumbtack organizer rates"
+        },
+        "Course Creation": {
+          "min": 500,
+          "max": 2000,
+          "unit": "course",
+          "source": "Udemy organizing courses"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Professional Organizers International (POI)",
+          "type": "certification",
+          "url": "poi.org"
+        },
+        {
+          "title": "YouTube Organizing Channels",
+          "type": "free learning",
+          "url": "youtube.com"
+        }
+      ],
+      "pros": [
+        "Growing demand for organizing services",
+        "Local business opportunity",
+        "Can build repeat/referral business",
+        "Lower barrier to entry"
+      ],
+      "cons": [
+        "Physical labor intensive",
+        "Emotional work (client attachment to items)",
+        "Seasonal demand",
+        "Local business geographic limitations"
+      ]
+    },
+    {
+      "id": "interior_design",
+      "name": "Interior Design",
+      "category": "Home & Craft",
+      "description": "Space planning, aesthetics, color theory, furniture arrangement, and interior decorating",
+      "difficulty": "Medium-Hard",
+      "prerequisites": "Design training, eye for aesthetics, CAD or design software skills helpful",
+      "timeToLearnBasic_min": 8,
+      "timeToLearnBasic_max": 12,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 12,
+      "timeToLearnProficient_max": 24,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 3,
+      "marketDemand_label": "Moderate",
+      "demandTrend": "Stable",
+      "demandSources": [
+        "BLS: Interior designers 2% growth (slower than average)",
+        "HGTV boom has increased interest"
+      ],
+      "relatedDomains": ["Graphic Design", "Home Organization"],
+      "compatibleDeliveryModels": ["Freelance", "Consulting", "Course Creation"],
+      "earningPotentialByDelivery": {
+        "Freelance": {
+          "min": 50,
+          "max": 150,
+          "unit": "hour",
+          "source": "Upwork interior design rates"
+        },
+        "Consulting": {
+          "min": 75,
+          "max": 250,
+          "unit": "hour",
+          "source": "Professional interior designer rates"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "NCIDQ Certification (Interior Design)",
+          "type": "certification",
+          "url": "cidq.org"
+        },
+        {
+          "title": "Skillshare Interior Design",
+          "type": "online courses",
+          "url": "skillshare.com"
+        }
+      ],
+      "pros": [
+        "Creative satisfaction",
+        "Good consulting rates",
+        "Multiple project types",
+        "Growing interest in home design"
+      ],
+      "cons": [
+        "Education helpful for credibility",
+        "Client vision vs. designer vision challenges",
+        "Residential vs. commercial very different",
+        "Portfolio building takes time"
+      ]
+    },
+    {
+      "id": "woodworking",
+      "name": "Woodworking",
+      "category": "Home & Craft",
+      "description": "Furniture making, carpentry, wood craftsmanship, and woodworking project design",
+      "difficulty": "Medium",
+      "prerequisites": "Woodworking training, tool proficiency, attention to detail",
+      "timeToLearnBasic_min": 8,
+      "timeToLearnBasic_max": 12,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 12,
+      "timeToLearnProficient_max": 24,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 2,
+      "marketDemand_label": "Low-Moderate",
+      "demandTrend": "Stable-Growing (hobby trend)",
+      "demandSources": [
+        "Etsy: Woodworking products popular",
+        "Local: Carpentry work steady in most areas"
+      ],
+      "relatedDomains": ["DIY & Home Improvement", "Craft"],
+      "compatibleDeliveryModels": ["E-commerce", "Local Services", "YouTube Channel", "Course Creation"],
+      "earningPotentialByDelivery": {
+        "E-commerce": {
+          "min": 500,
+          "max": 5000,
+          "unit": "month",
+          "source": "Etsy woodworking sellers"
+        },
+        "Local Services": {
+          "min": 50,
+          "max": 200,
+          "unit": "hour",
+          "source": "Local carpentry rates"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Local woodworking classes",
+          "type": "in-person training",
+          "url": "local community colleges"
+        },
+        {
+          "title": "YouTube Woodworking Channels",
+          "type": "free learning",
+          "url": "youtube.com"
+        }
+      ],
+      "pros": [
+        "Strong etsy/handmade market",
+        "Local service opportunities",
+        "YouTube content potential",
+        "Personal satisfaction"
+      ],
+      "cons": [
+        "Workshop space needed",
+        "Equipment investment required",
+        "Shipping heavy items challenging",
+        "Safety considerations"
+      ]
+    },
+    {
+      "id": "jewelry_making",
+      "name": "Jewelry Making",
+      "category": "Home & Craft",
+      "description": "Jewelry design and creation using various techniques and materials",
+      "difficulty": "Easy-Medium",
+      "prerequisites": "Craft skills, design sense, patience",
+      "timeToLearnBasic_min": 4,
+      "timeToLearnBasic_max": 8,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 6,
+      "timeToLearnProficient_max": 12,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 3,
+      "marketDemand_label": "Moderate",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "Etsy: Jewelry top-selling category",
+        "Handmade jewelry demand consistent"
+      ],
+      "relatedDomains": ["Graphic Design", "Photography"],
+      "compatibleDeliveryModels": ["E-commerce", "Etsy Shop", "YouTube Channel"],
+      "earningPotentialByDelivery": {
+        "E-commerce": {
+          "min": 1000,
+          "max": 10000,
+          "unit": "month",
+          "source": "Etsy jewelry sellers"
+        },
+        "Custom Orders": {
+          "min": 25,
+          "max": 500,
+          "unit": "piece",
+          "source": "Custom jewelry pricing"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Skillshare Jewelry Making",
+          "type": "online courses",
+          "url": "skillshare.com"
+        },
+        {
+          "title": "Local jewelry classes",
+          "type": "in-person training",
+          "url": "local art centers"
+        }
+      ],
+      "pros": [
+        "Etsy very popular for jewelry",
+        "Low startup cost",
+        "High markup potential",
+        "Customization opportunity"
+      ],
+      "cons": [
+        "High competition on Etsy",
+        "Shipping delicate items",
+        "Material costs can add up",
+        "Photography important for sales"
+      ]
+    },
+    {
+      "id": "sewing_fashion",
+      "name": "Sewing & Fashion",
+      "category": "Home & Craft",
+      "description": "Sewing skills, garment construction, fashion design, and alterations",
+      "difficulty": "Medium",
+      "prerequisites": "Sewing machine proficiency, pattern reading, design sense",
+      "timeToLearnBasic_min": 4,
+      "timeToLearnBasic_max": 8,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 6,
+      "timeToLearnProficient_max": 12,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 2,
+      "marketDemand_label": "Low-Moderate",
+      "demandTrend": "Growing (sustainable fashion trend)",
+      "demandSources": [
+        "Etsy: Clothing and accessories popular",
+        "Alterations always in demand"
+      ],
+      "relatedDomains": ["Fashion & Styling", "DIY"],
+      "compatibleDeliveryModels": ["E-commerce", "Local Services", "YouTube Channel"],
+      "earningPotentialByDelivery": {
+        "E-commerce": {
+          "min": 500,
+          "max": 3000,
+          "unit": "month",
+          "source": "Etsy clothing sellers"
+        },
+        "Alterations": {
+          "min": 25,
+          "max": 100,
+          "unit": "hour",
+          "source": "Local alterations pricing"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Skillshare Sewing & Fashion",
+          "type": "online courses",
+          "url": "skillshare.com"
+        },
+        {
+          "title": "Local sewing classes",
+          "type": "in-person training",
+          "url": "local fabric stores"
+        }
+      ],
+      "pros": [
+        "Growing sustainable fashion interest",
+        "Etsy marketplace",
+        "Alterations steady local demand",
+        "Personal fulfillment"
+      ],
+      "cons": [
+        "Time-intensive to create",
+        "High competition on etsy",
+        "Material costs variable",
+        "Shipping concerns for clothing"
+      ]
+    },
+    {
+      "id": "ceramics_pottery",
+      "name": "Ceramics & Pottery",
+      "category": "Home & Craft",
+      "description": "Pottery wheel throwing, hand building, kiln firing, glazing, and ceramic art creation",
+      "difficulty": "Medium",
+      "prerequisites": "Kiln access, pottery training, hands-on craft skills",
+      "timeToLearnBasic_min": 8,
+      "timeToLearnBasic_max": 12,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 12,
+      "timeToLearnProficient_max": 24,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 2,
+      "marketDemand_label": "Low-Moderate",
+      "demandTrend": "Stable-Growing (hobby/handmade trend)",
+      "demandSources": [
+        "Etsy: Pottery and ceramics popular",
+        "Local craft fairs strong demand"
+      ],
+      "relatedDomains": ["Art & Drawing"],
+      "compatibleDeliveryModels": ["E-commerce", "Local Services", "Craft Fairs"],
+      "earningPotentialByDelivery": {
+        "E-commerce": {
+          "min": 500,
+          "max": 3000,
+          "unit": "month",
+          "source": "Etsy pottery sellers"
+        },
+        "Craft Fairs": {
+          "min": 200,
+          "max": 2000,
+          "unit": "fair",
+          "source": "Craft fair sales"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Local pottery studios/classes",
+          "type": "in-person training",
+          "url": "local art centers"
+        },
+        {
+          "title": "YouTube Pottery Channels",
+          "type": "free learning",
+          "url": "youtube.com"
+        }
+      ],
+      "pros": [
+        "Handmade market growing",
+        "Craft fair opportunities",
+        "Personal artistic expression",
+        "Strong etsy sales"
+      ],
+      "cons": [
+        "Requires kiln access (costly)",
+        "High startup investment",
+        "Breakage/quality issues",
+        "Shipping fragile items challenging"
+      ]
+    },
+    {
+      "id": "gardening_landscaping",
+      "name": "Gardening & Landscaping",
+      "category": "Home & Craft",
+      "description": "Plant knowledge, garden design, landscaping, outdoor space creation, and maintenance",
+      "difficulty": "Easy-Medium",
+      "prerequisites": "Plant knowledge, design sense, physical capability",
+      "timeToLearnBasic_min": 4,
+      "timeToLearnBasic_max": 8,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 6,
+      "timeToLearnProficient_max": 12,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 3,
+      "marketDemand_label": "Moderate",
+      "demandTrend": "Growing (wellness, home garden trends)",
+      "demandSources": [
+        "BLS: Landscapers 4% growth",
+        "Home gardening interest post-COVID boom"
+      ],
+      "relatedDomains": ["DIY & Home Improvement"],
+      "compatibleDeliveryModels": ["Local Services", "Course Creation", "YouTube Channel"],
+      "earningPotentialByDelivery": {
+        "Local Services": {
+          "min": 35,
+          "max": 100,
+          "unit": "hour",
+          "source": "Local landscaping rates"
+        },
+        "Course Creation": {
+          "min": 500,
+          "max": 2000,
+          "unit": "course",
+          "source": "Udemy gardening courses"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Local nurseries & garden classes",
+          "type": "in-person training",
+          "url": "local"
+        },
+        {
+          "title": "YouTube Gardening Channels",
+          "type": "free learning",
+          "url": "youtube.com"
+        }
+      ],
+      "pros": [
+        "Growing interest in gardening",
+        "Local service opportunities",
+        "YouTube content potential",
+        "Seasonal income possible"
+      ],
+      "cons": [
+        "Weather dependent",
+        "Physical labor intensive",
+        "Seasonal demand fluctuation",
+        "Equipment investment"
+      ]
+    },
+    {
+      "id": "diy_home_improvement",
+      "name": "DIY & Home Improvement",
+      "category": "Home & Craft",
+      "description": "Home repair, renovation, building projects, and DIY skills for home maintenance",
+      "difficulty": "Medium-Hard",
+      "prerequisites": "Hands-on skills, tool knowledge, safety awareness",
+      "timeToLearnBasic_min": 8,
+      "timeToLearnBasic_max": 12,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 12,
+      "timeToLearnProficient_max": 24,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 3,
+      "marketDemand_label": "Moderate",
+      "demandTrend": "Stable-Growing",
+      "demandSources": [
+        "BLS: Handyman services growing",
+        "YouTube DIY trending"
+      ],
+      "relatedDomains": ["Woodworking", "Gardening", "Construction"],
+      "compatibleDeliveryModels": ["Local Services", "YouTube Channel", "Course Creation"],
+      "earningPotentialByDelivery": {
+        "Local Services": {
+          "min": 40,
+          "max": 150,
+          "unit": "hour",
+          "source": "Handyman rates"
+        },
+        "YouTube": {
+          "min": 100,
+          "max": 5000,
+          "unit": "month",
+          "source": "DIY YouTube channels"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "YouTube DIY Channels",
+          "type": "free learning",
+          "url": "youtube.com"
+        },
+        {
+          "title": "Local vocational training",
+          "type": "formal training",
+          "url": "local community college"
+        }
+      ],
+      "pros": [
+        "YouTube content very popular",
+        "Local handyman service demand",
+        "Wide variety of projects",
+        "Subscription/patreon potential"
+      ],
+      "cons": [
+        "Liability and insurance needed",
+        "Tool investment",
+        "Safety critical",
+        "Requires diverse skill set"
+      ]
+    },
+    {
+      "id": "gaming_esports",
+      "name": "Gaming & Esports",
+      "category": "Hobbies & Passions",
+      "description": "Gaming expertise, streaming, esports coaching, tournament participation, and gaming content creation",
+      "difficulty": "Variable (depends on specialization)",
+      "prerequisites": "High skill in game(s), streaming setup, audience building",
+      "timeToLearnBasic_min": 0,
+      "timeToLearnBasic_max": 0,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 0,
+      "timeToLearnProficient_max": 0,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 3,
+      "marketDemand_label": "Moderate",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "Statista: Gaming market growing 10% annually",
+        "Twitch: Gaming streamers in high demand"
+      ],
+      "relatedDomains": ["Video Production", "YouTube"],
+      "compatibleDeliveryModels": ["YouTube Channel", "Streaming", "Coaching"],
+      "earningPotentialByDelivery": {
+        "Twitch Streaming": {
+          "min": 0,
+          "max": 10000,
+          "unit": "month",
+          "source": "Top streamers earn 6-7 figures; averages much lower"
+        },
+        "Coaching": {
+          "min": 25,
+          "max": 100,
+          "unit": "hour",
+          "source": "Esports coaching rates"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Twitch Creator Program",
+          "type": "platform resources",
+          "url": "twitch.tv"
+        },
+        {
+          "title": "YouTube Gaming",
+          "type": "platform resources",
+          "url": "youtube.com"
+        }
+      ],
+      "pros": [
+        "Growing gaming audience",
+        "Multiple income streams (ads, subs, donations)",
+        "Community engagement",
+        "Esports opportunities"
+      ],
+      "cons": [
+        "Requires expert skill level",
+        "Highly competitive",
+        "Audience building takes time",
+        "Income unpredictable, heavily platform-dependent"
+      ]
+    },
+    {
+      "id": "art_drawing",
+      "name": "Art & Drawing",
+      "category": "Hobbies & Passions",
+      "description": "Fine art skills including drawing, painting, mixed media, and visual art creation",
+      "difficulty": "Hard",
+      "prerequisites": "Artistic training, drawing fundamentals, medium mastery",
+      "timeToLearnBasic_min": 8,
+      "timeToLearnBasic_max": 12,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 12,
+      "timeToLearnProficient_max": 52,
+      "timeToLearnProficient_unit": "weeks",
+      "marketDemand_score": 2,
+      "marketDemand_label": "Low-Moderate",
+      "demandTrend": "Stable",
+      "demandSources": [
+        "Etsy: Art sales steady",
+        "Fine art market niche"
+      ],
+      "relatedDomains": ["Digital Illustration", "Photography"],
+      "compatibleDeliveryModels": ["E-commerce", "YouTube Channel", "Patreon"],
+      "earningPotentialByDelivery": {
+        "E-commerce": {
+          "min": 500,
+          "max": 3000,
+          "unit": "month",
+          "source": "Etsy art sellers"
+        },
+        "Patreon/Subscriptions": {
+          "min": 100,
+          "max": 3000,
+          "unit": "month",
+          "source": "Artist patreon earnings"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Proko Figure Drawing & Painting",
+          "type": "video courses",
+          "url": "proko.com"
+        },
+        {
+          "title": "Local art schools/classes",
+          "type": "in-person training",
+          "url": "local"
+        }
+      ],
+      "pros": [
+        "Personal artistic expression",
+        "Patreon community model",
+        "Original art value high",
+        "Multiple sales channels"
+      ],
+      "cons": [
+        "Long learning curve",
+        "Highly subjective market",
+        "Lower average earnings",
+        "Art market competitive"
+      ]
+    },
+    {
+      "id": "pet_training",
+      "name": "Pet Training",
+      "category": "Hobbies & Passions",
+      "description": "Dog training, animal behavior knowledge, obedience instruction, and behavior modification",
+      "difficulty": "Medium",
+      "prerequisites": "Animal behavior knowledge, dog training certification helpful, patience",
+      "timeToLearnBasic_min": 8,
+      "timeToLearnBasic_max": 12,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 6,
+      "timeToLearnProficient_max": 12,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 3,
+      "marketDemand_label": "Moderate",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "Rover: Dog training in high demand",
+        "Care.com: Dog trainers consistently requested"
+      ],
+      "relatedDomains": ["Animal Care"],
+      "compatibleDeliveryModels": ["Local Services", "Coaching", "YouTube Channel"],
+      "earningPotentialByDelivery": {
+        "Local Services": {
+          "min": 40,
+          "max": 150,
+          "unit": "hour",
+          "source": "Local dog trainer rates"
+        },
+        "Group Classes": {
+          "min": 200,
+          "max": 500,
+          "unit": "class",
+          "source": "Dog training class fees"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "CCPDT Certification",
+          "type": "certification",
+          "url": "ccpdt.org"
+        },
+        {
+          "title": "Domestic Dog Training Academy",
+          "type": "online training",
+          "url": "ddtacademy.com"
+        }
+      ],
+      "pros": [
+        "Growing pet industry demand",
+        "Good local pricing",
+        "Group class potential",
+        "Repeat clients"
+      ],
+      "cons": [
+        "Physical activity required",
+        "Client (owner) training important",
+        "Liability concerns",
+        "Behavioral cases stressful"
+      ]
+    },
+    {
+      "id": "parenting",
+      "name": "Parenting",
+      "category": "Hobbies & Passions",
+      "description": "Child development knowledge, parenting strategies, coaching parents through challenges, family dynamics",
+      "difficulty": "Medium",
+      "prerequisites": "Parenting experience, child development knowledge, psychology background helpful",
+      "timeToLearnBasic_min": 4,
+      "timeToLearnBasic_max": 8,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 6,
+      "timeToLearnProficient_max": 12,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 3,
+      "marketDemand_label": "Moderate",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "Parenting content popular (blogs, podcasts)",
+        "Parent coaching growing market"
+      ],
+      "relatedDomains": ["Life Coaching", "Psychology"],
+      "compatibleDeliveryModels": ["Course Creation", "Coaching", "YouTube Channel", "Newsletters"],
+      "earningPotentialByDelivery": {
+        "Coaching": {
+          "min": 40,
+          "max": 120,
+          "unit": "hour",
+          "source": "Parent coach rates"
+        },
+        "Course Creation": {
+          "min": 500,
+          "max": 3000,
+          "unit": "course",
+          "source": "Udemy parenting courses"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Parent Coach Academy",
+          "type": "certification",
+          "url": "parentcoachacademy.com"
+        },
+        {
+          "title": "Child development research/books",
+          "type": "self-study",
+          "url": "various"
+        }
+      ],
+      "pros": [
+        "Growing parenting coaching market",
+        "Multiple delivery models",
+        "Community building potential",
+        "Meaningful work"
+      ],
+      "cons": [
+        "Requires parenting experience",
+        "Emotional labor",
+        "Market crowded",
+        "Income building takes time"
+      ]
+    },
+    {
+      "id": "fashion_styling",
+      "name": "Fashion & Styling",
+      "category": "Hobbies & Passions",
+      "description": "Fashion knowledge, personal styling, wardrobe consulting, and style advice for individuals",
+      "difficulty": "Medium",
+      "prerequisites": "Fashion sense, color theory, body knowledge, personal style confidence",
+      "timeToLearnBasic_min": 4,
+      "timeToLearnBasic_max": 8,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 6,
+      "timeToLearnProficient_max": 12,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 2,
+      "marketDemand_label": "Low-Moderate",
+      "demandTrend": "Growing (sustainability, personal brand trends)",
+      "demandSources": [
+        "Upwork: Personal stylist demand moderate",
+        "Fashion styling growing niche"
+      ],
+      "relatedDomains": ["Photography", "YouTube"],
+      "compatibleDeliveryModels": ["Coaching", "YouTube Channel", "Course Creation"],
+      "earningPotentialByDelivery": {
+        "Coaching": {
+          "min": 40,
+          "max": 120,
+          "unit": "hour",
+          "source": "Personal stylist rates"
+        },
+        "Course Creation": {
+          "min": 500,
+          "max": 2000,
+          "unit": "course",
+          "source": "Fashion/styling courses"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Fashion Institute certifications",
+          "type": "formal training",
+          "url": "fashion schools"
+        },
+        {
+          "title": "YouTube Fashion Channels",
+          "type": "free learning",
+          "url": "youtube.com"
+        }
+      ],
+      "pros": [
+        "YouTube content potential",
+        "Good coaching rates",
+        "Personal satisfaction",
+        "Sustainability trend growing"
+      ],
+      "cons": [
+        "Subjective market",
+        "Personal brand important",
+        "Trend-dependent",
+        "Moderate income potential"
+      ]
+    },
+    {
+      "id": "travel_tourism",
+      "name": "Travel & Tourism",
+      "category": "Hobbies & Passions",
+      "description": "Travel expertise, destination knowledge, travel planning, tour guiding, and travel content creation",
+      "difficulty": "Easy-Medium",
+      "prerequisites": "Travel experience, destination knowledge, language skills helpful",
+      "timeToLearnBasic_min": 2,
+      "timeToLearnBasic_max": 4,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 6,
+      "timeToLearnProficient_max": 12,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 3,
+      "marketDemand_label": "Moderate",
+      "demandTrend": "Growing (post-COVID travel boom)",
+      "demandSources": [
+        "Travel industry growing 7% annually",
+        "YouTube travel channels popular"
+      ],
+      "relatedDomains": ["Photography", "YouTube Channel"],
+      "compatibleDeliveryModels": ["YouTube Channel", "Blogging", "Consulting", "Coaching"],
+      "earningPotentialByDelivery": {
+        "YouTube": {
+          "min": 100,
+          "max": 10000,
+          "unit": "month",
+          "source": "Travel YouTube channels"
+        },
+        "Blogging": {
+          "min": 0,
+          "max": 3000,
+          "unit": "month",
+          "source": "Travel blog sponsorships/ads"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Travel blogger communities",
+          "type": "community",
+          "url": "various"
+        },
+        {
+          "title": "Travel writing courses",
+          "type": "online courses",
+          "url": "various"
+        }
+      ],
+      "pros": [
+        "Travel while earning",
+        "YouTube growth potential",
+        "Sponsorship opportunities",
+        "Community engagement"
+      ],
+      "cons": [
+        "Requires travel funds upfront",
+        "Highly competitive",
+        "Income slow to build",
+        "Audience essential for monetization"
+      ]
+    },
+    {
+      "id": "wine_spirits",
+      "name": "Wine & Spirits",
+      "category": "Hobbies & Passions",
+      "description": "Wine/spirits knowledge, tasting expertise, pairing skills, sommelier training, and beverage education",
+      "difficulty": "Medium",
+      "prerequisites": "Wine/spirits knowledge, tasting experience, sommelier training helpful",
+      "timeToLearnBasic_min": 8,
+      "timeToLearnBasic_max": 12,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 12,
+      "timeToLearnProficient_max": 24,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 2,
+      "marketDemand_label": "Low-Moderate",
+      "demandTrend": "Stable-Growing",
+      "demandSources": [
+        "Court of Master Sommeliers: Growing certification",
+        "Wine tasting experiences in demand"
+      ],
+      "relatedDomains": ["Cooking & Baking", "Nutrition"],
+      "compatibleDeliveryModels": ["Coaching", "Course Creation", "YouTube Channel"],
+      "earningPotentialByDelivery": {
+        "Coaching": {
+          "min": 50,
+          "max": 150,
+          "unit": "hour",
+          "source": "Wine consultant rates"
+        },
+        "Tastings": {
+          "min": 100,
+          "max": 500,
+          "unit": "event",
+          "source": "Wine tasting event fees"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Court of Master Sommeliers",
+          "type": "certification",
+          "url": "mastersommeliers.org"
+        },
+        {
+          "title": "WSET Wine Education",
+          "type": "certification",
+          "url": "wsetglobal.com"
+        }
+      ],
+      "pros": [
+        "High-end clientele",
+        "Good hourly rates",
+        "Event/tasting opportunities",
+        "Growing wine culture"
+      ],
+      "cons": [
+        "Certification helps credibility",
+        "Niche market",
+        "Inventory costs if selling",
+        "Licensing varies by region"
+      ]
+    },
+    {
+      "id": "makeup_beauty",
+      "name": "Makeup & Beauty",
+      "category": "Hobbies & Passions",
+      "description": "Makeup application skills, beauty techniques, product knowledge, and beauty content creation",
+      "difficulty": "Easy-Medium",
+      "prerequisites": "Makeup application skills, product knowledge, aesthetic sense",
+      "timeToLearnBasic_min": 4,
+      "timeToLearnBasic_max": 8,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 6,
+      "timeToLearnProficient_max": 12,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 3,
+      "marketDemand_label": "Moderate",
+      "demandTrend": "Growing",
+      "demandSources": [
+        "Beauty content extremely popular on YouTube/TikTok",
+        "Makeup artist demand strong"
+      ],
+      "relatedDomains": ["Photography", "YouTube Channel"],
+      "compatibleDeliveryModels": ["YouTube Channel", "TikTok", "Coaching", "E-commerce"],
+      "earningPotentialByDelivery": {
+        "YouTube": {
+          "min": 100,
+          "max": 10000,
+          "unit": "month",
+          "source": "Beauty YouTube channels"
+        },
+        "Makeup Services": {
+          "min": 50,
+          "max": 200,
+          "unit": "hour",
+          "source": "Professional makeup artist rates"
+        },
+        "E-commerce": {
+          "min": 500,
+          "max": 5000,
+          "unit": "month",
+          "source": "Beauty affiliate/drops"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Makeup Forever Academy",
+          "type": "online training",
+          "url": "makeupforever.com"
+        },
+        {
+          "title": "YouTube Makeup Tutorials",
+          "type": "free learning",
+          "url": "youtube.com"
+        }
+      ],
+      "pros": [
+        "YouTube/TikTok opportunity huge",
+        "Sponsorship potential high",
+        "Affiliate marketing opportunity",
+        "Low startup cost"
+      ],
+      "cons": [
+        "Highly competitive",
+        "Trends change rapidly",
+        "Requires consistent content",
+        "Audience essential"
+      ]
+    },
+    {
+      "id": "hair_styling",
+      "name": "Hair Styling",
+      "category": "Hobbies & Passions",
+      "description": "Hair cutting, styling, coloring, and hair care expertise for creating professional results",
+      "difficulty": "Medium",
+      "prerequisites": "Hair styling training, hands-on practice, cosmetology license often required",
+      "timeToLearnBasic_min": 12,
+      "timeToLearnBasic_max": 24,
+      "timeToLearnBasic_unit": "weeks",
+      "timeToLearnProficient_min": 12,
+      "timeToLearnProficient_max": 24,
+      "timeToLearnProficient_unit": "months",
+      "marketDemand_score": 3,
+      "marketDemand_label": "Moderate",
+      "demandTrend": "Stable",
+      "demandSources": [
+        "BLS: Hairdressers/stylists stable demand",
+        "Beauty services consistent"
+      ],
+      "relatedDomains": ["Makeup & Beauty"],
+      "compatibleDeliveryModels": ["Local Services", "YouTube Channel", "Course Creation"],
+      "earningPotentialByDelivery": {
+        "Local Services": {
+          "min": 30,
+          "max": 100,
+          "unit": "hour",
+          "source": "Salon stylist rates"
+        },
+        "Independent Chair Rental": {
+          "min": 40,
+          "max": 150,
+          "unit": "hour",
+          "source": "Independent stylist rates"
+        }
+      },
+      "learningResources": [
+        {
+          "title": "Cosmetology License (formal requirement)",
+          "type": "formal training",
+          "url": "state licensing boards"
+        },
+        {
+          "title": "Advanced courses/specializations",
+          "type": "professional training",
+          "url": "beauty schools"
+        }
+      ],
+      "pros": [
+        "Consistent local demand",
+        "Repeat clientele",
+        "Chair rental model possible",
+        "Specialization opportunities (color, extensions)"
+      ],
+      "cons": [
+        "Cosmetology license required",
+        "Physical labor intensive",
+        "Long hours common",
+        "Low average hourly despite high charges"
+      ]
+    }
+  ]
+}

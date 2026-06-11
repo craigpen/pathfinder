@@ -8,6 +8,7 @@ let SELECTOR_OPTIONS = {};
 let SELECTOR_OPTIONS_LOADED = false;
 let SIDEHUSTLES_LOADED = false;
 let INSIGHTS_LOADED = false;
+let KNOWLEDGE_LOADED = false;
 
 // Initialize state
 window.S = {
@@ -21,7 +22,8 @@ window.S = {
   selectedHustle: null,
   selectedHustleFilterCategories: [],
   selectedHustleFilterHustles: [],
-  selectedDeepDiveHustle: null
+  selectedDeepDiveHustle: null,
+  selectedKnowledgeCategory: null
 };
 const S = window.S;
 
@@ -352,6 +354,82 @@ function validateAllHustles() {
 }
 
 // ============================================================================
+// KNOWLEDGE DOMAIN HELPERS (CLAUDE.md pattern)
+// ============================================================================
+
+function getKnowledgeDomain(name) {
+  const data = window.KNOWLEDGE || {domains: []};
+  if (!name || !Array.isArray(data.domains)) return null;
+  return data.domains.find(d => d.name === name) || null;
+}
+
+function getKnowledgeByCategory(categoryKey) {
+  const data = window.KNOWLEDGE || {domains: []};
+  if (!categoryKey || !Array.isArray(data.domains)) return [];
+  return data.domains.filter(d => d.category === categoryKey);
+}
+
+function getAllKnowledgeCategories() {
+  const data = window.KNOWLEDGE || {domains: []};
+  if (!Array.isArray(data.domains)) return [];
+  const categories = new Map();
+  data.domains.forEach(d => {
+    if (!categories.has(d.category)) {
+      categories.set(d.category, d.categoryLabel || d.category);
+    }
+  });
+  return Array.from(categories.entries()).map(([key, label]) => ({key, label}));
+}
+
+function getAllKnowledgeDomains() {
+  const data = window.KNOWLEDGE || {domains: []};
+  return Array.isArray(data.domains) ? data.domains : [];
+}
+
+function validateKnowledgeSchema(domain) {
+  const errors = [];
+  if (!domain.name) errors.push('Missing name');
+  if (!domain.category) errors.push('Missing category');
+  if (!domain.difficulty || !['Low', 'Medium', 'High'].includes(domain.difficulty)) {
+    errors.push('Invalid difficulty (must be Low, Medium, or High)');
+  }
+  if (!domain.marketDemand_score || typeof domain.marketDemand_score !== 'number') {
+    errors.push('Missing or invalid marketDemand_score (must be number)');
+  }
+  if (!domain.timeToLearnBasic_min || typeof domain.timeToLearnBasic_min !== 'number') {
+    errors.push('Missing or invalid timeToLearnBasic_min');
+  }
+  return {valid: errors.length === 0, errors};
+}
+
+function validateAllKnowledgeDomains() {
+  const data = window.KNOWLEDGE || {domains: []};
+  if (!Array.isArray(data.domains)) {
+    return {total: 0, valid: 0, invalid: 0, errors: ['KNOWLEDGE data not loaded']};
+  }
+
+  let valid = 0, invalid = 0;
+  const errors = [];
+
+  data.domains.forEach((d, i) => {
+    const result = validateKnowledgeSchema(d);
+    if (result.valid) {
+      valid++;
+    } else {
+      invalid++;
+      errors.push(`${d.name}: ${result.errors.join('; ')}`);
+    }
+  });
+
+  return {
+    total: data.domains.length,
+    valid,
+    invalid,
+    errors: errors.slice(0, 5)
+  };
+}
+
+// ============================================================================
 // DEBUG HELPERS
 // ============================================================================
 
@@ -623,9 +701,11 @@ async function initializePathfinder() {
 
     console.log('Data check:', {
       SELECTOR_OPTIONS: !!window.SELECTOR_OPTIONS,
+      KNOWLEDGE: !!window.KNOWLEDGE,
       SIDEHUSTLES: !!window.SIDEHUSTLES,
       INSIGHTS: !!window.INSIGHTS,
       SIDEHUSTLES_LOADED: window.SIDEHUSTLES_LOADED,
+      KNOWLEDGE_LOADED: window.KNOWLEDGE_LOADED,
       SELECTOR_OPTIONS_LOADED: window.SELECTOR_OPTIONS_LOADED
     });
 
@@ -698,6 +778,14 @@ window.getHustleSkills = getHustleSkills;
 window.getHustlePlatforms = getHustlePlatforms;
 window.getHustleResources = getHustleResources;
 window.matchHustles = matchHustles;
+
+// Export knowledge helpers
+window.getKnowledgeDomain = getKnowledgeDomain;
+window.getKnowledgeByCategory = getKnowledgeByCategory;
+window.getAllKnowledgeCategories = getAllKnowledgeCategories;
+window.getAllKnowledgeDomains = getAllKnowledgeDomains;
+window.validateKnowledgeSchema = validateKnowledgeSchema;
+window.validateAllKnowledgeDomains = validateAllKnowledgeDomains;
 
 // Export formatting helpers
 window.formatMoney = formatMoney;

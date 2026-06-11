@@ -11,6 +11,10 @@
 function renderPathfinderTab(id) {
   if (id === 'discover') {
     // Framework handles rendering discovery selectors
+  } else if (id === 'knowledge') {
+    renderKnowledge();
+  } else if (id === 'delivery') {
+    renderDelivery();
   } else if (id === 'hustles') {
     renderHustles();
   } else if (id === 'earnings') {
@@ -1160,24 +1164,27 @@ function renderKnowledge() {
   const container = document.getElementById('knowledge');
   if (!container) return;
 
-  if (!window.KNOWLEDGE || !window.KNOWLEDGE_LOADED) {
+  if (!window.KNOWLEDGE_LOADED) {
     container.innerHTML = '<div style="padding:24px"><p>Loading knowledge domains...</p></div>';
     return;
   }
 
-  const knowledge = window.KNOWLEDGE.knowledge_domains || [];
-  
+  let allKnowledge = getAllKnowledgeDomains();
+  let knowledge = S.selectedKnowledgeCategory ? getKnowledgeByCategory(S.selectedKnowledgeCategory) : allKnowledge;
+
   let html = '<div style="padding:24px"><h2 style="margin:0 0 12px 0;font-size:22px;font-weight:700;color:var(--dk)">Knowledge Domains</h2>';
   html += '<p style="font-size:13px;color:var(--tx2);margin:0 0 24px 0;line-height:1.5;">Explore the skills and expertise that enable different side hustles. Select domains you already have to see matching opportunities.</p>';
 
   // Category filter
-  const categories = [...new Set(knowledge.map(k => k.category))].sort();
+  const categories = getAllKnowledgeCategories();
   html += '<div style="margin-bottom:20px;"><div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Filter by Category</div>';
   html += '<div class="pills" style="margin-bottom:16px;">';
-  html += '<div class="pill on" onclick="filterKnowledgeByCategory(null, this)">All (' + knowledge.length + ')</div>';
+  const allActive = S.selectedKnowledgeCategory === null ? ' on' : '';
+  html += '<div class="pill' + allActive + '" onclick="filterKnowledgeByCategory(null, this)">All (' + allKnowledge.length + ')</div>';
   categories.forEach(cat => {
-    const count = knowledge.filter(k => k.category === cat).length;
-    html += '<div class="pill" onclick="filterKnowledgeByCategory(\'' + cat + '\', this)">' + cat + ' (' + count + ')</div>';
+    const domainsInCat = getKnowledgeByCategory(cat.key);
+    const isActive = S.selectedKnowledgeCategory === cat.key ? ' on' : '';
+    html += '<div class="pill' + isActive + '" onclick="filterKnowledgeByCategory(\'' + cat.key + '\', this)">' + cat.label + ' (' + domainsInCat.length + ')</div>';
   });
   html += '</div></div>';
 
@@ -1258,12 +1265,31 @@ function renderKnowledge() {
 
 function filterKnowledgeByCategory(category, el) {
   // Toggle active pill
-  document.querySelectorAll('#knowledge [data-q] .pill').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('#knowledge .pills .pill').forEach(p => p.classList.remove('on'));
   if (el) el.classList.add('on');
 
-  // TODO: Filter displayed domains by category
-  // For now, re-render all (filter logic would be added later)
+  // Store selected category and re-render
+  S.selectedKnowledgeCategory = category;
+  saveState();
+  renderKnowledge();
+}
+
+function renderDelivery() {
+  const container = document.getElementById('delivery');
+  if (!container) return;
+
+  let html = '<div style="padding:24px"><h2 style="margin:0 0 12px 0;font-size:22px;font-weight:700;color:var(--dk)">Delivery Models</h2>';
+  html += '<p style="font-size:13px;color:var(--tx2);margin:0 0 24px 0;line-height:1.5;">Choose how you want to monetize your knowledge. Each model has different earning potential and time requirements.</p>';
+  html += '<div style="background:var(--lt);padding:24px;border-radius:6px;text-align:center;color:var(--tx2);">Delivery models coming soon...</div>';
+  html += '</div>';
+
+  container.innerHTML = html;
+
+  // Add navigation buttons
+  const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'knowledge\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go(\'hustles\')">Next</button></div>';
+  container.insertAdjacentHTML('beforeend', navHtml);
 }
 
 window.renderKnowledge = renderKnowledge;
+window.renderDelivery = renderDelivery;
 window.filterKnowledgeByCategory = filterKnowledgeByCategory;
