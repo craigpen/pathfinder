@@ -728,7 +728,7 @@ function calculateCompatibility(knowledge, pathway) {
   const isPhysicalCraft = craftKeywords.some(term => knowledge.name.toLowerCase().includes(term));
 
   // These pathways don't work well with physical crafts
-  const unsuitableForCrafts = ['AI Automation', 'WordPress Plugins', 'Food Delivery', 'Virtual Assistance', 'Coaching'];
+  const unsuitableForCrafts = ['AI Automation', 'WordPress Plugins', 'Food Delivery', 'Virtual Assistance'];
   const isUnsuitablePathway = unsuitableForCrafts.some(p => pathway.name.includes(p));
 
   if (isPhysicalCraft && isUnsuitablePathway) {
