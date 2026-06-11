@@ -1357,7 +1357,7 @@ function renderSynthesis() {
 
   let html = '<div style="padding:24px">';
   html += '<h2 style="margin:0 0 12px 0;font-size:22px;font-weight:700;color:var(--dk)">Synthesis: Your Opportunities</h2>';
-  html += '<p style="font-size:13px;color:var(--tx2);margin:0 0 24px 0;line-height:1.5;">Explore combinations of your knowledge and pathways. Each row shows one possible side hustle.</p>';
+  html += '<p style="font-size:13px;color:var(--tx2);margin:0 0 24px 0;line-height:1.5;">These are algorithmically generated combinations of your knowledge and pathways. Not all will be equally viable—shuffle to discover ideas worth exploring further. Each combination is a starting point, not a guaranteed opportunity.</p>';
 
   // Show knowledge domains from pre-selected categories
   if (S.selectedKnowledgeCategories.length > 0) {
