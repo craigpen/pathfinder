@@ -1157,6 +1157,7 @@ function renderKnowledge() {
   const selectedCategories = S.selectedKnowledgeCategories || [];
   html += '<div style="margin-bottom:20px;"><div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Select One or More</div>';
   html += '<div style="font-size:18px;font-weight:700;margin-bottom:10px;color:var(--dk);">Categories</div>';
+  html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5;">Choose the knowledge areas that interest you.</div>';
   html += '<div class="pills" data-q="knowledge-category" style="margin-bottom:20px;">';
   categories.forEach(cat => {
     const isActive = selectedCategories.includes(cat.key) ? ' on' : '';
@@ -1173,6 +1174,7 @@ function renderKnowledge() {
 
     html += '<div style="margin-bottom:20px;"><div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Select One or More</div>';
     html += '<div style="font-size:18px;font-weight:700;margin-bottom:10px;color:var(--dk);">Domains</div>';
+    html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5;">Select specific skills or expertise you already have.</div>';
     html += '<div class="pills" data-q="knowledge-domain" style="margin-bottom:20px;">';
     uniqueDomains.forEach(domain => {
       const isActive = selectedDomains.includes(domain.name) ? ' on' : '';
