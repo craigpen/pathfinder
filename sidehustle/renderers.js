@@ -1502,13 +1502,13 @@ function shuffleSynthesisCards() {
   });
   saveState();
 
-  // Render cards with responsive layout: grid on desktop, carousel on mobile
+  // Render cards with horizontal carousel
   const container = document.getElementById('synthesis-cards-container');
   if (!container) return;
 
-  let html = '<div class="synthesis-cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:16px;width:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;">';
+  let html = '<div class="synthesis-cards" style="display:flex;gap:16px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-right:16px;">';
   selected.forEach(combo => {
-    html += '<div style="scroll-snap-align:start;min-width:380px;">' + renderSynthesisCard(combo) + '</div>';
+    html += '<div style="flex:0 0 calc(100vw - 56px);scroll-snap-align:start;">' + renderSynthesisCard(combo) + '</div>';
   });
   html += '</div>';
 
