@@ -1518,10 +1518,27 @@ function shuffleSynthesisCards() {
         overflow-y: hidden;
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
+        align-items: stretch;
       }
       .synthesis-card-wrapper {
         flex: 0 0 calc(100% - 16px);
         scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        min-height: 600px;
+      }
+      .synthesis-card-wrapper > div {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      .synthesis-card-header {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+      }
+      .synthesis-card-content {
+        flex: 1;
       }
       @media (min-aspect-ratio: 1/1.2) {
         .synthesis-cards {
@@ -1530,6 +1547,10 @@ function shuffleSynthesisCards() {
         }
         .synthesis-card-wrapper {
           flex: 0 0 calc(33.333% - 11px);
+          min-height: auto;
+        }
+        .synthesis-card-header {
+          min-height: 48px;
         }
       }
     `;
@@ -1564,15 +1585,15 @@ function renderSynthesisCard(combo) {
   const pathwayObj = window.PATHWAYS ? window.PATHWAYS.pathways?.find(p => p.name === pathway) : null;
 
   // Build card HTML with blue header
-  let html = `<div style="border:1px solid var(--bdr);border-radius:8px;background:var(--bg);transition:all 0.2s ease;overflow:hidden;scroll-snap-align:start;">`;
+  let html = `<div style="border:1px solid var(--bdr);border-radius:8px;background:var(--bg);transition:all 0.2s ease;overflow:hidden;scroll-snap-align:start;display:flex;flex-direction:column;">`;
 
-  // Blue header bar with title
-  html += `<div style="background:var(--pri);padding:12px 16px;margin-bottom:16px;">`;
-  html += `<div style="font-size:14px;font-weight:700;color:white;">${combo.name}</div>`;
+  // Blue header bar with title (fixed height)
+  html += `<div class="synthesis-card-header" style="background:var(--pri);padding:12px 16px;">`;
+  html += `<div style="font-size:14px;font-weight:700;color:white;line-height:1.4;">${combo.name}</div>`;
   html += `</div>`;
 
-  // Card content (with padding)
-  html += `<div style="padding:0 16px;">`;
+  // Card content (with padding, grows to fill available space)
+  html += `<div class="synthesis-card-content" style="padding:16px;overflow-y:auto;">`;
 
   // Side Hustle opportunity statement (moved to top)
   html += `<div style="background:var(--lt);border-radius:6px;padding:12px;margin-bottom:16px;">`;
