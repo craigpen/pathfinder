@@ -1152,24 +1152,29 @@ function renderKnowledge() {
   let html = '<div style="padding:24px"><h2 style="margin:0 0 12px 0;font-size:22px;font-weight:700;color:var(--dk)">Knowledge Domains</h2>';
   html += '<p style="font-size:13px;color:var(--tx2);margin:0 0 24px 0;line-height:1.5;">Explore the skills and expertise that enable different side hustles. Select the knowledge domains you already have.</p>';
 
-  // Category filter (always shown)
+  // Category filter (always shown, multi-select)
   const categories = getAllKnowledgeCategories();
-  html += '<div style="margin-bottom:20px;"><div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Select Category</div>';
+  const selectedCategories = S.selectedKnowledgeCategories || [];
+  html += '<div style="margin-bottom:20px;"><div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Select One or More</div>';
+  html += '<div style="font-size:18px;font-weight:700;margin-bottom:10px;color:var(--dk);">Categories</div>';
   html += '<div class="pills" data-q="knowledge-category" style="margin-bottom:20px;">';
   categories.forEach(cat => {
-    const isActive = S.selectedKnowledgeCategory === cat.key ? ' on' : '';
+    const isActive = selectedCategories.includes(cat.key) ? ' on' : '';
     html += '<div class="pill' + isActive + '" onclick="toggleKnowledgeCategory(\'' + cat.key + '\', this)">' + cat.label + '</div>';
   });
   html += '</div></div>';
 
-  // Domain pills (only shown if category selected)
-  if (S.selectedKnowledgeCategory) {
-    const domainsInCat = getKnowledgeByCategory(S.selectedKnowledgeCategory);
+  // Domain pills (only shown if categories selected)
+  if (selectedCategories.length > 0) {
+    const domainsInSelectedCats = selectedCategories.flatMap(catKey => getKnowledgeByCategory(catKey));
+    // Deduplicate domains
+    const uniqueDomains = [...new Map(domainsInSelectedCats.map(d => [d.name, d])).values()];
     const selectedDomains = S.selectedKnowledgeDomains || [];
 
-    html += '<div style="margin-bottom:20px;"><div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Select Domains</div>';
+    html += '<div style="margin-bottom:20px;"><div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Select One or More</div>';
+    html += '<div style="font-size:18px;font-weight:700;margin-bottom:10px;color:var(--dk);">Domains</div>';
     html += '<div class="pills" data-q="knowledge-domain" style="margin-bottom:20px;">';
-    domainsInCat.forEach(domain => {
+    uniqueDomains.forEach(domain => {
       const isActive = selectedDomains.includes(domain.name) ? ' on' : '';
       html += '<div class="pill' + isActive + '" onclick="toggleKnowledgeDomain(\'' + domain.name + '\', this)">' + domain.name + '</div>';
     });
@@ -1177,7 +1182,7 @@ function renderKnowledge() {
 
     // Show table/carousel only if domains selected
     if (selectedDomains.length > 0) {
-      const selectedDomainObjs = domainsInCat.filter(d => selectedDomains.includes(d.name));
+      const selectedDomainObjs = uniqueDomains.filter(d => selectedDomains.includes(d.name));
       const rows = [
         ['Difficulty', (domainName) => {
           const domain = selectedDomainObjs.find(k => k.name === domainName);
@@ -1224,9 +1229,18 @@ function renderKnowledge() {
 }
 
 function toggleKnowledgeCategory(category, el) {
-  // Update category selection
-  S.selectedKnowledgeCategory = category;
-  S.selectedKnowledgeDomains = [];  // Reset domains when category changes
+  // Toggle category in multi-select array
+  const selected = S.selectedKnowledgeCategories || [];
+  const idx = selected.indexOf(category);
+  if (idx > -1) {
+    selected.splice(idx, 1);
+    // When deselecting category, remove domains from that category
+    const domainsInCat = getKnowledgeByCategory(category).map(d => d.name);
+    S.selectedKnowledgeDomains = (S.selectedKnowledgeDomains || []).filter(d => !domainsInCat.includes(d));
+  } else {
+    selected.push(category);
+  }
+  S.selectedKnowledgeCategories = selected;
   saveState();
   renderKnowledge();
 }

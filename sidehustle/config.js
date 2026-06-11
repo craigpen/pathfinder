@@ -51,7 +51,7 @@ const sideHustlePathfinderConfig = {
     'selectedHustleFilterCategories',
     'selectedHustleFilterHustles',
     'selectedDeepDiveHustle',
-    'selectedKnowledgeCategory',
+    'selectedKnowledgeCategories',
     'selectedKnowledgeDomains'
   ],
 
