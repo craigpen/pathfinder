@@ -15,6 +15,8 @@ function renderPathfinderTab(id) {
     renderKnowledge();
   } else if (id === 'pathways') {
     renderPathways();
+  } else if (id === 'synthesis') {
+    renderSynthesis();
   } else if (id === 'hustles') {
     renderHustles();
   } else if (id === 'earnings') {
@@ -1349,6 +1351,176 @@ function renderPathways() {
   }, 50);
 }
 
+// ============================================================================
+// SYNTHESIS TAB - Explore Knowledge x Pathway combinations
+// ============================================================================
+
+function renderSynthesis() {
+  const container = document.getElementById('synthesis');
+  if (!container) return;
+
+  let html = '<div style="padding:24px">';
+  html += '<h2 style="margin:0 0 12px 0;font-size:22px;font-weight:700;color:var(--dk)">Synthesis: Your Opportunities</h2>';
+  html += '<p style="font-size:13px;color:var(--tx2);margin:0 0 24px 0;line-height:1.5;">Explore combinations of your knowledge and delivery methods. Each column/card shows one possible side hustle.</p>';
+
+  // Selectors for Knowledge
+  const knowledgeCategories = getAllKnowledgeCategories();
+  if (knowledgeCategories.length > 0) {
+    html += '<div style="margin-bottom:20px;">';
+    html += '<div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Knowledge Categories</div>';
+    html += '<div class="pills" data-q="synthesis-knowledge-category">';
+    knowledgeCategories.forEach(cat => {
+      const active = S.selectedKnowledgeCategories.includes(cat.key) ? ' on' : '';
+      html += `<div class="pill${active}" onclick="toggleSynthesisKnowledgeCategory('${cat.key}', this)">${cat.label}</div>`;
+    });
+    html += '</div></div>';
+  }
+
+  // Selectors for Pathways
+  const pathwayCategories = getAllPathwayCategories();
+  if (pathwayCategories.length > 0) {
+    html += '<div style="margin-bottom:20px;">';
+    html += '<div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Pathway Categories</div>';
+    html += '<div class="pills" data-q="synthesis-pathway-category">';
+    pathwayCategories.forEach(cat => {
+      const active = S.selectedPathwayCategories.includes(cat) ? ' on' : '';
+      html += `<div class="pill${active}" onclick="toggleSynthesisPathwayCategory('${cat}', this)">${cat}</div>`;
+    });
+    html += '</div></div>';
+  }
+
+  // Show selected knowledge domains if any categories selected
+  if (S.selectedKnowledgeCategories.length > 0) {
+    const knowledgeInCats = S.selectedKnowledgeCategories.flatMap(cat => getKnowledgeByCategory(cat));
+    const uniqueKnowledge = [...new Map(knowledgeInCats.map(k => [k.id, k])).values()];
+
+    if (uniqueKnowledge.length > 0) {
+      html += '<div style="margin-bottom:20px;">';
+      html += '<div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Knowledge Domains</div>';
+      html += '<div class="pills" data-q="synthesis-knowledge">';
+      uniqueKnowledge.forEach(k => {
+        const active = S.selectedKnowledgeDomains.includes(k.id) ? ' on' : '';
+        html += `<div class="pill${active}" onclick="toggleSynthesisKnowledge('${k.id}', this)">${k.name}</div>`;
+      });
+      html += '</div></div>';
+    }
+  }
+
+  // Show selected pathways if any categories selected
+  if (S.selectedPathwayCategories.length > 0) {
+    const pathwaysInCats = S.selectedPathwayCategories.flatMap(cat => getPathwaysByCategory(cat));
+    const uniquePathways = [...new Map(pathwaysInCats.map(p => [p.id, p])).values()];
+
+    if (uniquePathways.length > 0) {
+      html += '<div style="margin-bottom:24px;">';
+      html += '<div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Pathways</div>';
+      html += '<div class="pills" data-q="synthesis-pathway">';
+      uniquePathways.forEach(p => {
+        const active = S.selectedPathways.includes(p.id) ? ' on' : '';
+        html += `<div class="pill${active}" onclick="toggleSynthesisPathway('${p.id}', this)">${p.name}</div>`;
+      });
+      html += '</div></div>';
+    }
+  }
+
+  // Generate and display synthesis results
+  if (S.selectedKnowledgeDomains.length > 0 && S.selectedPathways.length > 0) {
+    const results = matchSideHustles(S.selectedKnowledgeDomains, S.selectedPathways);
+    if (results.length > 0) {
+      html += renderSynthesisResults(results);
+    }
+  }
+
+  html += '</div>';
+  container.innerHTML = html;
+
+  // Add navigation buttons
+  const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'pathways\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go(\'hustles\')">Next</button></div>';
+  container.insertAdjacentHTML('beforeend', navHtml);
+
+  // Initialize carousels if visible
+  setTimeout(() => {
+    if (window.initCarousel) {
+      initCarousel('synthesis-carousel');
+    }
+  }, 50);
+}
+
+function toggleSynthesisKnowledgeCategory(catKey, el) {
+  el.classList.toggle('on');
+  const idx = S.selectedKnowledgeCategories.indexOf(catKey);
+  if (idx > -1) {
+    S.selectedKnowledgeCategories.splice(idx, 1);
+  } else {
+    S.selectedKnowledgeCategories.push(catKey);
+  }
+  saveState();
+  renderSynthesis();
+}
+
+function toggleSynthesisPathwayCategory(catName, el) {
+  el.classList.toggle('on');
+  const idx = S.selectedPathwayCategories.indexOf(catName);
+  if (idx > -1) {
+    S.selectedPathwayCategories.splice(idx, 1);
+  } else {
+    S.selectedPathwayCategories.push(catName);
+  }
+  saveState();
+  renderSynthesis();
+}
+
+function toggleSynthesisKnowledge(knowledgeId, el) {
+  el.classList.toggle('on');
+  const idx = S.selectedKnowledgeDomains.indexOf(knowledgeId);
+  if (idx > -1) {
+    S.selectedKnowledgeDomains.splice(idx, 1);
+  } else {
+    S.selectedKnowledgeDomains.push(knowledgeId);
+  }
+  saveState();
+  renderSynthesis();
+}
+
+function toggleSynthesisPathway(pathwayId, el) {
+  el.classList.toggle('on');
+  const idx = S.selectedPathways.indexOf(pathwayId);
+  if (idx > -1) {
+    S.selectedPathways.splice(idx, 1);
+  } else {
+    S.selectedPathways.push(pathwayId);
+  }
+  saveState();
+  renderSynthesis();
+}
+
+function renderSynthesisResults(results) {
+  if (results.length === 0) return '';
+
+  const rows = [
+    ['What', (result) => result.scaffold.what],
+    ['How', (result) => result.scaffold.how],
+    ['Why', (result) => result.scaffold.why],
+    ['For You If', (result) => result.scaffold.forYouIf]
+  ];
+
+  const resultNames = results.map(r => r.name);
+  const nameLabel = (name) => name;
+
+  let html = '<div style="margin:24px 0 12px 0;">';
+  html += '<div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Synthesis Results</div>';
+  html += '<div style="font-size:18px;font-weight:700;margin-bottom:10px;color:var(--dk);">Your Opportunities</div>';
+  html += '</div>';
+
+  // Build table for desktop
+  html += buildTableHTML(rows, resultNames, nameLabel, 'synthesis-table');
+
+  // Build carousel for mobile
+  html += buildCarouselHTML(rows, resultNames, nameLabel, 'synthesis-carousel');
+
+  return html;
+}
+
 function renderPathwayComparison(pathways) {
   // Create a map of pathway names to pathway objects for quick lookup
   const pathwayMap = {};
@@ -1400,5 +1572,10 @@ function renderPathwayComparison(pathways) {
 
 window.renderKnowledge = renderKnowledge;
 window.renderPathways = renderPathways;
+window.renderSynthesis = renderSynthesis;
 window.togglePathwayCategory = togglePathwayCategory;
 window.togglePathway = togglePathway;
+window.toggleSynthesisKnowledgeCategory = toggleSynthesisKnowledgeCategory;
+window.toggleSynthesisPathwayCategory = toggleSynthesisPathwayCategory;
+window.toggleSynthesisKnowledge = toggleSynthesisKnowledge;
+window.toggleSynthesisPathway = toggleSynthesisPathway;

@@ -31,6 +31,7 @@ const sideHustlePathfinderConfig = {
     { id: 'discover', label: 'Discover' },
     { id: 'knowledge', label: 'Knowledge' },
     { id: 'pathways', label: 'Pathways' },
+    { id: 'synthesis', label: 'Synthesis' },
     { id: 'hustles', label: 'Side Hustles' },
     { id: 'earnings', label: 'Earnings Breakdown' },
     { id: 'insights', label: 'Insights' },
@@ -79,6 +80,11 @@ const sideHustlePathfinderConfig = {
       console.log('Rendering pathways tab');
       if (window.renderPathways) window.renderPathways();
       else console.warn('renderPathways not found');
+    },
+    'synthesis': () => {
+      console.log('Rendering synthesis tab');
+      if (window.renderSynthesis) window.renderSynthesis();
+      else console.warn('renderSynthesis not found');
     },
     'hustles': () => {
       console.log('Rendering hustles tab');
