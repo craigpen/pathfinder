@@ -1357,42 +1357,18 @@ function renderSynthesis() {
 
   let html = '<div style="padding:24px">';
   html += '<h2 style="margin:0 0 12px 0;font-size:22px;font-weight:700;color:var(--dk)">Synthesis: Your Opportunities</h2>';
-  html += '<p style="font-size:13px;color:var(--tx2);margin:0 0 24px 0;line-height:1.5;">Explore combinations of your knowledge and delivery methods. Each column/card shows one possible side hustle.</p>';
+  html += '<p style="font-size:13px;color:var(--tx2);margin:0 0 24px 0;line-height:1.5;">Explore combinations of your knowledge and pathways. Each row shows one possible side hustle.</p>';
 
-  // Selectors for Knowledge
-  const knowledgeCategories = getAllKnowledgeCategories();
-  if (knowledgeCategories.length > 0) {
-    html += '<div style="margin-bottom:20px;">';
-    html += '<div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Knowledge Categories</div>';
-    html += '<div class="pills" data-q="synthesis-knowledge-category">';
-    knowledgeCategories.forEach(cat => {
-      const active = S.selectedKnowledgeCategories.includes(cat.key) ? ' on' : '';
-      html += `<div class="pill${active}" onclick="toggleSynthesisKnowledgeCategory('${cat.key}', this)">${cat.label}</div>`;
-    });
-    html += '</div></div>';
-  }
-
-  // Selectors for Pathways
-  const pathwayCategories = getAllPathwayCategories();
-  if (pathwayCategories.length > 0) {
-    html += '<div style="margin-bottom:20px;">';
-    html += '<div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Pathway Categories</div>';
-    html += '<div class="pills" data-q="synthesis-pathway-category">';
-    pathwayCategories.forEach(cat => {
-      const active = S.selectedPathwayCategories.includes(cat) ? ' on' : '';
-      html += `<div class="pill${active}" onclick="toggleSynthesisPathwayCategory('${cat}', this)">${cat}</div>`;
-    });
-    html += '</div></div>';
-  }
-
-  // Show selected knowledge domains if any categories selected
+  // Show knowledge domains from pre-selected categories
   if (S.selectedKnowledgeCategories.length > 0) {
     const knowledgeInCats = S.selectedKnowledgeCategories.flatMap(cat => getKnowledgeByCategory(cat));
     const uniqueKnowledge = [...new Map(knowledgeInCats.map(k => [k.id, k])).values()];
 
     if (uniqueKnowledge.length > 0) {
       html += '<div style="margin-bottom:20px;">';
-      html += '<div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Knowledge Domains</div>';
+      html += '<div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Select One or More</div>';
+      html += '<div style="font-size:18px;font-weight:700;margin-bottom:10px;color:var(--dk);">Knowledge Domains</div>';
+      html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5;">To change knowledge categories, go back to the Knowledge tab.</div>';
       html += '<div class="pills" data-q="synthesis-knowledge">';
       uniqueKnowledge.forEach(k => {
         const active = S.selectedKnowledgeDomains.includes(k.id) ? ' on' : '';
@@ -1400,16 +1376,20 @@ function renderSynthesis() {
       });
       html += '</div></div>';
     }
+  } else {
+    html += '<div style="padding:20px;background:var(--lt);border-radius:6px;margin-bottom:20px;"><div style="font-size:13px;color:var(--tx2);">Select knowledge categories on the Knowledge tab to begin.</div></div>';
   }
 
-  // Show selected pathways if any categories selected
+  // Show pathways from pre-selected categories
   if (S.selectedPathwayCategories.length > 0) {
     const pathwaysInCats = S.selectedPathwayCategories.flatMap(cat => getPathwaysByCategory(cat));
     const uniquePathways = [...new Map(pathwaysInCats.map(p => [p.id, p])).values()];
 
     if (uniquePathways.length > 0) {
       html += '<div style="margin-bottom:24px;">';
-      html += '<div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Pathways</div>';
+      html += '<div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Select One or More</div>';
+      html += '<div style="font-size:18px;font-weight:700;margin-bottom:10px;color:var(--dk);">Pathways</div>';
+      html += '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px;line-height:1.5;">To change pathway categories, go back to the Pathways tab.</div>';
       html += '<div class="pills" data-q="synthesis-pathway">';
       uniquePathways.forEach(p => {
         const active = S.selectedPathways.includes(p.id) ? ' on' : '';
@@ -1417,6 +1397,8 @@ function renderSynthesis() {
       });
       html += '</div></div>';
     }
+  } else {
+    html += '<div style="padding:20px;background:var(--lt);border-radius:6px;margin-bottom:20px;"><div style="font-size:13px;color:var(--tx2);">Select pathway categories on the Pathways tab to begin.</div></div>';
   }
 
   // Generate and display synthesis results
@@ -1493,42 +1475,31 @@ function toggleSynthesisPathway(pathwayId, el) {
 function renderSynthesisResults(results) {
   if (results.length === 0) return '';
 
-  // Map results by name for lookup in data functions
-  const resultMap = {};
-  results.forEach(r => resultMap[r.name] = r);
+  // Flip table: combos as rows, scaffold components as columns
+  const rows = results.map(result => [
+    result.name,
+    (colKey) => {
+      if (colKey === 'What') return result.scaffold.what;
+      if (colKey === 'How') return result.scaffold.how;
+      if (colKey === 'Why') return result.scaffold.why;
+      if (colKey === 'For You If') return result.scaffold.forYouIf;
+      return '—';
+    }
+  ]);
 
-  const rows = [
-    ['What', (resultName) => {
-      const result = resultMap[resultName];
-      return result && result.scaffold ? result.scaffold.what : '—';
-    }],
-    ['How', (resultName) => {
-      const result = resultMap[resultName];
-      return result && result.scaffold ? result.scaffold.how : '—';
-    }],
-    ['Why', (resultName) => {
-      const result = resultMap[resultName];
-      return result && result.scaffold ? result.scaffold.why : '—';
-    }],
-    ['For You If', (resultName) => {
-      const result = resultMap[resultName];
-      return result && result.scaffold ? result.scaffold.forYouIf : '—';
-    }]
-  ];
-
-  const resultNames = results.map(r => r.name);
-  const nameLabel = (name) => name;
+  const columnKeys = ['What', 'How', 'Why', 'For You If'];
+  const columnLabel = (key) => key;
 
   let html = '<div style="margin:24px 0 12px 0;">';
   html += '<div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Synthesis Results</div>';
   html += '<div style="font-size:18px;font-weight:700;margin-bottom:10px;color:var(--dk);">Your Opportunities</div>';
   html += '</div>';
 
-  // Build table for desktop
-  html += buildTableHTML(rows, resultNames, nameLabel, 'synthesis-table');
+  // Build table for desktop (combos as rows, scaffold properties as columns)
+  html += buildTableHTML(rows, columnKeys, columnLabel, 'synthesis-table');
 
-  // Build carousel for mobile
-  html += buildCarouselHTML(rows, resultNames, nameLabel, 'synthesis-carousel');
+  // Build carousel for mobile (each combo as a card with scaffold properties)
+  html += buildCarouselHTML(rows, columnKeys, columnLabel, 'synthesis-carousel');
 
   return html;
 }
