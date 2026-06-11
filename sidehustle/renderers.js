@@ -1475,13 +1475,8 @@ function shuffleSynthesisCards() {
 
   if (allCombos.length === 0) return;
 
-  // Filter by compatibility score (60+)
-  const viableCombos = allCombos.filter(c => c.compatibility && c.compatibility.score >= 60);
-
-  if (viableCombos.length === 0) {
-    // Fallback: show highest scoring combos if nothing meets threshold
-    viableCombos.push(...allCombos.sort((a, b) => (b.compatibility?.score || 0) - (a.compatibility?.score || 0)).slice(0, 5));
-  }
+  // Filter by compatibility score (50+) - permissive, only exclude obviously bad combos
+  const viableCombos = allCombos.filter(c => c.compatibility && c.compatibility.score >= 50);
 
   // Track shown combos to avoid repeats
   S.shownSynthesisIds = S.shownSynthesisIds || [];
