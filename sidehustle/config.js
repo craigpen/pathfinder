@@ -29,6 +29,8 @@ const sideHustlePathfinderConfig = {
   // Tab definitions
   tabs: [
     { id: 'discover', label: 'Discover' },
+    { id: 'knowledge', label: 'Knowledge' },
+    { id: 'delivery', label: 'Delivery' },
     { id: 'hustles', label: 'Side Hustles' },
     { id: 'earnings', label: 'Earnings Breakdown' },
     { id: 'insights', label: 'Insights' },
@@ -54,6 +56,7 @@ const sideHustlePathfinderConfig = {
   // Data sources
   dataSources: {
     'selector-options': 'selector-options.json',
+    knowledge: 'knowledge.json',
     sidehustles: 'sidehustles.json',
     insights: 'insights.json'
   },
@@ -64,6 +67,16 @@ const sideHustlePathfinderConfig = {
       console.log('Rendering discover tab');
       if (window.renderDiscoverySelectorOptions) window.renderDiscoverySelectorOptions();
       if (window.renderDiscoveryPills) window.renderDiscoveryPills();
+    },
+    'knowledge': () => {
+      console.log('Rendering knowledge tab');
+      if (window.renderKnowledge) window.renderKnowledge();
+      else console.warn('renderKnowledge not found');
+    },
+    'delivery': () => {
+      console.log('Rendering delivery tab');
+      if (window.renderDelivery) window.renderDelivery();
+      else console.warn('renderDelivery not found');
     },
     'hustles': () => {
       console.log('Rendering hustles tab');

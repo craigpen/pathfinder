@@ -1151,3 +1151,119 @@ window.toggleHustleSpecific = toggleHustleSpecific;
 window.toggleDeepDive = toggleDeepDive;
 window.updateDeepDiveContent = updateDeepDiveContent;
 window.updateGuide = updateGuide;
+
+// ============================================================================
+// KNOWLEDGE TAB
+// ============================================================================
+
+function renderKnowledge() {
+  const container = document.getElementById('knowledge');
+  if (!container) return;
+
+  if (!window.KNOWLEDGE || !window.KNOWLEDGE_LOADED) {
+    container.innerHTML = '<div style="padding:24px"><p>Loading knowledge domains...</p></div>';
+    return;
+  }
+
+  const knowledge = window.KNOWLEDGE.knowledge_domains || [];
+  
+  let html = '<div style="padding:24px"><h2 style="margin:0 0 12px 0;font-size:22px;font-weight:700;color:var(--dk)">Knowledge Domains</h2>';
+  html += '<p style="font-size:13px;color:var(--tx2);margin:0 0 24px 0;line-height:1.5;">Explore the skills and expertise that enable different side hustles. Select domains you already have to see matching opportunities.</p>';
+
+  // Category filter
+  const categories = [...new Set(knowledge.map(k => k.category))].sort();
+  html += '<div style="margin-bottom:20px;"><div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Filter by Category</div>';
+  html += '<div class="pills" style="margin-bottom:16px;">';
+  html += '<div class="pill on" onclick="filterKnowledgeByCategory(null, this)">All (' + knowledge.length + ')</div>';
+  categories.forEach(cat => {
+    const count = knowledge.filter(k => k.category === cat).length;
+    html += '<div class="pill" onclick="filterKnowledgeByCategory(\'' + cat + '\', this)">' + cat + ' (' + count + ')</div>';
+  });
+  html += '</div></div>';
+
+  // Build table and carousel from knowledge domains
+  const tableId = 'knowledge-table';
+  const carouselId = 'knowledge-carousel';
+  const rows = [
+    ['Difficulty', (domainName) => {
+      const domain = knowledge.find(k => k.name === domainName);
+      return domain ? domain.difficulty : '—';
+    }],
+    ['Time to Learn', (domainName) => {
+      const domain = knowledge.find(k => k.name === domainName);
+      if (!domain) return '—';
+      return domain.timeToLearnBasic_min + '-' + domain.timeToLearnBasic_max + ' ' + domain.timeToLearnBasic_unit;
+    }],
+    ['Market Demand', (domainName) => {
+      const domain = knowledge.find(k => k.name === domainName);
+      return domain ? domain.marketDemand_label : '—';
+    }],
+    ['Delivery Models', (domainName) => {
+      const domain = knowledge.find(k => k.name === domainName);
+      return domain ? domain.compatibleDeliveryModels.join(', ') : '—';
+    }]
+  ];
+
+  const domainNames = knowledge.map(k => k.name);
+
+  // Mobile carousel
+  html += '<div style="overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:0 24px;scrollbar-width:none;scroll-snap-type:x mandatory;scroll-padding:0 24px;margin:0 -24px;display:flex;gap:24px" id="' + carouselId + '">';
+  domainNames.forEach((name, idx) => {
+    html += '<div style="flex:0 0 100%;display:flex;flex-direction:column;background:#fff;border:1px solid var(--bdr);border-radius:6px;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always">';
+    html += '<div style="background:var(--pri);color:#fff;font-weight:600;padding:10px 12px;text-align:center;font-size:14px">' + name + '</div>';
+    html += '<div style="display:grid;grid-template-columns:auto 1fr;gap:0;padding:12px;font-size:12px">';
+    rows.forEach(row => {
+      const [label, dataFn] = row;
+      const cellData = dataFn ? dataFn(name) : '—';
+      html += '<div style="font-weight:600;color:var(--dk);background:rgba(241,245,249,.5);padding:8px 12px;line-height:1.4">' + label + '</div>';
+      html += '<div style="color:var(--tx);padding:8px 12px;line-height:1.4;text-align:right;word-break:break-word">' + cellData + '</div>';
+    });
+    html += '</div></div>';
+  });
+  html += '</div>';
+  html += '<div style="text-align:center;padding:8px 0;font-size:12px;color:var(--tx2)">Card 1 of ' + domainNames.length + '</div>';
+
+  // Desktop table
+  html += '<div class="insights-table-display" style="margin-top:20px;overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:13px">';
+  html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700">Domain</th>';
+  rows.forEach(row => {
+    html += '<th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700">' + row[0] + '</th>';
+  });
+  html += '</tr></thead><tbody>';
+  domainNames.forEach(name => {
+    html += '<tr style="border-bottom:1px solid var(--bdr)"><td style="padding:8px 10px;font-weight:600;background:rgba(241,245,249,.5);color:var(--dk)">' + name + '</td>';
+    rows.forEach(row => {
+      const cellData = row[1] ? row[1](name) : '—';
+      html += '<td style="padding:8px 10px;color:var(--tx)">' + cellData + '</td>';
+    });
+    html += '</tr>';
+  });
+  html += '</tbody></table></div>';
+
+  html += '</div>';
+
+  container.innerHTML = html;
+
+  // Initialize carousel
+  setTimeout(() => {
+    if(document.getElementById(carouselId)) {
+      initCarousel(carouselId);
+    }
+  }, 50);
+
+  // Add navigation buttons
+  const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'discover\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go(\'delivery\')">Next</button></div>';
+  container.insertAdjacentHTML('beforeend', navHtml);
+}
+
+function filterKnowledgeByCategory(category, el) {
+  // Toggle active pill
+  document.querySelectorAll('#knowledge [data-q] .pill').forEach(p => p.classList.remove('on'));
+  if (el) el.classList.add('on');
+
+  // TODO: Filter displayed domains by category
+  // For now, re-render all (filter logic would be added later)
+}
+
+window.renderKnowledge = renderKnowledge;
+window.filterKnowledgeByCategory = filterKnowledgeByCategory;

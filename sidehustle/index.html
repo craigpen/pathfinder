@@ -17,6 +17,8 @@
     <!-- Tab navigation -->
     <div class="tabs">
       <button class="tb on" onclick="go('discover')">Discover</button>
+      <button class="tb" onclick="go('knowledge')">Knowledge</button>
+      <button class="tb" onclick="go('delivery')">Delivery</button>
       <button class="tb" onclick="go('hustles')">Side Hustles</button>
       <button class="tb" onclick="go('earnings')">Earnings</button>
       <button class="tb" onclick="go('insights')">Insights</button>
@@ -29,9 +31,15 @@
       <div class="bg">
         <div></div>
         <button class="btn br" onclick="startOver()">Reset</button>
-        <button class="btn bp pos-right" onclick="go('hustles')">Next</button>
+        <button class="btn bp pos-right" onclick="go('knowledge')">Next</button>
       </div>
     </div>
+
+    <!-- Knowledge tab -->
+    <div class="pan" id="knowledge"></div>
+
+    <!-- Delivery tab -->
+    <div class="pan" id="delivery"></div>
 
     <!-- Side Hustles tab -->
     <div class="pan" id="hustles"></div>
