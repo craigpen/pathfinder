@@ -1502,16 +1502,29 @@ function shuffleSynthesisCards() {
   });
   saveState();
 
-  // Render cards
+  // Render cards with carousel container for mobile
   const container = document.getElementById('synthesis-cards-container');
   if (!container) return;
 
-  let html = '';
+  let html = '<div class="carousel" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;">';
   selected.forEach(combo => {
     html += renderSynthesisCard(combo);
   });
+  html += '</div>';
 
   container.innerHTML = html;
+
+  // Initialize carousel for mobile swipe
+  setTimeout(() => {
+    if (window.initCarousel) {
+      const carouselDiv = container.querySelector('.carousel');
+      if (carouselDiv) {
+        // Add carousel-specific classes and initialize
+        carouselDiv.style.scrollSnapType = 'x mandatory';
+        initCarousel('synthesis-cards-container');
+      }
+    }
+  }, 50);
 }
 
 function renderSynthesisCard(combo) {
@@ -1522,11 +1535,22 @@ function renderSynthesisCard(combo) {
   const knowledgeObj = window.KNOWLEDGE ? window.KNOWLEDGE.knowledge_domains?.find(k => k.name === knowledge) : null;
   const pathwayObj = window.PATHWAYS ? window.PATHWAYS.pathways?.find(p => p.name === pathway) : null;
 
-  // Build card HTML
-  let html = `<div style="border:1px solid var(--bdr);border-radius:8px;padding:20px;background:var(--bg);transition:all 0.2s ease;">`;
+  // Build card HTML with blue header
+  let html = `<div style="border:1px solid var(--bdr);border-radius:8px;background:var(--bg);transition:all 0.2s ease;overflow:hidden;scroll-snap-align:start;">`;
 
-  // Title
-  html += `<div style="font-size:16px;font-weight:700;color:var(--dk);margin-bottom:16px;">${combo.name}</div>`;
+  // Blue header bar with title
+  html += `<div style="background:var(--pri);padding:12px 16px;margin-bottom:16px;">`;
+  html += `<div style="font-size:14px;font-weight:700;color:white;">${combo.name}</div>`;
+  html += `</div>`;
+
+  // Card content (with padding)
+  html += `<div style="padding:0 16px;">`;
+
+  // Side Hustle opportunity statement (moved to top)
+  html += `<div style="background:var(--lt);border-radius:6px;padding:12px;margin-bottom:16px;">`;
+  html += `<div style="font-size:11px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;">The Side Hustle</div>`;
+  html += `<div style="font-size:13px;color:var(--tx);line-height:1.5;">${combo.scaffold.what}</div>`;
+  html += `</div>`;
 
   // Two-column layout: Knowledge | Pathway
   html += `<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">`;
@@ -1565,15 +1589,11 @@ function renderSynthesisCard(combo) {
 
   html += `</div>`;
 
-  // Opportunity statement
-  html += `<div style="background:var(--lt);border-radius:6px;padding:12px;margin-bottom:16px;">`;
-  html += `<div style="font-size:12px;font-weight:600;color:var(--pri);margin-bottom:4px;">THE OPPORTUNITY</div>`;
-  html += `<div style="font-size:13px;color:var(--tx);line-height:1.5;">${combo.scaffold.what}</div>`;
+  // Reason
+  html += `<div style="font-size:12px;color:var(--tx2);line-height:1.5;padding-bottom:16px;">`;
+  html += `<strong>Why this works:</strong> ${combo.scaffold.why}`;
   html += `</div>`;
 
-  // Reason
-  html += `<div style="font-size:12px;color:var(--tx2);line-height:1.5;">`;
-  html += `<strong>Why this works:</strong> ${combo.scaffold.why}`;
   html += `</div>`;
 
   html += `</div>`;
