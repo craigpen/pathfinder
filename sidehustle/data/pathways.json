@@ -1852,7 +1852,7 @@
     },
     {
       "id": "long_video",
-      "name": "Long Video (YouTube)",
+      "name": "Long Video",
       "category": "Media & Audience",
       "description": "Create long-form video content on YouTube. Monetize via YouTube Partner Program, sponsorships, and affiliate marketing.",
       "bestFor": [
@@ -1955,7 +1955,7 @@
     },
     {
       "id": "short_video",
-      "name": "Short Video (TikTok/Reels)",
+      "name": "Short Video",
       "category": "Media & Audience",
       "description": "Create short-form video content on TikTok, Instagram Reels, YouTube Shorts. Fastest growth, monetization emerging.",
       "bestFor": [
@@ -2879,7 +2879,7 @@
     },
     {
       "id": "grocery_shopping",
-      "name": "Grocery Shopping (Instacart/Amazon Fresh)",
+      "name": "Grocery Shopping",
       "category": "Physical Logistics",
       "description": "Shop for and deliver groceries for Instacart, Amazon Fresh, or local grocery services. Higher pay than food delivery.",
       "bestFor": [
@@ -3183,7 +3183,7 @@
     },
     {
       "id": "errand_running",
-      "name": "Errand Running (TaskRabbit, Care.com)",
+      "name": "Errand Running",
       "category": "Physical Logistics",
       "description": "Run errands for busy professionals: shopping, deliveries, appointments, returns, etc.",
       "bestFor": [
@@ -5820,7 +5820,7 @@
     },
     {
       "id": "writing_services",
-      "name": "Writing Services (Copy, Tech Writing)",
+      "name": "Writing Services",
       "category": "Education & Instruction",
       "description": "Offer writing services: copywriting, blog writing, technical writing, editing, proofreading.",
       "bestFor": [

@@ -308,7 +308,7 @@
     },
     {
       "id": "cloud_computing",
-      "name": "Cloud Computing (AWS/Azure)",
+      "name": "Cloud Computing",
       "category": "Technical & Digital",
       "description": "Infrastructure and platform management using major cloud providers (AWS, Azure, Google Cloud)",
       "difficulty": "Hard",
@@ -484,7 +484,7 @@
     },
     {
       "id": "video_production",
-      "name": "Video Production & Editing",
+      "name": "Video Production",
       "category": "Creative & Media",
       "description": "Recording, editing, color grading, and post-production of video content for YouTube, advertising, or corporate use",
       "difficulty": "Medium",
@@ -661,7 +661,7 @@
     },
     {
       "id": "music_composition",
-      "name": "Music Composition & Production",
+      "name": "Music Production",
       "category": "Creative & Media",
       "description": "Music composition, arrangement, and production using DAWs like Ableton, Logic Pro, or FL Studio",
       "difficulty": "Hard",
@@ -738,7 +738,7 @@
         "Indeed: Music tutor/performer positions available but competitive"
       ],
       "relatedDomains": [
-        "Music Composition & Production",
+        "Music Production",
         "Tutoring"
       ],
       "learningResources": [
@@ -855,7 +855,7 @@
         "LinkedIn 2024: Digital Marketing Specialist in top 5 roles"
       ],
       "relatedDomains": [
-        "Content Marketing & SEO",
+        "Content Marketing",
         "Copywriting",
         "Data Analysis"
       ],
@@ -895,7 +895,7 @@
     },
     {
       "id": "content_marketing_seo",
-      "name": "Content Marketing & SEO",
+      "name": "Content Marketing",
       "category": "Business & Marketing",
       "description": "Creating optimized content for search engines and strategic content marketing across channels",
       "difficulty": "Medium",
@@ -1130,7 +1130,7 @@
     },
     {
       "id": "bookkeeping_accounting",
-      "name": "Bookkeeping & Accounting",
+      "name": "Accounting",
       "category": "Business & Marketing",
       "description": "Financial record keeping, accounting principles, tax preparation, and financial analysis for businesses",
       "difficulty": "Medium",
