@@ -20,8 +20,17 @@
         "BLS Occupational Outlook Handbook: Web Developers (2023) - 13% growth projected",
         "LinkedIn Jobs Report 2024: Frontend Developer - top 5 most in-demand roles"
       ],
-      "relatedDomains": ["Web Dev (Backend)", "Full-stack Dev", "UI/UX Design"],
-      "compatibleDeliveryModels": ["Freelance", "Course Creation", "Video Content", "Consulting"],
+      "relatedDomains": [
+        "Web Dev (Backend)",
+        "Full-stack Dev",
+        "UI/UX Design"
+      ],
+      "compatibleDeliveryModels": [
+        "Freelance",
+        "Course Creation",
+        "Video Content",
+        "Consulting"
+      ],
       "earningPotentialByDelivery": {
         "Freelance": {
           "min": 50,
@@ -64,6 +73,15 @@
         "Requires continuous learning",
         "Steep initial learning curve",
         "High competition in freelance market"
+      ],
+      "strength": "technical",
+      "roles": [
+        "Developer",
+        "Engineer"
+      ],
+      "adjectives": [
+        "Interactive",
+        "Cutting-edge"
       ]
     },
     {
@@ -86,8 +104,17 @@
         "BLS: Software Developers - 13% job growth through 2032",
         "Stack Overflow Survey 2023: Backend languages in top demand"
       ],
-      "relatedDomains": ["Web Dev (Frontend)", "Full-stack Dev", "Data Analysis", "Cloud Computing"],
-      "compatibleDeliveryModels": ["Freelance", "Consulting", "Course Creation"],
+      "relatedDomains": [
+        "Web Dev (Frontend)",
+        "Full-stack Dev",
+        "Data Analysis",
+        "Cloud Computing"
+      ],
+      "compatibleDeliveryModels": [
+        "Freelance",
+        "Consulting",
+        "Course Creation"
+      ],
       "earningPotentialByDelivery": {
         "Freelance": {
           "min": 60,
@@ -125,6 +152,15 @@
         "Requires deep problem-solving skills",
         "On-call responsibilities common",
         "Must stay current with evolving tech"
+      ],
+      "strength": "technical",
+      "roles": [
+        "Developer",
+        "Architect"
+      ],
+      "adjectives": [
+        "Scalable",
+        "Robust"
       ]
     },
     {
@@ -147,8 +183,17 @@
         "LinkedIn 2024 Jobs Report: Full-stack developer in top 15 roles",
         "Indeed: Full-stack positions 30% of all developer roles"
       ],
-      "relatedDomains": ["Web Dev (Frontend)", "Web Dev (Backend)", "Mobile App Dev"],
-      "compatibleDeliveryModels": ["Freelance", "Consulting", "Course Creation", "App Creation"],
+      "relatedDomains": [
+        "Web Dev (Frontend)",
+        "Web Dev (Backend)",
+        "Mobile App Dev"
+      ],
+      "compatibleDeliveryModels": [
+        "Freelance",
+        "Consulting",
+        "Course Creation",
+        "App Creation"
+      ],
       "earningPotentialByDelivery": {
         "Freelance": {
           "min": 75,
@@ -192,6 +237,15 @@
         "Rapidly evolving technology",
         "Can be overwhelming for beginners",
         "Requires continuous skill updates"
+      ],
+      "strength": "technical",
+      "roles": [
+        "Developer",
+        "Founder"
+      ],
+      "adjectives": [
+        "Full-featured",
+        "Comprehensive"
       ]
     },
     {
@@ -214,8 +268,17 @@
         "BLS: Software developers 13% growth through 2032",
         "Statista 2024: Mobile app market growth 15.4% annually"
       ],
-      "relatedDomains": ["Web Dev (Frontend)", "Full-stack Dev", "UI/UX Design"],
-      "compatibleDeliveryModels": ["Freelance", "Consulting", "Course Creation", "App Creation"],
+      "relatedDomains": [
+        "Web Dev (Frontend)",
+        "Full-stack Dev",
+        "UI/UX Design"
+      ],
+      "compatibleDeliveryModels": [
+        "Freelance",
+        "Consulting",
+        "Course Creation",
+        "App Creation"
+      ],
       "earningPotentialByDelivery": {
         "Freelance": {
           "min": 70,
@@ -258,6 +321,15 @@
         "Multiple platforms to learn (iOS vs Android)",
         "App store competition is intense",
         "Requires UI/UX understanding in addition to code"
+      ],
+      "strength": "technical",
+      "roles": [
+        "Developer",
+        "Creator"
+      ],
+      "adjectives": [
+        "Mobile",
+        "Innovative"
       ]
     },
     {
@@ -280,8 +352,15 @@
         "BLS: Data Scientists 36% job growth (2021-2031) - much faster than average",
         "LinkedIn 2024: Data Analyst in top 5 most in-demand roles"
       ],
-      "relatedDomains": ["Web Dev (Backend)", "Machine Learning"],
-      "compatibleDeliveryModels": ["Freelance", "Consulting", "Course Creation"],
+      "relatedDomains": [
+        "Web Dev (Backend)",
+        "Machine Learning"
+      ],
+      "compatibleDeliveryModels": [
+        "Freelance",
+        "Consulting",
+        "Course Creation"
+      ],
       "earningPotentialByDelivery": {
         "Freelance": {
           "min": 45,
@@ -319,6 +398,16 @@
         "Requires statistics background",
         "Tools change frequently",
         "Can be data-cleaning heavy (less glamorous work)"
+      ],
+      "strength": "analytical",
+      "roles": [
+        "Analyst",
+        "Advisor",
+        "Strategist"
+      ],
+      "adjectives": [
+        "Insight-driven",
+        "Data-backed"
       ]
     },
     {
@@ -341,8 +430,15 @@
         "Gartner Cloud Infrastructure Market: 23% annual growth",
         "LinkedIn 2024: AWS, Azure certifications in top 10 demanded skills"
       ],
-      "relatedDomains": ["Web Dev (Backend)", "Data Analysis"],
-      "compatibleDeliveryModels": ["Freelance", "Consulting", "Course Creation"],
+      "relatedDomains": [
+        "Web Dev (Backend)",
+        "Data Analysis"
+      ],
+      "compatibleDeliveryModels": [
+        "Freelance",
+        "Consulting",
+        "Course Creation"
+      ],
       "earningPotentialByDelivery": {
         "Freelance": {
           "min": 60,
@@ -380,6 +476,15 @@
         "Certifications require consistent maintenance",
         "Steep learning curve",
         "Multiple competing platforms"
+      ],
+      "strength": "technical",
+      "roles": [
+        "Engineer",
+        "Architect"
+      ],
+      "adjectives": [
+        "Scalable",
+        "Efficient"
       ]
     },
     {
@@ -402,8 +507,17 @@
         "BLS: Graphic Designers 2% growth (slower than average)",
         "Indeed 2024: Graphic design job postings high but competitive"
       ],
-      "relatedDomains": ["UI/UX Design", "Digital Illustration", "Video Production"],
-      "compatibleDeliveryModels": ["Freelance", "E-commerce", "Stock Content", "Course Creation"],
+      "relatedDomains": [
+        "UI/UX Design",
+        "Digital Illustration",
+        "Video Production"
+      ],
+      "compatibleDeliveryModels": [
+        "Freelance",
+        "E-commerce",
+        "Stock Content",
+        "Course Creation"
+      ],
       "earningPotentialByDelivery": {
         "Freelance": {
           "min": 25,
@@ -447,6 +561,15 @@
         "Clients often want cheap design",
         "Portfolio building takes time",
         "Trend-driven (styles change)"
+      ],
+      "strength": "creative",
+      "roles": [
+        "Designer",
+        "Artist"
+      ],
+      "adjectives": [
+        "Visual",
+        "Creative"
       ]
     },
     {
@@ -469,8 +592,16 @@
         "BLS: UX Designers included in Web Developers (13% growth)",
         "Indeed 2024: UX Designer in top 25 jobs with best growth"
       ],
-      "relatedDomains": ["Graphic Design", "Web Dev (Frontend)", "Mobile App Dev"],
-      "compatibleDeliveryModels": ["Freelance", "Consulting", "Course Creation"],
+      "relatedDomains": [
+        "Graphic Design",
+        "Web Dev (Frontend)",
+        "Mobile App Dev"
+      ],
+      "compatibleDeliveryModels": [
+        "Freelance",
+        "Consulting",
+        "Course Creation"
+      ],
       "earningPotentialByDelivery": {
         "Freelance": {
           "min": 50,
@@ -508,6 +639,15 @@
         "Competitive in freelance market",
         "Portfolio building important",
         "Tools and methodologies evolve"
+      ],
+      "strength": "creative",
+      "roles": [
+        "Designer",
+        "Consultant"
+      ],
+      "adjectives": [
+        "User-centric",
+        "Elegant"
       ]
     },
     {
@@ -530,8 +670,17 @@
         "Statista 2024: Video content consumption growing 25% annually",
         "LinkedIn: Video editor/producer in top 25 in-demand roles"
       ],
-      "relatedDomains": ["Photography", "Creative Writing", "Digital Illustration"],
-      "compatibleDeliveryModels": ["Freelance", "YouTube Channel", "Course Creation", "Video Content"],
+      "relatedDomains": [
+        "Photography",
+        "Creative Writing",
+        "Digital Illustration"
+      ],
+      "compatibleDeliveryModels": [
+        "Freelance",
+        "YouTube Channel",
+        "Course Creation",
+        "Video Content"
+      ],
       "earningPotentialByDelivery": {
         "Freelance": {
           "min": 30,
@@ -569,6 +718,15 @@
         "Time-intensive process",
         "Client communication critical",
         "Trends change quickly"
+      ],
+      "strength": "creative",
+      "roles": [
+        "Producer",
+        "Creator"
+      ],
+      "adjectives": [
+        "Visual",
+        "Cinematic"
       ]
     },
     {
@@ -591,8 +749,17 @@
         "BLS: Photographers 2% growth (slower than average)",
         "Indeed 2024: Photography job market moderately competitive"
       ],
-      "relatedDomains": ["Video Production", "Graphic Design", "Digital Illustration"],
-      "compatibleDeliveryModels": ["Freelance", "Stock Content", "E-commerce", "Local Services"],
+      "relatedDomains": [
+        "Video Production",
+        "Graphic Design",
+        "Digital Illustration"
+      ],
+      "compatibleDeliveryModels": [
+        "Freelance",
+        "Stock Content",
+        "E-commerce",
+        "Local Services"
+      ],
       "earningPotentialByDelivery": {
         "Freelance": {
           "min": 40,
@@ -636,6 +803,15 @@
         "Equipment can be expensive",
         "Building portfolio takes time",
         "Clients often expect discounts"
+      ],
+      "strength": "creative",
+      "roles": [
+        "Photographer",
+        "Artist"
+      ],
+      "adjectives": [
+        "Visual",
+        "Artistic"
       ]
     },
     {
@@ -658,8 +834,17 @@
         "ArtStation: Digital illustrator demand 35% higher than 2020",
         "LinkedIn: Digital artist in top 30 creative roles"
       ],
-      "relatedDomains": ["Graphic Design", "Animation", "UI/UX Design"],
-      "compatibleDeliveryModels": ["Freelance", "E-commerce", "Stock Content", "Course Creation"],
+      "relatedDomains": [
+        "Graphic Design",
+        "Animation",
+        "UI/UX Design"
+      ],
+      "compatibleDeliveryModels": [
+        "Freelance",
+        "E-commerce",
+        "Stock Content",
+        "Course Creation"
+      ],
       "earningPotentialByDelivery": {
         "Freelance": {
           "min": 30,
@@ -697,6 +882,15 @@
         "Long skill development period",
         "Highly competitive market",
         "Client expectations can be unrealistic"
+      ],
+      "strength": "creative",
+      "roles": [
+        "Illustrator",
+        "Artist"
+      ],
+      "adjectives": [
+        "Visual",
+        "Imaginative"
       ]
     },
     {
@@ -719,8 +913,16 @@
         "Spotify 2023: 8M+ tracks uploaded annually",
         "Upwork: Music producer demand steady"
       ],
-      "relatedDomains": ["Music Performance", "Video Production"],
-      "compatibleDeliveryModels": ["Freelance", "Stock Content", "Course Creation", "E-commerce"],
+      "relatedDomains": [
+        "Music Performance",
+        "Video Production"
+      ],
+      "compatibleDeliveryModels": [
+        "Freelance",
+        "Stock Content",
+        "Course Creation",
+        "E-commerce"
+      ],
       "earningPotentialByDelivery": {
         "Freelance": {
           "min": 50,
@@ -758,6 +960,15 @@
         "Long learning curve",
         "Equipment investment needed",
         "Competitive market"
+      ],
+      "strength": "creative",
+      "roles": [
+        "Composer",
+        "Producer"
+      ],
+      "adjectives": [
+        "Creative",
+        "Innovative"
       ]
     },
     {
@@ -780,8 +991,16 @@
         "BLS: Musicians 6% growth through 2032",
         "Indeed: Music tutor/performer positions available but competitive"
       ],
-      "relatedDomains": ["Music Composition & Production", "Tutoring"],
-      "compatibleDeliveryModels": ["Tutoring", "YouTube Channel", "Local Services", "Course Creation"],
+      "relatedDomains": [
+        "Music Composition & Production",
+        "Tutoring"
+      ],
+      "compatibleDeliveryModels": [
+        "Tutoring",
+        "YouTube Channel",
+        "Local Services",
+        "Course Creation"
+      ],
       "earningPotentialByDelivery": {
         "Tutoring": {
           "min": 30,
@@ -825,6 +1044,15 @@
         "Requires consistent practice",
         "Teaching income modest",
         "Performance opportunities competitive"
+      ],
+      "strength": "creative",
+      "roles": [
+        "Musician",
+        "Performer"
+      ],
+      "adjectives": [
+        "Talented",
+        "Expressive"
       ]
     },
     {
@@ -847,8 +1075,18 @@
         "Publishers Weekly: Publishing market stable",
         "Amazon KDP: 2000+ books published daily"
       ],
-      "relatedDomains": ["Academic Writing", "Technical Writing", "Copywriting"],
-      "compatibleDeliveryModels": ["Freelance", "Blogging", "Course Creation", "E-commerce", "Newsletters"],
+      "relatedDomains": [
+        "Academic Writing",
+        "Technical Writing",
+        "Copywriting"
+      ],
+      "compatibleDeliveryModels": [
+        "Freelance",
+        "Blogging",
+        "Course Creation",
+        "E-commerce",
+        "Newsletters"
+      ],
       "earningPotentialByDelivery": {
         "Freelance": {
           "min": 20,
@@ -892,6 +1130,15 @@
         "Takes time to build audience",
         "Earnings take time to materialize",
         "Requires consistent output"
+      ],
+      "strength": "creative",
+      "roles": [
+        "Writer",
+        "Author"
+      ],
+      "adjectives": [
+        "Engaging",
+        "Imaginative"
       ]
     },
     {
@@ -914,8 +1161,16 @@
         "U.S. Bureau of Labor Statistics: Marketing Managers 10% growth",
         "LinkedIn 2024: Digital Marketing Specialist in top 5 roles"
       ],
-      "relatedDomains": ["Content Marketing & SEO", "Copywriting", "Data Analysis"],
-      "compatibleDeliveryModels": ["Freelance", "Consulting", "Course Creation"],
+      "relatedDomains": [
+        "Content Marketing & SEO",
+        "Copywriting",
+        "Data Analysis"
+      ],
+      "compatibleDeliveryModels": [
+        "Freelance",
+        "Consulting",
+        "Course Creation"
+      ],
       "earningPotentialByDelivery": {
         "Freelance": {
           "min": 40,
@@ -959,6 +1214,15 @@
         "Requires staying current",
         "Results-driven (client expectations)",
         "Competitive market"
+      ],
+      "strength": "business",
+      "roles": [
+        "Marketer",
+        "Strategist"
+      ],
+      "adjectives": [
+        "Growth-focused",
+        "Data-driven"
       ]
     },
     {
@@ -981,8 +1245,16 @@
         "BLS: Web Developers 13% growth",
         "Indeed: SEO Specialist top 25 fastest-growing roles"
       ],
-      "relatedDomains": ["Digital Marketing", "Copywriting", "Analytics"],
-      "compatibleDeliveryModels": ["Freelance", "Consulting", "Course Creation"],
+      "relatedDomains": [
+        "Digital Marketing",
+        "Copywriting",
+        "Analytics"
+      ],
+      "compatibleDeliveryModels": [
+        "Freelance",
+        "Consulting",
+        "Course Creation"
+      ],
       "earningPotentialByDelivery": {
         "Freelance": {
           "min": 35,
@@ -1020,6 +1292,15 @@
         "Results take time to materialize",
         "Requires continuous learning",
         "Competitive market"
+      ],
+      "strength": "business",
+      "roles": [
+        "Specialist",
+        "Strategist"
+      ],
+      "adjectives": [
+        "Organic",
+        "Strategic"
       ]
     },
     {
@@ -1042,8 +1323,16 @@
         "Upwork: Copywriter in top 5 in-demand writing skills",
         "LinkedIn: Copywriter demand 40% higher than 2020"
       ],
-      "relatedDomains": ["Creative Writing", "Email Marketing", "Content Marketing"],
-      "compatibleDeliveryModels": ["Freelance", "Course Creation", "Consulting"],
+      "relatedDomains": [
+        "Creative Writing",
+        "Email Marketing",
+        "Content Marketing"
+      ],
+      "compatibleDeliveryModels": [
+        "Freelance",
+        "Course Creation",
+        "Consulting"
+      ],
       "earningPotentialByDelivery": {
         "Freelance": {
           "min": 50,
@@ -1081,6 +1370,15 @@
         "Testing and iteration needed",
         "Client communication critical",
         "High expectations for ROI"
+      ],
+      "strength": "creative",
+      "roles": [
+        "Writer",
+        "Creator"
+      ],
+      "adjectives": [
+        "Persuasive",
+        "Engaging"
       ]
     },
     {
@@ -1103,8 +1401,15 @@
         "LinkedIn: Email Marketing Specialist in top roles",
         "Indeed: Email marketing job postings stable"
       ],
-      "relatedDomains": ["Digital Marketing", "Copywriting"],
-      "compatibleDeliveryModels": ["Freelance", "Consulting", "Course Creation"],
+      "relatedDomains": [
+        "Digital Marketing",
+        "Copywriting"
+      ],
+      "compatibleDeliveryModels": [
+        "Freelance",
+        "Consulting",
+        "Course Creation"
+      ],
       "earningPotentialByDelivery": {
         "Freelance": {
           "min": 35,
@@ -1142,6 +1447,15 @@
         "Compliance requirements (GDPR, CAN-SPAM)",
         "Testing needed for optimization",
         "Competitive platforms"
+      ],
+      "strength": "business",
+      "roles": [
+        "Specialist",
+        "Manager"
+      ],
+      "adjectives": [
+        "Conversion-focused",
+        "Strategic"
       ]
     },
     {
@@ -1164,8 +1478,15 @@
         "BLS: Sales Representatives 3% growth",
         "LinkedIn: Sales professional remain consistently in-demand"
       ],
-      "relatedDomains": ["Digital Marketing", "Copywriting", "Business Consulting"],
-      "compatibleDeliveryModels": ["Consulting", "Freelance"],
+      "relatedDomains": [
+        "Digital Marketing",
+        "Copywriting",
+        "Business Consulting"
+      ],
+      "compatibleDeliveryModels": [
+        "Consulting",
+        "Freelance"
+      ],
       "earningPotentialByDelivery": {
         "Freelance/Consulting": {
           "min": 75,
@@ -1203,6 +1524,15 @@
         "High rejection rate",
         "Personality-dependent",
         "Results-driven stress"
+      ],
+      "strength": "interpersonal",
+      "roles": [
+        "Closer",
+        "Consultant"
+      ],
+      "adjectives": [
+        "Persuasive",
+        "Strategic"
       ]
     },
     {
@@ -1225,8 +1555,15 @@
         "BLS: Bookkeepers 6% growth through 2032",
         "Bureau of Labor Statistics: Accountants and Auditors 4% growth"
       ],
-      "relatedDomains": ["Data Analysis", "Project Management"],
-      "compatibleDeliveryModels": ["Freelance", "Consulting", "Local Services"],
+      "relatedDomains": [
+        "Data Analysis",
+        "Project Management"
+      ],
+      "compatibleDeliveryModels": [
+        "Freelance",
+        "Consulting",
+        "Local Services"
+      ],
       "earningPotentialByDelivery": {
         "Freelance": {
           "min": 30,
@@ -1264,6 +1601,15 @@
         "Continuous learning required (tax law changes)",
         "Repetitive work",
         "Client relationship critical"
+      ],
+      "strength": "analytical",
+      "roles": [
+        "Accountant",
+        "Specialist"
+      ],
+      "adjectives": [
+        "Precise",
+        "Organized"
       ]
     },
     {
@@ -1286,8 +1632,14 @@
         "Project Management Institute: 12.2 million new PM roles needed by 2030",
         "LinkedIn: Project Manager in top 5 most in-demand roles"
       ],
-      "relatedDomains": ["Digital Marketing", "Consulting"],
-      "compatibleDeliveryModels": ["Consulting", "Freelance"],
+      "relatedDomains": [
+        "Digital Marketing",
+        "Consulting"
+      ],
+      "compatibleDeliveryModels": [
+        "Consulting",
+        "Freelance"
+      ],
       "earningPotentialByDelivery": {
         "Consulting": {
           "min": 100,
@@ -1325,6 +1677,15 @@
         "Certification helpful but not required",
         "Stress and accountability high",
         "Client communication critical"
+      ],
+      "strength": "business",
+      "roles": [
+        "Manager",
+        "Coordinator"
+      ],
+      "adjectives": [
+        "Organized",
+        "Efficient"
       ]
     },
     {
@@ -1347,8 +1708,15 @@
         "Bureau of Labor Statistics: High School Teachers 4% growth",
         "Care.com 2023: Math tutors most requested subject"
       ],
-      "relatedDomains": ["Science", "Test Preparation"],
-      "compatibleDeliveryModels": ["Tutoring", "Course Creation", "YouTube Channel"],
+      "relatedDomains": [
+        "Science",
+        "Test Preparation"
+      ],
+      "compatibleDeliveryModels": [
+        "Tutoring",
+        "Course Creation",
+        "YouTube Channel"
+      ],
       "earningPotentialByDelivery": {
         "Tutoring": {
           "min": 30,
@@ -1386,6 +1754,15 @@
         "Student patience important",
         "Test prep seasonal demand",
         "Certification not required but helps"
+      ],
+      "strength": "analytical",
+      "roles": [
+        "Tutor",
+        "Consultant"
+      ],
+      "adjectives": [
+        "Precise",
+        "Logical"
       ]
     },
     {
@@ -1408,8 +1785,15 @@
         "BLS: Science teachers 3% growth",
         "Care.com: Science tutors in high demand"
       ],
-      "relatedDomains": ["Mathematics", "Test Preparation"],
-      "compatibleDeliveryModels": ["Tutoring", "Course Creation", "YouTube Channel"],
+      "relatedDomains": [
+        "Mathematics",
+        "Test Preparation"
+      ],
+      "compatibleDeliveryModels": [
+        "Tutoring",
+        "Course Creation",
+        "YouTube Channel"
+      ],
       "earningPotentialByDelivery": {
         "Tutoring": {
           "min": 30,
@@ -1436,6 +1820,15 @@
         "Student engagement important",
         "Lab setup for content creation",
         "Less demand than math/languages"
+      ],
+      "strength": "analytical",
+      "roles": [
+        "Tutor",
+        "Expert"
+      ],
+      "adjectives": [
+        "Analytical",
+        "Research-driven"
       ]
     },
     {
@@ -1458,8 +1851,16 @@
         "Care.com: Language tutors consistently in top demand",
         "Preply 2023: Spanish and Chinese tutors most requested"
       ],
-      "relatedDomains": ["Test Preparation", "Academic Writing"],
-      "compatibleDeliveryModels": ["Tutoring", "Course Creation", "YouTube Channel", "Coaching"],
+      "relatedDomains": [
+        "Test Preparation",
+        "Academic Writing"
+      ],
+      "compatibleDeliveryModels": [
+        "Tutoring",
+        "Course Creation",
+        "YouTube Channel",
+        "Coaching"
+      ],
       "earningPotentialByDelivery": {
         "Tutoring": {
           "min": 25,
@@ -1497,6 +1898,15 @@
         "Student motivation varies",
         "Hourly rates can be low on some platforms",
         "Time zone challenges for online"
+      ],
+      "strength": "interpersonal",
+      "roles": [
+        "Tutor",
+        "Translator"
+      ],
+      "adjectives": [
+        "Fluent",
+        "Cultural"
       ]
     },
     {
@@ -1519,8 +1929,16 @@
         "Care.com: Test prep tutors consistently requested",
         "Wyzant: Test prep tutoring strong seasonal demand"
       ],
-      "relatedDomains": ["Mathematics", "Languages", "Academic Writing"],
-      "compatibleDeliveryModels": ["Tutoring", "Course Creation", "YouTube Channel"],
+      "relatedDomains": [
+        "Mathematics",
+        "Languages",
+        "Academic Writing"
+      ],
+      "compatibleDeliveryModels": [
+        "Tutoring",
+        "Course Creation",
+        "YouTube Channel"
+      ],
       "earningPotentialByDelivery": {
         "Tutoring": {
           "min": 40,
@@ -1558,6 +1976,15 @@
         "Seasonal demand fluctuation",
         "Student stress/pressure high",
         "Continuous test updates needed"
+      ],
+      "strength": "business",
+      "roles": [
+        "Tutor",
+        "Coach"
+      ],
+      "adjectives": [
+        "Strategic",
+        "Effective"
       ]
     },
     {
@@ -1580,8 +2007,15 @@
         "Upwork: Academic writing freelancers in demand",
         "Scribd, Academia.edu: Academic content consumption growing"
       ],
-      "relatedDomains": ["Creative Writing", "Technical Writing", "Research"],
-      "compatibleDeliveryModels": ["Freelance", "Course Creation"],
+      "relatedDomains": [
+        "Creative Writing",
+        "Technical Writing",
+        "Research"
+      ],
+      "compatibleDeliveryModels": [
+        "Freelance",
+        "Course Creation"
+      ],
       "earningPotentialByDelivery": {
         "Freelance": {
           "min": 30,
@@ -1613,6 +2047,15 @@
         "Student writing quality matters for credibility",
         "Citation formats constantly evolving",
         "Moderate earning compared to other specialties"
+      ],
+      "strength": "creative",
+      "roles": [
+        "Writer",
+        "Coach"
+      ],
+      "adjectives": [
+        "Structured",
+        "Analytical"
       ]
     },
     {
@@ -1635,8 +2078,16 @@
         "Society for Technical Communication: Tech writer jobs growing",
         "Indeed: Technical Writer in top 25 growing roles"
       ],
-      "relatedDomains": ["Web Dev (Frontend)", "Software Development", "Academic Writing"],
-      "compatibleDeliveryModels": ["Freelance", "Consulting", "Course Creation"],
+      "relatedDomains": [
+        "Web Dev (Frontend)",
+        "Software Development",
+        "Academic Writing"
+      ],
+      "compatibleDeliveryModels": [
+        "Freelance",
+        "Consulting",
+        "Course Creation"
+      ],
       "earningPotentialByDelivery": {
         "Freelance": {
           "min": 40,
@@ -1674,6 +2125,15 @@
         "Can be dry/repetitive work",
         "Tools and platforms vary",
         "Competitive market"
+      ],
+      "strength": "creative",
+      "roles": [
+        "Writer",
+        "Specialist"
+      ],
+      "adjectives": [
+        "Clear",
+        "Technical"
       ]
     },
     {
@@ -1696,8 +2156,17 @@
         "Bureau of Labor Statistics: Personal trainers 13% growth",
         "Zippia: Fitness industry growing faster than average"
       ],
-      "relatedDomains": ["Nutrition", "Psychology", "Wellness Coaching"],
-      "compatibleDeliveryModels": ["Coaching", "Course Creation", "YouTube Channel", "Local Services"],
+      "relatedDomains": [
+        "Nutrition",
+        "Psychology",
+        "Wellness Coaching"
+      ],
+      "compatibleDeliveryModels": [
+        "Coaching",
+        "Course Creation",
+        "YouTube Channel",
+        "Local Services"
+      ],
       "earningPotentialByDelivery": {
         "Coaching": {
           "min": 30,
@@ -1735,6 +2204,15 @@
         "Certification helpful for credibility",
         "Physical demands on trainer",
         "Liability/insurance considerations"
+      ],
+      "strength": "interpersonal",
+      "roles": [
+        "Coach",
+        "Trainer"
+      ],
+      "adjectives": [
+        "Energetic",
+        "Transformative"
       ]
     },
     {
@@ -1757,8 +2235,15 @@
         "BLS: Dietitian/Nutritionist 7% growth",
         "ACE Fitness: Nutrition coaching demand growing"
       ],
-      "relatedDomains": ["Fitness", "Health Coaching"],
-      "compatibleDeliveryModels": ["Coaching", "Course Creation", "Consulting"],
+      "relatedDomains": [
+        "Fitness",
+        "Health Coaching"
+      ],
+      "compatibleDeliveryModels": [
+        "Coaching",
+        "Course Creation",
+        "Consulting"
+      ],
       "earningPotentialByDelivery": {
         "Coaching": {
           "min": 40,
@@ -1790,6 +2275,15 @@
         "Requires ongoing learning",
         "Client compliance difficult",
         "Competition from apps/AI"
+      ],
+      "strength": "analytical",
+      "roles": [
+        "Coach",
+        "Specialist"
+      ],
+      "adjectives": [
+        "Evidence-based",
+        "Holistic"
       ]
     },
     {
@@ -1812,8 +2306,17 @@
         "Yoga Alliance: Yoga instructor jobs growing 15% annually",
         "Indeed: Yoga instructor positions increasing"
       ],
-      "relatedDomains": ["Fitness", "Mental Health", "Life Coaching"],
-      "compatibleDeliveryModels": ["Coaching", "Course Creation", "YouTube Channel", "Local Services"],
+      "relatedDomains": [
+        "Fitness",
+        "Mental Health",
+        "Life Coaching"
+      ],
+      "compatibleDeliveryModels": [
+        "Coaching",
+        "Course Creation",
+        "YouTube Channel",
+        "Local Services"
+      ],
       "earningPotentialByDelivery": {
         "Coaching": {
           "min": 25,
@@ -1851,6 +2354,15 @@
         "Lower hourly rates than fitness",
         "Competitive market",
         "Client consistency matters"
+      ],
+      "strength": "interpersonal",
+      "roles": [
+        "Instructor",
+        "Coach"
+      ],
+      "adjectives": [
+        "Peaceful",
+        "Transformative"
       ]
     },
     {
@@ -1873,8 +2385,15 @@
         "BLS: Psychologists 4% growth; Mental health counselors 13% growth",
         "Mental health demand post-COVID very high"
       ],
-      "relatedDomains": ["Life Coaching", "Nutrition", "Fitness"],
-      "compatibleDeliveryModels": ["Coaching", "Course Creation"],
+      "relatedDomains": [
+        "Life Coaching",
+        "Nutrition",
+        "Fitness"
+      ],
+      "compatibleDeliveryModels": [
+        "Coaching",
+        "Course Creation"
+      ],
       "earningPotentialByDelivery": {
         "Therapy/Counseling": {
           "min": 80,
@@ -1912,6 +2431,15 @@
         "Licensing varies by jurisdiction",
         "Emotional labor/burnout risk",
         "Liability and confidentiality critical"
+      ],
+      "strength": "interpersonal",
+      "roles": [
+        "Coach",
+        "Counselor"
+      ],
+      "adjectives": [
+        "Empathetic",
+        "Supportive"
       ]
     },
     {
@@ -1934,8 +2462,15 @@
         "International Coach Federation: Life coaching demand growing",
         "Upwork: Life coach demand steady"
       ],
-      "relatedDomains": ["Career Coaching", "Mental Health", "Psychology"],
-      "compatibleDeliveryModels": ["Coaching", "Course Creation"],
+      "relatedDomains": [
+        "Career Coaching",
+        "Mental Health",
+        "Psychology"
+      ],
+      "compatibleDeliveryModels": [
+        "Coaching",
+        "Course Creation"
+      ],
       "earningPotentialByDelivery": {
         "Coaching": {
           "min": 40,
@@ -1967,6 +2502,15 @@
         "Client motivation critical",
         "Certification helps but not required",
         "Building client base takes time"
+      ],
+      "strength": "interpersonal",
+      "roles": [
+        "Coach",
+        "Mentor"
+      ],
+      "adjectives": [
+        "Transformative",
+        "Supportive"
       ]
     },
     {
@@ -1989,8 +2533,15 @@
         "Indeed: Career Coach job postings growing",
         "LinkedIn: Career coaching demand post-COVID high"
       ],
-      "relatedDomains": ["Life Coaching", "Business Consulting"],
-      "compatibleDeliveryModels": ["Coaching", "Course Creation", "Consulting"],
+      "relatedDomains": [
+        "Life Coaching",
+        "Business Consulting"
+      ],
+      "compatibleDeliveryModels": [
+        "Coaching",
+        "Course Creation",
+        "Consulting"
+      ],
       "earningPotentialByDelivery": {
         "Coaching": {
           "min": 50,
@@ -2017,6 +2568,15 @@
         "Results-dependent (job placements)",
         "Competitive market",
         "Building credibility important"
+      ],
+      "strength": "business",
+      "roles": [
+        "Coach",
+        "Mentor"
+      ],
+      "adjectives": [
+        "Strategic",
+        "Growth-focused"
       ]
     },
     {
@@ -2039,8 +2599,16 @@
         "BLS: Food prep workers stable, chefs 8% growth",
         "MasterClass: Cooking courses very popular"
       ],
-      "relatedDomains": ["Nutrition", "Photography"],
-      "compatibleDeliveryModels": ["Course Creation", "YouTube Channel", "Local Services", "E-commerce"],
+      "relatedDomains": [
+        "Nutrition",
+        "Photography"
+      ],
+      "compatibleDeliveryModels": [
+        "Course Creation",
+        "YouTube Channel",
+        "Local Services",
+        "E-commerce"
+      ],
       "earningPotentialByDelivery": {
         "Course Creation": {
           "min": 500,
@@ -2084,6 +2652,15 @@
         "YouTube algorithm unpredictable",
         "Requires consistent content",
         "Monetization takes time"
+      ],
+      "strength": "creative",
+      "roles": [
+        "Chef",
+        "Instructor"
+      ],
+      "adjectives": [
+        "Creative",
+        "Flavorful"
       ]
     },
     {
@@ -2106,8 +2683,14 @@
         "Thumbtack: Professional organizers in high demand",
         "Organizational productivity trend growing"
       ],
-      "relatedDomains": ["Interior Design"],
-      "compatibleDeliveryModels": ["Local Services", "Course Creation", "YouTube Channel"],
+      "relatedDomains": [
+        "Interior Design"
+      ],
+      "compatibleDeliveryModels": [
+        "Local Services",
+        "Course Creation",
+        "YouTube Channel"
+      ],
       "earningPotentialByDelivery": {
         "Local Services": {
           "min": 40,
@@ -2145,6 +2728,15 @@
         "Emotional work (client attachment to items)",
         "Seasonal demand",
         "Local business geographic limitations"
+      ],
+      "strength": "business",
+      "roles": [
+        "Organizer",
+        "Consultant"
+      ],
+      "adjectives": [
+        "Systematic",
+        "Transformative"
       ]
     },
     {
@@ -2167,8 +2759,15 @@
         "BLS: Interior designers 2% growth (slower than average)",
         "HGTV boom has increased interest"
       ],
-      "relatedDomains": ["Graphic Design", "Home Organization"],
-      "compatibleDeliveryModels": ["Freelance", "Consulting", "Course Creation"],
+      "relatedDomains": [
+        "Graphic Design",
+        "Home Organization"
+      ],
+      "compatibleDeliveryModels": [
+        "Freelance",
+        "Consulting",
+        "Course Creation"
+      ],
       "earningPotentialByDelivery": {
         "Freelance": {
           "min": 50,
@@ -2206,6 +2805,15 @@
         "Client vision vs. designer vision challenges",
         "Residential vs. commercial very different",
         "Portfolio building takes time"
+      ],
+      "strength": "creative",
+      "roles": [
+        "Designer",
+        "Consultant"
+      ],
+      "adjectives": [
+        "Visual",
+        "Aesthetic"
       ]
     },
     {
@@ -2228,8 +2836,16 @@
         "Etsy: Woodworking products popular",
         "Local: Carpentry work steady in most areas"
       ],
-      "relatedDomains": ["DIY & Home Improvement", "Craft"],
-      "compatibleDeliveryModels": ["E-commerce", "Local Services", "YouTube Channel", "Course Creation"],
+      "relatedDomains": [
+        "DIY & Home Improvement",
+        "Craft"
+      ],
+      "compatibleDeliveryModels": [
+        "E-commerce",
+        "Local Services",
+        "YouTube Channel",
+        "Course Creation"
+      ],
       "earningPotentialByDelivery": {
         "E-commerce": {
           "min": 500,
@@ -2267,6 +2883,15 @@
         "Equipment investment required",
         "Shipping heavy items challenging",
         "Safety considerations"
+      ],
+      "strength": "creative",
+      "roles": [
+        "Craftsperson",
+        "Instructor"
+      ],
+      "adjectives": [
+        "Handmade",
+        "Artistic"
       ]
     },
     {
@@ -2289,8 +2914,15 @@
         "Etsy: Jewelry top-selling category",
         "Handmade jewelry demand consistent"
       ],
-      "relatedDomains": ["Graphic Design", "Photography"],
-      "compatibleDeliveryModels": ["E-commerce", "Etsy Shop", "YouTube Channel"],
+      "relatedDomains": [
+        "Graphic Design",
+        "Photography"
+      ],
+      "compatibleDeliveryModels": [
+        "E-commerce",
+        "Etsy Shop",
+        "YouTube Channel"
+      ],
       "earningPotentialByDelivery": {
         "E-commerce": {
           "min": 1000,
@@ -2328,6 +2960,15 @@
         "Shipping delicate items",
         "Material costs can add up",
         "Photography important for sales"
+      ],
+      "strength": "creative",
+      "roles": [
+        "Artist",
+        "Craftsperson"
+      ],
+      "adjectives": [
+        "Artistic",
+        "Handmade"
       ]
     },
     {
@@ -2350,8 +2991,15 @@
         "Etsy: Clothing and accessories popular",
         "Alterations always in demand"
       ],
-      "relatedDomains": ["Fashion & Styling", "DIY"],
-      "compatibleDeliveryModels": ["E-commerce", "Local Services", "YouTube Channel"],
+      "relatedDomains": [
+        "Fashion & Styling",
+        "DIY"
+      ],
+      "compatibleDeliveryModels": [
+        "E-commerce",
+        "Local Services",
+        "YouTube Channel"
+      ],
       "earningPotentialByDelivery": {
         "E-commerce": {
           "min": 500,
@@ -2389,6 +3037,15 @@
         "High competition on etsy",
         "Material costs variable",
         "Shipping concerns for clothing"
+      ],
+      "strength": "creative",
+      "roles": [
+        "Designer",
+        "Tailor"
+      ],
+      "adjectives": [
+        "Creative",
+        "Personalized"
       ]
     },
     {
@@ -2411,8 +3068,14 @@
         "Etsy: Pottery and ceramics popular",
         "Local craft fairs strong demand"
       ],
-      "relatedDomains": ["Art & Drawing"],
-      "compatibleDeliveryModels": ["E-commerce", "Local Services", "Craft Fairs"],
+      "relatedDomains": [
+        "Art & Drawing"
+      ],
+      "compatibleDeliveryModels": [
+        "E-commerce",
+        "Local Services",
+        "Craft Fairs"
+      ],
       "earningPotentialByDelivery": {
         "E-commerce": {
           "min": 500,
@@ -2450,6 +3113,15 @@
         "High startup investment",
         "Breakage/quality issues",
         "Shipping fragile items challenging"
+      ],
+      "strength": "creative",
+      "roles": [
+        "Artist",
+        "Craftsperson"
+      ],
+      "adjectives": [
+        "Artistic",
+        "Handmade"
       ]
     },
     {
@@ -2472,8 +3144,14 @@
         "BLS: Landscapers 4% growth",
         "Home gardening interest post-COVID boom"
       ],
-      "relatedDomains": ["DIY & Home Improvement"],
-      "compatibleDeliveryModels": ["Local Services", "Course Creation", "YouTube Channel"],
+      "relatedDomains": [
+        "DIY & Home Improvement"
+      ],
+      "compatibleDeliveryModels": [
+        "Local Services",
+        "Course Creation",
+        "YouTube Channel"
+      ],
       "earningPotentialByDelivery": {
         "Local Services": {
           "min": 35,
@@ -2511,6 +3189,15 @@
         "Physical labor intensive",
         "Seasonal demand fluctuation",
         "Equipment investment"
+      ],
+      "strength": "creative",
+      "roles": [
+        "Designer",
+        "Specialist"
+      ],
+      "adjectives": [
+        "Natural",
+        "Transformative"
       ]
     },
     {
@@ -2533,8 +3220,16 @@
         "BLS: Handyman services growing",
         "YouTube DIY trending"
       ],
-      "relatedDomains": ["Woodworking", "Gardening", "Construction"],
-      "compatibleDeliveryModels": ["Local Services", "YouTube Channel", "Course Creation"],
+      "relatedDomains": [
+        "Woodworking",
+        "Gardening",
+        "Construction"
+      ],
+      "compatibleDeliveryModels": [
+        "Local Services",
+        "YouTube Channel",
+        "Course Creation"
+      ],
       "earningPotentialByDelivery": {
         "Local Services": {
           "min": 40,
@@ -2572,6 +3267,15 @@
         "Tool investment",
         "Safety critical",
         "Requires diverse skill set"
+      ],
+      "strength": "technical",
+      "roles": [
+        "Specialist",
+        "Instructor"
+      ],
+      "adjectives": [
+        "Practical",
+        "Resourceful"
       ]
     },
     {
@@ -2594,8 +3298,15 @@
         "Statista: Gaming market growing 10% annually",
         "Twitch: Gaming streamers in high demand"
       ],
-      "relatedDomains": ["Video Production", "YouTube"],
-      "compatibleDeliveryModels": ["YouTube Channel", "Streaming", "Coaching"],
+      "relatedDomains": [
+        "Video Production",
+        "YouTube"
+      ],
+      "compatibleDeliveryModels": [
+        "YouTube Channel",
+        "Streaming",
+        "Coaching"
+      ],
       "earningPotentialByDelivery": {
         "Twitch Streaming": {
           "min": 0,
@@ -2633,6 +3344,15 @@
         "Highly competitive",
         "Audience building takes time",
         "Income unpredictable, heavily platform-dependent"
+      ],
+      "strength": "technical",
+      "roles": [
+        "Coach",
+        "Streamer"
+      ],
+      "adjectives": [
+        "Competitive",
+        "Entertaining"
       ]
     },
     {
@@ -2655,8 +3375,15 @@
         "Etsy: Art sales steady",
         "Fine art market niche"
       ],
-      "relatedDomains": ["Digital Illustration", "Photography"],
-      "compatibleDeliveryModels": ["E-commerce", "YouTube Channel", "Patreon"],
+      "relatedDomains": [
+        "Digital Illustration",
+        "Photography"
+      ],
+      "compatibleDeliveryModels": [
+        "E-commerce",
+        "YouTube Channel",
+        "Patreon"
+      ],
       "earningPotentialByDelivery": {
         "E-commerce": {
           "min": 500,
@@ -2694,6 +3421,15 @@
         "Highly subjective market",
         "Lower average earnings",
         "Art market competitive"
+      ],
+      "strength": "creative",
+      "roles": [
+        "Artist",
+        "Instructor"
+      ],
+      "adjectives": [
+        "Artistic",
+        "Creative"
       ]
     },
     {
@@ -2716,8 +3452,14 @@
         "Rover: Dog training in high demand",
         "Care.com: Dog trainers consistently requested"
       ],
-      "relatedDomains": ["Animal Care"],
-      "compatibleDeliveryModels": ["Local Services", "Coaching", "YouTube Channel"],
+      "relatedDomains": [
+        "Animal Care"
+      ],
+      "compatibleDeliveryModels": [
+        "Local Services",
+        "Coaching",
+        "YouTube Channel"
+      ],
       "earningPotentialByDelivery": {
         "Local Services": {
           "min": 40,
@@ -2755,6 +3497,15 @@
         "Client (owner) training important",
         "Liability concerns",
         "Behavioral cases stressful"
+      ],
+      "strength": "interpersonal",
+      "roles": [
+        "Trainer",
+        "Coach"
+      ],
+      "adjectives": [
+        "Patient",
+        "Effective"
       ]
     },
     {
@@ -2777,8 +3528,16 @@
         "Parenting content popular (blogs, podcasts)",
         "Parent coaching growing market"
       ],
-      "relatedDomains": ["Life Coaching", "Psychology"],
-      "compatibleDeliveryModels": ["Course Creation", "Coaching", "YouTube Channel", "Newsletters"],
+      "relatedDomains": [
+        "Life Coaching",
+        "Psychology"
+      ],
+      "compatibleDeliveryModels": [
+        "Course Creation",
+        "Coaching",
+        "YouTube Channel",
+        "Newsletters"
+      ],
       "earningPotentialByDelivery": {
         "Coaching": {
           "min": 40,
@@ -2816,6 +3575,15 @@
         "Emotional labor",
         "Market crowded",
         "Income building takes time"
+      ],
+      "strength": "interpersonal",
+      "roles": [
+        "Coach",
+        "Expert"
+      ],
+      "adjectives": [
+        "Supportive",
+        "Practical"
       ]
     },
     {
@@ -2838,8 +3606,15 @@
         "Upwork: Personal stylist demand moderate",
         "Fashion styling growing niche"
       ],
-      "relatedDomains": ["Photography", "YouTube"],
-      "compatibleDeliveryModels": ["Coaching", "YouTube Channel", "Course Creation"],
+      "relatedDomains": [
+        "Photography",
+        "YouTube"
+      ],
+      "compatibleDeliveryModels": [
+        "Coaching",
+        "YouTube Channel",
+        "Course Creation"
+      ],
       "earningPotentialByDelivery": {
         "Coaching": {
           "min": 40,
@@ -2877,6 +3652,15 @@
         "Personal brand important",
         "Trend-dependent",
         "Moderate income potential"
+      ],
+      "strength": "creative",
+      "roles": [
+        "Stylist",
+        "Consultant"
+      ],
+      "adjectives": [
+        "Trendy",
+        "Transformative"
       ]
     },
     {
@@ -2899,8 +3683,16 @@
         "Travel industry growing 7% annually",
         "YouTube travel channels popular"
       ],
-      "relatedDomains": ["Photography", "YouTube Channel"],
-      "compatibleDeliveryModels": ["YouTube Channel", "Blogging", "Consulting", "Coaching"],
+      "relatedDomains": [
+        "Photography",
+        "YouTube Channel"
+      ],
+      "compatibleDeliveryModels": [
+        "YouTube Channel",
+        "Blogging",
+        "Consulting",
+        "Coaching"
+      ],
       "earningPotentialByDelivery": {
         "YouTube": {
           "min": 100,
@@ -2938,6 +3730,15 @@
         "Highly competitive",
         "Income slow to build",
         "Audience essential for monetization"
+      ],
+      "strength": "business",
+      "roles": [
+        "Guide",
+        "Planner"
+      ],
+      "adjectives": [
+        "Adventurous",
+        "Knowledgeable"
       ]
     },
     {
@@ -2960,8 +3761,15 @@
         "Court of Master Sommeliers: Growing certification",
         "Wine tasting experiences in demand"
       ],
-      "relatedDomains": ["Cooking & Baking", "Nutrition"],
-      "compatibleDeliveryModels": ["Coaching", "Course Creation", "YouTube Channel"],
+      "relatedDomains": [
+        "Cooking & Baking",
+        "Nutrition"
+      ],
+      "compatibleDeliveryModels": [
+        "Coaching",
+        "Course Creation",
+        "YouTube Channel"
+      ],
       "earningPotentialByDelivery": {
         "Coaching": {
           "min": 50,
@@ -2999,6 +3807,15 @@
         "Niche market",
         "Inventory costs if selling",
         "Licensing varies by region"
+      ],
+      "strength": "business",
+      "roles": [
+        "Expert",
+        "Sommelier"
+      ],
+      "adjectives": [
+        "Refined",
+        "Knowledgeable"
       ]
     },
     {
@@ -3021,8 +3838,16 @@
         "Beauty content extremely popular on YouTube/TikTok",
         "Makeup artist demand strong"
       ],
-      "relatedDomains": ["Photography", "YouTube Channel"],
-      "compatibleDeliveryModels": ["YouTube Channel", "TikTok", "Coaching", "E-commerce"],
+      "relatedDomains": [
+        "Photography",
+        "YouTube Channel"
+      ],
+      "compatibleDeliveryModels": [
+        "YouTube Channel",
+        "TikTok",
+        "Coaching",
+        "E-commerce"
+      ],
       "earningPotentialByDelivery": {
         "YouTube": {
           "min": 100,
@@ -3066,6 +3891,15 @@
         "Trends change rapidly",
         "Requires consistent content",
         "Audience essential"
+      ],
+      "strength": "creative",
+      "roles": [
+        "Artist",
+        "Specialist"
+      ],
+      "adjectives": [
+        "Artistic",
+        "Transformative"
       ]
     },
     {
@@ -3088,8 +3922,14 @@
         "BLS: Hairdressers/stylists stable demand",
         "Beauty services consistent"
       ],
-      "relatedDomains": ["Makeup & Beauty"],
-      "compatibleDeliveryModels": ["Local Services", "YouTube Channel", "Course Creation"],
+      "relatedDomains": [
+        "Makeup & Beauty"
+      ],
+      "compatibleDeliveryModels": [
+        "Local Services",
+        "YouTube Channel",
+        "Course Creation"
+      ],
       "earningPotentialByDelivery": {
         "Local Services": {
           "min": 30,
@@ -3127,6 +3967,15 @@
         "Physical labor intensive",
         "Long hours common",
         "Low average hourly despite high charges"
+      ],
+      "strength": "creative",
+      "roles": [
+        "Stylist",
+        "Artist"
+      ],
+      "adjectives": [
+        "Creative",
+        "Transformative"
       ]
     }
   ]
