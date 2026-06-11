@@ -1298,34 +1298,39 @@ function renderPathways() {
 
   // Step 1: Category pills (always shown)
   const categories = getAllPathwayCategories();
-  html += '<div style="margin-bottom:24px;"><div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Select One or More</div>';
-  html += '<div style="font-size:18px;font-weight:700;margin-bottom:10px;color:var(--dk);">Pathway Categories</div>';
-  html += '<div class="pills" data-q="pathway-category">';
-  categories.forEach(cat => {
-    const active = S.selectedPathwayCategories.includes(cat) ? ' on' : '';
-    html += `<div class="pill${active}" onclick="togglePathwayCategory('${cat}', this)">${cat}</div>`;
-  });
-  html += '</div></div>';
-
-  // Step 2: Pathway pills (only if categories selected)
-  if (S.selectedPathwayCategories.length > 0) {
-    const pathwaysInCats = S.selectedPathwayCategories.flatMap(cat => getPathwaysByCategory(cat));
-    const uniquePathways = [...new Map(pathwaysInCats.map(p => [p.id, p])).values()];
-
+  if (!categories || categories.length === 0) {
+    console.warn('No categories found:', categories);
+    html += '<div style="background:var(--lt);padding:24px;border-radius:6px;text-align:center;color:var(--tx2);">No pathway categories loaded. Check console for errors.</div>';
+  } else {
     html += '<div style="margin-bottom:24px;"><div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Select One or More</div>';
-    html += '<div style="font-size:18px;font-weight:700;margin-bottom:10px;color:var(--dk);">Specific Pathways</div>';
-    html += '<div class="pills" data-q="pathway-specific">';
-    uniquePathways.forEach(p => {
-      const active = S.selectedPathways.includes(p.id) ? ' on' : '';
-      html += `<div class="pill${active}" onclick="togglePathway('${p.id}', this)">${p.name}</div>`;
+    html += '<div style="font-size:18px;font-weight:700;margin-bottom:10px;color:var(--dk);">Pathway Categories</div>';
+    html += '<div class="pills" data-q="pathway-category">';
+    categories.forEach(cat => {
+      const active = S.selectedPathwayCategories.includes(cat) ? ' on' : '';
+      html += `<div class="pill${active}" onclick="togglePathwayCategory('${cat}', this)">${cat}</div>`;
     });
     html += '</div></div>';
 
-    // Step 3: Display table/carousel for selected pathways
-    if (S.selectedPathways.length > 0) {
-      const displayedPathways = S.selectedPathways.map(id => getPathway(id)).filter(p => p);
-      if (displayedPathways.length > 0) {
-        html += renderPathwayComparison(displayedPathways);
+    // Step 2: Pathway pills (only if categories selected)
+    if (S.selectedPathwayCategories.length > 0) {
+      const pathwaysInCats = S.selectedPathwayCategories.flatMap(cat => getPathwaysByCategory(cat));
+      const uniquePathways = [...new Map(pathwaysInCats.map(p => [p.id, p])).values()];
+
+      html += '<div style="margin-bottom:24px;"><div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Select One or More</div>';
+      html += '<div style="font-size:18px;font-weight:700;margin-bottom:10px;color:var(--dk);">Specific Pathways</div>';
+      html += '<div class="pills" data-q="pathway-specific">';
+      uniquePathways.forEach(p => {
+        const active = S.selectedPathways.includes(p.id) ? ' on' : '';
+        html += `<div class="pill${active}" onclick="togglePathway('${p.id}', this)">${p.name}</div>`;
+      });
+      html += '</div></div>';
+
+      // Step 3: Display table/carousel for selected pathways
+      if (S.selectedPathways.length > 0) {
+        const displayedPathways = S.selectedPathways.map(id => getPathway(id)).filter(p => p);
+        if (displayedPathways.length > 0) {
+          html += renderPathwayComparison(displayedPathways);
+        }
       }
     }
   }
