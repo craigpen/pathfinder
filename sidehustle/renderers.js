@@ -1475,16 +1475,24 @@ function shuffleSynthesisCards() {
 
   if (allCombos.length === 0) return;
 
+  // Filter by compatibility score (60+)
+  const viableCombos = allCombos.filter(c => c.compatibility && c.compatibility.score >= 60);
+
+  if (viableCombos.length === 0) {
+    // Fallback: show highest scoring combos if nothing meets threshold
+    viableCombos.push(...allCombos.sort((a, b) => (b.compatibility?.score || 0) - (a.compatibility?.score || 0)).slice(0, 5));
+  }
+
   // Track shown combos to avoid repeats
   S.shownSynthesisIds = S.shownSynthesisIds || [];
 
   // Get available combos (not yet shown)
-  let availableCombos = allCombos.filter(c => !S.shownSynthesisIds.includes(c.id));
+  let availableCombos = viableCombos.filter(c => !S.shownSynthesisIds.includes(c.id));
 
   // If all have been shown, reset and show all again
   if (availableCombos.length < 3) {
     S.shownSynthesisIds = [];
-    availableCombos = allCombos;
+    availableCombos = viableCombos;
   }
 
   // Pick 3 random distinct combos

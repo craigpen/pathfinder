@@ -696,20 +696,53 @@ function mergeEarningData(knowledge, pathway) {
 function calculateCompatibility(knowledge, pathway) {
   // Score: 0-100, based on semantic alignment
   let score = 50; // Base score
+  let reasoning = [];
+
+  const kStrength = knowledge.strength || 'expert';
+  const pStrength = pathway.strength || 'general';
 
   // Boost for matching strength types
-  const strengthBoosts = {
-    'technical_technical': 15,
-    'creative_creative': 15,
-    'analytical_analytical': 15,
-    'business_business': 15,
-    'interpersonal_interpersonal': 15
+  if (kStrength === pStrength) {
+    score += 20;
+    reasoning.push('Aligned strengths');
+  }
+
+  // Complementary strength boosts (creative + passive = content creation)
+  const complementary = {
+    'creative_passive': 12,
+    'creative_business': 10,
+    'technical_business': 10,
+    'analytical_business': 12,
+    'interpersonal_active': 12,
+    'interpersonal_business': 10
   };
 
-  // (Simplified; would need pathway.strength mapping)
+  const pair = `${kStrength}_${pStrength}`;
+  if (complementary[pair]) {
+    score += complementary[pair];
+    reasoning.push('Complementary strengths');
+  }
+
+  // Penalty: physical knowledge + purely digital pathway
+  const isPhysicalKnowledge = ['craft', 'manual', 'hands-on'].some(term =>
+    knowledge.name.toLowerCase().includes(term) ||
+    knowledge.adjectives?.some(adj => adj.toLowerCase().includes(term))
+  );
+
+  if (isPhysicalKnowledge && pStrength === 'passive' && !pathway.name.toLowerCase().includes('marketplace') && !pathway.name.toLowerCase().includes('download')) {
+    score -= 20;
+    reasoning.push('Physical skill + unsuitable pathway');
+  }
+
+  // Boost: marketplace/creator pathways work well with diverse knowledge
+  if (pathway.name.includes('Marketplace') || pathway.name.includes('Creator') || pathway.name.includes('Download')) {
+    score += 10;
+    reasoning.push('Flexible pathway');
+  }
+
   return {
-    score: Math.min(100, score),
-    reasoning: 'Unique combination of your knowledge and this monetization method'
+    score: Math.max(0, Math.min(100, score)),
+    reasoning: reasoning.length > 0 ? reasoning.join('; ') : 'Potential combination'
   };
 }
 
