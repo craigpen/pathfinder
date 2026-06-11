@@ -780,22 +780,22 @@ async function initializePathfinder() {
   try {
     // Load data files from config
     console.log('Loading data files:', Object.keys(config.dataSources));
-    for (const [key, file] of Object.entries(config.dataSources)) {
-      console.log(`  Loading ${key} from ${file}...`);
-      await loadDataFile({
-        name: key,
-        path: `data/${file}`,
-        onSuccess: null
-      });
-      console.log(`  ✓ ${key} loaded, flag:`, window[key.toUpperCase().replace(/-/g, '_') + '_LOADED']);
-    }
+
+    // Load selector-options, knowledge, insights via framework
+    await loadDataFile({ name: 'selector-options', path: 'data/selector-options.json', onSuccess: null });
+    await loadDataFile({ name: 'knowledge', path: 'data/knowledge.json', onSuccess: null });
+    await loadDataFile({ name: 'insights', path: 'data/insights.json', onSuccess: null });
+
+    // Load pathways explicitly (custom loader for proper setup)
+    await loadPathwaysData();
 
     console.log('Data check:', {
       SELECTOR_OPTIONS: !!window.SELECTOR_OPTIONS,
       KNOWLEDGE: !!window.KNOWLEDGE,
+      PATHWAYS: !!window.PATHWAYS,
       SIDEHUSTLES: !!window.SIDEHUSTLES,
       INSIGHTS: !!window.INSIGHTS,
-      SIDEHUSTLES_LOADED: window.SIDEHUSTLES_LOADED,
+      PATHWAYS_LOADED: window.PATHWAYS_LOADED,
       KNOWLEDGE_LOADED: window.KNOWLEDGE_LOADED,
       SELECTOR_OPTIONS_LOADED: window.SELECTOR_OPTIONS_LOADED
     });
