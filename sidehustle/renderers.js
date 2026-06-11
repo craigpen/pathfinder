@@ -265,25 +265,10 @@ function renderHustles() {
   const carouselId = 'hustles-carousel';
   const hustleNames = displayedHustles.slice(0, 20).map(h => h.name);
 
-  // Mobile carousel (full-width, using University's proven pattern)
-  html += '<div class="insights-carousel-wrap" style="overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:0 24px;scrollbar-width:none;scroll-snap-type:x mandatory;scroll-padding:24px;margin:0 -24px;display:flex;gap:24px" id="' + carouselId + '">';
-  hustleNames.forEach((hustleName, idx) => {
-    html += '<div class="insights-carousel-card" style="flex:0 0 100%;display:flex;flex-direction:column;background:#fff;border:1px solid var(--bdr);border-radius:6px;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always">';
-    html += '<div style="background:var(--pri);color:#fff;font-weight:600;padding:10px 12px;text-align:center;font-size:14px">' + hustleName + '</div>';
-    html += '<div style="display:grid;grid-template-columns:auto 1fr;gap:0;padding:12px;font-size:12px">';
-    rows.forEach(row => {
-      const [label, dataFn] = row;
-      const cellData = dataFn ? dataFn(hustleName) : '—';
-      html += '<div style="font-weight:600;color:var(--dk);background:rgba(241,245,249,.5);padding:8px 12px;line-height:1.4">' + label + '</div>';
-      html += '<div style="color:var(--tx);padding:8px 12px;line-height:1.4;text-align:right">' + cellData + '</div>';
-    });
-    html += '</div></div>';
-  });
-  html += '</div>';
-  html += '<div class="insights-carousel-wrap" style="text-align:center;padding:8px 0;font-size:12px;color:var(--tx2)">Card 1 of ' + hustleNames.length + '</div>';
-
-  // Desktop table
-  html += '<div class="insights-table-display">' + buildTableHTML(rows, hustleNames, (name) => name, tableId) + '</div>';
+  // Use framework helpers (handles all CSS classes for responsive behavior)
+  const t = buildTableHTML(rows, hustleNames, (name) => name, tableId);
+  const carousel = buildCarouselHTML(rows, hustleNames, (name) => name, carouselId);
+  html += t + carousel;
   html += '</div>';
 
   container.innerHTML = html;
@@ -317,6 +302,11 @@ function renderHustles() {
           };
         }
       });
+    }
+
+    // Initialize carousel
+    if(document.getElementById(carouselId)) {
+      initCarousel(carouselId);
     }
   }, 50);
 
@@ -399,25 +389,10 @@ function renderEarnings() {
   const carouselId = 'earnings-carousel';
   const hustleNames = sorted.slice(0, 20).map(h => h.name);
 
-  // Mobile carousel (full-width, using University's proven pattern)
-  html += '<div class="insights-carousel-wrap" style="overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:0 24px;scrollbar-width:none;scroll-snap-type:x mandatory;scroll-padding:24px;margin:0 -24px;display:flex;gap:24px" id="' + carouselId + '">';
-  hustleNames.forEach((hustleName, idx) => {
-    html += '<div class="insights-carousel-card" style="flex:0 0 100%;display:flex;flex-direction:column;background:#fff;border:1px solid var(--bdr);border-radius:6px;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always">';
-    html += '<div style="background:var(--pri);color:#fff;font-weight:600;padding:10px 12px;text-align:center;font-size:14px">' + hustleName + '</div>';
-    html += '<div style="display:grid;grid-template-columns:auto 1fr;gap:0;padding:12px;font-size:12px">';
-    rows.forEach(row => {
-      const [label, dataFn] = row;
-      const cellData = dataFn ? dataFn(hustleName) : '—';
-      html += '<div style="font-weight:600;color:var(--dk);background:rgba(241,245,249,.5);padding:8px 12px;line-height:1.4">' + label + '</div>';
-      html += '<div style="color:var(--tx);padding:8px 12px;line-height:1.4;text-align:right">' + cellData + '</div>';
-    });
-    html += '</div></div>';
-  });
-  html += '</div>';
-  html += '<div class="insights-carousel-wrap" style="text-align:center;padding:8px 0;font-size:12px;color:var(--tx2)">Card 1 of ' + hustleNames.length + '</div>';
-
-  // Desktop table
-  html += '<div class="insights-table-display">' + buildTableHTML(rows, hustleNames, (name) => name, tableId) + '</div>';
+  // Use framework helpers (handles all CSS classes for responsive behavior)
+  const t = buildTableHTML(rows, hustleNames, (name) => name, tableId);
+  const carousel = buildCarouselHTML(rows, hustleNames, (name) => name, carouselId);
+  html += t + carousel;
   html += '</div>';
 
   container.innerHTML = html;
@@ -451,6 +426,11 @@ function renderEarnings() {
           };
         }
       });
+    }
+
+    // Initialize carousel
+    if(document.getElementById(carouselId)) {
+      initCarousel(carouselId);
     }
   }, 50);
 
@@ -1221,40 +1201,10 @@ function renderKnowledge() {
       const tableId = 'knowledge-table';
       const carouselId = 'knowledge-carousel';
 
-      // Carousel (mobile)
-      html += '<div class="insights-carousel-wrap" style="display:flex;gap:24px;overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;margin:20px -24px 0 -24px;padding:0 24px;scrollbar-width:none;scroll-snap-type:x mandatory;scroll-padding:0 24px" id="' + carouselId + '">';
-      selectedDomains.forEach((name, idx) => {
-        const domain = selectedDomainObjs.find(d => d.name === name);
-        html += '<div class="insights-carousel-card" style="flex:0 0 100%;display:flex;flex-direction:column;background:#fff;border:1px solid var(--bdr);border-radius:6px;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always">';
-        html += '<div style="background:var(--pri);color:#fff;font-weight:600;padding:10px 12px;text-align:center;font-size:14px">' + name + '</div>';
-        html += '<div style="display:grid;grid-template-columns:auto 1fr;gap:0;padding:12px;font-size:12px">';
-        rows.forEach(row => {
-          const [label, dataFn] = row;
-          const cellData = dataFn ? dataFn(name) : '—';
-          html += '<div style="font-weight:600;color:var(--dk);background:rgba(241,245,249,.5);padding:8px 12px;line-height:1.4">' + label + '</div>';
-          html += '<div style="color:var(--tx);padding:8px 12px;line-height:1.4;text-align:right;word-break:break-word">' + cellData + '</div>';
-        });
-        html += '</div></div>';
-      });
-      html += '</div>';
-
-      // Desktop table
-      html += '<div class="insights-table-display" style="margin-top:20px;overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:13px">';
-      html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700">Domain</th>';
-      rows.forEach(row => {
-        html += '<th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700">' + row[0] + '</th>';
-      });
-      html += '</tr></thead><tbody>';
-      selectedDomains.forEach(name => {
-        const domain = selectedDomainObjs.find(d => d.name === name);
-        html += '<tr style="border-bottom:1px solid var(--bdr)"><td style="padding:8px 10px;font-weight:600;background:rgba(241,245,249,.5);color:var(--dk)">' + name + '</td>';
-        rows.forEach(row => {
-          const cellData = row[1] ? row[1](name) : '—';
-          html += '<td style="padding:8px 10px;color:var(--tx)">' + cellData + '</td>';
-        });
-        html += '</tr>';
-      });
-      html += '</tbody></table></div>';
+      // Use framework helpers (handles all CSS classes for responsive behavior)
+      const t = buildTableHTML(rows, selectedDomains, (name) => name, tableId);
+      const carousel = buildCarouselHTML(rows, selectedDomains, (name) => name, carouselId);
+      html += t + carousel;
 
       // Initialize carousel after render
       setTimeout(() => {
