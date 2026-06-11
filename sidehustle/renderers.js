@@ -1502,25 +1502,23 @@ function shuffleSynthesisCards() {
   });
   saveState();
 
-  // Render cards with carousel container for mobile
+  // Render cards with responsive layout: grid on desktop, carousel on mobile
   const container = document.getElementById('synthesis-cards-container');
   if (!container) return;
 
-  let html = '<div class="carousel" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;">';
+  let html = '<div class="synthesis-cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:16px;width:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;">';
   selected.forEach(combo => {
-    html += renderSynthesisCard(combo);
+    html += '<div style="scroll-snap-align:start;min-width:380px;">' + renderSynthesisCard(combo) + '</div>';
   });
   html += '</div>';
 
   container.innerHTML = html;
 
-  // Initialize carousel for mobile swipe
+  // Initialize carousel for mobile touch/swipe
   setTimeout(() => {
     if (window.initCarousel) {
-      const carouselDiv = container.querySelector('.carousel');
+      const carouselDiv = container.querySelector('.synthesis-cards');
       if (carouselDiv) {
-        // Add carousel-specific classes and initialize
-        carouselDiv.style.scrollSnapType = 'x mandatory';
         initCarousel('synthesis-cards-container');
       }
     }
