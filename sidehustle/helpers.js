@@ -605,6 +605,141 @@ async function loadPathwaysData() {
   }
 }
 
+// ============================================================================
+// SIDE HUSTLE SYNTHESIS - Semantic matching of Knowledge × Pathways
+// ============================================================================
+
+function synthesizeSideHustle(knowledgeDomain, pathway) {
+  if (!knowledgeDomain || !pathway) return null;
+
+  const name = generateHustleName(knowledgeDomain, pathway);
+  const description = generateHustleDescription(knowledgeDomain, pathway);
+  const effort = mergeEffortData(knowledgeDomain, pathway);
+  const earning = mergeEarningData(knowledgeDomain, pathway);
+
+  return {
+    id: `${knowledgeDomain.id}_${pathway.id}`,
+    name: name,
+    description: description,
+    knowledgeBase: knowledgeDomain.name,
+    pathwayMethod: pathway.name,
+    financial: {
+      monthlyEarning_min: earning.min,
+      monthlyEarning_max: earning.max,
+      startupCost_min: pathway.financial.startupCost_min,
+      startupCost_max: pathway.financial.startupCost_max
+    },
+    effort: {
+      hoursPerWeek_min: pathway.effort.hoursPerWeek_min,
+      hoursPerWeek_max: pathway.effort.hoursPerWeek_max,
+      timeToProficiency_months: (knowledgeDomain.timeToLearnProficient_max || 6) + (pathway.effort.timeToProficiency_months || 3)
+    },
+    compatibility: calculateCompatibility(knowledgeDomain, pathway)
+  };
+}
+
+function generateHustleName(knowledge, pathway) {
+  const roles = knowledge.roles || [];
+  const strength = knowledge.strength || '';
+  const pathwayType = pathway.name;
+
+  // Strategy 1: Use a role + pathway combination
+  if (roles.length > 0) {
+    const role = roles[0];
+    // Special cases for common patterns
+    if (pathway.name.includes('Freelancing') || pathway.name === 'Platform Freelancing') {
+      return `Freelance ${role}`;
+    }
+    if (pathway.name.includes('Consulting')) {
+      return `${role} Consultant`;
+    }
+    if (pathway.name.includes('Course') || pathway.name === 'Online Courses') {
+      return `${knowledge.name} Instructor`;
+    }
+  }
+
+  // Strategy 2: Use knowledge + pathway directly
+  return `${knowledge.name} via ${pathway.name}`;
+}
+
+function generateHustleDescription(knowledge, pathway) {
+  const adjectives = knowledge.adjectives || [];
+  const adj = adjectives.length > 0 ? adjectives[0].toLowerCase() : 'your';
+  return `Combine your ${knowledge.name} expertise with ${pathway.name}. ${adj} approach to ${pathway.description}`;
+}
+
+function mergeEffortData(knowledge, pathway) {
+  // Average the learning curves
+  const knowledgeProficiency = (knowledge.timeToLearnProficient_min || 6) + (knowledge.timeToLearnProficient_max || 12);
+  const avgKnowledgeMonths = knowledgeProficiency / 2;
+  const pathwayRamp = pathway.effort.timeToScale_months || 3;
+
+  return {
+    totalMonthsToProfit: Math.round(avgKnowledgeMonths / 4 + pathwayRamp) // Knowledge time is sunk cost, just add pathway ramp
+  };
+}
+
+function mergeEarningData(knowledge, pathway) {
+  // Blend knowledge earning potential with pathway earning range
+  const pathwayMin = pathway.financial.monthlyEarning_min || 500;
+  const pathwayMax = pathway.financial.monthlyEarning_max || 5000;
+
+  // Premium adjustment: high-demand knowledge gets higher earning potential
+  const demandScore = knowledge.marketDemand_score || 3;
+  const demandMultiplier = demandScore / 5; // 0.4 to 1.0
+
+  return {
+    min: Math.round(pathwayMin * (0.8 + demandMultiplier * 0.2)),
+    max: Math.round(pathwayMax * (0.9 + demandMultiplier * 0.1))
+  };
+}
+
+function calculateCompatibility(knowledge, pathway) {
+  // Score: 0-100, based on semantic alignment
+  let score = 50; // Base score
+
+  // Boost for matching strength types
+  const strengthBoosts = {
+    'technical_technical': 15,
+    'creative_creative': 15,
+    'analytical_analytical': 15,
+    'business_business': 15,
+    'interpersonal_interpersonal': 15
+  };
+
+  // (Simplified; would need pathway.strength mapping)
+  return {
+    score: Math.min(100, score),
+    reasoning: 'Unique combination of your knowledge and this monetization method'
+  };
+}
+
+function matchSideHustles(knowledgeIds, pathwayIds) {
+  const knowledge = window.KNOWLEDGE || {knowledge_domains: []};
+  const pathways = window.PATHWAYS || {pathways: []};
+
+  if (!Array.isArray(knowledgeIds) || !Array.isArray(pathwayIds)) return [];
+  if (knowledgeIds.length === 0 || pathwayIds.length === 0) return [];
+
+  const selectedKnowledge = knowledgeIds.map(id =>
+    knowledge.knowledge_domains.find(d => d.id === id || d.name === id)
+  ).filter(k => k);
+
+  const selectedPathways = pathwayIds.map(id =>
+    pathways.pathways.find(p => p.id === id || p.name === id)
+  ).filter(p => p);
+
+  const hustles = [];
+  selectedKnowledge.forEach(k => {
+    selectedPathways.forEach(p => {
+      const hustle = synthesizeSideHustle(k, p);
+      if (hustle) hustles.push(hustle);
+    });
+  });
+
+  return hustles;
+}
+
 async function loadInsightsData() {
   try {
     const response = await fetch('./data/insights.json');
@@ -888,6 +1023,10 @@ window.getPathwayEffort = getPathwayEffort;
 window.getPathwayScalability = getPathwayScalability;
 window.getPathwayPassivity = getPathwayPassivity;
 window.loadPathwaysData = loadPathwaysData;
+
+// Export side hustle synthesis helpers
+window.synthesizeSideHustle = synthesizeSideHustle;
+window.matchSideHustles = matchSideHustles;
 
 // Export formatting helpers
 window.formatMoney = formatMoney;
