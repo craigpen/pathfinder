@@ -1502,13 +1502,43 @@ function shuffleSynthesisCards() {
   });
   saveState();
 
-  // Render cards with horizontal carousel
+  // Render cards with responsive layout: carousel on mobile, grid on desktop
   const container = document.getElementById('synthesis-cards-container');
   if (!container) return;
 
-  let html = '<div class="synthesis-cards" style="display:flex;gap:16px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;">';
+  // Add responsive styles for desktop/mobile
+  if (!document.getElementById('synthesis-styles')) {
+    const style = document.createElement('style');
+    style.id = 'synthesis-styles';
+    style.textContent = `
+      .synthesis-cards {
+        display: flex;
+        gap: 16px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+      }
+      .synthesis-card-wrapper {
+        flex: 0 0 calc(100% - 16px);
+        scroll-snap-align: start;
+      }
+      @media (min-aspect-ratio: 1/1.2) {
+        .synthesis-cards {
+          overflow-x: hidden;
+          scroll-snap-type: none;
+        }
+        .synthesis-card-wrapper {
+          flex: 0 0 calc(33.333% - 11px);
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  let html = '<div class="synthesis-cards">';
   selected.forEach(combo => {
-    html += '<div style="flex:0 0 calc(100% - 16px);scroll-snap-align:start;">' + renderSynthesisCard(combo) + '</div>';
+    html += '<div class="synthesis-card-wrapper">' + renderSynthesisCard(combo) + '</div>';
   });
   html += '</div>';
 
