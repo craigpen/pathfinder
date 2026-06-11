@@ -23,7 +23,8 @@ window.S = {
   selectedHustleFilterCategories: [],
   selectedHustleFilterHustles: [],
   selectedDeepDiveHustle: null,
-  selectedKnowledgeCategory: null
+  selectedKnowledgeCategory: null,
+  selectedKnowledgeDomains: []
 };
 const S = window.S;
 

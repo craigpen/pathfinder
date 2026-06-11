@@ -266,9 +266,9 @@ function renderHustles() {
   const hustleNames = displayedHustles.slice(0, 20).map(h => h.name);
 
   // Mobile carousel (full-width, using University's proven pattern)
-  html += '<div style="overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:0 24px;scrollbar-width:none;scroll-snap-type:x mandatory;scroll-padding:24px;margin:0 -24px;display:flex;gap:24px" id="' + carouselId + '">';
+  html += '<div class="insights-carousel-wrap" style="overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:0 24px;scrollbar-width:none;scroll-snap-type:x mandatory;scroll-padding:24px;margin:0 -24px;display:flex;gap:24px" id="' + carouselId + '">';
   hustleNames.forEach((hustleName, idx) => {
-    html += '<div style="flex:0 0 100%;display:flex;flex-direction:column;background:#fff;border:1px solid var(--bdr);border-radius:6px;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always">';
+    html += '<div class="insights-carousel-card" style="flex:0 0 100%;display:flex;flex-direction:column;background:#fff;border:1px solid var(--bdr);border-radius:6px;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always">';
     html += '<div style="background:var(--pri);color:#fff;font-weight:600;padding:10px 12px;text-align:center;font-size:14px">' + hustleName + '</div>';
     html += '<div style="display:grid;grid-template-columns:auto 1fr;gap:0;padding:12px;font-size:12px">';
     rows.forEach(row => {
@@ -280,7 +280,7 @@ function renderHustles() {
     html += '</div></div>';
   });
   html += '</div>';
-  html += '<div style="text-align:center;padding:8px 0;font-size:12px;color:var(--tx2)">Card 1 of ' + hustleNames.length + '</div>';
+  html += '<div class="insights-carousel-wrap" style="text-align:center;padding:8px 0;font-size:12px;color:var(--tx2)">Card 1 of ' + hustleNames.length + '</div>';
 
   // Desktop table
   html += '<div class="insights-table-display">' + buildTableHTML(rows, hustleNames, (name) => name, tableId) + '</div>';
@@ -400,9 +400,9 @@ function renderEarnings() {
   const hustleNames = sorted.slice(0, 20).map(h => h.name);
 
   // Mobile carousel (full-width, using University's proven pattern)
-  html += '<div style="overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:0 24px;scrollbar-width:none;scroll-snap-type:x mandatory;scroll-padding:24px;margin:0 -24px;display:flex;gap:24px" id="' + carouselId + '">';
+  html += '<div class="insights-carousel-wrap" style="overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:0 24px;scrollbar-width:none;scroll-snap-type:x mandatory;scroll-padding:24px;margin:0 -24px;display:flex;gap:24px" id="' + carouselId + '">';
   hustleNames.forEach((hustleName, idx) => {
-    html += '<div style="flex:0 0 100%;display:flex;flex-direction:column;background:#fff;border:1px solid var(--bdr);border-radius:6px;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always">';
+    html += '<div class="insights-carousel-card" style="flex:0 0 100%;display:flex;flex-direction:column;background:#fff;border:1px solid var(--bdr);border-radius:6px;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always">';
     html += '<div style="background:var(--pri);color:#fff;font-weight:600;padding:10px 12px;text-align:center;font-size:14px">' + hustleName + '</div>';
     html += '<div style="display:grid;grid-template-columns:auto 1fr;gap:0;padding:12px;font-size:12px">';
     rows.forEach(row => {
@@ -414,7 +414,7 @@ function renderEarnings() {
     html += '</div></div>';
   });
   html += '</div>';
-  html += '<div style="text-align:center;padding:8px 0;font-size:12px;color:var(--tx2)">Card 1 of ' + hustleNames.length + '</div>';
+  html += '<div class="insights-carousel-wrap" style="text-align:center;padding:8px 0;font-size:12px;color:var(--tx2)">Card 1 of ' + hustleNames.length + '</div>';
 
   // Desktop table
   html += '<div class="insights-table-display">' + buildTableHTML(rows, hustleNames, (name) => name, tableId) + '</div>';
@@ -1169,110 +1169,132 @@ function renderKnowledge() {
     return;
   }
 
-  let allKnowledge = getAllKnowledgeDomains();
-  let knowledge = S.selectedKnowledgeCategory ? getKnowledgeByCategory(S.selectedKnowledgeCategory) : allKnowledge;
-
   let html = '<div style="padding:24px"><h2 style="margin:0 0 12px 0;font-size:22px;font-weight:700;color:var(--dk)">Knowledge Domains</h2>';
-  html += '<p style="font-size:13px;color:var(--tx2);margin:0 0 24px 0;line-height:1.5;">Explore the skills and expertise that enable different side hustles. Select domains you already have to see matching opportunities.</p>';
+  html += '<p style="font-size:13px;color:var(--tx2);margin:0 0 24px 0;line-height:1.5;">Explore the skills and expertise that enable different side hustles. Select the knowledge domains you already have.</p>';
 
-  // Category filter
+  // Category filter (always shown)
   const categories = getAllKnowledgeCategories();
-  html += '<div style="margin-bottom:20px;"><div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Filter by Category</div>';
-  html += '<div class="pills" style="margin-bottom:16px;">';
-  const allActive = S.selectedKnowledgeCategory === null ? ' on' : '';
-  html += '<div class="pill' + allActive + '" onclick="filterKnowledgeByCategory(null, this)">All (' + allKnowledge.length + ')</div>';
+  html += '<div style="margin-bottom:20px;"><div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Select Category</div>';
+  html += '<div class="pills" data-q="knowledge-category" style="margin-bottom:20px;">';
   categories.forEach(cat => {
-    const domainsInCat = getKnowledgeByCategory(cat.key);
     const isActive = S.selectedKnowledgeCategory === cat.key ? ' on' : '';
-    html += '<div class="pill' + isActive + '" onclick="filterKnowledgeByCategory(\'' + cat.key + '\', this)">' + cat.label + ' (' + domainsInCat.length + ')</div>';
+    html += '<div class="pill' + isActive + '" onclick="toggleKnowledgeCategory(\'' + cat.key + '\', this)">' + cat.label + '</div>';
   });
   html += '</div></div>';
 
-  // Build table and carousel from knowledge domains
-  const tableId = 'knowledge-table';
-  const carouselId = 'knowledge-carousel';
-  const rows = [
-    ['Difficulty', (domainName) => {
-      const domain = knowledge.find(k => k.name === domainName);
-      return domain ? domain.difficulty : '—';
-    }],
-    ['Time to Learn', (domainName) => {
-      const domain = knowledge.find(k => k.name === domainName);
-      if (!domain) return '—';
-      return domain.timeToLearnBasic_min + '-' + domain.timeToLearnBasic_max + ' ' + domain.timeToLearnBasic_unit;
-    }],
-    ['Market Demand', (domainName) => {
-      const domain = knowledge.find(k => k.name === domainName);
-      return domain ? domain.marketDemand_label : '—';
-    }],
-    ['Delivery Models', (domainName) => {
-      const domain = knowledge.find(k => k.name === domainName);
-      return domain ? domain.compatibleDeliveryModels.join(', ') : '—';
-    }]
-  ];
+  // Domain pills (only shown if category selected)
+  if (S.selectedKnowledgeCategory) {
+    const domainsInCat = getKnowledgeByCategory(S.selectedKnowledgeCategory);
+    const selectedDomains = S.selectedKnowledgeDomains || [];
 
-  const domainNames = knowledge.map(k => k.name);
-
-  // Mobile carousel
-  html += '<div style="overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:0 24px;scrollbar-width:none;scroll-snap-type:x mandatory;scroll-padding:0 24px;margin:0 -24px;display:flex;gap:24px" id="' + carouselId + '">';
-  domainNames.forEach((name, idx) => {
-    html += '<div style="flex:0 0 100%;display:flex;flex-direction:column;background:#fff;border:1px solid var(--bdr);border-radius:6px;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always">';
-    html += '<div style="background:var(--pri);color:#fff;font-weight:600;padding:10px 12px;text-align:center;font-size:14px">' + name + '</div>';
-    html += '<div style="display:grid;grid-template-columns:auto 1fr;gap:0;padding:12px;font-size:12px">';
-    rows.forEach(row => {
-      const [label, dataFn] = row;
-      const cellData = dataFn ? dataFn(name) : '—';
-      html += '<div style="font-weight:600;color:var(--dk);background:rgba(241,245,249,.5);padding:8px 12px;line-height:1.4">' + label + '</div>';
-      html += '<div style="color:var(--tx);padding:8px 12px;line-height:1.4;text-align:right;word-break:break-word">' + cellData + '</div>';
+    html += '<div style="margin-bottom:20px;"><div style="font-size:12px;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Select Domains</div>';
+    html += '<div class="pills" data-q="knowledge-domain" style="margin-bottom:20px;">';
+    domainsInCat.forEach(domain => {
+      const isActive = selectedDomains.includes(domain.name) ? ' on' : '';
+      html += '<div class="pill' + isActive + '" onclick="toggleKnowledgeDomain(\'' + domain.name + '\', this)">' + domain.name + '</div>';
     });
     html += '</div></div>';
-  });
-  html += '</div>';
-  html += '<div style="text-align:center;padding:8px 0;font-size:12px;color:var(--tx2)">Card 1 of ' + domainNames.length + '</div>';
 
-  // Desktop table
-  html += '<div class="insights-table-display" style="margin-top:20px;overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:13px">';
-  html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700">Domain</th>';
-  rows.forEach(row => {
-    html += '<th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700">' + row[0] + '</th>';
-  });
-  html += '</tr></thead><tbody>';
-  domainNames.forEach(name => {
-    html += '<tr style="border-bottom:1px solid var(--bdr)"><td style="padding:8px 10px;font-weight:600;background:rgba(241,245,249,.5);color:var(--dk)">' + name + '</td>';
-    rows.forEach(row => {
-      const cellData = row[1] ? row[1](name) : '—';
-      html += '<td style="padding:8px 10px;color:var(--tx)">' + cellData + '</td>';
-    });
-    html += '</tr>';
-  });
-  html += '</tbody></table></div>';
+    // Show table/carousel only if domains selected
+    if (selectedDomains.length > 0) {
+      const selectedDomainObjs = domainsInCat.filter(d => selectedDomains.includes(d.name));
+      const rows = [
+        ['Difficulty', (domainName) => {
+          const domain = selectedDomainObjs.find(k => k.name === domainName);
+          return domain ? domain.difficulty : '—';
+        }],
+        ['Time to Learn', (domainName) => {
+          const domain = selectedDomainObjs.find(k => k.name === domainName);
+          if (!domain) return '—';
+          return domain.timeToLearnBasic_min + '-' + domain.timeToLearnBasic_max + ' ' + domain.timeToLearnBasic_unit;
+        }],
+        ['Market Demand', (domainName) => {
+          const domain = selectedDomainObjs.find(k => k.name === domainName);
+          return domain ? domain.marketDemand_label : '—';
+        }],
+        ['Delivery Models', (domainName) => {
+          const domain = selectedDomainObjs.find(k => k.name === domainName);
+          return domain ? domain.compatibleDeliveryModels.join(', ') : '—';
+        }]
+      ];
 
-  html += '</div>';
+      const tableId = 'knowledge-table';
+      const carouselId = 'knowledge-carousel';
 
-  container.innerHTML = html;
+      // Carousel (mobile)
+      html += '<div class="insights-carousel-wrap" style="display:flex;gap:24px;overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;margin:20px -24px 0 -24px;padding:0 24px;scrollbar-width:none;scroll-snap-type:x mandatory;scroll-padding:0 24px" id="' + carouselId + '">';
+      selectedDomains.forEach((name, idx) => {
+        const domain = selectedDomainObjs.find(d => d.name === name);
+        html += '<div class="insights-carousel-card" style="flex:0 0 100%;display:flex;flex-direction:column;background:#fff;border:1px solid var(--bdr);border-radius:6px;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always">';
+        html += '<div style="background:var(--pri);color:#fff;font-weight:600;padding:10px 12px;text-align:center;font-size:14px">' + name + '</div>';
+        html += '<div style="display:grid;grid-template-columns:auto 1fr;gap:0;padding:12px;font-size:12px">';
+        rows.forEach(row => {
+          const [label, dataFn] = row;
+          const cellData = dataFn ? dataFn(name) : '—';
+          html += '<div style="font-weight:600;color:var(--dk);background:rgba(241,245,249,.5);padding:8px 12px;line-height:1.4">' + label + '</div>';
+          html += '<div style="color:var(--tx);padding:8px 12px;line-height:1.4;text-align:right;word-break:break-word">' + cellData + '</div>';
+        });
+        html += '</div></div>';
+      });
+      html += '</div>';
 
-  // Initialize carousel
-  setTimeout(() => {
-    if(document.getElementById(carouselId)) {
-      initCarousel(carouselId);
+      // Desktop table
+      html += '<div class="insights-table-display" style="margin-top:20px;overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:13px">';
+      html += '<thead><tr style="border-bottom:1px solid var(--bdr);background:var(--lt)"><th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700">Domain</th>';
+      rows.forEach(row => {
+        html += '<th style="padding:8px 10px;text-align:left;color:var(--dk);font-weight:700">' + row[0] + '</th>';
+      });
+      html += '</tr></thead><tbody>';
+      selectedDomains.forEach(name => {
+        const domain = selectedDomainObjs.find(d => d.name === name);
+        html += '<tr style="border-bottom:1px solid var(--bdr)"><td style="padding:8px 10px;font-weight:600;background:rgba(241,245,249,.5);color:var(--dk)">' + name + '</td>';
+        rows.forEach(row => {
+          const cellData = row[1] ? row[1](name) : '—';
+          html += '<td style="padding:8px 10px;color:var(--tx)">' + cellData + '</td>';
+        });
+        html += '</tr>';
+      });
+      html += '</tbody></table></div>';
+
+      // Initialize carousel after render
+      setTimeout(() => {
+        if(document.getElementById(carouselId)) {
+          initCarousel(carouselId);
+        }
+      }, 50);
     }
-  }, 50);
+  }
+
+  html += '</div>';
+  container.innerHTML = html;
 
   // Add navigation buttons
   const navHtml = '<div class="bg"><button class="btn bs pos-left" onclick="go(\'discover\')">Back</button><button class="btn br pos-center" onclick="startOver()">Reset</button><button class="btn bp pos-right" onclick="go(\'delivery\')">Next</button></div>';
   container.insertAdjacentHTML('beforeend', navHtml);
 }
 
-function filterKnowledgeByCategory(category, el) {
-  // Toggle active pill
-  document.querySelectorAll('#knowledge .pills .pill').forEach(p => p.classList.remove('on'));
-  if (el) el.classList.add('on');
-
-  // Store selected category and re-render
+function toggleKnowledgeCategory(category, el) {
+  // Update category selection
   S.selectedKnowledgeCategory = category;
+  S.selectedKnowledgeDomains = [];  // Reset domains when category changes
   saveState();
   renderKnowledge();
 }
+
+function toggleKnowledgeDomain(domainName, el) {
+  // Toggle domain in selected domains array
+  const selected = S.selectedKnowledgeDomains || [];
+  const idx = selected.indexOf(domainName);
+  if (idx > -1) {
+    selected.splice(idx, 1);
+  } else {
+    selected.push(domainName);
+  }
+  S.selectedKnowledgeDomains = selected;
+  saveState();
+  renderKnowledge();
+}
+
 
 function renderDelivery() {
   const container = document.getElementById('delivery');
