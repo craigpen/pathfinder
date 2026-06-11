@@ -613,16 +613,25 @@ function synthesizeSideHustle(knowledgeDomain, pathway) {
   if (!knowledgeDomain || !pathway) return null;
 
   const name = generateHustleName(knowledgeDomain, pathway);
-  const description = generateHustleDescription(knowledgeDomain, pathway);
+  const scaffold = generateScaffold(knowledgeDomain, pathway);
   const effort = mergeEffortData(knowledgeDomain, pathway);
   const earning = mergeEarningData(knowledgeDomain, pathway);
 
   return {
     id: `${knowledgeDomain.id}_${pathway.id}`,
     name: name,
-    description: description,
     knowledgeBase: knowledgeDomain.name,
     pathwayMethod: pathway.name,
+
+    // Scaffold (qualitative narrative components)
+    scaffold: {
+      what: scaffold.what,
+      how: scaffold.how,
+      why: scaffold.why,
+      forYouIf: scaffold.forYouIf
+    },
+
+    // Full data (quantitative + operational)
     financial: {
       monthlyEarning_min: earning.min,
       monthlyEarning_max: earning.max,
@@ -639,33 +648,61 @@ function synthesizeSideHustle(knowledgeDomain, pathway) {
 }
 
 function generateHustleName(knowledge, pathway) {
-  const roles = knowledge.roles || [];
-  const strength = knowledge.strength || '';
-  const pathwayType = pathway.name;
+  const kStrength = knowledge.strength || 'expert';
+  const pStrength = pathway.strength || 'general';
+  const kRole = (knowledge.roles || [])[0] || 'Specialist';
+  const pRole = (pathway.roles || [])[0] || 'Creator';
 
-  // Strategy 1: Use a role + pathway combination
-  if (roles.length > 0) {
-    const role = roles[0];
-    // Special cases for common patterns
-    if (pathway.name.includes('Freelancing') || pathway.name === 'Platform Freelancing') {
-      return `Freelance ${role}`;
-    }
-    if (pathway.name.includes('Consulting')) {
-      return `${role} Consultant`;
-    }
-    if (pathway.name.includes('Course') || pathway.name === 'Online Courses') {
-      return `${knowledge.name} Instructor`;
-    }
+  // Naming rules based on strength combinations
+  const strengthPair = `${kStrength}_${pStrength}`;
+
+  const nameRules = {
+    'technical_technical': `${kRole} Engineer`,
+    'technical_creative': `Tool ${kRole}`,
+    'technical_business': `${kRole} Platform`,
+    'creative_creative': `Content ${kRole}`,
+    'creative_business': `Brand ${kRole}`,
+    'creative_passive': `${kRole} Library`,
+    'analytical_business': `Data ${pRole}`,
+    'analytical_passive': `Insights ${pRole}`,
+    'business_business': `${kRole} ${pRole}`,
+    'interpersonal_active': `${kRole} Coach`,
+    'interpersonal_passive': `${kRole} Resource`,
+    'passive_passive': `Passive ${kRole}`
+  };
+
+  // Try to use strength-based rule first
+  if (nameRules[strengthPair]) {
+    return nameRules[strengthPair];
   }
 
-  // Strategy 2: Use knowledge + pathway directly
+  // Fallback: role + pathway name pattern
+  if (pathway.name.includes('Freelancing')) {
+    return `Freelance ${kRole}`;
+  }
+  if (pathway.name.includes('Consulting')) {
+    return `${kRole} Consultant`;
+  }
+  if (pathway.name.includes('Course')) {
+    return `${knowledge.name} Instructor`;
+  }
+
+  // Last resort
   return `${knowledge.name} via ${pathway.name}`;
 }
 
-function generateHustleDescription(knowledge, pathway) {
-  const adjectives = knowledge.adjectives || [];
-  const adj = adjectives.length > 0 ? adjectives[0].toLowerCase() : 'your';
-  return `Combine your ${knowledge.name} expertise with ${pathway.name}. ${adj} approach to ${pathway.description}`;
+function generateScaffold(knowledge, pathway) {
+  const kAdj = (knowledge.adjectives || [])[0] || 'expert';
+  const pAdj = (pathway.adjectives || [])[0] || 'scalable';
+  const kDaily = knowledge.daily_activity || 'apply your expertise';
+  const pDaily = pathway.daily_activity || 'deliver value';
+
+  return {
+    what: `${knowledge.value_proposition || `Your ${knowledge.name} knowledge`} + ${pathway.daily_activity}`,
+    how: `As a ${pathway.roles[0] || 'professional'}, you'd ${pDaily}, leveraging your ${knowledge.name} skills`,
+    why: `${kAdj.charAt(0).toUpperCase() + kAdj.slice(1)} thinking applied through ${pAdj} delivery model`,
+    forYouIf: `You're interested in ${knowledge.strength} work and want to use the ${pathway.strength} approach`
+  };
 }
 
 function mergeEffortData(knowledge, pathway) {
