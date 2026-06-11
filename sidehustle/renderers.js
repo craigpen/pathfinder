@@ -1506,9 +1506,9 @@ function shuffleSynthesisCards() {
   const container = document.getElementById('synthesis-cards-container');
   if (!container) return;
 
-  let html = '<div class="synthesis-cards" style="display:flex;gap:16px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-right:16px;">';
+  let html = '<div class="synthesis-cards" style="display:flex;gap:16px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;">';
   selected.forEach(combo => {
-    html += '<div style="flex:0 0 calc(100vw - 56px);scroll-snap-align:start;">' + renderSynthesisCard(combo) + '</div>';
+    html += '<div style="flex:0 0 calc(100% - 16px);scroll-snap-align:start;">' + renderSynthesisCard(combo) + '</div>';
   });
   html += '</div>';
 
