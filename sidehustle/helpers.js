@@ -648,47 +648,9 @@ function synthesizeSideHustle(knowledgeDomain, pathway) {
 }
 
 function generateHustleName(knowledge, pathway) {
-  const kStrength = knowledge.strength || 'expert';
-  const pStrength = pathway.strength || 'general';
-  const kRole = (knowledge.roles || [])[0] || 'Specialist';
-  const pRole = (pathway.roles || [])[0] || 'Creator';
-
-  // Naming rules based on strength combinations
-  const strengthPair = `${kStrength}_${pStrength}`;
-
-  const nameRules = {
-    'technical_technical': `${kRole} Engineer`,
-    'technical_creative': `Tool ${kRole}`,
-    'technical_business': `${kRole} Platform`,
-    'creative_creative': `Content ${kRole}`,
-    'creative_business': `Brand ${kRole}`,
-    'creative_passive': `${kRole} Library`,
-    'analytical_business': `Data ${pRole}`,
-    'analytical_passive': `Insights ${pRole}`,
-    'business_business': `${kRole} ${pRole}`,
-    'interpersonal_active': `${kRole} Coach`,
-    'interpersonal_passive': `${kRole} Resource`,
-    'passive_passive': `Passive ${kRole}`
-  };
-
-  // Try to use strength-based rule first
-  if (nameRules[strengthPair]) {
-    return nameRules[strengthPair];
-  }
-
-  // Fallback: role + pathway name pattern
-  if (pathway.name.includes('Freelancing')) {
-    return `Freelance ${kRole}`;
-  }
-  if (pathway.name.includes('Consulting')) {
-    return `${kRole} Consultant`;
-  }
-  if (pathway.name.includes('Course')) {
-    return `${knowledge.name} Instructor`;
-  }
-
-  // Last resort
-  return `${knowledge.name} via ${pathway.name}`;
+  // Explicit format: Knowledge + Pathway
+  // This makes it clear what's being synthesized without semantic abstraction
+  return `${knowledge.name} + ${pathway.name}`;
 }
 
 function generateScaffold(knowledge, pathway) {
