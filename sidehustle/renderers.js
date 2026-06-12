@@ -1638,10 +1638,10 @@ function renderSynthesisCard(combo) {
 
   html += `</div>`;
 
-  // Affinity assessment
+  // Affinity assessment (pushed to bottom with margin-top: auto)
   const compatScore = combo.compatibility?.score || 50;
   const assessment = combo.compatibility?.assessment || 'Potential combination';
-  html += `<div style="font-size:12px;color:var(--tx2);line-height:1.5;padding-bottom:16px;">`;
+  html += `<div style="font-size:12px;color:var(--tx2);line-height:1.5;margin-top:auto;padding-top:12px;border-top:1px solid var(--bdr);">`;
   html += `<strong>Affinity:</strong> ${assessment} (${compatScore}%)`;
   html += `</div>`;
 
