@@ -1951,7 +1951,11 @@
       "daily_activity": "Create content, edit, publish, engage community",
       "value_delivery": "Passive from platform monetization",
       "effort_type": "hybrid",
-      "requires_presence": false
+      "requires_presence": false,
+      "recommendedTools": [
+        "YouTube",
+        "Vimeo"
+      ]
     },
     {
       "id": "short_video",
@@ -2054,7 +2058,12 @@
       "daily_activity": "Create short videos, post frequently, engage trends",
       "value_delivery": "Passive from platform (emerging)",
       "effort_type": "active",
-      "requires_presence": false
+      "requires_presence": false,
+      "recommendedTools": [
+        "TikTok",
+        "Instagram Reels",
+        "YouTube Shorts"
+      ]
     },
     {
       "id": "podcasting",
@@ -2976,7 +2985,11 @@
       "daily_activity": "Shop for customers, deliver, manage substitutions",
       "value_delivery": "Direct from shopping (minus platform)",
       "effort_type": "active",
-      "requires_presence": true
+      "requires_presence": true,
+      "recommendedTools": [
+        "Instacart",
+        "Amazon Fresh"
+      ]
     },
     {
       "id": "parcel_courier",
@@ -3281,7 +3294,11 @@
       "daily_activity": "Run errands, manage time, build clientele",
       "value_delivery": "Direct from clients",
       "effort_type": "active",
-      "requires_presence": true
+      "requires_presence": true,
+      "recommendedTools": [
+        "TaskRabbit",
+        "Care.com"
+      ]
     },
     {
       "id": "handmade_crafts",
