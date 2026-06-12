@@ -736,9 +736,22 @@ function calculateCompatibility(knowledge, pathway) {
     reasoning.push('Craft skill + incompatible pathway');
   }
 
+  const finalScore = Math.max(0, Math.min(100, score));
+
+  // Generate assessment message based on score
+  let assessment;
+  if (finalScore >= 65) {
+    assessment = 'Strong alignment — these work well together';
+  } else if (finalScore >= 55) {
+    assessment = 'Possible but unconventional — requires creative thinking';
+  } else {
+    assessment = 'Unlikely pairing — would require thinking outside the box to combine';
+  }
+
   return {
-    score: Math.max(0, Math.min(100, score)),
-    reasoning: reasoning.length > 0 ? reasoning.join('; ') : 'Potential combination'
+    score: finalScore,
+    reasoning: reasoning.length > 0 ? reasoning.join('; ') : 'Potential combination',
+    assessment: assessment
   };
 }
 

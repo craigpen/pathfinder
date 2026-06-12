@@ -1638,9 +1638,11 @@ function renderSynthesisCard(combo) {
 
   html += `</div>`;
 
-  // Reason
+  // Affinity assessment
+  const compatScore = combo.compatibility?.score || 50;
+  const assessment = combo.compatibility?.assessment || 'Potential combination';
   html += `<div style="font-size:12px;color:var(--tx2);line-height:1.5;padding-bottom:16px;">`;
-  html += `<strong>Why this works:</strong> ${combo.scaffold.why}`;
+  html += `<strong>Affinity:</strong> ${assessment} (${compatScore}%)`;
   html += `</div>`;
 
   html += `</div>`;
